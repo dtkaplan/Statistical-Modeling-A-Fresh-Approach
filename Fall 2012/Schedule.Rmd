@@ -14,6 +14,9 @@ classDayContents <- function(weekday="", month, day, year=2012) {
   paste("### ", 
         paste('<a name="',makeDayLinkName(month,day,year),'">',weekday," ", day," ", month,"</a>",sep=""))
 }
+todaysNotes <- function(fname,marker="notes") {
+  paste("<a href='../Notes/", fname, "'>",marker,"</a>",sep="")
+}
 ```
 **Class Schedule**
 
@@ -25,236 +28,224 @@ classDayContents <- function(weekday="", month, day, year=2012) {
 *Dec* | | `r I(dd("Dec",3))` | `r I(dd("Dec",5))` | `r I(dd("Dec",7))` | | `r I(dd("Dec",10))` 
 
 `r I(classDayContents("Wed", "Sept", 5 ))`
-**Topic**: 
-**Readings**:
-**Assignment**:
+**Topic**: Introduction to the course. Randomness, modeling, and inference.
+**Reading**: Statistical Modeling §1.1, 1.2, 1.3
+**Assignment**: 
+* Do the reading! 
+* AcroScore set up
+* Pre-course survey
 
-`r I(classDayContents("Fri", "Sept", 7 ))`
-**Topic**: 
-**Readings**:
+**In-class**: Starting with R. (Write a description of this activity)
+Notes`r I(todaysNotes("2012-09-05.html", ":"))`
+
+`r I(classDayContents("Fri", "Sept", 7 )) # ==============================`
+**Topic**: Data: cases, variables, tables, and codebooks
+**Reading**: Statistical Modeling §1.4, §2.1, 2.2, 2.3, 2.4
 **Assignment**:
 
 `r I(classDayContents("Mon", "Sept", 10 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Descriptive statistics
+**Reading**: SM §2.5, SM §3.1, 3.2, 3.3
 **Assignment**:
+* Elevator experiment
+
 `r I(classDayContents("Wed", "Sept", 12 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Descriptive statistics: variance
+**Reading**: SM §3.4, 3.5
 **Assignment**:
 
 `r I(classDayContents("Fri", "Sept", 14 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Groupwise Models
+**Reading**: SM Ch. 4
 **Assignment**:
+**In Class**:
+* Weekly Quiz
 
 `r I(classDayContents("Mon", "Sept", 17 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Model values, residuals, and variance.  Sampling and resampling.
+**Reading**: SM Ch. 4 (review).  SM §5.1, 5.2
 **Assignment**:
 
 `r I(classDayContents("Wed", "Sept", 19 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Confidence intervals
+**Reading**: SM §5.3, 5.4, 5.5, 5.7
 **Assignment**:
+**In Class**:
+* 
 
 `r I(classDayContents("Fri", "Sept", 21 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Language of Models
+**Reading**: SM §6.1, 6.2, 6.3, 6.4
 **Assignment**:
+**In Class**:
+* Quiz on R
 
 `r I(classDayContents("Mon", "Sept", 24 ))`
-**Topic**: 
-**Readings**:
+**Topic**: From Model Terms to Formulas and Coefficients
+**Reading**: SM §6.5, 6.6, SM §7.1, 7.2
 **Assignment**:
 
 `r I(classDayContents("Wed", "Sept", 26 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Formulas and Coefficients
+**Reading**: SM §7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9
 **Assignment**:
 
 `r I(classDayContents("Fri", "Sept", 28 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Fitting and Least Squares
+**Reading**: SM §7.10, SM §8.1, 8.2 
 **Assignment**:
 
 `r I(classDayContents("Mon", "Oct", 1 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Geometry of Least Squares Fitting
+**Reading**: SM §8.3
 **Assignment**:
 
 `r I(classDayContents("Wed", "Oct", 3 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Redundancy and Colinearity
+**Reading**: SM §8.4, 8.5
 **Assignment**:
 
 `r I(classDayContents("Fri", "Oct", 5 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Correlation and Partitioning, $R^2$
+**Reading**: SM Ch. 9
 **Assignment**:
 
 `r I(classDayContents("Mon", "Oct", 8 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Correlation and Partitioning (continued)
+**Reading**: SM Ch. 9 (review)
 **Assignment**:
 
 `r I(classDayContents("Wed", "Oct", 10 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Total and Partial Relationships
+**Reading**: SM Ch. 10
 **Assignment**:
 
 `r I(classDayContents("Fri", "Oct", 12 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Total and Partial Relationships (continued)
+**Reading**: SM Ch. 10 (review)
 **Assignment**:
 
 `r I(classDayContents("Mon", "Oct", 15 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Confidence Intervals on Coefficients
+**Reading**: SM Ch. 12
 **Assignment**:
 
 `r I(classDayContents("Wed", "Oct", 17 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Review for Exam
+**Reading**:
 **Assignment**:
 
 `r I(classDayContents("Fri", "Oct", 19 ))`
 **Topic**: 
-**Readings**:
+**Reading**:
 **Assignment**:
+**In class**:
+* Mid-term Exam
 
 `r I(classDayContents("Mon", "Oct", 22 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Confidence Intervals on Coefficients (continued)
+**Reading**: SM Ch. 12
 **Assignment**:
 
 `r I(classDayContents("Wed", "Oct", 24 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Probability Models
+**Reading**: SM Ch. 11
 **Assignment**:
 
 `r I(classDayContents("Fri", "Oct", 26 ))`
 *FALL BREAK*
 
 `r I(classDayContents("Mon", "Oct", 29 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Hypothesis Testing
+**Reading**: SM Ch. 13
 **Assignment**:
 
 `r I(classDayContents("Wed", "Oct", 31 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Hypothesis Testing
+**Reading**: SM Ch. 13 (review)
 **Assignment**:
 
 `r I(classDayContents("Fri", "Nov", 2 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Testing Whole Models with $latex R^2$ and F
+**Reading**: SM §14.1, 14.2, 14.3, 14.5
 **Assignment**:
 
 `r I(classDayContents("Mon", "Nov", 5 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Interpreting the p-value
+**Reading**: 
+* SM §14.4
+* XKCD cartoon.
 **Assignment**:
 
 `r I(classDayContents("Wed", "Nov", 7 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Hypothesis Testing on Parts of Models
+**Reading**: SM Ch. 15
 **Assignment**:
 
 `r I(classDayContents("Fri", "Nov", 9 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Hypothesis Testing on Parts of Models (continued)
+**Reading**: SM Ch. 15 (review)
 **Assignment**:
 
 `r I(classDayContents("Mon", "Nov", 12 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Choosing model terms
+**Reading**:
 **Assignment**:
 
 `r I(classDayContents("Wed", "Nov", 14 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Non parametrics
+**Reading**:
 **Assignment**:
 
 `r I(classDayContents("Fri", "Nov", 16 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Logistic regression
+**Reading**: SM Ch. 16
 **Assignment**:
 
 `r I(classDayContents("Mon", "Nov", 19 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Logistic regression
+**Reading**: SM Ch. 16
 **Assignment**:
 
 `r I(classDayContents("Wed", "Nov", 21 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Logistic regression
+**Reading**: SM Ch. 16
 **Assignment**:
 
 `r I(classDayContents("Fri", "Nov", 23 ))`
 *THANKSGIVING BREAK*
 
 `r I(classDayContents("Mon", "Nov", 26 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Causation
+**Reading**: SM Ch. 17
 **Assignment**:
 
 `r I(classDayContents("Wed", "Nov", 28 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Causation
+**Reading**: SM Ch. 17
 **Assignment**:
 
 `r I(classDayContents("Fri", "Nov", 30 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Causation
+**Reading**: SM Ch. 17
 **Assignment**:
 
 `r I(classDayContents("Mon", "Dec", 3 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Experiment and Design
+**Reading**: SM Ch. 18
 **Assignment**:
 
 `r I(classDayContents("Wed", "Dec", 5 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Experiment and Design
+**Reading**: SM Ch. 18
 **Assignment**:
 
 `r I(classDayContents("Fri", "Dec", 7 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Experiment and Design
+**Reading**: SM Ch. 18
 **Assignment**:
 
 `r I(classDayContents("Mon", "Dec", 10 ))`
-**Topic**: 
-**Readings**:
+**Topic**: Course Review and Wrap-Up
+**Reading**:
 **Assignment**:
-
-
-Looking at what the extensions of markdown have to offer.
-
-* Equations like $latex x^2 + \exp{x^2}$ or $$latex \int_0^{\infty} e^{-x} dx .$$
-* Citations [see @kaplan2012 or something or other]
-* Auto links <mailto:dtkaplan@gmail.com>
-* A table
-
-
-
-
-
-1. First
-2. Second
-1. Third
-
-
-```
-Delimited <- function(x) {
-  x^2
-}
-```
-
-```{r fig.width=7, fig.height=6}
-plot(cars)
-```
-This is the caption of the picture.
-
-And back to a new paragraph.
