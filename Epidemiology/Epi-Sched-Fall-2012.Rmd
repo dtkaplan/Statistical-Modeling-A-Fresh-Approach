@@ -31,26 +31,47 @@ todaysNotes <- function(fname,marker="notes") {
 
 
 `r I(classDayContents("Thurs", "Sept", 6 ))`
-**Topic**: 
+**Topic**: Introduction to epidemiology and the course
+
 **Reading**: 
+* Essential Epidemiology, Chapter 1
+* David Fraser, [Epidemiology as a Liberal Art](http://dl.dropbox.com/u/5098197/Epidemiology/Fraser-NEJM-epidemiology.pdf) (from the *New England Journal of Medicine*)
+
 **Assignment**: 
+* Set up your account on [Piazza](https://piazza.com/class#fall2012/math125) 
+
 **On Your Own**:
-**In-class**: 
+* Video of the Day: [Hans Rossling and myths about the "Third World"](http://www.gapminder.org/videos/ted-talks/hans-rosling-ted-2006-debunking-myths-about-the-third-world/)
+* [Newpaper article about study skills](http://www.nytimes.com/2010/09/07/health/views/07mind.html?hp)
+* [Newspaper article about studying public health](http://www.washingtonpost.com/wp-dyn/content/article/2008/09/18/AR2008091804145.html?hpid=topnews)
+
+**In-class**:
+* [Risk charts](http://dl.dropbox.com/u/5098197/Epidemiology/799.pdf) from Woloshin, Schwartz, and Welch
+* <http://www.gapminder.org> site and video
 Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 
 `r I(classDayContents("Tues", "Sept", 11 ))`
-**Topic**: 
+**Topic**: Prevalence, Incidence, Mortality, Life Expectancy
+
 **Reading**: 
+* *Essential Epi*, Chap. 2
+* *Better*, "The Score" [Here is a link to the original article from the *New Yorker*.](http://www.newyorker.com/archive/2006/10/09/061009fa_fact?currentPage=1)
+
 **Assignment**: 
-**On Your Own**:
-**In-class**:
+* Start your glossary (POST LINK TO PIAZZA)
+* Reading reflection on "The Score" (POST LINK TO PIAZZA)
+
 
 `r I(classDayContents("Thurs", "Sept", 13 ))`
-**Topic**: 
+**Topic**: Life expectancy, spreadsheet calculations
+
 **Reading**: 
+* *The Great Influenza*, Prologue and Chapters 1 & 2
+
 **Assignment**: 
-**On Your Own**:
-**In-class**:
+* Reading reflection on *The Great Influenza*, [Link to PIAZZA]
+* Estimation Problem 1. [LInk to PIAZZA] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
+
 
 
 `r I(classDayContents("Tues", "Sept", 18 ))`
@@ -93,7 +114,8 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 **Topic**: 
 **Reading**: 
 **Assignment**: 
-**On Your Own**:
+**On Your Own**
+* The 2011 movie *Contagion* (DVD on reserve in library), and an [op-ed by an epidemiology consulting on the movie](http://www.nytimes.com/2011/09/12/opinion/the-real-threat-of-contagion.html?src=me&ref=general).
 **In-class**:
 
 `r I(classDayContents("Tues", "Oct", 9 ))`
