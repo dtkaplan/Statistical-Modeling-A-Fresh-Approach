@@ -1,0 +1,236 @@
+Math 125: Epidemiology
+====================
+
+``` {r echo=FALSE}
+# Setting up the calendar material
+makeDayLinkName <- function(month,day,year=2012){
+  paste("Day-", year, "-", month, "-", day, sep="")
+}
+dd <- function(month,day,year=2012) {
+  paste("<a target='self' href='#",makeDayLinkName(month,day,year),"'>",day,"</a>",sep="")
+}
+classDayContents <- function(weekday="", month, day, year=2012) {
+  # put in the header and a bookmark
+  paste("### ", 
+        paste('<a name="',makeDayLinkName(month,day,year),'">',weekday," ", day," ", month,"</a>",sep=""))
+}
+todaysNotes <- function(fname,marker="notes") {
+  paste("<a href='../Notes/", fname, "'>",marker,"</a>",sep="")
+}
+```
+**Class Schedule**
+
+        | &nbsp;&nbsp; | Tu | Th | &nbsp;&nbsp;&nbsp; | Tu | Th | &nbsp;&nbsp;&nbsp; | Tu | Th | &nbsp;&nbsp;&nbsp; | Tu | Th | &nbsp;&nbsp;&nbsp; | Tu | Th 
+--------|---|----|----|---|----|----|---|----|----|---|----|----|---|----|----
+*Sept*  |   |    | `r I(dd('Sept',6))` |  | `r I(dd('Sept',11))` | `r I(dd('Sept',13))` |  | `r I(dd('Sept',18))` | `r I(dd('Sept',20))` |  | `r I(dd('Sept',25))`| `r I(dd('Sept',27))` 
+*Oct*   |   | `r I(dd('Oct',2))` | `r I(dd('Oct',4))` | | `r I(dd('Oct',9))` | `r I(dd('Oct',11))` | | `r I(dd('Oct',16))` | `r I(dd('Oct',18))` | |`r I(dd('Oct',23))` | 25 | |`r I(dd('Oct',30))` 
+*Nov*   |   |  | `r I(dd('Nov',1))` | | `r I(dd('Nov',6))` | `r I(dd('Nov',8))` | | `r I(dd('Nov',13))` | `r I(dd('Nov',15))` | | `r I(dd('Nov',20))` | 22 | | `r I(dd('Nov',27))` | `r I(dd('Nov',29))`
+*Dec*   |   | `r I(dd('Dec',4))` | `r I(dd('Dec',6))` | | `r I(dd('Dec',11))` |  | 15 |
+
+**Final Exam Time**: Sat 15 Dec. 1:30-3:30 pm.  Make your travel plans accordingly!
+
+
+`r I(classDayContents("Thurs", "Sept", 6 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**: 
+Notes`r I(todaysNotes("2012-09-05.html", ":"))`
+
+`r I(classDayContents("Tues", "Sept", 11 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Sept", 13 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Tues", "Sept", 18 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Sept", 20 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Tues", "Sept", 25 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Sept", 27 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Tues", "Oct", 2 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Oct", 4 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Tues", "Oct", 9 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Oct", 11 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Tues", "Oct", 16 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Oct", 18 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Tues", "Oct", 23 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Oct", 25 ))`
+Fall Break!
+
+`r I(classDayContents("Tues", "Oct", 30 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Nov", 1 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Tues", "Nov", 6 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Thurs", "Nov", 8 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Tues", "Nov", 13 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Thurs", "Nov", 15 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Tues", "Nov", 20 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Thurs", "Nov", 22 ))`
+Thanksgiving Break!
+
+
+
+`r I(classDayContents("Tues", "Nov", 27 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Thurs", "Nov", 29 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Tues", "Dec", 4 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Thurs", "Dec", 6 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Tues", "Dec", 11 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Sat", "Nov", 15 ))`
+Final Exam: 1:30-3:30
