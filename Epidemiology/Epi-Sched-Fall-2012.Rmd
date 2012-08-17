@@ -59,7 +59,7 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 
 **Assignment**: 
 * Start your glossary (POST LINK TO PIAZZA)
-* Reading reflection on "The Score" (POST LINK TO PIAZZA)
+* [Reading reflection on "The Score"](https://piazza.com/class#fall2012/math125/15) 
 
 
 `r I(classDayContents("Thurs", "Sept", 13 ))`
