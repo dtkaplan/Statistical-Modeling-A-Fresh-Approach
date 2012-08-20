@@ -1,5 +1,35 @@
 Math 155: Introduction to Statistical Modeling
 ====================
+``` {r echo=FALSE}
+acroChapter <- function(chap,access="ISMf12",probnum=NULL,label=chap){
+  if (!is.null(probnum)) probnum <- paste("#",probnum,sep="")
+  
+  paste("<a href='",
+              paste("https://dl.dropbox.com/u/5098197/Exercises/HTML/",
+                    "SM2-Chapter-",chap,"-Problems/SM2-Chapter-",chap,
+                    "-Problems-A.html?access=",access,probnum,sep=""),
+              "'>",label,"</a>",sep="")
+}
+# A short form for individual problems.
+PN <- function(probs){
+  res <- ""
+  for (probnum in probs){
+    chap <- substr(probnum,1,nchar(probnum)-2)
+    prob <- substr(probnum,nchar(chap)+1,100)
+    label <- paste(chap,".",prob,sep="")
+    foo <- acroChapter(chap=chap, probnum=probnum, label=label )
+    res <- paste(res,", ",foo,sep="")
+  }
+  return(substr(res,3,10000)) # But get rid of the trailing comma.
+  
+}
+```
+
+Links: AcroScore [accounts](https://moodle.macalester.edu/mod/assign/view.php?id=12216) and [settings](http://datavis.math.macalester.edu:8080/AcroScore08/) : Assignments by Chapter `r I(acroChapter(chap=1))`, `r I(acroChapter(chap=2))`, `r I(acroChapter(chap=3))`, `r I(acroChapter(chap=4))`, `r I(acroChapter(chap=5))`, `r I(acroChapter(chap=6))`, `r I(acroChapter(chap=7))`, `r I(acroChapter(chap=8))`, `r I(acroChapter(chap=9))`, `r I(acroChapter(chap=10))`, `r I(acroChapter(chap=11))`, `r I(acroChapter(chap=12))`, `r I(acroChapter(chap=13))`, `r I(acroChapter(chap=14))`, `r I(acroChapter(chap=15))`, `r I(acroChapter(chap=16))`, `r I(acroChapter(chap=17))`, `r I(acroChapter(chap=18))`
+
+
+ 
+
 
 ``` {r echo=FALSE}
 # Setting up the calendar material
@@ -44,7 +74,7 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 `r I(classDayContents("Fri", "Sept", 7 )) # ==============================`
 **Topic**: Data: cases, variables, tables, and codebooks
 **Reading**: Statistical Modeling §1.4, §2.1, 2.2, 2.3, 2.4
-**Assignment**:
+**Assignment**: JUST TESTING ... `r I(PN(c(103,104,203,204)))`
 
 `r I(classDayContents("Mon", "Sept", 10 ))`
 **Topic**: Descriptive statistics

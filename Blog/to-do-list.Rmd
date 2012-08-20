@@ -4,6 +4,7 @@
 
 * Blog topics:
    * Introduction to the MOSAIC package release
+   * Teaching with RStudio
    * Simulation
    * Data files (how to find out what's included, some things each example can illustrate).  Why some end with CSV and some don't.  When you need to use ```fetchData()``` and when you can just say ```data=```
    * Groupwise models and the difference between mm and mean (and tally).  Use of the ```~1``` to mean the grand mean.
