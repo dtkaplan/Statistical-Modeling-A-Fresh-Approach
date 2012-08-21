@@ -59,7 +59,10 @@ todaysNotes <- function(fname,marker="notes") {
 
 `r I(classDayContents("Wed", "Sept", 5 ))`
 **Topic**: Introduction to the course. Randomness, modeling, and inference.
-**Reading**: Statistical Modeling §1.1, 1.2, 1.3
+**Reading**: 
+* *Statistical Modeling* textbook §1.1, 1.2, 1.3
+* A [recent newspaper report](http://www.nytimes.com/2012/08/21/health/how-well-you-sleep-may-hinge-on-race.html?_r=1) that frames some of the technical issues covered by the course.
+
 **Assignment**: 
 * Do the reading! 
 * AcroScore set up
