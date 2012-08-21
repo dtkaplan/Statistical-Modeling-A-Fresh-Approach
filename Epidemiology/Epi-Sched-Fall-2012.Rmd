@@ -72,7 +72,8 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 * Reading reflection on *The Great Influenza*, [Link to PIAZZA]
 * Estimation Problem 1. [LInk to PIAZZA] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
 
-
+OTHER MATERIALS
+<http://xkcd.com/552/> <http://entertainment.desktopnexus.com/wallpaper/37738/> <http://xkcd.com/388/> <http://xkcd.com/radiation/>
 
 `r I(classDayContents("Tues", "Sept", 18 ))`
 **Topic**: 
