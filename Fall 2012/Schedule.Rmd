@@ -72,7 +72,7 @@ todaysNotes <- function(fname,marker="notes") {
 * Watch this one-hour documentary: [The Joy of Stats](http://www.gapminder.org/videos/the-joy-of-stats/) with Hans Rossling
 
 **In-class**: Starting with R. (Write a description of this activity)
-Notes`r I(todaysNotes("2012-09-05.html", ":"))`
+Notes: `r I(todaysNotes("2012-09-05.html", "i"))`
 
 `r I(classDayContents("Fri", "Sept", 7 )) # ==============================`
 **Topic**: Data: cases, variables, tables, and codebooks

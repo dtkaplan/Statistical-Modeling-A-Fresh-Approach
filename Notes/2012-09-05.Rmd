@@ -1,4 +1,120 @@
 Sept. 5, 2012
 ========================================================
 
-Notes for today's class.
+```{r echo=FALSE,errors=FALSE,messages=FALSE,warning=FALSE,results="hide"}
+require(mosaic, quietly=TRUE, warn.conflicts=FALSE)
+require(xtable, quietly=TRUE, warn.conflicts=FALSE)
+```
+
+
+
+### Questions for the students
+1. What is statistics? (Shouldn't they know if they are taking the course?) Write down their suggestions (typically, "science of data") and then move them toward ``The explanation of variation in the context of what remains unexplained."  This will remain abstract for a few weeks, but by the end of the semester it will hopefully seem very concrete.
+2. Why are you taking this course?  Students will hem and haw, trying to be polite, but knowing the real answer is, ``Because I'm required to take it for my major.''  I'm not troubled by this.  My goal for the semester is to make the students agree that the people who require stats for the major were right to do so.
+3. What statistics have you had before?  Ferret out the AP students and ask them what techniques they covered.  Explain that there will be very little overlap with the AP course.  They will recognize some terminology, but any advantage they think they have is compensated for their need to overcome the misconceptions that often stem from an AP course.
+
+### Outline of the Course
+1. Description of data.  We'll start with simple things: means, standard deviations, distributions.  Then quickly move on to describing the relationship among multiple variables.  You'll learn a formal language for constructing models that's very widely used in the natural and social sciences.  You'll also learn about the importance and uses of subjectivity and incorporating expert knowledge into your models.
+2. Randomness.  This is the core of a traditional statistics course, such as the AP course.  But we will be using a much richer system for describing data, so you won't see this until about mid-course. (Although we'll do an example today so that you won't feel we're neglecting it.)
+3. Bringing modeling and randomness together.
+
+### What's different about this course
+1. We will be using techniques that are generally considered to be graduate level.
+2. We'll take computation very seriously.  That's one of the ways that we'll be able to make graduate-level statistics accessible in a first course.
+3. The major themes.  In a conventional stat course, ``tests'' are at the center.  But for us ...
+    * Quantifying Effect size: How to measure the size or strength of a relationship.  We'll adopt a unified and powerful framework for this: building model formulas.
+    * Quantifying Precision and Strength of Evidence.
+    * Confounding and its implications for the collection and analysis of data.
+
+Doing Some Statistics
+---------------------
+
+### What are grades like at Macalester?
+```{r messages=FALSE}
+g = fetchData("grades.csv")
+head(g)
+tally( ~ grade, data=g, format="percent" )
+```
+
+Not every grade is the same.  An obvious question: Why is this?  What factors influence grades?
+
+
+### Smoking
+
+#### Is smoking bad for you?  
+
+```{r echo=FALSE,results="asis"}
+d <- data.frame( "Smoking Group"=c("Non-smokers", "Cigarettes only", "Cigars, pipes"), Canadian = c(20.2, 20.5, 35.5),British=c(11.3,14.1,20.7),U.S.=c(13.5, 13.5, 17.7))
+print(xtable(d,caption="Death Rate per 1000 Person-Years"),type="html")
+```
+
+Conclusion: 
+
+
+#### A covariate ...
+```{r echo=FALSE,results="asis"}
+d <- data.frame( "Smoking Group"=c("Non-smokers", "Cigarettes only", "Cigars, pipes"), Canadian = c(54.9, 50.5,65.9),British=c(49.1,49.8,55.7),U.S.=c(57.0, 53.2, 59.7))
+print(xtable(d,caption="Mean Ages (years)"),type="html")
+```
+
+#### Age Adjustment ...
+```{r echo=FALSE,results="asis"}
+d <- data.frame( "Smoking Group"=c("Non-smokers", "Cigarettes only", "Cigars, pipes"), Canadian = c(20.2,28.3,21.2),British=c(11.3, 12.8, 12.0),U.S.=c(13.5, 17.7, 14.2))
+print(xtable(d,caption="Age Adjusted Death Rate per 1000 Person-Years"),type="html")
+```
+
+
+Source: W.G. Cochran (1968) Biometrics 24(2):295-313
+
+### Are Coins Fair?
+
+### Detecting Fraud
+
+
+Administrative Matters
+----------------------
+
+#### The Pace of the Class
+After giving you some time to settle back in for the semester, I will try to move pretty fast until about 3/4 of the way through the semester.  Then I will throttle back and go pretty easy for the last quarter of the semester.
+
+I do this because 
+* I want to use the last quarter of the semester to consolidate what you've learned in the first 3/4ths.
+* Everyone is so busy in the last bit of the semester that they can't learn anything anyways.
+
+It's very important to remember
+* Not to panic because we a moving fast.  [But tell me if it's {\em too} fast for you to understand.]
+* Don't fall behind with the assumption that you will catch up later.
+* That, even though we'll slow down, there is still a final exam and a term project (that you'll be working on, cumulatively, through the semester).
+
+### Grades
+
+#### Components of the Grade
+* Exercises most every day. Some small projects. [30%]
+* Weekly Quizzes [10%]
+* Mid-term and Final Exam. [15% & 30%]
+* Term project. [10%]
+* Class participation. [5%]
+* Extra credit.
+The percentages are a rough guide.  I'll explain the actual calculation later in the course when you are in a position to understand it.
+
+#### Will I get an A?
+That depends on you.  Here's my overall policy:
+
+* A: You have completly mastered the material in the course.
+* B: You have a good, solid understanding, good enough that I think you can go on to the next level with no worries. Examples of the next level: econometrics, Math 253, advanced research methods in psychology, summer research in biology.
+* C: Know the material well enough that you should be able to try the next level, but I'm not certain that you will be able to succeed without taking special care.
+
+Typical grade in the class has been something like a B+.  There have
+not been very many Cs, but it does happen.
+
+#### Assignment Grading Policy
+Assignments are due the midnight BEFORE class.  We use an electronic system for handling assignments so that I don't have to wait until you get to class for you to hand in your work.
+  
+Often the assignments will cover matters to be covered in the following class itself. This means, in order to do the assignment successfully, you have to learn the material on your own, or by working with your friends and classmates.  
+
+BUT ... I would be out of a job if you could always do this.  I recognize that there are some things that you might not be able to learn on your own with the materials that are provided.  So, you are free to go back and correct your answers AFTER class, if you learned
+something in class to change your mind.  You'll get FULL CREDIT for such changed answers.
+
+BUT ... Many of you would wait until after class to hand in your work, and then I wouldn't know what I need to talk about during class.  So, every once in a while, I will give you a grade based on your submissions before class.  I won't worry about whether you have the answers right, just whether you submitted them. But I will notice if you are just randomly hitting buttons --- that's easy, because there is a time stamp on each submission.  So, be honest.
+
+There are lots of assignments.  It doesn't matter if you miss a few or hand them in late.  The main point of the assignments is to exercise and develop your skills.  They are calisthenics for statistics.  Do them regularly and you will be in good shape.
