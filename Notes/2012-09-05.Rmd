@@ -68,7 +68,11 @@ Source: W.G. Cochran (1968) Biometrics 24(2):295-313
 
 ### Are Coins Fair?
 
+The magic coin exercise.
+
 ### Detecting Fraud
+
+[Coin flips](coin-flipping.html)
 
 
 Administrative Matters

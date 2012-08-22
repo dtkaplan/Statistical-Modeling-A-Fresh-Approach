@@ -1,0 +1,66 @@
+Runs in Coin Flips: Instructor's Notes
+========================================================
+
+```{r warnings=FALSE,errors=FALSE,message=FALSE,results="hide",echo=FALSE}
+require(mosaic)
+```
+
+## Background 
+
+Description:
+An introduction to patterns in randomness.  In this case, the pattern is runs of heads and tails in coin flips.
+
+Requirements:
+* RStudio (for the manipulate functionality)
+* sourcing `enterCoins.R` through the `additional-software.r` command below.
+
+## Introduction
+
+We're going to do a magic trick that will show you a bit of statistical logic.  Like other magic tricks, the ``magic'' is in something you don't see or don't think about.
+
+Divide into groups of two or more students.  One student in the group will work the computer, entering data.  Another student will generate the data.
+
+### Data Entry
+
+Start up RStudio, and give the following command:
+```{r results="hide", message=FALSE}
+source("http://www.mosaic-web.org/StatisticalModeling/additional-software.r")
+```
+
+From the command line, give this command:
+```{r eval=FALSE}
+enter.coins(n=10)
+```
+Then, referring to the "Plot" window, press the "H" and "T" buttons ten times to enter a string of simulated coin flips.  (If no menu pops up, click on the little gear icon in the plot window.)
+
+Then give this command to confirm that the coins have been entered:
+```{r eval=FALSE}
+coin.history
+```
+
+Practice this until you feel comfortable.  It isn't hard.  Each time you restart `enter.coins()` you will be erasing your old history.
+
+### The Group
+
+Pick two people in the group and play the oddsies/evensies finger game.  If your result is odd, then you will be flipping a genuine coin.  If your result is even, then you will be making up coin flips.
+
+The data entry person should give the command
+```{r eval=FALSE}
+enter.coins(n=50)
+```
+to enter 50 coin flips worth of data.
+
+Another person in the group ``generate'' the coin flips, either legitimately or made up, per the previous paragraph.  (If you have more than two people in your group, the non-data entry people might want to alternate in generating the made-up coin flips.) The data entry person should enter the data.
+
+### The Magic
+
+Once the data are entered, go back to the R console and give this command:
+```{r eval=FALSE}
+test.coins( coin.history )
+```
+
+Did the `test.coins()` function get it right?
+
+## Discussion
+
+How do you think `test.coins()` did it?  What patterns might it look for.

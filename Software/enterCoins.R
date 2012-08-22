@@ -16,14 +16,13 @@ test.coins <- function(coins,spec=0.05) {
       res <- "Honest flipper."
   }
   return(res)
-  
 }
 
 enter.coins <- function(n=10) {
   coin.history <<- c()
   display <- function(head, tail, back) {
     if(back) {
-      if( length(history)>1 ) coin.history <<- coin.history[-length(history)]
+      if( length(coin.history) >= 1 ) coin.history <<- coin.history[-length(coin.history)]
     }
     else if( (head | tail) & length(coin.history) < n ) {
       this <- ifelse( head, "H", "T" )
