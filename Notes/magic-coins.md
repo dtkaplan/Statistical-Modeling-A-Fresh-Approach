@@ -12,8 +12,9 @@ I have a collection of coins from various countries and various eras, e.g. 100 L
 
 I hand out the coins to students, taking care to refer to each coin individually as if it were something special.  Then I ask the students for their names and the kind of coin, and write a table on the board, like this:
 
+
 Name   | Coin
-------------
+-------|----
 Julie  | 100 centavos
 Mike   | 50 pence
 Anne   | 1 deutschmark
@@ -29,7 +30,7 @@ Ask the students, how many should they have gotten if the coin was fair?  Genera
 Now tally
 
 Name   | Coin   |   Heads
---------------------------
+-------|--------|---------
 Julie  | 100 centavos  | 4
 Mike   | 50 pence      | 2
 Anne   | 1 deutschmark | 5
@@ -51,7 +52,7 @@ rbinom(10, prob = 0.5, size = 6)
 ```
 
 ```
-##  [1] 3 2 2 2 2 5 3 3 4 2
+##  [1] 2 1 3 3 2 0 5 2 2 3
 ```
 
 
@@ -64,7 +65,7 @@ tally(rbinom(1e+05, prob = 0.5, size = 6))
 ```
 ## 
 ##      0      1      2      3      4      5      6  Total 
-##   1525   9390  23555  31291  23527   9235   1477 100000 
+##   1592   9218  23570  31250  23459   9362   1549 100000 
 ```
 
 
@@ -84,7 +85,7 @@ tally(~result, data = do(100) * max({
 ```
 ## 
 ##     4     5     6 Total 
-##     8    59    33   100 
+##     5    71    24   100 
 ```
 
 And with 20 students:
@@ -98,8 +99,8 @@ tally(~result, data = do(100) * max({
 
 ```
 ## 
-##     4     5     6 Total 
-##     2    49    49   100 
+##     5     6 Total 
+##    45    55   100 
 ```
 
 

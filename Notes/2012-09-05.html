@@ -182,29 +182,7 @@ hljs.initHighlightingOnLoad();
 <body>
 <h1>Sept. 5, 2012</h1>
 
-<pre><code>## Loading required package: splines
-</code></pre>
-
-<pre><code>## Hmisc library by Frank E Harrell Jr
-## 
-## Type library(help=&#39;Hmisc&#39;), ?Overview, or ?Hmisc.Overview&#39;) to see overall
-## documentation.
-## 
-## NOTE:Hmisc no longer redefines [.factor to drop unused levels when
-## subsetting.  To get the old behavior of Hmisc type dropUnusedLevels().
-</code></pre>
-
-<pre><code>## Attaching package: &#39;Hmisc&#39;
-</code></pre>
-
-<pre><code>## The following object(s) are masked from &#39;package:survival&#39;:
-## 
-## untangle.specials
-</code></pre>
-
-<pre><code>## The following object(s) are masked from &#39;package:base&#39;:
-## 
-## format.pval, round.POSIXt, trunc.POSIXt, units
+<pre><code class="r">require(mosaic, quietly = TRUE, warn.conflicts = FALSE)
 </code></pre>
 
 <h3>Questions for the students</h3>
@@ -244,7 +222,7 @@ hljs.initHighlightingOnLoad();
 <pre><code class="r">g = fetchData(&quot;grades.csv&quot;)
 </code></pre>
 
-<pre><code>## Retrieving data from http://www.mosaic-web.org/go/datasets/grades.csv
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/grades.csv
 </code></pre>
 
 <pre><code class="r">head(g)
@@ -277,7 +255,7 @@ hljs.initHighlightingOnLoad();
 
 <!-- html table generated in R 2.15.1 by xtable 1.7-0 package -->
 
-<!-- Tue Aug 21 19:21:51 2012 -->
+<!-- Thu Aug 23 17:06:56 2012 -->
 
 <TABLE border=1>
 <CAPTION ALIGN="bottom"> Death Rate per 1000 Person-Years </CAPTION>
@@ -293,7 +271,7 @@ hljs.initHighlightingOnLoad();
 
 <!-- html table generated in R 2.15.1 by xtable 1.7-0 package -->
 
-<!-- Tue Aug 21 19:21:51 2012 -->
+<!-- Thu Aug 23 17:06:56 2012 -->
 
 <TABLE border=1>
 <CAPTION ALIGN="bottom"> Mean Ages (years) </CAPTION>
@@ -307,7 +285,7 @@ hljs.initHighlightingOnLoad();
 
 <!-- html table generated in R 2.15.1 by xtable 1.7-0 package -->
 
-<!-- Tue Aug 21 19:21:51 2012 -->
+<!-- Thu Aug 23 17:06:56 2012 -->
 
 <TABLE border=1>
 <CAPTION ALIGN="bottom"> Age Adjusted Death Rate per 1000 Person-Years </CAPTION>
@@ -320,6 +298,8 @@ hljs.initHighlightingOnLoad();
 <p>Source: W.G. Cochran (1968) Biometrics 24(2):295-313</p>
 
 <h3>Are Coins Fair?</h3>
+
+<p>The <a href="magic-coins.html">magic coin exercise</a></p>
 
 <h3>Detecting Fraud</h3>
 

@@ -3,7 +3,8 @@ Instructors' Resources for Teaching Statistical Modeling
 
 ### Day-by-Day Syllabus for Statistical Modeling
 
-* Fall 2012: [Math 155 at Macalester College](Fall2012/Schedule.html)
+* Fall 2012: [Math 155 at Macalester College](Fall2012/Schedule.html) including instructor notes.
+
 
 
 ### Activities

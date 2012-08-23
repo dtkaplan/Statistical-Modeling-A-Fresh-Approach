@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>Math 125: Epidemiology</title>
+
+<base target="_blank"/>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Math 125: Epidemiology</h1>
+
+<p><strong>Class Schedule</strong></p>
+
+<table><thead>
+<tr>
+<th></th>
+<th>&nbsp;&nbsp;</th>
+<th>Tu</th>
+<th>Th</th>
+<th>&nbsp;&nbsp;&nbsp;</th>
+<th>Tu</th>
+<th>Th</th>
+<th>&nbsp;&nbsp;&nbsp;</th>
+<th>Tu</th>
+<th>Th</th>
+<th>&nbsp;&nbsp;&nbsp;</th>
+<th>Tu</th>
+<th>Th</th>
+<th>&nbsp;&nbsp;&nbsp;</th>
+<th>Tu</th>
+<th>Th</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>Sept</em></td>
+<td></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Sept-6'>6</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Sept-11'>11</a></td>
+<td><a target='self' href='#Day-2012-Sept-13'>13</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Sept-18'>18</a></td>
+<td><a target='self' href='#Day-2012-Sept-20'>20</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Sept-25'>25</a></td>
+<td><a target='self' href='#Day-2012-Sept-27'>27</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><em>Oct</em></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Oct-2'>2</a></td>
+<td><a target='self' href='#Day-2012-Oct-4'>4</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Oct-9'>9</a></td>
+<td><a target='self' href='#Day-2012-Oct-11'>11</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Oct-16'>16</a></td>
+<td><a target='self' href='#Day-2012-Oct-18'>18</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Oct-23'>23</a></td>
+<td>25</td>
+<td></td>
+<td><a target='self' href='#Day-2012-Oct-30'>30</a></td>
+<td></td>
+</tr>
+<tr>
+<td><em>Nov</em></td>
+<td></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Nov-1'>1</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Nov-6'>6</a></td>
+<td><a target='self' href='#Day-2012-Nov-8'>8</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Nov-13'>13</a></td>
+<td><a target='self' href='#Day-2012-Nov-15'>15</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Nov-20'>20</a></td>
+<td>22</td>
+<td></td>
+<td><a target='self' href='#Day-2012-Nov-27'>27</a></td>
+<td><a target='self' href='#Day-2012-Nov-29'>29</a></td>
+</tr>
+<tr>
+<td><em>Dec</em></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Dec-4'>4</a></td>
+<td><a target='self' href='#Day-2012-Dec-6'>6</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Dec-11'>11</a></td>
+<td></td>
+<td>15</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Final Exam Time</strong>: Sat 15 Dec. 1:30-3:30 pm.  Make your travel plans accordingly!</p>
+
+<h3><a name="Day-2012-Sept-6">Thurs 6 Sept</a></h3>
+
+<p><strong>Topic</strong>: Introduction to epidemiology and the course</p>
+
+<p><strong>Reading</strong>: </p>
+
+<ul>
+<li>Essential Epidemiology, Chapter 1</li>
+<li>David Fraser, <a href="http://dl.dropbox.com/u/5098197/Epidemiology/Fraser-NEJM-epidemiology.pdf">Epidemiology as a Liberal Art</a> (from the <em>New England Journal of Medicine</em>)</li>
+</ul>
+
+<p><strong>Assignment</strong>: </p>
+
+<ul>
+<li>Set up your account on <a href="https://piazza.com/class#fall2012/math125">Piazza</a> </li>
+</ul>
+
+<p><strong>On Your Own</strong>:</p>
+
+<ul>
+<li>Video of the Day: <a href="http://www.gapminder.org/videos/ted-talks/hans-rosling-ted-2006-debunking-myths-about-the-third-world/">Hans Rossling and myths about the &ldquo;Third World&rdquo;</a></li>
+<li><a href="http://www.nytimes.com/2010/09/07/health/views/07mind.html?hp">Newpaper article about study skills</a></li>
+<li><a href="http://www.washingtonpost.com/wp-dyn/content/article/2008/09/18/AR2008091804145.html?hpid=topnews">Newspaper article about studying public health</a></li>
+</ul>
+
+<p><strong>In-class</strong>:</p>
+
+<ul>
+<li><a href="http://dl.dropbox.com/u/5098197/Epidemiology/799.pdf">Risk charts</a> from Woloshin, Schwartz, and Welch</li>
+<li><a href="http://www.gapminder.org">http://www.gapminder.org</a> site and video
+Notes<a href='../Notes/2012-09-05.html'>:</a></li>
+</ul>
+
+<h3><a name="Day-2012-Sept-11">Tues 11 Sept</a></h3>
+
+<p><strong>Topic</strong>: Prevalence, Incidence, Mortality, Life Expectancy</p>
+
+<p><strong>Reading</strong>: </p>
+
+<ul>
+<li><em>Essential Epi</em>, Chap. 2</li>
+<li><em>Better</em>, &ldquo;The Score&rdquo; <a href="http://www.newyorker.com/archive/2006/10/09/061009fa_fact?currentPage=1">Here is a link to the original article from the <em>New Yorker</em>.</a></li>
+</ul>
+
+<p><strong>Assignment</strong>: </p>
+
+<ul>
+<li>Start your glossary (POST LINK TO PIAZZA)</li>
+<li><a href="https://piazza.com/class#fall2012/math125/15">Reading reflection on &ldquo;The Score&rdquo;</a> </li>
+</ul>
+
+<h3><a name="Day-2012-Sept-13">Thurs 13 Sept</a></h3>
+
+<p><strong>Topic</strong>: Life expectancy, spreadsheet calculations</p>
+
+<p><strong>Reading</strong>: </p>
+
+<ul>
+<li><em>The Great Influenza</em>, Prologue and Chapters 1 &amp; 2</li>
+</ul>
+
+<p><strong>Assignment</strong>: </p>
+
+<ul>
+<li>Reading reflection on <em>The Great Influenza</em>, [Link to PIAZZA]</li>
+<li>Estimation Problem 1. [LInk to PIAZZA] Background reading from <a href="https://moodle.macalester.edu/mod/resource/view.php?id=10350"><em>Guesstimation</em></a></li>
+</ul>
+
+<h3><a name="Day-2012-Sept-18">Tues 18 Sept</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Sept-20">Thurs 20 Sept</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Sept-25">Tues 25 Sept</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Sept-27">Thurs 27 Sept</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Oct-2">Tues 2 Oct</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Oct-4">Thurs 4 Oct</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong></p>
+
+<ul>
+<li>The 2011 movie <em>Contagion</em> (DVD on reserve in library), and an <a href="http://www.nytimes.com/2011/09/12/opinion/the-real-threat-of-contagion.html?src=me&amp;ref=general">op-ed by an epidemiology consulting on the movie</a>.
+<strong>In-class</strong>:</li>
+</ul>
+
+<h3><a name="Day-2012-Oct-9">Tues 9 Oct</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Oct-11">Thurs 11 Oct</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Oct-16">Tues 16 Oct</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Oct-18">Thurs 18 Oct</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Oct-23">Tues 23 Oct</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Oct-25">Thurs 25 Oct</a></h3>
+
+<p>Fall Break!</p>
+
+<h3><a name="Day-2012-Oct-30">Tues 30 Oct</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Nov-1">Thurs 1 Nov</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Nov-6">Tues 6 Nov</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Nov-8">Thurs 8 Nov</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Nov-13">Tues 13 Nov</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Nov-15">Thurs 15 Nov</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Nov-20">Tues 20 Nov</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Nov-22">Thurs 22 Nov</a></h3>
+
+<p>Thanksgiving Break!</p>
+
+<h3><a name="Day-2012-Nov-27">Tues 27 Nov</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Nov-29">Thurs 29 Nov</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Dec-4">Tues 4 Dec</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Dec-6">Thurs 6 Dec</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Dec-11">Tues 11 Dec</a></h3>
+
+<p><strong>Topic</strong>: <br/>
+<strong>Reading</strong>: <br/>
+<strong>Assignment</strong>: <br/>
+<strong>On Your Own</strong>:<br/>
+<strong>In-class</strong>:</p>
+
+<h3><a name="Day-2012-Nov-15">Sat 15 Nov</a></h3>
+
+<p>Final Exam: 1:30-3:30</p>
+
+</body>
+
+</html>
+
