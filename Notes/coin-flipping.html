@@ -191,7 +191,8 @@ An introduction to patterns in randomness.  In this case, the pattern is runs of
 
 <ul>
 <li>RStudio (for the manipulate functionality)</li>
-<li>sourcing <code>enterCoins.R</code> through the <code>additional-software.r</code> command below.</li>
+<li>The <code>mosaic</code> package</li>
+<li>Sourcing <code>enterCoins.R</code> through the <code>fetchData()</code> command below in the mosaic package.</li>
 </ul>
 
 <h2>Introduction</h2>
@@ -202,12 +203,10 @@ An introduction to patterns in randomness.  In this case, the pattern is runs of
 
 <h3>Data Entry</h3>
 
-<p>Start up RStudio, and give the following command:</p>
+<p>Start up RStudio, and give the following commands:</p>
 
-<pre><code class="r">source(&quot;http://www.mosaic-web.org/StatisticalModeling/additional-software.r&quot;)
-</code></pre>
-
-<pre><code>## Warning: there is no package called &#39;manipulate&#39;
+<pre><code class="r">require(mosaic)
+fetchData(&quot;enterCoins.R&quot;)
 </code></pre>
 
 <p>From the command line, give this command:</p>
@@ -248,7 +247,53 @@ An introduction to patterns in randomness.  In this case, the pattern is runs of
 
 <h2>Discussion</h2>
 
-<p>How do you think <code>test.coins()</code> did it?  What patterns might it look for.</p>
+<ul>
+<li><p>How do you think <code>test.coins()</code> did it?  What patterns might it look for?</p></li>
+<li><p>We can test the specificity&#39;&#39; of the test by generating a genuinely random sequence and seeing how often the test correctly identifies the sequence as random.</p></li>
+</ul>
+
+<pre><code class="r">do(10) * test.coins(resample(c(&quot;H&quot;, &quot;T&quot;), size = 100))
+</code></pre>
+
+<pre><code>##             result
+## 1  Honest flipper.
+## 2  Honest flipper.
+## 3  Honest flipper.
+## 4  Honest flipper.
+## 5  Honest flipper.
+## 6  Honest flipper.
+## 7  Honest flipper.
+## 8  Honest flipper.
+## 9  Honest flipper.
+## 10 Honest flipper.
+</code></pre>
+
+<ul>
+<li>Another quantity, called the <code>sensitivity,&#39;&#39; quantifies how often the test correctly identifies the sequence as not from a random coin.  To do this, you need to be able to state what</code>not a random coin&rdquo; means.  For instance, a coin with 5 heads and one tail is not a fair coin. (This probably doesn&#39;t correspond at all to what humans do that makes their sequences nonrandom.)</li>
+</ul>
+
+<pre><code class="r">do(10) * test.coins(resample(c(&quot;H&quot;, &quot;H&quot;, &quot;H&quot;, &quot;H&quot;, &quot;H&quot;, &quot;T&quot;), size = 100))
+</code></pre>
+
+<pre><code>##                                              result
+## 1  Phony.  You just clicked without much variation.
+## 2                                   Honest flipper.
+## 3  Phony.  You just clicked without much variation.
+## 4                                   Honest flipper.
+## 5                                   Honest flipper.
+## 6  Phony.  You just clicked without much variation.
+## 7  Phony.  You just clicked without much variation.
+## 8                                   Honest flipper.
+## 9                                   Honest flipper.
+## 10                                  Honest flipper.
+</code></pre>
+
+<p>By changing the size of the sequence &mdash; it&#39;s 100 in the above examples &mdash; you can change the sensitivity and specificity of the test.  Ideally, the test will always get it right.</p>
+
+<ul>
+<li><p>How short a test will get things right about 90% of the time?</p></li>
+<li><p>How long a test is needed to get things right 99% of the time?</p></li>
+</ul>
 
 </body>
 

@@ -12,7 +12,8 @@ An introduction to patterns in randomness.  In this case, the pattern is runs of
 
 Requirements:
 * RStudio (for the manipulate functionality)
-* sourcing `enterCoins.R` through the `additional-software.r` command below.
+* The `mosaic` package
+* Sourcing `enterCoins.R` through the `fetchData()` command below in the mosaic package.
 
 ## Introduction
 
@@ -22,9 +23,10 @@ Divide into groups of two or more students.  One student in the group will work 
 
 ### Data Entry
 
-Start up RStudio, and give the following command:
+Start up RStudio, and give the following commands:
 ```{r results="hide", message=FALSE}
-source("http://www.mosaic-web.org/StatisticalModeling/additional-software.r")
+require(mosaic)
+fetchData("enterCoins.R")
 ```
 
 From the command line, give this command:
@@ -63,4 +65,21 @@ Did the `test.coins()` function get it right?
 
 ## Discussion
 
-How do you think `test.coins()` did it?  What patterns might it look for.
+* How do you think `test.coins()` did it?  What patterns might it look for?
+
+* We can test the ``specificity'' of the test by generating a genuinely random sequence and seeing how often the test correctly identifies the sequence as random.
+```{r}
+do(10) * test.coins( resample( c("H","T"), size=100))
+```
+
+* Another quantity, called the ``sensitivity,'' quantifies how often the test correctly identifies the sequence as not from a random coin.  To do this, you need to be able to state what ``not a random coin" means.  For instance, a coin with 5 heads and one tail is not a fair coin. (This probably doesn't correspond at all to what humans do that makes their sequences nonrandom.)
+```{r}
+do(10) * test.coins( resample( c("H", "H", "H", "H", "H", "T"), size=100))
+```
+
+By changing the size of the sequence --- it's 100 in the above examples --- you can change the sensitivity and specificity of the test.  Ideally, the test will always get it right.
+
+* How short a test will get things right about 90% of the time?
+
+* How long a test is needed to get things right 99% of the time?
+
