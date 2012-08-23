@@ -1,0 +1,170 @@
+Teaching Statistical Modeling with the ```mosaic``` Package
+========================================================
+
+## Daniel Kaplan 
+<http://www.mosaic-web.org/StatisticalModeling>
+
+Starting in Fall 2012, the software for *Statistical Modeling: A Fresh Approach* has been integrated into the `mosaic` package.  This means that the core software is now part of the standard distribution channel for R.  It also provides new and better ways of performing some common statistical operations.
+
+The main student-oriented feature of the `mosaic` package is an orientation around modeling syntax, even for operations that traditionally have not used this syntax.  For the instructor, this means that many of the patterns you are used to with operators such as `lm()` and `glm()` are now extended down to operators such as `mean()`.  Students will see a substantially unified syntax that should make it easier for them to move from basic statistical operations (e.g. tallys, group means, etc.) to modeling operations.
+
+This document describes some of the ways that instructors might want to teach differently with `mosaic` than with the original software for *Statistical Modeling*.  It's written with the instructor's point of view in mind, particularly the transition that an instructor may want to make between the old and the new way of doing things.
+
+Installing the Package
+----------------------
+
+The package can be installed in the standard way.  You load it in the standard way as well:
+```{r eval=FALSE}
+require(mosaic)
+```
+```{r echo=FALSE,messages=FALSE,warnings=FALSE,errors=FALSE,results='hide'}
+suppressMessages(require(mosaic))
+```
+
+Major New Features of `mosaic`
+----------------------
+The `mosaic` includes almost all of the functionality of the original *Statistical Modeling* software, such as `do()`.  Here are the major additions:
+
+1. Use of the modeling syntax systematically for a wide range of calculations.
+2. Avoiding need for operators such as ```$``` for accessing individual variables.  (This has some gotchas for people used to the ```$``` way of doing things.  See below.)
+3. Inclusion of many data sets as part of the package and inter-operability with the `fetchData()` function that makes it easy for students to access new data sets from instructors' web sites.
+4. Implementation of calculus operations including symbolic differentiation and integration.  (This is likely not of direct interest to most statistics instructors, but is worth pointing out for those interested in providing greater unity in the student experience.) 
+
+
+The Modeling Syntax
+----------------------
+In the past, simple calculations such as means were performed on individual data frames, like this calculation of the mean wage in the `CPS85` data.
+```{r}
+mean( CPS85$wage )
+```
+
+The `mosaic` package allows the user to write this in a way that's more like the syntax of `lm()`:
+```{r}
+mean( wage, data=CPS85 )
+```
+This is not a big deal in itself (and could be performed in any event with the built-in `with` function, as in `with(CPS85, mean(wage))`), but `mosaic` enables the calculation to be easily extended to group-wise means.
+```{r}
+mean( wage ~ sex, data=CPS85 )
+mean( wage ~ sex + married, data=CPS85 )
+```
+
+This makes it easy for beginning students to explore the idea of ``breaking things down by ....'' It also provides a short route to resampling-based inference:
+```{r}
+trials <- do(500) * mean( wage ~ sex, data=resample(CPS85))
+sd(trials)
+confint(trials)
+```
+
+`mosaic` adds the same modeling syntax to `median()`, `sd()`, `var()`, `min()`, and `max()`.
+
+When you use the modeling syntax for some operation that has not been provided by `mosaic`, you will often get an error message.
+```{r}
+IQR( wage ~ sex, data=CPS85 )
+```
+If you find it frustrating that an operator hasn't yet been implemented with the formula interface, that's a sign that you find the formula interface more natural than the non-formula interface.  In a pinch, you can approximate the formula syntax like this (although the format of the output isn't ideally suited to use in `do()`.)
+```{r}
+aggregate( wage ~ sex, data=CPS85, FUN=IQR )
+```
+
+Note that the default way of handling missing data in `mosaic` is to ignore it, the opposite of the behavior of the `mean` and related operators in base R, but consistent with `lm()`.  This makes it easier for students to get started even in the presence of missing data.
+
+Groupwise Means as Models
+-------------------
+To help students develop the idea of explanatory and response variables, model values, residuals, $latex R^2$, and so on, `mosaic` adds a new modeling function `mm()` that calculates groupwise means but allows the standard operations such as `fitted()` and `resid()` to be applied directly.  For instance,
+```{r}
+mod = mm( wage ~ sex, data=CPS85)
+head( fitted(mod) )
+summary(mod)
+```
+When there are multiple explantory variables, `mm()` crosses all of the factors involved, as in 
+```{r}
+mod2 = mm( wage ~ sex + married, data=CPS85 )
+summary(mod2)
+```
+This is equivalent to including the interaction terms in a linear model.  Instructors may want to contrast the behavior of `mm()` and `lm()` to reinforce the idea of main effects and interaction terms.  That is, compare the above to
+```{r}
+# Now with a linear model
+mod3 = lm( wage ~ sex + married, data=CPS85 )
+summary(mod3)
+```
+
+
+Tables and Tallies
+------------------
+`mosaic` introduces a new function, `tally()` which unifies the operation of the base `table()`, `proptable()` and `perctable()` around a formula interface.  For instance,
+```{r}
+tally( ~ sex, data=CPS85 )
+tally( ~ sex, data=CPS85, format="proportion")
+```
+
+Notice that the variable to break down by *follows* the `~` sign.  This is for consistency with the `lattice` graphics operators, the developers' reasoning being that tables are in some sense a graphical presentation.  
+
+To get a joint tally, put both grouping variables after the `~`, as in 
+```{r}
+tally( ~ sex + married, data=CPS85)
+```
+
+The advantage of the formula-based syntax comes when doing conditional tallys.
+```{r}
+tally( sex ~ married, data=CPS85 )
+tally( married ~ sex, data=CPS85 )
+```
+Or, if you prefer, use `|` to signify the ``given" variable even more explicitly.
+```{r}
+tally( ~ sex | married, data=CPS85)
+tally( ~ married | sex, data=CPS85)
+```
+This makes it easier to sort out the conditioning variable.
+
+Prediction and Model Values
+--------------
+Experienced R users will be familiar with the `predict()` family of functions which allows you to find the model values for given levels of input.  
+
+`mosaic` introduces a new interface, `makeFun()`, that produces a function that implements the model formula.  For example:
+```{r fig.width=5,out.width="2in"}
+mod = lm( wage ~ poly(age,2)*sex, data=CPS85)
+fmod = makeFun(mod)
+```
+The resulting function has a standard mathematical format and can be used in a standard way, e.g. plotting
+```{r fig.width=5,out.width="2in"}
+plotFun( fmod( age, sex='M') ~ age, age.lim=range(20,60))
+plotFun( fmod( age, sex='F') ~ age, add=TRUE, col="red")
+```
+
+You can even construct new functions from the fitted model functions.
+```{r}
+FMratio = makeFun( fmod(age,sex="F")/fmod(age,sex="M")~age )
+plotFun( FMratio(age)~age, age.lim=range(20,60))
+```
+
+Adding Variables to a Data Frame
+--------------------------------
+Many experienced R users will use `$` to add a new variable to a data frame, e.g.
+```{r}
+CPS85$euros = with(CPS85, wage/1.234) # exchange rate on Aug 20, 2012 
+```
+You can see here that I'm trying to avoid the use of `$` in the right side of the assignment, which of course could have been written `CPS85$wage/1.234`.  In generally, I am trying to avoid any use of `$`.  As such, I prefer the following syntax, which is standard in R but unfamiliar to many instructors:
+```{r}
+CPS85 = transform(CPS85, euros=wage/1.234)
+```
+You may sometimes be tempted to write
+```{r}
+euros = with(CPS85, wage/1.234)
+```
+The problem here is that `euros` is now an independent variable, subject to being accidentally reassigned and not available to operators such as `predict()`.
+
+
+As always ... Avoid `attach()`
+------------------
+Here is yet aother plea for instructors to avoid the use of `attach()`.  Although `attach()` may seem easy to use, ultimately it leads to ambiguity and confusion.  Data frames and the formula syntax are the right mechanism to bring variables together for a set of cases.  Unpackaging a data frame and creating separate variables creates problems with re-assignment and documentation. 
+
+
+Maintenance, Changes, and the Developers
+---------------------
+The `mosaic` package has been developed mainly by Randall Pruim (at Calvin College), Danny Kaplan (at Macalester College), and Nicholas Horton (at Smith College).  If you're unhappy with how something works, or have found a bug, or have a suggestion for some useful, new functionality, please contact 
+any of the developers.  My email is <mailto:dtkaplan@gmail.com>.  
+
+The source files are available at <https://github.com/rpruim/mosaic>.  
+
+
+We gratefully acknowledge the support of the US National Science Foundation for [Project MOSAIC](http://www.mosaic-web.org), NSF-DUE-0920350

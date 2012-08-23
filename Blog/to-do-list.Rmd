@@ -1,0 +1,12 @@
+* Install the software <http://www.mosaic-web.org/StatisticalModeling/additional-software.r> for simulation and other add ins.
+* Make sure zebra-mussels.csv is on the mosaic data site.
+* Add compare.many.groups() in 14.24
+
+* Blog topics:
+   * Introduction to the MOSAIC package release for instructors <http://rpubs.com/dtkaplan/1222>
+   * Teaching with RStudio
+   * Simulation
+   * Data files (how to find out what's included, some things each example can illustrate).  Why some end with CSV and some don't.  When you need to use ```fetchData()``` and when you can just say ```data=```
+   * Groupwise models and the difference between mm and mean (and tally).  Use of the ```~1``` to mean the grand mean.
+   * Runs and made up coin flips.
+   * Customizing your course.  How to add your own files to those found by 

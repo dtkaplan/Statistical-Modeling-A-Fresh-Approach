@@ -1,0 +1,260 @@
+Math 125: Epidemiology
+====================
+
+``` {r echo=FALSE}
+# Setting up the calendar material
+makeDayLinkName <- function(month,day,year=2012){
+  paste("Day-", year, "-", month, "-", day, sep="")
+}
+dd <- function(month,day,year=2012) {
+  paste("<a target='self' href='#",makeDayLinkName(month,day,year),"'>",day,"</a>",sep="")
+}
+classDayContents <- function(weekday="", month, day, year=2012) {
+  # put in the header and a bookmark
+  paste("### ", 
+        paste('<a name="',makeDayLinkName(month,day,year),'">',weekday," ", day," ", month,"</a>",sep=""))
+}
+todaysNotes <- function(fname,marker="notes") {
+  paste("<a href='../Notes/", fname, "'>",marker,"</a>",sep="")
+}
+```
+**Class Schedule**
+
+        | &nbsp;&nbsp; | Tu | Th | &nbsp;&nbsp;&nbsp; | Tu | Th | &nbsp;&nbsp;&nbsp; | Tu | Th | &nbsp;&nbsp;&nbsp; | Tu | Th | &nbsp;&nbsp;&nbsp; | Tu | Th 
+--------|---|----|----|---|----|----|---|----|----|---|----|----|---|----|----
+*Sept*  |   |    | `r I(dd('Sept',6))` |  | `r I(dd('Sept',11))` | `r I(dd('Sept',13))` |  | `r I(dd('Sept',18))` | `r I(dd('Sept',20))` |  | `r I(dd('Sept',25))`| `r I(dd('Sept',27))` 
+*Oct*   |   | `r I(dd('Oct',2))` | `r I(dd('Oct',4))` | | `r I(dd('Oct',9))` | `r I(dd('Oct',11))` | | `r I(dd('Oct',16))` | `r I(dd('Oct',18))` | |`r I(dd('Oct',23))` | 25 | |`r I(dd('Oct',30))` 
+*Nov*   |   |  | `r I(dd('Nov',1))` | | `r I(dd('Nov',6))` | `r I(dd('Nov',8))` | | `r I(dd('Nov',13))` | `r I(dd('Nov',15))` | | `r I(dd('Nov',20))` | 22 | | `r I(dd('Nov',27))` | `r I(dd('Nov',29))`
+*Dec*   |   | `r I(dd('Dec',4))` | `r I(dd('Dec',6))` | | `r I(dd('Dec',11))` |  | 15 |
+
+**Final Exam Time**: Sat 15 Dec. 1:30-3:30 pm.  Make your travel plans accordingly!
+
+
+`r I(classDayContents("Thurs", "Sept", 6 ))`
+**Topic**: Introduction to epidemiology and the course
+
+**Reading**: 
+* Essential Epidemiology, Chapter 1
+* David Fraser, [Epidemiology as a Liberal Art](http://dl.dropbox.com/u/5098197/Epidemiology/Fraser-NEJM-epidemiology.pdf) (from the *New England Journal of Medicine*)
+
+**Assignment**: 
+* Set up your account on [Piazza](https://piazza.com/class#fall2012/math125) 
+
+**On Your Own**:
+* Video of the Day: [Hans Rossling and myths about the "Third World"](http://www.gapminder.org/videos/ted-talks/hans-rosling-ted-2006-debunking-myths-about-the-third-world/)
+* [Newpaper article about study skills](http://www.nytimes.com/2010/09/07/health/views/07mind.html?hp)
+* [Newspaper article about studying public health](http://www.washingtonpost.com/wp-dyn/content/article/2008/09/18/AR2008091804145.html?hpid=topnews)
+
+**In-class**:
+* [Risk charts](http://dl.dropbox.com/u/5098197/Epidemiology/799.pdf) from Woloshin, Schwartz, and Welch
+* <http://www.gapminder.org> site and video
+Notes`r I(todaysNotes("2012-09-05.html", ":"))`
+
+`r I(classDayContents("Tues", "Sept", 11 ))`
+**Topic**: Prevalence, Incidence, Mortality, Life Expectancy
+
+**Reading**: 
+* *Essential Epi*, Chap. 2
+* *Better*, "The Score" [Here is a link to the original article from the *New Yorker*.](http://www.newyorker.com/archive/2006/10/09/061009fa_fact?currentPage=1)
+
+**Assignment**: 
+* Start your glossary (POST LINK TO PIAZZA)
+* [Reading reflection on "The Score"](https://piazza.com/class#fall2012/math125/15) 
+
+
+`r I(classDayContents("Thurs", "Sept", 13 ))`
+**Topic**: Life expectancy, spreadsheet calculations
+
+**Reading**: 
+* *The Great Influenza*, Prologue and Chapters 1 & 2
+
+**Assignment**: 
+* Reading reflection on *The Great Influenza*, [Link to PIAZZA]
+* Estimation Problem 1. [LInk to PIAZZA] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
+
+OTHER MATERIALS
+<http://xkcd.com/552/> <http://entertainment.desktopnexus.com/wallpaper/37738/> <http://xkcd.com/388/> <http://xkcd.com/radiation/>
+[Musical advice on choosing a major](http://www.youtube.com/watch?v=pRexBMPeRTo&feature=player_embedded)
+
+`r I(classDayContents("Tues", "Sept", 18 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Sept", 20 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Tues", "Sept", 25 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Sept", 27 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Tues", "Oct", 2 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Oct", 4 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**
+* The 2011 movie *Contagion* (DVD on reserve in library), and an [op-ed by an epidemiology consulting on the movie](http://www.nytimes.com/2011/09/12/opinion/the-real-threat-of-contagion.html?src=me&ref=general).
+**In-class**:
+
+`r I(classDayContents("Tues", "Oct", 9 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Oct", 11 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Tues", "Oct", 16 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Oct", 18 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Tues", "Oct", 23 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Oct", 25 ))`
+Fall Break!
+
+`r I(classDayContents("Tues", "Oct", 30 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Thurs", "Nov", 1 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Tues", "Nov", 6 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Thurs", "Nov", 8 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Tues", "Nov", 13 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Thurs", "Nov", 15 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+`r I(classDayContents("Tues", "Nov", 20 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Thurs", "Nov", 22 ))`
+Thanksgiving Break!
+
+
+
+`r I(classDayContents("Tues", "Nov", 27 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Thurs", "Nov", 29 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Tues", "Dec", 4 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Thurs", "Dec", 6 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Tues", "Dec", 11 ))`
+**Topic**: 
+**Reading**: 
+**Assignment**: 
+**On Your Own**:
+**In-class**:
+
+
+`r I(classDayContents("Sat", "Nov", 15 ))`
+Final Exam: 1:30-3:30
