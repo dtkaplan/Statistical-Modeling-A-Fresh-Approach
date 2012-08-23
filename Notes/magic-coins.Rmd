@@ -13,8 +13,9 @@ I have a collection of coins from various countries and various eras, e.g. 100 L
 
 I hand out the coins to students, taking care to refer to each coin individually as if it were something special.  Then I ask the students for their names and the kind of coin, and write a table on the board, like this:
 
+
 Name   | Coin
-------------
+-------|----
 Julie  | 100 centavos
 Mike   | 50 pence
 Anne   | 1 deutschmark
@@ -30,7 +31,7 @@ Ask the students, how many should they have gotten if the coin was fair?  Genera
 Now tally
 
 Name   | Coin   |   Heads
---------------------------
+-------|--------|---------
 Julie  | 100 centavos  | 4
 Mike   | 50 pence      | 2
 Anne   | 1 deutschmark | 5

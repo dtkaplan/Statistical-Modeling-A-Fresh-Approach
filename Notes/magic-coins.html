@@ -194,11 +194,25 @@ hljs.initHighlightingOnLoad();
 
 <p>I hand out the coins to students, taking care to refer to each coin individually as if it were something special.  Then I ask the students for their names and the kind of coin, and write a table on the board, like this:</p>
 
-<h2>Name   | Coin</h2>
-
-<p>Julie  | 100 centavos<br/>
-Mike   | 50 pence<br/>
-Anne   | 1 deutschmark</p>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Coin</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Julie</td>
+<td>100 centavos</td>
+</tr>
+<tr>
+<td>Mike</td>
+<td>50 pence</td>
+</tr>
+<tr>
+<td>Anne</td>
+<td>1 deutschmark</td>
+</tr>
+</tbody></table>
 
 <p>and so on for at least 10 students &mdash; more is better.</p>
 
@@ -210,11 +224,29 @@ Anne   | 1 deutschmark</p>
 
 <p>Now tally</p>
 
-<h2>Name   | Coin   |   Heads</h2>
-
-<p>Julie  | 100 centavos  | 4<br/>
-Mike   | 50 pence      | 2<br/>
-Anne   | 1 deutschmark | 5</p>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Coin</th>
+<th>Heads</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Julie</td>
+<td>100 centavos</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Mike</td>
+<td>50 pence</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Anne</td>
+<td>1 deutschmark</td>
+<td>5</td>
+</tr>
+</tbody></table>
 
 <p>and so on &hellip;.</p>
 
@@ -233,7 +265,7 @@ Anne   | 1 deutschmark | 5</p>
 <pre><code class="r">rbinom(10, prob = 0.5, size = 6)
 </code></pre>
 
-<pre><code>##  [1] 3 2 2 2 2 5 3 3 4 2
+<pre><code>##  [1] 2 1 3 3 2 0 5 2 2 3
 </code></pre>
 
 <p>If we do it many times, we can estimate the probability of each result:</p>
@@ -243,7 +275,7 @@ Anne   | 1 deutschmark | 5</p>
 
 <pre><code>## 
 ##      0      1      2      3      4      5      6  Total 
-##   1525   9390  23555  31291  23527   9235   1477 100000 
+##   1592   9218  23570  31250  23459   9362   1549 100000 
 </code></pre>
 
 <p>It looks like a 2, 3, 4 should happen the large majority of times, about 75%.  There&#39;s only about a 3% chance of getting a 0 or 6.</p>
@@ -261,7 +293,7 @@ Anne   | 1 deutschmark | 5</p>
 
 <pre><code>## 
 ##     4     5     6 Total 
-##     8    59    33   100 
+##     5    71    24   100 
 </code></pre>
 
 <p>And with 20 students:</p>
@@ -273,8 +305,8 @@ Anne   | 1 deutschmark | 5</p>
 </code></pre>
 
 <pre><code>## 
-##     4     5     6 Total 
-##     2    49    49   100 
+##     5     6 Total 
+##    45    55   100 
 </code></pre>
 
 <p>With 10 students flipping, I&#39;m almost certain to get a result of 5 or 6.<br/>
