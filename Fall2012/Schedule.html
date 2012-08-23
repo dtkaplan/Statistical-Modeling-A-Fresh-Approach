@@ -1,0 +1,618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>Math 155: Introduction to Statistical Modeling</title>
+
+<base target="_blank"/>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>Math 155: Introduction to Statistical Modeling</h1>
+
+<p>Links: AcroScore <a href="https://moodle.macalester.edu/mod/assign/view.php?id=12216">accounts</a> and <a href="http://datavis.math.macalester.edu:8080/AcroScore08/">settings</a> : Assignments by Chapter <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISMf12'>1</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISMf12'>2</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12'>3</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISMf12'>4</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12'>5</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISMf12'>6</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12'>7</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISMf12'>8</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12'>9</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12'>10</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12'>11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISMf12'>12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-13-Problems/SM2-Chapter-13-Problems-A.html?access=ISMf12'>13</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISMf12'>14</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-15-Problems/SM2-Chapter-15-Problems-A.html?access=ISMf12'>15</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-16-Problems/SM2-Chapter-16-Problems-A.html?access=ISMf12'>16</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-17-Problems/SM2-Chapter-17-Problems-A.html?access=ISMf12'>17</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-18-Problems/SM2-Chapter-18-Problems-A.html?access=ISMf12'>18</a></p>
+
+<p><strong>Class Schedule</strong></p>
+
+<table><thead>
+<tr>
+<th></th>
+<th>:</th>
+<th>M</th>
+<th>W</th>
+<th>F</th>
+<th>:</th>
+<th>M</th>
+<th>W</th>
+<th>F</th>
+<th>:</th>
+<th>M</th>
+<th>W</th>
+<th>F</th>
+<th>:</th>
+<th>M</th>
+<th>W</th>
+<th>F</th>
+<th>:</th>
+<th>M</th>
+<th>W</th>
+<th>F</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>Sept</em></td>
+<td></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Sept-5'>5</a></td>
+<td><a target='self' href='#Day-2012-Sept-7'>7</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Sept-10'>10</a></td>
+<td><a target='self' href='#Day-2012-Sept-12'>12</a></td>
+<td><a target='self' href='#Day-2012-Sept-14'>14</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Sept-17'>17</a></td>
+<td><a target='self' href='#Day-2012-Sept-19'>19</a></td>
+<td><a target='self' href='#Day-2012-Sept-21'>21</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Sept-24'>24</a></td>
+<td><a target='self' href='#Day-2012-Sept-26'>26</a></td>
+<td><a target='self' href='#Day-2012-Sept-28'>28</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><em>Oct</em></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Oct-1'>1</a></td>
+<td><a target='self' href='#Day-2012-Oct-3'>3</a></td>
+<td><a target='self' href='#Day-2012-Oct-5'>5</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Oct-8'>8</a></td>
+<td><a target='self' href='#Day-2012-Oct-10'>10</a></td>
+<td><a target='self' href='#Day-2012-Oct-12'>12</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Oct-15'>15</a></td>
+<td><a target='self' href='#Day-2012-Oct-17'>17</a></td>
+<td><a target='self' href='#Day-2012-Oct-19'>19</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Oct-22'>22</a></td>
+<td><a target='self' href='#Day-2012-Oct-24'>24</a></td>
+<td>26</td>
+<td></td>
+<td><a target='self' href='#Day-2012-Oct-29'>29</a></td>
+<td><a target='self' href='#Day-2012-Oct-31'>31</a></td>
+<td></td>
+</tr>
+<tr>
+<td><em>Nov</em></td>
+<td></td>
+<td></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Nov-2'>2</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Nov-5'>5</a></td>
+<td><a target='self' href='#Day-2012-Nov-7'>7</a></td>
+<td><a target='self' href='#Day-2012-Nov-9'>9</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Nov-12'>12</a></td>
+<td><a target='self' href='#Day-2012-Nov-14'>14</a></td>
+<td><a target='self' href='#Day-2012-Nov-16'>16</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Nov-19'>19</a></td>
+<td><a target='self' href='#Day-2012-Nov-21'>21</a></td>
+<td>23</td>
+<td></td>
+<td><a target='self' href='#Day-2012-Nov-26'>26</a></td>
+<td><a target='self' href='#Day-2012-Nov-28'>28</a></td>
+<td><a target='self' href='#Day-2012-Nov-30'>30</a></td>
+</tr>
+<tr>
+<td><em>Dec</em></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Dec-3'>3</a></td>
+<td><a target='self' href='#Day-2012-Dec-5'>5</a></td>
+<td><a target='self' href='#Day-2012-Dec-7'>7</a></td>
+<td></td>
+<td><a target='self' href='#Day-2012-Dec-10'>10</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3><a name="Day-2012-Sept-5">Wed 5 Sept</a></h3>
+
+<p><strong>Topic</strong>: Introduction to the course. Randomness, modeling, and inference.<br/>
+<strong>Reading</strong>: Statistical Modeling §1.1, 1.2, 1.3<br/>
+<strong>Assignment</strong>: </p>
+
+<ul>
+<li>Do the reading! </li>
+<li>AcroScore set up</li>
+<li>Pre-course survey</li>
+</ul>
+
+<p><strong>On Your Own</strong>:</p>
+
+<ul>
+<li>Watch this one-hour documentary: <a href="http://www.gapminder.org/videos/the-joy-of-stats/">The Joy of Stats</a> with Hans Rossling</li>
+</ul>
+
+<p><strong>In-class</strong>: Starting with R. (Write a description of this activity)<br/>
+Notes<a href='../Notes/2012-09-05.html'>:</a></p>
+
+<h3><a name="Day-2012-Sept-7">Fri 7 Sept</a></h3>
+
+<p><strong>Topic</strong>: Data: cases, variables, tables, and codebooks<br/>
+<strong>Reading</strong>: Statistical Modeling §1.4, §2.1, 2.2, 2.3, 2.4<br/>
+<strong>Assignment</strong>:  <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISMf12#1RQ'>1.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISMf12#101'>1.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISMf12#102'>1.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISMf12#104'>1.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISMf12#105'>1.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISMf12#110'>1.10</a></p>
+
+<h3><a name="Day-2012-Sept-10">Mon 10 Sept</a></h3>
+
+<p><strong>Topic</strong>: Descriptive statistics<br/>
+<strong>Reading</strong>: </p>
+
+<ul>
+<li>SM §2.5, SM §3.1, 3.2, 3.3</li>
+<li><a href="http://xkcd.com/539/">XKCD cartoon</a></li>
+</ul>
+
+<p><strong>Assignment</strong>: </p>
+
+<ul>
+<li>Exercises <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISMf12#111'>1.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISMf12#112'>1.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISMf12#2RQ'>2.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISMf12#202'>2.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISMf12#204'>2.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#301'>3.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#323'>3.23</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#353'>3.53</a></li>
+<li>Elevator experiment, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#336'>3.36</a></li>
+</ul>
+
+<h3><a name="Day-2012-Sept-12">Wed 12 Sept</a></h3>
+
+<p><strong>Topic</strong>: Descriptive statistics: variance<br/>
+<strong>Reading</strong>: SM §3.4, 3.5, <a href="http://xkcd.com/833/">XKCD cartoon</a><br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISMf12#209'>2.09</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISMf12#214'>2.14</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISMf12#222'>2.22</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#302'>3.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#303'>3.03</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#304'>3.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#305'>3.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#306'>3.06</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#308'>3.08</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#311'>3.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#312'>3.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#315'>3.15</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#317'>3.17</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#318'>3.18</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#319'>3.19</a></p>
+
+<h3><a name="Day-2012-Sept-14">Fri 14 Sept</a></h3>
+
+<p><strong>Topic</strong>: Groupwise Models<br/>
+<strong>Reading</strong>: SM Ch. 4<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-314.3-Problems/SM2-Chapter-314.3-Problems-A.html?access=ISMf12#314.316'>314.3.16</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#3RQ'>3.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISMf12#403'>4.03</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISMf12#404'>4.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISMf12#405'>4.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISMf12#406'>4.06</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISMf12#410'>4.10</a><br/>
+<strong>In Class</strong>:</p>
+
+<ul>
+<li>Weekly Quiz</li>
+</ul>
+
+<h3><a name="Day-2012-Sept-17">Mon 17 Sept</a></h3>
+
+<p><strong>Topic</strong>: Model values, residuals, and variance.  Sampling and resampling.<br/>
+<strong>Reading</strong>: SM Ch. 4 (review).  SM §5.1, 5.2<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#354'>3.54</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISMf12#4RQ'>4.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISMf12#407'>4.07</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISMf12#408'>4.08</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12#501'>5.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12#502'>5.02</a></p>
+
+<h3><a name="Day-2012-Sept-19">Wed 19 Sept</a></h3>
+
+<p><strong>Topic</strong>: Confidence intervals<br/>
+<strong>Reading</strong>: SM §5.3, 5.4, 5.5, 5.7<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12#5RQ'>5.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12#503'>5.03</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12#512'>5.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12#517'>5.17</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12#520'>5.20</a><br/>
+<strong>In Class</strong>: <br/>
+<strong>On Your Own</strong>: Study Guide to Friday&#39;s Quiz on R (link to be posted)</p>
+
+<h3><a name="Day-2012-Sept-21">Fri 21 Sept</a></h3>
+
+<p><strong>Topic</strong>: Language of Models<br/>
+<strong>Reading</strong>: SM §6.1, 6.2, 6.3, 6.4<br/>
+<strong>Assignment</strong>: </p>
+
+<ul>
+<li>Required: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12#513'>5.13</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12#523'>5.23</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12#530'>5.30</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12#531'>5.31</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISMf12#601'>6.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISMf12#602'>6.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISMf12#604'>6.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISMf12#611'>6.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISMf12#613'>6.13</a></li>
+<li>Optional, for the theoretically oriented.  <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISMf12#540'>5.40</a></li>
+</ul>
+
+<p><strong>In Class</strong>:</p>
+
+<ul>
+<li>Quiz on R</li>
+</ul>
+
+<h3><a name="Day-2012-Sept-24">Mon 24 Sept</a></h3>
+
+<p><strong>Topic</strong>: From Model Terms to Formulas and Coefficients<br/>
+<strong>Reading</strong>: SM §6.5, 6.6, SM §7.1, 7.2<br/>
+<strong>Assignment</strong>: </p>
+
+<ul>
+<li>Required <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISMf12#6RQ'>6.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISMf12#605'>6.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISMf12#610'>6.10</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISMf12#612'>6.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#701'>7.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#702'>7.02</a></li>
+<li>Extensions <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISMf12#620'>6.20</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISMf12#621'>6.21</a>, <a href="http://xkcd.com/418/">XKCD cartoon</a>.  What regression model for this?</li>
+</ul>
+
+<h3><a name="Day-2012-Sept-26">Wed 26 Sept</a></h3>
+
+<p><strong>Topic</strong>: Formulas and Coefficients<br/>
+<strong>Reading</strong>: </p>
+
+<ul>
+<li>SM §7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9</li>
+<li><a href="http://xkcd.com/605/">XKCD cartoon</a></li>
+</ul>
+
+<p><strong>Assignment</strong>: </p>
+
+<ul>
+<li>Exercises <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#7RQ'>7.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#704'>7.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#705'>7.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#710'>7.10</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#711'>7.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#712'>7.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#713'>7.13</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#715'>7.15</a></li>
+<li>Car project (group project): <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#723'>7.23</a></li>
+</ul>
+
+<h3><a name="Day-2012-Sept-28">Fri 28 Sept</a></h3>
+
+<p><strong>Topic</strong>: Fitting and Least Squares<br/>
+<strong>Reading</strong>: SM §7.10, SM §8.1, 8.2 <br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#714'>7.14</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#716'>7.16</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#721'>7.21</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#722'>7.22</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#731'>7.31</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISMf12#801'>8.01</a><br/>
+<strong>In Class</strong>: Weekly Quiz</p>
+
+<h3><a name="Day-2012-Oct-1">Mon 1 Oct</a></h3>
+
+<p><strong>Topic</strong>: Geometry of Least Squares Fitting<br/>
+<strong>Reading</strong>: SM §8.3<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISMf12#802'>8.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISMf12#804'>8.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISMf12#805'>8.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISMf12#811'>8.11</a></p>
+
+<h3><a name="Day-2012-Oct-3">Wed 3 Oct</a></h3>
+
+<p><strong>Topic</strong>: Redundancy and Colinearity<br/>
+<strong>Reading</strong>: SM §8.4, 8.5<br/>
+<strong>Assignment</strong>:  <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISMf12#8RQ'>8.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISMf12#805'>8.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISMf12#812'>8.12</a><br/>
+<strong>In Class</strong>: Redundancy activity <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISMf12#820'>8.20</a></p>
+
+<h3><a name="Day-2012-Oct-5">Fri 5 Oct</a></h3>
+
+<p><strong>Topic</strong>: Correlation and Partitioning, \( R^2 \)<br/>
+<strong>Reading</strong>: SM Ch. 9<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12#901'>9.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12#902'>9.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12#904'>9.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12#905'>9.05</a><br/>
+<strong>In Class</strong>: Weekly Quiz</p>
+
+<h3><a name="Day-2012-Oct-8">Mon 8 Oct</a></h3>
+
+<p><strong>Topic</strong>: Correlation and Partitioning (continued)<br/>
+<strong>Reading</strong>: SM Ch. 9 (review)<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12#9RQ'>9.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12#910'>9.10</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12#911'>9.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12#912'>9.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12#913'>9.13</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12#921'>9.21</a></p>
+
+<h3><a name="Day-2012-Oct-10">Wed 10 Oct</a></h3>
+
+<p><strong>Topic</strong>: Total and Partial Relationships<br/>
+<strong>Reading</strong>: SM Ch. 10<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12#922'>9.22</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISMf12#923'>9.23</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12#1001'>10.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12#1004'>10.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12#1010'>10.10</a><br/>
+<strong>In Class</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12#1002'>10.02</a></p>
+
+<h3><a name="Day-2012-Oct-12">Fri 12 Oct</a></h3>
+
+<p><strong>Topic</strong>: Total and Partial Relationships (continued)<br/>
+<strong>Reading</strong>: SM Ch. 10 (review)<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12#10RQ'>10.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12#1005'>10.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12#1011'>10.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12#1012'>10.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12#1020'>10.20</a><br/>
+<strong>In Class</strong>: Weekly Quiz</p>
+
+<h3><a name="Day-2012-Oct-15">Mon 15 Oct</a></h3>
+
+<p><strong>Topic</strong>: Confidence Intervals on Coefficients<br/>
+<strong>Reading</strong>: SM Ch. 12<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12#1021'>10.21</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISMf12#1201'>12.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISMf12#1202'>12.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISMf12#1203'>12.03</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISMf12#1205'>12.05</a></p>
+
+<h3><a name="Day-2012-Oct-17">Wed 17 Oct</a></h3>
+
+<p><strong>Topic</strong>: Review for Exam<br/>
+<strong>Reading</strong>:<br/>
+<strong>Assignment</strong>: Review Problems (to be posted)</p>
+
+<h3><a name="Day-2012-Oct-19">Fri 19 Oct</a></h3>
+
+<p><strong>Mid-term Exam</strong></p>
+
+<h3><a name="Day-2012-Oct-22">Mon 22 Oct</a></h3>
+
+<p><strong>Topic</strong>: Confidence Intervals on Coefficients (continued)<br/>
+<strong>Reading</strong>: SM Ch. 12<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISMf12#12RQ'>12.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISMf12#1210'>12.10</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISMf12#1212'>12.12</a></p>
+
+<h3><a name="Day-2012-Oct-24">Wed 24 Oct</a></h3>
+
+<p><strong>Topic</strong>: Probability Models<br/>
+<strong>Reading</strong>: SM Ch. 11<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12#11RQ'>11.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12#1101'>11.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12#1102'>11.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12#1104'>11.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12#1105'>11.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12#1110'>11.10</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12#1121'>11.21</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12#1122'>11.22</a></p>
+
+<h3><a name="Day-2012-Oct-26">Fri 26 Oct</a></h3>
+
+<p><em>FALL BREAK</em></p>
+
+<h3><a name="Day-2012-Oct-29">Mon 29 Oct</a></h3>
+
+<p><strong>Topic</strong>: Hypothesis Testing<br/>
+<strong>Reading</strong>: SM Ch. 13<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12#1111'>11.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12#1130'>11.30</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12#1135'>11.35</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISMf12#1137'>11.37</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-13-Problems/SM2-Chapter-13-Problems-A.html?access=ISMf12#1301'>13.01</a></p>
+
+<h3><a name="Day-2012-Oct-31">Wed 31 Oct</a></h3>
+
+<p><strong>Topic</strong>: Hypothesis Testing<br/>
+<strong>Reading</strong>: SM Ch. 13 (review)<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-13-Problems/SM2-Chapter-13-Problems-A.html?access=ISMf12#13RQ'>13.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-13-Problems/SM2-Chapter-13-Problems-A.html?access=ISMf12#1302'>13.02</a><br/>
+<strong>In Class</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-13-Problems/SM2-Chapter-13-Problems-A.html?access=ISMf12#1315'>13.15</a></p>
+
+<h3><a name="Day-2012-Nov-2">Fri 2 Nov</a></h3>
+
+<p><strong>Topic</strong>: Testing Whole Models with \( R^2 \) and F<br/>
+<strong>Reading</strong>: SM §14.1, 14.2, 14.3, 14.5<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISMf12#1401'>14.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISMf12#1402'>14.02</a><br/>
+<strong>In Class</strong>: </p>
+
+<ul>
+<li>Weekly Quiz</li>
+<li><a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISMf12#1422'>14.22</a></li>
+</ul>
+
+<h3><a name="Day-2012-Nov-5">Mon 5 Nov</a></h3>
+
+<p><strong>Topic</strong>: Interpreting the p-value<br/>
+<strong>Reading</strong>: </p>
+
+<ul>
+<li>SM §14.4</li>
+<li><a href="http://xkcd.com/882/">XKCD cartoon</a> and <a href="http://xkcd.com/628/">another</a></li>
+</ul>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISMf12#14RQ'>14.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISMf12#1404'>14.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISMf12#1405'>14.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISMf12#1411'>14.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISMf12#1412'>14.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISMf12#1424'>14.24</a><br/>
+<strong>In Class</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISMf12#1421'>14.21</a></p>
+
+<h3><a name="Day-2012-Nov-7">Wed 7 Nov</a></h3>
+
+<p><strong>Topic</strong>: Hypothesis Testing on Parts of Models<br/>
+<strong>Reading</strong>: SM Ch. 15<br/>
+<strong>Assignment</strong>: </p>
+
+<h3><a name="Day-2012-Nov-9">Fri 9 Nov</a></h3>
+
+<p><strong>Topic</strong>: Hypothesis Testing on Parts of Models (continued)<br/>
+<strong>Reading</strong>: SM Ch. 15 (review)<br/>
+<strong>Assignment</strong>: <br/>
+<strong>In Class</strong>: Weekly Quiz</p>
+
+<h3><a name="Day-2012-Nov-12">Mon 12 Nov</a></h3>
+
+<p><strong>Topic</strong>: Choosing model terms<br/>
+<strong>Reading</strong>: <a href="http://xkcd.com/675/">XKCD cartoon</a><br/>
+<strong>Assignment</strong>: </p>
+
+<h3><a name="Day-2012-Nov-14">Wed 14 Nov</a></h3>
+
+<p><strong>Topic</strong>: Non parametrics<br/>
+<strong>Reading</strong>:<br/>
+<strong>Assignment</strong>: </p>
+
+<h3><a name="Day-2012-Nov-16">Fri 16 Nov</a></h3>
+
+<p><strong>Topic</strong>: Logistic regression<br/>
+<strong>Reading</strong>: SM Ch. 16<br/>
+<strong>Assignment</strong>: <br/>
+<strong>In Class</strong>: Weekly Quiz</p>
+
+<h3><a name="Day-2012-Nov-19">Mon 19 Nov</a></h3>
+
+<p><strong>Topic</strong>: Logistic regression<br/>
+<strong>Reading</strong>: SM Ch. 16<br/>
+<strong>Assignment</strong>: </p>
+
+<h3><a name="Day-2012-Nov-21">Wed 21 Nov</a></h3>
+
+<p><strong>Topic</strong>: Logistic regression<br/>
+<strong>Reading</strong>: SM Ch. 16<br/>
+<strong>Assignment</strong>: </p>
+
+<h3><a name="Day-2012-Nov-23">Fri 23 Nov</a></h3>
+
+<p><em>THANKSGIVING BREAK</em></p>
+
+<h3><a name="Day-2012-Nov-26">Mon 26 Nov</a></h3>
+
+<p><strong>Topic</strong>: Causation<br/>
+<strong>Reading</strong>: </p>
+
+<ul>
+<li>SM Ch. 17</li>
+<li><a href="http://xkcd.com/925/">XKCD cartoon</a></li>
+</ul>
+
+<p><strong>Assignment</strong>:</p>
+
+<h3><a name="Day-2012-Nov-28">Wed 28 Nov</a></h3>
+
+<p><strong>Topic</strong>: Causation<br/>
+<strong>Reading</strong>: </p>
+
+<ul>
+<li>SM Ch. 17</li>
+<li><a href="http://xkcd.com/552/">XKCD cartoon</a></li>
+</ul>
+
+<p><strong>Assignment</strong>:</p>
+
+<h3><a name="Day-2012-Nov-30">Fri 30 Nov</a></h3>
+
+<p><strong>Topic</strong>: Causation<br/>
+<strong>Reading</strong>: SM Ch. 17 and <a href="http://xkcd.com/687/">XKCD cartoon</a><br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-17-Problems/SM2-Chapter-17-Problems-A.html?access=ISMf12#17RQ'>17.RQ</a><br/>
+<strong>In Class</strong>: Weekly Quiz</p>
+
+<h3><a name="Day-2012-Dec-3">Mon 3 Dec</a></h3>
+
+<p><strong>Topic</strong>: Experiment and Design<br/>
+<strong>Reading</strong>: SM Ch. 18<br/>
+<strong>Assignment</strong>:</p>
+
+<h3><a name="Day-2012-Dec-5">Wed 5 Dec</a></h3>
+
+<p><strong>Topic</strong>: Experiment and Design<br/>
+<strong>Reading</strong>: SM Ch. 18<br/>
+<strong>Assignment</strong>:</p>
+
+<h3><a name="Day-2012-Dec-7">Fri 7 Dec</a></h3>
+
+<p><strong>Topic</strong>: Experiment and Design<br/>
+<strong>Reading</strong>: SM Ch. 18<br/>
+<strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-18-Problems/SM2-Chapter-18-Problems-A.html?access=ISMf12#18RQ'>18.RQ</a></p>
+
+<h3><a name="Day-2012-Dec-10">Mon 10 Dec</a></h3>
+
+<p><strong>Topic</strong>: Course Review and Wrap-Up<br/>
+<strong>Reading</strong>:<br/>
+<strong>Assignment</strong>:</p>
+
+</body>
+
+</html>
+
