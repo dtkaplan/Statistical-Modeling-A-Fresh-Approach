@@ -72,9 +72,9 @@ Did the `test.coins()` function get it right?
 do(10) * test.coins( resample( c("H","T"), size=100))
 ```
 
-* Another quantity, called the ``sensitivity,'' quantifies how often the test correctly identifies the sequence as not from a random coin.  To do this, you need to be able to state what ``not a random coin" means.  For instance, a coin with 5 heads and one tail is not a fair coin. (This probably doesn't correspond at all to what humans do that makes their sequences nonrandom.)
+* Another quantity, called the ``sensitivity," quantifies how often the test correctly identifies the sequence as not from a random coin.  To do this, you need to be able to state what ``not a random coin" means.  For instance, here's a process that tends to put tails after heads and vice versa. (This code is very obscure.)
 ```{r}
-do(10) * test.coins( resample( c("H", "H", "H", "H", "H", "T"), size=100))
+do(10) * test.coins( unlist(resample( list(c("H", "T"), c("T", "H"), "H", "T"), size=100))[1:100])
 ```
 
 By changing the size of the sequence --- it's 100 in the above examples --- you can change the sensitivity and specificity of the test.  Ideally, the test will always get it right.
