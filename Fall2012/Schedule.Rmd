@@ -83,6 +83,7 @@ Notes: `r I(todaysNotes("2012-09-05.html", "instr"))`
 **In-class**: 
 * [Link to Moodle site](https://moodle.macalester.edu/mod/assign/view.php?id=13577) for your introductory spreadsheet
 Starting with R. (Write a description of this activity)
+
 Notes: `r I(todaysNotes("2012-09-07.html", "instr"))`
 
 `r I(classDayContents("Mon", "Sept", 10 ))`
