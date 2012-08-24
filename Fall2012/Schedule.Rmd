@@ -41,7 +41,7 @@ dd <- function(month,day,year=2012) {
 }
 classDayContents <- function(weekday="", month, day, year=2012) {
   # put in the header and a bookmark
-  paste("### ", 
+  paste("<hr>\n### ", 
         paste('<a name="',makeDayLinkName(month,day,year),'">',weekday," ", day," ", month,"</a>",sep=""))
 }
 todaysNotes <- function(fname,marker="notes") {
@@ -71,13 +71,19 @@ todaysNotes <- function(fname,marker="notes") {
 **On Your Own**:
 * Watch this one-hour documentary: [The Joy of Stats](http://www.gapminder.org/videos/the-joy-of-stats/) with Hans Rossling
 
-**In-class**: Starting with R. (Write a description of this activity)
-Notes: `r I(todaysNotes("2012-09-05.html", "i"))`
+Notes: `r I(todaysNotes("2012-09-05.html", "instr"))`
 
 `r I(classDayContents("Fri", "Sept", 7 )) # ==============================`
 **Topic**: Data: cases, variables, tables, and codebooks
 **Reading**: Statistical Modeling §1.4, §2.1, 2.2, 2.3, 2.4
-**Assignment**:  `r I(PN(c("1RQ",101,102,104,105,110 )))`
+**Assignment**:  
+* Exercises: `r I(PN(c("1RQ",101,102,104,105,110 )))`
+* Quick survey to do **before** class: [link](https://spreadsheets.google.com/embeddedform?formkey=dEV1cW1rTWhpLUhITVFNVGpnQjNqT3c6MQ&theme=0AX42CRMsmRFbUy04ZWQwMDYwMS02YjZhLTQ2ZjMtYjcyNy0zYWNlMzlmYTAxNmY&embedded=true&ifq)
+
+**In-class**: 
+* [Link to Moodle site](https://moodle.macalester.edu/mod/assign/view.php?id=13577) for your introductory spreadsheet
+Starting with R. (Write a description of this activity)
+Notes: `r I(todaysNotes("2012-09-07.html", "instr"))`
 
 `r I(classDayContents("Mon", "Sept", 10 ))`
 **Topic**: Descriptive statistics
@@ -89,10 +95,14 @@ Notes: `r I(todaysNotes("2012-09-05.html", "i"))`
 * Exercises `r I(PN(c(111,112,"2RQ",202,204,301,323,353)))`
 * Elevator experiment, `r I(PN(c(336)))`
 
+Notes: `r I(todaysNotes("2012-09-10.html", "instr"))`
+
 `r I(classDayContents("Wed", "Sept", 12 ))`
 **Topic**: Descriptive statistics: variance
 **Reading**: SM §3.4, 3.5, [XKCD cartoon](http://xkcd.com/833/)
 **Assignment**: `r I(PN(c(209,214,222,302,303,304,305,306,308,311,312,315,317,318,319 )))`
+
+Notes: `r I(todaysNotes("2012-09-12.html", "instr"))`
 
 `r I(classDayContents("Fri", "Sept", 14 ))`
 **Topic**: Groupwise Models
@@ -100,6 +110,8 @@ Notes: `r I(todaysNotes("2012-09-05.html", "i"))`
 **Assignment**: `r I(PN(c(314.316,"3RQ",403,404,405,406,410)))`
 **In Class**:
 * Weekly Quiz
+
+Notes: `r I(todaysNotes("2012-09-14.html", "instr"))`
 
 `r I(classDayContents("Mon", "Sept", 17 ))`
 **Topic**: Model values, residuals, and variance.  Sampling and resampling.
