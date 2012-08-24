@@ -1,0 +1,27 @@
+Statistial Modeling Notes: Day 2
+========================================================
+
+
+## Organization of data into tables: Variables and Cases
+* [Math 155 Activity on Organization of Data](../Activities/IntroOrganizingData)
+* Show the [spreadsheet of their data from the assignment](https://spreadsheets0.google.com/ccc?hl=en&key=tEuqmkMhi-HHMQMTjgB3jOw&hl=en#gid=0)
+* Two basic types of variables: quantitative and categorical.  Point out what these are.  Mention an intermediate type --- ordinal --- and give as example a [Likert Scale](http://en.wikipedia.org/wiki/Likert_scale).
+
+## Creating their own spreadsheet
+* Have students form into groups of 4, introduce each other, decide on a few facts to record in a spreadsheet and create a Google spreadsheet.  
+* Each student should have an identified partner who will introduce them on one of the next three class days.
+* Share the link to the spreadsheet file so that everybody can access it.  Set it so that anybody with the link has access.
+* Each student in the group should copy the link into Moodle [assignment here](https://moodle.macalester.edu/mod/assign/view.php?id=13577) so they can get to it later on.
+
+## Do the introductions!
+
+One person from each group introduces another person from that group.  
+
+## Bureaucracy
+* Review AcroScore.  Have students enter their friendly names.
+* Description of elevator button experiment.
+
+## Starting R
+* Basic syntax, installing `mosaic` package
+* Using `fetchData` to read data files
+* Simple calculations on variables

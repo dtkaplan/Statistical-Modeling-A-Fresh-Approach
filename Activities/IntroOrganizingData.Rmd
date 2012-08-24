@@ -1,0 +1,21 @@
+Introductory Activity on the Organization of Data
+========================================================
+
+#### Danny Kaplan
+
+
+The purpose of this activity is to show students how to organize data as tables, but especially to think about what each variable is and how to code it.
+
+I distribute a [Google Form where I ask the students various questions](https://spreadsheets.google.com/embeddedform?formkey=dEV1cW1rTWhpLUhITVFNVGpnQjNqT3c6MQ&theme=0AX42CRMsmRFbUy04ZWQwMDYwMS02YjZhLTQ2ZjMtYjcyNy0zYWNlMzlmYTAxNmY&embedded=true&ifq). They are to fill this in before class. I have intentionally designed the form so that the questions are a bit ambiguous and to accept free text as input. I use the results in the student responses to consider some aspects of the organization of data:
+*Use consistent names, spelling, and capitalization for the levels in a categorical variable. So, F or M, but not "female", "woman", "F", "f", etc.
+*For numerical information, don't include units in the data. Put the units in the codebook. (I would rather the world were such that the units were easily kept with the data, but software is such that this is a hassle.)
+*For information about rates ("How much do you study?"), you need to phrase the question to refer to a specific time interval.
+*For missing data (e.g., the typical response to "When did you last go sky-diving?"), perhaps the code should include a "never did" rather than just a blank. Use NA to say when the data value is missing.
+
+Read in the data directly from the Google form. (How? "Publish" the spreadsheet as a CSV file and hand off the link to ISMdata." Note, if you use read.csv instead, remember to change the https protocol to http.)
+
+Additional things to do:
+* Data cleaning. E.g., how many different versions were there of the biology major.
+* Revise the form --- redo the form to ask for categorical data properly.
+
+It makes a nice project to ask students to design a survey and have them implement it as a Google Form to collect data. This forces them to think about how they will code categorical variables.  The Google Form format has a very simple, non-heirarchical arrangement of data in the spreadsheet. They can even distribute it with Facebook!

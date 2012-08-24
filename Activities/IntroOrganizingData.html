@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>Introductory Activity on the Organization of Data</title>
+
+<base target="_blank"/>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Introductory Activity on the Organization of Data</h1>
+
+<h4>Danny Kaplan</h4>
+
+<p>The purpose of this activity is to show students how to organize data as tables, but especially to think about what each variable is and how to code it.</p>
+
+<p>I distribute a <a href="https://spreadsheets.google.com/embeddedform?formkey=dEV1cW1rTWhpLUhITVFNVGpnQjNqT3c6MQ&amp;theme=0AX42CRMsmRFbUy04ZWQwMDYwMS02YjZhLTQ2ZjMtYjcyNy0zYWNlMzlmYTAxNmY&amp;embedded=true&amp;ifq">Google Form where I ask the students various questions</a>. They are to fill this in before class. I have intentionally designed the form so that the questions are a bit ambiguous and to accept free text as input. I use the results in the student responses to consider some aspects of the organization of data:<br/>
+*Use consistent names, spelling, and capitalization for the levels in a categorical variable. So, F or M, but not &ldquo;female&rdquo;, &ldquo;woman&rdquo;, &ldquo;F&rdquo;, &ldquo;f&rdquo;, etc.<br/>
+*For numerical information, don&#39;t include units in the data. Put the units in the codebook. (I would rather the world were such that the units were easily kept with the data, but software is such that this is a hassle.)<br/>
+*For information about rates (&ldquo;How much do you study?&rdquo;), you need to phrase the question to refer to a specific time interval.<br/>
+*For missing data (e.g., the typical response to &ldquo;When did you last go sky-diving?&rdquo;), perhaps the code should include a &ldquo;never did&rdquo; rather than just a blank. Use NA to say when the data value is missing.</p>
+
+<p>Read in the data directly from the Google form. (How? &ldquo;Publish&rdquo; the spreadsheet as a CSV file and hand off the link to ISMdata.&ldquo; Note, if you use read.csv instead, remember to change the https protocol to http.)</p>
+
+<p>Additional things to do:</p>
+
+<ul>
+<li>Data cleaning. E.g., how many different versions were there of the biology major.</li>
+<li>Revise the form &mdash; redo the form to ask for categorical data properly.</li>
+</ul>
+
+<p>It makes a nice project to ask students to design a survey and have them implement it as a Google Form to collect data. This forces them to think about how they will code categorical variables.  The Google Form format has a very simple, non-heirarchical arrangement of data in the spreadsheet. They can even distribute it with Facebook!</p>
+
+</body>
+
+</html>
+
