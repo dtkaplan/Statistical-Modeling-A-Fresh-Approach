@@ -8,7 +8,7 @@ require(mosaic)
 ## Background 
 
 Description:
-An introduction to patterns in randomness.  In this case, the pattern is runs of heads and tails in coin flips.
+An introduction to patterns in randomness.  In this case, the pattern is runs of heads and tails in coin flips.  These constitute a kind of "statistical fingerprint" which can be detected with the right tools.
 
 Requirements:
 * RStudio (for the manipulate functionality)
@@ -17,9 +17,11 @@ Requirements:
 
 ## Introduction
 
-We're going to do a magic trick that will show you a bit of statistical logic.  Like other magic tricks, the ``magic'' is in something you don't see or don't think about.
+We're going to do a demonstration that will show you a bit of statistical logic.  The point is to show that's it's possible to detect the traces of human involvement in a supposedly random sequence.  
 
 Divide into groups of two or more students.  One student in the group will work the computer, entering data.  Another student will generate the data.
+
+The student generating the data will either flip a coin repeatedly or will make up a random-looking sequence of heads and tails without actually flipping the coin.  We're going to try to detect when the process is real flipping and when it's not.
 
 ### Data Entry
 

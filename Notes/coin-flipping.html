@@ -185,7 +185,7 @@ hljs.initHighlightingOnLoad();
 <h2>Background</h2>
 
 <p>Description:<br/>
-An introduction to patterns in randomness.  In this case, the pattern is runs of heads and tails in coin flips.</p>
+An introduction to patterns in randomness.  In this case, the pattern is runs of heads and tails in coin flips.  These constitute a kind of &ldquo;statistical fingerprint&rdquo; which can be detected with the right tools.</p>
 
 <p>Requirements:</p>
 
@@ -197,9 +197,11 @@ An introduction to patterns in randomness.  In this case, the pattern is runs of
 
 <h2>Introduction</h2>
 
-<p>We&#39;re going to do a magic trick that will show you a bit of statistical logic.  Like other magic tricks, the &ldquo;magic&#39;&#39; is in something you don&#39;t see or don&#39;t think about.</p>
+<p>We&#39;re going to do a demonstration that will show you a bit of statistical logic.  The point is to show that&#39;s it&#39;s possible to detect the traces of human involvement in a supposedly random sequence.  </p>
 
 <p>Divide into groups of two or more students.  One student in the group will work the computer, entering data.  Another student will generate the data.</p>
+
+<p>The student generating the data will either flip a coin repeatedly or will make up a random-looking sequence of heads and tails without actually flipping the coin.  We&#39;re going to try to detect when the process is real flipping and when it&#39;s not.</p>
 
 <h3>Data Entry</h3>
 
@@ -214,7 +216,7 @@ fetchData(&quot;enterCoins.R&quot;)
 <pre><code class="r">enter.coins(n = 10)
 </code></pre>
 
-<p>Then, referring to the &quot;Plot&rdquo; window, press the &ldquo;H&rdquo; and &ldquo;T&rdquo; buttons ten times to enter a string of simulated coin flips.  (If no menu pops up, click on the little gear icon in the plot window.)</p>
+<p>Then, referring to the &ldquo;Plot&rdquo; window, press the &ldquo;H&rdquo; and &ldquo;T&rdquo; buttons ten times to enter a string of simulated coin flips.  (If no menu pops up, click on the little gear icon in the plot window.)</p>
 
 <p>Then give this command to confirm that the coins have been entered:</p>
 
@@ -259,7 +261,7 @@ fetchData(&quot;enterCoins.R&quot;)
 ## 1  Honest flipper.
 ## 2  Honest flipper.
 ## 3  Honest flipper.
-## 4  Honest flipper.
+## 4  Hard to say ...
 ## 5  Honest flipper.
 ## 6  Honest flipper.
 ## 7  Honest flipper.
@@ -277,14 +279,14 @@ fetchData(&quot;enterCoins.R&quot;)
 </code></pre>
 
 <pre><code>##             result
-## 1         Cheater!
+## 1  Honest flipper.
 ## 2  Honest flipper.
-## 3  Honest flipper.
+## 3         Cheater!
 ## 4         Cheater!
 ## 5         Cheater!
 ## 6         Cheater!
 ## 7         Cheater!
-## 8  Hard to say ...
+## 8  Honest flipper.
 ## 9         Cheater!
 ## 10        Cheater!
 </code></pre>
