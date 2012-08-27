@@ -66,7 +66,7 @@ todaysNotes <- function(fname,marker="notes") {
 **Assignment**: 
 * Do the reading! 
 * AcroScore set up
-* Pre-course survey
+
 
 **On Your Own**:
 * Watch this one-hour documentary: [The Joy of Stats](http://www.gapminder.org/videos/the-joy-of-stats/) with Hans Rossling
@@ -75,9 +75,13 @@ Notes: `r I(todaysNotes("2012-09-05.html", "instr"))`
 
 `r I(classDayContents("Fri", "Sept", 7 )) # ==============================`
 **Topic**: Data: cases, variables, tables, and codebooks
-**Reading**: Statistical Modeling §1.4, §2.1, 2.2, 2.3, 2.4
+**Reading**: 
+* Statistical Modeling §1.4, §2.1, 2.2, 2.3, 2.4
+* Recent news report: [Sleep and Senility](http://www.npr.org/blogs/health/2012/08/27/159983037/sleepless-nights-may-put-the-aging-brain-at-risk-of-dementia?sc=ipad&f=1001)
+
 **Assignment**:  
 * Exercises: `r I(PN(c("1RQ",101,102,104,105,110 )))`
+* Reading Reflection on Sleep and Senility. [Hand in on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=13720).
 * Quick survey to do **before** class: [link](https://spreadsheets.google.com/embeddedform?formkey=dEV1cW1rTWhpLUhITVFNVGpnQjNqT3c6MQ&theme=0AX42CRMsmRFbUy04ZWQwMDYwMS02YjZhLTQ2ZjMtYjcyNy0zYWNlMzlmYTAxNmY&embedded=true&ifq)
 
 **In-class**: 
@@ -95,6 +99,7 @@ Notes: `r I(todaysNotes("2012-09-07.html", "instr"))`
 **Assignment**: 
 * Exercises `r I(PN(c(111,112,"2RQ",202,204,301,323,353)))`
 * Elevator experiment, `r I(PN(c(336)))`
+* Pre-course survey
 
 Notes: `r I(todaysNotes("2012-09-10.html", "instr"))`
 

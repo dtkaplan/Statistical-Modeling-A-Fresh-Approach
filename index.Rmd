@@ -1,10 +1,42 @@
 Instructors' Resources for Teaching Statistical Modeling
 ========================================================
 
+NOTE: This document is being constructed over the course of the Fall 2012 semester.  Check back for updates!
+
 ### Day-by-Day Syllabus for Statistical Modeling
 
-* Fall 2012: [Math 155 at Macalester College](Fall2012/Schedule.html) including instructor notes.
-* [Spring 2011](http://test.causeweb.org/wiki/mosaic/index.php/Math_155_Kaplan_Spring_2011_Day-by-Day) on the MOSAIC wiki.
+* **CURRENT SEMESTER** Fall 2012: [Math 155 at Macalester College](Fall2012/Schedule.html) including instructor notes.
+* Past Semesters
+    * [Spring 2011](http://test.causeweb.org/wiki/mosaic/index.php/Math_155_Kaplan_Spring_2011_Day-by-Day) on the MOSAIC wiki.
+
+### Exercises
+``` {r echo=FALSE}
+acroChapter <- function(chap,access="ISMf12",probnum=NULL,label=chap){
+  if (!is.null(probnum)) probnum <- paste("#",probnum,sep="")
+  
+  paste("<a href='",
+              paste("https://dl.dropbox.com/u/5098197/Exercises/HTML/",
+                    "SM2-Chapter-",chap,"-Problems/SM2-Chapter-",chap,
+                    "-Problems-A.html?access=",access,probnum,sep=""),
+              "'>",label,"</a>",sep="")
+}
+```
+
+* [PDF format](http://www.mosaic-web.org/Repository/DannyKaplan/Exercise-Collection.pdf) (for all chapters)
+* HTML Format (individual chapters): `r I(acroChapter(chap=1))`, `r I(acroChapter(chap=2))`, `r I(acroChapter(chap=3))`, `r I(acroChapter(chap=4))`, `r I(acroChapter(chap=5))`, `r I(acroChapter(chap=6))`, `r I(acroChapter(chap=7))`, `r I(acroChapter(chap=8))`, `r I(acroChapter(chap=9))`, `r I(acroChapter(chap=10))`, `r I(acroChapter(chap=11))`, `r I(acroChapter(chap=12))`, `r I(acroChapter(chap=13))`, `r I(acroChapter(chap=14))`, `r I(acroChapter(chap=15))`, `r I(acroChapter(chap=16))`, `r I(acroChapter(chap=17))`, `r I(acroChapter(chap=18))`
+
+Answer Keys are available in either PDF or HTML format to instructors, with verification of instructor status.  Contact <mailto:kaplan@macalester.edu>.   
+
+### Blogs
+
+Published
+* [Instructor update on the mosaic package](Blog/Teaching-with-mosaic.html)
+
+Upcoming
+* Groupwise models and `mm`
+* Adding your own data sets and software using `fetchData`
+* Simulations
+* Teaching markdown/knitr
 
 
 ### Activities

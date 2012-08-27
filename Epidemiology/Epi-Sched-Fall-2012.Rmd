@@ -35,7 +35,7 @@ todaysNotes <- function(fname,marker="notes") {
 
 **Reading**: 
 * Essential Epidemiology, Chapter 1
-* David Fraser, [Epidemiology as a Liberal Art](http://dl.dropbox.com/u/5098197/Epidemiology/Fraser-NEJM-epidemiology.pdf) (from the *New England Journal of Medicine*)
+* David Fraser, [Epidemiology as a Liberal Art](http://media.collegeboard.com/digitalServices/pdf/yes/Epidemiology-As-A-Liberal-Art_David-Fraser_NEJM.pdf) (from the *New England Journal of Medicine*)
 
 **Assignment**: 
 * [Reading Reflection](https://moodle.macalester.edu/mod/assign/view.php?id=13654) on *Epidemiology as a Liberal Art*.  (There's a new version of Moodle this year, so there may be some kinks to work out.  Be patient.) 
