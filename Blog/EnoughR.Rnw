@@ -221,28 +221,18 @@ gsub('^\\\\begin\\{alltt\\}\\s*|\\\\end\\{alltt\\}\\s*$', '', h)
 
 \def\opt#1{#1}
 \def\squeeze{\vspace*{-4ex}}
-One key to success using \R\ in Intro Stats is keeping the volume low.  The colored 
-commands below are sufficient for an Intro Stats course.  The others are optional extras.
-This page provides a palette of functions.  The next page shows some examples.
-\iffalse
-In fact, \opt{many of these could be excluded}.
-See \url{http://www.calvin.edu/~rpruim/courses/m143/S11/fromClass/} for notes used in an 
-Intro Stats course for biology majors for usage examples.  
-The commands below were culled from those notes.  Some commands are 
-\fi
-
+A couple dozen functions are sufficient to carry out your work in Introduction to Statistical Modeling.  This page provides the names of functions, a review of modeling syntax, and some examples of use.
 
 \begin{multicols}{4}
 
-\iftrue
 \subsection*{Help}
 <<>>=
+help()
 apropos()  
 ?
 ??
 example()
 @
-\fi
 
 \subsection*{Arithmetic}
 Basic arithmetic is very similar to a calculator.
@@ -251,38 +241,83 @@ Basic arithmetic is very similar to a calculator.
 log()
 exp()
 sqrt()
-@
-<<highlight=FALSE>>=
 log10()
 abs()
-choose()
-factorial()
-uniroot()   # root finder
 @
 
-\subsection*{Randomization/Simulation}
+\subsection*{Randomization/Iteration}
 %
 <<>>=
-rflip()     # mosaic
 do()        # mosaic
 sample()    # mosaic augmented
 resample()  # with replacement
-@
-\squeeze
-<<highlight=FALSE>>=
 shuffle()   # mosaic
-rbinom()
-rnorm()     # etc, if needed
+@
+
+\subsection*{Graphics}
+
+%
+<<>>=
+bwplot()
+xyplot()
+histogram()
+densityplot()
+plotFun() # mosaic
 @
 
 \vfill
 \columnbreak
 
+\subsection*{Numerical Summaries}
+These functions have 
+a formula interface to match plotting.
+%
+<<>>=
+mean()   # mosaic augmented
+median() # mosaic augmented
+sd()     # mosaic augmented
+var()    # mosaic augmented
+tally()  # mosaic
+qdata()  # mosaic
+pdata()  # mosaic
+IQR()
+@
+
+\subsection*{Model Building and Inference}
+%
+<<>>=
+mm()      # mosaic
+lm()      # linear models
+glm()     # for logistic models
+resid()
+fitted()
+confint()
+anova()
+summary()
+makeFun() # mosaic 
+@
+
+\subsection*{Data and Variables}
+<<>>=
+fetchData()   # mosaic
+names()
+head()
+subset()
+with()
+transform()
+as.factor()
+levels()
+merge()
+rank()
+@
+\vfill
+
+\columnbreak
+
 \subsection*{Formula Theme}
 The following syntax (often with 
 some parts omitted) is used for 
-graphical summaries, numerical summaries,
-and inference procedures.
+graphical summaries and numerical summaries.
 
 <<>>=
 fname( y ~ x | z, data=..., 
@@ -291,7 +326,7 @@ fname( y ~ x | z, data=...,
 
 For plots
 \begin{itemize}
-	\item
+  \item
 		\texttt{y}: is y-axis variable
 	\item
 		\texttt{x}: is x-axis variable
@@ -304,130 +339,8 @@ For other things \Sexpr{'y ~ x | z'} can usually be
 read \Sexpr{'y'} is modeled by (or depends on) \Sexpr{'x'} 
 separately for each \Sexpr{'z'}.
 
-See the sampler for examples.
-
-\subsection*{Distributions}
-%
-<<>>=
-pbinom(); pnorm();   
-pchisq(); pt()
-qbinom(); qnorm(); 
-qchisq(); qt()
-plotDist();     # mosaic
-@
-\vfill
-
-\subsection*{Numerical Summaries}
-These functions have 
-a formula interface to match plotting.
-%
-<<>>=
-mean()      # mosaic augmented
-median()    # mosaic augmented
-sd()        # mosaic augmented
-var()       # mosaic augmented
-quantile()  # mosaic augmented
-favstats()  # mosaic
-tally()     # mosaic
-@
-\iffalse
-\squeeze
-<<highlight=FALSE>>=
-rank()
-IQR()
-@
-\fi
-\vfill
-
-\subsection*{Graphics (mostly lattice)}
-
-%\medskip
-
-\texttt{lattice} is not the only option,
-but I find it works well because (a) it allows
-for easy multi-variable plots with good default settings,
-and (b) \texttt{lattice} uses the formula interface.
-%
-<<>>=
-bwplot()
-xyplot()
-histogram()
-qqmath()
-densityplot()
-plotFun()      # mosaic
-@
-\squeeze
-<<highlight=FALSE>>=
-ladd()         # mosaic 
-dotPlot()      # mosaic
-bargraph()     # mosaic
-mosaic()       # in vcd package
-xhistogram()   # mosaic
-xqqmath()      # mosaic
-@
-
 \columnbreak
-\subsection*{Inference}
-%
-<<>>=
-binom.test()  # mosaic augmented
-prop.test()   # mosaic augmented
-chisq.test()
-t.test()
-lm()          # linear models
-anova( lm() )
-summary( lm() )
-makeFun( lm() )  # mosaic 
-resid( lm() )
-plot( lm() )
-TukeyHSD( aov () )
-plot( TukeyHSD( aov() ) )
-@
-\squeeze
-<<highlight=FALSE>>=
-confint()     # mosaic augmented
-pval()        # mosaic
-fisher.test()
-xchisq.test()  # mosaic
-power.t.test()
-power.prop.test()
-wilcox.test()
-@
-
-\subsection*{Data}
-<<>>=
-read.csv()
-summary()
-names()
-head()
-subset()
-factor()
-c()
-cbind() 
-rbind()
-@
-\squeeze
-<<highlight=FALSE>>=
-merge()
-@
-\iffalse
-\squeeze
-<<highlight=FALSE>>=
-str()
-tail()
-table()
-perctable()    # mosaic
-proptable()    # mosaic
-with()
-merge()
-rep()
-seq()
-sort()
-colnames()
-rownames()
-@
-\fi
-
+See the sampler for examples.
 
 \end{multicols}
 
