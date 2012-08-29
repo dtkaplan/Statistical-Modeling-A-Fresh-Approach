@@ -1,0 +1,19 @@
+Errata and Changes in *Statistical Modeling: A Fresh Approach* 2e
+========================================================
+
+## `mosaic`-Related Changes
+
+The software used in *Statistical Modeling* is distributed via the `mosaic` package in R.  The current version of `mosaic` differs in some details from the version available in summer 2011 when the 2nd edition of *Statistical Modeling* was released.  
+
+The changes affect only a few pages. Rather than release an entire new edition of the book to match the changed software, we have made a "corrected" printing.  For those readers who have the original summer 2011 printing (particularly students who have used books), we provide a list of the changed pages and PDF copies of the pages themselves.
+
+Changed Pages:
+
+* p. 42: Use of `$` operator (deprecated in current `mosaic` version)
+* p. 43: Use of `transform` to add new variables to a data frame
+* p. 83: Use of `transform`.  Introduction of `mm` operator for groupwise mean models.
+
+
+
+
+
