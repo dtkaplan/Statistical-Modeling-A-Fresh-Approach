@@ -5,14 +5,52 @@ Errata and Changes in *Statistical Modeling: A Fresh Approach* 2e
 
 The software used in *Statistical Modeling* is distributed via the `mosaic` package in R.  The current version of `mosaic` differs in some details from the version available in summer 2011 when the 2nd edition of *Statistical Modeling* was released.  
 
-The changes affect only a few pages. Rather than release an entire new edition of the book to match the changed software, we have made a "corrected" printing.  For those readers who have the original summer 2011 printing (particularly students who have used books), we provide a list of the changed pages and PDF copies of the pages themselves.
+The changes affect only a few pages. Rather than release an entire new edition of the book to match the changed software, we have made a "corrected" printing.  For those readers who have the original summer 2011 printing (particularly students who have used books), we provide a list of the changed pages and PDF copies of the pages themselves.  Other than those marked "IMPORTANT", the changes are a matter of style.
 
 Changed Pages:
 
-* p. 42: Use of `$` operator (deprecated in current `mosaic` version)
-* p. 43: Use of `transform` to add new variables to a data frame
-* p. 83: Use of `transform`.  Introduction of `mm` operator for groupwise mean models.
+IMPORTANT: The old commands are no longer available in `mosaic` and must be replaced.
 
+* p. 71: `tally` replaces `props` and `counts`  [New Page](p71.pdf)
+
+    NEW: ```tally( ~ sex, data=galton)```
+    OLD: ```props(counts, data=galton)```
+    NEW: ```tally ( ~ sex, data=galton, format="proportion")```
+    OLD: ```props(sex, data=galton)```
+    
+* p. 83 Introduction of `mm` operator for groupwise mean models. ```fitted()``` no longer works with ```mean()``` [New page](p83.pdf)
+
+    NEW: ```mod = mm( width ~ sex, data=kids )``` then ```fitted(mod)```
+    OLD: ```mod = mean( width ~ sex, data=kids )``` then ```fitted(mod, kids)```
+    
+* p. 272-3: `do()` finds $r$-squared on a model.  Use `do` or `summary` instead of `rsquared`. [New page](p272-3.pdf)
+
+    NEW: `summary(mod)` or `do()*mod`
+    OLD: `rsquared(mod)`
+
+    NEW: ```nulltrials = do(500) * lm(shuffle(height) ~ sex + mother, data=galton)```
+    OLD: ```nulltrials = do(500) * rsquared( lm(shuffle(height) ~ sex + mother, data=galton))```
+
+* p. 273: `tally` replaces `counts` [New page](p272-3.pdf)
+
+    NEW: ```tally(~ r.squared > 0.5618, nulltrials)```
+    OLD: ```count(var > 0.5618, nulltrials)```
+
+* p. 317: `tally()` rather than `props()` [New page](p317.pdf)
+
+    NEW: ```tally( ~ outcome, data=whickham, format="proportion" )```
+    OLD: ```props(outcome, data=whickham)```
+    
+Change in style or format.  The old commands will still work, but the new version is stylistically more consistent.
+
+* p. 42: Use of `$` operator (deprecated in current `mosaic` version) [New page](p42.pdf)
+* p. 43: Use of `transform()` to add new variables to a data frame [New page](p43.pdf)
+* p. 83: Use `transform()` rather than `$` [New page](p83.pdf)
+* p. 83: Use of `transform()` [New page](p83.pdf)
+* p. 175-176: Use of `with()` rather than `$` [New page](p175-6.pdf)
+* p. 196: `tally()` replaces `table()` [New page](p196.pdf)
+* p. 236: Use of `with()` rather than `$`.  Fixed error in names of variables. [New page](p236.pdf)
+* p. 316: Use `makeFun()` rather than `predict()` [New page](p316.pdf)
 
 
 

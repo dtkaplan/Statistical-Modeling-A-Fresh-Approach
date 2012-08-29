@@ -137,6 +137,10 @@ hr {
 
 
 
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 
 
 </head>
@@ -148,9 +152,52 @@ hr {
 
 <p>The software used in <em>Statistical Modeling</em> is distributed via the <code>mosaic</code> package in R.  The current version of <code>mosaic</code> differs in some details from the version available in summer 2011 when the 2nd edition of <em>Statistical Modeling</em> was released.  </p>
 
-<p>The changes affect only a few pages. Rather than release an entire new edition of the book to match the changed software, we have made a &ldquo;corrected&rdquo; printing.  For those readers who have the original summer 2011 printing (particularly students who have used books), we provide a list of the changed pages and PDF copies of the pages themselves.</p>
+<p>The changes affect only a few pages. Rather than release an entire new edition of the book to match the changed software, we have made a &ldquo;corrected&rdquo; printing.  For those readers who have the original summer 2011 printing (particularly students who have used books), we provide a list of the changed pages and PDF copies of the pages themselves.  Other than those marked &ldquo;IMPORTANT&rdquo;, the changes are a matter of style.</p>
 
 <p>Changed Pages:</p>
+
+<p>IMPORTANT: The old commands are no longer available in <code>mosaic</code> and must be replaced.</p>
+
+<ul>
+<li><p>p. 71: <code>tally</code> replaces <code>props</code> and <code>counts</code>  <a href="p71.pdf">New Page</a></p>
+
+<p>NEW: <code>tally( ~ sex, data=galton)</code><br/>
+OLD: <code>props(counts, data=galton)</code><br/>
+NEW: <code>tally ( ~ sex, data=galton, format=&quot;proportion&quot;)</code><br/>
+OLD: <code>props(sex, data=galton)</code></p></li>
+<li><p>p. 83 Introduction of <code>mm</code> operator for groupwise mean models. <code>fitted()</code> no longer works with <code>mean()</code> <a href="p83.pdf">New page</a></p>
+
+<p>NEW: <code>mod = mm( width ~ sex, data=kids )</code> then <code>fitted(mod)</code><br/>
+OLD: <code>mod = mean( width ~ sex, data=kids )</code> then <code>fitted(mod, kids)</code></p></li>
+<li><p>p. 272-3: <code>do()</code> finds \( r \)-squared on a model.  Use <code>do</code> or <code>summary</code> instead of <code>rsquared</code>. <a href="p272-3.pdf">New page</a></p>
+
+<p>NEW: <code>summary(mod)</code> or <code>do()*mod</code><br/>
+OLD: <code>rsquared(mod)</code></p>
+
+<p>NEW: <code>nulltrials = do(500) * lm(shuffle(height) ~ sex + mother, data=galton)</code><br/>
+OLD: <code>nulltrials = do(500) * rsquared( lm(shuffle(height) ~ sex + mother, data=galton))</code></p></li>
+<li><p>p. 273: <code>tally</code> replaces <code>counts</code> <a href="p272-3.pdf">New page</a></p>
+
+<p>NEW: <code>tally(~ r.squared &gt; 0.5618, nulltrials)</code><br/>
+OLD: <code>count(var &gt; 0.5618, nulltrials)</code></p></li>
+<li><p>p. 317: <code>tally()</code> rather than <code>props()</code> <a href="p317.pdf">New page</a></p>
+
+<p>NEW: <code>tally( ~ outcome, data=whickham, format=&quot;proportion&quot; )</code><br/>
+OLD: <code>props(outcome, data=whickham)</code></p></li>
+</ul>
+
+<p>Change in style or format.  The old commands will still work, but the new version is stylistically more consistent.</p>
+
+<ul>
+<li>p. 42: Use of <code>$</code> operator (deprecated in current <code>mosaic</code> version) <a href="p42.pdf">New page</a></li>
+<li>p. 43: Use of <code>transform()</code> to add new variables to a data frame <a href="p43.pdf">New page</a></li>
+<li>p. 83: Use <code>transform()</code> rather than <code>$</code> <a href="p83.pdf">New page</a></li>
+<li>p. 83: Use of <code>transform()</code> <a href="p83.pdf">New page</a></li>
+<li>p. 175-176: Use of <code>with()</code> rather than <code>$</code> <a href="p175-6.pdf">New page</a></li>
+<li>p. 196: <code>tally()</code> replaces <code>table()</code> <a href="p196.pdf">New page</a></li>
+<li>p. 236: Use of <code>with()</code> rather than <code>$</code>.  Fixed error in names of variables. <a href="p236.pdf">New page</a></li>
+<li>p. 316: Use <code>makeFun()</code> rather than <code>predict()</code> <a href="p316.pdf">New page</a></li>
+</ul>
 
 </body>
 
