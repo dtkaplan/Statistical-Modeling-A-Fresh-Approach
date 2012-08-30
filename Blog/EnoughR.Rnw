@@ -221,7 +221,7 @@ gsub('^\\\\begin\\{alltt\\}\\s*|\\\\end\\{alltt\\}\\s*$', '', h)
 
 \def\opt#1{#1}
 \def\squeeze{\vspace*{-4ex}}
-A couple dozen functions are sufficient to carry out your work in Introduction to Statistical Modeling.  This page provides the names of functions, a review of modeling syntax, and some examples of use.
+A couple dozen functions are sufficient to carry out your work in Introduction to Statistical Modeling.  This page provides the names of functions, a review of formula syntax, and some examples of use.
 
 \begin{multicols}{4}
 
