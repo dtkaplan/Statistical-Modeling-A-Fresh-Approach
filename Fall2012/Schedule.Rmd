@@ -101,6 +101,9 @@ Notes: `r I(todaysNotes("2012-09-07.html", "instr"))`
 * Elevator experiment, `r I(PN(c(336)))`
 * Pre-course survey
 
+**In-Class**:
+* [Marital status of active-duty forces](https://dl.dropbox.com/u/5098197/Math155/ActiveDuty_MaritalStatus.xls) from [data.gov](https://explore.data.gov/Population/Active-Duty-Marital-Status/r84k-m39h)
+
 Notes: `r I(todaysNotes("2012-09-10.html", "instr"))`
 
 `r I(classDayContents("Wed", "Sept", 12 ))`

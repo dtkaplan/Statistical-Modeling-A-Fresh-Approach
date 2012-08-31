@@ -1,0 +1,26 @@
+How Many Variables?
+====================
+#### Daniel Kaplan
+
+### Purpose
+
+* Help students translate between summary-table format and basic case-variable format.
+* Create a short case-variable data table from scratch.
+* Get students working cooperatively in small groups and sharing data/files.
+
+### Data
+
+[Marital status of active-duty military](https://dl.dropbox.com/u/5098197/Math155/ActiveDuty_MaritalStatus.xls) from [data.gov](https://explore.data.gov/Population/Active-Duty-Marital-Status/r84k-m39h)
+
+### Activity
+
+To do in teams of 2 or 4
+
+Imagine the table which has an individual person as the unit of analysis.
+* How many variables are there? 
+* What are the levels for each variable you identified?
+* Which cells in the table (list the row or column number/letter) correspond to tabulations or calculations rather than basic data on the unit of analysis.
+* Create a short table on Google Docs with just three or four of the cases from different cells in the spreadsheet. Make it publically available and hand it in on Google.  (Each person in the group should do this.)
+
+
+

@@ -57,3 +57,8 @@ Even on the first day, I have students log in to the [RStudio](http:/www.rstudio
 
 * [Data Organization](Activities/IntroOrganizingData.html)
 
+##### Data Organization
+
+* The Elevator Experiment
+* [How Many Variables?](Activities/HowManyVariables.html) Distinguishing between summary tables and basic case-variable data tables.
+
