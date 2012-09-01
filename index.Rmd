@@ -32,6 +32,7 @@ Answer Keys are available in either PDF or HTML format to instructors, with veri
 Published
 * [Instructor update on the mosaic package](Blog/Teaching-with-mosaic.html)
 * [List of `mosaic` related changes in the corrected (Summer 2012) printing](Errata/errata.html).  This is useful for students who have the first printing of the second edition, e.g. students with used books in Fall 2012.  There are just a handful of changes, but it's important to be aware of them.
+* [An orientation for parents](http://rpubs.com/dtkaplan/1279)
 
 Upcoming
 * Groupwise models and `mm`
