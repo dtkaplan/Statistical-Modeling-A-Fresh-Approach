@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>A Class for Parents</title>
+
+<base target="_blank"/>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>A Class for Parents</h1>
+
+<h3>Danny Kaplan, Sept. 1, 2012</h3>
+
+<p>I was asked to lead a 45-minute statistics class for parents during Macalester&#39;s new-student orientation.</p>
+
+<h3>A Motivating Story</h3>
+
+<p>Macalester has a Scottish theme during orientation &mdash; bagpipes, guides in kilts, etc. &mdash; so I started with a recent article that fits the theme.</p>
+
+<h4>Unhealthy Glaswegians: No city for old men</h4>
+
+<p>From the <em>Economist</em>, Aug. 25, 2012, pp.44-5.  <a href="http://www.economist.com/node/21560888">link to article</a>.</p>
+
+<p>&ldquo;Even in wealthy neighbourhoods mortality rates are 15% higher than in similar districts of other big cities.&rdquo;</p>
+
+<p><em>QUESTION</em>: Since everybody dies eventually, the mortality rate world-wide is 100%.  How can it be 115% in Glasgow?</p>
+
+<p>Answer: It&#39;s a mortality <strong>rate</strong>.  A rate is something per something else.  In this case, the rate is fraction of the population that dies divided by time: fraction per year.  For the US currently, this is about 8.39 per 1000 per year.  In the UK, it&#39;s about 9.33 per 1000 per year.  (I didn&#39;t have time to find the rate for Scotland, specifically.  Such data are easily available by country.)  So the UK rate is higher than the US rate by \( 9.33/8.39 = \) <code>9.33/8.39</code>.  You would think that would be a bigger story: The UK as a whole has an 11% higher mortality rate than the US.</p>
+
+<p>This is an example of what might be called &ldquo;quantitative literacy.&rdquo;  Knowing what a rate is in general (a ratio), and what a mortality rate is in particular.  We spend some time on literacy, but as background.  We&#39;re not teaching literacy here; our goal is to teach advanced skills &mdash; college stuff.  But of course one needs to build the advanced stuff on the basics, so we make sure to touch on the basics.</p>
+
+<p>You kids, as you know, are going to school in an era where data are ubiquitous.  The challenge they will face is not acquiring data, but interpreting it.  For instance, a Google search will quickly lead you to a table (compiled by the US CIA!) of <a href="https://www.cia.gov/library/publications/the-world-factbook/rankorder/2066rank.html">country-by-country mortality rates</a>.  [Go look at it now!]</p>
+
+<p>This is where I got the figures on US and UK mortality.  The table is ordered from highest morality countries (South Africa, Russia) to lowest mortality countries.  </p>
+
+<p>It&#39;s instructive to look at countries with low mortality rates.  Singapore: 3.41/1000.<br/>
+Kuwait: 2.13/1000. Qatar: 1.55/1000.  Qatar has the lowest.  Below that are places that are so small that, evidently, nobody died in 2012: the Pitcairn Islands (inhabited by descendents of the mutineers from the Bounty), Norfolk Island (British Australia&#39;s version of Devil&#39;s Island, long abandonned).</p>
+
+<p>What conclusion do you draw from this quick look at the data.  That wealthy countries have a low death rate?  Or maybe you think about the Middle East.  Israel: 5.50/1000.  Egypt: 4.80/1000.  Egypt isn&#39;t so rich.  Iraq: 4.73.  West Bank: 3.56.  Gaza: 3.22.</p>
+
+<p>Do you think the Israeli version of the <em>Economist</em> ever had a story: &ldquo;No country for old men: Israeli morality 62% higher than in Palestinian territories?&rdquo;</p>
+
+<p>What&#39;s going on?  A paragraph at the top of the CIA page explains:</p>
+
+<blockquote>
+<p>This entry gives the average annual number of deaths during a year per 1,000 population at midyear; also known as crude death rate. The death rate, while only a rough indicator of the mortality situation in a country, accurately indicates the current mortality impact on population growth. This indicator is significantly affected by age distribution, and most countries will eventually show a rise in the overall death rate, in spite of continued decline in mortality at all ages, as declining fertility results in an aging population.</p>
+</blockquote>
+
+<h2>Adjustment and Standarization: Covariates</h2>
+
+<p>From the <em>Economist</em> article:</p>
+
+<blockquote>
+<p>At first this seemed to be explained by poverty: poorer people are less healthy and Glasgow has lots of them.  But about ten eyars ago studies began to show that the city was still dying younger than it should have done.  Adjusting for age, poverty and gender, Glasgow has more than twice as many deaths from drink and drugs as Liverpool and Manchester.</p>
+</blockquote>
+
+<p><img src="data:image/png;base64,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" alt="Graphic: The Riddle of the Clyde"/></p>
+
+<p>Standardized for sex and poverty.  (Some age stratification is implicit.)</p>
+
+<h3>SAT and School Expenditures</h3>
+
+<p>You likely have, in the back of your mind, thoughts about leaving your child at a new place, how lonely it will be back home &hellip; or perhaps how pleasant it will be.  But maybe you&#39;re also thinking about how much money this all costs and whether it will be worth it.  Let&#39;s switch to an example that&#39;s related to this.</p>
+
+<p>SAT versus per student expenditures for the different states.</p>
+
+<p>George Will&#39;s statement on these data: a standard kind of interpretation.</p>
+
+<h2>Computing</h2>
+
+<p>A primer on statistical inference.  It&#39;s based on randomization and random sampling.</p>
+
+<h2>New work flows and publication</h2>
+
+<p>I came to college in 1977 with an electric typewriter from Sears and an envelope of chalk coated paper for making corrections by overtyping. In upper-level seminars, students were required to type their essays on mimeograph sheets so that they could be distributed to the others in the seminars. </p>
+
+<p>Your kids, like mine, may never have used a typewriter.  They communicate by email, by text.  They write for Facebook.</p>
+
+<p>If you work in an office, chances are that you or someone you know uses Excel or a similar spreadsheet program extensively.  In many public schools, kids are taught to use Excel, Word, PowerPoint, and other such &ldquo;productivity&rdquo; software.  </p>
+
+<p>My view, and I think the consensus view of my department, is that computing will continue to extend into the workplace and that it&#39;s important to prepare students for this future. But this doesn&#39;t mean teaching the technologies that are in mainstream use today, it means anticipating and preparing for the technologies of the workplace tomorrow.  Some of these:</p>
+
+<ul>
+<li>Collaborative authoring.</li>
+<li>Integration of technical computing and data-driven graphics</li>
+<li>What&#39;s coming to be called &ldquo;reproducible research,&rdquo; that is, documents that are self documenting, verifiable, and can be updated easily.</li>
+<li>New publication modalities, including interactive graphics.</li>
+</ul>
+
+<p>To that end:</p>
+
+<ul>
+<li>Every student who takes a statistics class in this department &mdash; and half the students who attend Macalester will do so &mdash; will learn a modern, technical computing system: R.  This is a professional level program originating in the old ATT Bell Labs that&#39;s growing very rapidly and is now in use or being adopted by major players such as Google and Oracle.</li>
+<li>They won&#39;t be doing menu-based calculations, they will use learn to express themselves in the computer language</li>
+<li>They will write and publish their work in a reproducible way.</li>
+</ul>
+
+<p>As an example, even though I wrote them this morning, these notes these notes are already published on line at <a href="http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/OrientationForParents.html">http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/OrientationForParents.html</a>.  </p>
+
+<p>For the nerdy among you, this document is compiled from a Markdown/knitR source, which incorporates the computer examples into the document itself.  That&#39;s at <a href="http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/OrientationForParents.Rml">http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/OrientationForParents.Rml</a>.  If your child is taking Introduction to Statistical Modeling, and you want to follow along, I&#39;ll happily make the book available to you online and provide you with an account on the Macalester RStudio server.  Write to <a href="mailto:kaplan@macalester.edu">kaplan@macalester.edu</a>.</p>
+
+</body>
+
+</html>
+
