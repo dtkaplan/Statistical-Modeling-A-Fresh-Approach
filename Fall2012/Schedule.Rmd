@@ -62,9 +62,15 @@ todaysNotes <- function(fname,marker="notes") {
 **Reading**: 
 * *Statistical Modeling* textbook §1.1, 1.2, 1.3
 * A [recent newspaper report](http://www.nytimes.com/2012/08/21/health/how-well-you-sleep-may-hinge-on-race.html?_r=1) that frames some of the technical issues covered by the course.
+* An [orientation for parents](http://rpubs.com/dtkaplan/1477).  This is the link for notes for a class the college ran for parents of entering students on Saturday 1 Sept.  Feel free to send it to your parents or others who ask what you're going to be doing in statistics.
+* Login to R. [Instructions](http://rpubs.com/dtkaplan/1398).  The [RStudio server](http://www.macalester.edu/rstudio)
 
 **Assignment**: 
 * Do the reading! 
+
+**In Class**:
+* Activities on randomness.
+* Basics with R.
 * AcroScore set up
 
 

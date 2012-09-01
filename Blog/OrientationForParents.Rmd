@@ -16,24 +16,25 @@ From the *Economist*, Aug. 25, 2012, pp.44-5.  [link to article](http://www.econ
 
 *QUESTION*: Since everybody dies eventually, the mortality rate world-wide is 100%.  How can it be 115% in Glasgow?
 
-Answer: It's a mortality **rate**.  A rate is something per something else.  In this case, the rate is fraction of the population that dies divided by time: fraction per year.  For the US currently, this is about 8.39 per 1000 per year.  In the UK, it's about 9.33 per 1000 per year.  (I didn't have time to find the rate for Scotland, specifically.  Such data are easily available by country.)  So the UK rate is higher than the US rate by $latex 9.33/8.39 =$ `9.33/8.39`.  You would think that would be a bigger story: The UK as a whole has an 11% higher mortality rate than the US.
+Answer: It's a mortality **rate**.  A rate is something per something else.  In this case, the rate is fraction of the population that dies divided by time: fraction per year.  For the US currently, this is about 8.39 per 1000 per year.  In the UK, it's about 9.33 per 1000 per year.  (I didn't have time to find the rate for Scotland, specifically.  Such data are easily available by country.)  So the UK rate is higher than the US rate by $9.33/8.39 =$ ```r 9.33/8.39```.  You would think that would be a bigger story: The UK as a whole has an 11% higher mortality rate than the US.
 
 This is an example of what might be called "quantitative literacy."  Knowing what a rate is in general (a ratio), and what a mortality rate is in particular.  We spend some time on literacy, but as background.  We're not teaching literacy here; our goal is to teach advanced skills --- college stuff.  But of course one needs to build the advanced stuff on the basics, so we make sure to touch on the basics.
 
-You kids, as you know, are going to school in an era where data are ubiquitous.  The challenge they will face is not acquiring data, but interpreting it.  For instance, a Google search will quickly lead you to a table (compiled by the US CIA!) of [country-by-country mortality rates](https://www.cia.gov/library/publications/the-world-factbook/rankorder/2066rank.html).  [Go look at it now!]
+Your kids, as you know, are going to school in an era where data are ubiquitous.  The challenge they will face is not acquiring data, but interpreting it.  For instance, a Google search will quickly lead you to a table (compiled by the US CIA!) of country-by-country mortality rates. [Go look at it now!](https://www.cia.gov/library/publications/the-world-factbook/rankorder/2066rank.html).  
 
 This is where I got the figures on US and UK mortality.  The table is ordered from highest morality countries (South Africa, Russia) to lowest mortality countries.  
 
-It's instructive to look at countries with low mortality rates.  Singapore: 3.41/1000.
-Kuwait: 2.13/1000. Qatar: 1.55/1000.  Qatar has the lowest.  Below that are places that are so small that, evidently, nobody died in 2012: the Pitcairn Islands (inhabited by descendents of the mutineers from the Bounty), Norfolk Island (British Australia's version of Devil's Island, long abandonned).
+It's instructive to look at countries with low mortality rates.  Singapore: 3.41/1000. Kuwait: 2.13/1000. Qatar: 1.55/1000.  Qatar has the lowest.  Below that are places that are so small that, evidently, nobody died in 2012: the Pitcairn Islands (inhabited by descendents of the mutineers from the Bounty), Norfolk Island (British Australia's version of Devil's Island, long abandonned).
 
 What conclusion do you draw from this quick look at the data.  That wealthy countries have a low death rate?  Or maybe you think about the Middle East.  Israel: 5.50/1000.  Egypt: 4.80/1000.  Egypt isn't so rich.  Iraq: 4.73.  West Bank: 3.56.  Gaza: 3.22.
 
-Do you think the Israeli version of the *Economist* ever had a story: "No country for old men: Israeli morality 62% higher than in Palestinian territories?"
+Do you think the Israeli version of the *Economist* ever had a story: "No country for old men: Israeli morality 62% higher than in Palestinian territories?"  Gaza has a very young population.  Consequently, mortality is low. (If this were because old people die early in Gaza, the mortality would be higher.  In fact, life expectancy and birthrate are very high in Gaza compared to much of the world:  [Life expectancy](https://www.cia.gov/library/publications/the-world-factbook/rankorder/2102rank.html): Gaza 74.16 years, West Bank 75.24, US 78.49, Israel 81.07.  [Birth rate](https://www.cia.gov/library/publications/the-world-factbook/fields/2054.html) (per 1000): Gaza 34.3, West Bank 24.19, Israel 18.97, US 13.68.
 
-What's going on?  A paragraph at the top of the CIA page explains:
+A paragraph explains at the top of the CIA page on mortality rates:
 
 > This entry gives the average annual number of deaths during a year per 1,000 population at midyear; also known as crude death rate. The death rate, while only a rough indicator of the mortality situation in a country, accurately indicates the current mortality impact on population growth. This indicator is significantly affected by age distribution, and most countries will eventually show a rise in the overall death rate, in spite of continued decline in mortality at all ages, as declining fertility results in an aging population.
+
+So while wealth and other factors (HIV in South Africa, alcohol in Russia) shape mortality, it's silly to compare mortality rates without adjusting for age.
 
 ## Adjustment and Standarization: Covariates
 
@@ -49,18 +50,128 @@ Standardized for sex and poverty.  (Some age stratification is implicit.)
 
 You likely have, in the back of your mind, thoughts about leaving your child at a new place, how lonely it will be back home ... or perhaps how pleasant it will be.  But maybe you're also thinking about how much money this all costs and whether it will be worth it.  Let's switch to an example that's related to this.
 
-SAT versus per student expenditures for the different states.
+SAT versus per student expenditures for the different states.  In 1993, columnist George Will pointed out some patterns.
 
-George Will's statement on these data: a standard kind of interpretation.
+> …[T]he 10 states with the lowest per pupil spending included four — North Dakota, South Dakota, Tennessee, Utah — among the 10 states with the top SAT scores. Only one of the 10 states with the highest per pupil expenditures — Wisconsin — was among the 10 states with the highest SAT scores. New Jersey has the highest per pupil expenditures, an astonishing $10,561, which teachers’ unions elsewhere try to use as a negotiating benchmark. New Jersey’s rank regarding SAT scores? Thirty-ninth... The fact that the quality of schools... [fails to correlate] with education appropriations will have no effect on the teacher unions' insistence that money is the crucial variable. The public education lobby's crumbling last line of defense is the miseducation of the public.
+--- "The Meaningless Money Factor" (1993) Washington *Post*, Sept. 12, p. C7
 
+Reasoning is a process, not a result.  So bear with me as I use the computer to do the calculations in real time, since I need to illustrate the process.  (Of course, another term for "in real time" is "without a net," so be forgiving when I make mistakes.)
 
+We will be using R, a professional-level system for statistical and technical computing.  I'm part of a US National Science Foundation group, called [Project MOSAIC](http:/www.mosaic-web.org), that's trying to integrate computing and modeling into the undergraduate mathematics and statistics curriculum.  One of our products is a "package" for R that makes it easier to use the R language for programming without having to learn programming.  I'm loading that package now.  Your student will be using it in both statistics (throughout the curriculum) and calculus (in the *Applied Calculus* course):
+```{r error=FALSE,message=FALSE,warning=FALSE,result="hide"}
+require(mosaic)
+```
 
+Here's data from the 1990s of the same sort that George Will was commenting on.
+```{r results="hide"}
+states = fetchData("SAT")
+plotPoints( sat ~ expend, data=states )
+```
+
+Expenditures are in thousands of dollars per student per year in each state.  SAT is the sum of the verbal and math scores, averaged within each state.
+
+There are four states with very high expenditures.  These might be skewing the result compared to the rest of the states.  For simplicity, I'll just omit those four states in the rest of this example.  (There are more nuanced things to do here, but this is an introduction.)
+
+Here are the very highest-spending states:
+```{r}
+subset(states, expend > 8)
+```
+
+We'll work with the other 46 states:
+```{r}
+most = subset(states, expend < 8)
+plotPoints( sat ~ expend, data=most )
+```
+
+You might be able to see a pattern here: the **higher-spending states** seem to have **lower** SAT scores.  George Will is right.
+
+We can quantify the pattern by constructing a model formula that relates typical SAT score to expenditures.  Generically, this is called "fitting" the model.  Here's the way we do it in our *Applied Calculus* class:
+```{r}
+f = fitModel( sat ~ A + B*expend, data=most)
+plotPoints( sat ~ expend, data=most )
+plotFun( f(expend)~expend, add=TRUE, col="red", lwd=3)
+```
+You can see that the line is sloping downward: higher expenditures are associated with lower SAT scores, even without the highest-spending states.
+
+If you remember your high-school algebra, you should be able to read off the slope of the line from the fitted formula:
+```{r}
+f
+```
+SAT scores go down by 25 points (on average) for every $1000 of increased expenditures.
+
+A central issue in statistical reasoning is the matter of what's called "significance" or "confidence".  ("Significance" is an especially misleading word, but we're stuck with it.)  Could that downward slope be due to chance?  Scores will vary from year to year.  Maybe this was just an unlucky year for the teachers' unions (and luck for George Will, in his search for material for columns).
+
+There is a standard, technical approach to this issue, which your kids will learn and master.  With computers, it's really easy to get the answer:
+```{r}
+summary(lm(sat ~expend, data=most))
+```
+
+Reading such a table (and knowing why it's `sat ~ expend` and not `expend ~ sat`) is a technical skill.  The relevant number here is 0.031, the "p-value" on the slope.  That number is low enough that it would be fair to describe the results as "significant" in a statistical sense.  This result, at least based on the p-value, is publishable in the scientific literature.
+
+There are two things going on behind this calculation:
+
+1. Some mathematics of the "certainly correct" type that calculates the slope from the data and the p-value for that slope.
+2. Judgment, or what mathematicians often call "assumptions".  Judgment is the hardest thing to teach, and so often is absent from mathematics courses.  But it's important.  Most of the statistics course will be occupied giving students the technical skills they need so that they understand the role of judgment.
 
 ## Computing
 
-A primer on statistical inference.  It's based on randomization and random sampling.
+The mathematical part is traditionally quite hard, involving derivations, proofs, technicalities such as integration, etc.  Math majors do this sort of stuff.  But understanding the mathematical reasoning is not at all hard, especially with computers.  
 
-## New work flows and publication
+The matter of statistical "significance" is not about whether the slope was calculated correctly or the possible errors in the calculation.  It is based on the recognition that things vary.  If the data had been collected in a different year, for instance, the result would likely be somewhat different.
+
+The question is how to get a handle on how big "somewhat" is.
+
+We could, of course, wait a few more years and collect more data.  That might be appropriate, but it doesn't address the fundamental question: How do we know whether the data at hand is sufficient to justify a conclusion?  (The conclusion here is that the line is sloping downward.)
+
+A modern approach to this is to construct a simulation of the amount of randomness in the data.  The standard procedure is called **resampling**, and the overall process is called **bootstrapping**.  
+
+Resampling is an easy method.  You can figure it out yourself on a simple example: resampling the "data" 1,2,3,4,5
+```{r}
+dat = c(1,2,3,4,5)
+resample(dat)
+resample(dat)
+resample(dat)
+resample(dat)
+```
+Get it?  Each resample is random.
+
+Now the complete slope-of-line analysis on the SAT data.  This is a computer program, so it's a little tedious to read, but your kids are certainly smart enough to handle it.
+```{r results="hide"}
+plotPoints( sat ~ expend, data=most ) # The data themselves
+do(100)*{
+  f = fitModel( sat ~ A + B*expend, data=resample(most)); 
+  plotFun(f(expend)~expend, add=TRUE, col=rgb(1,0,0,.1), lwd=3)
+  }
+```
+
+I did 100 simulations.  Taken as a group, you can see that the slope is almost always downward.  So there's little reason to support a claim that getting a downward slope is a matter of luck.  (Sorry for the convoluted language here, but there's a logical reason for it.)
+
+## Computing and Judgment
+
+The computer makes it easy to do the calculations (once you know how to use the computer.)  This leaves space to think about the matter at hand.  In this case, as in many cases, the judgment has to do with what things to adjust for.  This typically involves knowing something at the system you are studying: being an expert in a subject matter.  
+
+We're all pretty much experts in mortality.  It's obvious that being old increases the chances of dying.  
+
+With education, you may not be so expert.  In particular, you may not know that in many states, only a small fraction of students take the SAT.  In states such as Minnesota or the Dakotas, usually it's students who are heading out of the region who take the SAT --- most students take the ACT.  And in most states, only a small fraction of students take the SAT at all: the ones bound for college.
+
+We can adjust for fraction of students taking the SAT by including that in our model.  Again, there's some technical detail here that's at the level of high-school algebra or, better, calculus, but you'll get it.  To save time, I'll do the resampling analysis, just as before but with the fraction of students taking the SAT in the model:
+
+```{r results="hide"}
+plotPoints( sat ~ expend, data=states ) # The data themselves
+do(100)*{
+  f = fitModel( sat ~ A + B*expend + C*frac, data=resample(states)); 
+  plotFun(f(expend,frac=.5)~expend, add=TRUE, col=rgb(1,0,0,.1), lwd=3)
+  }
+```
+Technical Note: To "adjust for" fraction, I had to pick a typical level.  I chose 50%.  That's not central to the conclusion as you can verify by doing the calculation at some other level.
+
+The slope is upward. It's "significantly" upward. Higher expenditures are associated with **higher** SAT scores. What George Will got wrong is that low-expenditure states tend to have few students who take the SAT.  As a result, the low-expenditure states tend to have high SATs, but this is despite their low expenditures not because of them.  The pattern is even stronger when including the high-expenditure, low-SAT states in the northeast: New York, New Jersey, Connecticut.  Even Alaska, where expenditures are high because everything is expensive.
+
+Our goal is to give your kids the technical understanding and skills needed to explore such questions, and the understanding of why "exploring" is important: Why to look at things from multiple perspectives, and how to evaluate conclusions.  This involves a combination of deductive and inductive reasoning, of subjectivity and objectivity, of field-specific knowledge and general technical skill.
+
+These are good liberal arts skills, but they are also important professional and citizenship skills.  And, on the matter of professionalism ...
+
+## New Work Flows, Collaborating, and Publication
 
 I came to college in 1977 with an electric typewriter from Sears and an envelope of chalk coated paper for making corrections by overtyping. In upper-level seminars, students were required to type their essays on mimeograph sheets so that they could be distributed to the others in the seminars. 
 
@@ -81,6 +192,6 @@ To that end:
 * They won't be doing menu-based calculations, they will use learn to express themselves in the computer language
 * They will write and publish their work in a reproducible way.
 
-As an example, even though I wrote them this morning, these notes these notes are already published on line at <http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/OrientationForParents.html>.  
+As an example, even though I wrote them this Saturday morning, these notes these notes are already published on line at <http://rpubs.com/dtkaplan/1477>.  
 
-For the nerdy among you, this document is compiled from a Markdown/knitR source, which incorporates the computer examples into the document itself.  That's at <http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/OrientationForParents.Rml>.  If your child is taking Introduction to Statistical Modeling, and you want to follow along, I'll happily make the book available to you online and provide you with an account on the Macalester RStudio server.  Write to <mailto:kaplan@macalester.edu>.
+For the nerdy among you, this document is compiled from a Markdown/knitR source, which incorporates the computer examples into the document itself.  That's at <http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/OrientationForParents.Rml>.  If your student is taking Introduction to Statistical Modeling, and you want to follow along, here's the [syllabus](http://rpubs.com/dtkaplan/1279). By arrangement with the publisher, I can make the book available to parents online and provide you with an account on the Macalester RStudio server.  Write to <mailto:kaplan@macalester.edu>.
