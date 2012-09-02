@@ -10,6 +10,7 @@ A "reading reflection" is a short essay --- one or two paragraphs that you shoul
 
 -----------
 
+
 ### Epidemiology as a Liberal Art: Reading Reflection
 
 * Fraser describes five "kinds of thinking."  Were you surprised at what they are?  Are they really about the liberal arts?
@@ -57,12 +58,13 @@ Accounts were created for most students based on the enrollment information avai
 
 Once you have set up your account and received your password, you [login here](http://island.maths.uq.edu.au/access.php?/index.php).
 
---------------
+===============
 
 ### Truth and Death in Iraq Under Sanctions: Reading Reflection
 
 * Of course, you have no direct way to evaluate the claims made in this article.  What do you look for when assessing the reliability or truthfulness of the claims?
 `r I(moodle(15121,"iraq"))`
+
 
 ### The Great Influenza
 
