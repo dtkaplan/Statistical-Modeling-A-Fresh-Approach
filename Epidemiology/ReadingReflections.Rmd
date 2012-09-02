@@ -1,0 +1,33 @@
+```{r echo=FALSE,results="hide"}
+moodle <- function(item,name){
+  paste("* What is the most important thing you learned from this reading?\n* If there was anything you found confusing, please describe it.\n\n     <a name='",name,"'/a><a href='https://moodle.macalester.edu/mod/assign/view.php?id=",item,"'>Moodle link</a>", sep="")
+}
+```
+
+## Reading Reflections for Epidemiology
+
+A "reading reflection" is a short essay --- one or two paragraphs that you should be able to write in about five minutes.  
+
+### Epidemiology as a Liberal Art
+
+* Fraser describes 5 "kinds of thinking."  Were you surprised at what they are?  Are they really about the liberal arts?
+`r I(moodle(13654,"fraser"))`
+
+### The Score
+
+* What was the system for evaluating the condition of a new-born that the APGAR score replaced? 
+`r I(moodle(13652,"apgar"))`
+
+### The Great Influenza
+
+#### Pages 1-47
+
+* Many medical treatments in the past strike us today as silly.  But they often made sense at the time, emerging logically from a theoretical framework.  Pick an example from the reading and explain briefly how the treatment made sense in terms of the theory.
+`r I(moodle(33333,"GI1"))`
+
+
+### Truth and Death in Iraq Under Sanctions
+
+* Of course, you have no direct way to evaluate the claims made in this article.  What do you look for when assessing the reliability or truthfulness of the claims?
+`r I(moodle(33333,"iraq"))`
+

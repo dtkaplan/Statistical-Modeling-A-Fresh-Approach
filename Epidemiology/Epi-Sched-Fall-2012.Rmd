@@ -17,6 +17,9 @@ classDayContents <- function(weekday="", month, day, year=2012) {
 todaysNotes <- function(fname,marker="notes") {
   paste("<a href='../Notes/", fname, "'>",marker,"</a>",sep="")
 }
+RR <- function(name) { #Reading reflection
+ paste("<a href='http://rpubs.com/dtkaplan/1488#",name,"'>link</a>",sep="") 
+}
 ```
 **Class Schedule**
 
@@ -39,6 +42,7 @@ todaysNotes <- function(fname,marker="notes") {
 
 **Assignment**: 
 * [Reading Reflection](https://moodle.macalester.edu/mod/assign/view.php?id=13654) on *Epidemiology as a Liberal Art*.  (There's a new version of Moodle this year, so there may be some kinks to work out.  Be patient.) 
+* Reading Reflection on *Epidemiology as a Liberal Art*: `r I(RR("fraser"))`
 
 **On Your Own**:
 * Video of the Day: [Hans Rossling and myths about the "Third World"](http://www.gapminder.org/videos/ted-talks/hans-rosling-ted-2006-debunking-myths-about-the-third-world/)
@@ -61,6 +65,7 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 **Assignment**: 
 * Start your glossary (POST LINK TO PIAZZA)
 * [Reading reflection on "The Score"](https://moodle.macalester.edu/mod/assign/view.php?id=13652)
+* Reading reflection on "The Score", `r I(RR("score"))`
 
 
 `r I(classDayContents("Thurs", "Sept", 13 ))`
@@ -70,20 +75,27 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 * *The Great Influenza*, Prologue and Chapters 1 & 2
 
 **Assignment**: 
-* Reading reflection on *The Great Influenza*, [Link to PIAZZA]
-* Estimation Problem 1. [LInk to PIAZZA] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
+* Reading reflection on *The Great Influenza*, `r I(RR("GI1"))`
+* Estimation Problem 1. [Link to PIAZZA] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
 
-OTHER MATERIALS
-<http://xkcd.com/552/> <http://entertainment.desktopnexus.com/wallpaper/37738/> <http://xkcd.com/388/> <http://xkcd.com/radiation/>
-[Musical advice on choosing a major](http://www.youtube.com/watch?v=pRexBMPeRTo&feature=player_embedded)
-[Aspirin and prostate cancer](http://www.nytimes.com/2012/08/28/health/research/regular-aspirin-use-may-aid-prostate-cancer-recovery-study-finds.html)
+
 
 `r I(classDayContents("Tues", "Sept", 18 ))`
-**Topic**: 
+**Topic**: Life expectancy (cont), sources of data, surveillance
+
 **Reading**: 
+* *Essential Epidemiology Chap. 3*
+* [Truth and Death in Iraq under Sanctions](http://dl.dropbox.com/u/5098197/Epidemiology/Iraq-under-sanctions.pdf), (2010) *Significance* 7(3)
+* *The Great Influenza*, remainder of part I, through p. 88
+
 **Assignment**: 
+* Reading Reflection on *Truth and Death in Iraq*, `r I(RR("iraq"))`
+
 **On Your Own**:
-**In-class**:
+* [Spreadsheet for life expectancy](https://docs.google.com/spreadsheet/ccc?authkey=CJe42r0H&key=0Am13enSalO74dGt2b2xpWkQwODk1REw0aEtUcXdWWWc&hl=en&authkey=CJe42r0H#gid=0)
+
+**In-class**: 
+* Calculating life expectancy
 
 `r I(classDayContents("Thurs", "Sept", 20 ))`
 **Topic**: 
