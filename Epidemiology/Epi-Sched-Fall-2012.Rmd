@@ -18,7 +18,7 @@ todaysNotes <- function(fname,marker="notes") {
   paste("<a href='../Notes/", fname, "'>",marker,"</a>",sep="")
 }
 RR <- function(name) { #Reading reflection
- paste("<a href='http://rpubs.com/dtkaplan/1488#",name,"'>link</a>",sep="") 
+ paste("<a href='http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/ReadingReflections#",name,"'>link</a>",sep="") 
 }
 ```
 **Class Schedule**
@@ -41,7 +41,6 @@ RR <- function(name) { #Reading reflection
 * David Fraser, [Epidemiology as a Liberal Art](http://media.collegeboard.com/digitalServices/pdf/yes/Epidemiology-As-A-Liberal-Art_David-Fraser_NEJM.pdf) (from the *New England Journal of Medicine*)
 
 **Assignment**: 
-* [Reading Reflection](https://moodle.macalester.edu/mod/assign/view.php?id=13654) on *Epidemiology as a Liberal Art*.  (There's a new version of Moodle this year, so there may be some kinks to work out.  Be patient.) 
 * Reading Reflection on *Epidemiology as a Liberal Art*: `r I(RR("fraser"))`
 
 **On Your Own**:
@@ -63,8 +62,7 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 * *Better*, "The Score" [Here is a link to the original article from the *New Yorker*.](http://www.newyorker.com/archive/2006/10/09/061009fa_fact?currentPage=1)
 
 **Assignment**: 
-* Start your glossary (POST LINK TO PIAZZA)
-* [Reading reflection on "The Score"](https://moodle.macalester.edu/mod/assign/view.php?id=13652)
+* Start your glossary, `r I(RR("glossary"))`
 * Reading reflection on "The Score", `r I(RR("score"))`
 
 
@@ -76,7 +74,7 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 
 **Assignment**: 
 * Reading reflection on *The Great Influenza*, `r I(RR("GI1"))`
-* Estimation Problem 1. [Link to PIAZZA] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
+* Estimation Problem 1. [LINK TO BE POSTED] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
 
 
 
@@ -98,19 +96,36 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 * Calculating life expectancy
 
 `r I(classDayContents("Thurs", "Sept", 20 ))`
-**Topic**: 
-**Reading**: 
-**Assignment**: 
-**On Your Own**:
-**In-class**:
+**Topic**: Study Designs
 
+**Reading**: 
+* *Essential Epidemiology* Chap. 4
+* Newspaper article on the ["longevity gap"](http://www.nytimes.com/2009/09/22/science/22tier.html?_r=1&hpw)
+
+**Assignment**: 
+* Estimation Problem #2
+
+**On Your Own**:
+* BBC radio show: Melvyn Bragg, *In Our Time* "The Four Humors" [podcast](http://www.bbc.co.uk/programmes/b008h5dz)
+* Estimating deaths in the absence of death records: [article about new estimates of fatalities from the US Civil War](http://opinionator.blogs.nytimes.com/2011/09/20/recounting-the-dead/)
+
+
+**In-class**:
+* Welcome to the Island, `r I(RR("theIsland"))`.  Extra information: [an article describing the Island](http://escholarship.org/uc/item/2q0740hv).
+* Collaborating with Google Docs
 
 `r I(classDayContents("Tues", "Sept", 25 ))`
-**Topic**: 
+**Topic**: Exposure and disease. Relative risks.
+
 **Reading**: 
+* *Essential Epidemiology* Chap. 5
+
 **Assignment**: 
-**On Your Own**:
-**In-class**:
+* Design your own APGAR score `r I(RR("apgarscore"))`
+
+**In Class**:
+* World Health Organization exercise on [population attributable fraction](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Exercise_27_smoking_and_death.xls)
+
 
 `r I(classDayContents("Thurs", "Sept", 27 ))`
 **Topic**: 
