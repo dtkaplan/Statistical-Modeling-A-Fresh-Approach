@@ -32,6 +32,8 @@ RR <- function(name) { #Reading reflection
 
 **Final Exam Time**: Sat 15 Dec. 1:30-3:30 pm.  Make your travel plans accordingly!
 
+Day-by-Day Syllabus
+-------------------
 
 `r I(classDayContents("Thurs", "Sept", 6 ))`
 **Topic**: Introduction to epidemiology and the course
@@ -53,6 +55,8 @@ RR <- function(name) { #Reading reflection
 * <http://www.gapminder.org> site and video
 
 Notes`r I(todaysNotes("2012-09-05.html", ":"))`
+
+-----------------
 
 `r I(classDayContents("Tues", "Sept", 11 ))`
 **Topic**: Prevalence, Incidence, Mortality, Life Expectancy
@@ -76,7 +80,7 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 * Reading reflection on *The Great Influenza*, `r I(RR("GI1"))`
 * Estimation Problem 1. [LINK TO BE POSTED] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
 
-
+-----------------
 
 `r I(classDayContents("Tues", "Sept", 18 ))`
 **Topic**: Life expectancy (cont), sources of data, surveillance
@@ -94,6 +98,8 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 
 **In-class**: 
 * Calculating life expectancy
+
+-----------------
 
 `r I(classDayContents("Thurs", "Sept", 20 ))`
 **Topic**: Study Designs
@@ -114,6 +120,8 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 * Welcome to the Island, `r I(RR("theIsland"))`.  Extra information: [an article describing the Island](http://escholarship.org/uc/item/2q0740hv).
 * Collaborating with Google Docs
 
+---------------
+
 `r I(classDayContents("Tues", "Sept", 25 ))`
 **Topic**: Exposure and disease. Relative risks.
 
@@ -126,93 +134,237 @@ Notes`r I(todaysNotes("2012-09-05.html", ":"))`
 **In Class**:
 * World Health Organization exercise on [population attributable fraction](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Exercise_27_smoking_and_death.xls)
 
+-----------------
 
 `r I(classDayContents("Thurs", "Sept", 27 ))`
-**Topic**: 
+**Topic**: Measures of Association
+
 **Reading**: 
+* To be posted
+
+
 **Assignment**: 
+* Life expectancy calculations (to be handed out)
+* Form project groups and give an initial description of your proposed Island project. [Enter the information here on Google Docs](https://docs.google.com/document/edit?id=11skxKkRLS5cpOClxYBQ8hyamm0BPcevYFxpeKJbkyKc&hl=en&authkey=CN6Q17gI)
+
 **On Your Own**:
+* [Why doctors order so many tests](http://well.blogs.nytimes.com/2011/09/29/why-doctors-order-so-many-tests/?hpw)
+* [How vaccines work](http://www.ted.com/talks/lang/eng/seth_berkley_hiv_and_flu_the_vaccine_strategy.html) TED talk
+
 **In-class**:
+
+----------------
 
 `r I(classDayContents("Tues", "Oct", 2 ))`
-**Topic**: 
+**Topic**: Outbreaks!
+
 **Reading**: 
+* *Essential Epidemiology*, Ch. 12, pp. 276-304
+* *The Great Influenza*, pp. 89-116
+* The [PCAST report](http://www.whitehouse.gov/assets/documents/PCAST_H1N1_Report.pdf) (through p. 19) anticipating the H1N1 outbreak three years ago
+
 **Assignment**: 
+* The [Epiville SARS outbreak, part 1](http://ccnmtl.columbia.edu/projects/epiville/sars_outbreak_study_1/) exercise. This is a case study from Columbia University. Work through the scenario and then [enter your answers on the Google Form here](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDhWeEVxUFNkRjNDS3RDclVHbWhlNmc6MQ).
+* Reading reflections (to be posted)
+* Group planning for Island Project 1. `r I(RR("project1a"))` 
+
+
 **On Your Own**:
+* TED talk on the [*Ghost Map*](http://www.ted.com/talks/lang/en/steven_johnson_tours_the_ghost_map.html)
+
 **In-class**:
+
+------------------
 
 `r I(classDayContents("Thurs", "Oct", 4 ))`
-**Topic**: 
+**Topic**: SIR Model of Epidemics, Eradication
+
 **Reading**: 
-**Assignment**: 
+
+* [Eradication of Polio](http://dl.dropbox.com/u/5098197/Epidemiology/EradicationOfSmallpox.pdf)
+* Atul Gawande, [The Cancer Cluster Myth](http://dl.dropbox.com/u/5098197/Epidemiology/clustermyth.pdf)
+
+**Assignment**:
+* Reading Reflection on *The Cancer Cluster Myth* `r I(RR("clustermyth"))`
+* [Epiville SARS part 2](http://epiville.ccnmtl.columbia.edu/sars_outbreak_study_2/) and the [Google Form](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDBlbTJ1UlM4UDhXVDE0UmhrNkJmbmc6MQ) for entering your answers. Pay attention to $R_0$, the number that features so prominantly in the movie "Contagion".
+
 **On Your Own**
 * The 2011 movie *Contagion* (DVD on reserve in library), and an [op-ed by an epidemiology consulting on the movie](http://www.nytimes.com/2011/09/12/opinion/the-real-threat-of-contagion.html?src=me&ref=general).
+
 **In-class**:
+* [Hans Rossling on the spread of HIV](http://www.ted.com/talks/hans_rosling_the_truth_about_hiv.html)
+
+---------------
 
 `r I(classDayContents("Tues", "Oct", 9 ))`
-**Topic**: 
+**Topic**: Wrapping up the spread of epidemics.  The statistics of confidence intervals.
+
 **Reading**: 
+* Atul Gawande, *Better*: "On Washing Up" and "The Mop Up"
+* The *Great Influenza* through p. 195
+
 **Assignment**: 
+* Hand in a short sample spreadsheet of data for your *Island* project.  Each group should submit just one spreadsheet, printed on paper, with the names of all members of the group.  Then wait for approval from Prof. Kaplan before continuing to collect your whole set of data.
+* An [interactive tutorial on confidence intervals](http://www.usablestats.com/tutorials/CI).
+It's surprisingly difficult to find good reading materials on confidence intervals. They are quite simple, but somehow the exposition gets tied up in statistical detail and formulas. This tutorial is not connected to formulas, but doesn't explain **why** things are the way they are.  
+
+I welcome proposals for skits to be made into short videos that would explain things in a fun and informative way to a general audience.
+
 **On Your Own**:
+* [Battling Bad Science](http://www.ted.com/talks/ben_goldacre_battling_bad_science.html) TED talk and an [interview](http://blog.ted.com/2011/09/29/teaching-science-by-bad-example-qa-with-ben-goldacre/).
+
 **In-class**:
 
+------------------
+
 `r I(classDayContents("Thurs", "Oct", 11 ))`
-**Topic**: 
+**Topic**: Chance and Error
+
 **Reading**: 
+* *Essential Epidemiology* Ch. 6 (Chance)
+* *Essential Epidemiology* Ch. 7 (Error)
+
 **Assignment**: 
+* Columbia Epiville exercise on [Case-Control Studies](http://ccnmtl.columbia.edu/projects/epiville/case_control_study/).  Submit your answers on this [Google Form](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?hl=en_US&formkey=dHVYdkRjWjVPaWV3d3B0VFVIU0NnZUE6MQ#gid=0).
+
 **On Your Own**:
+
 **In-class**:
+* Confidence intervals on odds ratios
+* Abuse of p-values
+
+-----------------
 
 `r I(classDayContents("Tues", "Oct", 16 ))`
 **Topic**: 
+* Confounding
+
 **Reading**: 
+* *Essential Epidemiology*, Ch. 8
+* [Freedman, Pisani & Purves](https://moodle.macalester.edu/mod/resource/view.php?id=15231) Ch. 1
+
 **Assignment**: 
+
 **On Your Own**:
+* [An interview with Hans Rossling, part 1](http://blog.ted.com/2009/05/14/qa_with_hans_ro/)
+
 **In-class**:
 
+-----------------
+
 `r I(classDayContents("Thurs", "Oct", 18 ))`
-**Topic**: 
+**Topic**: Confounding, Cause and Effect (II)
+
 **Reading**: 
+* *Essential Epidemiology*, Ch. 9
+* [Koch's Postulates](http://en.wikipedia.org/wiki/Koch's_postulates)
+* Freedman, Pisani * Purves](https://moodle.macalester.edu/mod/resource/view.php?id=15234) Ch. 2 on Observational Studies
+* [Newspaper article about randomized clinical trials](http://www.nytimes.com/2010/09/19/health/research/19trial.html?hp)
+
+
 **Assignment**: 
+* [Epiville exercise on confounding](http://ccnmtl.columbia.edu/projects/epiville/confounding/).  Hand in your answers via this [Google Form](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dEFkYWdIdnEwWndkS0NKV18xelJlOUE6MQ).
+* Reading Reflection on Koch's postulates. 
+
 **On Your Own**:
+* * A [documentary about polio](http://video.pbs.org/video/1174115155/) and the development of the Salk and Sabin vaccines. 
+
 **In-class**:
 
 `r I(classDayContents("Tues", "Oct", 23 ))`
-**Topic**: 
-**Reading**: 
-**Assignment**: 
+**Topic**: Catch up. MID-TERM EXAM (second 45 minutes of class)
+
+**Study Guide for Exam**. In addition to the vocabulary and concepts, you'll be expected to be able to do certain calculations that we have done in class:
+* Life expectancy
+* Odds ratio
+* Prevalence/Incidence
+* Relative Risk and Attributable Fraction
+In reviewing these calculations, go through the following end-of-chapter problems from the Essential Epidemiology textbook:
+* Chapter 2: Probs 1 and 2
+* Chapter 5: Probs 1, 2, 3, and 4
+
+A calculation problem on the test will be drawn from these very problems. You'll find answers to the problems in the back of the textbook. For life-expectancy calculations, review Appendix 5 from the book.
+
 **On Your Own**:
-**In-class**:
+* [An interview with Hans Rossling, part 2](http://blog.ted.com/2009/05/14/qa_with_hans_ro/)
+
+**In-class**: 
+* The [Nuremberg principles](http://en.wikipedia.org/wiki/Nuremberg_principles) and medical ethics, with reference to [polio](http://video.pbs.org/video/1174115155/)
+* MID-TERM EXAM
+
+-------------
 
 `r I(classDayContents("Thurs", "Oct", 25 ))`
 Fall Break!
 
+--------------
+
 `r I(classDayContents("Tues", "Oct", 30 ))`
-**Topic**: 
+**Topic**: Association and Causation
+
 **Reading**: 
+* **Essential Epidemiology**, Ch. 10
+* [Austin Bradford Hill on association and causation](http://dl.dropbox.com/u/5098197/Epidemiology/Hill_1965.pdf)
+* [The Poverty Lab](https://moodle.macalester.edu/mod/resource/view.php?id=15239)
+
 **Assignment**: 
+* [Columbia Epiville exercise on causal reasoning](http://ccnmtl.columbia.edu/projects/epiville/causal_inference/).  Hand in your answers via [Google Forms](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDNrUF80NDMxTVdUTmhVS2NTaDU1NHc6MQ).
+* Listen to this [debate about organic food marketing](http://intelligencesquaredus.org/index.php/past-debates/organic-food-is-marketing-hype/) broadcast on National Public Radio. How does the way health benefits were discussed compare to the ideas we have been studying? At time 38:00 in the audio recording (1:21:00 in the video), there is a question from the audience about specific health benefits. [Here is the article](https://moodle.macalester.edu/mod/resource/view.php?id=15243) that is referred to in the panelist's answer.
+
 **On Your Own**:
+[TED talk on social experiments and poverty](http://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty.html)
+
 **In-class**:
+* [Necessary and sufficient exercise](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/necessary-and-sufficient-exercise.pdf)
+
+----------------
 
 `r I(classDayContents("Thurs", "Nov", 1 ))`
-**Topic**: 
+**Topic**: Survival Analysis
+
 **Reading**: 
-**Assignment**: 
+* Malcolm Gladwell, [The Treatment](https://moodle.macalester.edu/mod/resource/view.php?id=15249)
+* [A Primer on Survival Analysis](http://www.nature.com/bjc/journal/v89/n2/pdf/6601118a.pdf).  You are not expected to understand every bit of it.
+* *The Great Influenza* pp. 252-298
+
+**Assignment**:
+* Reading Reflection on Survival Analysis `r I(RR("survival"))`
+
 **On Your Own**:
+* [A BBC podcast on the history of infectious diseases](http://downloads.bbc.co.uk/podcasts/radio4/iots/iots_20110608-1657b.mp3)
+
 **In-class**:
 
+---------------
+
 `r I(classDayContents("Tues", "Nov", 6 ))`
-**Topic**: 
-**Reading**: 
+**Topic**: Risk
+
+**Reading**:
+* An article about [causes of myopia](https://moodle.macalester.edu/mod/resource/view.php?id=15253) and a [response to it](https://moodle.macalester.edu/mod/resource/view.php?id=15254).
+* *Atlantic* [article on the flu vaccine](https://moodle.macalester.edu/mod/resource/view.php?id=15255)
+* *Essential Epidemiology Chapter* Ch. 11.  Read this with an eye toward the [*Lancet*](https://moodle.macalester.edu/mod/resource/view.php?id=15256) reading for Thursday.
+
 **Assignment**: 
+* Estimation Problem: Risk for College Students: To be posted.
+* [Columbia Epiville exercise on cohort studies](http://ccnmtl.columbia.edu/projects/epiville/cohort_study/).  Submit answers via [Google Forms](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDV0ZHR1U1Vwa25VaEFwTUd5SmF6ZWc6MQ).
+* Reading Reflection on *Essential Epidemiology* Ch. 11 `r I(RR('EE11'))`
+
 **On Your Own**:
+
 **In-class**:
 
 
 `r I(classDayContents("Thurs", "Nov", 8 ))`
-**Topic**: 
+**Topic**: Risk
+
 **Reading**: 
+* [*Lancet* article on the flu vaccine](https://moodle.macalester.edu/mod/resource/view.php?id=15256).
+* [Gigerenzer *et al.*](https://moodle.macalester.edu/mod/resource/view.php?id=15259) Sections I and II
+* *The Great Influenza* pp. 297-365 (MOVE TO LATER)
+
 **Assignment**: 
+* Reading Reflection on Gigerenzer Sections I and II `r I(RR('giger12'))`
 **On Your Own**:
 **In-class**:
 

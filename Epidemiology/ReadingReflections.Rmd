@@ -66,6 +66,53 @@ Once you have set up your account and received your password, you [login here](h
 `r I(moodle(15121,"iraq"))`
 
 
+### Planning for <a name="project1a">Group Project 1</a>
+
+Your group should make a preliminary pan for the collection of data.
+    * How you will sample.
+    * What data you will record.
+    * How you will organize your data.
+
+In class, we'll talk about what's needed to do the necessary calculations.  Then you can revise your plans accordingly. 
+
+Record your plan in a Google document that's shared with the entire group.  *Each member of the group* should paste in a link to the document on Moodle, [here](https://moodle.macalester.edu/mod/assign/view.php?id=15224).
+
+
+-------------
+
+### The Cancer Cluster Myth: Reading Reflection
+
+* What is it about cancer that lends itself to the dubious detection an "outbreak," whereas for other causes of illness (e.g., food contamination) there doesn't seem to be such a problem?
+`r I(moodle(15226,"clustermyth"))`
+
+### Koch's Postulates: Reading Reflection
+
+In this reading reflection, consider the ways in which Koch's postulates make sense or not.  As a point of reference, here is a recent article on [the ecosystem in the gut](http://www.nytimes.com/2011/11/01/health/scientist-examines-possible-link-between-antibiotics-and-obesity.html).  
+* Do antibiotics have consequences that go beyond the "bad-guy" bacterium?
+* How are Koch's postulates "reductionist"?
+`r I(moodle(15240,"koch"))`
+
+### Survival Analysis: Reading Reflection
+
+This is a somewhat technical article and it is likely that you will find it difficult or impossible to understand in its entirety.  That is a situation that you will find often in your career.
+* What is your strategy for reading something that is only partially comprehensible to you?
+* You are fortunate to have access to an expert in survival analysis, Prof. Victor Addona.  Formulate a question that will help you to understand this reading.  (Then ask it in class!)
+* What is "censoring" in the context of survival analysis?
+`r I(moodle(15252,"survival"))`
+
+### Essential Epidemiology Ch. 11: Reading Reflection
+
+* What is the point of a forest plot?
+* What is meta-analysis?
+`r I(moodle(15265, "EE11"))`
+
+### Reading Reflection on Gigerenzer *et al.* I and II
+
+* What do the authors mean by saying, "patients seek certainty when there is none"?
+* What's wrong with lifetime risk measures?
+`r I(moodle(15264, "giger12"))`
+
+
 ### The Great Influenza
 
 #### Pages 1-47: Reading Reflection
