@@ -43,8 +43,8 @@ IMPORTANT: The old commands are no longer available in `mosaic` and must be repl
     
 Change in style or format.  The old commands will still work, but the new version is stylistically more consistent.
 
-* p. 42: Use of `$` operator (deprecated in current `mosaic` version) [New page](p42.pdf)
 * p. 43: Use of `transform()` to add new variables to a data frame [New page](p43.pdf)
+* p. 46: Use of `$` operator (deprecated in current `mosaic` version) [New page](p46.pdf)
 * p. 83: Use `transform()` rather than `$` [New page](p83.pdf)
 * p. 83: Use of `transform()` [New page](p83.pdf)
 * p. 175-176: Use of `with()` rather than `$` [New page](p175-6.pdf)
