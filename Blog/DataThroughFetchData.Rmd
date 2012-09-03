@@ -1,0 +1,481 @@
+Data Sets through `mosaic` and `fetchData()`
+========================================================
+
+```{r error=FALSE,echo=FALSE,message=FALSE,warning=FALSE}
+require(mosaic,quietly=TRUE)
+```
+
+As with many R packages, `mosaic` provides a set of example data sets.  These can always be listed with the command
+```{r}
+data(package="mosaic")
+```
+
+When you want to use a data set that's in the `mosaic` package, you can simply use the name of the dataset as the `data=` argument to functions that support this argument (e.g. `lm(), mean(), plotPoints(), fitModel(),` and so on.)  For instance:
+```{r}
+mean( width, data=KidsFeet)
+```
+
+Recognizing that most instructors are not in a position to distribute their own data through the R package system, `mosaic` makes another route possible, which interacts with the package data.
+
+The `fetchData()` function takes a character string as an argument and looks through package data and a set of web directories to find the files.  For example, 
+```{r}
+d = fetchData("Dome.csv")
+```
+reads in a dataset about distances baseballs were hit in the Humphrey Metrodome (where the Minneapolis/St Paul Twins used to play).  Once read in, the data can be used in the usual way, e.g.
+```{r}
+plotPoints( Dist ~ Velocity, data=d )
+```
+
+If you give `fetchData()` the name of a package data set, it will get it from the package.
+```{r}
+kids = fetchData("KidsFeet")
+mean(width, data=kids)
+```
+
+I like this style because it makes it explicit that the data is coming from somewhere.  The package data is a little mysterious, as if there were special data sets in the ether.
+
+When you leave the argument empty, as in `fetchData( )`, a file browser window will appear and you can navigate to the file you want on your own maching.  
+
+### New R Software
+
+`fetchData()` can also be used to "source" R software.  This is useful if you have a program or demo you want to distribute easily to a class.  This is what's happening when the file name passed as an argument to `fetchData()` ends with `.R`.
+
+
+### Adding Your Own Directory
+
+You can tell `fetchData()` to include a specific set of web directories in its search.  This allows you to set up your own web repository.  Any files you place there can be accessed by `fetchData()` in the ordinary way.  For example, here's a directory set up on Dropbox for Macalester's statistical modeling course:
+```{r}
+fetchData(add.to.path="https://dl.dropbox.com/u/5098197/ISM/Data/")
+```
+(You should, of course, substitute the address of your own directory in the above.)
+
+Such statements can be added to the `.Rprofile` file so that they are automatically executed at start-up.  It makes sense to do this for students in a class, for instance.
+
+### Data Files Available through `fetchData()`
+
+By default `fetchData()` looks for files on the [Project MOSAIC](http://www.mosaic-web.org) web site.  Here is a list as of Sept. 3, 2012.  Remember to quote the name when you use it in `fetchData()`, e.g.
+```{r}
+temps = fetchData("GlobalSurfaceTemperatures.csv")
+```
+
+* GlobalSurfaceTemperatures.csv
+* DauphinIslandData.csv
+* wordfrequency.csv
+* maunaloa-CO2.csv
+* TreeHarvest.csv
+* PREP-Toronto-ball.csv
+* PREP-Stewart-World-Population.csv
+* running-longitudinal.csv
+* repeat-runners.csv
+* netflixA.csv
+* inflation.csv
+* I95citations.csv
+* fishdata.csv
+* whickham.csv
+* tadpole-speeds.csv
+* myopia.csv
+* zebra-mussels.csv
+* truckingjobs.csv
+* hdd-minneapolis.csv
+* grades.csv
+* grade-to-number.csv
+* gestation.csv
+* WeightLoss.csv
+* Dome.csv
+* diamonds.csv
+* congress.csv
+* birthweight.csv
+* eCOTS_FingerData.csv
+* Ch5_Assault_B.csv
+* Ch10_HeatLoss.csv
+* LifeExpectancy.csv
+* AARP-insurance.csv
+* water1040.csv
+* water940.csv
+* engines.csv
+* jmm2012data1.csv
+* rollerblade-calories.csv
+* superSlideTrack2.csv
+* roller-2011-10-31-a.csv
+* natural-gas-usage.csv
+* fordisland.csv
+* used-hondas.csv
+* cardata.csv
+* BodyFat.csv
+* blastdata.csv
+* utilities.csv
+* ten-mile-race.csv
+* swim100m.csv
+* marriage.csv
+* kidsfeet.csv
+* galton.csv
+* cps.csv
+* courses.csv
+* alder.csv
+* Cherry-Blossom-Long.csv
+* stan-data.csv
+* oring-damage.csv
+* Income-Housing.csv
+* hawaii.csv
+* Cherry-Blossom-2008.csv
+* SleepCaffeine.csv
+* MustangPrice.csv
+
+In addition, the Project MOSAIC site hosts copies of the data files 
+from De Veaux, Velleman, and Bock, [Intro Stats](http://wps.aw.com/aw_deveaux_stats_series/80/20537/5257491.cw/index.html).  Those data sets are documented in the book, which also provides a context for instructors that relates individual data sets to statistical topics.  You can access these in the ordinary way through `fetchData()`.  Take note that each name is preceeded with "DVB/".
+
+* DVB/Ch03_Blood_Pressure.csv
+* DVB/Ch03_Cars.csv
+* DVB/Ch03_Movies_Genre_Rating.csv
+* DVB/Ch03_Tattoos.csv
+* DVB/Ch03_Titanic.csv
+* DVB/Ch03_Twins.csv
+* DVB/Ch03_Weather_forecasts.csv
+* DVB/Ch03_Winter_Olympics_2006.csv
+* DVB/Ch04_Airline_Stats.csv
+* DVB/Ch04_boomtowns.csv
+* DVB/Ch04_Cancelled_flights.csv
+* DVB/Ch04_credit_card_expense.csv
+* DVB/Ch04_E-mails.csv
+* DVB/Ch04_Gasoline_usage_2004.csv
+* DVB/Ch04_Golf_Drives.csv
+* DVB/Ch04_Horsepower.csv
+* DVB/Ch04_How_tall.csv
+* DVB/Ch04_Hurricanes_2006.csv
+* DVB/Ch04_Kentucky_Derby_2007.csv
+* DVB/Ch04_marijuana_2003.csv
+* DVB/Ch04_math_scores_2005.csv
+* DVB/Ch04_movies.csv
+* DVB/Ch04_Neck_size.csv
+* DVB/Ch04_Nissan.csv
+* DVB/Ch04_Paper_consumption.csv
+* DVB/Ch04_Pizza_Prices.csv
+* DVB/Ch04_prisons_2005.csv
+* DVB/Ch04_Singers.csv
+* DVB/Ch04_Sugar_in_cereals.csv
+* DVB/Ch04_tsunamis.csv
+* DVB/Ch04_Vineyards.csv
+* DVB/Ch05_Airline_Stats.csv
+* DVB/Ch05_Assets.csv
+* DVB/Ch05_Baseball.csv
+* DVB/Ch05_CEO_Compensation_2005.csv
+* DVB/Ch05_Cereals.csv
+* DVB/Ch05_Cholesterol.csv
+* DVB/Ch05_Derby_Speeds_2007.csv
+* DVB/Ch05_Drunk_driving_2005.csv
+* DVB/Ch05_Fuel_Economy.csv
+* DVB/Ch05_Golf_courses.csv
+* DVB/Ch05_Hurricanes_2006.csv
+* DVB/Ch05_Industrial_experiment.csv
+* DVB/Ch05_Kentucky_Derby_2007.csv
+* DVB/Ch05_Law_enforcement_2004.csv
+* DVB/Ch05_Marraige_age.csv
+* DVB/Ch05_Mens_combined_06.csv
+* DVB/Ch05_MPG.csv
+* DVB/Ch05_Mugs.csv
+* DVB/Ch05_Music_Library.csv
+* DVB/Ch05_Ozone.csv
+* DVB/Ch05_Passive_smoke.csv
+* DVB/Ch05_Pizza_prices.csv
+* DVB/Ch05_Population_growth.csv
+* DVB/Ch05_Roller_coasters.csv
+* DVB/Ch05_Stereograms.csv
+* DVB/Ch05_Still_rockin.csv
+* DVB/Ch05_Sunspots.csv
+* DVB/Ch05_tendon_transfer.csv
+* DVB/Ch05_Vineyards.csv
+* DVB/Ch05_Wild_card_summer_Olymp.csv
+* DVB/Ch05_Wines.csv
+* DVB/Ch05_Womens_basketball.csv
+* DVB/Ch06_Car_speeds.csv
+* DVB/Ch06_Heptathlon_2004.csv
+* DVB/Ch06_Mens_Combined%202006.csv
+* DVB/Ch06_NHANES.csv
+* DVB/Ch06_Receivers.csv
+* DVB/Ch06_speed_skating_2006.csv
+* DVB/Ch06_Winter_Olymp06downhill.csv
+* DVB/Ch07_Antidepressants.csv
+* DVB/Ch07_Attendance_2006.csv
+* DVB/Ch07_Burgers.csv
+* DVB/Ch07_Drug_abuse.csv
+* DVB/Ch07_f-stops.csv
+* DVB/Ch07_flights.csv
+* DVB/Ch07_Fuel_economy_2007.csv
+* DVB/Ch07_Hard_water.csv
+* DVB/Ch07_hurricanePrediction72h.csv
+* DVB/Ch07_Income_and_Housing.csv
+* DVB/Ch07_Interest_and_Mortgages.csv
+* DVB/Ch07_Ithaca_students.csv
+* DVB/Ch07_kentucky_Derby_2007.csv
+* DVB/Ch07_Lunchtime.csv
+* DVB/Ch07_Oil_Production_2005.csv
+* DVB/Ch07_Perform_IQ-brain_size.csv
+* DVB/Ch07_Planets.csv
+* DVB/Ch07_Roller_coasters.csv
+* DVB/Ch07_SBS_Framingham.csv
+* DVB/Ch07_Thrills.csv
+* DVB/Ch07_Vehicle_weights.csv
+* DVB/Ch07_Wind_speed.csv
+* DVB/Ch08_Attendance_2006.csv
+* DVB/CH08_Birth_Rates%202005.csv
+* DVB/Ch08_BK_menu_items.csv
+* DVB/Ch08_Body_fat.csv
+* DVB/Ch08_Candy_2006.csv
+* DVB/Ch08_Cereals.csv
+* DVB/Ch08_cigarettes.csv
+* DVB/Ch08_Cost_of%20Living%202006.csv
+* DVB/Ch08_Drug_abuse.csv
+* DVB/Ch08_Hard_water.csv
+* DVB/Ch08_Heptathlon_2004.csv
+* DVB/Ch08_Hurricane_winds.csv
+* DVB/Ch08_Income_and_Housing.csv
+* DVB/Ch08_Interest_and_Mortgages.csv
+* DVB/Ch08_Roller_coaster.csv
+* DVB/Ch08_SAT_scores.csv
+* DVB/Ch08_Used_Cars%202007.csv
+* DVB/Ch08_wildfires.csv
+* DVB/Ch09_2000_Election.csv
+* DVB/Ch09_Age_at_first_marraige.csv
+* DVB/Ch09_Ages_of_couples.csv
+* DVB/Ch09_Breakfast_cereals.csv
+* DVB/Ch09_Doctors%26Life_expect.csv
+* DVB/Ch09_Florida_vote_by_county.csv
+* DVB/Ch09_Fuel_efficiency.csv
+* DVB/Ch09_Gestation.csv
+* DVB/Ch09_Human_Dev_Index.csv
+* DVB/Ch09_Inflation_2006.csv
+* DVB/Ch09_Intrest_Rates1950-2005.csv
+* DVB/Ch09_Life_Expectancy_2004.csv
+* DVB/Ch09_Marriage_Age_2003.csv
+* DVB/Ch09_Motorcycles.csv
+* DVB/Ch09_Movies.csv
+* DVB/Ch09_Oakland_passengers.csv
+* DVB/Ch09_Oil_prices.csv
+* DVB/Ch09_Penguins.csv
+* DVB/Ch09_Smoking_2004.csv
+* DVB/Ch09_Swim_the_lake_2006.csv
+* DVB/Ch09_Tour_de_France_2007.csv
+* DVB/Ch09_Tracking_Hurricanes.csv
+* DVB/Ch09_Unwed_births.csv
+* DVB/Ch10_Airline_passengers.csv
+* DVB/Ch10_Assets.csv
+* DVB/Ch10_Baseball_Salaries_2005.csv
+* DVB/Ch10_Brakes.csv
+* DVB/Ch10_Cars.csv
+* DVB/Ch10_Companies.csv
+* DVB/Ch10_Crowdedness.csv
+* DVB/Ch10_Dow_Jones_2006.csv
+* DVB/Ch10_fishing_line.csv
+* DVB/Ch10_HDI.csv
+* DVB/Ch10_Internet.csv
+* DVB/Ch10_Jumps_2004.csv
+* DVB/Ch10_Life_expectancy.csv
+* DVB/Ch10_Logs_(not_logarithms).csv
+* DVB/Ch10_Oil_Production_2005.csv
+* DVB/Ch10_Orange_production.csv
+* DVB/Ch10_Pendulum.csv
+* DVB/Ch10_Penguins.csv
+* DVB/Ch10_Planets_2006.csv
+* DVB/Ch10_Pressure.csv
+* DVB/Ch10_Slower_is_cheaper.csv
+* DVB/Ch10_Treas_Bills1950-1980.csv
+* DVB/Ch10_Treas_Bills1950-2005.csv
+* DVB/Ch10_Tree_growth.csv
+* DVB/Ch10_Weight_lifting%202004.csv
+* DVB/Ch10_Years_to_Live_2003.csv
+* DVB/Ch23_Better_Light.csv
+* DVB/Ch23_Chips_ahoy.csv
+* DVB/Ch23_Doritos.csv
+* DVB/Ch23_Driving_Distance.csv
+* DVB/Ch23_Farmed_Salmon.csv
+* DVB/Ch23_Flight_Statistics.csv
+* DVB/Ch23_Maze.csv
+* DVB/Ch23_Normal_temperature.csv
+* DVB/Ch23_Popcorn.csv
+* DVB/Ch23_Pulse_rates.csv
+* DVB/Ch23_Ruffles.csv
+* DVB/Ch23_Ski_wax.csv
+* DVB/Ch23_Triphammer_Speeds.csv
+* DVB/Ch23_Wind_Power.csv
+* DVB/Ch23_Yogurt.csv
+* DVB/Ch24_Baseball_2006.csv
+* DVB/Ch24_Battery_life.csv
+* DVB/Ch24_Buy_from_Friend.csv
+* DVB/Ch24_Cereal.csv
+* DVB/Ch24_Cukoos.csv
+* DVB/Ch24_Egyptians.csv
+* DVB/Ch24_Hard_water.csv
+* DVB/Ch24_Hurricanes_2006.csv
+* DVB/Ch24_Job_satisfaction.csv
+* DVB/Ch24_Memory.csv
+* DVB/Ch24_Memory(stacked).csv
+* DVB/Ch24_Reading.csv
+* DVB/Ch24_Running_Heats.csv
+* DVB/Ch24_Stereograms.csv
+* DVB/Ch24_Streams.csv
+* DVB/Ch24_Swimming_heats.csv
+* DVB/Ch25_Brain_waves.csv
+* DVB/Ch25_Braking_test2.csv
+* DVB/Ch25_Braking.csv
+* DVB/Ch25_Couples_ages.csv
+* DVB/Ch25_Exercise.csv
+* DVB/Ch25_Flexible_Schedule.csv
+* DVB/Ch25_Freshman_15.csv
+* DVB/Ch25_Friday_the_13th_Part_1.csv
+* DVB/Ch25_Friday_the_13th_Part_2.csv
+* DVB/Ch25_Gasoline.csv
+* DVB/Ch25_Job_satisfaction.csv
+* DVB/Ch25_Marathon_2006.csv
+* DVB/Ch25_Push-ups.csv
+* DVB/Ch25_Rain.csv
+* DVB/Ch25_Seasonal_Spending.csv
+* DVB/Ch25_Sex_sells.csv
+* DVB/Ch25_Strikes.csv
+* DVB/Ch25_Summer_school.csv
+* DVB/Ch25_Temperatures.csv
+* DVB/Ch25_Tuition_2006.csv
+* DVB/Ch25_Uninsured.csv
+* DVB/Ch25_Wheelchair_Marathon.csv
+* DVB/Ch25_Wind_Speed.csv
+* DVB/Ch25_Women's_Skating_1500.csv
+* DVB/Ch25_Womens_1500_skating.csv
+* DVB/Ch25_Yogurt.csv
+* DVB/Ch26_Baseball_players.csv
+* DVB/Ch26_Cars.csv
+* DVB/Ch26_Cincinnati_trafficstop.csv
+* DVB/Ch26_Class_of_2006_plans.csv
+* DVB/Ch26_Cranberry_juice.csv
+* DVB/Ch26_Education_by_age.csv
+* DVB/Ch26_Executive_birth_signs.csv
+* DVB/Ch26_Fish_diet.csv
+* DVB/Ch26_Full_moon.csv
+* DVB/Ch26_Hurricane_frequencies.csv
+* DVB/Ch26_Montana_revisited.csv
+* DVB/Ch26_Montana.csv
+* DVB/Ch26_NYPD_discrimination.csv
+* DVB/Ch26_Pi.csv
+* DVB/Ch26_Pregnancies.csv
+* DVB/Ch26_Race_%26_education_part2.csv
+* DVB/Ch26_Race_and_education.csv
+* DVB/Ch26_Racial_steering.csv
+* DVB/Ch26_South_Africa_Lottery.csv
+* DVB/Ch26_Tattoos.csv
+* DVB/Ch26_Titanic_redux.csv
+* DVB/Ch26_Titanic.csv
+* DVB/Ch26_Working_parents.csv
+* DVB/Ch26_Zodiac.csv
+* DVB/Ch27_Acid_rain.csv
+* DVB/Ch27_All_efficiency_can_buy.csv
+* DVB/Ch27_Body_fat.csv
+* DVB/Ch27_Brain_size.csv
+* DVB/Ch27_Cereal.csv
+* DVB/Ch27_Cholesterol_2007.csv
+* DVB/Ch27_Craters.csv
+* DVB/Ch27_Crawling.csv
+* DVB/Ch27_Drug_use.csv
+* DVB/Ch27_Education_%26_mortality.csv
+* DVB/Ch27_El_Nino.csv
+* DVB/Ch27_Fuel_economy.csv
+* DVB/Ch27_Grades.csv
+* DVB/Ch27_HotDogs.csv
+* DVB/Ch27_hurricane_prediction%2072h.csv
+* DVB/Ch27_Marriage_Age_2003.csv
+* DVB/Ch27_Mouth_volume.csv
+* DVB/Ch27_Movies.csv
+* DVB/Ch27_Nenana_2006.csv
+* DVB/Ch27_No_opinion.csv
+* DVB/Ch27_Printers.csv
+* DVB/Ch27_Property_assessments.csv
+* DVB/Ch27_Sales_and_Profits.csv
+* DVB/Ch27_SAT_scores.csv
+* DVB/Ch27_Seasonal_Spending.csv
+* DVB/Ch27_Start_the_car.csv
+* DVB/Ch27_Strike_two.csv
+* DVB/Ch27_Swimming_Ontario.csv
+* DVB/Ch27_Used_Cars%202007.csv
+* DVB/Ch27_Winter.csv
+* DVB/Ch28_Activating_yeast.csv
+* DVB/Ch28_Analgesics.csv
+* DVB/Ch28_Auto_noise_filters.csv
+* DVB/Ch28_Cereals.csv
+* DVB/Ch28_Downloading.csv
+* DVB/Ch28_Eggs.csv
+* DVB/Ch28_Fertilizers.csv
+* DVB/Ch28_Frisbee_throws.csv
+* DVB/Ch28_Fuel_economy.csv
+* DVB/Ch28_Hand_washing.csv
+* DVB/Ch28_Hearing.csv
+* DVB/Ch28_Mugs.csv
+* DVB/Ch28_School_system.csv
+* DVB/Ch28_Tellers.csv
+* DVB/Ch28_TV_Watching.csv
+* DVB/Ch28_Wines.csv
+* DVB/Ch29_Body_fat.csv
+* DVB/Ch29_Breakfast_cereals.csv
+* DVB/Ch29_Fifty_states.csv
+* DVB/Ch29_Grades.csv
+* DVB/Ch29_Hurricane_winds.csv
+* DVB/Ch29_Infant_mortality.csv
+* DVB/Ch29_Scottish_Hill_races.csv
+* DVB/Rev01_Age_and_party.csv
+* DVB/Rev01_Bike_safety.csv
+* DVB/Rev01_Birth_order.csv
+* DVB/Rev01_Cramming.csv
+* DVB/Rev01_Hard_Water.csv
+* DVB/Rev01_Libertys_nose.csv
+* DVB/Rev01_Mail.csv
+* DVB/Rev01_old_faithful.csv
+* DVB/Rev01_Profits.csv
+* DVB/Rev01_Public_opinion.csv
+* DVB/Rev01_Wine_prices.csv
+* DVB/Rev01_winter_olympics_2006.csv
+* DVB/Rev02_Car.csv
+* DVB/Rev02_Chips.csv
+* DVB/Rev02_Cities.csv
+* DVB/Rev02_Cramming.csv
+* DVB/Rev02_Crocodile_lengths.csv
+* DVB/Rev02_Down_the_drain.csv
+* DVB/Rev02_Football_weights.csv
+* DVB/Rev02_How_old_is_that_tree.csv
+* DVB/Rev02_Lunchtime.csv
+* DVB/Rev02_Manatees_2005.csv
+* DVB/Rev02_Old_faithful.csv
+* DVB/Rev02_SmokingPregnancy_2003.csv
+* DVB/Rev02_Tobacco_and_alcohol.csv
+* DVB/Rev02_Twins_2004.csv
+* DVB/Rev02_Vineyards.csv
+* DVB/Rev02_Williams_vs_Texas.csv
+* DVB/Rev06_Color_or_text.csv
+* DVB/Rev06_Drugs.csv
+* DVB/Rev06_Hearing.csv
+* DVB/Rev06_Irises.csv
+* DVB/Rev06_Legionnaires_disease.csv
+* DVB/Rev06_Mazes_and_smells.csv
+* DVB/Rev06_Meals.csv
+* DVB/Rev06_Newspapers.csv
+* DVB/Rev06_Online_testing.csv
+* DVB/Rev06_Pottery.csv
+* DVB/Rev06_Rainmakers(stacked).csv
+* DVB/Rev06_Rainmakers(unstacked).csv
+* DVB/Rev06_Risk.csv
+* DVB/Rev06_Teen_drinking.csv
+* DVB/Rev07_Age_and_party.csv
+* DVB/Rev07_AP_Statistics_scores.csv
+* DVB/Rev07_Back_to_Montana.csv
+* DVB/Rev07_Cramming.csv
+* DVB/Rev07_Dairy_sales.csv
+* DVB/Rev07_Diet.csv
+* DVB/Rev07_Education_vs_Income.csv
+* DVB/Rev07_Eye_and_hair_color.csv
+* DVB/Rev07_Hard_water.csv
+* DVB/Rev07_LA_Rainfall.csv
+* DVB/Rev07_Mutual_funds.csv
+* DVB/Rev07_Old_faithful.csv
+* DVB/Rev07_Paper_airplanes.csv
+* DVB/Rev07_Polling.csv
+* DVB/Rev07_Tableware.csv
+* DVB/Rev07_Twins_again.csv
+* DVB/Rev07_Twins.csv
+* DVB/Rev07_Weight_loss.csv
+* DVB/Rev07_Wild_horses.csv
+

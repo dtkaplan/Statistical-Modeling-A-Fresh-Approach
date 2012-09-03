@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Data Sets through <code>mosaic</code> and <code>fetchData()</code></title>
+
+<base target="_blank"/>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>Data Sets through <code>mosaic</code> and <code>fetchData()</code></h1>
+
+<p>As with many R packages, <code>mosaic</code> provides a set of example data sets.  These can always be listed with the command</p>
+
+<pre><code class="r">data(package = &quot;mosaic&quot;)
+</code></pre>
+
+<p>When you want to use a data set that&#39;s in the <code>mosaic</code> package, you can simply use the name of the dataset as the <code>data=</code> argument to functions that support this argument (e.g. <code>lm(), mean(), plotPoints(), fitModel(),</code> and so on.)  For instance:</p>
+
+<pre><code class="r">mean(width, data = KidsFeet)
+</code></pre>
+
+<pre><code>## [1] 8.992
+</code></pre>
+
+<p>Recognizing that most instructors are not in a position to distribute their own data through the R package system, <code>mosaic</code> makes another route possible, which interacts with the package data.</p>
+
+<p>The <code>fetchData()</code> function takes a character string as an argument and looks through package data and a set of web directories to find the files.  For example, </p>
+
+<pre><code class="r">d = fetchData(&quot;Dome.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/Dome.csv
+</code></pre>
+
+<p>reads in a dataset about distances baseballs were hit in the Humphrey Metrodome (where the Minneapolis/St Paul Twins used to play).  Once read in, the data can be used in the usual way, e.g.</p>
+
+<pre><code class="r">plotPoints(Dist ~ Velocity, data = d)
+</code></pre>
+
+<p><img src="data:image/png;base64,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amoq27dvp2nTphU+VteuXenates+6+fPnx/rpyFJ0vfSsmVLWrVqxYgRI+K63bgdg1+5ciVDhw4tX87IyCApKYm+fftSXFwMQGlpKU2aNKFbt24sXLgQgDfeeIOsrKx4xZQkKRTiNoJv164dLVu2ZPDgwRQVFTF27Fhq167NiBEjGDRoELVr16Zz58506dKFq666itGjR5Obm0t6ejoTJkyIV8zv5ZMv4YZnoGgn/GctvJgDP2ocdCpJkvZIiMTyAEAFiouLSU1NJSEhoXxdWVkZu3btonbt2vvcNi0tbb+3ce6553LPPfd84679H2LzdmiTEy31Xh1hxlK48Vl4dgw0rFPpm5MkVXMPPfQQCQkJ4d1F/19paWl7lTtAYmLiPuX+39tWNa8vh7HZ0XIH6NcFTsuChZ8Em0uSpK9zJrv9VDsZvty297pFq6BW3E9XlCTpm1nw+6n3YbC1GP74Iry/Gq56HLYVR9dLklRVWPD7KSkR/nohpKbAP9+G9k3h+d8EnUqSpL25Y/kAJCTAFftOrCdJUpXhCF6SpBCy4CVJCiELXpKkELLgJUkKIQtekqQQsuAlSQohC16SpBCy4CVJCiELXpKkELLgJUkKIQtekqQQsuAlSQohC16SpBCy4CVJCiELXpKkELLgJUkKIQtekqQQsuAlSQohC16SpBCy4CVJCiELXpKkEEoOOkAspKWlMWDAAOrUqRN0lAPy6aef0rx5c9LT04OOEogPPviAzp07Bx0jEDt27GD16tV06NAh6CiB2LBhA4mJiTRp0iToKIHIy8vj4IMPJiUlJegogQjra//dd99l5syZcd9uQiQSicR9q/pWl112GaNGjeKwww4LOkogTjrpJObMmRN0jECsXr2a6667joceeijoKIF44IEHSE9PZ8iQIUFHCcS5557LvffeW2Pf4NTk134suItekqQQsuAlSQohC16SpBCy4CVJCqFQnkVf3Z144ok0bNgw6BiBOfvss4OOEJh69erRp0+foGME5vDDD6dWrVpBxwjMqaeeSlpaWtAxAlOTX/ux4Fn0kiSFkLvoJUkKIQtekqQQsuAlSQohC16SpBCy4AM2duxYXnjhhfLlwYMH06NHD3r06MGNN94IwMsvv8xpp53Gz372Mz766KOgola6nTt30q9fPzZv3gzAxo0by597jx49yn8u48ePJzs7m1//+tesWrUqyMiV6rnnnmPcuHHlyzNmzNjr+a9bt678e6+88goXXXRREDFj5n9/92+++eby5z5gwAAg+jvx3///kyZNCipqpfvf332o+LX//PPPc/bZZzN06FCWLl0aVNxK99lnn3HmmWeWL+/cuZP77ruPgQMHcvnll7N7924A7rzzTk4++WSGDBnCtm3bgopbfUUUiG3btkXOP//8SIsWLSJPPPFEJBKJRLZv3x7p3r17pKSkJFJSUhLZtWtXZOvWrZGjjz46snnz5sjixYsjPXv2DDh55fj4448jvXr1imRmZkby8/MjkUgkMmPGjEhOTk758y8tLY289NJLkYsvvrj8+7/61a+CjF1pbr311ki7du0il112Wfm6a665JvL000+XP///2rRpU+Soo46KnHHGGUFErXQV/e5HIpHICSecEMnPz4+UlJREduzYEYlEIpGzzz47Mn/+/Mju3bsjQ4YMiWzcuDGo2JWmot/9il77u3btinTt2jVSXFwcWbZsWeTUU08NOHnleOmllyJHHXVUpHPnzuXr/vznP0duueWWSCQSfW3MmDEjsmDBgsigQYMiu3btitxzzz2RsWPHBhW52nIEH5BNmzYxZMgQLrzwwvJ1S5cupXnz5kyePJm5c+eSlJTERx99RLdu3WjQoAFdu3blq6++YufOnQEmrxzr16/nvvvu2+uCOu+99x61a9fmrrvuYvny5SQmJtKjRw9uvfVWIHqVwLVr1wYVuVI1atRonxHpe++9x+bNm5k0aRJbtmwpXz969GjGjh0b74gxU9HvfllZGZs2beKFF17gscceo7S0lNLSUvLy8khNTeXxxx9nypQpNG7cOMDklaOi3/2KXvvJyclEIhHef/993nnnHerVqxdg6spTWFi4154bgKeffprevXvz4IMPcv7559O3b19ef/11BgwYQHJyMkOGDPEiNAfAgg9I27ZtOeWUU/Zat3HjRurUqUPnzp2ZOnUqN9xwA2vWrNlr0psGDRqQn58f77iVrmfPnnTq1GmvdUVFRSQkJNClSxcuuugi5s6dS0ZGBvXr12ft2rVcccUVXH/99QElrly//OUvSU7ee56ppKQkIpEIzZo14yc/+QmFhYU8+uijdO3alS5dugSUtPJV9Lu/YcMGmjRpQpMmTdi4cSOnn346GzZsYMOGDUyePJn8/Hx69OhRvuu2Oqvod7+i134kEuHMM8/k0ksv5frrr+e8884LKHHlGjRoEI0aNdpr3fr167n55pvZvXs32dnZLF26dK+/fQ0aNKCgoCCIuNWaM9lVIdnZ2WRnZwNwzDHH0KNHD3r27ElhYWH5bYqLi0MxiqnI18u7tLSUf/zjH/z0pz9l5cqVnH322dx1110cc8wxASaMreeff7783++++y7Tpk3jxhtv5Morr+Tvf/87n332Ga+88gonn3xygCljo0WLFsydOxeIzub2z3/+k61bt1JWVsbkyZNJTk4mLy+PWbNm7fPmIAwqeu2ffvrpvPPOO7zzzjvs3r2bjh070q9fP9LT0wNOW/nS0tK49tprOfLII2nQoAFTp04lIyOj/G9fUVFRjb2E7g/hCL4Kefzxx7n33nsBWLFiBYcddhiHH344ixcvJhKJ8NVXX1FWVhbaqTxzcnJ4++23AcjLy6NLly6sW7eOQYMG8dBDD9GrV6+AE8ZOWVkZp512GkVFRUD0+WdlZXHzzTfTqFEj6tevT0pKSij/uAOsXLmS4cOHA9ETrgoLC+nQoQMtWrRg69atAKxbt4769esHGTNmKnrt16lThwYNGgDRvTsNGjQgISEhyJgxc+SRR7J+/Xpgz//nbt26sXDhQgDeeOMNsrKygoxYLTmCr0Kys7MZMmQIc+fOJS8vj4ceeohmzZoxdOhQsrOz+fLLL8uPR4fR+eefzzXXXEPt2rXZunUrTz31FNdeey1r1qzhggsuAKB9+/Y88cQTwQaNgcTERM477zwGDhxISUkJHTt2pHv37nTv3h2A5cuXM3fuXI477riAk8ZGu3btaNSoEYMGDWL58uX87ne/IykpicmTJ5OTk8PGjRtp1aoVPXr0CDpqTFT02u/UqRNt27Zl+PDhbNmyhUsuuSS089SPHz+em266iYcffpgvv/yS6dOnU69ePWbOnEn//v1Zv349zz77bNAxqx3noq+CCgsLqVu37l7rdu7cSXJyMomJ4d/psm3bttCcULS/ysrKKC4upk6dOkFHCURJSQnJycn7nJ9QVFQU2r0XX1fRa3/Hjh2kpKTUiNd+Rf+fi4uLQ/vGJtYseEmSQij8bwklSaqBLHhJkkLIgpckKYQseEmSQsiClyQphCx4SZJCyIKXJCmELHhJkkLIgpckKYQseCkkevbsye23377P+nvuuYd+/fp9633HjBnDjTfeeEDbXbRoER07dgSil/383+vcSwqGBS+FxIgRI5g2bdo+6//+97+XX6wnFjp16sTTTz8NwJw5c3jppZditi1J358FL4XEOeecw7Jly1ixYkX5uhUrVpCXl8dZZ50FwGuvvcYRRxxBgwYNGDhwIAUFBfs8zrp167jqqqto0aIFXbt2Zc6cOeXfmzdvHieccAItW7bk0ksvpaSkhJUrV5KTk8O6deu48sorefXVVzn//PPJycnhgQceKL/vq6++yogRI2L4E5D0dRa8FBL169fnzDPP3GsUP3XqVM455xzS0tLIz8/njDPOYMyYMXzwwQekp6dzyy237PM4Q4cOZcOGDSxcuJCRI0eWX65zw4YNDBw4kAsuuIDFixezcuVK7r//fkpKSvj0009p3rw5f/jDHzj++OO599576d69O4888kj54z722GMceeSRcflZSLLgpVAZMWIEjz/+ePny1KlTy3fPP/XUUxx++OEMGTKEpk2bcvPNN/Piiy/udf9169bx6quvctNNN9G2bVtGjRrFwQcfzFNPPcVrr71GkyZNuOiii2jatCmTJ0/m+OOPL79vYmIi9erVo1atWmRkZHDGGWewePFiNmzYQGlpKc8++yyDBw+Oy89BEiR/900kVRd9+vShoKCA//znP2zfvh2gvIRXrVrFokWLaNy48V73Wbt2bfm/P/vsM9q0aUObNm3K1x1//PGsXbuWTZs2ceyxx5avP+iggzjooINYtGhRhVnq1KnD6aefzjPPPMOhhx7KoYceSsuWLSvtuUr6dha8FCJJSUkMHTqUxx9/nK1bt+51zDszM5PevXvvNWovLCykbt265csNGzbkiy++YNu2bdSrVw+ADz/8kCFDhrBjxw4++eST8tuuX7+e999/f583DF933nnncf/999OhQwfOPffcynyqkr6Du+ilkBkxYgTPP/88L7zwAsOHDy9f37t3b1555RWWL18OwPTp0+nevTu7d+8uv80hhxxC69atmTp1KgDLly/nrbfe4phjjuHEE0/knXfeYfXq1QDceeedzJs3b69tp6enl+85ADjllFNYvHgx//73vxk0aFDMnrOkfTmCl0Kmc+fOJCQkcNBBB+21q71bt25MnDiRI488kvbt25OUlMSUKVNITt7zZyA5OZlHH32UoUOHcscdd7B161buuusuunXrBsANN9zA4YcfTrt27WjVqhWPPvooq1atKr9/165dWbJkCccffzwLFiygdu3a9O3blzVr1tC0adP4/RAkkRCJRCJBh5AUP6WlpWzZsoVGjRp96+2+/PJLmjRpQkJCwl7rd+3aRVFRERkZGRXer6ysjB07dpCWlgbA8OHD6du3L8OGDaucJyDpe7HgJcXE4sWLeeCBB5g5cyZLliyhdu3aQUeSahSPwUuKiUaNGtG2bVtmzJhhuUsBcAQvSVIIOYKXJCmELHhJkkLIgpckKYQseEmSQsiClyQphCx4SZJCyIKXJCmELHhJkkLo/wEWzU8z2VuEWwAAAABJRU5ErkJggg==" alt="plot of chunk unnamed-chunk-5"/> </p>
+
+<p>If you give <code>fetchData()</code> the name of a package data set, it will get it from the package.</p>
+
+<pre><code class="r">kids = fetchData(&quot;KidsFeet&quot;)
+</code></pre>
+
+<pre><code>## Data KidsFeet found in package.
+</code></pre>
+
+<pre><code class="r">mean(width, data = kids)
+</code></pre>
+
+<pre><code>## [1] 8.992
+</code></pre>
+
+<p>I like this style because it makes it explicit that the data is coming from somewhere.  The package data is a little mysterious, as if there were special data sets in the ether.</p>
+
+<p>When you leave the argument empty, as in <code>fetchData( )</code>, a file browser window will appear and you can navigate to the file you want on your own maching.  </p>
+
+<h3>New R Software</h3>
+
+<p><code>fetchData()</code> can also be used to &ldquo;source&rdquo; R software.  This is useful if you have a program or demo you want to distribute easily to a class.  This is what&#39;s happening when the file name passed as an argument to <code>fetchData()</code> ends with <code>.R</code>.</p>
+
+<h3>Adding Your Own Directory</h3>
+
+<p>You can tell <code>fetchData()</code> to include a specific set of web directories in its search.  This allows you to set up your own web repository.  Any files you place there can be accessed by <code>fetchData()</code> in the ordinary way.  For example, here&#39;s a directory set up on Dropbox for Macalester&#39;s statistical modeling course:</p>
+
+<pre><code class="r">fetchData(add.to.path = &quot;https://dl.dropbox.com/u/5098197/ISM/Data/&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;http://www.mosaic-web.org/go/datasets/&quot;   
+## [2] &quot;http://dl.dropbox.com/u/5098197/ISM/Data/&quot;
+</code></pre>
+
+<p>(You should, of course, substitute the address of your own directory in the above.)</p>
+
+<p>Such statements can be added to the <code>.Rprofile</code> file so that they are automatically executed at start-up.  It makes sense to do this for students in a class, for instance.</p>
+
+<h3>Data Files Available through <code>fetchData()</code></h3>
+
+<p>By default <code>fetchData()</code> looks for files on the <a href="http://www.mosaic-web.org">Project MOSAIC</a> web site.  Here is a list as of Sept. 3, 2012.  Remember to quote the name when you use it in <code>fetchData()</code>, e.g.</p>
+
+<pre><code class="r">temps = fetchData(&quot;GlobalSurfaceTemperatures.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from
+## http://www.mosaic-web.org/go/datasets/GlobalSurfaceTemperatures.csv
+</code></pre>
+
+<ul>
+<li>GlobalSurfaceTemperatures.csv</li>
+<li>DauphinIslandData.csv</li>
+<li>wordfrequency.csv</li>
+<li>maunaloa-CO2.csv</li>
+<li>TreeHarvest.csv</li>
+<li>PREP-Toronto-ball.csv</li>
+<li>PREP-Stewart-World-Population.csv</li>
+<li>running-longitudinal.csv</li>
+<li>repeat-runners.csv</li>
+<li>netflixA.csv</li>
+<li>inflation.csv</li>
+<li>I95citations.csv</li>
+<li>fishdata.csv</li>
+<li>whickham.csv</li>
+<li>tadpole-speeds.csv</li>
+<li>myopia.csv</li>
+<li>zebra-mussels.csv</li>
+<li>truckingjobs.csv</li>
+<li>hdd-minneapolis.csv</li>
+<li>grades.csv</li>
+<li>grade-to-number.csv</li>
+<li>gestation.csv</li>
+<li>WeightLoss.csv</li>
+<li>Dome.csv</li>
+<li>diamonds.csv</li>
+<li>congress.csv</li>
+<li>birthweight.csv</li>
+<li>eCOTS_FingerData.csv</li>
+<li>Ch5_Assault_B.csv</li>
+<li>Ch10_HeatLoss.csv</li>
+<li>LifeExpectancy.csv</li>
+<li>AARP-insurance.csv</li>
+<li>water1040.csv</li>
+<li>water940.csv</li>
+<li>engines.csv</li>
+<li>jmm2012data1.csv</li>
+<li>rollerblade-calories.csv</li>
+<li>superSlideTrack2.csv</li>
+<li>roller-2011-10-31-a.csv</li>
+<li>natural-gas-usage.csv</li>
+<li>fordisland.csv</li>
+<li>used-hondas.csv</li>
+<li>cardata.csv</li>
+<li>BodyFat.csv</li>
+<li>blastdata.csv</li>
+<li>utilities.csv</li>
+<li>ten-mile-race.csv</li>
+<li>swim100m.csv</li>
+<li>marriage.csv</li>
+<li>kidsfeet.csv</li>
+<li>galton.csv</li>
+<li>cps.csv</li>
+<li>courses.csv</li>
+<li>alder.csv</li>
+<li>Cherry-Blossom-Long.csv</li>
+<li>stan-data.csv</li>
+<li>oring-damage.csv</li>
+<li>Income-Housing.csv</li>
+<li>hawaii.csv</li>
+<li>Cherry-Blossom-2008.csv</li>
+<li>SleepCaffeine.csv</li>
+<li>MustangPrice.csv</li>
+</ul>
+
+<p>In addition, the Project MOSAIC site hosts copies of the data files <br/>
+from De Veaux, Velleman, and Bock, <a href="http://wps.aw.com/aw_deveaux_stats_series/80/20537/5257491.cw/index.html">Intro Stats</a>.  Those data sets are documented in the book, which also provides a context for instructors that relates individual data sets to statistical topics.  You can access these in the ordinary way through <code>fetchData()</code>.  Take note that each name is preceeded with &ldquo;DVB/&rdquo;.</p>
+
+<ul>
+<li>DVB/Ch03_Blood_Pressure.csv</li>
+<li>DVB/Ch03_Cars.csv</li>
+<li>DVB/Ch03_Movies_Genre_Rating.csv</li>
+<li>DVB/Ch03_Tattoos.csv</li>
+<li>DVB/Ch03_Titanic.csv</li>
+<li>DVB/Ch03_Twins.csv</li>
+<li>DVB/Ch03_Weather_forecasts.csv</li>
+<li>DVB/Ch03_Winter_Olympics_2006.csv</li>
+<li>DVB/Ch04_Airline_Stats.csv</li>
+<li>DVB/Ch04_boomtowns.csv</li>
+<li>DVB/Ch04_Cancelled_flights.csv</li>
+<li>DVB/Ch04_credit_card_expense.csv</li>
+<li>DVB/Ch04_E-mails.csv</li>
+<li>DVB/Ch04_Gasoline_usage_2004.csv</li>
+<li>DVB/Ch04_Golf_Drives.csv</li>
+<li>DVB/Ch04_Horsepower.csv</li>
+<li>DVB/Ch04_How_tall.csv</li>
+<li>DVB/Ch04_Hurricanes_2006.csv</li>
+<li>DVB/Ch04_Kentucky_Derby_2007.csv</li>
+<li>DVB/Ch04_marijuana_2003.csv</li>
+<li>DVB/Ch04_math_scores_2005.csv</li>
+<li>DVB/Ch04_movies.csv</li>
+<li>DVB/Ch04_Neck_size.csv</li>
+<li>DVB/Ch04_Nissan.csv</li>
+<li>DVB/Ch04_Paper_consumption.csv</li>
+<li>DVB/Ch04_Pizza_Prices.csv</li>
+<li>DVB/Ch04_prisons_2005.csv</li>
+<li>DVB/Ch04_Singers.csv</li>
+<li>DVB/Ch04_Sugar_in_cereals.csv</li>
+<li>DVB/Ch04_tsunamis.csv</li>
+<li>DVB/Ch04_Vineyards.csv</li>
+<li>DVB/Ch05_Airline_Stats.csv</li>
+<li>DVB/Ch05_Assets.csv</li>
+<li>DVB/Ch05_Baseball.csv</li>
+<li>DVB/Ch05_CEO_Compensation_2005.csv</li>
+<li>DVB/Ch05_Cereals.csv</li>
+<li>DVB/Ch05_Cholesterol.csv</li>
+<li>DVB/Ch05_Derby_Speeds_2007.csv</li>
+<li>DVB/Ch05_Drunk_driving_2005.csv</li>
+<li>DVB/Ch05_Fuel_Economy.csv</li>
+<li>DVB/Ch05_Golf_courses.csv</li>
+<li>DVB/Ch05_Hurricanes_2006.csv</li>
+<li>DVB/Ch05_Industrial_experiment.csv</li>
+<li>DVB/Ch05_Kentucky_Derby_2007.csv</li>
+<li>DVB/Ch05_Law_enforcement_2004.csv</li>
+<li>DVB/Ch05_Marraige_age.csv</li>
+<li>DVB/Ch05_Mens_combined_06.csv</li>
+<li>DVB/Ch05_MPG.csv</li>
+<li>DVB/Ch05_Mugs.csv</li>
+<li>DVB/Ch05_Music_Library.csv</li>
+<li>DVB/Ch05_Ozone.csv</li>
+<li>DVB/Ch05_Passive_smoke.csv</li>
+<li>DVB/Ch05_Pizza_prices.csv</li>
+<li>DVB/Ch05_Population_growth.csv</li>
+<li>DVB/Ch05_Roller_coasters.csv</li>
+<li>DVB/Ch05_Stereograms.csv</li>
+<li>DVB/Ch05_Still_rockin.csv</li>
+<li>DVB/Ch05_Sunspots.csv</li>
+<li>DVB/Ch05_tendon_transfer.csv</li>
+<li>DVB/Ch05_Vineyards.csv</li>
+<li>DVB/Ch05_Wild_card_summer_Olymp.csv</li>
+<li>DVB/Ch05_Wines.csv</li>
+<li>DVB/Ch05_Womens_basketball.csv</li>
+<li>DVB/Ch06_Car_speeds.csv</li>
+<li>DVB/Ch06_Heptathlon_2004.csv</li>
+<li>DVB/Ch06_Mens_Combined%202006.csv</li>
+<li>DVB/Ch06_NHANES.csv</li>
+<li>DVB/Ch06_Receivers.csv</li>
+<li>DVB/Ch06_speed_skating_2006.csv</li>
+<li>DVB/Ch06_Winter_Olymp06downhill.csv</li>
+<li>DVB/Ch07_Antidepressants.csv</li>
+<li>DVB/Ch07_Attendance_2006.csv</li>
+<li>DVB/Ch07_Burgers.csv</li>
+<li>DVB/Ch07_Drug_abuse.csv</li>
+<li>DVB/Ch07_f-stops.csv</li>
+<li>DVB/Ch07_flights.csv</li>
+<li>DVB/Ch07_Fuel_economy_2007.csv</li>
+<li>DVB/Ch07_Hard_water.csv</li>
+<li>DVB/Ch07_hurricanePrediction72h.csv</li>
+<li>DVB/Ch07_Income_and_Housing.csv</li>
+<li>DVB/Ch07_Interest_and_Mortgages.csv</li>
+<li>DVB/Ch07_Ithaca_students.csv</li>
+<li>DVB/Ch07_kentucky_Derby_2007.csv</li>
+<li>DVB/Ch07_Lunchtime.csv</li>
+<li>DVB/Ch07_Oil_Production_2005.csv</li>
+<li>DVB/Ch07_Perform_IQ-brain_size.csv</li>
+<li>DVB/Ch07_Planets.csv</li>
+<li>DVB/Ch07_Roller_coasters.csv</li>
+<li>DVB/Ch07_SBS_Framingham.csv</li>
+<li>DVB/Ch07_Thrills.csv</li>
+<li>DVB/Ch07_Vehicle_weights.csv</li>
+<li>DVB/Ch07_Wind_speed.csv</li>
+<li>DVB/Ch08_Attendance_2006.csv</li>
+<li>DVB/CH08_Birth_Rates%202005.csv</li>
+<li>DVB/Ch08_BK_menu_items.csv</li>
+<li>DVB/Ch08_Body_fat.csv</li>
+<li>DVB/Ch08_Candy_2006.csv</li>
+<li>DVB/Ch08_Cereals.csv</li>
+<li>DVB/Ch08_cigarettes.csv</li>
+<li>DVB/Ch08_Cost_of%20Living%202006.csv</li>
+<li>DVB/Ch08_Drug_abuse.csv</li>
+<li>DVB/Ch08_Hard_water.csv</li>
+<li>DVB/Ch08_Heptathlon_2004.csv</li>
+<li>DVB/Ch08_Hurricane_winds.csv</li>
+<li>DVB/Ch08_Income_and_Housing.csv</li>
+<li>DVB/Ch08_Interest_and_Mortgages.csv</li>
+<li>DVB/Ch08_Roller_coaster.csv</li>
+<li>DVB/Ch08_SAT_scores.csv</li>
+<li>DVB/Ch08_Used_Cars%202007.csv</li>
+<li>DVB/Ch08_wildfires.csv</li>
+<li>DVB/Ch09_2000_Election.csv</li>
+<li>DVB/Ch09_Age_at_first_marraige.csv</li>
+<li>DVB/Ch09_Ages_of_couples.csv</li>
+<li>DVB/Ch09_Breakfast_cereals.csv</li>
+<li>DVB/Ch09_Doctors%26Life_expect.csv</li>
+<li>DVB/Ch09_Florida_vote_by_county.csv</li>
+<li>DVB/Ch09_Fuel_efficiency.csv</li>
+<li>DVB/Ch09_Gestation.csv</li>
+<li>DVB/Ch09_Human_Dev_Index.csv</li>
+<li>DVB/Ch09_Inflation_2006.csv</li>
+<li>DVB/Ch09_Intrest_Rates1950-2005.csv</li>
+<li>DVB/Ch09_Life_Expectancy_2004.csv</li>
+<li>DVB/Ch09_Marriage_Age_2003.csv</li>
+<li>DVB/Ch09_Motorcycles.csv</li>
+<li>DVB/Ch09_Movies.csv</li>
+<li>DVB/Ch09_Oakland_passengers.csv</li>
+<li>DVB/Ch09_Oil_prices.csv</li>
+<li>DVB/Ch09_Penguins.csv</li>
+<li>DVB/Ch09_Smoking_2004.csv</li>
+<li>DVB/Ch09_Swim_the_lake_2006.csv</li>
+<li>DVB/Ch09_Tour_de_France_2007.csv</li>
+<li>DVB/Ch09_Tracking_Hurricanes.csv</li>
+<li>DVB/Ch09_Unwed_births.csv</li>
+<li>DVB/Ch10_Airline_passengers.csv</li>
+<li>DVB/Ch10_Assets.csv</li>
+<li>DVB/Ch10_Baseball_Salaries_2005.csv</li>
+<li>DVB/Ch10_Brakes.csv</li>
+<li>DVB/Ch10_Cars.csv</li>
+<li>DVB/Ch10_Companies.csv</li>
+<li>DVB/Ch10_Crowdedness.csv</li>
+<li>DVB/Ch10_Dow_Jones_2006.csv</li>
+<li>DVB/Ch10_fishing_line.csv</li>
+<li>DVB/Ch10_HDI.csv</li>
+<li>DVB/Ch10_Internet.csv</li>
+<li>DVB/Ch10_Jumps_2004.csv</li>
+<li>DVB/Ch10_Life_expectancy.csv</li>
+<li>DVB/Ch10<em>Logs</em>(not_logarithms).csv</li>
+<li>DVB/Ch10_Oil_Production_2005.csv</li>
+<li>DVB/Ch10_Orange_production.csv</li>
+<li>DVB/Ch10_Pendulum.csv</li>
+<li>DVB/Ch10_Penguins.csv</li>
+<li>DVB/Ch10_Planets_2006.csv</li>
+<li>DVB/Ch10_Pressure.csv</li>
+<li>DVB/Ch10_Slower_is_cheaper.csv</li>
+<li>DVB/Ch10_Treas_Bills1950-1980.csv</li>
+<li>DVB/Ch10_Treas_Bills1950-2005.csv</li>
+<li>DVB/Ch10_Tree_growth.csv</li>
+<li>DVB/Ch10_Weight_lifting%202004.csv</li>
+<li>DVB/Ch10_Years_to_Live_2003.csv</li>
+<li>DVB/Ch23_Better_Light.csv</li>
+<li>DVB/Ch23_Chips_ahoy.csv</li>
+<li>DVB/Ch23_Doritos.csv</li>
+<li>DVB/Ch23_Driving_Distance.csv</li>
+<li>DVB/Ch23_Farmed_Salmon.csv</li>
+<li>DVB/Ch23_Flight_Statistics.csv</li>
+<li>DVB/Ch23_Maze.csv</li>
+<li>DVB/Ch23_Normal_temperature.csv</li>
+<li>DVB/Ch23_Popcorn.csv</li>
+<li>DVB/Ch23_Pulse_rates.csv</li>
+<li>DVB/Ch23_Ruffles.csv</li>
+<li>DVB/Ch23_Ski_wax.csv</li>
+<li>DVB/Ch23_Triphammer_Speeds.csv</li>
+<li>DVB/Ch23_Wind_Power.csv</li>
+<li>DVB/Ch23_Yogurt.csv</li>
+<li>DVB/Ch24_Baseball_2006.csv</li>
+<li>DVB/Ch24_Battery_life.csv</li>
+<li>DVB/Ch24_Buy_from_Friend.csv</li>
+<li>DVB/Ch24_Cereal.csv</li>
+<li>DVB/Ch24_Cukoos.csv</li>
+<li>DVB/Ch24_Egyptians.csv</li>
+<li>DVB/Ch24_Hard_water.csv</li>
+<li>DVB/Ch24_Hurricanes_2006.csv</li>
+<li>DVB/Ch24_Job_satisfaction.csv</li>
+<li>DVB/Ch24_Memory.csv</li>
+<li>DVB/Ch24_Memory(stacked).csv</li>
+<li>DVB/Ch24_Reading.csv</li>
+<li>DVB/Ch24_Running_Heats.csv</li>
+<li>DVB/Ch24_Stereograms.csv</li>
+<li>DVB/Ch24_Streams.csv</li>
+<li>DVB/Ch24_Swimming_heats.csv</li>
+<li>DVB/Ch25_Brain_waves.csv</li>
+<li>DVB/Ch25_Braking_test2.csv</li>
+<li>DVB/Ch25_Braking.csv</li>
+<li>DVB/Ch25_Couples_ages.csv</li>
+<li>DVB/Ch25_Exercise.csv</li>
+<li>DVB/Ch25_Flexible_Schedule.csv</li>
+<li>DVB/Ch25_Freshman_15.csv</li>
+<li>DVB/Ch25_Friday_the_13th_Part_1.csv</li>
+<li>DVB/Ch25_Friday_the_13th_Part_2.csv</li>
+<li>DVB/Ch25_Gasoline.csv</li>
+<li>DVB/Ch25_Job_satisfaction.csv</li>
+<li>DVB/Ch25_Marathon_2006.csv</li>
+<li>DVB/Ch25_Push-ups.csv</li>
+<li>DVB/Ch25_Rain.csv</li>
+<li>DVB/Ch25_Seasonal_Spending.csv</li>
+<li>DVB/Ch25_Sex_sells.csv</li>
+<li>DVB/Ch25_Strikes.csv</li>
+<li>DVB/Ch25_Summer_school.csv</li>
+<li>DVB/Ch25_Temperatures.csv</li>
+<li>DVB/Ch25_Tuition_2006.csv</li>
+<li>DVB/Ch25_Uninsured.csv</li>
+<li>DVB/Ch25_Wheelchair_Marathon.csv</li>
+<li>DVB/Ch25_Wind_Speed.csv</li>
+<li>DVB/Ch25_Women&#39;s_Skating_1500.csv</li>
+<li>DVB/Ch25_Womens_1500_skating.csv</li>
+<li>DVB/Ch25_Yogurt.csv</li>
+<li>DVB/Ch26_Baseball_players.csv</li>
+<li>DVB/Ch26_Cars.csv</li>
+<li>DVB/Ch26_Cincinnati_trafficstop.csv</li>
+<li>DVB/Ch26_Class_of_2006_plans.csv</li>
+<li>DVB/Ch26_Cranberry_juice.csv</li>
+<li>DVB/Ch26_Education_by_age.csv</li>
+<li>DVB/Ch26_Executive_birth_signs.csv</li>
+<li>DVB/Ch26_Fish_diet.csv</li>
+<li>DVB/Ch26_Full_moon.csv</li>
+<li>DVB/Ch26_Hurricane_frequencies.csv</li>
+<li>DVB/Ch26_Montana_revisited.csv</li>
+<li>DVB/Ch26_Montana.csv</li>
+<li>DVB/Ch26_NYPD_discrimination.csv</li>
+<li>DVB/Ch26_Pi.csv</li>
+<li>DVB/Ch26_Pregnancies.csv</li>
+<li>DVB/Ch26<em>Race</em>%26_education_part2.csv</li>
+<li>DVB/Ch26_Race_and_education.csv</li>
+<li>DVB/Ch26_Racial_steering.csv</li>
+<li>DVB/Ch26_South_Africa_Lottery.csv</li>
+<li>DVB/Ch26_Tattoos.csv</li>
+<li>DVB/Ch26_Titanic_redux.csv</li>
+<li>DVB/Ch26_Titanic.csv</li>
+<li>DVB/Ch26_Working_parents.csv</li>
+<li>DVB/Ch26_Zodiac.csv</li>
+<li>DVB/Ch27_Acid_rain.csv</li>
+<li>DVB/Ch27_All_efficiency_can_buy.csv</li>
+<li>DVB/Ch27_Body_fat.csv</li>
+<li>DVB/Ch27_Brain_size.csv</li>
+<li>DVB/Ch27_Cereal.csv</li>
+<li>DVB/Ch27_Cholesterol_2007.csv</li>
+<li>DVB/Ch27_Craters.csv</li>
+<li>DVB/Ch27_Crawling.csv</li>
+<li>DVB/Ch27_Drug_use.csv</li>
+<li>DVB/Ch27<em>Education</em>%26_mortality.csv</li>
+<li>DVB/Ch27_El_Nino.csv</li>
+<li>DVB/Ch27_Fuel_economy.csv</li>
+<li>DVB/Ch27_Grades.csv</li>
+<li>DVB/Ch27_HotDogs.csv</li>
+<li>DVB/Ch27_hurricane_prediction%2072h.csv</li>
+<li>DVB/Ch27_Marriage_Age_2003.csv</li>
+<li>DVB/Ch27_Mouth_volume.csv</li>
+<li>DVB/Ch27_Movies.csv</li>
+<li>DVB/Ch27_Nenana_2006.csv</li>
+<li>DVB/Ch27_No_opinion.csv</li>
+<li>DVB/Ch27_Printers.csv</li>
+<li>DVB/Ch27_Property_assessments.csv</li>
+<li>DVB/Ch27_Sales_and_Profits.csv</li>
+<li>DVB/Ch27_SAT_scores.csv</li>
+<li>DVB/Ch27_Seasonal_Spending.csv</li>
+<li>DVB/Ch27_Start_the_car.csv</li>
+<li>DVB/Ch27_Strike_two.csv</li>
+<li>DVB/Ch27_Swimming_Ontario.csv</li>
+<li>DVB/Ch27_Used_Cars%202007.csv</li>
+<li>DVB/Ch27_Winter.csv</li>
+<li>DVB/Ch28_Activating_yeast.csv</li>
+<li>DVB/Ch28_Analgesics.csv</li>
+<li>DVB/Ch28_Auto_noise_filters.csv</li>
+<li>DVB/Ch28_Cereals.csv</li>
+<li>DVB/Ch28_Downloading.csv</li>
+<li>DVB/Ch28_Eggs.csv</li>
+<li>DVB/Ch28_Fertilizers.csv</li>
+<li>DVB/Ch28_Frisbee_throws.csv</li>
+<li>DVB/Ch28_Fuel_economy.csv</li>
+<li>DVB/Ch28_Hand_washing.csv</li>
+<li>DVB/Ch28_Hearing.csv</li>
+<li>DVB/Ch28_Mugs.csv</li>
+<li>DVB/Ch28_School_system.csv</li>
+<li>DVB/Ch28_Tellers.csv</li>
+<li>DVB/Ch28_TV_Watching.csv</li>
+<li>DVB/Ch28_Wines.csv</li>
+<li>DVB/Ch29_Body_fat.csv</li>
+<li>DVB/Ch29_Breakfast_cereals.csv</li>
+<li>DVB/Ch29_Fifty_states.csv</li>
+<li>DVB/Ch29_Grades.csv</li>
+<li>DVB/Ch29_Hurricane_winds.csv</li>
+<li>DVB/Ch29_Infant_mortality.csv</li>
+<li>DVB/Ch29_Scottish_Hill_races.csv</li>
+<li>DVB/Rev01_Age_and_party.csv</li>
+<li>DVB/Rev01_Bike_safety.csv</li>
+<li>DVB/Rev01_Birth_order.csv</li>
+<li>DVB/Rev01_Cramming.csv</li>
+<li>DVB/Rev01_Hard_Water.csv</li>
+<li>DVB/Rev01_Libertys_nose.csv</li>
+<li>DVB/Rev01_Mail.csv</li>
+<li>DVB/Rev01_old_faithful.csv</li>
+<li>DVB/Rev01_Profits.csv</li>
+<li>DVB/Rev01_Public_opinion.csv</li>
+<li>DVB/Rev01_Wine_prices.csv</li>
+<li>DVB/Rev01_winter_olympics_2006.csv</li>
+<li>DVB/Rev02_Car.csv</li>
+<li>DVB/Rev02_Chips.csv</li>
+<li>DVB/Rev02_Cities.csv</li>
+<li>DVB/Rev02_Cramming.csv</li>
+<li>DVB/Rev02_Crocodile_lengths.csv</li>
+<li>DVB/Rev02_Down_the_drain.csv</li>
+<li>DVB/Rev02_Football_weights.csv</li>
+<li>DVB/Rev02_How_old_is_that_tree.csv</li>
+<li>DVB/Rev02_Lunchtime.csv</li>
+<li>DVB/Rev02_Manatees_2005.csv</li>
+<li>DVB/Rev02_Old_faithful.csv</li>
+<li>DVB/Rev02_SmokingPregnancy_2003.csv</li>
+<li>DVB/Rev02_Tobacco_and_alcohol.csv</li>
+<li>DVB/Rev02_Twins_2004.csv</li>
+<li>DVB/Rev02_Vineyards.csv</li>
+<li>DVB/Rev02_Williams_vs_Texas.csv</li>
+<li>DVB/Rev06_Color_or_text.csv</li>
+<li>DVB/Rev06_Drugs.csv</li>
+<li>DVB/Rev06_Hearing.csv</li>
+<li>DVB/Rev06_Irises.csv</li>
+<li>DVB/Rev06_Legionnaires_disease.csv</li>
+<li>DVB/Rev06_Mazes_and_smells.csv</li>
+<li>DVB/Rev06_Meals.csv</li>
+<li>DVB/Rev06_Newspapers.csv</li>
+<li>DVB/Rev06_Online_testing.csv</li>
+<li>DVB/Rev06_Pottery.csv</li>
+<li>DVB/Rev06_Rainmakers(stacked).csv</li>
+<li>DVB/Rev06_Rainmakers(unstacked).csv</li>
+<li>DVB/Rev06_Risk.csv</li>
+<li>DVB/Rev06_Teen_drinking.csv</li>
+<li>DVB/Rev07_Age_and_party.csv</li>
+<li>DVB/Rev07_AP_Statistics_scores.csv</li>
+<li>DVB/Rev07_Back_to_Montana.csv</li>
+<li>DVB/Rev07_Cramming.csv</li>
+<li>DVB/Rev07_Dairy_sales.csv</li>
+<li>DVB/Rev07_Diet.csv</li>
+<li>DVB/Rev07_Education_vs_Income.csv</li>
+<li>DVB/Rev07_Eye_and_hair_color.csv</li>
+<li>DVB/Rev07_Hard_water.csv</li>
+<li>DVB/Rev07_LA_Rainfall.csv</li>
+<li>DVB/Rev07_Mutual_funds.csv</li>
+<li>DVB/Rev07_Old_faithful.csv</li>
+<li>DVB/Rev07_Paper_airplanes.csv</li>
+<li>DVB/Rev07_Polling.csv</li>
+<li>DVB/Rev07_Tableware.csv</li>
+<li>DVB/Rev07_Twins_again.csv</li>
+<li>DVB/Rev07_Twins.csv</li>
+<li>DVB/Rev07_Weight_loss.csv</li>
+<li>DVB/Rev07_Wild_horses.csv</li>
+</ul>
+
+</body>
+
+</html>
+
