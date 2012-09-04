@@ -309,10 +309,10 @@ Fall Break!
 
 **Assignment**: 
 * [Columbia Epiville exercise on causal reasoning](http://ccnmtl.columbia.edu/projects/epiville/causal_inference/).  Hand in your answers via [Google Forms](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDNrUF80NDMxTVdUTmhVS2NTaDU1NHc6MQ).
-* Listen to this [debate about organic food marketing](http://intelligencesquaredus.org/index.php/past-debates/organic-food-is-marketing-hype/) broadcast on National Public Radio. How does the way health benefits were discussed compare to the ideas we have been studying? At time 38:00 in the audio recording (1:21:00 in the video), there is a question from the audience about specific health benefits. [Here is the article](https://moodle.macalester.edu/mod/resource/view.php?id=15243) that is referred to in the panelist's answer.
+* Listen to this [debate about organic food marketing](http://intelligencesquaredus.org/index.php/past-debates/organic-food-is-marketing-hype/) broadcast on National Public Radio. How does the way health benefits were discussed compare to the ideas we have been studying? At time 38:00 in the audio recording (1:21:00 in the video), there is a question from the audience about specific health benefits. [Here is the article](https://moodle.macalester.edu/mod/resource/view.php?id=15243) that is referred to in the panelist's answer. (And here's a Sept. 2012 [newspaper story](http://www.nytimes.com/2012/09/04/science/earth/study-questions-advantages-of-organic-meat-and-produce.html?hp) about the issue of organic food and nutrition.)
 
 **On Your Own**:
-[TED talk on social experiments and poverty](http://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty.html)
+* [TED talk on social experiments and poverty](http://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty.html)
 
 **In-class**:
 * [Necessary and sufficient exercise](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/necessary-and-sufficient-exercise.pdf)
