@@ -1,0 +1,121 @@
+Bias in promotion?
+==================
+
+Imagine that there are 10 women and 15 men in a promotion pool.  Here's such a pool in R:
+```{r}
+females = rep(1,10)
+males = rep(0,15)
+pool=c(males,females)
+```
+
+We're going to study how likely it is to get five females out of eight promotions in such a pool, under the hypothesis that sex is not a factor.  (Such a hypothesis, that nothing is going on, is called a "Null Hypothesis".)
+
+The following, `pick()` is an R function that samples without replacement from the pool
+```{r}
+pick <- function(n) {
+  sum(sample(pool,n))
+}
+```
+
+The `pick()` function was written to be general, to work for any size promotion group.  Our promotion group had 8 people.  Let's simulate a random selection of 8 in a world where the null hypothesis is true.
+```{r}
+pick(8)
+```
+
+The above is a possible result, but we don't know if it is a common or an unlikely result in the null-hypothesis world.  Let's run the simulation many times and see what we get:
+```{r}
+n=100
+Captain<-replicate(n,pick(8))
+```
+
+We could look at this in several ways, e.g. a table
+```{r}
+table(Captain)
+``` 
+or a graphic such as a histogram:
+```{r}
+hist(Captain,col="lightblue",
+     ylim=c(0,.4*n),
+     breaks=seq(-1.5,10.5,1))
+```
+
+Ultimately, we're interested in how often, in the null-hypothesis world, we would get a result of five or more females:
+```{r}
+table( Captain >= 5 )
+```
+
+**Note in passing**.  I think this expression is a little more obscure and verbose than needed:
+```{r}
+length(which(Captain>4))/n
+```
+
+Of course, it's a matter of taste.  The point of `which()` is that it extracts the indices of the entries which satisfy the criterion.  To me, it's more natural to use the condition itself, e.g.
+```{r}
+mean( Captain >= 5 )
+```
+
+## Doing it in a `mosaic` style
+
+There's nothing wrong with the above, but I think it has several layers of code that are not strictly needed, e.g. using 0,1 for the sex, using rep(), and so on.
+
+Here's one way to do it in `mosaic`
+
+First, load the package.  (All the stuff in the .Rmd file is there just to avoid filling the html file with the messages from loading mosaic.)
+```{r error=FALSE,warning=FALSE,message=FALSE}
+require(mosaic)
+```
+
+* Create the pool.  Why not do this explicitly, with `c()` being the only computer jargon?
+```{r}
+pool = c("F","F","F","F","F","F","F","F","F","F","M","M","M","M","M","M","M","M","M","M","M","M","M","M","M")
+```
+
+* Make sure that we got it right:
+```{r}
+tally(pool)
+```
+
+It just takes one time of having to type that whole expression above, before students appreciate why `rep()` is nice:
+```{r}
+pool = c( rep("F",10), rep("M",15))
+```
+But always check!
+
+```{r}
+tally(pool)
+```
+
+* Now, do one simulation where we select 8 people from the pool.
+```{r}
+resample(pool, 8)
+```
+
+If we do this many times, we'll get somewhat different results from trial to trial:
+```{r}
+resample(pool, 8)
+resample(pool, 8)
+resample(pool, 8)
+```
+
+* Our interest is in the number of females who are promoted.  Let's do three trials:
+```{r}
+tally( resample(pool,8) )
+tally( resample(pool,8) )
+tally( resample(pool,8) )
+```
+
+* To get a better ideal of the variation, let's repeat this many times and collect the results of the trials
+```{r}
+trials = do(1000)*tally( resample(pool,8))
+head(trials)
+```
+
+What did we get? Let's see how often each possibility arose for a number of promoted women:
+```{r}
+tally( ~F, data=trials)
+```
+
+It looks like having 5 women promoted out of this pool is fairly likely to happen under the null hypothesis. Out of the 1000 trials, there were 5 or more women more than 15% of the time. So, there's no reason to reject the null hypothesis.
+
+**NOTE TO MAVENS**:  This points out a feature of `tally()` that should be fixed: it gives NA rather than 0 when the count is 0.
+
