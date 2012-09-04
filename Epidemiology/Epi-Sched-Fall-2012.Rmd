@@ -226,6 +226,7 @@ I welcome proposals for skits to be made into short videos that would explain th
 
 **Assignment**: 
 * Columbia Epiville exercise on [Case-Control Studies](http://ccnmtl.columbia.edu/projects/epiville/case_control_study/).  Submit your answers on this [Google Form](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?hl=en_US&formkey=dHVYdkRjWjVPaWV3d3B0VFVIU0NnZUE6MQ#gid=0).
+* How's your glossary going? `r I(RR("glossary"))`
 
 **On Your Own**:
 
@@ -285,6 +286,8 @@ In reviewing these calculations, go through the following end-of-chapter problem
 
 A calculation problem on the test will be drawn from these very problems. You'll find answers to the problems in the back of the textbook. For life-expectancy calculations, review Appendix 5 from the book.
 
+* How's your glossary going? `r I(RR("glossary"))`
+
 **On Your Own**:
 * [An interview with Hans Rossling, part 2](http://blog.ted.com/2009/05/14/qa_with_hans_ro/)
 
@@ -329,6 +332,7 @@ Fall Break!
 
 **Assignment**:
 * Reading Reflection on Survival Analysis `r I(RR("survival"))`
+* How's your glossary going? `r I(RR("glossary"))`
 
 **On Your Own**:
 * [A BBC podcast on the history of infectious diseases](http://downloads.bbc.co.uk/podcasts/radio4/iots/iots_20110608-1657b.mp3)
@@ -356,7 +360,7 @@ Fall Break!
 
 
 `r I(classDayContents("Thurs", "Nov", 8 ))`
-**Topic**: Risk
+**Topic**: Risk II
 
 **Reading**: 
 * [*Lancet* article on the flu vaccine](https://moodle.macalester.edu/mod/resource/view.php?id=15256).
@@ -365,77 +369,146 @@ Fall Break!
 
 **Assignment**: 
 * Reading Reflection on Gigerenzer Sections I and II `r I(RR('giger12'))`
+
 **On Your Own**:
+
 **In-class**:
 
 
 `r I(classDayContents("Tues", "Nov", 13 ))`
-**Topic**: 
+**Topic**: Risk, stratification of risk, fright factors
+
 **Reading**: 
+* *Know your Chances*, Chap 5
+* [Plastic Panic](http://www.newyorker.com/reporting/2010/05/31/100531fa_fact_groopman#ixzz0ouYVlSDn)
+* [A training resource](http://dl.dropbox.com/u/5098197/Epidemiology/understanding-risk.pdf) from the UK National Health Service (NSH) on understanding and communicating risk. Before reading it, make sure you have some basic knowledge of Down Syndrome ([2](http://en.wikipedia.org/wiki/Down_syndrome), [3](http://en.wikipedia.org/wiki/Amniocentesis)) and Sickle Cell Anemia ([4](http://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0001554/), [5](http://en.wikipedia.org/wiki/Sickle-cell_disease)).
+* [Risk Communications and Public Health](http://books.google.com/books?id=PBH3bxSqdy0C&pg=PA8&lpg=PA8&dq=bennett+%22fright+factors%22&source=bl&ots=mjGkD9PCGr&sig=vsW1xpwW20ZfDyZvhf3RDklT0jc&hl=en&ei=XBHQTuHUBuri2gWrvLzJDw&sa=X&oi=book_result&ct=result&resnum=5&ved=0CE0Q6AEwBA#v=onepage&q&f=false) 2nd edition (2010) Peter Bennet et al. eds. Chapter 1, "Understanding Public Responses to Risk" pp. 3-22
+* [Communicating about Risks to Public Health: Points to Good Practice](http://www.bvsde.paho.org/tutorial6/fulltext/pointers.pdf)
+
 **Assignment**: 
+* Hand in your formal write up of the Island Descriptive Study.  Hand in links to both your report and your data spreadsheet(s) on [Moodle, here](https://moodle.macalester.edu/mod/assign/view.php?id=15392).  Everyone in each group should enter into Moodle the names of all members of the group and the link to the files.
+
 **On Your Own**:
+
 **In-class**:
+* Stratifying risk in familiar events/exposures.
 
 
 `r I(classDayContents("Thurs", "Nov", 15 ))`
-**Topic**: 
+**Topic**: Detection and Screening
+
 **Reading**: 
+* *Essential Epidemiology* Ch. 15 (Early detection)
+* [Strogatz on Conditional Probability](http://opinionator.blogs.nytimes.com/2010/04/25/chances-are/?hp)
+
 **Assignment**: 
+* [Epiville Exercise on Screening](http://epiville.ccnmtl.columbia.edu/screening/).  Hand in your answers via [Google Forms](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDhSbUlxZ1pGdi1rZkRxbjcxbWsycGc6MQ).
+* An essay on the rhetoric of screening. `r I(RR('rhetoric'))`
+
 **On Your Own**:
+* [An effective intervention](http://www.ted.com/talks/lang/en/bunker_roy.html)
+* [Summary notes on detection theory](http://dl.dropbox.com/u/5098197/Epidemiology/detection.pdf)
+* [Slides from the class](http://dl.dropbox.com/u/5098197/Epidemiology/detection-new.ppt)
+
 **In-class**:
+* Accuracy, sensitivity, specificity, etc. 
 
 `r I(classDayContents("Tues", "Nov", 20 ))`
-**Topic**: 
+**Topic**:  Screening generally.  The controversy over mammography and PSA screening.
+
 **Reading**: 
-**Assignment**: 
-**On Your Own**:
-**In-class**:
+* [A Deadly Misdiagnosis](http://www.newyorker.com/reporting/2010/11/15/101115fa_fact_specter)
+* To be posted on mammography and PSA
+
+**Assignment**:
+* *Essential Epidemiology* Chap. 15 end-of-chapter exercises 1, 2, & 3
+* [A probability calculation](http://dl.dropbox.com/u/5098197/Exercises/HTML/EPI-Evaluating-Eyewitness-Evidence/EPI-Evaluating-Eyewitness-Evidence-A.html)
+* Reading reflection on A Deadly Misdiagnosis, `r I(RR('misdiagnosis'))`
+* How's your glossary going? `r I(RR("glossary"))`
+
+**In Class**:
+* [Ethnic profiling activity](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/detection-article.pdf)
+
+----------------
 
 
 `r I(classDayContents("Thurs", "Nov", 22 ))`
 Thanksgiving Break!
 
-
+--------------------
 
 `r I(classDayContents("Tues", "Nov", 27 ))`
-**Topic**: 
+**Topic**: Trade-Offs
+
 **Reading**: 
+* *Know Your Chances*, Chaps 6 & 7.  Compare Chap 7 to [this commentary](this news commentary)
 **Assignment**: 
+* State topic for Island Project Part 2: The Analytical Topic.  Report due the last day of class
+
 **On Your Own**:
+
 **In-class**:
+* Screening for Mad-Cow disease
+* [Slides on Trade-Offs](http://dl.dropbox.com/u/5098197/Epidemiology/tradeoffs.pptx)
 
 
 `r I(classDayContents("Thurs", "Nov", 29 ))`
-**Topic**: 
+**Topic**: Trade-offs
+
 **Reading**: 
+* Essential Epidemiology Ch. 14 (Prevention)
+* [Don Berwick's recommendations to the National Health Service.](http://www.kaiserhealthnews.org/Stories/2010/July/07/berwick-british-NHS-speech-transcript.aspx)
+* [Five-Hundred Life-Saving Interventions and their Cost Effectiveness](http://dl.dropbox.com/u/5098197/Epidemiology/500-interventions.pdf)
+
 **Assignment**: 
-**On Your Own**:
+* What is health insurance?  Your view.  `r I(RR("insurance"))`
+
 **In-class**:
+* [Allocating health-care resources](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Health-Care-Choices.pdf)
+* [Risk Calculation -- Annuity Value](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Epi-Annuity-Game.pdf)
 
 
 `r I(classDayContents("Tues", "Dec", 4 ))`
-**Topic**: 
+**Topic**: Health Care Reform
+
 **Reading**: 
-**Assignment**: 
-**On Your Own**:
+* Atul Gawande, *Better*
+    * "The Bell Curve"
+    * "For Performance"
+* Goldhill, ["How American Health Care Killed My Father"](http://dl.dropbox.com/u/5098197/Epidemiology/HowHealthCareKilledMyFather.pdf)
+* The Cost Cunundrum
+* Bio-ethicist [Peter Singer](http://en.wikipedia.org/wiki/Peter_Singer) on [QALYs: Why we must ration health care](http://www.nytimes.com/2009/07/19/magazine/19healthcare-t.html?_r=1&pagewanted=all).
+* [QALYs on Wikipedia](http://dl.dropbox.com/u/5098197/Epidemiology/qaly-method.pdf)
+
 **In-class**:
+* [Prioritizing health-care options](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/QALY-Methodology.pdf)
 
 
 `r I(classDayContents("Thurs", "Dec", 6 ))`
-**Topic**: 
-**Reading**: 
-**Assignment**: 
-**On Your Own**:
-**In-class**:
+**Topic**: Reform, Improvement
 
+**Reading**: 
+* Atul Gawande, *Better*, "Afterward: Becoming a Positive Deviant"
+* Don Berwick (see this [news article](http://www.nytimes.com/2011/11/24/health/policy/dr-donald-m-berwick-resigns-as-head-of-medicare-and-medicaid.html?scp=2&sq=donald%20berwick&st=cse))
+    * From heroic to managed medicine: [The Epitaph of Profession](http://dl.dropbox.com/u/5098197/Epidemiology/bjgp_08_JohnHuntLecture_Berwick_AOP1.pdf)
+    * [The Science of Improvement](http://dl.dropbox.com/u/5098197/Epidemiology/JAMA-Berwick-1151.pdf)
+* [Does preventive care save money?](http://dl.dropbox.com/u/5098197/Epidemiology/661.pdf)
+
+**In-class**:
+* The Calculus of Allocating Health Resources
+
+**On Your Own**:
+* How's your glossary going? `r I(RR("glossary"))`
+
+-------------------
 
 `r I(classDayContents("Tues", "Dec", 11 ))`
-**Topic**: 
-**Reading**: 
-**Assignment**: 
-**On Your Own**:
+**Topic**: Review, catch up
+
 **In-class**:
+* Course evaluation
 
+-------------------
 
-`r I(classDayContents("Sat", "Nov", 15 ))`
+`r I(classDayContents("Sat", "Dec", 15 ))`
 Final Exam: 1:30-3:30

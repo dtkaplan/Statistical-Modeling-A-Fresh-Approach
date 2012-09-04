@@ -65,48 +65,48 @@ First, load the package.  (All the stuff in the .Rmd file is there just to avoid
 require(mosaic)
 ```
 
-* Create the pool.  Why not do this explicitly, with `c()` being the only computer jargon?
+* Create the pool.  In doing so, stick with the convention of data consisting of cases and variables, organized into a table or data frame.  Here, there is just one variable, sex.  But in general there might be several.
 ```{r}
-pool = c("F","F","F","F","F","F","F","F","F","F","M","M","M","M","M","M","M","M","M","M","M","M","M","M","M")
+pool = data.frame(sex=c("F","F","F","F","F","F","F","F","F","F","M","M","M","M","M","M","M","M","M","M","M","M","M","M","M"))
 ```
 
 * Make sure that we got it right:
 ```{r}
-tally(pool)
+tally(~sex, data=pool)
 ```
 
 It just takes one time of having to type that whole expression above, before students appreciate why `rep()` is nice:
 ```{r}
-pool = c( rep("F",10), rep("M",15))
+pool = data.frame(sex=c( rep("F",10), rep("M",15)))
 ```
 But always check!
 
 ```{r}
-tally(pool)
+tally(~sex, data=pool)
 ```
 
 * Now, do one simulation where we select 8 people from the pool.
 ```{r}
-resample(pool, 8)
+sample(pool, 8)
 ```
 
 If we do this many times, we'll get somewhat different results from trial to trial:
 ```{r}
-resample(pool, 8)
-resample(pool, 8)
-resample(pool, 8)
+sample(pool, 8)
+sample(pool, 8)
+sample(pool, 8)
 ```
 
 * Our interest is in the number of females who are promoted.  Let's do three trials:
 ```{r}
-tally( resample(pool,8) )
-tally( resample(pool,8) )
-tally( resample(pool,8) )
+tally(~sex, data=sample(pool,8) )
+tally(~sex, data=sample(pool,8) )
+tally(~sex, data=sample(pool,8) )
 ```
 
 * To get a better ideal of the variation, let's repeat this many times and collect the results of the trials
 ```{r}
-trials = do(1000)*tally( resample(pool,8))
+trials = do(1000)*tally( ~ sex, data=sample(pool,8))
 head(trials)
 ```
 
@@ -115,7 +115,10 @@ What did we get? Let's see how often each possibility arose for a number of prom
 tally( ~F, data=trials)
 ```
 
-It looks like having 5 women promoted out of this pool is fairly likely to happen under the null hypothesis. Out of the 1000 trials, there were 5 or more women more than 15% of the time. So, there's no reason to reject the null hypothesis.
+It looks like having 5 women promoted out of this pool is fairly likely to happen under the null hypothesis. 
+```{r}
+tally( ~ F >= 5, data=trials)
+```
+Out of the 1000 trials, there were 5 or more women more than 10% of the time. So, there's no reason to reject the null hypothesis.
 
-**NOTE TO MAVENS**:  This points out a feature of `tally()` that should be fixed: it gives NA rather than 0 when the count is 0.
 

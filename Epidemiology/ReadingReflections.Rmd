@@ -106,12 +106,50 @@ This is a somewhat technical article and it is likely that you will find it diff
 * What is meta-analysis?
 `r I(moodle(15265, "EE11"))`
 
+### <a name="insurance">Health Insurance: Your View</a>
+
+This short essay is intended to probe what you already know about health insurance, before we read about it. A few paragraphs will do nicely.
+First, give a one- or two-sentence definition of "insurance," a general category that includes life insurance, unemployment insurance, disability insurance, car insurance, home insurance.  **Don't look in the dictionary** --- give your own definition based on your current knowledge.
+
+Second, describe your understanding of how health insurance currently works. Some aspects that you should consider:
+
+* How does one acquire or sign up for health insurance?
+* How much does it cost?
+* What does it cover?  What health-related items doesn't it cover?
+
+Third, say something about how you think health insurance should work:
+
+* What should be covered?  What should be left out?
+* Should everyone pay the same amount? If not, how is it determined how much an individual’s health insurance premiums should be? If so, how should it be determined what the payment amount is?
+* Who pays for the balance (if any) of the cost of the health care that's actually delivered?
+* Should people be required to have health insurance? Should it be provided for free?
+
+[Hand in on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=15869).
+
+
+------------------
+
 ### Reading Reflection on Gigerenzer *et al.* I and II
 
 * What do the authors mean by saying, "patients seek certainty when there is none"?
 * What's wrong with lifetime risk measures?
 `r I(moodle(15264, "giger12"))`
 
+### <a name="rhetoric">Rhetoric of Screening</a>
+
+Here is an [editorial from the Minneapolis Star Tribune](http://dl.dropbox.com/u/5098197/Epidemiology/breast-cancer-screening.pdf) on Aug 11, 2009.
+Write a couple of paragraphs in the form of a letter to the editor taking on this editorial from an informed epidemiological perspective. Your letter might be supportive or critical of the editorial, but your point of view should be professional.
+
+As you pull together your thoughts in preparation for writing the letter, you might start by summarizing and explaining the arguments made in the editorial that the advantages of screening exceed the disadvantages. Are there any arguments that are rhetorical, mere turns of phrasing rather than careful reasoning?
+
+[Hand in on Moodle.](https://moodle.macalester.edu/mod/assign/view.php?id=15396)
+
+--------------------
+
+### A Deadly Misdiagnosis: Reading Reflection
+
+* This article expresses a theory that better diagnostic tests would dramatically improve the situation.  What evidence --- either empirical or theoretical --- is given in support of this theory?
+`r I(moodle(15811 ,"misdiagnosis"))
 
 ### The Great Influenza
 
