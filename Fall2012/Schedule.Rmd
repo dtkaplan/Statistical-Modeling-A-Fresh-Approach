@@ -57,6 +57,11 @@ todaysNotes <- function(fname,marker="notes") {
 *Nov* | | | | `r I(dd("Nov",2))` | | `r I(dd("Nov",5))` |  `r I(dd("Nov",7))` | `r I(dd("Nov",9))` | |  `r I(dd("Nov",12))` | `r I(dd("Nov",14))` | `r I(dd("Nov",16))` | | `r I(dd("Nov",19))` | `r I(dd("Nov",21))` | 23 | |  `r I(dd("Nov",26))` | `r I(dd("Nov",28))` | `r I(dd("Nov",30))` 
 *Dec* | | `r I(dd("Dec",3))` | `r I(dd("Dec",5))` | `r I(dd("Dec",7))` | | `r I(dd("Dec",10))` 
 
+### Class Resources
+
+[Moodle site](https://moodle.macalester.edu/course/view.php?id=1080) : AcroScore [initial passwords](https://moodle.macalester.edu/mod/assign/view.php?id=12216) : [RStudio](http://www.macalester.edu/rstudio)
+
+--------
 
 `r I(classDayContents("Wed", "Sept", 5 ))`
 **Topic**: Introduction to the course. Randomness, modeling, and inference.
@@ -73,7 +78,7 @@ todaysNotes <- function(fname,marker="notes") {
 **In Class**:
 * Activities on randomness.
 * Basics with R.
-* AcroScore set up
+* Using AcroScore [a video](http://dl.dropbox.com/u/5098197/Videos/AcroScoreIntro.swf)
 
 
 **On Your Own**:
@@ -88,6 +93,7 @@ Notes: `r I(todaysNotes("2012-09-05.html", "instr"))`
 * Recent news report: [Sleep and Senility](http://www.npr.org/blogs/health/2012/08/27/159983037/sleepless-nights-may-put-the-aging-brain-at-risk-of-dementia?sc=ipad&f=1001)
 
 **Assignment**:  
+* A video on [using AcroScore](http://dl.dropbox.com/u/5098197/Videos/AcroScoreIntro.swf).  Your initial passwords [are here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=12216).  Change your password to something more sensible by [logging in here](http://datavis.math.macalester.edu:8080/AcroScore08) and going to the Settings item, then the "Change Password" tab. AcroScore works only on Firefox and Safari browsers, sorry.
 * Exercises: `r I(PN(c("1RQ",101,102,104,105,110 )))`
 * Reading Reflection on Sleep and Senility. [Hand in on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=13720).
 * Quick survey to do **before** class: [link](https://spreadsheets.google.com/embeddedform?formkey=dEV1cW1rTWhpLUhITVFNVGpnQjNqT3c6MQ&theme=0AX42CRMsmRFbUy04ZWQwMDYwMS02YjZhLTQ2ZjMtYjcyNy0zYWNlMzlmYTAxNmY&embedded=true&ifq)
@@ -104,10 +110,11 @@ Notes: `r I(todaysNotes("2012-09-07.html", "instr"))`
 * SM §2.5, SM §3.1, 3.2, 3.3
 * [XKCD cartoon](http://xkcd.com/539/)
 
-**Assignment**: 
+**Assignment**:
 * Exercises `r I(PN(c(111,112,"2RQ",202,204,301,323,353)))`
 * Elevator experiment, `r I(PN(c(336)))`
 * Pre-course survey
+
 
 **In-Class**:
 * [Marital status of active-duty forces](https://dl.dropbox.com/u/5098197/Math155/ActiveDuty_MaritalStatus.xls) from [data.gov](https://explore.data.gov/Population/Active-Duty-Marital-Status/r84k-m39h)
