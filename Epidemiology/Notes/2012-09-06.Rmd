@@ -72,9 +72,9 @@ Framing of a hypothesis and carrying out an experiment to test the hypothesis.  
 
 QUESTION: What's a "confounding alternative"?
 
-In the Legionaire's disease case he describes, they are looking for a pattern in space and time to track down the source of the illness.
+In the grippe-like outbreak he describes, they are looking for a pattern in space and time to track down the source of the illness.
 
-Note the importance of defining what constitutes a case of the illness.
+Note the importance of defining what constitutes a case of the illness. The definition was general at first: "episode of fever and muscle aches after January 1, 1971".  Note that time enters into it.  The definition was broadened to include a particular sign (a serumm antibody).
 
 We'll be examining the sorts of studies that are done in epidemiology (and in social sciences) to draw plausible conclusions about causation when experiments cannot be done.
 
