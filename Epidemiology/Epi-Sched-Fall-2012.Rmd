@@ -15,7 +15,7 @@ classDayContents <- function(weekday="", month, day, year=2012) {
         paste('<a name="',makeDayLinkName(month,day,year),'">',weekday," ", day," ", month,"</a>",sep=""))
 }
 todaysNotes <- function(fname,marker="notes") {
-  paste("<a href='../Notes/", fname, "'>",marker,"</a>",sep="")
+  paste("<a href='Notes/", fname, "'>",marker,"</a>",sep="")
 }
 RR <- function(name) { #Reading reflection
  paste("<a href='http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/ReadingReflections#",name,"'>link</a>",sep="") 
@@ -54,7 +54,7 @@ Day-by-Day Syllabus
 * [Risk charts](http://dl.dropbox.com/u/5098197/Epidemiology/799.pdf) from Woloshin, Schwartz, and Welch
 * <http://www.gapminder.org> site and video
 
-Notes`r I(todaysNotes("2012-09-05.html", ":"))`
+Notes`r I(todaysNotes("2012-09-06.html", ":"))`
 
 -----------------
 

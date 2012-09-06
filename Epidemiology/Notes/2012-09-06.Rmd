@@ -1,0 +1,183 @@
+2012-09-06 Epidemiology Class Notes
+========================================================
+
+Let's start with a bit of recent news:
+* A paradigm shift in genetics: ["Junk DNA" isn't junk](http://www.nytimes.com/2012/09/06/science/far-from-junk-dna-dark-matter-proves-crucial-to-health.html?_r=1&hp)
+
+Biology and health is complicated.  There are breakthroughs in understanding and diagnostic capabilities.
+
+QUESTION: What are some of the big breakthroughs?  Let's make an informal, rough timeline.
+
+* discovery of the circulation of blood
+* microbial theory
+* genetics
+* x-rays, antibiotics
+* DNA sequencing (will this play out)
+
+Things will continue to evolve.  But not everything will be about high-tech science.  Consider the issue of treating cancer.  Here's an article:
+* [Palliative care and survival from cancer](http://www.nytimes.com/2010/08/19/health/19care.html?_r=1&scp=2&sq=hospice%20care&st=cse).
+
+QUESTIONS:
+* Is this a worthwhile thing to do? Why would you ever want to do palliative care instead of chemo.
+* What do you think about randomly assigning people to get
+palliative care or not?  (Note, everyone got the option for chemo
+(which isn't the normal practice, that when you go into hospice care
+your insurance won't cover chemo any longer.  But the people in
+hospice were willing to accept less aggressive chemo.)
+
+Points
+* It's a somewhat surprising result: a sort of win-win.
+* This is an experiment.  Note the effect of randomization.
+* What do you do if you can't do a study?  Note the design of the study: everyone had an option to get chemo.  Why was this?
+* Note what got studied and the setting: there were people who
+  were well monitored, a condition that could be precisely defined,
+  and conditions that could be set rather precisely.
+
+Think of all the other important things that don't get studied because
+these conditions don't exist.
+
+* Note the last paragraph: 
+    "Philanthropists tend to focus on curing cancer," Dr. Memel said. "But we can’t ignore people who need end-of-life care."  We study certain things but not others.  We anticipate a certain level of quality in our information about some things, but not others.
+
+Contrast this sort of study with:
+
+* [John Snow's map of London](http://www.ph.ucla.edu/epi/snow/snowmap1_1854_lge.htm)
+
+* Tables [1.1](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-1-1.png) and [1.2](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-1-2.png) from *Essential Epidemiology*.  Note that you have to study people who don't get sick in order to figure out what is going on in the people who do get sick.
+
+
+* An article about [BPA and its risks](http://www.nytimes.com/2010/09/07/science/07bpa.html?hp=&pagewanted=all)
+
+Why is BPA so difficult to study?
+* It's hard to find a group that is heavily exposed and contrast them with an unexposed group.
+* There's no specific endpoint that researchers are looking for.
+
+Here's another area that's really difficult:
+* [Evaluating teacher effectiveness](http://www.nytimes.com/2010/09/01/education/01teacher.html?src=me&ref=homepage)
+
+Points:
+* Education isn't such a different situation from the palliative care and chemo.  Both chemo and palliative care are complicated, and the response depends a lot on the patient characteristics.  
+
+What's different between education and the cancer/palliative care settings?
+* There is a pretty straightforward way to measure the outcome in the cancer situation: how long the person lived.  This is an oversimplification. What's the equivalent thing to measure in education?
+* We do not have a style of asking hard questions about education and the effectiveness of different practices.
+
+## Discussion of ``Epidemiology as a Liberal Art.'' 
+
+What are the five modes of thinking that Fraser identifies as important in liberal arts?
+
+#### 1. Scientific method: 
+
+Framing of a hypothesis and carrying out an experiment to test the hypothesis.  He writes, "additional care must be taken to find convincing evidence that the hypothesized chain of causation, and not some confounding alternative, led to the observed pattern of events."
+
+QUESTION: What's a "confounding alternative"?
+
+In the Legionaire's disease case he describes, they are looking for a pattern in space and time to track down the source of the illness.
+
+Note the importance of defining what constitutes a case of the illness.
+
+We'll be examining the sorts of studies that are done in epidemiology (and in social sciences) to draw plausible conclusions about causation when experiments cannot be done.
+
+#### 2. Analogic Thinking
+
+Constructing hypotheses based on perceived similarities to systems that are better understood.
+
+This requires a strong knowledge base, since you need to be aware of what are the candidates for making an analogy.
+
+We can't do much with this, because this course doesn't have a pre-requisite of a lot of medical knowledge.  But the application of epidemiological methods to non-health issues is a form of analogic thinking.  So you'll see us making analogies to non-medical issues, as with "teaching effectiveness," above.
+
+#### 3. Deductive Thinking.
+
+Working out the consequences of a set of assumptions.  His example has to do with the ratio of vaccine types to non-vaccine types in people who have had the vaccine compared to people who have not.  Assuming an efficacy for the vaccine lets you work out what this ratio should be; this lets you estimate the efficacy from observed ratios.
+
+We'll be doing some of this in the estimation problems for the course.  Also, the section on detection theory makes strong use of deductive thinking. 
+
+#### 4. Solving problems with constraints.
+
+Constraints arise from trade-offs.  We'll be examining this directly: trying to figure out when an intervention is worthwhile.  Much of the health-care debate in Congress relates to this because money is limited.
+
+We'll be talking about this explicitly.
+
+#### 5. Aesthetic values.
+
+I'm not so convinced about his claim that epidemiology is strongly related to teaching aesthetic values.  Certainly there are some studies that are very clever and make efficient use of available resources and information.
+
+#### [I would add] A sense of where you are in the context of where humanity has been.
+
+Studying history is, I think, crucial to developing analogic thinking.  By learning from the mistakes and successes of the past, by seeing how forces play out, you can get a better idea (by analogic thinking!) of how to structure things now.  
+
+It turns out that history has shaped epidemiology.  Certainly, epidemics have strongly shaped history.  This is pointed out in books like *Guns, Germs, and Steel.*  In *The Great Influenza*, a claim is made that flu was responsible for World War II.
+
+
+## Introductions
+* Break into groups of five: Introduce yourselves.  Give your group a unique but short name, e.g., Aardvarks.  Assign each person a letter: A, B, C, D, E.  Write down a list of all the names and the letter for each person.  Also, make a copy for me and hand it in to me.   Some questions:
+    * Where are you from?  Are you new to Mac, etc.
+    * What are your academic interests, e.g. your major or planned major?
+    * Non-academic activities, e.g., sport, drama
+    * Some other interesting (perhaps trivial) thing that might let you remember about the person.
+
+* Have the D people introduce E people.
+
+  Each day in class, over the next several sessions, I'm going to ask
+  a person with a given letter to introduce the person with that number.
+
+### Group discussion
+Stay in your groups of 5 for a few minutes.
+
+What are the major causes of death today?  What were they in 1900?  
+
+Report back to the class.  Use this to lead into the Risk Charts.
+
+### Risk Charts from Woloshin, Schwartz, and Welch]
+
+[The charts on a handout](https://dl.dropbox.com/u/5098197/Epidemiology/risk-charts.pdf)
+
+
+QUESTIONS:
+* Are all the specific causes of death listed on this page?  What fraction of deaths is covered by the specific causes?
+* What are the big differences between mortality of men and women?
+* Big differences between smokers and non-smokers?
+* How do things move with age?  Anything where mortality goes down with age?  Why do you think?
+* Any ways in which smoking seems protective?  Why do you think?
+
+## About the Course
+
+### Topics
+1. Measuring health and disease
+1. The spread of disease
+1. Cause and effect
+1. Risk
+1. Detection
+1. Evaluating Trade-offs
+1. Health-care Reform
+
+### Major activities
+
+* Reading and reading reflections and other short essays
+* Estimation problems and a few other calculation problems
+* Group projects on the Island
+* Problems involving calculations
+* History: Reading of the Great Influenza
+* Mid-term exam
+* Final exam
+
+### Logistics of the Course
+* Syllabus on <http://rpubs.com/dtkaplan/1150>
+* Hand in essays on Moodle
+    * Often your essays will be done in Google docs (or something similar) and you'll post a link to your document on Moodle
+
+
+## Topics held in Reserve
+
+
+### Estimation
+
+Show them this problem and the *Guesstimation* reading.
+
+[An article about waste in health care](http://www.nytimes.com/2010/09/07/health/policy/07health.html?_r=1&hp)
+  
+* Is the 360 million visit number reasonable?
+
+### <gapminder.org>
+
+
