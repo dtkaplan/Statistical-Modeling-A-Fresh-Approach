@@ -59,7 +59,25 @@ todaysNotes <- function(fname,marker="notes") {
 
 ### Class Resources
 
-[Moodle site](https://moodle.macalester.edu/course/view.php?id=1080) : AcroScore [initial passwords](https://moodle.macalester.edu/mod/assign/view.php?id=12216) : [RStudio](http://www.macalester.edu/rstudio)
+[Moodle site](https://moodle.macalester.edu/course/view.php?id=1080) :: AcroScore [initial passwords](https://moodle.macalester.edu/mod/assign/view.php?id=12216) :: [RStudio server](http://www.macalester.edu/rstudio)  
+
+#### Preceptors and Review Sessions
+
+       .       |                              |   .
+---------------|-------------------------------|-----------
+Ha Song Pham   | <mailto:hpham1@macalester.edu> | <img src="figure/HSP.png" width=40>
+Xiang Yuan (Henry) Yang| <mailto:xyang1@macalester.edu> |
+
+**Review sessions**: starting Monday Sept. 10.  Held in the MSCS reading room, Olin/Rice 254 (in the middle corridor)
+* Monday 7:00-9:00 pm
+* Tues 8:30-10:00 pm
+* Thurs 3:00-5:00 every other week -- we need to say which weeks!
+* Sat 3:00-5:00 pm
+* to be determined
+
+
+[Preceptor coordination document (restricted)](https://docs.google.com/document/d/1QwpGWJuQbiAqpaPpFzO-ntQ3AaQErJVXRLEVhS9pLOQ/edit#)
+
 
 --------
 
@@ -102,7 +120,7 @@ Notes: `r I(todaysNotes("2012-09-05.html", "instr"))`
 * [Link to Moodle site](https://moodle.macalester.edu/mod/assign/view.php?id=13577) for your introductory spreadsheet
 Starting with R. (Write a description of this activity)
 
-Notes: `r I(todaysNotes("2012-09-07.html", "instr"))`
+Notes: `r I(todaysNotes("2012-09-07.html", "instr"))` [Today's class](http://rpubs.com/dtkaplan/1553)
 
 `r I(classDayContents("Mon", "Sept", 10 ))`
 **Topic**: Descriptive statistics
@@ -112,14 +130,14 @@ Notes: `r I(todaysNotes("2012-09-07.html", "instr"))`
 
 **Assignment**:
 * Exercises `r I(PN(c(111,112,"2RQ",202,204,301,323,353)))`
-* Elevator experiment, `r I(PN(c(336)))`
-* Pre-course survey
+* Elevator experiment: Instructions `r I(PN(c(336)))`. -- Upload your file or a link to your file [here](https://moodle.macalester.edu/mod/assign/view.php?id=17379).
+* Pre-course survey (not yet posted)
 
 
 **In-Class**:
 * [Marital status of active-duty forces](https://dl.dropbox.com/u/5098197/Math155/ActiveDuty_MaritalStatus.xls) from [data.gov](https://explore.data.gov/Population/Active-Duty-Marital-Status/r84k-m39h)
 
-Notes: `r I(todaysNotes("2012-09-10.html", "instr"))`
+Notes: `r I(todaysNotes("2012-09-10.html", "instr"))` 
 
 `r I(classDayContents("Wed", "Sept", 12 ))`
 **Topic**: Descriptive statistics: variance
