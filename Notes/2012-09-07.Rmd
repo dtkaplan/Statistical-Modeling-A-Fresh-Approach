@@ -10,8 +10,8 @@ Statistial Modeling Notes: Day 2
 ## Creating their own spreadsheet
 * Have students form into groups of 4, introduce each other, decide on a few facts to record in a spreadsheet and create a Google spreadsheet.  
 * Each student should have an identified partner who will introduce them on one of the next three class days.
-* Share the link to the spreadsheet file so that everybody can access it.  Set it so that anybody with the link has access.
-* Each student in the group should copy the link into Moodle [assignment here](https://moodle.macalester.edu/mod/assign/view.php?id=13577) so they can get to it later on.
+* Share the link to the Google spreadsheet file so that everybody can access it.  Set it so that anybody with the link has access.
+* Each student in the group should copy the Google link into Moodle [assignment here](https://moodle.macalester.edu/mod/assign/view.php?id=13577) so they can get to it later on.
 
 ## Do the introductions!
 
@@ -19,9 +19,126 @@ One person from each group introduces another person from that group.
 
 ## Bureaucracy
 * Review AcroScore.  Have students enter their friendly names.
-* Description of elevator button experiment.
+* Description of [elevator button experiment](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#336).
 
 ## Starting R
 * Basic syntax, installing `mosaic` package
 * Using `fetchData` to read data files
 * Simple calculations on variables
+
+### Starting up
+Login to RStudio and make sure the "mosaic" box on the "Packages" tab is checked.  You'll probably need to do this only once for the semester, but if you happen to restart R, you'll need to do it again.
+
+```{r message=TRUE,error=TRUE,warning=TRUE,echo=FALSE,results="hide"}
+require(mosaic)
+```
+
+### Basic Syntax
+
+#### Arithmetic
+
+Arithmetic functions: `+ - * / ^ ( )`
+```{r}
+2+7
+2*7
+2^7
+```
+
+
+Functions: `name( argument1, argument2, ... )`
+```{r}
+sqrt(4)
+sin(2)
+```
+Named arguments: When there is more than one argument, it's convenient to be able to refer to them by their names rather than by their positions.
+```{r}
+seq(from=1,to=10,by=2)
+seq(from=1,to=10,length=5)
+```
+Sometimes you'll mix named and un-named arguments. The typical pattern is that the first one or two arguments you remember by position and the remaining ones you refer to by name. The basic  principle is that things should be unambiguous.
+```{r}
+seq(1,10,by=2)
+seq(10,from=1,length=2)
+```
+But better not to do this.
+```{r}
+seq(from=1,to=10,2)
+```
+Is the third argument `length=` or `to=`?  You don't really know until you try.  So use the name!
+
+### Chaining
+
+You can use the output of one computation as an input to the next calculation:
+```{r}
+sqrt((sqrt(9))^2)
+```
+
+QUESTIONS: 
+* How many different calculations are being done here?  
+* How could you re-organize that statement just a little bit --- moving just one symbol --- so that the output is 9.
+
+### Assignment
+
+You can store data and results for later use.  You referred to the stored object by a name.  The name should begin with a letter and not have any punctuation other than `.` or `_`.  Best to keep your names short, but not so short that you can't remember what's stored where.
+
+Here's a pure math example (since we haven't learned any statistics yet!)
+```{r}
+legx = 7
+legy = 9
+hypot = sqrt(legx^2 + legy^2)
+legx/hypot # Is this a sine or a cosine
+ang = atan2(legx,legy) # the angle in radians
+sin(ang)
+cos(ang)
+```
+For those interested, this technique of writing statements with quantities referred to by name is called abstraction.  Just by changing the values of `legx` and `legy`, we can repeat the calculation for a different right triangle.  So the calculations can be thought of as representing the general properties of a right triangle, rather than a particular calculation for one triangle.
+
+### Getting Data
+
+Typically you'll use the function `fetchData()`.  It takes as an argument the name of the dataset you want to read.
+```{r}
+kids = fetchData("KidsFeet")
+```
+These data sets are coming from a web site specifically set up for Project MOSAIC.  This allows us to access textbook data with a very concise command.
+
+You can also read in your own data.  Store it as a CSV file on your computer, upload it to RStudio, and then use the command
+```{r eval=FALSE}
+mydata = fetchData( ) # no argument, but you still need parens.
+```
+The object that is created, which I've stored into the name `mydata` is generically called a "data frame."  
+
+
+### Basic operations on data in data frames
+```{r}
+names( kids )
+nrow( kids )
+mean( length, data=kids) # Note, one variable named
+```
+
+### The tilde punctuation
+
+We'll use the "tilde" punctuation through the semester.  It can be interpreted in several different but related ways:
+* "Break down by""
+* "Versus" (for plots especially)
+* "Modelled by"
+
+Examples:
+```{r}
+mean( length ~ sex, data=kids )
+median( length ~ sex, data=kids )
+xyplot( width ~ length, data=kids )
+```
+
+Going a little bit further than we need to, just for fun:
+```{r}
+xyplot( width ~ length | sex, data=kids )
+xyplot( width ~ length, groups=sex, data=kids )
+```
+
+And some statistical graphics:
+```{r}
+histogram( ~ width, data=kids )
+densityplot( ~ width, groups=sex, data=kids )
+bwplot( ~ width, data=kids )
+bwplot( width ~ sex, data=kids )
+```
