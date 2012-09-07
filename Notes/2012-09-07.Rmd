@@ -29,8 +29,8 @@ One person from each group introduces another person from that group.
 ### Starting up
 Login to RStudio and make sure the "mosaic" box on the "Packages" tab is checked.  You'll probably need to do this only once for the semester, but if you happen to restart R, you'll need to do it again.
 
-```{r message=TRUE,error=TRUE,warning=TRUE,echo=FALSE,results="hide"}
-require(mosaic)
+```{r message=FALSE,error=FALSE,warning=FALSE,echo=FALSE,results="hide"}
+require(mosaic, quietly=TRUE)
 ```
 
 ### Basic Syntax
