@@ -30,6 +30,10 @@ RR <- function(name) { #Reading reflection
 *Nov*   |   |  | `r I(dd('Nov',1))` | | `r I(dd('Nov',6))` | `r I(dd('Nov',8))` | | `r I(dd('Nov',13))` | `r I(dd('Nov',15))` | | `r I(dd('Nov',20))` | 22 | | `r I(dd('Nov',27))` | `r I(dd('Nov',29))`
 *Dec*   |   | `r I(dd('Dec',4))` | `r I(dd('Dec',6))` | | `r I(dd('Dec',11))` |  | 15 |
 
+### Course Resources
+
+* Instructions for [sharing Google Documents](https://docs.google.com/document/d/1mWZIwMWCd7mL2AWfXFOMhbmYFh9ZV7I5nmqQGQkip_M/edit) for group work and handing in.
+
 **Final Exam Time**: Sat 15 Dec. 1:30-3:30 pm.  Make your travel plans accordingly!
 
 Day-by-Day Syllabus
