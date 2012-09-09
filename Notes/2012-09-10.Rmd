@@ -1,9 +1,110 @@
 Sept. 10, 2012
 ========================================================
 
-Working ...
+```{r error=FALSE,message=FALSE,warning=FALSE,results="hide",echo=FALSE}
+require(mosaic)
+```
+
+Two main topics for today's class.  
+1. Review of organization of data
+2. Simple descriptive statistics
+
+### Student self-introduction groups 
+
+1. Creation and sharing of a google spreadsheet (5 mins).  Share and upload share link to Moodle at "Your Introductory Spreadsheet"
+2. Introductions.
 
 
-### In-Class Activity
+### Organization of Data
+
+#### Review the elevator data.
+
+Before class, pull out a few spreadsheets for the elevator data on [Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=17379)
+
+Show some that are very disorganized:
+* Using the spreadsheet as a table-cloth
+* Mixing analysis with data
+* Not following the case/variable paradigm
+
+Examples:
+* [one](https://docs.google.com/spreadsheet/ccc?key=0AgvRXaok3FvUdGFZSEFnZk80c1dKTzlxODFOVTNUTlE#gid=0)
+    * Pretty good, but levels are verbose and variable names are too long
+    * Flaws: 
+        * putting code-book information in the data set.
+        * Should the two types of buttons be two variables?
+    * Pull down as a spreadsheet, kill the extraneous information, rename the variables as "action" and "time", and do the analysis --- a bwplot and `summary( lm( time ~ action, data=elevator))`
+
+And show one or two that are well organized.  Try to do a quick statistical analysis of it to show where we'll be heading.
+
+#### In-Class Activity
 
 [How Many Variables?](../Activities/HowManyVariables.html)
+
+Hand this out to the students or direct them to the link on the syllabus.
+
+### Simple Descriptive Statistics
+
+Statistics is the explanation of variation in the context of what remains unexplained.  Our purpose today, with these simple descriptive statistics, is to be able to describe variation in meaningful ways in a single, quantitative variable.  Soon, we'll move on to relating two or more variables, but for today it's just a single variable.
+
+Start with the idea that it's really the distribution of values that we're interested in.  
+
+#### Techniques for displaying the distribution:
+* Histogram
+* Density plot
+* Box-and-whisker plot
+
+Explain the density plot by reference to the dotplot of points at the bottom of the figure.  The height of the graph shows how dense the points are.
+
+More technically, imagine a graph --- the cumulative distribution function --- showing the fraction of cases that fall below a given value versus that given value.  This will be a upward stepping graph, like this:
+```{r}
+plot(ecdf(CPS85$wage)) # not a command the students need to know
+```
+The density plot is the derivative of this graph.  Note that if you integrate the derivative from $-\infty$ to $\infty$, you'll get 1, the total of increase in the original function.  In other words, the area under the entire density curve is 1.  That's what determines the units on the vertical axis of the density curve.
+
+When to use each:
+* Histogram: rarely.  Instead, use a density plot
+* Density plot: when there is just one or two distributions you want to compare.
+* Box-and-whisker plot: When you are comparing two or more distributions, or when you want to highlight outliers.
+
+```{r}
+bwplot(wage ~ sector, data=CPS85)
+```
+
+#### What's an outlier.
+
+The 1.5 IQR rule of thumb.  Demo this by showing a box-and-whisker plot with some outliers and showing how the whiskers extend to 1.5 IQR from the first and third quartiles.
+
+#### Order statistics
+
+Take everyone out into the hall and line them up from shortest to tallest.  Assign each person a **rank**, which is just their order in the line.  When there is a tie, the order of the people involved in the tie is arbitrary, so average the naive ranks that would be assigned to the people involved in the tie.
+
+Point out the min, max, median, first and third quantile.
+
+#### Summary Statistics
+
+Sometimes it's nice to be able to summarize a distribution with just a small set of numbers.  Some possibilities:
+
+* max and min (what's the problem with this?)
+* first and third quartile
+* median and IQR
+* mean and standard deviation
+
+We'll be making extensive use of the mean and standard deviation in this course.  The reason to prefer these won't become apparent until a few weeks into the semester.
+
+"Standard Deviation" -> "Typical Spread" in a more modern terminology.
+
+In French, it's literally "typical spread": [ėcart type](http://fr.wikipedia.org/wiki/%C3%89cart_type)
+
+Give the formulas for mean and standard deviation
+$$ m = \frac{1}{n}\sum_{k=1}^{n} x_k$$
+$$ v = \frac{1}{n-1} \sum_{k=1}^{n} (x_k - m)^2 $$
+$$ s = \sqrt{v} $$
+
+Eyeballing: Standard deviation on a bell-shaped distribution: more or less the half-width at half-height.
+
+Units of m and s.  
+
+Examples of estimation of s.
+* Ages of workers in the CPS85 data set.  Compare to max and min.
+* Imagine the distribution of speeds of cars on a highway with smooth traffic flow.
+* Ages of students at Macalester. (about 1 year)

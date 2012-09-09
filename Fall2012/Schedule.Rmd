@@ -69,13 +69,14 @@ Instructions for [sharing Google Documents](https://docs.google.com/document/d/1
 ---------------|-------------------------------|-----------
 Ha Song Pham   | <mailto:hpham1@macalester.edu> | <img src="figure/HSP.png" width=40>
 Xiang Yuan (Henry) Yang| <mailto:xyang1@macalester.edu> |
+Jungwon Lee    | <mailto:jlee9@macalester.edu> |
 
 **Review sessions**: starting Monday Sept. 10.  Held in the MSCS reading room, Olin/Rice 254 (in the middle corridor)
 * Monday 7:00-9:00 pm
 * Tues 8:30-10:00 pm
+* Wed 4:00-5:00 pm
 * Thurs 3:00-5:00 every other week -- we need to say which weeks!
 * Sat 3:00-5:00 pm
-* to be determined
 
 
 [Preceptor coordination document (restricted)](https://docs.google.com/document/d/1QwpGWJuQbiAqpaPpFzO-ntQ3AaQErJVXRLEVhS9pLOQ/edit#)
@@ -155,7 +156,7 @@ Notes: `r I(todaysNotes("2012-09-12.html", "instr"))`
 **Reading**: SM Ch. 4
 **Assignment**: `r I(PN(c(314.316,"3RQ",403,404,405,406,410)))`
 **In Class**:
-* Weekly Quiz
+* Weekly Quiz.  This week, it's about R. A [study-guide is available here](https://dl.dropbox.com/u/5098197/ISM/R-basics-guide.pdf).
 
 Notes: `r I(todaysNotes("2012-09-14.html", "instr"))`
 
