@@ -33,7 +33,17 @@ Examples:
         * putting code-book information in the data set.
         * Should the two types of buttons be two variables?
     * Pull down as a spreadsheet, kill the extraneous information, rename the variables as "action" and "time", and do the analysis --- a bwplot and `summary( lm( time ~ action, data=elevator))`
-
+* [two](https://docs.google.com/spreadsheet/ccc?key=0Andwxe-uVyf8dGZwRVZBQVpXd0htTks4dXRWRkJGeXc#gid=0)
+    * Simple: The explanation in the upper left cell should go into another file, e.g. the codebook or a methods document.
+    * More subtle: There are two columns containing data for "time".  The way it's organized, it looks like two measurements were made in each case.  But what is the case.  More likely the two columns should be "time" and "condition", with condition having levels "CloseButton" and "Control".
+    * Similar to [this one](https://docs.google.com/a/macalester.edu/spreadsheet/ccc?key=0AvkSI1vDQvR6dGhXRW5ycFl2REVJM1otRmlvSFk4OHc#gid=0
+), which also is putting the analysis in with the data.  REFORMAT AND ANALYZE THESE DATA.
+* [three](https://docs.google.com/spreadsheet/ccc?key=0AmgM7K-BfgQidExmbF8zZ05vVFRoeGtuZVVaR2hwWVE#gid=0)
+    * Commentary about the methodology that doesn't fit into the case/variable paradigm.
+    * There are two variables here: Trial number and time.  The sitation it implicit.  It should be presented explicitly as a variable with levels "CloseButton" and "Control"
+    * In some settings it may be useful to keep track of the trial.  This is appropriate, for instance, when there might be learning going on or some other sort of evolution over time.  But here trial isn't doing anything much.  COPY, REARRANGE, AND ANALYZE THESE DATA.
+    
+    
 And show one or two that are well organized.  Try to do a quick statistical analysis of it to show where we'll be heading.
 
 #### In-Class Activity

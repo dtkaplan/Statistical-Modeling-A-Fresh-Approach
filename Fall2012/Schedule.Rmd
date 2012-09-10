@@ -72,7 +72,6 @@ Xiang Yuan (Henry) Yang| <mailto:xyang1@macalester.edu> |
 Jungwon Lee    | <mailto:jlee9@macalester.edu> |
 
 **Review sessions**: starting Monday Sept. 10.  Held in the MSCS reading room, Olin/Rice 254 (in the middle corridor)
-* Monday 7:00-9:00 pm
 * Tues 8:30-10:00 pm
 * Wed 4:00-5:00 pm
 * Thurs 3:00-5:00 every other week -- we need to say which weeks!
@@ -140,7 +139,7 @@ Notes: `r I(todaysNotes("2012-09-07.html", "instr"))` [Today's class](http://rpu
 
 
 **In-Class**:
-* [Marital status of active-duty forces](https://dl.dropbox.com/u/5098197/Math155/ActiveDuty_MaritalStatus.xls) from [data.gov](https://explore.data.gov/Population/Active-Duty-Marital-Status/r84k-m39h)
+* Table on [Marital status of active-duty forces](https://dl.dropbox.com/u/5098197/Math155/ActiveDuty_MaritalStatus.xls) from [data.gov](https://explore.data.gov/Population/Active-Duty-Marital-Status/r84k-m39h).  Hand in your sample data file [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=17378)
 
 Notes: `r I(todaysNotes("2012-09-10.html", "instr"))` 
 
