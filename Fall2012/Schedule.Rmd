@@ -145,8 +145,12 @@ Notes: `r I(todaysNotes("2012-09-10.html", "instr"))`
 
 `r I(classDayContents("Wed", "Sept", 12 ))`
 **Topic**: Descriptive statistics: variance
+
 **Reading**: SM §3.4, 3.5, [XKCD cartoon](http://xkcd.com/833/)
-**Assignment**: `r I(PN(c(209,214,222,302,303,304,305,306,308,311,312,315,317,318,319 )))`
+
+**Assignment**: Exercises `r I(PN(c(209,214,222,302,303,304,305,306,308,311,312,315,317,318,319 )))`
+
+**On Your Own**: A *RadioLab* [episode about stochasticity](http://www.radiolab.org/2009/jun/15/)
 
 Notes: `r I(todaysNotes("2012-09-12.html", "instr"))`
 
@@ -232,6 +236,8 @@ Notes: `r I(todaysNotes("2012-09-14.html", "instr"))`
 **Reading**: SM Ch. 10
 **Assignment**: `r I(PN(c(922, 923,1001,1004,1010)))`
 **In Class**: `r I(PN(c(1002)))`
+
+**On Your Own**: [Is coffee good for you?](http://well.blogs.nytimes.com/2012/05/16/coffee-drinkers-may-live-longer/?ref=health)
 
 `r I(classDayContents("Fri", "Oct", 12 ))`
 **Topic**: Total and Partial Relationships (continued)
