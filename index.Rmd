@@ -61,6 +61,6 @@ Even on the first day, I have students log in to the [RStudio](http:/www.rstudio
 
 ##### Data Organization
 
-* The Elevator Experiment
-* [How Many Variables?](Activities/HowManyVariables.html) Distinguishing between summary tables and basic case-variable data tables.
+* [The Elevator Experiment](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISMf12#336) --- see notes from [2012-09-10](Notes/2012-09-10.html) for the sorts of errors to point out in the spreadsheets.
+* [How Many Variables?](Activities/HowManyVariables.html) Distinguishing between summary tables and basic case-variable data tables. [PDF handout](https://dl.dropbox.com/u/5098197/ISM/How-Many-Variables.pdf)
 

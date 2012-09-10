@@ -71,7 +71,7 @@ Ha Song Pham   | <mailto:hpham1@macalester.edu> | <img src="figure/HSP.png" widt
 Xiang Yuan (Henry) Yang| <mailto:xyang1@macalester.edu> |
 Jungwon Lee    | <mailto:jlee9@macalester.edu> |
 
-**Review sessions**: starting Monday Sept. 10.  Held in the MSCS reading room, Olin/Rice 254 (in the middle corridor)
+**Preceptor Review Sessions**: starting Monday Sept. 10.  Held in the MSCS reading room, Olin/Rice 254 (in the middle corridor)
 * Tues 8:30-10:00 pm
 * Wed 4:00-5:00 pm
 * Thurs 3:00-5:00 every other week -- we need to say which weeks!
