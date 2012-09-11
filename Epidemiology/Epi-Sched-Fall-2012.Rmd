@@ -73,6 +73,9 @@ Notes`r I(todaysNotes("2012-09-06.html", ":"))`
 * Start your glossary, `r I(RR("glossary"))`
 * Reading reflection on "The Score", `r I(RR("score"))`
 
+**In Class**:
+* Incidence and prevalence calculations
+
 Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 
 `r I(classDayContents("Thurs", "Sept", 13 ))`

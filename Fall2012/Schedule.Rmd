@@ -63,6 +63,13 @@ todaysNotes <- function(fname,marker="notes") {
 
 Instructions for [sharing Google Documents](https://docs.google.com/document/d/1mWZIwMWCd7mL2AWfXFOMhbmYFh9ZV7I5nmqQGQkip_M/edit) for group work and handing in.
 
+#### Faculty Office Hours
+
+* Danny Kaplan, Thurs 3:30-4:30pm, Fri 1-2pm
+* Geoge Leiter, TBA
+
+Or just drop by! Or drop us a note and make an appointment at some other time.
+
 #### Preceptors and Review Sessions
 
        .       |                              |   .
