@@ -48,9 +48,9 @@ And show one or two that are well organized.  Try to do a quick statistical anal
 
 #### In-Class Activity
 
-[How Many Variables?](../Activities/HowManyVariables.html)
+[How Many Variables?](../Activities/HowManyVariables.html) 
 
-Hand this out to the students or direct them to the link on the syllabus.
+Hand this [PDF handout](https://dl.dropbox.com/u/5098197/ISM/How-Many-Variables.pdf) out to the students or direct them to the link on the syllabus.
 
 ### Simple Descriptive Statistics
 

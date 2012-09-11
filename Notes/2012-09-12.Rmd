@@ -19,3 +19,438 @@ require(mosaic, quietly=TRUE)
 ### Random sampling
 * Sampling frame and formal methods
 * Sampling Bias Activity `s = select.books()`
+
+### The Knowledge Survey collected half-way through
+
+<pre>
+> summarize.problems( consolidate.files( filenames ), show.vals=TRUE)
+
+Prob-knowledge-survey.algebra AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  10-12          4
+  AP\n   course  2
+  College       26
+  Never         16
+
+Prob-knowledge-survey.ANCOVA AJAX                     -
+   46 answers from   46 readers. Mean score 0.00
+Answers vs Scores      
+        0
+  None 35
+  Some 11
+
+Prob-knowledge-survey.ANOVA AJAX                     -
+   46 answers from   46 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  1
+  None     21
+  Some     24
+
+Prob-knowledge-survey.bayes AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  3
+  None     35
+  Some      7
+
+Prob-knowledge-survey.boot AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores      
+        0
+  None 45
+
+Prob-knowledge-survey.bwplot AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  10-12          6
+  4-6           10
+  6-9           18
+  AP\n   course  3
+  College        1
+  Never         10
+
+Prob-knowledge-survey.calc AJAX                     -
+   47 answers from   47 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  10-12         14
+  4-6            2
+  6-9           23
+  AP\n   course  3
+  College        1
+  Never          4
+
+Prob-knowledge-survey.coll AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores      
+        0
+  None 34
+  Some 11
+
+Prob-knowledge-survey.cond AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores      
+        0
+  None 39
+  Some  6
+
+Prob-knowledge-survey.confI AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  3
+  None     26
+  Some     16
+
+Prob-knowledge-survey.cprob AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  10-12         15
+  4-6            1
+  6-9            7
+  AP\n   course  2
+  College        1
+  Never         22
+
+Prob-knowledge-survey.cumu AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  1
+  None     33
+  Some     11
+
+Prob-knowledge-survey.DF  AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  2
+  None     25
+  Some     18
+
+Prob-knowledge-survey.dummy AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  1
+  None     34
+  Some     10
+
+Prob-knowledge-survey.excel AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  10-12         16
+  4-6            1
+  6-9           11
+  AP\n   course  2
+  College        9
+  Never          9
+
+Prob-knowledge-survey.exp AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete 15
+  None      8
+  Some     22
+
+Prob-knowledge-survey.Ftest AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores      
+        0
+  None 45
+
+Prob-knowledge-survey.hist AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  1-3            2
+  10-12         10
+  4-6           10
+  6-9           16
+  AP\n   course  1
+  College        1
+  Never          8
+
+Prob-knowledge-survey.Hnull AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete 14
+  None     14
+  Some     17
+
+Prob-knowledge-survey.intrct AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  1
+  None     35
+  Some      9
+
+Prob-knowledge-survey.LA  AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  10-12         11
+  4-6            4
+  6-9            9
+  AP\n   course  1
+  College        5
+  Never         18
+
+Prob-knowledge-survey.lincomb AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  6
+  None     26
+  Some     13
+
+Prob-knowledge-survey.logist AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores      
+        0
+  None 35
+  Some 10
+
+Prob-knowledge-survey.lreg AJAX                     -
+   46 answers from   46 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete 14
+  None     14
+  Some     18
+
+Prob-knowledge-survey.LSQ AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  7
+  None     26
+  Some     12
+
+Prob-knowledge-survey.main AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores      
+        0
+  None 34
+  Some 11
+
+Prob-knowledge-survey.mmm AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores         
+           0
+  1-3      6
+  10-12    1
+  4-6     26
+  6-9      9
+  College  1
+  Never    2
+
+Prob-knowledge-survey.mTerm AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores      
+        0
+  None 37
+  Some  8
+
+Prob-knowledge-survey.normal AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  10-12         23
+  6-9           11
+  AP\n   course  4
+  College        5
+  Never          5
+
+Prob-knowledge-survey.ortho AJAX                     -
+   44 answers from   44 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  3
+  None     30
+  Some     11
+
+Prob-knowledge-survey.out AJAX                     -
+   46 answers from   46 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete 34
+  None      2
+  Some     10
+
+Prob-knowledge-survey.perc AJAX                     -
+   46 answers from   46 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete 28
+  None      1
+  Some     17
+
+Prob-knowledge-survey.prob AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  1-3            4
+  10-12         18
+  4-6           12
+  6-9           11
+  AP\n   course  1
+  College        1
+  Never          1
+
+Prob-knowledge-survey.program AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  6-9            1
+  AP\n   course  1
+  College       15
+  Never         31
+
+Prob-knowledge-survey.pVal AJAX                     -
+   46 answers from   46 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  9
+  None     18
+  Some     19
+
+Prob-knowledge-survey.rand AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete 11
+  None     17
+  Some     17
+
+Prob-knowledge-survey.rank AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores      
+        0
+  None 43
+  Some  2
+
+Prob-knowledge-survey.rcoef AJAX                     -
+   46 answers from   46 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  8
+  None     14
+  Some     24
+
+Prob-knowledge-survey.regres AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  10-12         17
+  6-9            6
+  AP\n   course  3
+  College       10
+  Never         12
+
+Prob-knowledge-survey.resid1 AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  5
+  None     18
+  Some     22
+
+Prob-knowledge-survey.sampD AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  3
+  None     19
+  Some     23
+
+Prob-knowledge-survey.scatter AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  10-12         11
+  4-6           13
+  6-9           18
+  AP\n   course  2
+  College        3
+  Never          1
+
+Prob-knowledge-survey.sd  AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  10-12     2
+  6-9       2
+  College   2
+  Complete 21
+  None      4
+  Some     17
+
+Prob-knowledge-survey.sig AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  4
+  None     28
+  Some     13
+
+Prob-knowledge-survey.skew AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  3
+  None     25
+  Some     17
+
+Prob-knowledge-survey.sResid AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  5
+  None     29
+  Some     11
+
+Prob-knowledge-survey.subsp AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  5
+  None     22
+  Some     18
+
+Prob-knowledge-survey.t   AJAX                     -
+   48 answers from   48 readers. Mean score 0.00
+Answers vs Scores               
+                 0
+  1-3            1
+  10-12          8
+  6-9            1
+  AP\n   course  6
+  College       10
+  Never         22
+
+Prob-knowledge-survey.tTest AJAX                     -
+   46 answers from   46 readers. Mean score 0.00
+Answers vs Scores          
+            0
+  Complete  3
+  None     22
+  Some     21
+
+Prob-knowledge-survey.TypeI AJAX                     -
+   45 answers from   45 readers. Mean score 0.00
+Answers vs Scores      
+        0
+  None 36
+  Some  9
+</pre>
