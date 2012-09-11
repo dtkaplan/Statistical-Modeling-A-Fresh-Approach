@@ -18,7 +18,11 @@ require(mosaic, quietly=TRUE)
 
 ### Random sampling
 * Sampling frame and formal methods
-* Sampling Bias Activity `s = select.books()`
+* Sampling Bias Activity `s = select.books()` which needs to be proceeded by
+```{r}
+fetchData("simulate.r")
+```
+Instructor's write up at <../Blogs/SelectingLibraryBooks.html>
 
 ### The Knowledge Survey collected half-way through
 

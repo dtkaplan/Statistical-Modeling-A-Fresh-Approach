@@ -1,0 +1,62 @@
+Activity: Selecting Library Books
+========================================================
+
+```{r echo=FALSE,error=FALSE,message=FALSE,warning=FALSE,results="hide"}
+require(mosaic, quietly=TRUE)
+```
+
+This activity shows how bias in sampling can arise in subtle ways.
+
+Students will pick library books from a set of shelves and then calculation the page count for their sample and for the population.
+
+## Set up
+
+* Load the `mosaic` package.
+* Give this command:
+```{r}
+fetchData("simulate.r")
+```
+At this point, the software is loaded and the `select.books()` function can be run --- instructions below.
+
+## The Activity
+
+Each student selects 10 books and gets back a data from including information on the complete population of books as well as which ones were selected. The measurement on each book is the page count.
+```{r eval=FALSE}
+books = select.books(10)
+```
+
+```{r echo=FALSE,results="hide"}
+# Trick the system into running without a mouse input
+books = select.books(0)
+inds = sample( 1:nrow(books), size=10)
+books$selected = as.character(books$selected)
+books$selected[inds] = "Yes"
+books$selected = as.factor(books$selected)
+```
+
+Compare the page count for the selected books to the page count of the unselected books.
+
+```{r}
+bwplot( pages ~ selected, data=books)
+```
+
+Ask around the class: Do you see any difference between the selected books and the unselected ones.
+
+## A Formal Random Process
+
+We use computers to generate random numbers.  One way to do this is to create a list of books and choose some at random to sample.  For instance, if we had the titles in a list, we could sample from those.  To illustrate, here's a random sample of cases from the KidsFeet data (which has names)
+```{r}
+sample(KidsFeet, size=3)
+```
+
+To see what's different about a formal random sample, the students can simulate one by shuffling the `selected` variable:
+```{r}
+bwplot( pages ~ shuffle(selected), data=books)
+```
+
+We'll use operators like `sample` and `shuffle()` throughout the course.
+
+## In the Future
+
+We'll return to this setting later in the course to examine issues relating to sample size, power, and the alternative hypothesis.
+
