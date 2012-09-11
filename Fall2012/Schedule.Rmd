@@ -68,11 +68,14 @@ Instructions for [sharing Google Documents](https://docs.google.com/document/d/1
        .       |                              |   .
 ---------------|-------------------------------|-----------
 Ha Song Pham   | <mailto:hpham1@macalester.edu> | <img src="figure/HSP.png" width=40>
-Xiang Yuan (Henry) Yang| <mailto:xyang1@macalester.edu> |
-Jungwon Lee    | <mailto:jlee9@macalester.edu> |
+Xiang Yuan (Henry) Yang| <mailto:xyang1@macalester.edu> | .
+Jungwon Lee    | <mailto:jlee9@macalester.edu> | .
+Jia Gu         | jgu@macalester.edu            |  <img src="figure/jiaGu.jpg" width=40>
+
+
 
 **Preceptor Review Sessions**: starting Monday Sept. 10.  Held in the MSCS reading room, Olin/Rice 254 (in the middle corridor)
-* Tues 8:30-10:00 pm
+* Tues 8:30-10:00 pm, Jia Gu
 * Wed 4:00-5:00 pm
 * Thurs 3:00-5:00 every other week -- we need to say which weeks!
 * Sat 3:00-5:00 pm
