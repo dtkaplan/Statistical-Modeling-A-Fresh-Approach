@@ -64,9 +64,9 @@ todaysNotes <- function(fname,marker="notes") {
 Instructions for [sharing Google Documents](https://docs.google.com/document/d/1mWZIwMWCd7mL2AWfXFOMhbmYFh9ZV7I5nmqQGQkip_M/edit) for group work and handing in.
 
 #### Faculty Office Hours
-
-* Danny Kaplan, Thurs 3:30-4:30pm, Fri 1-2pm
-* Geoge Leiter, TBA
+"Office hours" are regularly scheduled times when faculty are available in their offices.  
+* Danny Kaplan, Thurs 10:30am-12:00, Fri 1-2pm
+* George Leiter, Tues/Thurs 12:30-3:00 
 
 Or just drop by! Or drop us a note and make an appointment at some other time.
 
@@ -159,6 +159,8 @@ Notes: `r I(todaysNotes("2012-09-10.html", "instr"))`
 **Reading**: SM §3.4, 3.5, [XKCD cartoon](http://xkcd.com/833/)
 
 **Assignment**: Exercises `r I(PN(c(209,214,222,302,303,304,305,306,308,311,312,315,317,318,319 )))`
+
+**In Class**: [Measures of a distribution](https://dl.dropbox.com/u/5098197/ISM/Numerical-Summaries.pdf)
 
 **On Your Own**: A *RadioLab* [episode about stochasticity](http://www.radiolab.org/2009/jun/15/)
 

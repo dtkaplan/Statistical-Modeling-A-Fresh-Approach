@@ -9,6 +9,8 @@ This activity shows how bias in sampling can arise in subtle ways.
 
 Students will pick library books from a set of shelves and then calculation the page count for their sample and for the population.
 
+Bias is introduced by students' propensity to select fatter books --- they are easier to click on.
+
 ## Set up
 
 * Load the `mosaic` package.
@@ -24,6 +26,7 @@ Each student selects 10 books and gets back a data from including information on
 ```{r eval=FALSE}
 books = select.books(10)
 ```
+Click on books "at random" to select them.
 
 ```{r echo=FALSE,results="hide"}
 # Trick the system into running without a mouse input
