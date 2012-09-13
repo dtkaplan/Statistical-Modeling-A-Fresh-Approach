@@ -135,8 +135,14 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 * *The Great Influenza*, Prologue and Chapters 1 & 2
 
 **Assignment**: 
+
 * Reading reflection on *The Great Influenza*, `r I(RR("GI1"))`
 * Estimation Problem 1. [LINK TO BE POSTED] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
+
+**In-Class**:
+
+* [Age adjustment exercise](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/Activities/age-adjustment.pdf)
+* [Life expectancy calculation](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/Activities/life-table.pdf)
 
 -----------------
 
