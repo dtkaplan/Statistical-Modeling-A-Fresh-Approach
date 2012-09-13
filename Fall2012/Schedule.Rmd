@@ -171,7 +171,7 @@ Notes: `r I(todaysNotes("2012-09-12.html", "instr"))`
 `r I(classDayContents("Fri", "Sept", 14 ))`
 **Topic**: Groupwise Models
 **Reading**: SM Ch. 4
-**Assignment**: `r I(PN(c(314.316,"3RQ",403,404,405,406,410)))`
+**Assignment**: `r I(PN(c(314,316,"3RQ",403,404,405,406,410)))`
 **In Class**:
 * Weekly Quiz.  This week, it's about R. A [study-guide is available here](https://dl.dropbox.com/u/5098197/ISM/R-basics-guide.pdf).
 

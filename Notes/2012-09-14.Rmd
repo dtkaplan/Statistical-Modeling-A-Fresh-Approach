@@ -1,0 +1,91 @@
+2012-09-12 Class Notes
+--------------------------
+```{r error=FALSE,warning=FALSE,message=FALSE,echo=FALSE,results="hide"}
+require(mosaic, quietly=TRUE)
+```
+
+### Sampling Bias 
+
+Continued from Wednesday
+
+### Library book sampling simulation
+
+Continued from Wednesday
+
+### Means and Models
+
+Important components of statistical models:
+* The **response variable**.  The quantity that varies from case to case whose spread is something we want to account for.  
+
+Example: **wage** varies from person to person.
+
+* **Explanatory variables**.  Other variables that we think may account for the response.  For the present, we'll work with categorical variables.  Each case falls into one group, and our model is that the groups are different from one another but the individuals within the group are all the same.  
+
+Example: wage might depend on sector of the economy or sex or something else.
+
+```{r}
+cps = fetchData("CPS85")
+```
+We can quantify the amount of variation using the standard deviation:
+```{r}
+sd( wage, data=cps )
+```
+
+* The **model values**.  For each group, there will be one model value.  That is, according to our model, each case has a response value that is the value for that case's group.
+
+Example: We might model wage by sex as "Men make $3 per hour, women make $5 per hour"
+
+You'll never have to do this, but here's one way to implement that model:
+```{r}
+fetchData("m155development.R") # some new software
+mymod = listFun(M=3,F=5)
+```
+This is a function that takes "M" or "F" as an input and returns the model value.
+
+Let's add these as variable `modvals` to the data
+```{r}
+cps = transform(cps, modvals = mymod(sex))
+```
+
+* The **residuals**.  These tell how far the model values are from the actual values;
+```{r}
+resids = with(data=cps, wage - modvals)
+```
+
+One way to quantify the "goodness" of a model is with how far off the residuals are from their ideal value: zero.  The mean square residual is a good measure of this:
+```{r}
+mean( resids^2  )
+```
+
+As with the arrows, there are two components to this: bias and variance.
+```{r}
+mean(resids)  # bias, the systematic error
+var(resids)   # the random error
+sd(resids)    # the square root of the variance
+```
+
+The above model has a big bias.  We want to choose the model values to make the sum of squared errors as small as possible.  Ideally, we can make the bias zero.  This is actually easy.  We do it by **fitting** the model, adjusting the parameters to match the data as closely as possible.  The `mm()` function will fit model values to the data.  
+
+* The **fitted model values**.  Let's use as model  values the means of the groups.
+```{r}
+mean( wage ~ sex, data=cps)
+f2 = listFun( M=9.995, F=7.879)
+cps = transform(cps, means = f2(sex))
+resids = with(cps, wage-means)
+mean( resids^2 ) # This model is better than the earlier one!
+mean( resids ) # No bias!
+sd(resids)
+```
+
+The `mm()` function does these calculations for us in a convenient way, allowing us to extract the residuals and fitted model values without all the work.
+```{r}
+mod = mm( wage ~ sex, data=cps )
+mean( resid(mod)^2 )
+mean( resid(mod)) # No bias!
+sd( resid(mod)) 
+
+```
+Any difference between the "by hand" version and the mm version is due to rounding off when typing in the mean values.
+sd(resid)
+
+### QUIZ (last 15 minutes)
