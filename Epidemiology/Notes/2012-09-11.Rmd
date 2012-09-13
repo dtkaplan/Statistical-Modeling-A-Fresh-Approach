@@ -1,0 +1,173 @@
+Epidemiology Class Notes, Sept. 11, 2012
+========================================================
+
+### In the News: 
+* [Ovarian cancer screening](http://www.nytimes.com/2012/09/11/health/research/ovarian-cancer-tests-are-ineffective-medical-panel-says.html?hp)
+* H1N2 at the Minnesota State Fair [Aug 29](http://www.startribune.com/lifestyle/health/167839295.html), [Sept 10](http://minnesota.publicradio.org/collections/special/columns/news_cut/archive/2012/09/mprs_lorna_benson_reports_toda.shtml)
+* A recent news article relating to today's topic: [Scotland cities](../../Blog/OrientationForParents.html)
+
+### Today is about Simple Measures of Health, Disease, Life and Death
+
+These measures don't require much more than arithmetic. But your choice of the way you look at things can affect strongly your ability to draw useful conclusions.
+
+The food poisoning outbreak from Chapter 1 of *Essential Epidemiology*
+
+![1.1](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-1-1.png) 
+![1.2](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-1-2.png) 
+Note that you have to study people who don't get sick in order to figure out what is going on in the people who do get sick.
+
+### Introductions
+
+Divide into groups.  Ask them to discuss reading "The Score."  What's their take on the "obstetrics package."  Is the increase in caesarians a good thing or a bad thing.
+
+Go through the groups.  Have person A introduce B.
+
+
+Incidence and prevalence 
+------------------------
+
+A description of incidence: Napoleon's invasion of Russia
+
+[Crossing into Russia](http://en.wikipedia.org/wiki/File:Crossing_the_Neman_in_Russia_1812_by_Clark.jpg)
+
+![Napoleon's invasion of Russia](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/Napoleon-in-Russia.png)
+
+QUESTIONS:  
+* Looking at this map, what is the scale of the disaster?
+* Where did the greatest losses happen?
+* Where did the greatest proportional losses happen?
+* What fraction of the troops who headed to Moscow returned to the [Nemen River](http://en.wikipedia.org/wiki/Neman_River)
+
+
+
+
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-5-1.png)
+
+## Kinesthetic Exercise on the difference between incidence and incidence rate. 
+* Have all the students write down a series of ``random'' numbers from 1 to 6, e.g., 5,2,3,6,5,1,4, ...
+* I generate a random number from 1 to 6.  Those students who have not already been sick and who match my number just got sick.  They should stand up. The incidence rate is obviously one in six.  
+* Then the sick students should stand up and walk to the aisle.  Only those who have not yet gotten sick should stay.
+* After each cycle, count how many students just got sick.  This is the raw incidence count.  It will go down as time goes by, since sick people are dropping out of participating. 
+* At the very end, count the total number of people who got sick and divide that by the number of cycles.  That's the cumulative incidence.  It will underestimate the incidence rate.  
+
+Repeat the exercise, but the sick people should stay standing for 3 cycles.
+
+
+The incidence rate tells you how likely you are to become sick.
+
+## Same thing, but with data.
+
+* Go over the calculations using the time-line plot: line-chart.r.
+  This is meant to be similar to the [diagram shown in the book:](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE4.pdf) Assign each student a case number and ask them to describe the course of their disease.  Then work with the diagrams on the board.
+
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE4.png)
+
+Hand out the [data set diagrams](Notes/incidence-and-prevalence.pdf).  
+* Ask each group to estimate the incidence and prevalence.  
+* What's the difference between the incidence rate and the cumulative incidence?
+Let them work on this in their groups and then bring them together to discuss and figure out a method.
+
+Age Adjustment
+-----------------
+
+Age distributions can vary markedly between groups.  Since health and disease are so closely connected with age, this can affect the raw health statistics.
+
+[Median age by country](http://en.wikipedia.org/wiki/List_of_countries_by_median_age)
+QUESTIONS:
+* What factors affect the median age?
+* Are there countries where the median age for men and women is different.  Why do you think?  (Examples: export or import of workers)
+
+Comparison of rates (between countries or over time, etc.).  Example : Country A has a big, old population, country B a smaller,  younger population, e.g., US and Mexico.
+
+ .      | Country A | Country B
+--------|-----------|--------
+Deaths | 6M | 1M
+Population | 300M | 100M
+Death rate | 2/100 | 1/100
+Age-adjusted Rate | 1/100 | 1.3/100
+
+### Population pyramids: 
+[India](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT4-India.pdf)
+[USA](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT4-USA.pdf)
+
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT4-India.png)
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT4-USA.png)
+
+
+### Why it's done
+We want to have a simple indicator of the situation which we can plot against time to see how it changes or compare from one country to another.  It's nice to have a single number, even if this doesn't capture the whole situation.
+
+* How matters change with age: Examples:
+    * All cause death rates: 
+        ![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT1b.png)
+
+* Motor vehicle-related injuries: 
+    ![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT1a.png)
+    
+QUESTION: What will happen as the population ages.  What would happen if there were a sudden influx of teen drivers?
+
+
+
+* Carcinoma in situ of the uterine cervix:
+    ![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT2.png)   
+    QUESTION: What would happen in countries such as China if the age distribution were to shift steadily toward older people (due to the one-child policy).
+
+
+
+
+
+### Examples of age adjustment. 
+
+* Site-specific cancer rates over the last 70 years
+    ![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT6.png)
+
+* [Comparing hispanic and not hispanic](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT5.pdf):
+    ![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT5.png)
+
+* All cause mortality over the last 3/4 century.  It's not clear how things have been improving, unless you age-adjust.  But given the flatness of the age-adjusted profile, this suggests that the improvement has largely been in the demographics of aging.
+
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/AllCauseMortalityTrends-US.png)
+
+QUESTION: Why do the adjusted and crude curves align in 2002?
+    [Because the population for 2002 was used for the adjustment.]
+
+
+
+* How it's done. 
+    [Standard populations:](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE7.pdf).
+    [The calculation itself:](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE8.pdf)
+
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE7.png)
+
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE8.png)
+
+
+## Life expectancy.  
+
+###How the calculation is performed.  
+
+Use the mortality data from the Woloshin tables we used in class last Thursday. [This gives 10-year mortality.  We want survival to the next year.  As a very rough approximation, divide these numbers by 10 to get the number who die each year.  Start with 10,000 people,  and each year pull off the number who died and write down their ages. Then apply the death rates only to the survivors.  Average up the ages at death.
+
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT3.png)
+
+[PDF version](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT3.pdf)
+
+### Importance of infant mortality.  
+Merrill and Timmreck: 
+> ``About 79\% of the variability in life expectancy can be explained by the  infant mortality rate.''  
+> ``As infant mortality increases by one  [per thousand], life expectancy decreases an average of 0.3.''  p. 149
+
+Show the life expectancy versus healthy life expectancy at birth and at age 60 for different countries.  Life expectancy at age 60 is not so different between countries as the ``at birth'' numbers would suggest.
+
+* [Article about crime statistics](http://www.nytimes.com/2009/09/15/us/15crime.html?hp) How much of the difference between blacks and whites for life expectancy at birth is due to homocide?  
+
+
+* Child mortality measures from EE Table 2.7. \url{{EE5.pdf}}
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE5.png)
+
+QALY, DALY, Healthy life expectancy, years of potential life lost: 
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE6.png)
+
+### In RESERVE: 
+* Discussion about Fraser: Epidemiology as a Liberal Art.
+* [Hans Rosling video on health statistics globally](2009-09-10/HansRosling_2006.mp4).

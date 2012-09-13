@@ -1,0 +1,50 @@
+Epidemiology Class Notes, 2012-09-13
+========================================================
+
+## The Great Influenza
+
+Discussion points (10 minutes)
+
+## Incidence and prevalence 
+
+From Tuesday's notes
+
+## Age Adjustment
+
+From Tuesday's notes
+
+[In-class activity](Activities/age-adjustment.pdf)
+
+## Group Discussion and Introductions
+
+### Introduction of next group members.
+
+### Discussion Problem: 
+
+[Life expectancies by country](http://en.wikipedia.org/wiki/List_of_countries_by_life_expectancy)
+
+[Life expectancy in the US over the last 50 years](http://www.google.com/publicdata/explore?ds=d5bncppjof8f9_&met_y=sp_dyn_le00_in&idim=country:USA&dl=en&hl=en&q=life+expectancy+united+states#!ctype=l&strail=false&bcs=d&nselm=h&met_y=sp_dyn_le00_in&scale_y=lin&ind_y=false&rdim=region&idim=country:USA&ifdim=region&tstart=-293482800000&tend=1284354000000&hl=en_US&dl=en&ind=false)
+
+In the US, life expectancy varies by both sex and race: [Source](http://www.census.gov/compendia/statab/cats/births_deaths_marriages_divorces/life_expectancy.html)
+
+Whites: 78.4  Blacks: 74.3
+Males: 75.5   Females 80.5
+White Females: 80.8   Black Females 77.4
+White Males: 75.9  Black Males 70.9
+
+Or, [over time](http://www.census.gov/compendia/statab/2012/tables/12s0104.pdf) show the top table 
+
+QUESTION: Given these data, what policy interventions would you suggest?
+
+A more detailed table, life expectancy versus age: 12s0105.xls
+(or via the bottom table on [the above document](http://www.census.gov/compendia/statab/2012/tables/12s0104.pdf))
+
+[Looking across the states](http://www.census.gov/compendia/statab/2012/tables/12s0108.pdf)
+* Is the pattern consistent across states?  Are there exceptions to the pattern?
+* Point out the states where the numbers are unreliable.
+
+Sometimes you can use exceptions to generate hypotheses.  Not clear what exceptions are showing up here.
+
+### Constructing Life Expectancy
+
+[age specific death rates](http://www.census.gov/compendia/statab/2012/tables/12s0107.pdf)

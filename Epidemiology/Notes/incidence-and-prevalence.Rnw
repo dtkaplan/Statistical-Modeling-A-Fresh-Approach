@@ -1,0 +1,118 @@
+\documentclass{article}
+
+
+
+\title{Drawing Graphs for Incidence and Prevalence}
+\author{Danny Kaplan}
+\date{Sept. 8, 2010}
+\begin{document}
+
+\maketitle
+
+Drawing graphs showing the progression of individuals through sickness
+and death (or loss to follow-up), to help students estimate prevalence
+and incidence.
+
+Basic idea, for each person, generate a probability of sickness,
+death, or loss.  Draw a line graph appropriately
+
+Functions for getting sick, dying, or getting lost to follow up:
+<<>>=
+sick = function(rate=.07){ rexp(1,rate=rate)}
+loss = function(rate=.02,lockout=.5){ lockout+rexp(1,rate=rate)}
+death = function(rate=.05){ rexp(1,rate=rate)}
+@ 
+
+Put these together for one person, graphing out the result:
+<<>>=
+one.person = function(loc=1) {
+  S=sick(); L=loss(); D=death()
+  if( S <= L & S <= D ) {
+    # they got sick first.
+    lines( c(0,min(10,S)), c(loc,loc), col="gray", lwd=3 );
+    # now figure out when they die or get lost.
+    L = loss(); D=death(rate=.3); # a higher death rate
+    if (S < 10 )
+      lines( c(S,min(10,S+min(D,L))), c(loc,loc), col="red", lwd=5 );
+  }
+  else {
+    S = 0; # they never got sick
+    lines( c(0,min(10,min(D,L))), c(loc,loc), col="gray", lwd=3 );
+  }
+  if( L < D ) {
+    text( S+L+.2, loc, "?", col='red');
+  }
+  else {
+    text( S+D, loc, "X", col="black");
+  }
+}
+@ 
+
+
+Plot out a lot of them.
+<<>>=
+show.population = function(n) {
+  plot( 1:10, xlim=c(0,10), ylim=c(0,n), type="n",yaxt="n",
+     ylab="People",xlab="Years of Follow Up")
+  for (k in 1:n) one.person(k)
+}
+@ 
+
+\section{For the Groups to Work On}
+
+<<one,out.width="6in",echo=FALSE>>=
+show.population(n=50)
+@ 
+
+<<two,out.width="6in",echo=FALSE>>=
+show.population(n=50)
+@ 
+
+<<three,out.width="6in",echo=FALSE>>=
+show.population(n=50)
+@ 
+
+<<four,out.width="6in",echo=FALSE>>=
+show.population(n=50)
+@ 
+
+<<five,out.width="6in",echo=FALSE>>=
+show.population(n=50)
+@ 
+
+<<six,out.width="6in",echo=FALSE>>=
+show.population(n=50)
+@ 
+
+<<seven,out.width="6in",echo=FALSE>>=
+show.population(n=50)
+@ 
+
+<<eight,out.width="6in",echo=FALSE>>=
+show.population(n=50)
+@ 
+
+<<nine,out.width="6in",echo=FALSE>>=
+show.population(n=50)
+@ 
+
+<<ten,out.width="6in",echo=FALSE>>=
+show.population(n=50)
+@ 
+
+\section{For the In-Class Explanation}
+<<>>=
+sick = function(rate=.03){ rexp(1,rate=rate)}
+loss = function(rate=.01,lockout=.5){ lockout+rexp(1,rate=rate)}
+death = function(rate=.025){ rexp(1,rate=rate)}
+@ 
+
+
+<<inclass,out.width="6in",echo=FALSE>>=
+show.population(n=50)
+@ 
+
+
+
+
+\end{document}

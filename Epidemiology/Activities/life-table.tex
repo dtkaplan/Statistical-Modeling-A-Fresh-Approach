@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[top=1in]{geometry}
+\pagestyle{empty}
+\begin{document}
+
+\centerline{\Large \sffamily  Math 125: Epidemiology }
+
+
+\bigskip
+\bigskip
+
+\centerline{\Large \sffamily \bfseries In-Class Activity:\\
+Life Expectancy and Standardized Death Rates}
+
+\vspace*{.5in}
+
+You're going to do a calculation of life expectancy and of a death rate standardized to a population.  
+
+To make the calculation easy, assume that people can die only when they reach a 10-year birthday.
+
+\bigskip
+\bigskip
+
+
+
+\centerline{\large\begin{tabular}{|r|r|r|r|r||r|r|}\hline
+Age & Proportion& Number & Number &     Age $\times$ Deaths & Standard
+& Deaths in the\\
+       & who die    &  Surviving & of Deaths & &                                    Population &  Standard Pop\\\hline\hline
+born &   & 100,000 & 0 & 0 & 1000 & \\\hline
+10 & 0.1 &  &  & & 1000& \\\hline
+20 & 0.1 &  &  & & 1000& \\\hline
+30 & 0.1 &  &  & & 1000& \\\hline
+40 & 0.1 &  &  & & 1000& \\\hline
+50 & 0.2 &  &  & & 500& \\\hline
+60 & 0.2 &  &  & & 500& \\\hline
+70 & 0.2 &  &  & & 500& \\\hline
+80 & 1.0 &   &  & & 100& \\\hline
+\end{tabular}}
+
+\bigskip
+\bigskip
+
+\paragraph{Life Expectancy}
+\begin{enumerate}
+\item Fill in the Number Surviving and Number of Deaths colums of the table.  This is not the number of deaths in the actual population, but the hypothetical number in a group of people who happen to die at each age at the rates currently being observed.   At each age, calculate the number of deaths as the number surviving the previous age times the proportion who die.  Then find the number surviving that age.  
+
+\item At each age, the number of deaths times the ages is Age $\times$ Deaths.
+
+\item Add up all the Age $\times$ Deaths and divide by the total number born to get the life expectancy.
+
+\item Calculate life expectancy at age 55.  Do this by considering only the people who survived to age 55.
+
+\end{enumerate}
+
+\bigskip
+\paragraph{Standardized Death Rate}
+
+
+The standardized death rate is an entirely different calculation,
+based on the actual ``proportion who die'' but combining that with the
+assumed ``Standard Population.''
+
+At each age, multiply the ``proportion who die'' by the ``standard
+population'' at that age.  Add up these ``deaths in the standard population'' and divide by the total
+``standard population''.
+
+
+
+
+
+\end{document}

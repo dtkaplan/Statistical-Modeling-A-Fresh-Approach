@@ -59,7 +59,9 @@ todaysNotes <- function(fname,marker="notes") {
 
 ### Class Resources
 
-[Moodle site](https://moodle.macalester.edu/course/view.php?id=1080) :: AcroScore [initial passwords](https://moodle.macalester.edu/mod/assign/view.php?id=12216) :: [RStudio server](http://www.macalester.edu/rstudio)  
+R: [RStudio server](http://www.macalester.edu/rstudio)  :: [Revisions to MOSAIC commands]([RStudio server](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Errata/errata.html)  (e.g. `props` and `counts`)
+
+[Moodle site](https://moodle.macalester.edu/course/view.php?id=1080) :: AcroScore [initial passwords](https://moodle.macalester.edu/mod/assign/view.php?id=12216) :: 
 
 Instructions for [sharing Google Documents](https://docs.google.com/document/d/1mWZIwMWCd7mL2AWfXFOMhbmYFh9ZV7I5nmqQGQkip_M/edit) for group work and handing in.
 
@@ -83,8 +85,8 @@ Jia Gu         | jgu@macalester.edu            |  <img src="figure/jiaGu.jpg" wi
 
 **Preceptor Review Sessions**: starting Monday Sept. 10.  Held in the MSCS reading room, Olin/Rice 254 (in the middle corridor)
 * Tues 8:30-10:00 pm, Jia Gu
-* Wed 4:00-5:00 pm
-* Thurs 3:00-5:00 every other week -- we need to say which weeks!
+* Wed 3:00-5:00 pm, Jungwon Lee
+* Thurs 3:00-5:00 every other week, Henry Yang --  Sept 20, Oct 4, 18, Nov 1, 15
 * Sat 3:00-5:00 pm
 
 
