@@ -1,5 +1,7 @@
 \documentclass{article}
 \usepackage{tikz}
+\usepackage{multicol}
+\usepackage[margin=1in]{geometry}
 
 \begin{document}
 
@@ -10,7 +12,7 @@
 
 \centerline{\Large \sffamily \bfseries In-Class Activity: Standardization \& Age Adjustment}
 
-\vspace*{.5in}
+\vspace*{.25in}
 The graph shows some imaginary mortality statistics for several countries.  For the sake of simplicity, the age-dependence of mortality is reduced to just two groups: young people age 40 and below, and older people age 41 and above.  
 
 
@@ -34,6 +36,8 @@ The graph shows some imaginary mortality statistics for several countries.  For 
 \node at (\x,\y) [anchor=south west] {\t (Old=\x, Y=\y)};
 };
 \end{tikzpicture}
+
+\begin{multicols}{2}
 
 \begin{enumerate}
 \item Calculate the overall mortality {\bf rate} (per 1000) in each country.  Assume that the populations are as 
@@ -61,7 +65,7 @@ Standard Pop. & 400 & 600 \\
 
 Write down the countries in order from best to worst.
 
-\bigskip
+\columnbreak
 
 \item Calculate years of potential life lost in each country.
 For the sake of the calculation, assume that the typical age of the young people is 20 years, versus 60 years for the older people.  Use 65 years as the reference age.
@@ -71,5 +75,7 @@ Write down the countries in order from best to worst.
 \bigskip
 
 \end{enumerate}
+
+\end{multicols}
 
 \end{document}

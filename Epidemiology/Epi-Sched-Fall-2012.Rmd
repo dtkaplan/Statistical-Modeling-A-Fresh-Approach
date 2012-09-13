@@ -30,11 +30,61 @@ RR <- function(name) { #Reading reflection
 *Nov*   |   |  | `r I(dd('Nov',1))` | | `r I(dd('Nov',6))` | `r I(dd('Nov',8))` | | `r I(dd('Nov',13))` | `r I(dd('Nov',15))` | | `r I(dd('Nov',20))` | 22 | | `r I(dd('Nov',27))` | `r I(dd('Nov',29))`
 *Dec*   |   | `r I(dd('Dec',4))` | `r I(dd('Dec',6))` | | `r I(dd('Dec',11))` |  | 15 |
 
-### Course Resources
+Course Resources
+---------------
 
 * Instructions for [sharing Google Documents](https://docs.google.com/document/d/1mWZIwMWCd7mL2AWfXFOMhbmYFh9ZV7I5nmqQGQkip_M/edit) for group work and handing in.
 
 **Final Exam Time**: Sat 15 Dec. 1:30-3:30 pm.  Make your travel plans accordingly!
+
+**Outline and Main Readings**:
+
+#### Background and Goals
+
+* Recommended learning outcomes from the public health consensus report on undergraduate education (pp. 15-16). This course is intended to meet completely the recommended learning outcomes for the model "Epidemiology 101" course.
+* AAMC/HHMI report "Scientific Foundations for Future Physicians" (especially pp. 20-24), a set of proposed new pre-med requirements.
+* Macalester's [EPAG web site on "curricular renewal"](http://www.macalester.edu/curricularrenewal/documents/QTEndorsed.pdf QT requirement description). This epidemiology course grew in major part from Macalester's experience leading the [QM4PP project](http://www.macalester.edu/qm4pp)  supported by the US National Science Foundation and the US Department of Education.
+
+#### Measuring Health and Disease (4 sessions)
+
+* Essential Epidemiology Ch. 2, 3, 4, 5
+* Better, "The score"
+
+#### Outbreak & Spread of Disease (3 sessions) 
+* Essential Epidemiology Ch. 12
+* [Eradication of smallpox](http://dl.dropbox.com/u/5098197/Epidemiology/EradicationOfSmallpox.pdf)
+* Better, "On washing hands" & "The mop-up" 
+* Planning for H1N1: the [PCAST Report](http://www.whitehouse.gov/assets/documents/PCAST_H1N1_Report.pdf)
+
+#### Cause and Effect (4 sessions)
+
+* Essential Epidemiology Ch. 6, 7, 8, 9, 10, 11
+* [Austin Bradford Hill on association and causation](http://dl.dropbox.com/u/5098197/Epidemiology/Hill_1965.pdf) 
+
+#### Risk (4 sessions) 
+* Gigerenzer, "Communicating about Risk" (link)
+* Know Your Chances, Ch. 5
+
+
+#### Detection (4 Sessions) 
+
+* Essential Epidemiology, Ch. 14, 15
+* Know Your Chances, pp. 89-99
+
+#### Evaluating Trade-Offs (3 sessions)
+* Know Your Chances, Ch. 6, 7
+* [A Primer on the Economics of Health Care](http://dl.dropbox.com/u/5098197/Epidemiology/ohe.pdf) 
+ 
+#### Health-Care Reform (2 sessions)
+
+* Better, "The bell curve", "For performance" & "Afterward". Extra: "What doctors owe" & "Piecework" 
+
+
+#### Historical Background (interspersed throughout the course)
+
+* John Barry, ''The Great Influenza'' (entire book)
+* BBC show: Melvyn Bragg, In Our Time: [The Four Humors](http://www.bbc.co.uk/programmes/b008h5dz)  (podcast)
+
 
 Day-by-Day Syllabus
 -------------------
