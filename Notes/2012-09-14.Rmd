@@ -12,6 +12,37 @@ Continued from Wednesday
 
 Continued from Wednesday
 
+### Descriptions of Distributions
+
+Main points
+* Use the density itself if you are interested in the distribution.
+* The smallest meaningful description of a distribution includes at least two attributes, which can be conveyed in two different but closely related ways:
+    * (1) center and (2) width
+    * (1) lower end of range to (2) upper end of range
+* There is a conceptual trade-off between comprehensiveness and relevance.  
+    * To have a comprehensive description, you would include the full range, for 100% of the distribution.  
+    * But this would include even the outliers, members of the distribution that are not at all representive of the bulk of the distribution.
+* To resolve the trade-off, it's typical to consider the central mass of the distribution.  Two common ways:
+    1. The 50% coverage interval
+    2. The 95% coverage interval.
+* For a rough and ready measure of the center and width of a distribution, we'll use the **mean** and **standard deviation**.  These are not without difficulty (e.g., they are not robust to outliers) but they have very nice mathematical properties that simplify interpretation in complicated systems.  It turns out that we can avoid the difficulties without sacrificing much in simplicity of interpretation by some simple strategies, e.g. the rank transform.  We'll talk more about this when we have mastered interpretation in settings without problems relating to outliers.
+
+### Example of Standard Deviation 
+
+Osteopenia.
+
+Here's a quote from [Wikipedia](http://en.wikipedia.org/wiki/Bone_mineral_density): 
+> Osteopenia is a condition where bone mineral density is lower than normal. It is considered by many doctors to be a precursor to osteoporosis. However, not every person diagnosed with osteopenia will develop osteoporosis. More specifically, osteopenia is defined as a bone mineral density T-score between -1.0 and -2.5.
+
+The article goes on:
+> The definition has been controversial. Steven R. Cummings, of the University of California, San Francisco, said in 2003 that "There is no basis, no biological, social, economic or treatment basis, no basis whatsoever" for using one standard deviation. Cummings added that "As a consequence, though, more than half of the population is told arbitrarily that they have a condition they need to worry about." [Quoted from this Gina Kolata article](http://www.nytimes.com/2003/09/28/us/bone-diagnosis-gives-new-data-but-no-answers.html)
+
+Bone density falls with age.  The T-score is really just a Z-score, but compares a person to the distribution of young people.  [Some graphs](http://courses.washington.edu/bonephys/opbmd.html)
+
+Osteopenia is defined so that about 1/6 of young people have it and much larger fractions of old people will have it. 
+
+
+
 ### Means and Models
 
 Important components of statistical models:

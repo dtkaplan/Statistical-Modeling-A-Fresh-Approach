@@ -189,6 +189,53 @@ hljs.initHighlightingOnLoad();
 
 <p>Continued from Wednesday</p>
 
+<h3>Descriptions of Distributions</h3>
+
+<p>Main points</p>
+
+<ul>
+<li>Use the density itself if you are interested in the distribution.</li>
+<li>The smallest meaningful description of a distribution includes at least two attributes, which can be conveyed in two different but closely related ways:
+
+<ul>
+<li>(1) center and (2) width</li>
+<li>(1) lower end of range to (2) upper end of range</li>
+</ul></li>
+<li>There is a conceptual trade-off between comprehensiveness and relevance.<br/>
+
+<ul>
+<li>To have a comprehensive description, you would include the full range, for 100% of the distribution.<br/></li>
+<li>But this would include even the outliers, members of the distribution that are not at all representive of the bulk of the distribution.</li>
+</ul></li>
+<li>To resolve the trade-off, it&#39;s typical to consider the central mass of the distribution.  Two common ways:
+
+<ol>
+<li>The 50% coverage interval</li>
+<li>The 95% coverage interval.</li>
+</ol></li>
+<li>For a rough and ready measure of the center and width of a distribution, we&#39;ll use the <strong>mean</strong> and <strong>standard deviation</strong>.  These are not without difficulty (e.g., they are not robust to outliers) but they have very nice mathematical properties that simplify interpretation in complicated systems.  It turns out that we can avoid the difficulties without sacrificing much in simplicity of interpretation by some simple strategies, e.g. the rank transform.  We&#39;ll talk more about this when we have mastered interpretation in settings without problems relating to outliers.</li>
+</ul>
+
+<h3>Example of Standard Deviation</h3>
+
+<p>Osteopenia.</p>
+
+<p>Here&#39;s a quote from <a href="http://en.wikipedia.org/wiki/Bone_mineral_density">Wikipedia</a>: </p>
+
+<blockquote>
+<p>Osteopenia is a condition where bone mineral density is lower than normal. It is considered by many doctors to be a precursor to osteoporosis. However, not every person diagnosed with osteopenia will develop osteoporosis. More specifically, osteopenia is defined as a bone mineral density T-score between -1.0 and -2.5.</p>
+</blockquote>
+
+<p>The article goes on:</p>
+
+<blockquote>
+<p>The definition has been controversial. Steven R. Cummings, of the University of California, San Francisco, said in 2003 that &ldquo;There is no basis, no biological, social, economic or treatment basis, no basis whatsoever&rdquo; for using one standard deviation. Cummings added that &ldquo;As a consequence, though, more than half of the population is told arbitrarily that they have a condition they need to worry about.&rdquo; <a href="http://www.nytimes.com/2003/09/28/us/bone-diagnosis-gives-new-data-but-no-answers.html">Quoted from this Gina Kolata article</a></p>
+</blockquote>
+
+<p>Bone density falls with age.  The T-score is really just a Z-score, but compares a person to the distribution of young people.  <a href="http://courses.washington.edu/bonephys/opbmd.html">Some graphs</a></p>
+
+<p>Osteopenia is defined so that about 1/6 of young people have it and much larger fractions of old people will have it. </p>
+
 <h3>Means and Models</h3>
 
 <p>Important components of statistical models:</p>
