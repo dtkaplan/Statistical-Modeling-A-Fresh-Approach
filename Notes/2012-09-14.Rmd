@@ -1,4 +1,4 @@
-2012-09-12 Class Notes
+2012-09-14 Class Notes
 --------------------------
 ```{r error=FALSE,warning=FALSE,message=FALSE,echo=FALSE,results="hide"}
 require(mosaic, quietly=TRUE)
@@ -36,6 +36,8 @@ Here's a quote from [Wikipedia](http://en.wikipedia.org/wiki/Bone_mineral_densit
 
 The article goes on:
 > The definition has been controversial. Steven R. Cummings, of the University of California, San Francisco, said in 2003 that "There is no basis, no biological, social, economic or treatment basis, no basis whatsoever" for using one standard deviation. Cummings added that "As a consequence, though, more than half of the population is told arbitrarily that they have a condition they need to worry about." [Quoted from this Gina Kolata article](http://www.nytimes.com/2003/09/28/us/bone-diagnosis-gives-new-data-but-no-answers.html)
+
+![bone density and osteopenia from surgeongeneral.gov](figure/BoneMineralDensity.gif) 
 
 Bone density falls with age.  The T-score is really just a Z-score, but compares a person to the distribution of young people.  [Some graphs](http://courses.washington.edu/bonephys/opbmd.html)
 

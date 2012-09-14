@@ -1,4 +1,4 @@
-Sept. 10, 2012
+Class Notes Sept. 10, 2012
 ========================================================
 
 ```{r error=FALSE,message=FALSE,warning=FALSE,results="hide",echo=FALSE}

@@ -153,7 +153,7 @@ Notes: `r I(todaysNotes("2012-09-07.html", "instr"))` [Today's class](http://rpu
 **In-Class**:
 * Table on [Marital status of active-duty forces](https://dl.dropbox.com/u/5098197/Math155/ActiveDuty_MaritalStatus.xls) from [data.gov](https://explore.data.gov/Population/Active-Duty-Marital-Status/r84k-m39h) and the [PDF handout](https://dl.dropbox.com/u/5098197/ISM/How-Many-Variables.pdf).  Hand in your sample data file [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=17378).   
 
-Notes: `r I(todaysNotes("2012-09-10.html", "instr"))` 
+Notes: `r I(todaysNotes("2012-09-10.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-10-class)
 
 `r I(classDayContents("Wed", "Sept", 12 ))`
 **Topic**: Descriptive statistics: variance
@@ -166,7 +166,7 @@ Notes: `r I(todaysNotes("2012-09-10.html", "instr"))`
 
 **On Your Own**: A *RadioLab* [episode about stochasticity](http://www.radiolab.org/2009/jun/15/)
 
-Notes: `r I(todaysNotes("2012-09-12.html", "instr"))`
+Notes: `r I(todaysNotes("2012-09-12.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-12-class)
 
 `r I(classDayContents("Fri", "Sept", 14 ))`
 **Topic**: Groupwise Models
@@ -175,7 +175,7 @@ Notes: `r I(todaysNotes("2012-09-12.html", "instr"))`
 **In Class**:
 * Weekly Quiz.  This week, it's about R. A [study-guide is available here](https://dl.dropbox.com/u/5098197/ISM/R-basics-guide.pdf).
 
-Notes: `r I(todaysNotes("2012-09-14.html", "instr"))`
+Notes: `r I(todaysNotes("2012-09-14.html", "i"))` [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-14-class)
 
 `r I(classDayContents("Mon", "Sept", 17 ))`
 **Topic**: Model values, residuals, and variance.  Sampling and resampling.
