@@ -1,0 +1,180 @@
+In-Class Notes: 2012-09-17
+========================================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+## Review from Friday.
+
+1. A model is a representation for a purpose.
+2. Statistical models (a) attempt for account for case-to-case variation in a variable (b) are based on data and (c) put the variation that's accounted for in the context of the variation that remains unexplained.
+3. The usual form of a statistical model is response $= f$(explanatory).
+
+
+## Constructing some models
+
+We're going to build some groupwise models.  Later on, we're going to **fit** models, that is, let the data dictate the model parameters in some *optimal* way.
+
+We'll be using some new software, so make sure to load it:
+```{r message=FALSE,results="hide"}
+fetchData("m155development.R")
+```
+
+Construct each of these models.  Test out your function by giving it, in quotes, 
+the level as an input.
+
+
+* A model of height versus sex.  Levels for sex: M and F.
+```{r}
+height = listFun(F=63,M=68)
+height("F")  # testing it for females
+```
+
+* Age at marriage as s function of race.  Levels of Race: Black, Hispanic, White
+```{r}
+age = listFun(Black=25,White=28,Hispanic=22)
+age("Hispanic")
+```
+
+* Monthly cost of buying $10-50K of life insurance from the AARP versus sex.  Level for sex: F and M
+```{r}
+cost = listFun(F=20,M=24)
+cost("M")
+```
+
+* Probability of dying in the next 30 years versus smoking status.  Levels for smoker: Yes and No
+```{r}
+dead = listFun(Yes=.8,No=.4)
+dead("Yes")
+```
+
+INSTRUCTIONS TO STUDENTS: Make your own model for each of these.  Then we're going to have a competition.
+
+## Evaluating your model against data
+
+We happen to have some data that reflects each of these situations.  The data sets are:
+```{r}
+g = fetchData("Galton")
+m = fetchData("marriage.csv")
+i = fetchData("AARP-insurance.csv")
+w = fetchData("whickham.csv")
+```
+
+### Look at the data sets
+
+* See what the variables are and what they are named.  In particular, note the names of the relevant response variable and explanatory variable for each of the 4 cases.
+* Make sure you understand what the variables stand for and their levels.
+* Pick out one or more other variables that might play a valuable role in accounting for variation in the response variable.
+
+### Find the model values for these data
+
+Add another variable to each data frame that gives the model value.  Call it `modval` so that we can remember it.
+
+Your statements will look like this:
+```{r}
+g = transform(g, modval=height(sex))
+m = transform(m, modval=age(Race))
+i = transform(i, modval=cost(Sex))
+w = transform(w, modval=dead(smoker))
+```
+
+Do a scatter plot of the model value against the response value.
+```{r out.width="2in"}
+xyplot( modval ~ height, data=m )
+```
+Explain the pattern you see.
+
+What's special about the `w` data and it's model values:
+```{r out.width="2in"}
+xyplot( modval ~ smoker, data=w )
+```
+
+### Evaluate your models 
+
+Take the difference between the response value and the model value, and assign that to a variable called resid
+```{r}
+g = transform(g, resid=height-modval)
+m = transform(m, resid=Age-modval)
+i = transform(i, resid=Cost-modval)
+w = transform(w, resid=outcome-modval)
+```
+What's special about `w`?
+
+For each of the first three settings, evaluate your residuals for bias and variance.  Let's find who has the best model.
+
+For my `g` model:
+```{r}
+mean( resid , data=g )
+var( resid, data=g )
+```
+
+Write down the bias and variance for each person's model in sorted order (order by variance).
+
+### Fitting models
+
+The models for each setting differ from person to person in the class depending on the **parameters** that we choose.  
+
+We can pick the "best" model for the class by picking the one with the smallest bias and variance. 
+
+**Fitting** is the process of doing this automatically.
+
+The `mm()` function will fit models in one step.  You specify the response and explanatory variables and the data you want to use in fitting the model.
+
+```{r}
+mod1 = mm( height ~ sex, data=g )
+mod2 = mm( Age ~ Race, data=m )
+mod3 = mm( Cost ~ Age, data=i )
+```
+
+We can't fit the smoking data this way because the outcomes aren't quantitative.  So the subtraction that we use in defining the residuals doesn't apply.
+
+How does the bias and variance of the residuals in the fitted models compare to the models that you just made up.
+
+CONCLUSION: It makes sense to fit models rather than just make them up when you have a choice.
+
+## Effect Size
+
+Comparing the fitted parameters gives us a way to quantify the **effect size**.
+
+Another way to quantify the effect size is to look at the variance of the **fitted model values**.
+
+See if you can find a relationship between the variance of the fitted model values, the variance of the residuals, and the variance of the response variable.
+
+## Crossing Groups
+
+Use `mm()` to fit wage against both sex and sector in the CPS85 data.  Explain the structure of the results.
+
+## Going further
+
+We'll be able to fit models beyond the groupwise models, including quantitative explanatory variables.  For instance:
+```{r}
+lm( Cost ~ Sex + Age + Coverage, data=i)
+```
+
+## Quantifying Sampling Variation 
+
+Sample from the running data and fit a model with `mm()`.  How much variation is there between the different fitted models we get across the class members?
+
+```{r cache=TRUE}
+options(na.rm=TRUE)
+run = fetchData("repeat-runners.csv")
+nrow(run)
+mymod = mm( net ~ sex, data=sample(run,size=200))
+mymod
+```
+
+Look at the variation that we have in this from person to person.  For convenience, I'll do it 5 times right now: 
+```{r}
+do(5) * mm( net ~ sex, data=sample(run,size=200))
+```
+
+Here's a bit a magic, we can figure out the approximate size of the sampling variation just by examining the model itself.  
+
+```{r}
+summary(mymod)
+```
+
+QUESTION: Where does the information to do this come from, since `mymod` doesn't see anything but the particular sample that we took?
+
+

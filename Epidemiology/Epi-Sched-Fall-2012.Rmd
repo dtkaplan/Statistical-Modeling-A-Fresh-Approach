@@ -137,7 +137,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 **Assignment**: 
 
 * Reading reflection on *The Great Influenza*, `r I(RR("GI1"))`
-* Estimation Problem 1. [LINK TO BE POSTED] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
+
 
 **In-Class**:
 
@@ -155,6 +155,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 * *The Great Influenza*, remainder of part I, through p. 88
 
 **Assignment**: 
+* Estimation Problem 1. [LINK TO BE POSTED] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
 * Reading Reflection on *Truth and Death in Iraq*, `r I(RR("iraq"))`
 
 **On Your Own**:
@@ -162,6 +163,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 
 **In-class**: 
 * Calculating life expectancy
+* Spreadsheet calculations
 
 -----------------
 
@@ -174,6 +176,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 
 **Assignment**: 
 * Estimation Problem #2
+* Spreadsheet formulas --- [passive spreadsheet w/o formulas](https://docs.google.com/spreadsheet/ccc?key=0Am13enSalO74dF9pN0g1djdNa3NtWlhwWHVOMGpWTHc) :: [Hand in link to your own, active spreadsheet here](https://moodle.macalester.edu/mod/assign/view.php?id=19092)
 
 **On Your Own**:
 * BBC radio show: Melvyn Bragg, *In Our Time* "The Four Humors" [podcast](http://www.bbc.co.uk/programmes/b008h5dz)

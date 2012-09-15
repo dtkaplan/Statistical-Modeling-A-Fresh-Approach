@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>In-Class Notes: 2012-09-17</title>
+
+<base target="_blank"/>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>In-Class Notes: 2012-09-17</h1>
+
+<h2>Review from Friday.</h2>
+
+<ol>
+<li>A model is a representation for a purpose.</li>
+<li>Statistical models (a) attempt for account for case-to-case variation in a variable (b) are based on data and &copy; put the variation that&#39;s accounted for in the context of the variation that remains unexplained.</li>
+<li>The usual form of a statistical model is response \( = f \)(explanatory).</li>
+</ol>
+
+<h2>Constructing some models</h2>
+
+<p>We&#39;re going to build some groupwise models.  Later on, we&#39;re going to <strong>fit</strong> models, that is, let the data dictate the model parameters in some <em>optimal</em> way.</p>
+
+<p>We&#39;ll be using some new software, so make sure to load it:</p>
+
+<pre><code class="r">fetchData(&quot;m155development.R&quot;)
+</code></pre>
+
+<p>Construct each of these models.  Test out your function by giving it, in quotes, <br/>
+the level as an input.</p>
+
+<ul>
+<li>A model of height versus sex.  Levels for sex: M and F.</li>
+</ul>
+
+<pre><code class="r">height = listFun(F = 63, M = 68)
+height(&quot;F&quot;)  # testing it for females
+</code></pre>
+
+<pre><code>##  F 
+## 63 
+</code></pre>
+
+<ul>
+<li>Age at marriage as s function of race.  Levels of Race: Black, Hispanic, White</li>
+</ul>
+
+<pre><code class="r">age = listFun(Black = 25, White = 28, Hispanic = 22)
+age(&quot;Hispanic&quot;)
+</code></pre>
+
+<pre><code>## Hispanic 
+##       22 
+</code></pre>
+
+<ul>
+<li>Monthly cost of buying $10-50K of life insurance from the AARP versus sex.  Level for sex: F and M</li>
+</ul>
+
+<pre><code class="r">cost = listFun(F = 20, M = 24)
+cost(&quot;M&quot;)
+</code></pre>
+
+<pre><code>##  M 
+## 24 
+</code></pre>
+
+<ul>
+<li>Probability of dying in the next 30 years versus smoking status.  Levels for smoker: Yes and No</li>
+</ul>
+
+<pre><code class="r">dead = listFun(Yes = 0.8, No = 0.4)
+dead(&quot;Yes&quot;)
+</code></pre>
+
+<pre><code>## Yes 
+## 0.8 
+</code></pre>
+
+<p>INSTRUCTIONS TO STUDENTS: Make your own model for each of these.  Then we&#39;re going to have a competition.</p>
+
+<h2>Evaluating your model against data</h2>
+
+<p>We happen to have some data that reflects each of these situations.  The data sets are:</p>
+
+<pre><code class="r">g = fetchData(&quot;Galton&quot;)
+</code></pre>
+
+<pre><code>## Data Galton found in package.
+</code></pre>
+
+<pre><code class="r">m = fetchData(&quot;marriage.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/marriage.csv
+</code></pre>
+
+<pre><code class="r">i = fetchData(&quot;AARP-insurance.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/AARP-insurance.csv
+</code></pre>
+
+<pre><code class="r">w = fetchData(&quot;whickham.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/whickham.csv
+</code></pre>
+
+<h3>Look at the data sets</h3>
+
+<ul>
+<li>See what the variables are and what they are named.  In particular, note the names of the relevant response variable and explanatory variable for each of the 4 cases.</li>
+<li>Make sure you understand what the variables stand for and their levels.</li>
+<li>Pick out one or more other variables that might play a valuable role in accounting for variation in the response variable.</li>
+</ul>
+
+<h3>Find the model values for these data</h3>
+
+<p>Add another variable to each data frame that gives the model value.  Call it <code>modval</code> so that we can remember it.</p>
+
+<p>Your statements will look like this:</p>
+
+<pre><code class="r">g = transform(g, modval = height(sex))
+m = transform(m, modval = age(Race))
+i = transform(i, modval = cost(Sex))
+w = transform(w, modval = dead(smoker))
+</code></pre>
+
+<p>Do a scatter plot of the model value against the response value.</p>
+
+<pre><code class="r">xyplot(modval ~ height, data = m)
+</code></pre>
+
+<pre><code>## Error: object of type &#39;closure&#39; is not subsettable
+</code></pre>
+
+<p>Explain the pattern you see.</p>
+
+<p>What&#39;s special about the <code>w</code> data and it&#39;s model values:</p>
+
+<pre><code class="r">xyplot(modval ~ smoker, data = w)
+</code></pre>
+
+<p><img src="data:image/png;base64,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y5fn+9//ftasWdONU3MkcImew8rnP//5/PCHP0zy29fmzz///Fx11VX59a9/nc9+9rM55phjunlC6FqDBw/OpZdemokTJ2b37t25+OKL07NnzwwePDgTJ05M3759M3LkyAwZMqS7R+Uw57voOey1tramR48e6dGjR3ePAlWz59MjdXX/fx7W3t6eN954I3369OmusTiCCDwAFMhr8ABQIIEHgAIJPAAUSOABoEACDwAFEngAKJDAA0CBBB4ACiTwAFAggQf269Zbb83tt9/e3WMAB0DgAaBAAg+F2L17d6ZPn55KpZI/+IM/yBe/+MUkyfLly3PDDTfkYx/7WAYOHJiGhoasXLkyF198cYYOHZp77rmnYx8/+tGPcs0116R///6ZNGlS1q9f3+k48+bNy4c+9KFs2LAh7e3tueuuu3L88cdnyJAh+cIXvpA9P29xySWXZPbs2Xnve9+bxx9/vDp/CUAHgYdCfPe7381LL72Ul19+OfPmzcvnP//5vPLKK9m+fXseeOCB1NfX57nnnsvatWtz3nnn5dOf/nQeeeSR3HnnndmxY0dWrVqVCRMmpKGhIT/72c/Ss2fPTJs2ba9jLF26NB/+8IfzpS99KQMHDsw3v/nNzJ07N9///vfzH//xH3nggQeydOnSJMkrr7ySRYsW5Z//+Z9z1llndcdfCfxe83vwUIiampqsW7cuTU1NueSSS7Ju3br07t07S5cuzVFHHZXPfOYzSZKxY8fmpZdeymWXXZYkGTBgQJYvX55nn302p59+em666aYkyaxZs3LqqafmN7/5TZLkV7/6VSZMmJAHHnggf/RHf5QkmTt3bm6++eaceeaZSZKPfOQjmTdvXs4999wkyd/+7d/m8ssvr+rfA/BbzuChEFdffXWuuOKKXHvttamvr8+dd97Z8Zvi9fX1Hbfr3bt33v/+93csH3XUUdm1a1deffXVXHDBBR3rTznllAwYMCBr1qxJknz7299O796909TU1HGbV199NXfccUcGDhyYgQMH5vbbb8+Pf/zjju1Dhw7tsscLvD2Bh0LU1NRk1qxZee211/LlL385Dz74YO67774kSV1dXafb/q4BAwbkpZde6lhev359Nm7cmBNOOCFJMmPGjHzve9/LrFmzsmrVqiRJ//7985WvfCWbN2/O5s2b85vf/CYLFizo2MfvHheoHoGHQtx7772ZMmVKjj766EyZMiWjRo3Kjh073vH9x4wZk8WLF+fVV19Nkjz44IM56aSTctxxxyVJKpVKzjrrrFx//fW55ZZbkvz2cv99992XN954I0ly44035rOf/eyhfWDAQRF4KMS0adNSW1ub0047Laeeemp27tyZv/zLv3zH97/gggty2223ZcSIETn55JPzjW98I//5n//Z6XazZs3KkiVL8oMf/CC33nprjj322AwbNiwjRozIli1bMnPmzEP5sICDVNO+5zMtQBG2b9+e1tbWHHvssQd1/507d2bz5s0ZMGDAO77P1q1bU1NTk969ex/UMYFDT+ABoEAu0QNAgQQeAAok8ABQIIEHgAIJPAAUSOABoEACDwAFEngAKJDAA0CBBB4ACvR/4mqoWpNANXEAAAAASUVORK5CYII=" width="2in"   alt="plot of chunk unnamed-chunk-10" title="plot of chunk unnamed-chunk-10" /> </p>
+
+<h3>Evaluate your models</h3>
+
+<p>Take the difference between the response value and the model value, and assign that to a variable called resid</p>
+
+<pre><code class="r">g = transform(g, resid = height - modval)
+m = transform(m, resid = Age - modval)
+i = transform(i, resid = Cost - modval)
+w = transform(w, resid = outcome - modval)
+</code></pre>
+
+<pre><code>## Warning: - not meaningful for factors
+</code></pre>
+
+<p>What&#39;s special about <code>w</code>?</p>
+
+<p>For each of the first three settings, evaluate your residuals for bias and variance.  Let&#39;s find who has the best model.</p>
+
+<p>For my <code>g</code> model:</p>
+
+<pre><code class="r">mean(resid, data = g)
+</code></pre>
+
+<pre><code>## [1] 1.172
+</code></pre>
+
+<pre><code class="r">var(resid, data = g)
+</code></pre>
+
+<pre><code>## [1] 6.292
+</code></pre>
+
+<p>Write down the bias and variance for each person&#39;s model in sorted order (order by variance).</p>
+
+<h3>Fitting models</h3>
+
+<p>The models for each setting differ from person to person in the class depending on the <strong>parameters</strong> that we choose.  </p>
+
+<p>We can pick the &ldquo;best&rdquo; model for the class by picking the one with the smallest bias and variance. </p>
+
+<p><strong>Fitting</strong> is the process of doing this automatically.</p>
+
+<p>The <code>mm()</code> function will fit models in one step.  You specify the response and explanatory variables and the data you want to use in fitting the model.</p>
+
+<pre><code class="r">mod1 = mm(height ~ sex, data = g)
+mod2 = mm(Age ~ Race, data = m)
+mod3 = mm(Cost ~ Age, data = i)
+</code></pre>
+
+<p>We can&#39;t fit the smoking data this way because the outcomes aren&#39;t quantitative.  So the subtraction that we use in defining the residuals doesn&#39;t apply.</p>
+
+<p>How does the bias and variance of the residuals in the fitted models compare to the models that you just made up.</p>
+
+<p>CONCLUSION: It makes sense to fit models rather than just make them up when you have a choice.</p>
+
+<h2>Effect Size</h2>
+
+<p>Comparing the fitted parameters gives us a way to quantify the <strong>effect size</strong>.</p>
+
+<p>Another way to quantify the effect size is to look at the variance of the <strong>fitted model values</strong>.</p>
+
+<p>See if you can find a relationship between the variance of the fitted model values, the variance of the residuals, and the variance of the response variable.</p>
+
+<h2>Crossing Groups</h2>
+
+<p>Use <code>mm()</code> to fit wage against both sex and sector in the CPS85 data.  Explain the structure of the results.</p>
+
+<h2>Going further</h2>
+
+<p>We&#39;ll be able to fit models beyond the groupwise models, including quantitative explanatory variables.  For instance:</p>
+
+<pre><code class="r">lm(Cost ~ Sex + Age + Coverage, data = i)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = Cost ~ Sex + Age + Coverage, data = i)
+## 
+## Coefficients:
+## (Intercept)         SexM          Age     Coverage  
+##     -200.54        10.23         3.35         1.82  
+## 
+</code></pre>
+
+<h2>Quantifying Sampling Variation</h2>
+
+<p>Sample from the running data and fit a model with <code>mm()</code>.  How much variation is there between the different fitted models we get across the class members?</p>
+
+<pre><code class="r">options(na.rm = TRUE)
+run = fetchData(&quot;repeat-runners.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/repeat-runners.csv
+</code></pre>
+
+<pre><code class="r">nrow(run)
+</code></pre>
+
+<pre><code>## [1] 24334
+</code></pre>
+
+<pre><code class="r">mymod = mm(net ~ sex, data = sample(run, size = 200))
+mymod
+</code></pre>
+
+<pre><code>## Groupwise Model.
+## Call:
+## net ~ sex
+## 
+## Coefficients:
+##    F     M  
+## 93.4  83.9  
+## 
+</code></pre>
+
+<p>Look at the variation that we have in this from person to person.  For convenience, I&#39;ll do it 5 times right now: </p>
+
+<pre><code class="r">do(5) * mm(net ~ sex, data = sample(run, size = 200))
+</code></pre>
+
+<pre><code>##       F     M sigma r.squared
+## 1 94.68 82.78    NA   0.17001
+## 2 93.65 83.46    NA   0.12380
+## 3 92.52 83.41    NA   0.07538
+## 4 93.93 83.61    NA   0.11400
+## 5 95.77 82.85    NA   0.18967
+</code></pre>
+
+<p>Here&#39;s a bit a magic, we can figure out the approximate size of the sampling variation just by examining the model itself.  </p>
+
+<pre><code class="r">summary(mymod)
+</code></pre>
+
+<pre><code>## Groupwise Model
+## Call:  net ~ sex 
+## 
+##   group 2.5 % 97.5 %
+## 1     F 90.38  96.52
+## 2     M 81.42  86.43
+## 
+## sigma:  NA 
+## r-squared: 0.105 
+## Adj. r-squared: 0.1 
+</code></pre>
+
+<p>QUESTION: Where does the information to do this come from, since <code>mymod</code> doesn&#39;t see anything but the particular sample that we took?</p>
+
+</body>
+
+</html>
+

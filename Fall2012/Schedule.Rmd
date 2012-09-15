@@ -187,7 +187,7 @@ Notes: `r I(todaysNotes("2012-09-14.html", "i"))` [Class notes](http://rpubs.com
 **Reading**: SM §5.3, 5.4, 5.5, 5.7
 **Assignment**: `r I(PN(c("5RQ",503,512,517,520)))`
 **In Class**: 
-**On Your Own**: Study Guide to Friday's Quiz on R (link to be posted)
+**On Your Own**: 
 
 `r I(classDayContents("Fri", "Sept", 21 ))`
 **Topic**: Language of Models
@@ -197,7 +197,7 @@ Notes: `r I(todaysNotes("2012-09-14.html", "i"))` [Class notes](http://rpubs.com
 * Optional, for the theoretically oriented.  `r I(PN(c(540)))`
 
 **In Class**:
-* Quiz on R
+Friday Quiz
 
 `r I(classDayContents("Mon", "Sept", 24 ))`
 **Topic**: From Model Terms to Formulas and Coefficients
