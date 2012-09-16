@@ -202,7 +202,7 @@ hljs.initHighlightingOnLoad();
 <pre><code class="r">fetchData(&quot;m155development.R&quot;)
 </code></pre>
 
-<p>Construct each of these models.  Test out your function by giving it, in quotes, <br/>
+<p>Construct each of these models but make up <strong>your own parameters</strong>, don&#39;t just use the ones here.  (Of course, you won&#39;t have a solid idea of what the parameters should be.  Just use your best judgment.) Test out your function by giving it, in quotes, <br/>
 the level as an input.</p>
 
 <ul>
@@ -439,12 +439,12 @@ mymod
 <pre><code class="r">do(5) * mm(net ~ sex, data = sample(run, size = 200))
 </code></pre>
 
-<pre><code>##       F     M sigma r.squared
-## 1 94.68 82.78    NA   0.17001
-## 2 93.65 83.46    NA   0.12380
-## 3 92.52 83.41    NA   0.07538
-## 4 93.93 83.61    NA   0.11400
-## 5 95.77 82.85    NA   0.18967
+<pre><code>##    F  M sigma r.squared
+## 1 NA NA    NA        NA
+## 2 NA NA    NA        NA
+## 3 NA NA    NA        NA
+## 4 NA NA    NA        NA
+## 5 NA NA    NA        NA
 </code></pre>
 
 <p>Here&#39;s a bit a magic, we can figure out the approximate size of the sampling variation just by examining the model itself.  </p>
@@ -456,12 +456,12 @@ mymod
 ## Call:  net ~ sex 
 ## 
 ##   group 2.5 % 97.5 %
-## 1     F 90.38  96.52
-## 2     M 81.42  86.43
+## 1     F    NA     NA
+## 2     M    NA     NA
 ## 
 ## sigma:  NA 
-## r-squared: 0.105 
-## Adj. r-squared: 0.1 
+## r-squared: NA 
+## Adj. r-squared: NA 
 </code></pre>
 
 <p>QUESTION: Where does the information to do this come from, since <code>mymod</code> doesn&#39;t see anything but the particular sample that we took?</p>

@@ -21,7 +21,7 @@ We'll be using some new software, so make sure to load it:
 fetchData("m155development.R")
 ```
 
-Construct each of these models.  Test out your function by giving it, in quotes, 
+Construct each of these models but make up **your own parameters**, don't just use the ones here.  (Of course, you won't have a solid idea of what the parameters should be.  Just use your best judgment.) Test out your function by giving it, in quotes, 
 the level as an input.
 
 

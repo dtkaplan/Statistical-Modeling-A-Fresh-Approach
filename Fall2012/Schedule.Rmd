@@ -181,6 +181,7 @@ Notes: `r I(todaysNotes("2012-09-14.html", "i"))` [Class notes](http://rpubs.com
 **Topic**: Model values, residuals, and variance.  Sampling and resampling.
 **Reading**: SM Ch. 4 (review).  SM §5.1, 5.2
 **Assignment**: `r I(PN(c(354,"4RQ",407,408,501,502)))`
+**Notes**: `r I(todaysNotes("2012-09-17.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-17-class)
 
 `r I(classDayContents("Wed", "Sept", 19 ))`
 **Topic**: Confidence intervals
@@ -188,6 +189,7 @@ Notes: `r I(todaysNotes("2012-09-14.html", "i"))` [Class notes](http://rpubs.com
 **Assignment**: `r I(PN(c("5RQ",503,512,517,520)))`
 **In Class**: 
 **On Your Own**: 
+**Notes**: `r I(todaysNotes("2012-09-19.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-19-class)
 
 `r I(classDayContents("Fri", "Sept", 21 ))`
 **Topic**: Language of Models
@@ -198,6 +200,8 @@ Notes: `r I(todaysNotes("2012-09-14.html", "i"))` [Class notes](http://rpubs.com
 
 **In Class**:
 Friday Quiz
+
+**Notes**: `r I(todaysNotes("2012-09-21.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-21-class)
 
 `r I(classDayContents("Mon", "Sept", 24 ))`
 **Topic**: From Model Terms to Formulas and Coefficients
