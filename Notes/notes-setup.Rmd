@@ -1,0 +1,4 @@
+```{r warning=FALSE,error=FALSE,message=FALSE,results="hide",echo=FALSE}
+require("mosaic", quietly=TRUE)
+require("xtable", quietly=TRUE)
+```
