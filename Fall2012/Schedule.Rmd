@@ -170,31 +170,46 @@ Notes: `r I(todaysNotes("2012-09-12.html", "i"))` :: [Class notes](http://rpubs.
 
 `r I(classDayContents("Fri", "Sept", 14 ))`
 **Topic**: Groupwise Models
+
 **Reading**: SM Ch. 4
+
 **Assignment**: `r I(PN(c(314,316,"3RQ",403,404,405,406,410)))`
+
 **In Class**:
+
 * Weekly Quiz.  This week, it's about R. A [study-guide is available here](https://dl.dropbox.com/u/5098197/ISM/R-basics-guide.pdf).
 
 Notes: `r I(todaysNotes("2012-09-14.html", "i"))` [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-14-class)
 
 `r I(classDayContents("Mon", "Sept", 17 ))`
 **Topic**: Model values, residuals, and variance.  Sampling and resampling.
+
 **Reading**: SM Ch. 4 (review).  SM §5.1, 5.2
+
 **Assignment**: `r I(PN(c(354,"4RQ",407,408,501,502)))`
+
 **Notes**: `r I(todaysNotes("2012-09-17.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-17-class)
-**In-Class**: [Unfit models](https://dl.dropbox.com/u/5098197/ISM/Unfit-Models.pdf)
+
+**In-Class**: [Unfit models](https://dl.dropbox.com/u/5098197/ISM/Unfit-Models.pdf) activity
 
 `r I(classDayContents("Wed", "Sept", 19 ))`
 **Topic**: Confidence intervals
+
 **Reading**: SM §5.3, 5.4, 5.5, 5.7
+
 **Assignment**: `r I(PN(c("5RQ",503,512,517,520)))`
+
 **In Class**: 
+
 **On Your Own**: 
+
 **Notes**: `r I(todaysNotes("2012-09-19.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-19-class)
 
 `r I(classDayContents("Fri", "Sept", 21 ))`
 **Topic**: Language of Models
+
 **Reading**: SM §6.1, 6.2, 6.3, 6.4
+
 **Assignment**: 
 * Required: `r I(PN(c(513,523, 530, 531,601,602,604,611,613)))`
 * Optional, for the theoretically oriented.  `r I(PN(c(540)))`
