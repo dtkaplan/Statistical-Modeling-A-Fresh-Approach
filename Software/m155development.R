@@ -10,3 +10,5 @@ listFun <- function(...) {
     }
     return(f)
 }
+# Set the handling of NAs
+options( na.rm=TRUE)

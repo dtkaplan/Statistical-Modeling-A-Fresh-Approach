@@ -155,15 +155,15 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 * *The Great Influenza*, remainder of part I, through p. 88
 
 **Assignment**: 
-* Estimation Problem 1. [LINK TO BE POSTED] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
 * Reading Reflection on *Truth and Death in Iraq*, `r I(RR("iraq"))`
 
 **On Your Own**:
-* [Spreadsheet for life expectancy](https://docs.google.com/spreadsheet/ccc?authkey=CJe42r0H&key=0Am13enSalO74dGt2b2xpWkQwODk1REw0aEtUcXdWWWc&hl=en&authkey=CJe42r0H#gid=0)
+* [Evolving document explaining spreadsheet calculations](https://docs.google.com/document/d/1f04AHl20X39L9djdPFR7dd973faEo-l8mjDGVWq9bsI/edit).  You can edit and improve this!
 
 **In-class**: 
 * Calculating life expectancy
 * Spreadsheet calculations
+* [Spreadsheet for life expectancy](https://docs.google.com/spreadsheet/ccc?authkey=CJe42r0H&key=0Am13enSalO74dGt2b2xpWkQwODk1REw0aEtUcXdWWWc&hl=en&authkey=CJe42r0H#gid=0)
 
 -----------------
 
@@ -175,7 +175,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 * Newspaper article on the ["longevity gap"](http://www.nytimes.com/2009/09/22/science/22tier.html?_r=1&hpw)
 
 **Assignment**: 
-* Estimation Problem #2
+* Estimation Problem 1. [LINK TO BE POSTED] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
 * Spreadsheet formulas --- [passive spreadsheet w/o formulas](https://docs.google.com/spreadsheet/ccc?key=0Am13enSalO74dF9pN0g1djdNa3NtWlhwWHVOMGpWTHc) :: [Hand in link to your own, active spreadsheet here](https://moodle.macalester.edu/mod/assign/view.php?id=19092)
 
 **On Your Own**:

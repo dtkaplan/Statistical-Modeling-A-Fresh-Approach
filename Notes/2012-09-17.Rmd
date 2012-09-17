@@ -11,8 +11,24 @@ In-Class Notes: 2012-09-17
 2. Statistical models (a) attempt for account for case-to-case variation in a variable (b) are based on data and (c) put the variation that's accounted for in the context of the variation that remains unexplained.
 3. The usual form of a statistical model is response $= f$(explanatory).
 
+## A mathematical model of human mood with two parameters.  
+
+![mood model](mood-model.png)
+
+* Which one of these is the best representation of your mood today?
+* Which word would you use to label each graph?
+
+I call my model a mathematical model since it is governed by two mathematical quantities: the curvature of the mouth and the slope of the (left) eyebrow.
+
+The word is also a model.  That we can communicate without the word is evidence that the cartoon face really is representing something.
+
+More skilled modelers can add more details --- more parameters, more levels to the parameters --- to get a better representation.
+
+
 
 ## Constructing some models
+
+[A handout for students](https://dl.dropbox.com/u/5098197/ISM/Unfit-Models.pdf)
 
 We're going to build some groupwise models.  Later on, we're going to **fit** models, that is, let the data dictate the model parameters in some *optimal* way.
 
@@ -151,6 +167,10 @@ We'll be able to fit models beyond the groupwise models, including quantitative 
 ```{r}
 lm( Cost ~ Sex + Age + Coverage, data=i)
 ```
+
+## Adding more variables.
+
+Show that the variance of residuals goes down as you add more terms.
 
 ## Quantifying Sampling Variation 
 
