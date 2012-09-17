@@ -182,6 +182,7 @@ Notes: `r I(todaysNotes("2012-09-14.html", "i"))` [Class notes](http://rpubs.com
 **Reading**: SM Ch. 4 (review).  SM §5.1, 5.2
 **Assignment**: `r I(PN(c(354,"4RQ",407,408,501,502)))`
 **Notes**: `r I(todaysNotes("2012-09-17.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-17-class)
+**In-Class**: [Unfit models](https://dl.dropbox.com/u/5098197/ISM/Unfit-Models.pdf)
 
 `r I(classDayContents("Wed", "Sept", 19 ))`
 **Topic**: Confidence intervals

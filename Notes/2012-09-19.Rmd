@@ -1,0 +1,55 @@
+In-Class Notes: 2012-09-19
+========================================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+### Review from last class
+
+We saw that the choice of parameters in a model could be automated: fit the model, thereby choosing the parameters that eliminate bias in the residuals and minimize the variance.
+
+Of course, the chosen parameters depend on the data to which the model is fitted.  Insofar as this data is a random sample from a population, the parameters themselves are random.  The question for use today is, "How random?"
+
+### The sampling process
+
+Sample 100 runners from the runners data set and find the mean running time.  Because there is some missing data, you'll need to do something like this:
+```{r}
+options(na.rm=TRUE)
+```
+
+
+Across the class, see what the range of values is.
+
+Do it several times on the instructor's computer.
+
+Do it many times with do and plot out the sampling distribution.
+
+
+### Resampling
+
+You don't typically have the population at hand.  (If you did ... )
+
+So we simulate the sampling distribution by constructing a simulated population that consists of many copies of the original.
+
+### The Standard Error
+
+### From the Sampling Distribution to a Confidence Interval
+
+### Formats for the Confidence Interval
+
+### Interpreting the Confidence Interval
+
+#### Differences between groups
+
+Simple visual method: do the confidence intervals overlap?  Later on we'll see a more sophisticated method called hypothesis testing.  
+
+#### Coverage
+Have everyone construct a groupwise model of the wage data against some grouping variable and pick some group to examine.
+* First, do it to the entire data set, as if it were a population.
+* Second, do it to a sample of 100 cases.
+* Construct a 50% confidence interval.
+
+Is the population value within your confidence interval?
+
+### Significant digits and the confidence interval

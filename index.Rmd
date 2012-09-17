@@ -68,3 +68,6 @@ Even on the first day, I have students log in to the [RStudio](http:/www.rstudio
 
 * [Selecting Library Books](Activities/SelectingLibraryBooks.html)
 
+#### Modeling
+
+* Unfit models. Rather than starting students with fitted models, I have them construct models with parameters that they pull out of their heads, and then evaluate these models against data.  My intention is to help the students understand the criterion for picking parameters, which is otherwise hidden behind the software such as `lm()`. [Notes](Notes/2012-09-17.html) and [handout](https://dl.dropbox.com/u/5098197/ISM/Unfit-Models.pdf)
