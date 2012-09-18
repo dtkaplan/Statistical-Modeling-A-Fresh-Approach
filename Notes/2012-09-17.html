@@ -420,68 +420,9 @@ mod3 = mm(Cost ~ Age, data = i)
 ## 
 </code></pre>
 
-<h2>Quantifying Sampling Variation</h2>
+<h2>Adding more variables.</h2>
 
-<p>Sample from the running data and fit a model with <code>mm()</code>.  How much variation is there between the different fitted models we get across the class members?</p>
-
-<pre><code class="r">options(na.rm = TRUE)
-run = fetchData(&quot;repeat-runners.csv&quot;)
-</code></pre>
-
-<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/repeat-runners.csv
-</code></pre>
-
-<pre><code class="r">nrow(run)
-</code></pre>
-
-<pre><code>## [1] 24334
-</code></pre>
-
-<pre><code class="r">mymod = mm(net ~ sex, data = sample(run, size = 200))
-mymod
-</code></pre>
-
-<pre><code>## Groupwise Model.
-## Call:
-## net ~ sex
-## 
-## Coefficients:
-##    F     M  
-## 93.4  83.9  
-## 
-</code></pre>
-
-<p>Look at the variation that we have in this from person to person.  For convenience, I&#39;ll do it 5 times right now: </p>
-
-<pre><code class="r">do(5) * mm(net ~ sex, data = sample(run, size = 200))
-</code></pre>
-
-<pre><code>##       F     M sigma r.squared
-## 1 94.68 82.78    NA   0.17001
-## 2 93.65 83.46    NA   0.12380
-## 3 92.52 83.41    NA   0.07538
-## 4 93.93 83.61    NA   0.11400
-## 5 95.77 82.85    NA   0.18967
-</code></pre>
-
-<p>Here&#39;s a bit a magic, we can figure out the approximate size of the sampling variation just by examining the model itself.  </p>
-
-<pre><code class="r">summary(mymod)
-</code></pre>
-
-<pre><code>## Groupwise Model
-## Call:  net ~ sex 
-## 
-##   group 2.5 % 97.5 %
-## 1     F 90.38  96.52
-## 2     M 81.42  86.43
-## 
-## sigma:  NA 
-## r-squared: 0.105 
-## Adj. r-squared: 0.1 
-</code></pre>
-
-<p>QUESTION: Where does the information to do this come from, since <code>mymod</code> doesn&#39;t see anything but the particular sample that we took?</p>
+<p>Show that the variance of residuals goes down as you add more terms.</p>
 
 </body>
 

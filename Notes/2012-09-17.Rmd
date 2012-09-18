@@ -172,29 +172,5 @@ lm( Cost ~ Sex + Age + Coverage, data=i)
 
 Show that the variance of residuals goes down as you add more terms.
 
-## Quantifying Sampling Variation 
-
-Sample from the running data and fit a model with `mm()`.  How much variation is there between the different fitted models we get across the class members?
-
-```{r cache=TRUE}
-options(na.rm=TRUE)
-run = fetchData("repeat-runners.csv")
-nrow(run)
-mymod = mm( net ~ sex, data=sample(run,size=200))
-mymod
-```
-
-Look at the variation that we have in this from person to person.  For convenience, I'll do it 5 times right now: 
-```{r}
-do(5) * mm( net ~ sex, data=sample(run,size=200))
-```
-
-Here's a bit a magic, we can figure out the approximate size of the sampling variation just by examining the model itself.  
-
-```{r}
-summary(mymod)
-```
-
-QUESTION: Where does the information to do this come from, since `mymod` doesn't see anything but the particular sample that we took?
 
 
