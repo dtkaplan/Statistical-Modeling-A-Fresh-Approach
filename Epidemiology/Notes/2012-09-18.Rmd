@@ -1,0 +1,59 @@
+Epidemiology Class Notes 2012-09-18
+==================
+
+### News of the Day
+
+* [Health insurance for children of illegal immigrants](http://www.nytimes.com/2012/09/18/health/policy/limits-placed-on-immigrants-in-health-care-law.html?_r=1&hp)
+* [Medicare restructuring](http://well.blogs.nytimes.com/2012/09/17/grappling-with-details-of-medicare-proposals/?hpw) 
+> The restructuring would affect some of the most vulnerable Americans: the elderly, nearly half of whom live on less than $22,000 a year, and who already spend 16 to 22 percent of their income on health care. Many have dementia and other complex medical problems.
+
+I had dinner last night with a person who works at DeLoitte on human resources consulting.  He said that the number for health care is $8000 per person.  The "Affordable Care Act" taxes employers $2000 who fail to provide health insurance.  The remainder, for much of the population, will need to get picked up by the government.
+
+* [Morbidity and Mortality Weekly Reports](http://www.cdc.gov/mmwR/).  See also the [summary of reportable diseases](http://www.cdc.gov/mmwr/preview/mmwrhtml/mm5853a1.htm) 
+* [World Health Organization](http://www.who.int/en/)  and the [Horn of Africa report](http://www.who.int/diseasecontrol_emergencies/publications/who_hse_gar_dce_2011_3.pdf)
+
+### Using Spreadsheet Software
+
+* [Evolving Document on How to do Calculations in Spreadsheets](https://docs.google.com/document/d/1f04AHl20X39L9djdPFR7dd973faEo-l8mjDGVWq9bsI/edit)
+* [The spreadsheet assignment](https://docs.google.com/spreadsheet/ccc?key=0Am13enSalO74dF9pN0g1djdNa3NtWlhwWHVOMGpWTHc)
+
+### Age Adjustment Calculation
+
+[In-class Activity on Standardization and Age Adjustment](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/Activities/age-adjustment.pdf)
+
+### Life Expectancy Calculation
+
+#### Explanation of calculation.  
+Central Question: How is it possible to say what the expected life span is of a child born today?
+
+Age specific death rates and the projection of this through a hypothetical population.
+
+[Activity on Life Expectancy](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/Activities/life-table.pdf)
+[Spreadsheet implementing the calculation](https://docs.google.com/spreadsheet/ccc?authkey=CJe42r0H&key=0Am13enSalO74dGt2b2xpWkQwODk1REw0aEtUcXdWWWc&hl=en&authkey=CJe42r0H#gid=0)
+
+#### Interpretation of Life Expectancy
+
+Deaths at an early age have a strong impact.  [A spreadsheet for investigating](https://docs.google.com/spreadsheet/ccc?key=0Am13enSalO74dDhwWXhkZ0FCalVjOXE4VXBuTTBoNkE#gid=0) Add in extra deaths at different ages to see the effect on life expectancy.  
+
+### Essential Epidemiology Chap 3
+
+* What is a case report?  What is a case series?  Examples: 
+    * rubella and congenital cataracts (what's "congenital")?  
+    * Oral contraceptives and pulmonary embolism?
+    * ''Pneumocystis carinii'' pneumonia in young, previously healthy homosexual men.
+* What's a prevalence survey?
+* What's a disease registry?
+* Sources of data: [ Table 3.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-3-2.png)
+* Death certificate [US Standard Certificate](http://www.cdc.gov/nchs/data/dvs/death11-03final-acc.pdf)
+    * Describe what happened in the two cases given as examples in the instructions.
+    * Note the "common problems in death certification"
+* Birth certificate [Barack Obama, II](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/birth-certificate-long-form.pdf)  note how little health data is recorded.
+* What's an ecological study?  What is the disadvantage of them?  
+    * Example: employment is higher in cities with lots of immigration.  
+    * Example: inverse relationship between SAT scores and expenditures.
+
+**Group task**: What are the analogous sources of data in one of these system?  What do you think would be a good source of data?
+* education
+* the legal system
+* the economy
+

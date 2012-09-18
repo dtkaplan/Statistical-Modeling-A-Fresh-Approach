@@ -164,6 +164,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 * Calculating life expectancy
 * Spreadsheet calculations
 * [Spreadsheet for life expectancy](https://docs.google.com/spreadsheet/ccc?authkey=CJe42r0H&key=0Am13enSalO74dGt2b2xpWkQwODk1REw0aEtUcXdWWWc&hl=en&authkey=CJe42r0H#gid=0)
+* [Spreadsheet for investigating determinants of life expectancy]
 
 -----------------
 

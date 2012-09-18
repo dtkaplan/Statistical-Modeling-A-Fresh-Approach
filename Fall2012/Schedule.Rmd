@@ -57,6 +57,12 @@ todaysNotes <- function(fname,marker="notes") {
 *Nov* | | | | `r I(dd("Nov",2))` | | `r I(dd("Nov",5))` |  `r I(dd("Nov",7))` | `r I(dd("Nov",9))` | |  `r I(dd("Nov",12))` | `r I(dd("Nov",14))` | `r I(dd("Nov",16))` | | `r I(dd("Nov",19))` | `r I(dd("Nov",21))` | 23 | |  `r I(dd("Nov",26))` | `r I(dd("Nov",28))` | `r I(dd("Nov",30))` 
 *Dec* | | `r I(dd("Dec",3))` | `r I(dd("Dec",5))` | `r I(dd("Dec",7))` | | `r I(dd("Dec",10))` 
 
+Final Exam: 
+* Sections 01 & 02: Friday 14 Dec.
+* Section 03: Thurday 13 Dec.
+
+
+
 ### Class Resources
 
 R: [RStudio server](http://www.macalester.edu/rstudio)  :: [Revisions to MOSAIC commands](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Errata/errata.html)  (e.g. `props` and `counts`)
