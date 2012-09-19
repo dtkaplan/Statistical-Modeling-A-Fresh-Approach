@@ -18,7 +18,7 @@ IMPORTANT: The old commands are no longer available in `mosaic` and must be repl
     NEW: ```tally ( ~ sex, data=galton, format="proportion")```
     OLD: ```props(sex, data=galton)```
     
-* p. 83 Introduction of `mm` operator for groupwise mean models. ```fitted()``` no longer works with ```mean()``` [New page](p83.pdf)
+* p. 84 Introduction of `mm` operator for groupwise mean models. ```fitted()``` no longer works with ```mean()``` [New page](p83.pdf)
 
     NEW: ```mod = mm( width ~ sex, data=kids )``` then ```fitted(mod)```
     OLD: ```mod = mean( width ~ sex, data=kids )``` then ```fitted(mod, kids)```
@@ -43,12 +43,12 @@ IMPORTANT: The old commands are no longer available in `mosaic` and must be repl
     
 Change in style or format.  The old commands will still work, but the new version is stylistically more consistent.
 
-* p. 43: Use of `transform()` to add new variables to a data frame [New page](p43.pdf)
+* p. 47: Use of `transform()` to add new variables to a data frame [New page](p43.pdf)
 * p. 46: Use of `$` operator (deprecated in current `mosaic` version) [New page](p46.pdf)
 * p. 83: Use `transform()` rather than `$` [New page](p83.pdf)
 * p. 83: Use of `transform()` [New page](p83.pdf)
 * p. 175-176: Use of `with()` rather than `$` [New page](p175-6.pdf)
-* p. 196: `tally()` replaces `table()` [New page](p196.pdf)
+* p. 197: `tally()` replaces `table()` [New page](p196.pdf)
 * p. 236: Use of `with()` rather than `$`.  Fixed error in names of variables. [New page](p236.pdf)
 * p. 316: Use `makeFun()` rather than `predict()` [New page](p316.pdf)
 
