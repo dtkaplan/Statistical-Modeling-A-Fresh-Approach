@@ -1,0 +1,12 @@
+Stats 155 Class Notes 2012-09-21
+========================================================
+
+QUIZ PROBLEMS
+
+1) On this graph, draw two density plots.  One should be a distribution with mean 100 and sd 10, the other mean 120 and sd 40.
+
+2) Which measures are robust to outliers?
+
+3) Here's a sampling distribution.  What's the confidence interval?  What would the confidence interval be if 100 times as big a sample had been collected?
+
+

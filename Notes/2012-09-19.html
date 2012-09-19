@@ -185,6 +185,34 @@ hljs.initHighlightingOnLoad();
 <body>
 <h1>In-Class Notes: 2012-09-19</h1>
 
+<h3>Words for the Day</h3>
+
+<p><strong>Accuracy</strong> versus <strong>Precision</strong></p>
+
+<ul>
+<li>What&#39;s the difference?</li>
+<li>Synonyms for them.</li>
+</ul>
+
+<p>The dictionary gets it substantially wrong:</p>
+
+<blockquote>
+<p><strong>precision</strong> |priˈsi zh ən|<br/>
+   noun<br/>
+   the quality, condition, or fact of being exact and accurate : the deal was planned and executed with military precision.<br/>
+   • [as adj. ] marked by or adapted for accuracy and exactness : a precision instrument.<br/>
+   • technical refinement in a measurement, calculation, or specification, esp. as represented by the number of digits given : this has brought an unprecedented degree of precision to the business of dating rocks | a precision of six decimal figures. Compare with accuracy .<br/>
+  <strong>ORIGIN</strong> mid 18th cent.: from French précision or Latin praecisio(n-), from praecidere ‘cut off’ (see precise ).</p>
+</blockquote>
+
+<p>Thesaurus synonyms: tools crafted with precision: exactness, exactitude, accuracy, correctness, preciseness; care, carefulness, meticulousness, scrupulousness, punctiliousness, methodicalness, rigor, rigorousness.</p>
+
+<p>Today is all about Precision and how to measure and convey it.  For us, the meaning of precision is &ldquo;the degree of repeatability&rdquo; or &ldquo;reproducibility.&rdquo;  Sometimes this is conveyed by the &ldquo;number of digits&rdquo;, which is to say &ldquo;the position of the last digit that matters&rdquo;.  </p>
+
+<p>One wikipedia definition is useless: <a href="http://en.wikipedia.org/wiki/Precision_(statistics">precision (statistics)</a>).</p>
+
+<p>Another one, <a href="http://en.wikipedia.org/wiki/Accuracy_and_precision">accuracy and precision</a> is more on target.</p>
+
 <h3>Review from last class</h3>
 
 <p>We saw that the choice of parameters in a model could be automated: fit the model, thereby choosing the parameters that eliminate bias in the residuals and minimize the variance.</p>
@@ -552,6 +580,19 @@ confint(mymod, level = 0.5)
 
 <p>Round doubled sd to two digits: 130000.<br/>
 Report point estimate to the same digit: 3420000 \( \pm \) 130000 with 95% confidence.</p>
+
+<h3>Going forward</h3>
+
+<p>Don&#39;t confusion precision with accuracy.  The confidence interval tells you the precision of your estimate, based on the variability that comes about from the sampling process.  But however precise your estimate is, it may still be inaccurate.  Some reasons:</p>
+
+<ul>
+<li>Your sample may not be representative.  Randomness fixes this, but not everything that you think is random is indeed random.</li>
+<li>There may be other factors involved that influence the system and that your model has not taken account of.<br/></li>
+</ul>
+
+<p>We&#39;ll be moving on to build models involving multiple explanatory variables in the next class.  Part of doing that will be to expand the notion of models across groupwise means.</p>
+
+<p>We saw an example of this in the first class, with the early studies of smoking and mortality.  Breaking things up into groups by smoking status, without taking into account age, gave a result that we now know to be wrong.</p>
 
 </body>
 

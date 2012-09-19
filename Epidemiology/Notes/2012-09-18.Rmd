@@ -21,7 +21,12 @@ I had dinner last night with a person who works at DeLoitte on human resources c
 
 [In-class Activity on Standardization and Age Adjustment](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/Activities/age-adjustment.pdf)
 
-### Life Expectancy Calculation
+### Life Expectancy 
+
+Is medicine improving?  How has life expectancy changed in the last 100 years?
+
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/MT3.png)
+
 
 #### Explanation of calculation.  
 Central Question: How is it possible to say what the expected life span is of a child born today?
@@ -34,6 +39,16 @@ Age specific death rates and the projection of this through a hypothetical popul
 #### Interpretation of Life Expectancy
 
 Deaths at an early age have a strong impact.  [A spreadsheet for investigating](https://docs.google.com/spreadsheet/ccc?key=0Am13enSalO74dDhwWXhkZ0FCalVjOXE4VXBuTTBoNkE#gid=0) Add in extra deaths at different ages to see the effect on life expectancy.  
+
+* [Article about crime statistics](http://www.nytimes.com/2009/09/15/us/15crime.html?hp) How much of the difference between blacks and whites for life expectancy at birth is due to homocide?  
+
+
+* Child mortality measures from EE Table 2.7. \url{{EE5.pdf}}
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE5.png)
+
+QALY, DALY, Healthy life expectancy, years of potential life lost: 
+![image](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE6.png)
+
 
 ### Essential Epidemiology Chap 3
 

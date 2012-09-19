@@ -5,9 +5,28 @@ In-Class Notes: 2012-09-19
 # boilerplate
 ```
 
+### Words for the Day
 
+**Accuracy** versus **Precision**
 
+* What's the difference?
+* Synonyms for them.
 
+The dictionary gets it substantially wrong:
+>    **precision** |priˈsi zh ən|
+>    noun
+>    the quality, condition, or fact of being exact and accurate : the deal was planned and executed with military precision.
+>    • [as adj. ] marked by or adapted for accuracy and exactness : a precision instrument.
+>    • technical refinement in a measurement, calculation, or specification, esp. as represented by the number of digits given : this has brought an unprecedented degree of precision to the business of dating rocks | a precision of six decimal figures. Compare with accuracy .
+>   **ORIGIN** mid 18th cent.: from French précision or Latin praecisio(n-), from praecidere ‘cut off’ (see precise ).
+
+Thesaurus synonyms: tools crafted with precision: exactness, exactitude, accuracy, correctness, preciseness; care, carefulness, meticulousness, scrupulousness, punctiliousness, methodicalness, rigor, rigorousness.
+
+Today is all about Precision and how to measure and convey it.  For us, the meaning of precision is "the degree of repeatability" or "reproducibility."  Sometimes this is conveyed by the "number of digits", which is to say "the position of the last digit that matters".  
+
+One wikipedia definition is useless: [precision (statistics)](http://en.wikipedia.org/wiki/Precision_(statistics)).
+
+Another one, [accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision) is more on target.
 
 ### Review from last class
 
@@ -192,3 +211,13 @@ Examples:
 
 Round doubled sd to two digits: 130000.
 Report point estimate to the same digit: 3420000 $\pm$ 130000 with 95% confidence.
+
+### Going forward
+
+Don't confusion precision with accuracy.  The confidence interval tells you the precision of your estimate, based on the variability that comes about from the sampling process.  But however precise your estimate is, it may still be inaccurate.  Some reasons:
+* Your sample may not be representative.  Randomness fixes this, but not everything that you think is random is indeed random.
+* There may be other factors involved that influence the system and that your model has not taken account of.  
+
+We'll be moving on to build models involving multiple explanatory variables in the next class.  Part of doing that will be to expand the notion of models across groupwise means.
+
+We saw an example of this in the first class, with the early studies of smoking and mortality.  Breaking things up into groups by smoking status, without taking into account age, gave a result that we now know to be wrong.
