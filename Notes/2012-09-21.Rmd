@@ -1,12 +1,130 @@
 Stats 155 Class Notes 2012-09-21
 ========================================================
 
-QUIZ PROBLEMS
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
 
-1) On this graph, draw two density plots.  One should be a distribution with mean 100 and sd 10, the other mean 120 and sd 40.
+## Review
+Groupwise models
+* Easy enough to fit groupwise models.  The groupwise mean is a nice estimate for the parameter that eliminates the bias in the residuals and minimizes the variance.
+* We can use more than one categorical variable as a grouping variable.  When we do this, we get results for all the "crosses".
 
-2) Which measures are robust to outliers?
+**BUT ...**
+* What if we want to use a quantitative variable as an explanatory variable?
+* What if we have more than one categorical variable?
+* What if we have a mixture of quantitative and categorical variables?
 
-3) Here's a sampling distribution.  What's the confidence interval?  What would the confidence interval be if 100 times as big a sample had been collected?
+Why would we want to use more than one variable?  Because things are complicated.
+
+Example: Do wages depend on sex in the CPS85 data?
+```{r}
+mod = mm( wage ~ sex, data=CPS85 )
+coef(mod) # men make about $2.20 per hour more
+summary(mod) # the confidence intervals don't overlap
+```
+
+We could find the resampling distribution on the difference between men's and women's wages using the techniques we talked about in the last class.  Just for convenience, we can use the `diff()` function to find the difference between the two groups:
+```{r cache=TRUE, out.width="2in"}
+diff( coef(mod) )  # The point estimate
+# Do some resampling to get the resampling distribution
+trials = do(100)*diff( 
+  coef( mm(wage ~ sex, data=resample(CPS85))))
+qdata(c(0.025, .975), M, data=trials)
+sd( trials) # Standard error
+densityplot( ~ M, data=trials )
+```
+So there seems to be a difference between the men's and women's average wages. 
+ 
+#### Possible other factors
+
+Ways in which men and women might differ:
+* education
+* age
+* type of job
+
+How could we look at the issue of differences between the sexes in age, taking into account these other possibilities?
+
+Sector of the economy is easy:
+```{r}
+summary(mm(wage~sex+sector, data=CPS85))
+```
+Compare the corresponding sector for the different sexes.  The confidence intervals often overlap.
+
+How to add in additional variables, e.g. age and education?
+
+
+The basic models
+-----------------
+
+Assume we have a response variable D, a quantitative explanatory variable, A, and a categorical variable G.
+Here are the basic types of models, illustrated on the swimming data. 
+
+More complicated models mainly add additional variables but follow the same overall pattern.
+
+```{r}
+swim = fetchData("swim100m.csv")
+```
+
+* `D ~ 1`  
+
+All cases are the same.  There is one parameter, the grand mean.
+```{r fig.height=4}
+mod = lm( time ~ 1, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+
+* `D ~ 1 + A`
+The cases vary with the quantitative variable.  There are two parameters: slope and intercept.
+```{r fig.height=4}
+mod = lm( time ~ 1 + year, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+
+* `D ~ 1 + G`
+The groupwise mean model.  But note that the parameters are written differently, as an "intercept" and a "difference".  QUESTION: Which difference is it?
+```{r fig.height=4}
+mod = lm( time ~ 1 + sex, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+
+* `D ~ 1 + A + G`
+Both variables play a role.  The parameters are "intercept," "slope," and "difference between groups."
+
+```{r fig.height=4}
+mod = lm( time ~ 1 + year + sex, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+Note that the slope is the same for the two groups.
+
+To see a different slope for the two groups, we have to ask the model to permit such a thing:
+
+* `D ~ 1 + A + G + A:G`
+```{r fig.height=4}
+mod = lm( time ~ 1 + year + sex + year:sex, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+
+### Variables and Model Terms
+How a variable is different from a model term.
+Model terms that are not variables: intercept, interaction terms.
+
+### Activity
+Visual choice of model terms
+
+Instructions are [given here](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Selecting-Model-Terms/ISM-Selecting-Model-Terms-A.html?access=ISM3)  (These have to be reformatted as a handout and as an instructor's guide.)
+
+The only substantive differences is in the way the software is loaded:
+```{r}
+fetchData("mLM.R")
+```
+
+The program itself is called `mLM()` (not `lm.select.terms()`)
+
+
+
+
+
+### Weekly quiz
 
 

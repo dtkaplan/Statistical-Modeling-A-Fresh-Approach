@@ -56,12 +56,8 @@ Ethics:
             * Note the use of words like "any" and "all", e.g. "not be subject to any risk" in ¶32
             * Right to share in "any" benefits that result from it ¶33
     
-GROUP DISCUSSION QUESTIONS: 
-* Suppose you are doing research on a new antibiotic.  Some people might be allergic and die from it.  Can you do the research?
-* You want to do research on an alternative treatment involving traditional sweat baths after fasting. Can you?  
-* Suppose you are testing a new, very inexpensive drug that likely won't perform as well as the current standard drug that's very expensive?  Can you do the research.
-* How would you do ethical research into the best way to revive someone who has hypothermia?  Don't you need to create the hypothermia?
-* Suppose you have done a Randomized Clinical Trial.  A patient decides to stop involvement because he's not interested any more.  To what extent are you allowed to pursuade him of the importance of the study?
+GROUP DISCUSSION QUESTIONS: [handout](../Activities/ethics-discussion.pdf)
+
 
 Age Adjustment Activity
 =======================
