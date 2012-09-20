@@ -70,4 +70,18 @@ Even on the first day, I have students log in to the [RStudio](http:/www.rstudio
 
 #### Modeling
 
-* Unfit models. Rather than starting students with fitted models, I have them construct models with parameters that they pull out of their heads, and then evaluate these models against data.  My intention is to help the students understand the criterion for picking parameters, which is otherwise hidden behind the software such as `lm()`. [Notes](Notes/2012-09-17.html) and [handout](https://dl.dropbox.com/u/5098197/ISM/Unfit-Models.pdf)
+* "Unfit" models. Rather than starting students with fitted models, I have them construct models with parameters that they pull out of their heads, and then evaluate these models against data.  My intention is to help the students understand the criterion for picking parameters, which is otherwise hidden behind the software such as `lm()`. [Notes](Notes/2012-09-17.html) and [handout](https://dl.dropbox.com/u/5098197/ISM/Unfit-Models.pdf)
+
+#### Language of Models
+
+Some classroom notes on the [language of models](Notes/2012-09-21.html).  There's also an in-class activity based on a program `mLM()`.
+
+*[Rough notes on the in-class activity](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Selecting-Model-Terms/ISM-Selecting-Model-Terms-A.html?access=ISM3)  These need to be updated to reflect that the program is called `mLM()` and is loaded with `fetchData("mLM.R")`.
+
+A few students will have to be reminded of the meaning of "slope" and "intercept," but the majority will think this is obvious.  More students will have trouble with interpreting the coefficients on levels of a categorical variable as a "difference," akin to a slope.  
+
+The biggest cognitive challenge is for students to understand that the "shape" of a model is set by the choice of terms in the model.  It's worth emphasizing that, despite the obvious differences between the pattern of men's and women's swimming records over the years, the model won't reflect this unless an interaction term is included.
+
+The activity using the `mLM()` program may be helpful.  Note in particular that there is a slot to choose the dependent variable on the graph.  It's well worth going over why the graph of model values is different depending on the choice of the variable for the axis.  Also, many students won't understand why a "straight line" model like "time ~ year" doesn't show up as a straight line when the model values are plotted against "sex".
+
+This lesson is really about the difference between a variable and a "model term".  Later on, we'll deal with the meaning of coefficients.  Before we can do that, we have to introduce "model vectors" and explain how a categorical variable gets translated into a set of model vectors.

@@ -222,8 +222,22 @@ hr {
 <h4>Modeling</h4>
 
 <ul>
-<li>Unfit models. Rather than starting students with fitted models, I have them construct models with parameters that they pull out of their heads, and then evaluate these models against data.  My intention is to help the students understand the criterion for picking parameters, which is otherwise hidden behind the software such as <code>lm()</code>. <a href="Notes/2012-09-17.html">Notes</a> and <a href="https://dl.dropbox.com/u/5098197/ISM/Unfit-Models.pdf">handout</a></li>
+<li>&ldquo;Unfit&rdquo; models. Rather than starting students with fitted models, I have them construct models with parameters that they pull out of their heads, and then evaluate these models against data.  My intention is to help the students understand the criterion for picking parameters, which is otherwise hidden behind the software such as <code>lm()</code>. <a href="Notes/2012-09-17.html">Notes</a> and <a href="https://dl.dropbox.com/u/5098197/ISM/Unfit-Models.pdf">handout</a></li>
 </ul>
+
+<h4>Language of Models</h4>
+
+<p>Some classroom notes on the <a href="Notes/2012-09-21.html">language of models</a>.  There&#39;s also an in-class activity based on a program <code>mLM()</code>.</p>
+
+<p>*<a href="http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Selecting-Model-Terms/ISM-Selecting-Model-Terms-A.html?access=ISM3">Rough notes on the in-class activity</a>  These need to be updated to reflect that the program is called <code>mLM()</code> and is loaded with <code>fetchData(&quot;mLM.R&quot;)</code>.</p>
+
+<p>A few students will have to be reminded of the meaning of &ldquo;slope&rdquo; and &ldquo;intercept,&rdquo; but the majority will think this is obvious.  More students will have trouble with interpreting the coefficients on levels of a categorical variable as a &ldquo;difference,&rdquo; akin to a slope.  </p>
+
+<p>The biggest cognitive challenge is for students to understand that the &ldquo;shape&rdquo; of a model is set by the choice of terms in the model.  It&#39;s worth emphasizing that, despite the obvious differences between the pattern of men&#39;s and women&#39;s swimming records over the years, the model won&#39;t reflect this unless an interaction term is included.</p>
+
+<p>The activity using the <code>mLM()</code> program may be helpful.  Note in particular that there is a slot to choose the dependent variable on the graph.  It&#39;s well worth going over why the graph of model values is different depending on the choice of the variable for the axis.  Also, many students won&#39;t understand why a &ldquo;straight line&rdquo; model like &ldquo;time ~ year&rdquo; doesn&#39;t show up as a straight line when the model values are plotted against &ldquo;sex&rdquo;.</p>
+
+<p>This lesson is really about the difference between a variable and a &ldquo;model term&rdquo;.  Later on, we&#39;ll deal with the meaning of coefficients.  Before we can do that, we have to introduce &ldquo;model vectors&rdquo; and explain how a categorical variable gets translated into a set of model vectors.</p>
 
 </body>
 
