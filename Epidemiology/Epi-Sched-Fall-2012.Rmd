@@ -176,7 +176,6 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 * Newspaper article on the ["longevity gap"](http://www.nytimes.com/2009/09/22/science/22tier.html?_r=1&hpw)
 
 **Assignment**: 
-* Estimation Problem 1. [LINK TO BE POSTED] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
 * Spreadsheet formulas --- [passive spreadsheet w/o formulas](https://docs.google.com/spreadsheet/ccc?key=0Am13enSalO74dF9pN0g1djdNa3NtWlhwWHVOMGpWTHc) :: [Hand in link to your own, active spreadsheet here](https://moodle.macalester.edu/mod/assign/view.php?id=19092)
 
 **On Your Own**:
@@ -195,9 +194,11 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 
 **Reading**: 
 * *Essential Epidemiology* Chap. 5
+* Macalester's Institutional Review Board [Guidelines for human research](http://www.macalester.edu/committees/irb/documents/IRB%20Guidelines%202009.pdf)
 
 **Assignment**: 
 * Design your own APGAR score `r I(RR("apgarscore"))`
+* Estimation Problem 1. [LINK TO BE POSTED] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
 
 **In Class**:
 * World Health Organization exercise on [population attributable fraction](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Exercise_27_smoking_and_death.xls)

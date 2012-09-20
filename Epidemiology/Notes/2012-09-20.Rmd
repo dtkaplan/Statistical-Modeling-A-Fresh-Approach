@@ -1,0 +1,72 @@
+Epidemiology Class Notes 2012-09-20
+========================================================
+
+Pop Quiz
+----------
+* What does "aetiological" mean?
+* In doing a prognostic or survival study, would you adopt a case-control, a cross-sectional, or a cohort design?
+* What are "hospital controls"?
+
+
+Basic Research Designs
+----------------------
+
+# Descriptive versus Analytic.  Introduction to the Island.
+
+# Interventional
+
+The classical experiment:
+* Treatment and Control
+* Randomization (why)
+
+### Details:
+* Crossover design
+* Historical "controls"
+
+# Observational
+
+* Cross-sectional
+* Cohort 
+* Case-Control
+* Ecological
+* Record linkage
+* Case-crossover.
+
+
+### SMALL GROUP DISCUSSION:
+You have been tasked by President Rosenberg to find out if the Writing requirement is effective at Macalester.  You have access to students and to the registrar's records.  
+* You have one week to give your report.  Design an appropriate study.
+* You have one year to give your report.  Design an appropriate study.
+
+Ethics:
+----------
+* [Nuremberg Code](http://en.wikipedia.org/wiki/Nuremberg_Code) 
+    * Work through the basics:
+        * voluntary consent.
+        * Beneficence
+        * Plausibility and scientific basis
+    * Note the qualifications: ¶4 "avoid all **unnecessary** physical and mental suffering and injury"; ¶5 "death or disabling injury will occur" (as opposed to "may occur"); ¶6 the "degree of risk to be taken"
+    
+    * Some things seem odd today. Note especially ¶5. 
+* Declaration of Helsinki.  
+    * [Original version from 1964](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1816102/pdf/brmedj02559-0071.pdf)
+    * [Current version 2008](http://www.wma.net/en/30publications/10policies/b3/index.html.pdf?print-media-type&footer-right=[page]/[toPage]).  
+            * Note procedural components, e.g. ¶15  This comes from the first revision in 1975
+    * Controveries, e.g. use of placebos as controls in poor countries.  (See Fourth revision)
+            * Note the use of words like "any" and "all", e.g. "not be subject to any risk" in ¶32
+            * Right to share in "any" benefits that result from it ¶33
+    
+GROUP DISCUSSION QUESTIONS: 
+* Suppose you are doing research on a new antibiotic.  Some people might be allergic and die from it.  Can you do the research?
+* You want to do research on an alternative treatment involving traditional sweat baths after fasting. Can you?  
+* Suppose you are testing a new, very inexpensive drug that likely won't perform as well as the current standard drug that's very expensive?  Can you do the research.
+* How would you do ethical research into the best way to revive someone who has hypothermia?  Don't you need to create the hypothermia?
+* Suppose you have done a Randomized Clinical Trial.  A patient decides to stop involvement because he's not interested any more.  To what extent are you allowed to pursuade him of the importance of the study?
+
+Age Adjustment Activity
+=======================
+From Tuesday
+
+Live Expectancy Activity
+=======================
+From Tuesday

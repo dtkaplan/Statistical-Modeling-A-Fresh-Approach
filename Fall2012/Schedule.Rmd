@@ -55,11 +55,9 @@ todaysNotes <- function(fname,marker="notes") {
 *Sept* | | | `r I(dd("Sept",5))` | `r I(dd("Sept",7))` | |`r I(dd("Sept",10))` |`r I(dd("Sept",12))` |`r I(dd("Sept",14))` | | `r I(dd("Sept",17))` |`r I(dd("Sept",19))` |`r I(dd("Sept",21))` | | `r I(dd("Sept",24))` |`r I(dd("Sept",26))` |`r I(dd("Sept",28))` | | | | 
 *Oct* |  |  `r I(dd("Oct",1))` |  `r I(dd("Oct",3))` | `r I(dd("Oct",5))` | | `r I(dd("Oct",8))` |`r I(dd("Oct",10))` |`r I(dd("Oct",12))` | | `r I(dd("Oct",15))` |`r I(dd("Oct",17))` |`r I(dd("Oct",19))` | | `r I(dd("Oct",22))` |`r I(dd("Oct",24))` | 26 | | `r I(dd("Oct",29))` |`r I(dd("Oct",31))` |
 *Nov* | | | | `r I(dd("Nov",2))` | | `r I(dd("Nov",5))` |  `r I(dd("Nov",7))` | `r I(dd("Nov",9))` | |  `r I(dd("Nov",12))` | `r I(dd("Nov",14))` | `r I(dd("Nov",16))` | | `r I(dd("Nov",19))` | `r I(dd("Nov",21))` | 23 | |  `r I(dd("Nov",26))` | `r I(dd("Nov",28))` | `r I(dd("Nov",30))` 
-*Dec* | | `r I(dd("Dec",3))` | `r I(dd("Dec",5))` | `r I(dd("Dec",7))` | | `r I(dd("Dec",10))` 
+*Dec* | | `r I(dd("Dec",3))` | `r I(dd("Dec",5))` | `r I(dd("Dec",7))` | | `r I(dd("Dec",10))` |<span style="color:red">13</span>|<span style="color:red">14</span>
 
-Final Exam: 
-* Sections 01 & 02: Friday 14 Dec.
-* Section 03: Thurday 13 Dec.
+<span style="color:red">Final Exam : Sections 01 & 02: Friday 14 Dec;  Section 03: Thurday 13 Dec.</span>
 
 
 

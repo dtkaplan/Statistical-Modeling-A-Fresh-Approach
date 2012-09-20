@@ -46,7 +46,7 @@ Over the semester, add to the glossary.  When you don't know the meaning of a te
 
 ----------------
 
-### Welcome to the Island
+### Welcome to the <a name="theIsland">Island.</a>
 
 One of the goals of this course is to give you insight into how epidemiological data is collected and how epidemiological studies are performed. A great way to do this is for you to perform actual studies on actual populations. But this is impractical in the scope of a one-semester introductory course, to say nothing about the practical difficulties of setting up studies and the ethical difficulties relating to privacy and contact with patients by non-professionals.
 
