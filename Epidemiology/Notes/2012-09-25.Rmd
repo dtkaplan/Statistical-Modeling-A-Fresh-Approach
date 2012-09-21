@@ -1,0 +1,59 @@
+Epidemiology Class Notes 2012-09-25
+========================================================
+
+
+Linking Exposure and Disease
+----------------------
+
+### Rate ratios versus absolute difference in rate
+
+![Table 5.1](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-5-1.png)  
+
+Compare "never smoked" to "current smoker".  Rate ratio is 2.8 = 49.6/17.7.  But the absolute difference in rate is 49.6-17.7 incidence rate per 100,000 person years.
+
+### Relative Risk
+Just like rate ratios but based on cumulative incidence.  Example 
+
+![Table 1.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-1-2.png) 
+
+Another example: examining the affect of an intervention (Calling people to remind them of an immunization): 
+
+![Table 5.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-5-2.png)
+
+### Relative Risk Reduction
+
+![Box 5.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Box-5-2.png) 
+showing affect of pressure bandages in patients undergoing coronary angiography.
+
+### Attributable Risk
+
+A graphic on attributable risk: 
+![Fig 5.1](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-5-1.png) 
+Use this to derive the attributable fraction as $latex \frac{RR-1}{RR}$
+
+In the British Doctors Study: [Table 5.4](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-5-4.png)
+
+### Population Attributable Risk
+
+Combine the rates of the different groups and compare to the background rate.
+![Fig. 5.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-5-2.png)
+Smoking and Tuberculosis in India.  See the [World Health Organization Exercise](http://apps.who.int/tb/surveillanceworkshop/status_analysis/27.htm)
+* [WHO spreadsheet here](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Exercise_27_smoking_and_death.xls)
+
+### Case Control
+
+Why we do them?  When the incidence/prevalence is very small, so a cohort is not efficient.
+
+What's an "odds"?    From ["Fugue for Tinhorns"](http://www.youtube.com/watch?v=G6djgavbp7c)
+<blockquote>
+I'm pickin' Valentine, 'cause on the morning line <br>
+A guy has got him figured at five to nine 
+</blockquote>
+
+Example: Ovarian cancer and oral contraception use: 
+![Table 5.6](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-5-6.png) 
+
+Example: Bicycle helmets and head injury 
+![Table 5.9](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-5-9.png)
+
+Why the Odds Ratio Approximates the Relative Risk (when the prevalence/incidence is very small): [Box 5.5](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Box-5-5.png)

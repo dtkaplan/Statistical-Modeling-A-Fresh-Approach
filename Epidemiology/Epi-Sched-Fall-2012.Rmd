@@ -181,6 +181,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 **On Your Own**:
 * BBC radio show: Melvyn Bragg, *In Our Time* "The Four Humors" [podcast](http://www.bbc.co.uk/programmes/b008h5dz)
 * Estimating deaths in the absence of death records: [article about new estimates of fatalities from the US Civil War](http://opinionator.blogs.nytimes.com/2011/09/20/recounting-the-dead/)
+* A classic movie: *Judgment at Nuremberg* (available on DVD via, e.g. Netflix)
 
 
 **In-class**:
@@ -199,6 +200,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 **Assignment**: 
 * Design your own APGAR score `r I(RR("apgarscore"))`
 * Estimation Problem 1. [LINK TO BE POSTED] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
+* Pay around on The Island.  Come to class prepared to offer a topic for a descriptive study.  Then you can identify other class members with whom to form project groups.  [Get your Island password](http://island.maths.uq.edu.au/password.php) using your Mac email ID. Then [login to the Island](http://island.maths.uq.edu.au/access.php?/index.php).
 
 **In Class**:
 * World Health Organization exercise on [population attributable fraction](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Exercise_27_smoking_and_death.xls)
