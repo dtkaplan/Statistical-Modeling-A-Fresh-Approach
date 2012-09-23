@@ -21,7 +21,7 @@ RR <- function(name) { #Reading reflection
  paste("<a href='http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/ReadingReflections#",name,"'>link</a>",sep="") 
 }
 QE <- function(name) { # Estimation problem}
-  paste("<a href='http://dtkaplan/github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/FermiProblems.html#",name,"'>link</a>",sep="")
+  paste("<a href='http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/FermiProblems.html#",name,"'>.</a>",sep="")
   }
 ```
 **Class Schedule**

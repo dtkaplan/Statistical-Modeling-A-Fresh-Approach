@@ -84,17 +84,20 @@ In the spirit of an APGAR score:
 
 
 Estimation Problem 0: Just a start.
---------------------
+-----------------
 This is a simple problem, so long as you understand that there is no exact answer:
 
-### To answer in your essay:
-* How many people in the US have a cold right now?
+### To answer in your essay: 
+
+* How many people in the US have a cold right now? 
+`r I(moodle(20497,"ColdPrevalence"))`
 
 In answering this question or prevalence, you might think about how many people there are in the US, the incidence rate and the duration.  You might be able to make an assumption/estimate/guesstimate of incidence rate and duration from your personal experience and that of your family and friends.  
 
 Make sure that you state your assumptions/estimates/guesstimates explicitly so that the reader can see how they figure into your ultimate answer.
 
-`r I(moodle(20497,"ColdPrevalence"))`
+
+
 
 <hr>
 
@@ -107,9 +110,7 @@ Humans are the host of the dengue fever virus.  A female mosquito who bits an in
 Suppose that, in the treatment areas, the active mosquito population is reduced by 75%.
 
 ### To answer in your essay:
-* How might this partially effective method of mosquito reduction affect the prevalence of dengue fever?
-
-`r I(moodle(20498,"dengue"))`
+* How might this partially effective method of mosquito reduction affect the prevalence of dengue fever? `r I(moodle(20498,"dengue"))`
 
 <hr>
 
@@ -121,11 +122,13 @@ Imagine that you are in charge of allocating resources to medical schools. (Ther
 * How many physicians are needed to serve the US population?
 * Based on your estimate of the number of physicians needed, estimate how many annual slots are needed in medical schools.
 
+`r I(moodle(20499,"NumberOfDoctors"))`
+
 Obviously there is no exact answer to these questions. You should try to put together an estimates based on what you know about how physicians work and how much time patients spend with physicians, other duties for physicians, etc. Be explicit with your sub-estimates so that these can be discussed and refined.
 
 Since the point of this exercise is to develop your estimation skills, rather than to direct actual public policy, don’t feel that you have to do detailed research to support your estimates. Rather, think of the exercise as a way to identify the questions you would want to answer in detail if you were going to make a serious attempt to inform public policy.
 
-`r I(moodle(20499,"NumberOfDoctors"))`
+
 
 <hr>
 
@@ -136,11 +139,11 @@ You have been asked to set up the system for vaccinating the people of Minnesota
 
 ### To answer in your essay:
 
-* How many nurses should you request be assigned to the vaccination program?
+* How many nurses should you request be assigned to the vaccination program? `r I(moodle(20500,"NumberOfDoctors"))`
 
 Make sure to explain your estimate in sufficient detail so that the officials reading your request will be able to judge if your estimate is reasonable.
 
-`r I(moodle(20500,"NumberOfDoctors"))`
+
 <hr>
 
 Estimation Problem 4
@@ -149,11 +152,11 @@ Estimation Problem 4
 Assume that colds are transmitted by sneezes. How infectious is a sneeze? To be more definite, suppose there is a classroom of healthy people, but one person has a cold. 
 
 ### To answer in your essay: 
-* What’s the probability that a single sneeze will transmit the cold to someone else in the room?
+* What’s the probability that a single sneeze will transmit the cold to someone else in the room? `r I(moodle(20501,"ColdTransmission"))`
 
 Or, if you prefer, assume that colds are transmitted by handshakes. Calculate the probability of infection by handshake when a person with a cold meets a person.
 
-`r I(moodle(20501,"ColdTransmission"))`
+
 
 Estimation Problem 5
 --------------------
@@ -163,7 +166,8 @@ What are five risky things that college students do in terms of excess mortality
 ### To answer in your essay:
 * Estimate how risky each is using years of potential life lost for an individual.  Also estimate the prevalence of the risk.  Your estimates might be largely guesswork, but try to put reasonable upper and lower bounds on the risk.
 * For one of the five items, go beyond just guessing.  Do a bit of Internet sleuthing and see what you can come up with.  
+`r I(moodle(20502,"CollegeRisk"))`
 
 Don't spend more than 30 minutes altogether.  It helps if you pick a risk that you don't expect everyone else in the class to be reporting on.
 
-`r I(moodle(20502,"CollegeRisk"))`
+
