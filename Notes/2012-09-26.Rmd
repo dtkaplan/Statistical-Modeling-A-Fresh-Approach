@@ -1,0 +1,27 @@
+Stats 155 Class Notes 2012-09-26
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+Units of coefficients
+--------------------
+* Quick review of the arithmetic of units and dimensions.
+* Simple examples:
+    * foot width as a function of foot length and sex (explain why length is a sensible explanatory variable and width is a sensible response when trying to model whether girls' feet are narrower than boys': the way shoes are sized by length.)
+    * child's height as a function of the father's height.  Then introduce an interaction between father and mother to get at the units.
+
+Example of an Interaction
+----------------
+The story is pretty straightforward.  Your job is to see why this corresponds to an interaction term:
+
+Newspaper article: [a study of "hidden" ovulation](http://www.nytimes.com/2011/02/22/science/22tier.html?_r=1&hp) and whether it's really hidden. Note the interaction between ovulation phase and romantic attachment. : "Previous research had shown that a woman at the fertile stage of her menstrual cycle seems more attractive, and that same effect was observed here — but only when this woman was rated by a man who wasn’t already involved with someone else. The other guys, the ones in romantic relationships, rated her as significantly less attractive when she was at the peak stage of fertility, presumably because at some level they sensed she then posed the greatest threat to their long-term relationships.
+
+
+Untangling
+----------
+* Foot width as a function of sex and foot length.
+* Mid-parent and the father and mother separately
+* Electricity usage and temperature in determining natural gas.  (Cold weather increases the need for gas.  Higher electricity usage creates heat that reduces the need for gas.  Going further: as a units exercise, find the energy content of a term of gas and a kwh of electricity.  Does the observed untangling match the physical energy content? )
+* Car price data.  Can you untangle the effects of increasing mileage and increasing age?

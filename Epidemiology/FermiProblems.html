@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Estimation Problems for Epidemiology</title>
+
+<base target="_blank"/>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>Estimation Problems for Epidemiology</h1>
+
+<h2>Background</h2>
+
+<p>These problems are exercises in making estimates from very limited information.  Sometimes, it will seem to you that you are just making up an answer, but that shouldn&#39;t really be the case.</p>
+
+<p>A nice introduction is the book <em>Guesstimation</em>.  (You can browse the book at <a href="http://www.amazon.com/Guesstimation-Solving-Worlds-Problems-Cocktail/dp/0691129495">amazon.com</a>.)</p>
+
+<p>Other links:</p>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Fermi_problem">Fermi Problems</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Guesstimate">Guesstimate</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Back-of-the-envelope_calculation">Back-of-the-envelope calculation</a></li>
+</ul>
+
+<h3>Three General Strategies for Estimation</h3>
+
+<h4>1. Break things into parts</h4>
+
+<p>Sometimes you can make an estimate of a quantity that appears at first glance to be completely unknown to you by breaking it down into parts.  Examples:</p>
+
+<ul>
+<li>What volume of air goes through a typical person&#39;s lungs in a lifetime?  Put this together from parts: 
+
+<ul>
+<li>How many breaths per minute does a person take?  (You can figure this out from experience.) </li>
+<li>How many minutes in a lifetime? (No idea?  You can put it together from these quantities: How many minutes in a day?  How many days in a year?  How many years in a lifetime?) </li>
+<li>What&#39;s the volume of a breath?  (You can make a guess from your experience blowing up balloons.  You can also do a bit of research on the Internet.)</li>
+</ul></li>
+<li>How much money does a person spend on gasoline in a lifetime?  You can estimate this by putting together the following parts: 
+
+<ul>
+<li>How many miles per gallon does a car get?<br/></li>
+<li>How many miles per year does a driver drive?<br/></li>
+<li>How many years is a driver active?<br/></li>
+<li>How much does a gallon of gasoline cost?</li>
+</ul></li>
+<li>How many Cherrios will you eat in a year?
+
+<ul>
+<li>How many times a week do you have a bowl of cereal?</li>
+<li>How many cherrios in a spoonful?</li>
+<li>How many spoonfuls in a bowl?</li>
+<li>How many weeks in a year?</li>
+</ul></li>
+</ul>
+
+<h4>2. Use Logarithmic Spacing</h4>
+
+<p>Don&#39;t start an estimate by guessing the first digit of a number.  Instead, guess the scale of the number. Start with picking a unit, then pick a scale.  It helps to think about scale logarithmically.</p>
+
+<p>The following numbers are logarithmically spaced:</p>
+
+<p>0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000, 100000, 1000000 and so on.</p>
+
+<p>Of course, this scale continues off to zero on the left and \( \infty \) on the right.</p>
+
+<p>Some questions:</p>
+
+<ul>
+<li>How long can a person hold his or her breath?  First, pick a unit: minutes seems obvious.  Then pick one of the numbers in the logarithmic sequence: 10 minutes is too long, 0.1 minute is too small.  So, 1 minute.</li>
+<li>How much does a car weigh?  First, pick a unit, say pounds.  Then pick a number on the scale.  100 pounds is too small. Perhaps 1000 pounds is reasonable.  Or maybe 10000 pounds, but not much larger.
+So a good guess is &ldquo;half-way&rdquo; between 1000 and 10000 pounds &mdash; about 3000 pounds.</li>
+</ul>
+
+<p>Don&#39;t be afraid to use non-standard units.  Here&#39;s the car-weight problem revisited: First, pick a unit: a person.  This is sensible because we put people into cars and so we have experience comparing people to cars.  How many people would overload a car. A single person doesn&#39;t, but 100 people would be absurd.  So, around 10 people.  Now, how much does a person weight?  Done. </p>
+
+<p>Pinning down an answer to a factor of 10 or 100 is much better than nothing.  </p>
+
+<p>Example: How much does a jumbo jet airplane weigh?  You may have a sense of how many people such a plane holds &mdash; about 400.  Those 400 people, together with their bags, weigh about 100 kg each.  Vehicles are generally heavier than their load &mdash; a car is about 10 times heavier, but an airplane should be more efficient since it has to fly.  So let&#39;s guess that a plane is about three times as heavy as its load. Guestimate: 400 people times 100 kg/person times 3 = 120,000 kg.  Just a guess, but it&#39;s a lot closer guess than you might have started with.  (Check out <a href="http://en.wikipedia.org/wiki/Boeing_747#Specifications">the answer here</a>.)</p>
+
+<h4>3. Know some basic quantitative facts</h4>
+
+<p>Every educated person should know the population of the earth, the population of some major countries, life spans, etc.  You know typical birth rates (per woman, over a lifetime), volumes (a typical person weighs about 50 kg, and so has a volume of about 50 l), etc.</p>
+
+<hr>
+
+<h2>Grading Rubric:</h2>
+
+<p>In the spirit of an APGAR score:</p>
+
+<ul>
+<li>Is the overall estimation strategy well founded?</li>
+<li>Are the quantitative assumptions explicitly stated? That is, could a person who disagrees with the assumptions be able to trace through the consequences of a quantitative assumption to the final answer?</li>
+<li>Have the calculations been done correctly?</li>
+<li>Is there an informative narrative thats concise and professional in style for the estimate?  Don&#39;t just put down numbers, but explain what you&#39;re doing.</li>
+<li>Have reasonable levels of uncertainty on the quantitative assumptions been indicated and tracked through to the final estimate?</li>
+</ul>
+
+<hr>
+
+<h2>Estimation Problem 0: Just a start.</h2>
+
+<p>This is a simple problem, so long as you understand that there is no exact answer:</p>
+
+<h3>To answer in your essay:</h3>
+
+<ul>
+<li>How many people in the US have a cold right now?</li>
+</ul>
+
+<p>In answering this question or prevalence, you might think about how many people there are in the US, the incidence rate and the duration.  You might be able to make an assumption/estimate/guesstimate of incidence rate and duration from your personal experience and that of your family and friends.  </p>
+
+<p>Make sure that you state your assumptions/estimates/guesstimates explicitly so that the reader can see how they figure into your ultimate answer.</p>
+
+<p><a name='ColdPrevalence'/a><a href='https://moodle.macalester.edu/mod/assign/view.php?id=20497'>Moodle link</a></p>
+
+<hr>
+
+<hr>
+
+<h2>Estimation Problem 1</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Dengue_fever">Dengue fever</a> is a serious, mosquito-borne illness.  In an attempt to reduce the incidence of dengue fever, scientists are experimenting with releasing genetically modified male mosquitos whose mating results in non-viable larvae.  The hope is to reduce mosquito populations dramatically in areas where the modified males are released in large numbers.  (See this article in the <a href="http://www.newyorker.com/reporting/2012/07/09/120709fa_fact_specter">New Yorker magazine</a>.)</p>
+
+<p>Humans are the host of the dengue fever virus.  A female mosquito who bits an infected human becomes infected, but suffers no symptoms.  The virus reproduces in the saliva glands of the mosquito, which then can pass along the virus to another human through biting.  </p>
+
+<p>Suppose that, in the treatment areas, the active mosquito population is reduced by 75%.</p>
+
+<h3>To answer in your essay:</h3>
+
+<ul>
+<li>How might this partially effective method of mosquito reduction affect the prevalence of dengue fever?</li>
+</ul>
+
+<p><a name='dengue'/a><a href='https://moodle.macalester.edu/mod/assign/view.php?id=20498'>Moodle link</a></p>
+
+<hr>
+
+<hr>
+
+<h2>Estimation Problem 2</h2>
+
+<p>Imagine that you are in charge of allocating resources to medical schools. (There is no such person in the US, which has a decentralized system of medical education. In other countries, this is not the case.)</p>
+
+<h3>To answer in your essay:</h3>
+
+<ul>
+<li>How many physicians are needed to serve the US population?</li>
+<li>Based on your estimate of the number of physicians needed, estimate how many annual slots are needed in medical schools.</li>
+</ul>
+
+<p>Obviously there is no exact answer to these questions. You should try to put together an estimates based on what you know about how physicians work and how much time patients spend with physicians, other duties for physicians, etc. Be explicit with your sub-estimates so that these can be discussed and refined.</p>
+
+<p>Since the point of this exercise is to develop your estimation skills, rather than to direct actual public policy, don’t feel that you have to do detailed research to support your estimates. Rather, think of the exercise as a way to identify the questions you would want to answer in detail if you were going to make a serious attempt to inform public policy.</p>
+
+<p><a name='NumberOfDoctors'/a><a href='https://moodle.macalester.edu/mod/assign/view.php?id=20499'>Moodle link</a></p>
+
+<hr>
+
+<hr>
+
+<h2>Estimation Problem 3</h2>
+
+<p>You have been asked to set up the system for vaccinating the people of Minnesota against H1N1. You will be provided with the vaccine in a form to be injected using a hypodermic needle. The shots will be administered by nurses who are already experienced. Your goal is to vaccinate everyone who wants to be in one week.</p>
+
+<h3>To answer in your essay:</h3>
+
+<ul>
+<li>How many nurses should you request be assigned to the vaccination program?</li>
+</ul>
+
+<p>Make sure to explain your estimate in sufficient detail so that the officials reading your request will be able to judge if your estimate is reasonable.</p>
+
+<p><a name='NumberOfDoctors'/a><a href='https://moodle.macalester.edu/mod/assign/view.php?id=20500'>Moodle link</a></p>
+
+<hr>
+
+<hr>
+
+<h2>Estimation Problem 4</h2>
+
+<p>Assume that colds are transmitted by sneezes. How infectious is a sneeze? To be more definite, suppose there is a classroom of healthy people, but one person has a cold. </p>
+
+<h3>To answer in your essay:</h3>
+
+<ul>
+<li>What’s the probability that a single sneeze will transmit the cold to someone else in the room?</li>
+</ul>
+
+<p>Or, if you prefer, assume that colds are transmitted by handshakes. Calculate the probability of infection by handshake when a person with a cold meets a person.</p>
+
+<p><a name='ColdTransmission'/a><a href='https://moodle.macalester.edu/mod/assign/view.php?id=20501'>Moodle link</a></p>
+
+<hr>
+
+<h2>Estimation Problem 5</h2>
+
+<p>What are five risky things that college students do in terms of excess mortality?  </p>
+
+<h3>To answer in your essay:</h3>
+
+<ul>
+<li>Estimate how risky each is using years of potential life lost for an individual.  Also estimate the prevalence of the risk.  Your estimates might be largely guesswork, but try to put reasonable upper and lower bounds on the risk.</li>
+<li>For one of the five items, go beyond just guessing.  Do a bit of Internet sleuthing and see what you can come up with.<br/></li>
+</ul>
+
+<p>Don&#39;t spend more than 30 minutes altogether.  It helps if you pick a risk that you don&#39;t expect everyone else in the class to be reporting on.</p>
+
+<p><a name='CollegeRisk'/a><a href='https://moodle.macalester.edu/mod/assign/view.php?id=20502'>Moodle link</a></p>
+
+<hr>
+
+</body>
+
+</html>
+

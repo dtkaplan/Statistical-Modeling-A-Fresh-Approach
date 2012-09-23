@@ -105,23 +105,6 @@ mod = lm( time ~ 1 + year + sex + year:sex, data=swim)
 xyplot( time + fitted(mod) ~ year, data=swim)
 ```
 
-### Variables and Model Terms
-How a variable is different from a model term.
-Model terms that are not variables: intercept, interaction terms.
-
-### Activity
-Visual choice of model terms
-
-Instructions are [given here](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Selecting-Model-Terms/ISM-Selecting-Model-Terms-A.html?access=ISM3)  (These have to be reformatted as a handout and as an instructor's guide.)
-
-The only substantive differences is in the way the software is loaded:
-```{r}
-fetchData("mLM.R")
-```
-
-The program itself is called `mLM()` (not `lm.select.terms()`)
-
-
 
 
 

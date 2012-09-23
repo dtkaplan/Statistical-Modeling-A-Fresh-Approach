@@ -228,10 +228,13 @@ Friday Quiz
 
 `r I(classDayContents("Mon", "Sept", 24 ))`
 **Topic**: From Model Terms to Formulas and Coefficients
-**Reading**: SM §6.5, 6.6, SM §7.1, 7.2
+**Reading**: SM §6.5, 6.6, 6.7, SM §7.1, 7.2
 **Assignment**: 
 * Required `r I(PN(c("6RQ",605,610, 612, 701, 702 )))`
 * Extensions `r I(PN(c(620,621)))`, [XKCD cartoon](http://xkcd.com/418/).  What regression model for this?
+
+
+`r I(todaysNotes("2012-09-24.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-24-class)
 
 
 `r I(classDayContents("Wed", "Sept", 26 ))`
@@ -244,11 +247,17 @@ Friday Quiz
 * Exercises `r I(PN(c("7RQ", 704, 705,710,711,712, 713,715)))`
 * Car project (group project): `r I(PN(c(723)))`
 
+`r I(todaysNotes("2012-09-26.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-26-class)
+
+
 `r I(classDayContents("Fri", "Sept", 28 ))`
 **Topic**: Fitting and Least Squares
 **Reading**: SM §7.10, SM §8.1, 8.2 
 **Assignment**: `r I(PN(c(714,716,721,722, 731, 801)))`
 **In Class**: Weekly Quiz
+
+`r I(todaysNotes("2012-09-28.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-28-class)
+
 
 `r I(classDayContents("Mon", "Oct", 1 ))`
 **Topic**: Geometry of Least Squares Fitting

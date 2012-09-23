@@ -1,0 +1,50 @@
+Stats 155 Class Notes 2012-09-28
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+Least Squares
+-------------
+
+Visual fitting a line activity.
+
+Load the software:
+```{r}
+fetchData("mLineFit.R")
+```
+Then run it:
+```{r eval=FALSE}
+mLineFit( width ~ length, data=KidsFeet )
+```
+Vary the slope and intercept using the sliders.
+
+QUESTIONS:
+* Make a graph of the sum of square residuals versus the slider value. What shape does it have?  Is it symmetric?
+* Notice that the graph is flat near the minimum.  This means that the detailed choice of parameters doesn't much matter, so long as it's near the minimum.  How to define "near the minimum"?
+
+Randomizing the Residuals
+--------------------------
+Fit the model, then construct new data which is the fitted model values plus the residuals shuffled.  Fit the same structure of model to the new data.  How much do the parameters vary?
+
+
+
+
+There are other possible criteria
+------------------------
+Examples: 
+* Least absolute value of residuals.
+* Least biggest residual (minimax)
+
+Do these in the context of a `x ~ 1` model.  Try different parameters.  Use some data with big outliers, e.g. the alder nitrogen fixing variable:
+```{r}
+alder = fetchData("alder.csv")
+densityplot( ~ SNF, data=alder)
+```
+
+Least absolute value leads to the median, minimax leads to the midpoint.
+
+
+Weekly Quiz
+-------------

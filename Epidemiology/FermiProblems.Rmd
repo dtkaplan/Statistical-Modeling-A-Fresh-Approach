@@ -1,0 +1,169 @@
+```{r echo=FALSE,results="hide"}
+moodle <- function(item,name){
+  paste("<a name='",name,"'/a><a href='https://moodle.macalester.edu/mod/assign/view.php?id=",item,"'>Moodle link</a>\n\n<hr>", sep="")
+}
+```
+
+Estimation Problems for Epidemiology
+====================================
+
+
+Background
+----------
+These problems are exercises in making estimates from very limited information.  Sometimes, it will seem to you that you are just making up an answer, but that shouldn't really be the case.
+
+A nice introduction is the book *Guesstimation*.  (You can browse the book at [amazon.com](http://www.amazon.com/Guesstimation-Solving-Worlds-Problems-Cocktail/dp/0691129495).)
+
+Other links:
+* [Fermi Problems](http://en.wikipedia.org/wiki/Fermi_problem)
+* [Guesstimate](http://en.wikipedia.org/wiki/Guesstimate)
+* [Back-of-the-envelope calculation](http://en.wikipedia.org/wiki/Back-of-the-envelope_calculation)
+
+### Three General Strategies for Estimation
+
+#### 1. Break things into parts
+
+Sometimes you can make an estimate of a quantity that appears at first glance to be completely unknown to you by breaking it down into parts.  Examples:
+* What volume of air goes through a typical person's lungs in a lifetime?  Put this together from parts: 
+    * How many breaths per minute does a person take?  (You can figure this out from experience.) 
+    * How many minutes in a lifetime? (No idea?  You can put it together from these quantities: How many minutes in a day?  How many days in a year?  How many years in a lifetime?) 
+    * What's the volume of a breath?  (You can make a guess from your experience blowing up balloons.  You can also do a bit of research on the Internet.)
+* How much money does a person spend on gasoline in a lifetime?  You can estimate this by putting together the following parts: 
+    * How many miles per gallon does a car get?  
+    * How many miles per year does a driver drive?  
+    * How many years is a driver active?  
+    * How much does a gallon of gasoline cost?
+* How many Cherrios will you eat in a year?
+    * How many times a week do you have a bowl of cereal?
+    * How many cherrios in a spoonful?
+    * How many spoonfuls in a bowl?
+    * How many weeks in a year?
+  
+
+#### 2. Use Logarithmic Spacing
+
+Don't start an estimate by guessing the first digit of a number.  Instead, guess the scale of the number. Start with picking a unit, then pick a scale.  It helps to think about scale logarithmically.
+
+The following numbers are logarithmically spaced:
+
+0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000, 100000, 1000000 and so on.
+
+Of course, this scale continues off to zero on the left and $\infty$ on the right.
+
+Some questions:
+* How long can a person hold his or her breath?  First, pick a unit: minutes seems obvious.  Then pick one of the numbers in the logarithmic sequence: 10 minutes is too long, 0.1 minute is too small.  So, 1 minute.
+* How much does a car weigh?  First, pick a unit, say pounds.  Then pick a number on the scale.  100 pounds is too small. Perhaps 1000 pounds is reasonable.  Or maybe 10000 pounds, but not much larger.
+So a good guess is "half-way" between 1000 and 10000 pounds --- about 3000 pounds.
+
+Don't be afraid to use non-standard units.  Here's the car-weight problem revisited: First, pick a unit: a person.  This is sensible because we put people into cars and so we have experience comparing people to cars.  How many people would overload a car. A single person doesn't, but 100 people would be absurd.  So, around 10 people.  Now, how much does a person weight?  Done. 
+
+Pinning down an answer to a factor of 10 or 100 is much better than nothing.  
+
+Example: How much does a jumbo jet airplane weigh?  You may have a sense of how many people such a plane holds --- about 400.  Those 400 people, together with their bags, weigh about 100 kg each.  Vehicles are generally heavier than their load --- a car is about 10 times heavier, but an airplane should be more efficient since it has to fly.  So let's guess that a plane is about three times as heavy as its load. Guestimate: 400 people times 100 kg/person times 3 = 120,000 kg.  Just a guess, but it's a lot closer guess than you might have started with.  (Check out [the answer here](http://en.wikipedia.org/wiki/Boeing_747#Specifications).)
+
+
+
+#### 3. Know some basic quantitative facts
+
+Every educated person should know the population of the earth, the population of some major countries, life spans, etc.  You know typical birth rates (per woman, over a lifetime), volumes (a typical person weighs about 50 kg, and so has a volume of about 50 l), etc.
+
+<hr>
+
+Grading Rubric:
+---------------
+In the spirit of an APGAR score:
+* Is the overall estimation strategy well founded?
+* Are the quantitative assumptions explicitly stated? That is, could a person who disagrees with the assumptions be able to trace through the consequences of a quantitative assumption to the final answer?
+* Have the calculations been done correctly?
+* Is there an informative narrative thats concise and professional in style for the estimate?  Don't just put down numbers, but explain what you're doing.
+* Have reasonable levels of uncertainty on the quantitative assumptions been indicated and tracked through to the final estimate?
+
+
+
+<hr>
+
+
+Estimation Problem 0: Just a start.
+--------------------
+This is a simple problem, so long as you understand that there is no exact answer:
+
+### To answer in your essay:
+* How many people in the US have a cold right now?
+
+In answering this question or prevalence, you might think about how many people there are in the US, the incidence rate and the duration.  You might be able to make an assumption/estimate/guesstimate of incidence rate and duration from your personal experience and that of your family and friends.  
+
+Make sure that you state your assumptions/estimates/guesstimates explicitly so that the reader can see how they figure into your ultimate answer.
+
+`r I(moodle(20497,"ColdPrevalence"))`
+
+<hr>
+
+Estimation Problem 1
+--------------------
+[Dengue fever](http://en.wikipedia.org/wiki/Dengue_fever) is a serious, mosquito-borne illness.  In an attempt to reduce the incidence of dengue fever, scientists are experimenting with releasing genetically modified male mosquitos whose mating results in non-viable larvae.  The hope is to reduce mosquito populations dramatically in areas where the modified males are released in large numbers.  (See this article in the [New Yorker magazine](http://www.newyorker.com/reporting/2012/07/09/120709fa_fact_specter).)
+
+Humans are the host of the dengue fever virus.  A female mosquito who bits an infected human becomes infected, but suffers no symptoms.  The virus reproduces in the saliva glands of the mosquito, which then can pass along the virus to another human through biting.  
+
+Suppose that, in the treatment areas, the active mosquito population is reduced by 75%.
+
+### To answer in your essay:
+* How might this partially effective method of mosquito reduction affect the prevalence of dengue fever?
+
+`r I(moodle(20498,"dengue"))`
+
+<hr>
+
+Estimation Problem 2
+--------------------
+Imagine that you are in charge of allocating resources to medical schools. (There is no such person in the US, which has a decentralized system of medical education. In other countries, this is not the case.)
+
+### To answer in your essay:
+* How many physicians are needed to serve the US population?
+* Based on your estimate of the number of physicians needed, estimate how many annual slots are needed in medical schools.
+
+Obviously there is no exact answer to these questions. You should try to put together an estimates based on what you know about how physicians work and how much time patients spend with physicians, other duties for physicians, etc. Be explicit with your sub-estimates so that these can be discussed and refined.
+
+Since the point of this exercise is to develop your estimation skills, rather than to direct actual public policy, don’t feel that you have to do detailed research to support your estimates. Rather, think of the exercise as a way to identify the questions you would want to answer in detail if you were going to make a serious attempt to inform public policy.
+
+`r I(moodle(20499,"NumberOfDoctors"))`
+
+<hr>
+
+Estimation Problem 3
+--------------------
+
+You have been asked to set up the system for vaccinating the people of Minnesota against H1N1. You will be provided with the vaccine in a form to be injected using a hypodermic needle. The shots will be administered by nurses who are already experienced. Your goal is to vaccinate everyone who wants to be in one week.
+
+### To answer in your essay:
+
+* How many nurses should you request be assigned to the vaccination program?
+
+Make sure to explain your estimate in sufficient detail so that the officials reading your request will be able to judge if your estimate is reasonable.
+
+`r I(moodle(20500,"NumberOfDoctors"))`
+<hr>
+
+Estimation Problem 4
+--------------------
+
+Assume that colds are transmitted by sneezes. How infectious is a sneeze? To be more definite, suppose there is a classroom of healthy people, but one person has a cold. 
+
+### To answer in your essay: 
+* What’s the probability that a single sneeze will transmit the cold to someone else in the room?
+
+Or, if you prefer, assume that colds are transmitted by handshakes. Calculate the probability of infection by handshake when a person with a cold meets a person.
+
+`r I(moodle(20501,"ColdTransmission"))`
+
+Estimation Problem 5
+--------------------
+
+What are five risky things that college students do in terms of excess mortality?  
+
+### To answer in your essay:
+* Estimate how risky each is using years of potential life lost for an individual.  Also estimate the prevalence of the risk.  Your estimates might be largely guesswork, but try to put reasonable upper and lower bounds on the risk.
+* For one of the five items, go beyond just guessing.  Do a bit of Internet sleuthing and see what you can come up with.  
+
+Don't spend more than 30 minutes altogether.  It helps if you pick a risk that you don't expect everyone else in the class to be reporting on.
+
+`r I(moodle(20502,"CollegeRisk"))`
