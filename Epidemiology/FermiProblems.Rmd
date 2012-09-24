@@ -83,6 +83,7 @@ In the spirit of an APGAR score:
 <hr>
 
 
+`r I(moodle(20497,"ColdPrevalence"))`
 Estimation Problem 0: Just a start.
 -----------------
 This is a simple problem, so long as you understand that there is no exact answer:
@@ -90,7 +91,8 @@ This is a simple problem, so long as you understand that there is no exact answe
 ### To answer in your essay: 
 
 * How many people in the US have a cold right now? 
-`r I(moodle(20497,"ColdPrevalence"))`
+`r I(moodle(20497,"ColdPrevalence2"))`
+
 
 In answering this question or prevalence, you might think about how many people there are in the US, the incidence rate and the duration.  You might be able to make an assumption/estimate/guesstimate of incidence rate and duration from your personal experience and that of your family and friends.  
 
