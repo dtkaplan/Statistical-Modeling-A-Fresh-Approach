@@ -196,6 +196,7 @@ Randall Pruim
 <<setup,echo=FALSE,message=FALSE,include=FALSE>>=
 source('setup.R')
 require(mosaic)
+fetchData("m155development.R")
 trellis.par.set(theme=col.mosaic())
 set.seed(123)
 knit_hooks$set(inline = function(x) {
@@ -221,9 +222,10 @@ gsub('^\\\\begin\\{alltt\\}\\s*|\\\\end\\{alltt\\}\\s*$', '', h)
 
 \def\opt#1{#1}
 \def\squeeze{\vspace*{-4ex}}
-A couple dozen functions are sufficient to carry out your work in Introduction to Statistical Modeling.  This page provides the names of functions, a review of formula syntax, and some examples of use.
+A couple dozen functions suffice to carry out your work in Introduction to Statistical Modeling.  This sheet provides the names of functions, a review of formula syntax, and some examples of use.
 
 \begin{multicols}{4}
+\raggedright
 
 \subsection*{Help}
 <<>>=
@@ -260,8 +262,8 @@ shuffle()   # mosaic
 <<>>=
 bwplot()
 xyplot()
-histogram()
 densityplot()
+histogram()
 plotFun() # mosaic
 @
 
@@ -295,21 +297,19 @@ confint()
 anova()
 summary()
 makeFun() # mosaic 
+listFun() # devel
 @
 
-\subsection*{Data and Variables}
+\subsection*{Interactive}
 <<>>=
-fetchData()   # mosaic
-names()
-head()
-subset()
-with()
-transform()
-as.factor()
-levels()
-merge()
-rank()
+mLM()
+mLineFit()
+mCI()
+mLinAlgebra()
+mHypTest()
+mPower()
 @
+
 \vfill
 
 \columnbreak
@@ -335,12 +335,66 @@ For plots
 	\item
 		\texttt{groups}: conditioning variable (overlaid graphs)
 \end{itemize}
-For other things \Sexpr{'y ~ x | z'} can usually be
-read \Sexpr{'y'} is modeled by (or depends on) \Sexpr{'x'} 
-separately for each \Sexpr{'z'}.
+For other things \Sexpr{'y ~ x | z'} can usually be read \Sexpr{'y'} or depends on \Sexpr{'x'} separately for each \Sexpr{'z'}.
+
+\subsection*{Data and Variables}
+<<>>=
+fetchData()   # mosaic
+names()
+head()
+levels()
+subset()
+with()
+transform()
+as.factor()
+merge()
+rank()
+@
+
+\vfill
 
 \columnbreak
-See the sampler for examples.
+\subsection*{Model Terms}
+
+<<>>=
+# All cases the same:
+response ~ 1
+# Main effects & intercept 
+response ~ X + Y
+# Exclude intercept 
+# (Rarely used.  Be careful!)
+response ~ X + Y - 1
+# Main effects and interaction:
+response ~ X * Y
+# Pure interaction (Rarely used.)
+response ~ X:Y
+#Polynomial terms:
+response ~ poly(X,2)
+# Random model vectors (pedagogical)
+response ~ rand(2) # mosaic
+@
+
+\subsection*{Common Example Datasets}
+Can be used directly with \texttt{data=}:
+<<>>=
+Galton # heights
+CPS85 # wages
+KidsFeet
+Marriage
+SAT
+@
+
+Read in with \texttt{fetchData()}:
+<<>>=
+utils = fetchData("utilities.csv")
+alder = fetchData("alder.csv")
+grades = fetchData("grades.csv")
+courses = fetchData("courses.csv")
+# Load software in development:
+fetchData("m155development.R")
+@
+
+\vfill
 
 \end{multicols}
 
