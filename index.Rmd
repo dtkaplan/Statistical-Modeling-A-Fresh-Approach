@@ -85,3 +85,6 @@ The biggest cognitive challenge is for students to understand that the "shape" o
 The activity using the `mLM()` program may be helpful.  Note in particular that there is a slot to choose the dependent variable on the graph.  It's well worth going over why the graph of model values is different depending on the choice of the variable for the axis.  Also, many students won't understand why a "straight line" model like "time ~ year" doesn't show up as a straight line when the model values are plotted against "sex".
 
 This lesson is really about the difference between a variable and a "model term".  Later on, we'll deal with the meaning of coefficients.  Before we can do that, we have to introduce "model vectors" and explain how a categorical variable gets translated into a set of model vectors.
+
+#### Total versus Partial Change 
+* [Untangling House Prices](Activities/UntanglingHousePrices.pdf), in which students construct a multiple-regression model of house price as a function of various features of the house.  The activity is adopted from [Prof. Richard De Veaux](http://sites.williams.edu/rdeveaux/) of Williams College.

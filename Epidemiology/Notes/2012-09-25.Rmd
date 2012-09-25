@@ -2,6 +2,29 @@ Epidemiology Class Notes 2012-09-25
 ========================================================
 
 
+APGAR Scores
+------------
+
+Estimation Problems
+-------------------
+
+Estimation [Problem 0](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/FermiProblems.html#ColdPrevalence) How many people have a cold today.
+
+Work through the principles of estimation problems and the cold problem.  Write up an answer together.
+
+Form Groups for the Island Descriptive Project
+--------------------------
+What diseases/conditions were people interested in.
+
+Life Expectancy Calculations
+----------------------------
+Playing with the US data
+
+Handout on Life Expectancies
+
+Assignment: Translate this into a spreadsheet calculation.
+
+
 Linking Exposure and Disease
 ----------------------
 

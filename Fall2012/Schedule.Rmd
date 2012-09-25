@@ -234,7 +234,7 @@ Friday Quiz
 * Extensions `r I(PN(c(620,621)))`, [XKCD cartoon](http://xkcd.com/418/).  What regression model for this?
 
 
-`r I(todaysNotes("2012-09-24.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-24-class)
+**Notes**: `r I(todaysNotes("2012-09-24.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-24-class)
 
 
 `r I(classDayContents("Wed", "Sept", 26 ))`
@@ -248,7 +248,10 @@ Friday Quiz
 * Car project (group project): `r I(PN(c(723)))` 
 * [Instructions for reading Google spreadsheets into R](http://rpubs.com/dtkaplan/GoogleSpreadsheets)
 
-`r I(todaysNotes("2012-09-26.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-26-class)
+**In Class**:
+* [Untangling House Prices](https://dl.dropbox.com/u/5098197/ISM/UntanglingHousePrices.pdf)
+
+**Notes**: `r I(todaysNotes("2012-09-26.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-26-class)
 
 
 `r I(classDayContents("Fri", "Sept", 28 ))`
@@ -257,7 +260,7 @@ Friday Quiz
 **Assignment**: `r I(PN(c(714,716,721,722, 731, 801)))`
 **In Class**: Weekly Quiz
 
-`r I(todaysNotes("2012-09-28.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-28-class)
+**Notes**: `r I(todaysNotes("2012-09-28.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-28-class)
 
 
 `r I(classDayContents("Mon", "Oct", 1 ))`

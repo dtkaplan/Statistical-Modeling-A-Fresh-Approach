@@ -23,5 +23,6 @@ Untangling
 ----------
 * Foot width as a function of sex and foot length.
 * Mid-parent and the father and mother separately
+* [House prices](../Activities/UntanglingHousePrices.pdf)
 * Electricity usage and temperature in determining natural gas.  (Cold weather increases the need for gas.  Higher electricity usage creates heat that reduces the need for gas.  Going further: as a units exercise, find the energy content of a term of gas and a kwh of electricity.  Does the observed untangling match the physical energy content? )
 * Car price data.  Can you untangle the effects of increasing mileage and increasing age?
