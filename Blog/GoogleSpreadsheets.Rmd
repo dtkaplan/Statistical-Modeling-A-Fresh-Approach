@@ -1,0 +1,41 @@
+Reading in Google Spreadsheets to R
+========================================================
+
+It's helpful to be able to collaborate on collecting data.  Google spreadsheets is a useful tool for this.
+
+Unfortunately, the particular web protocol used by Google spreadsheets is not yet available in all implementations of R.  Until it is, here are the several steps to read a Google spreadsheet into R.  (If you're running a desktop version of R, check out the section "If you can install RCurl...")
+
+1. In Google spreadsheets, choose File/Download As/Comma Separated Values (CSV).  This will save a file to your computer.  Make note of its name.
+2. If you are running R **on your own computer**, e.g. through the desktop version of RStudio, use `fetchData()` to read in the spreadsheet you have just saved.  When given an empty argument, `fetchData()` will bring up a file browser which you can use to navigate to the file you just saved.  *BUT ...*
+3. If you are **running R remotely**, on an RStudio server through a web browser, you will need to upload the CSV file to the RStudio server.  Here's how
+    1. Go to the Files tab in RStudio and press the "Upload" button.
+    2. In the dialog window that appears, navigate to the CSV file you have just downloaded from Google spreadsheets.  Upload this to the RStudio server.
+    3. Going back to the RStudio console, use `fetchData()` with an empty argument and navigate to the file you have just uploaded to the RStudio server.
+    
+This is a pain, I know.
+
+If you can install RCurl ...
+----------------------------
+If you are running a desktop system, you may be able to install the RCurl library.  Try this.  If you are successful, then you will be able to manage things using the following instructions under "where we want to go".
+
+Where we want to go
+-------------------
+
+An earlier version of RStudio allowed you directly to get to Google Docs through R.  This was ideal.
+
+Clearly, it's unacceptable to have a multi-step process for something as conceptually easy as reading a Google spreadsheet into R.  The `RCurl` package allowed us to implement in `mosaic` a `fetchGoogle()` function.  However, the `RCurl` software cannot be installed on many systems.  
+
+When we can get `fetchGoogle()` to work without installation problems, you'll be able to "publish" a Google spreadsheet as a CSV document, automatically updated.  
+
+Instructions (for the future, when you have fetchGoogle() in a working state)
+
+1. In Google spreadsheets, choose File/Publish to the web
+2. Start publishing, checking "Automatically republish when changes are made"
+3. Under "Get a link to the published data"
+4. Select "CSV" Sheet 1 All cells
+5. Copy the link and paste it into R inside the `fetchGoogle()` command, like this
+```{r eval=FALSE}
+mydat = fetchGoogle("https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dEtyWGxpWWFsN3Z0OUlZNG5xYmRVWWc&single=true&gid=0&output=csv")
+```
+
+You can email this command to your collaborators.  Use the history command (searching on "fetchGoogle") to find the command again when you need it.

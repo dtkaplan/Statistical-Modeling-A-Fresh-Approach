@@ -202,7 +202,6 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 
 **Assignment**: 
 * Design your own APGAR score `r I(RR("apgarscore"))`
-* Estimation Problem 1. [LINK TO BE POSTED] Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
 * Take a tour around The Island.  Come to class prepared to offer a topic for a descriptive study.  Then you can identify other class members with whom to form project groups.  [Get your Island password](http://island.maths.uq.edu.au/password.php) using your Mac email ID. Then [login to the Island](http://island.maths.uq.edu.au/access.php?/index.php).
 
 **In Class**:
@@ -222,7 +221,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 **Assignment**: 
 * Life expectancy calculations (to be handed out)
 * Form project groups and give an initial description of your proposed Island project. [Enter the information here on Google Docs](https://docs.google.com/document/edit?id=11skxKkRLS5cpOClxYBQ8hyamm0BPcevYFxpeKJbkyKc&hl=en&authkey=CN6Q17gI)
-* Estimation Problem 1: `r I(QE("ColdPrevalence"))`
+* Estimation Problem 0, just for starts: `r I(QE("ColdPrevalence"))` See the notes at the top of the document.  Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
 
 **On Your Own**:
 * [Why doctors order so many tests](http://well.blogs.nytimes.com/2011/09/29/why-doctors-order-so-many-tests/?hpw)
