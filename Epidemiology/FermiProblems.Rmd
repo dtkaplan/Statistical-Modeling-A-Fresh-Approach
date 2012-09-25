@@ -102,21 +102,7 @@ Make sure that you state your assumptions/estimates/guesstimates explicitly so t
 
 
 <hr>
-
 Estimation Problem 1
---------------------
-[Dengue fever](http://en.wikipedia.org/wiki/Dengue_fever) is a serious, mosquito-borne illness.  In an attempt to reduce the incidence of dengue fever, scientists are experimenting with releasing genetically modified male mosquitos whose mating results in non-viable larvae.  The hope is to reduce mosquito populations dramatically in areas where the modified males are released in large numbers.  (See this article in the [New Yorker magazine](http://www.newyorker.com/reporting/2012/07/09/120709fa_fact_specter).)
-
-Humans are the host of the dengue fever virus.  A female mosquito who bits an infected human becomes infected, but suffers no symptoms.  The virus reproduces in the saliva glands of the mosquito, which then can pass along the virus to another human through biting.  
-
-Suppose that, in the treatment areas, the active mosquito population is reduced by 75%.
-
-### To answer in your essay:
-* How might this partially effective method of mosquito reduction affect the prevalence of dengue fever? `r I(moodle(20498,"dengue"))`
-
-<hr>
-
-Estimation Problem 2
 --------------------
 Imagine that you are in charge of allocating resources to medical schools. (There is no such person in the US, which has a decentralized system of medical education. In other countries, this is not the case.)
 
@@ -133,6 +119,21 @@ Since the point of this exercise is to develop your estimation skills, rather th
 
 
 <hr>
+
+Estimation Problem 2
+--------------------
+[Dengue fever](http://en.wikipedia.org/wiki/Dengue_fever) is a serious, mosquito-borne illness.  In an attempt to reduce the incidence of dengue fever, scientists are experimenting with releasing genetically modified male mosquitos whose mating results in non-viable larvae.  The hope is to reduce mosquito populations dramatically in areas where the modified males are released in large numbers.  (See this article in the [New Yorker magazine](http://www.newyorker.com/reporting/2012/07/09/120709fa_fact_specter).)
+
+Humans are the host of the dengue fever virus.  A female mosquito who bits an infected human becomes infected, but suffers no symptoms.  The virus reproduces in the saliva glands of the mosquito, which then can pass along the virus to another human through biting.  
+
+Suppose that, in the treatment areas, the active mosquito population is reduced by 75%.
+
+### To answer in your essay:
+* How might this partially effective method of mosquito reduction affect the prevalence of dengue fever? `r I(moodle(20498,"dengue"))`
+
+<hr>
+
+
 
 Estimation Problem 3
 --------------------

@@ -205,7 +205,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 * Take a tour around The Island.  Come to class prepared to offer a topic for a descriptive study.  Then you can identify other class members with whom to form project groups.  [Get your Island password](http://island.maths.uq.edu.au/password.php) using your Mac email ID. Then [login to the Island](http://island.maths.uq.edu.au/access.php?/index.php).
 
 **In Class**:
-* World Health Organization exercise on [population attributable fraction](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Exercise_27_smoking_and_death.xls)
+* Life expectancy calculation by hand (to be translated into a spreadsheet for Thursday)
 
 **On Your Own**: News item: [Life expectancy falls](http://www.nytimes.com/2012/09/21/us/life-expectancy-for-less-educated-whites-in-us-is-shrinking.html)
 
@@ -219,16 +219,16 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 
 
 **Assignment**: 
-* Life expectancy calculations (to be handed out)
+* Life expectancy spreadsheet calculation. Hand in a link to your spreadsheet [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=20744) 
 * Form project groups and give an initial description of your proposed Island project. [Enter the information here on Google Docs](https://docs.google.com/document/edit?id=11skxKkRLS5cpOClxYBQ8hyamm0BPcevYFxpeKJbkyKc&hl=en&authkey=CN6Q17gI)
-* Estimation Problem 0, just for starts: `r I(QE("ColdPrevalence"))` See the notes at the top of the document.  Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
+* Estimation Problem 1: How many doctors do we need? `r I(QE("NumberOfDoctors"))` See the notes at the top of the document.  Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
 
 **On Your Own**:
 * [Why doctors order so many tests](http://well.blogs.nytimes.com/2011/09/29/why-doctors-order-so-many-tests/?hpw)
 * [How vaccines work](http://www.ted.com/talks/lang/eng/seth_berkley_hiv_and_flu_the_vaccine_strategy.html) TED talk
 
 **In-class**:
-
+* World Health Organization exercise on [population attributable fraction](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Exercise_27_smoking_and_death.xls)
 ----------------
 
 `r I(classDayContents("Tues", "Oct", 2 ))`
