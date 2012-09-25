@@ -215,13 +215,18 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 **Topic**: Measures of Association
 
 **Reading**: 
-* To be posted
+* [Down with Odds Ratios](http://bmj-ebm.highwire.org/content/1/6/164.full.pdf)
+* [Makeing Sense of Odds Ratios](http://meds.queensu.ca/medicine/obgyn/pdf/Making.Sense.of.Odds.pdf)
+* [Users' Guide to the Medical Literature: Measures of Association](http://www.falck-ytter.com/ebmgi/pdfs/2B2-4.PDF)
 
 
 **Assignment**: 
 * Life expectancy spreadsheet calculation. Hand in a link to your spreadsheet [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=20744) 
 * Form project groups and give an initial description of your proposed Island project. [Enter the information here on Google Docs](https://docs.google.com/document/edit?id=11skxKkRLS5cpOClxYBQ8hyamm0BPcevYFxpeKJbkyKc&hl=en&authkey=CN6Q17gI)
-* Estimation Problem 1: How many doctors do we need? `r I(QE("NumberOfDoctors"))` See the notes at the top of the document.  Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
+* Estimation Problem 1: How many doctors do we need? `r I(QE("NumberOfDoctors"))` 
+    * See the notes at the top of the document.  
+    * Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
+    * [Guide to an estimation write-up](EstimationEssays.html)
 
 **On Your Own**:
 * [Why doctors order so many tests](http://well.blogs.nytimes.com/2011/09/29/why-doctors-order-so-many-tests/?hpw)

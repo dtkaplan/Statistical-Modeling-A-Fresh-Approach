@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Guide to Estimation Write-Ups</title>
+
+<base target="_blank"/>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>Guide to Estimation Write-Ups</h1>
+
+<p>The point of this document is to provide feedback to the class on how to write an answer to an estimation problem.  The quotations come from student papers in previous years.</p>
+
+<p>The estimation question was: </p>
+
+<ul>
+<li>How many people have a cold at any one time? Express this both as a number of people and as a fraction of the population.</li>
+</ul>
+
+<p>Some principles to apply when answering such a question:</p>
+
+<h3>1. You know more than you think you know.</h3>
+
+<p>Very often, you need to guess at a number.  In this case, that might be the number of colds that people get in a year.  Your first reaction might be, &ldquo;I have no idea.&#39;&#39;  If that were true, you wouldn&#39;t be able to say anything about how likely the following statements are:</p>
+
+<ul>
+<li>A typical person gets 0.01 colds per year.</li>
+<li>A typical person gets 100 colds per year.</li>
+</ul>
+
+<p>Both of these statements are absurd, right?  That means you know something about the <strong>scale</strong> of the answer.  That&#39;s information.</p>
+
+<p>In this case, many people think that an answer between 1 cold per year and 10 colds per year would be reasonable.  That&#39;s actually a pretty narrow range, even if it is a spread by a factor of 10.</p>
+
+<p>When you have such a range, a good, all-purpose strategy is to choose the number that is the <strong>geometric mean</strong> of the endpoints of the range.  Don&#39;t worry about the technical language.  It just means: multiply the two ends of the range (\( 10\times1 \) here), and then take the square-root.  So, a good summary of what you know is 3 colds per year.</p>
+
+<p><strong>Example</strong>: How many deaths are there per vehicle mile in automobile accidents?  You could look this up on a government web site, since automobile deaths are an important contributor to overall mortality.  But lets say you want to guesstimate this.  Possibly you know that a typical car is driven 10,000 miles per year.  Maybe there&#39;s one death every 10 years in a given car, maybe one death every 1000 years.  That seems to be a reasonable bracket for how often a car is likely to be in an accident.  Translating to deaths per vehicle mile, thats one death per 100,000 miles, or maybe one death per 10,000,000 miles.  A big spread.  Absent additional information, try using the geometrical mean: \( \sqrt{10,000 \times 10,000,000)} \approx 300,000 \).</p>
+
+<p>The point is not that this is the correct answer.  Rather, this guess of 300,000 miles per death is a good summary of what you know.  And you do know a lot: it&#39;s certainly not one death per mile or per 100 miles or per 10,000 miles.  That&#39;s obvious, but it&#39;s still important information.</p>
+
+<h3>2. Recognize missing information.</h3>
+
+<p>Important information that&#39;s needed to provide a sensible answer has <strong>not</strong> been given.  You need to make reasonable assumptions and state them explicitly in your answer.</p>
+
+<p>For instance, the question doesn&#39;t say which population to use in making your estimate.  Some reasonable possibilities:</p>
+
+<ul>
+<li>The world population.</li>
+<li>The US (or any other similar sort of political demographic unit), e.g. Minnesota, your home town or country, etc.</li>
+<li>Macalester College students.</li>
+</ul>
+
+<p>Some unreasonable choices:</p>
+
+<ul>
+<li>Professional basketball players.  Too narrow a group to be of general interest.  Also there&#39;s reason to think they are atypically healthy.</li>
+<li> Dead people.  They don&#39;t get colds.</li>
+</ul>
+
+<p>Here&#39;s how one student indicated the assumptions being made:</p>
+
+<blockquote>
+<p>To find out how many people in the U.S. (assumption!) have a cold at any one time &hellip;.</p>
+</blockquote>
+
+<p>Perhaps not the most elegant language, but very clear and to the point!</p>
+
+<h3>3. Draw on Common Experience</h3>
+
+<p>Try to base your estimate on components about which the people you are working with have some experience or data and some possibility of discussing or debating.  For example, to say, colds last an average of 5 days&#39;&#39; is something that reasonable people can discuss and is a good foundation for an estimate.  That&#39;s because many people have direct experience with colds and have an idea of how long they last.  </p>
+
+<p>In contrast, here is part of an essay where the estimate is based on a number that is pulled out of thin air (or, at least, no discussion or documentation is given):</p>
+
+<blockquote>
+<p>I am assuming that about 50 students may have come here to school already sick. </p>
+</blockquote>
+
+<p>That might be a good estimate, but how could we know that it&#39;s a good estimate?</p>
+
+<p>If your estimation method is based on such an out-of-thin-air guess, you should look for another estimate that&#39;s on firmer ground or at least make it clear to the reader that your guess is highly speculative.</p>
+
+<h3>4. Have Data?  Use it!</h3>
+
+<p>If you&#39;ve got some data, go for it!  Here&#39;s an example:</p>
+
+<blockquote>
+<p>Well &hellip; I started with the number of people on my floor being 52 and noted that 5 people have a cold. </p>
+</blockquote>
+
+<p>I don&#39;t mind the informal language here, but it would be better to say something like, <code>I went door to door asking people on my floor who has a room.  I counted 5 out of 52.&#39;&#39;   Even better,</code>I think the 5 is reasonably accurate, since people tend to stay in their rooms when they have a cold.  52 is the occupancy of the floor.&#39;&#39;</p>
+
+<h3>5. Get the numbers right</h3>
+
+<p>When you quote a number, try to make it reasonably accurate.  Here&#39;s one of the student essays:</p>
+
+<blockquote>
+<p>I estimated that there were 300 billion people in the U.S. Then I reasoned that most people get colds for up to 10 total days every year. Thus I divided 300 billion by 355, the remaining days subtracted from colds, to find out who may have one now, on those left over days. This is about 800 million people, which is about 0.2% of the population.</p>
+</blockquote>
+
+<p>The estimate of the US population is off by a factor of 1000 &mdash; there are roughly 300 <strong>million</strong> people, not <strong>billion</strong>.  That might just be a typo, but it carries through the rest of the calculation.</p>
+
+<p>If you look up a number, it&#39;s good to give the source.  Here&#39;s an example:</p>
+
+<blockquote>
+<p>U.S. pop = ~310 million people (U.S. World and Population clock, U.S. Census Bureau)</p>
+</blockquote>
+
+<p>In professional work, you would use a citation in proper form.  I don&#39;t mind you&#39;re being less formal here, because the essays are short and not meant to take up much time.  But when it&#39;s easy to do, give a citation that a reader can follow up on.  For instance, if you&#39;ve done a web search, give the URL of the site.</p>
+
+<h3>6. Use fractions properly.</h3>
+
+<p>In the above essay, the estimate is that a typical person has a cold for 10 days of the year.  So, the fraction of people with colds on any given day is 10/365 &mdash; you&#39;ve got a cold for 10 days out of 365, about 1 day in 30.  If about 1 in 30 people has a cold at any given time, and sticking with the incorrect population numbers in the essay, there would be 10 billion coldsamong the 300 billion people in the US, not 800 million.</p>
+
+<h3>7. Keep your transitional language fair.</h3>
+
+<p>The above essay includes, <code>Then I reasoned ...&#39;&#39;  That&#39;s a transition.  But it doesn&#39;t have a pre-cursor.  There&#39;s no information about where the result (</code>10 total days every year&#39;&#39;) comes from.  Better to say, Based on my personal experience &hellip;.&#39;&#39; if that&#39;s what it is.  </p>
+
+<p>If the estimate is the result of a calculation, or of putting together more elementary facts, make this clear.  For example, <code>colds last about 3 days&#39;&#39; and</code>people typically get 3 colds per year&#39;&#39; is a nice background for 9 total days every year.&#39;&#39;</p>
+
+<p>Other words that are a signal of a potential problem: {\bf thus}, which is often used to indicate logic without saying what it is; {\bf clearly} and {\bf obviously}, which often signal that what follows is not at all clear or obvious.</p>
+
+<h3>8. Be explicit about precision.</h3>
+
+<p>Try to say something about the precision of your estimate.  Better than saying <code>colds last 5 days&#39;&#39; is to say,</code>colds typically last somewhere from 2 to 7 days &mdash; I&#39;m taking 5 as my best guess.&#39;&#39;   Such a statement gives the reader a handle on how much confidence you have.</p>
+
+<p>In professional work, precision is often given explicitly in the form of a 95% confidence interval, using the \( \pm \) notation.  This course isn&#39;t about the technical calculation behind confidence intervals (take Math 153 or 155) for that.  In non-technical communications, it&#39;s a good idea to get in the habit of using the number of significant digits to indicate precision.  So, saying the US population is 300 million suggests that you know it to about 10 million &mdash; the first missing digit.</p>
+
+<p>Often, you will do calculations that involve rough numbers.  The output of the calculation can look strangely precise.  Here&#39;s an example:  </p>
+
+<blockquote>
+<p>1 billion colds per year/365 days per year = \( \approx \) 2,739,726 colds expressed in one day.</p>
+</blockquote>
+
+<p>The number 1 billion is likely representing something like 0.7 to 1.3 billion, or maybe 0.5 to 1.5.  So the output of the calculation should be represented to about the same number of digits: 2.7 millon colds per day.</p>
+
+<p>As someone who teaches computer science, I don&#39;t want to tell you to throw away digits in intermediate calculations.  The best practice is to keep the digits until you reach the final result, then indicate the precision of that final result.  Do that.  But in writing up your results, be sensitive to the need to indicate to the reader your precision. </p>
+
+<h3>9. Be aware of what they can&#39;t possibly know.</h3>
+
+<p>Watch out for spurious precision by your sources.  For instance:</p>
+
+<blockquote>
+<p>According to the U.S. Census Bureau, there are 6,867,624,319 people (to date) in the world.</p>
+</blockquote>
+
+<p>My guess is that 6,900,000,000 is about right.  Maybe 6,870,000,000.  Those other digits are bogus.</p>
+
+<h3>10. Pay careful attention to what you&#39;re measuring.</h3>
+
+<p>Go back to this essay:</p>
+
+<blockquote>
+<p>Attack rate of the common cold in the year 2009: over 1 billion cases of the common cold over the course of a year (many individuals having more than one cold per year; est. by The New York Times Health Guide)</p>
+</blockquote>
+
+<p>Nice.  A source (better to give the URL while you&#39;re at it.  If your word processor doesn&#39;t support this, find another word processor, e.g. WordPress or Google Docs).  This attack rate refers to an incidence.  The question is about prevalence.  To estimate prevalence from incidence, you multiple by duration.  The person writing the above essay failed to do that.  Or, rather, they did a calculation that involved an implicit assumption that the duration of colds is 1 day.</p>
+
+<h3>11. Don&#39;t hide crucial assumptions</h3>
+
+<p>When there are assumptions on which your result depends critically, point these out.  For instance, </p>
+
+<blockquote>
+<p>The idea, in this case and by these methods, is that the attack rate for the cold is the same on any given day and from season to season. The reality, however, is that colds tend to occur more frequently </p>
+</blockquote>
+
+<h3>12. Separate your ideas.</h3>
+
+<p>Signal that ideas are separate by putting them in separate sentences.  Here&#39;s an essay where that is not done:</p>
+
+<blockquote>
+<p>At Macalester, which has a student population of about 1800, maybe 10% has a cold on average given the seasonal fluctuation in rates. </p>
+</blockquote>
+
+<p>Two separate and unrelated ideas: (1) the student population of Macalester (which is actually slightly more than 2000 this semester), and (2) the 10% rate.  The 10% rate did not come from the 1800.   And the phrase given the seasonal fluctuation in rates,&#39;&#39; positioned as it is, suggests that the 10% estimate was somehow informed by knowledge of that seasonal fluctuation.  It wasn&#39;t.</p>
+
+<p>Better to say, My guess is that 3 to 15% of the population has a cold, roughly 10%.&#39;&#39;  (Even better to say where that guess came from.)</p>
+
+<h2>Examples of Nice Essays</h2>
+
+<blockquote>
+<p>The prevalence of the common cold can be defined as the incidence of the cold multiplied by its duration. However, the global value for the incidence is not available. Accordging to wrongdiagnosis.com the incidence of the common cold in The USA is about 1 billion colds per year in a population of 300 million. That&#39;s an average of 3.3 colds per person per year. The website also states that the common cold usually lasts 7 to 10 days. I&#39;ll call it 8.5 on average. To calculate the incidence per day, we devide 3 by 365 to get 0.82%. Assuming this incedence applies to the whole globe, the world prevalence of the common cold is (0.82 * 8.5)/100 or 6.97/100 of the world&#39;s population. If we multiply that fraction by the world&#39;s population (6,697,254,041 according to google) that comes out to 466798607 people.</p>
+</blockquote>
+
+<p>Better to say at the very end: about 500 million people.&#39;&#39;</p>
+
+<p>And another nice one, although the population numbers are spuriously precise:</p>
+
+<blockquote>
+<p>In the world right now, 1,034,710,293 people, or 15.29% of the population currently have a cold.</p>
+
+<p>I came to this conclusion by going to the Mayo Clinic site finding that colds usually last an average of 10.5 days with adults having 3 colds a year, and children having 8. <br/>
+From there, I went to the World Factbook and found that there are 3,635,355,074 adults and 3,132,826,072 children in the world.</p>
+
+<p>With these numbers, I found the fraction of a year that children (.2301) and adults (.0863) spend with a cold on average.  Then, I multiplied each of these by the number of respective people in that category (children and adults) and added these numbers to arrive at my answer. </p>
+</blockquote>
+
+</body>
+
+</html>
+
