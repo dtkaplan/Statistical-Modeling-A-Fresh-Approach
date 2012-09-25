@@ -4,6 +4,12 @@ Epidemiology Class Notes 2012-09-25
 
 APGAR Scores
 ------------
+* [Ice Skating](https://moodle.macalester.edu/mod/assign/view.php?id=15122&sid=4176&gid=4176&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=)
+* [Bagel-shop employees](https://moodle.macalester.edu/mod/assign/view.php?id=15122&sid=4724&gid=4724&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=)
+* [Restaurants](https://moodle.macalester.edu/mod/assign/view.php?id=15122&sid=4619&gid=4619&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=)
+* [Lab report](https://moodle.macalester.edu/mod/assign/view.php?id=15122&sid=4562&gid=4562&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=)
+* [Evaluating Class Sessions](https://moodle.macalester.edu/mod/assign/view.php?id=15122&sid=4051&gid=4051&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=)
+* [First Date](https://moodle.macalester.edu/mod/assign/view.php?id=15122&sid=4687&gid=4687&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=)
 
 Estimation Problems
 -------------------
