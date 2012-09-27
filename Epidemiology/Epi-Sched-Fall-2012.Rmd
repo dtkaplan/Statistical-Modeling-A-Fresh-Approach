@@ -226,7 +226,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 * Estimation Problem 1: How many doctors do we need? `r I(QE("NumberOfDoctors"))` 
     * See the notes at the top of the document.  
     * Background reading from [*Guesstimation*](https://moodle.macalester.edu/mod/resource/view.php?id=10350)
-    * [Guide to an estimation write-up](EstimationEssays.html)
+    * [Guide to an estimation write-up](http://rpubs.com/dtkaplan/1899)
 
 **On Your Own**:
 * [Why doctors order so many tests](http://well.blogs.nytimes.com/2011/09/29/why-doctors-order-so-many-tests/?hpw)
@@ -234,6 +234,8 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 
 **In-class**:
 * World Health Organization exercise on [population attributable fraction](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Exercise_27_smoking_and_death.xls)
+* [Sitting and mortality article](http://www.indiana.edu/~k662/articles/role/sit%20mortality%20van%20der%20Ploeg%202012.pdf)
+
 ----------------
 
 `r I(classDayContents("Tues", "Oct", 2 ))`

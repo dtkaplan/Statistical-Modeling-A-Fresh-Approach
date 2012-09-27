@@ -1,72 +1,111 @@
 Epidemiology Class Notes 2012-09-27
 ========================================================
 
+In the News
+----------------------
+* [Medical experimentation in Russia](http://www.nytimes.com/2012/09/27/business/global/russians-eagerly-participating-in-medical-experiments-despite-risks.html?_r=1) Is the ethical issue to do well by people or to let them make an informed choice?  Contrast the Helskinki principle to the informed choice principle.  Is this "ethics creep?"  Related: Using alternative populations to get greater differences in observed behavior: [Anthropologists studing small indigenous groups](http://www.nytimes.com/2012/09/25/health/in-the-bolivian-amazon-a-yardstick-for-modern-health.html)
+* [Regional disparities in health care](http://well.blogs.nytimes.com/2012/09/25/antibiotic-prescription-it-may-depend-on-where-you-live/)
+* [Traffic Deaths in NYC](http://www.nytimes.com/2012/09/27/nyregion/in-reversal-new-york-city-traffic-fatalities-rise.html): sloppy study without much evidence
+```{r}
+s = rpois(10000,lambda=250)
+change = diff(s)/s[1:9999]
+require(lattice)
+densityplot(change)
+table( change > .23)
+```
 
-### Distribution of Diseases in Different Countries
+Estimation Problem 1: Number of Physicians
+----------------------
+*[22000 doctors](https://moodle.macalester.edu/mod/assign/view.php?id=20498&sid=5224&gid=5224&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=) A multiplication problem in converting patients per week to an annual basis.
+*[708000 doctors](https://moodle.macalester.edu/mod/assign/view.php?id=20498&sid=5431&gid=5431&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=)  Note 4 doctors per person.
+*[600000 doctors and 4000 slots per medical school](https://moodle.macalester.edu/mod/assign/view.php?id=20498&sid=4928&gid=4928&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=) Using established rates of doctors per 1000 to assess "need."  Medical school estimate doesn't take into account the working life of doctors.
+*[200000 slots a year in medical school](https://moodle.macalester.edu/mod/assign/view.php?id=20498&sid=5192&gid=5192&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=) Note the big career drop out rate.
+*[60000 slots per year](https://moodle.macalester.edu/mod/assign/view.php?id=20498&sid=5462&gid=5462&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=) 10% retirement rate.
 
-[EE Figure 12.1](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-1.png)  
-A horrible, side-by-side pie chart graph.  Talk about how to make the graphic more effective.  The key principle is to bring adjacent the things that you want to compare.
+[AAMC document](https://members.aamc.org/eweb/upload/The%20Complexities%20of%20Physician%20Supply.pdf) See page 11 for fall in number of physicians after Flexner report (175 to 125 per 100000).  Figure 3 on page 12 for number of medical school graduates.  Total physicians, see page 17: about 800000
 
-### Outbreaks
+Linking Exposure and Disease
+----------------------
 
-Different types of outbreaks: 
-* point source, limited time (food poisoning)
-* point source, environmental toxin (uranium mine tailings) --- might show an increase as more people are exposed for more time
-* transmissible: endemic, epidemic, pandemic (enzootic, epizootic)
+### An example of risk ratios and population attributable fraction
+Research article on [sitting and mortality](http://www.indiana.edu/~k662/articles/role/sit%20mortality%20van%20der%20Ploeg%202012.pdf)
+* Work through abstract
+* p. 1 Definition of activity [metabolic equivalents](http://en.wikipedia.org/wiki/Metabolic_equivalent)
+* p. 1 Why "prospective" studies?  How would you do an experiment about "television viewing", "sitting in a car", etc.
+* p. 2 Potential confounding variables: sex, age, education level, ...
+* p. 2 "All ... analysis were adjusted for sex, age, ...."
+* Table 1.  Who sits a lot?  People in poor health.  People with little physical activity.  
+* Table 2.  Note "dose/response".  Note consistency across categories.  Oddball: 150-299 mn/wk of physical activity as a low Hazard ration for sitting > 11 hr per day.  But look at the confidence interval.
+* Figure.  Activity is good, sitting is bad, for both people in good health and people in bad health.
 
+### Rate ratios versus absolute difference in rate
 
-### Basic Information about Disease
+![Table 5.1](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-5-1.png)  
 
-* Examples of diseases and conditions: Acute/Chronic, Infectious/Noninfectious, Communicable/Noncommunciable 
-![from MT p. 47](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/diseases3.png)
-* Inanimate sources: 
-![inanimate sources](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/inanimate-sources.png)
-* Portal of entry and exit: 
-![portals](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/portal.png)
-* Infectious disease names and classification 
-![Friis and Sellers p. 440](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/diseases2.png)
-* Bacterial Microbe Sources 
-![from MT p. 52](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/microbe-sources.png)  
-* Other Microbe Sources 
-![from MT p. 52](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/microbe-sources2.png)
-*Available vaccines 
-![from MT p. 62](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/vaccines-available.png from MT p. 62)
+Compare "never smoked" to "current smoker".  Rate ratio is 2.8 = 49.6/17.7.  But the absolute difference in rate is 49.6-17.7 incidence rate per 100,000 person years.
 
-### Spread and Immunization
+### Relative Risk
+Just like rate ratios but based on cumulative incidence.  Example 
 
-* Severity 
-![severity](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/severity.png)
-* Sources of resistance 
-![resistance](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/resistance.png)
+![Table 1.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-1-2.png) 
 
-### Herd Immunity
-Diagram of a population, showing a low immunization level which
-falls short of protecting individuals within the group.
-![From MT p. 64](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/spread-and-immunization1.png) 
-and effective immunization 
-![effective immunization](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/spread-and-immunization2.png)
+Another example: examining the affect of an intervention (Calling people to remind them of an immunization): 
 
-*[Levels of Preventive Measures](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/levels-of-preventive-measures.png)
+![Table 5.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-5-2.png)
 
-### Epidemic Curves
+### Relative Risk Reduction
 
-* Epidemic curve for a point-source epidemic.
-![EE Figure 12.4 point-source](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-4.png)
-* Epidemic curve for a propagative epidemic, in the early phases when the waves are still distinct. 
-![EE Figure 12.5](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-5.png)   
-* The Danish tuberculosis epidemic.
-![EE Figure 12.6](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-6.png) 
-* Conversion rate for students in different settings: 
-![EE Table 12.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-12-2.png)
-* Long-term tracking of cases ![EE Table 12.3](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-12-3.png)
+![Box 5.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Box-5-2.png) 
+showing affect of pressure bandages in patients undergoing coronary angiography.
 
-### Discussion of P-CAST Report
+### Attributable Risk
 
-[The report](http://www.whitehouse.gov/assets/documents/PCAST_H1N1_Report.pdf).
+A graphic on attributable risk: 
+![Fig 5.1](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-5-1.png) 
+Use this to derive the attributable fraction as $latex \frac{RR-1}{RR}$
 
-* Look at their scenario in Box 3A on page 19.  What are the assumptions that are going into it?  (Ten-fold increase every week, about half the population susceptible.  Sketch out the incidence, and the cumulative incidence curves.)
-* Page 2: "In Australia, 11 percent of over 20,000 confirmed cases of 2009-H1N1 influenza have been hospitalized.  And of the 410 cases now hospitalized, 110 are in ICUs."  Why would it be misleading to say that 1/4 of hospitalized cases go to ICU.
-* Why was the initial case-fatality rate estimated in Mexico so high?
-* Note how they used an estimate to discover a bottle-neck --- anticipating 50-100% of ICU capacity will be needed.  But no estimate of how long people will stay in the ICU.
-* What's the problem with a single go/no-go decision, which they identified as the problem in the 1975 swine-flu situtation?
+In the British Doctors Study: [Table 5.4](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-5-4.png)
+
+### Population Attributable Risk
+
+Combine the rates of the different groups and compare to the background rate.
+![Fig. 5.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-5-2.png)
+Smoking and Tuberculosis in India.  See the [World Health Organization Exercise](http://apps.who.int/tb/surveillanceworkshop/status_analysis/27.htm)
+* [WHO spreadsheet here](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Exercise_27_smoking_and_death.xls)
+
+### Case Control
+
+Why we do them?  When the incidence/prevalence is very small, so a cohort is not efficient.
+
+What's an "odds"?    From ["Fugue for Tinhorns"](http://www.youtube.com/watch?v=G6djgavbp7c)
+<blockquote>
+I'm pickin' Valentine, 'cause on the morning line <br>
+A guy has got him figured at five to nine 
+</blockquote>
+
+Example: Ovarian cancer and oral contraception use: 
+![Table 5.6](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-5-6.png) 
+
+Example: Bicycle helmets and head injury 
+![Table 5.9](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-5-9.png)
+
+Why the Odds Ratio Approximates the Relative Risk (when the prevalence/incidence is very small): [Box 5.5](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Box-5-5.png)
+
+Odds Ratios
+------------
+
+* Don't reject the odds ratio.  It's needed for logistic regression which is needed to handle confounding.  See paragraph above "Summing Up" in [*Making Sense of Odds Ratios*](http://meds.queensu.ca/medicine/obgyn/pdf/Making.Sense.of.Odds.pdf)
+> "... odds ratios are the output of logistic regression [we'll use stratification], a technique often used to control for confounding bias in research analysis.  Adjustment of odds ratios in logistic regression analysis is widely available through software packages. [We do it in Math 155.]  **Properly addressing confounding in research usually trumps concerns regarding odds ratios.**"
+* Make decisions based on "Number Needed to Treat" and "Number Needed to Harm".  See [*Down with Odds Ratios*](http://bmj-ebm.highwire.org/content/1/6/164.full.pdf).  Story about [Humira](http://en.wikipedia.org/wiki/Adalimumab) doubling the risk of lymphoma.  But the risk of lymphoma is small compared to the risk of aggrevation of the disease being treated by Humira.
+
+### Conversion between OR and event rate (ER) and Number Needed to Treat
+
+```{r warning=FALSE,error=FALSE,messages=FALSE,echo=FALSE,results="hide"}
+require(mosaic, quietly=TRUE)
+```
+```{r}
+plotFun( log2((1 - ER*(1-OR))/(ER*(1-OR)*(1-ER)))~ OR&ER, 
+         OR.lim=c(0.5,0.9), ER.lim=c(0.5, 0.9), main="log2(NNT)")
+```
+
 

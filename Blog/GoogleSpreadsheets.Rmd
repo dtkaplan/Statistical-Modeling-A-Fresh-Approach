@@ -8,7 +8,7 @@ Unfortunately, the particular web protocol used by Google spreadsheets is not ye
 1. In Google spreadsheets, choose File/Download As/Comma Separated Values (CSV).  This will save a file to your computer.  Make note of its name.
 2. If you are running R **on your own computer**, e.g. through the desktop version of RStudio, use `fetchData()` to read in the spreadsheet you have just saved.  When given an empty argument, `fetchData()` will bring up a file browser which you can use to navigate to the file you just saved.  *BUT ...*
 3. If you are **running R remotely**, on an RStudio server through a web browser, you will need to upload the CSV file to the RStudio server.  Here's how
-    1. Go to the Files tab in RStudio and press the "Upload" button.
+    1. Go to the Files tab in RStudio and press the "Upload" button. (Look for the "Files" tab, not the "File" menu item at the top of the screen.)
     2. In the dialog window that appears, navigate to the CSV file you have just downloaded from Google spreadsheets.  Upload this to the RStudio server.
     3. Going back to the RStudio console, use `fetchData()` with an empty argument and navigate to the file you have just uploaded to the RStudio server.
     

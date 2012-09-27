@@ -245,7 +245,7 @@ Friday Quiz
 
 **Assignment**: 
 * Exercises `r I(PN(c("7RQ", 704, 705,710,711,712, 713,715)))`
-* Car project (group project): `r I(PN(c(723)))` 
+* Car project (group project): `r I(PN(c(723)))` Hand in [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=20907)
 * [Instructions for reading Google spreadsheets into R](http://rpubs.com/dtkaplan/GoogleSpreadsheets)
 
 **In Class**:
