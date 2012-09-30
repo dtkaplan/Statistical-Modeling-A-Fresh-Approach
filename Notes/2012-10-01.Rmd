@@ -109,7 +109,7 @@ Statistical Geometry
 
 ![Adam and Eve picture](https://dl.dropbox.com/u/5098197/ISM/Figures/Adam-and-Eve.png)
 
-* [Activity comparing case and variable space](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Prob-10.10/ISM-Prob-10.10-A.html) (I'll turn this into a handout)
+* [Activity comparing case space and variable space](https://dl.dropbox.com/u/5098197/ISM/case-vs-variable-space.pdf)
 * Fitting with one explanatory vector in variable space.  Show that the residual is perpendicular to the model.  The model triangle.
 * Examples
     * The mean  `A ~ 1`

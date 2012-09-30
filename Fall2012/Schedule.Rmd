@@ -267,7 +267,7 @@ Friday Quiz
 **Topic**: Geometry of Least Squares Fitting
 **Reading**: SM §8.3
 **Assignment**: `r I(PN(c(802, 804, 805, 811)))`
-**In Class**: Case versus Variable Spaces
+**In Class**: [Case versus Variable Spaces](https://dl.dropbox.com/u/5098197/ISM/case-vs-variable-space.pdf)
 
 **Notes**: `r I(todaysNotes("2012-10-01.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-01-class)
 
@@ -275,7 +275,9 @@ Friday Quiz
 **Topic**: Redundancy and Colinearity
 **Reading**: SM §8.4, 8.5
 **Assignment**:  `r I(PN(c("8RQ",805,812)))`
-**In Class**: Redundancy activity `r I(PN(c(820)))`
+**In Class**: [Redundancy activity](https://dl.dropbox.com/u/5098197/ISM/redundancy.pdf) 
+
+**Notes**: `r I(todaysNotes("2012-10-03.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-03-class)
 
 `r I(classDayContents("Fri", "Oct", 5 ))`
 **Topic**: Correlation and Partitioning, $R^2$
@@ -338,6 +340,8 @@ Friday Quiz
 **Reading**: SM Ch. 13 (review)
 **Assignment**: `r I(PN(c("13RQ",1302)))`
 **In Class**: `r I(PN(c(1315)))`
+
+**On Your Own**: The paper that won the [2012 Ignobel prize](http://www.improbable.com/ig/winners/) in neuroscience: [On brain activity in a dead salmon](http://www.jsur.org/ar/jsur_ben102010.pdf)
 
 `r I(classDayContents("Fri", "Nov", 2 ))`
 **Topic**: Testing Whole Models with $latex R^2$ and F
