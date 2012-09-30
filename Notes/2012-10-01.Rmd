@@ -1,0 +1,130 @@
+Stats 155 Class Notes 2012-10-01
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+Where We Are
+--------------
+
+1. You know how to construct a linear model by choosing a response variable (always quantitative at this point in the course) and explanatory variables.
+2. You might or might not yet be comfortable with the idea of interaction terms.  If you are, you may be thinking, "Why not always just put the interaction terms in a model?  What's the disadvantage?"
+3. You know what fitted model values are, what residuals are, that the model coefficients (parameters) are found by making the residuals as small as possible in two senses: 
+    1. Making the bias zero, that is, the average value of the residuals zero.  This can always be done!
+    2. Making the variance as small as possible. You can't generally make the variance zero.  In real data, it's extremely rare to get a residual variance of zero.  It's actually a forensic sign that the data are made up.
+4. You have various technical skills, e.g. plotting out the fitted model values over the actual data, finding confidence intervals on model coefficients, etc.
+
+Where We Are Heading
+-----------------
+
+Although you can make models of considerable complexity, there are some gaps or deficiencies in the story:
+
+1. You don't yet have a way to decide how much complexity is appropriate.
+2. You may well be confused by how the parameters change as you add or subtract terms from the model.  This may well seem arbitrary to you at this point.
+3. It still seems a bit complicated to interpret complex models in terms of the effect size.  With interaction terms, the "effect" of a variable can be spread around several terms in the model.
+
+We need to fix these deficiencies.  It will take a while.
+
+This week, we'll be working with three main ideas:
+
+1. Colinearity.
+2. Redundancy (which is the extreme state of colinearity)
+3. Measuring how much of the variation in response values a model has captured.  (You may already know that $R^2$ does this, but it helps to know why it's even possible to do at all.)
+
+The tool that we will use to explore these ideas is geometry.  Some people will find that this immediately illuminates what's going on.  Some people will not find it helpful at all.  I don't know why there are such different reactions from different people.  I encourage you to keep an open mind as we talk about geometry.  The worst case is that you will spend a couple of hours (spread over the next weeks) that won't lead anywhere for you.  That's not too big a bet to place on the possibility that you may find it truly useful, as many people do.
+
+## Two Technical Ideas
+
+### 1. Representation of categorical variables
+Using indicator variables.  The 0-1 encoding.   Economists and many others call these "dummy variables".  That's fine and you're welcome to use that phrase.  But it seems a bit pejorative.
+
+* Each categorical variable has a set of indicator variables, one for each level of the categorical variable.
+* Each case will have a 1 in one, and only one, of the indicator variables for a given categorical variable.  This says nothing more than "each case has one, and only one, level of the variable."
+
+### 2. Relationships among Resids, Fitted, and Response
+There's a funny pattern with the residuals, fitted model values, and response variable.  Actually, two patterns, one of which is obviously a result of definition, but the other isn't.
+
+#### Pattern one (trivial).  
+The response variable is the sum of the fitted model values and the residuals.  That's just another way of saying that the residuals are the difference between the response variable and the fitted model values.  No big deal.
+
+##### Computational demonstration.
+Have the students do this themselves.
+1. Pick some data set along with a response variable and one or more explanatory variables.  I'll use my favorite: `KidsFeet`  (I like this one because it's small, and it's practical to look at the individual fitted model values and residuals.)
+2. Pick some model on that dataset.  Here's mine:
+```{r}
+mod = lm( width ~ length*sex + domhand, data=KidsFeet)
+```
+3. Add up the fitted model values and residuals from the model:
+```{r}
+together = fitted(mod)+resid(mod)
+```
+4. Show that, for every case, `together` is the same as the response variable.  Here's one way that involves a command that you won't need in this course, `cbind`, which takes two vectors of numbers and puts them side by side:
+```{r}
+head( with(KidsFeet,cbind(width,together)) )
+```
+Here's another way: subtract the sum from the response variable and show that the result is always zero:
+```{r}
+head( with( KidsFeet, width-together ) )
+```
+This is not practical when you have a data set of any substantial length.  Here's a trick.  Square the differences and add them up.  This will be zero only if each and every case has a value of zero:
+```{r}
+sum( with(KidsFeet, width-together)^2 )
+```
+
+This relationship between the fitted model values, the residuals, and the response variable will be true for every model you make.  **QUESTION**: Does anyone in the class find that this is not the case for their model?
+
+#### Pattern two (profound).
+The variance of the response variable is the sum of the variance of the fitted model values and the variance of the residuals.  The same is also true of the sum of squares.
+
+Try it on your model:
+```{r}
+var(width, data=KidsFeet)
+var(fitted(mod)) + var(resid(mod))
+```
+
+Note that this is not (necessarily) true for the standard deviation:
+```{r}
+sd(width, data=KidsFeet)
+sd(fitted(mod)) + sd(resid(mod))
+```
+
+But it is true for the "sum of squares"
+```{r}
+sum( with(KidsFeet,width^2) )
+sum(fitted(mod)^2) + sum(resid(mod)^2)
+```
+
+In developing an understanding of why this is, you'll have a tool for understanding what's going on in complicated models.
+
+Statistical Geometry
+--------------------
+### Vectors, abstractly 
+* Idea of a vector: length and direction, but not position.
+* Operations on vectors: addition, scaling, linear combination, length, angle between, projection, extraction of coefficients
+*These operations using arithmetic.  Projection of b onto a:   $a = \frac{b \cdot a}{a \cdot a}$
+* Orthogonality in terms of dot products: when the dot product is zero.  Exer. [9.10](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Prob-9.10/ISM-Prob-9.10-A.html 9.10) then [9.12](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Prob-9.12/ISM-Prob-9.12-A.html).
+
+### Case Space versus variable space
+
+![Adam and Eve picture](https://dl.dropbox.com/u/5098197/ISM/Figures/Adam-and-Eve.png)
+
+* [Activity comparing case and variable space](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Prob-10.10/ISM-Prob-10.10-A.html) (I'll turn this into a handout)
+* Fitting with one explanatory vector in variable space.  Show that the residual is perpendicular to the model.  The model triangle.
+* Examples
+    * The mean  `A ~ 1`
+    * Line through the origin `A ~ B - 1`
+*Calculations using the computer [Math_155_Activity_on_Statistical_Geometry_and_Computing] --- ask students to build their own models using their own data and confirm this
+* The angle between the fitted and residuals
+* Sums of squares add up in the pythagorean way
+
+
+### Looking forward 
+
+
+* R^2 relates to the cosine of the angle between the fitted model values and the response variable --- '''once the mean is subtracted out'''
+* How to fit with more than one model vector.  Simpson's paradox and how it relates to correlations among explanatory variables.
+
+    
+* There's a linear combination of the indicator variables for a categorical variable that will produce something that is all 1s.  
+
