@@ -102,7 +102,7 @@ Statistical Geometry
 ### Vectors, abstractly 
 * Idea of a vector: length and direction, but not position.
 * Operations on vectors: addition, scaling, linear combination, length, angle between, projection, extraction of coefficients
-*These operations using arithmetic.  Projection of b onto a:   $a = \frac{b \cdot a}{a \cdot a}$
+*These operations using arithmetic.  Projection of b onto a:   $a \times \frac{b \cdot a}{a \cdot a}$
 * Orthogonality in terms of dot products: when the dot product is zero.  Exer. [9.10](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Prob-9.10/ISM-Prob-9.10-A.html 9.10) then [9.12](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Prob-9.12/ISM-Prob-9.12-A.html).
 
 ### Case Space versus variable space

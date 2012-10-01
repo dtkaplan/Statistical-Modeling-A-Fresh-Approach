@@ -1,7 +1,38 @@
 Reading in Google Spreadsheets to R
 ========================================================
 
-It's helpful to be able to collaborate on collecting data.  Google spreadsheets is a useful tool for this.
+It's helpful to be able to collaborate in collecting data.  Google spreadsheets is a useful tool for this.
+
+For those implementations of R that support the web protocol used by Google, there is a simple way to read Google spreadsheets into R via the `fetchGoogle` function in the mosaic package.  Otherwise, there is a multi-step process that is not too difficult.
+
+## How Will I Know What to Do?
+
+Check whether the `RCurl` package is installed on your system.  If it is, then you're good to go with the `fetchGoogle` method.  The <www.macalester.edu/rstudio> server at Macalester does have `RCurl` installed.  The <beta.rstudio.org> server does not (as of the time of this writing).)
+
+If you are running R on your own desktop rather than using a server, try installing `RCurl`.  On many systems, it is very easy; on others it is not possible unless you have some detailed knowledge of how to install command-line software.
+
+## Using `fetchGoogle`
+
+(See below for how to read Google spreadsheets **without** `fetchGoogle`.)
+
+You will have to set up your spreadsheet on Google to talk with R.  This is a one-time operation that will continue to work even if you add more data to the spreadsheet.
+
+1. In Google spreadsheets, choose File/Publish to the web
+2. Start publishing, checking "Automatically republish when changes are made"
+3. Under "Get a link to the published data"
+4. Select "CSV" Sheet 1 All cells
+5. Copy the link.  You'll need it in a bit.
+
+Now, to R ...
+1. Make sure you have the mosaic package running: `require(mosaic)`
+1. Paste the link from step (5) into R as a quoted argument to `fetchGoogle()` command, like this
+```{r eval=FALSE}
+mydat = fetchGoogle("https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dEtyWGxpWWFsN3Z0OUlZNG5xYmRVWWc&single=true&gid=0&output=csv")
+```
+
+You can email this command to your collaborators.  You may find it convenient to use the history command (searching on "fetchGoogle") to find the command again when you need it.
+
+## Without `RCurl`
 
 Unfortunately, the particular web protocol used by Google spreadsheets is not yet available in all implementations of R.  Until it is, here are the several steps to read a Google spreadsheet into R.  (If you're running a desktop version of R, check out the section "If you can install RCurl...")
 
@@ -14,28 +45,3 @@ Unfortunately, the particular web protocol used by Google spreadsheets is not ye
     
 This is a pain, I know.
 
-If you can install RCurl ...
-----------------------------
-If you are running a desktop system, you may be able to install the RCurl library.  Try this.  If you are successful, then you will be able to manage things using the following instructions under "where we want to go".
-
-Where we want to go
--------------------
-
-An earlier version of RStudio allowed you directly to get to Google Docs through R.  This was ideal.
-
-Clearly, it's unacceptable to have a multi-step process for something as conceptually easy as reading a Google spreadsheet into R.  The `RCurl` package allowed us to implement in `mosaic` a `fetchGoogle()` function.  However, the `RCurl` software cannot be installed on many systems.  
-
-When we can get `fetchGoogle()` to work without installation problems, you'll be able to "publish" a Google spreadsheet as a CSV document, automatically updated.  
-
-Instructions (for the future, when you have fetchGoogle() in a working state)
-
-1. In Google spreadsheets, choose File/Publish to the web
-2. Start publishing, checking "Automatically republish when changes are made"
-3. Under "Get a link to the published data"
-4. Select "CSV" Sheet 1 All cells
-5. Copy the link and paste it into R inside the `fetchGoogle()` command, like this
-```{r eval=FALSE}
-mydat = fetchGoogle("https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dEtyWGxpWWFsN3Z0OUlZNG5xYmRVWWc&single=true&gid=0&output=csv")
-```
-
-You can email this command to your collaborators.  Use the history command (searching on "fetchGoogle") to find the command again when you need it.
