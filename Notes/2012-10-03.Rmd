@@ -1,0 +1,23 @@
+Stats 155 Class Notes 2012-10-03
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+Main Ideas for Today
+====================
+
+1. From Model Terms to Vectors
+    1. The intercept term as a vector of 1s
+    1. Understanding interaction terms as vectors
+1. The geometry of fitting against two vectors.
+1. Colinearity and why adding model terms changes the coefficients on old terms.  (Reference: housing prices versus bedrooms with and without  living area)
+    1. Simpson's paradox, geometrically.
+    1. Extreme colinearity: redundancy
+
+Heads up for the future: colinearity has an important effect on confidence intervals.
+
+From Model Terms to Vectors
+====================
+
