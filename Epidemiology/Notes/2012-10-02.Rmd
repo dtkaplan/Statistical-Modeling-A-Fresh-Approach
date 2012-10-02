@@ -1,0 +1,114 @@
+Epidemiology Notes 2012-10-02
+=====================
+
+The Great Epidemic
+============
+
+* Show Google Map of Haskell County, Kansas.
+    * why the green circles?
+    * why would an epidemic start in a rural area?
+* p. 94  newspaper report of sicknesses; not the privacy of today.
+
+### Why Influenza?
+
+Influenza kills more people in the US than any other infectious disease, including HIV.  This involves a combination of transmissibility, ability to evade the immune system, and therefore potential lethality.
+
+Why is the influenza virus so successful.
+* Structure of viruses and their rapid mutability.  They don't have to do anything much on their own, so they can afford to mutate, and still get replicated.
+* Two main components that interact with receptors on the cell surface: 
+    * hemagglutinin which binds to sialic acid receptor
+    * neuraminidase which breaks up the sialic acid remaining on the cell surface to keep the escaping viruses from binding to the cell.  H1N1 coding scheme.
+* RNA leads to rapid mutation.
+* Reassortment --- since there are several different gene segments in the virus --- leads to the possibility of mixing genes from different viruses.  Pigs have sialic acid receptors that can bind to both bird viruses and mammalian viruses, providing a means for reassortment. (Some claim that human cells can provide a means for combining, too.)
+* p 105-6  "The influenza virus mutates so fast that 99 percent of the 100,000 to 1 milion new viruses that burst out of a cell in the reproduction process are to defective to infect another cell and reproduce again.  But that still leaves between 1000 and 10,000 viruses that *can* infect another cell." --- What's the reproduction time: around 10 hours.  Trace through the process over 2 days --- what proportion of the body's cells can get infected.
+
+
+### Immune response
+
+* Capillaries must dilate to admit white blood cells.  How do you get them to dilate?  Fever?  
+    * Red blood cells are as big as a capillary: "The size of erythrocytes varies widely among vertebrate species; erythrocyte width is on average about 25% larger than capillary diameter and it has been hypothesized that this improves the oxygen transfer from erythrocytes to tissues." "A typical human erythrocyte has a disk diameter of approximately 6.2-8.2 µm[27] and a thickness at the thickest point of 2-2.5 µm and a minimum thickness in the centre of 0.8-1 µm, being much smaller than most other human cells."
+    * White blood cell diameter, approx. 10 µm: [see table](http://en.wikipedia.org/wiki/White_blood_cell) Macrophages are 5 times larger.
+* Immune response to one influenza virus recalls the immune response to other varieties to which the body has previously been exposed.  Thus, a new virus tends to suppress the spread of old viruses. There tends to be a dominant form of virus in peak seasons and it's usually a relatively new form, to which many people have not yet been exposed.
+
+### Population response
+
+* p. 114  Influenza pandemics generally infect from 15 to 40 percent of a population.  **Why not more?**
+
+
+Disease 
+==========
+
+Classic epidemiological problem: account for an outbreak.
+
+Basic tools:
+* accounting for exposure and risk
+* time and space pattern of outbreak.  We're going to be focusing in this section particularly on the time pattern of an outbreak.
+
+### Distribution of Diseases in Different Countries
+
+[EE Figure 12.1](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-1.png)  
+A horrible, side-by-side pie chart graph.  Talk about how to make the graphic more effective.  The key principle is to bring adjacent the things that you want to compare.
+
+### Outbreaks
+
+Different types of outbreaks: 
+* point source, limited time (food poisoning)
+* point source, environmental toxin (uranium mine tailings) --- might show an increase as more people are exposed for more time
+* transmissible: endemic, epidemic, pandemic (enzootic, epizootic)
+
+
+### Basic Information about Disease
+
+* Examples of diseases and conditions: Acute/Chronic, Infectious/Noninfectious, Communicable/Noncommunciable 
+![from MT p. 47](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/diseases3.png)
+* Inanimate sources: 
+![inanimate sources](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/inanimate-sources.png)
+* Portal of entry and exit: 
+![portals](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/portal.png)
+* Infectious disease names and classification 
+![Friis and Sellers p. 440](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/diseases2.png)
+* Bacterial Microbe Sources 
+![from MT p. 52](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/microbe-sources.png)  
+* Other Microbe Sources 
+![from MT p. 52](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/microbe-sources2.png)
+*Available vaccines 
+![from MT p. 62](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/vaccines-available.png from MT p. 62)
+
+### Spread and Immunization
+
+* Severity 
+![severity](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/severity.png)
+* Sources of resistance 
+![resistance](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/resistance.png)
+
+### Herd Immunity
+Diagram of a population, showing a low immunization level which
+falls short of protecting individuals within the group.
+![From MT p. 64](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/spread-and-immunization1.png) 
+and effective immunization 
+![effective immunization](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/spread-and-immunization2.png)
+
+*[Levels of Preventive Measures](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/levels-of-preventive-measures.png)
+
+### Epidemic Curves
+
+* Epidemic curve for a point-source epidemic.
+![EE Figure 12.4 point-source](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-4.png)
+* Epidemic curve for a propagative epidemic, in the early phases when the waves are still distinct. 
+![EE Figure 12.5](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-5.png)   
+* The Danish tuberculosis epidemic.
+![EE Figure 12.6](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-6.png) 
+* Conversion rate for students in different settings: 
+![EE Table 12.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-12-2.png)
+* Long-term tracking of cases ![EE Table 12.3](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-12-3.png)
+
+### Discussion of P-CAST Report
+
+[The report](http://www.whitehouse.gov/assets/documents/PCAST_H1N1_Report.pdf).
+
+* Look at their scenario in Box 3A on page 19.  What are the assumptions that are going into it?  (Ten-fold increase every week, about half the population susceptible.  Sketch out the incidence, and the cumulative incidence curves.)
+* Page 2: "In Australia, 11 percent of over 20,000 confirmed cases of 2009-H1N1 influenza have been hospitalized.  And of the 410 cases now hospitalized, 110 are in ICUs."  Why would it be misleading to say that 1/4 of hospitalized cases go to ICU.
+* Why was the initial case-fatality rate estimated in Mexico so high?
+* Note how they used an estimate to discover a bottle-neck --- anticipating 50-100% of ICU capacity will be needed.  But no estimate of how long people will stay in the ICU.
+* What's the problem with a single go/no-go decision, which they identified as the problem in the 1975 swine-flu situtation?
+

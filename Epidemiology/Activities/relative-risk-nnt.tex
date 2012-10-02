@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{multicol}
+\usepackage[margin=0.3in]{geometry}
+\pagestyle{empty}
+\usepackage{enumerate}
+\newcommand{\groupthingy}{\begin{itemize}
+\item Individual answer:
+\item Group answer:
+\item Correct answer:
+\end{itemize}}
+
+\begin{document}
+\raggedright
+\centerline{\Large \bfseries Relative Risk and Number Needed to Treat}
+
+\bigskip
+
+\centerline{\large \sf Epidemiology}
+
+\bigskip
+
+\begin{multicols}{2}
+\subsection*{Number Needed to Treat}
+
+The ``Number Needed to Treat" is a simple-to-understand way to convey the effect of a treatment which has some probability of helping, but won't necessarily succeed.  The ``Number Needed to Harm" is the same thing, but refers to an exposure that has some probability of hurting.  (In talking about health, we do not use the word ``treatment" to refer to something that can harm a subject, although in experiment generally, ``treatment'' has a neutral meaning.)
+
+The Number Needed to Treat is the ratio of the number treated divided by the number who are helped.  In the following example, 
+\begin{enumerate}
+\item $P_C$ is the probability, with no treatment, of being cured anyways.  
+\item $P_T$ is the probability, with  treatment, of being cured.
+\end{enumerate}
+Note that being cured is not necessarily a result of the treatment.  A person might have been cured anyways (if $P_C > 0$).
+
+The following table (from Wikipedia) gives different situations with $P_C$ and $P_T$.  Your job is to figure out the Number Needed to Treat.
+\end{multicols}
+
+\centerline{\begin{tabular}{lccp{4in}|c|c|c}
+            &       &       &                &\multicolumn{3}{|c}{Number Needed to Treat}\\
+Description & $P_C$ & $P_T$ & Interpretation & Yours & Group & Correct\\\hline\hline
+Perfect Drug & 0.0& 	1.0& Everybody is cured with the pill; nobody without. & & & \\\hline
+Very Good Drug & 	0.1	& 0.9	& Ten take the pill; 8 cured by the pill, 1 cured by itself, 1 still sick & & & \\\hline
+Satisfactory Drug	& 0.3 & 	0.7 & 	Ten take the pill; 4 cured by the pill, 3 cured by itself, 3 still sick. & & & \\\hline
+High Placebo Effect & 	0.5	& 0.5	& Ten take the pill; 6 cured but 5 of those would be cured anyway. & & & \\\hline
+Low Cure Rate & 	0.8 & 	0.9	& Ten take the pill, one is cured by the pill, one cured by itself, 8 still have the disease. & & & \\\hline
+Goes Away by Itself & 	0.1	& 0.2	& Ten take the pill and 9 are cured; but 8 would have been cured anyway. & & & \\\hline
+Sabotages Cure & 	0.9	& 0.8	& Ten take the pill, two would have been cured without it, but with the pill, only one is cured, so really it's the number needed to harm. & & & \\
+\end{tabular}}
+
+
+\subsection*{Basic Observations}
+\begin{multicols}{2}
+
+Relative Risk and Number Needed to Treat are simple calculations based on observations.  The calculations involve nothing more than arithmetic, but you need to know what information goes into which calculation and what to put where.
+
+
+A standard form for summarizing the observations is a two-way table:
+
+\bigskip
+
+\centerline{\begin{tabular}{l|cc|r}
+                    & {\bf Exposed}          & {\bf Control} & Total\\\hline
+Events (E)          & EE=15            & CE=100 & 115\\
+Non-Events (NE)     & EN=135           & CN=150 & 285\\\hline
+Total Subjects  (S) & ES=EE+EN         & CS=CE+CN & ?? \\
+& = ?? & = ?? & \\\hline
+Event Rate (ER)     & EER=EE/ES      & CER=CE/CS &\\
+                    &   = ??          &  = ??& \\\hline
+\end{tabular}}
+
+\bigskip
+
+\begin{itemize}
+\item The baseline group is called the ``control group.''
+\item The other group is various called the ``exposed group," or ``treated group", or the ``experimental group".
+\end{itemize}
+
+There is also an outcome, which is typically either something bad (e.g. developing cancer) or something good (e.g. remission from cancer).  These are sometimes called ``Events" and ``Non-Events" respectively.
+
+
+The basic information is the number of people in each of the four groups, EE, CE, EN, and CN.
+
+\begin{enumerate}[{Task~}1]
+\item Fill in the ?? in the table and use the results to answer this question:
+Assuming that the event is something bad, is being exposed good or bad for the subject?
+\groupthingy
+
+\item Calculate the ``Absolute Risk Reduction" 
+\groupthingy
+
+\item Calculate the ``Relative Risk Reduction"
+\groupthingy
+
+\item Calculate the ``Number Needed to Treat"
+\groupthingy
+
+\end{enumerate}
+\end{multicols}
+
+\end{document}
+

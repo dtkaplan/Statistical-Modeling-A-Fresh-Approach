@@ -18,6 +18,27 @@ Main Ideas for Today
 
 Heads up for the future: colinearity has an important effect on confidence intervals.
 
+Review of Geometry through Arithmetic
+===================
+
+* scaling
+* addition
+* linear combination
+* square-length is sum of squares
+* dot product operation `sum(a*b)`
+* angle in terms of a dot product
+* projection as a dot product
+* orthgonality is when the dot product is zero.
+
 From Model Terms to Vectors
 ====================
+
+Derive the model vectors for interaction terms.
+
+Fitting with Multiple Vectors
+===================
+
+### 1. Diagram with two explanatory vectors
+
+### 2. Show that the residual is orthogonal to each and every model vector.
 
