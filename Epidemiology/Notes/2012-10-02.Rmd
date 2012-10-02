@@ -1,6 +1,15 @@
 Epidemiology Notes 2012-10-02
 =====================
 
+In the News
+=============
+* [SARS redux?](http://www.nytimes.com/2012/09/30/world/new-virus-may-be-dangerous-but-seems-not-easily-spread.html?_r=1&emc=eta1)
+
+Calculations
+============
+* Risk ratio and number needed to treat [handout](Activities/relative-risk-nnt.pdf) Students should first do the calculations on their own, then in a small group.  Then we'll go over them as a class.
+* WHO activity on population attributable fraction
+
 The Great Epidemic
 ============
 
@@ -8,6 +17,10 @@ The Great Epidemic
     * why the green circles?
     * why would an epidemic start in a rural area?
 * p. 94  newspaper report of sicknesses; not the privacy of today.
+
+Epiville SARS outbreak
+====================
+Walk through the exercise and have students answer the question.
 
 ### Why Influenza?
 
@@ -44,9 +57,41 @@ Basic tools:
 * accounting for exposure and risk
 * time and space pattern of outbreak.  We're going to be focusing in this section particularly on the time pattern of an outbreak.
 
+### Epidemic Curves
+
+* Epidemic curve for a point-source epidemic.
+![EE Figure 12.4 point-source](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-4.png)
+* Epidemic curve for a propagative epidemic, in the early phases when the waves are still distinct. 
+![EE Figure 12.5](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-5.png)   
+* The Danish tuberculosis epidemic.
+![EE Figure 12.6](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-6.png) 
+* Conversion rate for students in different settings: 
+![EE Table 12.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-12-2.png)
+* Long-term tracking of cases ![EE Table 12.3](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-12-3.png)
+
+### Discussion of P-CAST Report
+
+[The report](http://www.whitehouse.gov/assets/documents/PCAST_H1N1_Report.pdf).
+
+* Look at their scenario in Box 3A on page 19.  What are the assumptions that are going into it?  (Ten-fold increase every week, about half the population susceptible.  Sketch out the incidence, and the cumulative incidence curves.)
+* Page 2: "In Australia, 11 percent of over 20,000 confirmed cases of 2009-H1N1 influenza have been hospitalized.  And of the 410 cases now hospitalized, 110 are in ICUs."  Why would it be misleading to say that 1/4 of hospitalized cases go to ICU.
+* Why was the initial case-fatality rate estimated in Mexico so high?
+* Note how they used an estimate to discover a bottle-neck --- anticipating 50-100% of ICU capacity will be needed.  But no estimate of how long people will stay in the ICU.
+* What's the problem with a single go/no-go decision, which they identified as the problem in the 1975 swine-flu situtation?
+
+### Simulation of Infection Spread
+
+Hand out the [transmission tokens](Activities/spread-simulation.pdf)
+* Students should separate the infection tokens and place them face down.  
+* I'll infect one student.  He or she should turn over a random token and infect that student.  That student passes along the infection in a similar way.
+* Repeat, but with each infective student using two tokens.
+* Repeat, but with three.
+* Herd immunity: three tokens but half the class is immune (as described by the immune/susceptible tokens)
+
+
 ### Distribution of Diseases in Different Countries
 
-[EE Figure 12.1](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-1.png)  
+![EE Figure 12.1](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-1.png)  
 A horrible, side-by-side pie chart graph.  Talk about how to make the graphic more effective.  The key principle is to bring adjacent the things that you want to compare.
 
 ### Outbreaks
@@ -89,26 +134,4 @@ and effective immunization
 ![effective immunization](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/spread-and-immunization2.png)
 
 *[Levels of Preventive Measures](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/DiseaseSpread/levels-of-preventive-measures.png)
-
-### Epidemic Curves
-
-* Epidemic curve for a point-source epidemic.
-![EE Figure 12.4 point-source](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-4.png)
-* Epidemic curve for a propagative epidemic, in the early phases when the waves are still distinct. 
-![EE Figure 12.5](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-5.png)   
-* The Danish tuberculosis epidemic.
-![EE Figure 12.6](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-12-6.png) 
-* Conversion rate for students in different settings: 
-![EE Table 12.2](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-12-2.png)
-* Long-term tracking of cases ![EE Table 12.3](http://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Table-12-3.png)
-
-### Discussion of P-CAST Report
-
-[The report](http://www.whitehouse.gov/assets/documents/PCAST_H1N1_Report.pdf).
-
-* Look at their scenario in Box 3A on page 19.  What are the assumptions that are going into it?  (Ten-fold increase every week, about half the population susceptible.  Sketch out the incidence, and the cumulative incidence curves.)
-* Page 2: "In Australia, 11 percent of over 20,000 confirmed cases of 2009-H1N1 influenza have been hospitalized.  And of the 410 cases now hospitalized, 110 are in ICUs."  Why would it be misleading to say that 1/4 of hospitalized cases go to ICU.
-* Why was the initial case-fatality rate estimated in Mexico so high?
-* Note how they used an estimate to discover a bottle-neck --- anticipating 50-100% of ICU capacity will be needed.  But no estimate of how long people will stay in the ICU.
-* What's the problem with a single go/no-go decision, which they identified as the problem in the 1975 swine-flu situtation?
 

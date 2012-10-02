@@ -254,8 +254,11 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 
 **On Your Own**:
 * TED talk on the [*Ghost Map*](http://www.ted.com/talks/lang/en/steven_johnson_tours_the_ghost_map.html)
+* [Milestones in combating cholera](http://www.nytimes.com/2012/10/02/science/milestones-in-combating-cholera.html)
 
 **In-class**:
+* [Calculations of relative risk and number needed to treat.](https://dl.dropbox.com/u/5098197/Epidemiology/Activities/relative-risk-nnt.pdf)
+* Simulating the spread of infection [handout](https://dl.dropbox.com/u/5098197/Epidemiology/Activities/spread-simulation.pdf)
 
 ------------------
 
