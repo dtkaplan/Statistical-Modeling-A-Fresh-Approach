@@ -157,3 +157,8 @@ As you pull together your thoughts in preparation for writing the letter, you mi
 
 * Many medical treatments in the past strike us today as silly.  But they often made sense at the time, emerging logically from a theoretical framework.  Pick an example from the reading and explain briefly how the treatment made sense in terms of the theory.
 `r I(moodle(15120,"GI1"))`
+
+#### Pages 89-116: Reading Reflection
+
+* Influenza is the leading cause of death from infectious disease in the US.  What aspects of the influenza virus, the human immune system, and the interaction of the two contribute to this?
+`r I(moodle( 21684 , "GI3"))`

@@ -248,7 +248,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 
 **Assignment**: 
 * The [Epiville SARS outbreak, part 1](http://ccnmtl.columbia.edu/projects/epiville/sars_outbreak_study_1/) exercise. This is a case study from Columbia University. Work through the scenario and then [enter your answers on the Google Form here](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDhWeEVxUFNkRjNDS3RDclVHbWhlNmc6MQ).
-* Reading reflections (to be posted)
+* Reading reflection on *The Great Influenza* `r I(RR("GI3"))` 
 * Group planning for Island Project 1. `r I(RR("project1a"))` 
 
 
