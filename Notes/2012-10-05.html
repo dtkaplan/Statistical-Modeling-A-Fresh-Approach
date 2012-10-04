@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Stats 155 Class Notes 2012-10-05</title>
+
+<base target="_blank"/>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>Stats 155 Class Notes 2012-10-05</h1>
+
+<h1>Main Ideas for Today</h1>
+
+<ol>
+<li>Redundancy</li>
+<li>Fitting and the Orthogonality of the Residual in high dimensions</li>
+<li>Simpson&#39;s paradox</li>
+<li>Start with \( R^2 \).  Fraction of distance travelled to the response vector.  (But, we leave out the credit that would be assigned to the intercept.)</li>
+</ol>
+
+<h1>Redundancy</h1>
+
+<p>How to make a model say anything you want about A, through redundancy. <br/>
+1. Pick a variable B and the coefficient you want on it.<br/>
+2. Find other vectors V in whose space the variable B lies. <br/>
+3. Fit <code>B ~ V</code><br/>
+4. Fit <code>A ~ V</code><br/>
+5. Combine the coefficients from (3) and (4) to make a model.</p>
+
+<h1>Alignment and Simpson&#39;s Paradox</h1>
+
+<p>By careful choice of covariates, you can influence what the role of the variable is.</p>
+
+<p>Simpson&#39;s paradox, or more generally the dependence of the coefficients of the variables on the covariates, is a simple consequence of alignment.  It&#39;s going to happen, like it or not.</p>
+
+<p>We&#39;ll need more guidance on the choice of covariates.</p>
+
+<p>Approaches we will see:<br/>
+1. Use of experimental assignment and randomization to create orthogonality<br/>
+2. Analysis of covariance<br/>
+3. Causation-related inference.</p>
+
+<h1>The Coefficient of Variation: \( R^2 \)</h1>
+
+<p>How much have we explained &hellip; what fraction of the distance to the response variable have we gone.</p>
+
+<p>BUT &hellip; want to emphasize variance, not the mean.  So we want the fraction orthogonal to the intercept.  We don&#39;t want to give undue credit to something that happens to be aligned with the intercept.</p>
+
+<h1>Geometry of Fitting with Multiple Vectors</h1>
+
+<h3>1. Diagram with two explanatory vectors</h3>
+
+<h3>2. Show that the residual is orthogonal to each and every model vector.</h3>
+
+</body>
+
+</html>
+

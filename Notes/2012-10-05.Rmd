@@ -1,0 +1,51 @@
+Stats 155 Class Notes 2012-10-05
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+Main Ideas for Today
+====================
+
+1. Redundancy
+2. Fitting and the Orthogonality of the Residual in high dimensions
+3. Simpson's paradox
+4. Start with $R^2$.  Fraction of distance travelled to the response vector.  (But, we leave out the credit that would be assigned to the intercept.)
+
+Redundancy
+==========
+
+How to make a model say anything you want about A, through redundancy. 
+1. Pick a variable B and the coefficient you want on it.
+2. Find other vectors V in whose space the variable B lies. 
+3. Fit `B ~ V`
+4. Fit `A ~ V`
+5. Combine the coefficients from (3) and (4) to make a model.
+
+Alignment and Simpson's Paradox
+===========
+By careful choice of covariates, you can influence what the role of the variable is.
+
+Simpson's paradox, or more generally the dependence of the coefficients of the variables on the covariates, is a simple consequence of alignment.  It's going to happen, like it or not.
+
+We'll need more guidance on the choice of covariates.
+
+Approaches we will see:
+1. Use of experimental assignment and randomization to create orthogonality
+2. Analysis of covariance
+3. Causation-related inference.
+
+The Coefficient of Variation: $R^2$
+============
+How much have we explained ... what fraction of the distance to the response variable have we gone.
+
+BUT ... want to emphasize variance, not the mean.  So we want the fraction orthogonal to the intercept.  We don't want to give undue credit to something that happens to be aligned with the intercept.
+
+Geometry of Fitting with Multiple Vectors
+===================
+
+### 1. Diagram with two explanatory vectors
+
+### 2. Show that the residual is orthogonal to each and every model vector.
+
