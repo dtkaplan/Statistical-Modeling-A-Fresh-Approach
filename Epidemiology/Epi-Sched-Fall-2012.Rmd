@@ -233,7 +233,7 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 * [How vaccines work](http://www.ted.com/talks/lang/eng/seth_berkley_hiv_and_flu_the_vaccine_strategy.html) TED talk
 
 **In-class**:
-* World Health Organization exercise on [population attributable fraction](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Exercise_27_smoking_and_death.xls)
+* World Health Organization exercise on [population attributable fraction]
 * [Sitting and mortality article](http://www.indiana.edu/~k662/articles/role/sit%20mortality%20van%20der%20Ploeg%202012.pdf)
 
 ----------------
@@ -274,10 +274,16 @@ Notes`r I(todaysNotes("2012-09-11.html", ":"))`
 * Reading Reflection on *The Cancer Cluster Myth* `r I(RR("clustermyth"))`
 * [Epiville SARS part 2](http://epiville.ccnmtl.columbia.edu/sars_outbreak_study_2/) and the [Google Form](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDBlbTJ1UlM4UDhXVDE0UmhrNkJmbmc6MQ) for entering your answers. Pay attention to $R_0$, the number that features so prominantly in the movie "Contagion".
 
-**On Your Own**
-* The 2011 movie *Contagion* (DVD on reserve in library), and an [op-ed by an epidemiology consulting on the movie](http://www.nytimes.com/2011/09/12/opinion/the-real-threat-of-contagion.html?src=me&ref=general).
+**On Your Own**:
+* Plague City: SARS in Toronto.  A CTV miniseries about the discovery and response to SARS.  
+   * Links: [Netflix](https://movies.netflix.com/WiMovie/Plague_City_SARS_in_Toronto/70146848?locale=en-US), perhaps the [CTV site](http://www.ctv.ca/PlagueCity.aspx).
+   * The CTV blurb is pretty accurate:
+
+> Based on true events and bolstered by extensive research with medical experts, Plague City brings to television the stories of the actual heroes of the SARS crisis: the many health care workers who risked their lives on a daily basis caring for sick and dying patients. At the same time, the CTV movie underscores the struggle of Toronto's public health officials and politicians as they attempted to control the quickly spreading disease, suppress the rising public panic and mitigate the devastating economic repercussions.
+ 
 
 **In-class**:
+* World Health Organization exercise on [population attributable fraction](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Exercise_27_smoking_and_death.xls) (Finally!)
 * [Hans Rossling on the spread of HIV](http://www.ted.com/talks/hans_rosling_the_truth_about_hiv.html)
 
 ---------------
@@ -315,6 +321,7 @@ I welcome proposals for skits to be made into short videos that would explain th
 * How's your glossary going? `r I(RR("glossary"))`
 
 **On Your Own**:
+* The 2011 movie *Contagion* (DVD on reserve in library), and an [op-ed by an epidemiology consulting on the movie](http://www.nytimes.com/2011/09/12/opinion/the-real-threat-of-contagion.html?src=me&ref=general).
 
 **In-class**:
 * Confidence intervals on odds ratios

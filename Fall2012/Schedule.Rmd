@@ -90,7 +90,7 @@ Jia Gu         | jgu@macalester.edu            |  <img src="figure/jiaGu.jpg" wi
 **Preceptor Review Sessions**: starting Monday Sept. 10.  Held in the MSCS reading room, Olin/Rice 254 (in the middle corridor)
 * Tues 8:30-10:00 pm, Jia Gu
 * Wed 3:00-5:00 pm, Jungwon Lee
-* Thurs 3:00-5:00 every other week, Henry Yang --  Sept 20, Oct 4, 18, Nov 1, 15
+* Thurs 3:00-5:00 every other week, Henry Yang -- Oct 4, 18, Nov 1, 15
 * Sat 3:00-5:00 pm
 
 
@@ -362,6 +362,7 @@ Friday Quiz
 **Assignment**: `r I(PN(c("14RQ",1404,1405,1411,1412,1424)))`
 **In Class**: `r I(PN(c(1421)))`
 
+**On Your Own**: [Journalistic deficit disorder](http://www.economist.com/node/21563275)
 
 `r I(classDayContents("Wed", "Nov", 7 ))`
 **Topic**: Hypothesis Testing on Parts of Models

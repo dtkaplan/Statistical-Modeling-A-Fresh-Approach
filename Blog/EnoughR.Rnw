@@ -404,12 +404,9 @@ fetchData("m155development.R")
 
 \def\opt#1{#1}
 \def\squeeze{\vspace*{-4ex}}
-%\noindent One key to success using \R\ in Intro Stats is keeping the volume low:
-%\hfill
-%``Less volume, more creativity" (Mike McCarthy, head coach, Green Bay Packers)
 
-\begin{multicols}{3}
-
+\begin{multicols}{4}
+\small
 \SweaveOpts{
 	eval=TRUE, 
 	fig.path='figures',
@@ -425,21 +422,11 @@ fetchData("m155development.R")
 options(width=40)
 options(show.signif.stars=FALSE)
 @
-<<coins,fig.keep="last">>=
-rflip(10)
-do(2) * rflip(10)
-results <- do(1000)* rflip(10)
-tally( ~heads, data=results )
-xhistogram( ~heads ,data=results, width=1 )
-tally( ~ (heads>8 | heads<2) , data=results )
-@
 
-\columnbreak
+
 
 <<tally>>=
 tally( ~ substance + sex, data=HELPrct )
-mean( age ~ substance, data=HELPrct )
-sd( age ~ substance, data=HELPrct )
 @
 <<densityplot,height=2.4>>=
 densityplot( ~ age | sex, groups=substance, data=HELPrct, auto.key=TRUE )
@@ -447,34 +434,82 @@ densityplot( ~ age | sex, groups=substance, data=HELPrct, auto.key=TRUE )
 <<bwplot>>=
 bwplot( age ~ substance | sex, data=HELPrct )
 @
-\columnbreak
-<<>>=
-confint( t.test( age ~ sex, data=HELPrct ) )
-@
-<<>>=
-anova( lm(age ~ sex + substance, data=HELPrct ) )
-@
 
 
 <<>>=
 xyplot( Sepal.Length ~ Sepal.Width, data=iris, groups=Species )
 @
 
-<<include=FALSE>>=
-tally( ~ homeless | sex, data=HELPrct)
-@
-<<include=FALSE>>=
-binom.test( ~ homeless | sex, data=HELPrct)
+\subsection*{New Dataframe Variable}
+<<tidy=FALSE,message=FALSE>>=
+g = fetchData("Galton")
+names(g)
+g = transform(g,
+     mid=(father+1.08*mother)/2)
+names(g)
 @
 
-\iffalse
-Important things that I (mostly) avoid in Intro Stats:
-\begin{itemize}
-	\item missing data
-	\item reshaping data
-\end{itemize}
-\R\ has functions for these things as well.
-\fi
+\subsection*{P's and Q's}
+Want to find the value that separates the lower 30\% from the higher 70\%:
+<<>>=
+qdata(0.3, wage, data=CPS85 )
+@
+Have a value and want to find what fraction of the cases are at or below the value:
+<<>>=
+pdata(10, wage, data=CPS85 )
+@
+
+
+\subsection*{Subsets}
+Sometimes you want only part of a data set.
+<<tidy=FALSE>>=
+boys = subset(KidsFeet, sex=="B")
+elig = subset(CPS85, 
+        wage>10 & married=="Single")
+pros = subset(CPS85, 
+  sector %in% c("prof","manag"))
+@
+
+\subsection*{Confidence Intervals}
+<<tidy=FALSE>>=
+mod = lm( wage ~ educ, data=CPS85 )
+confint(mod)
+@
+
+\paragraph{Through Bootstrapping}
+<<cache=TRUE,tidy=FALSE>>=
+s = do(500)*
+  lm(wage~educ, data=resample(CPS85))
+sd(s) # standard error
+# try this: confint(s)
+@
+
+\subsection*{Quantitative $\rightarrow$ Categorical}
+<<tidy=FALSE>>=
+bwplot( height ~ as.factor(nkids), 
+        data=Galton )
+@
+
+\subsection*{Something is Wrong}
+<<echo=FALSE,results="hide">>=
+options(na.rm=FALSE)
+@
+<<cache=TRUE,message=FALSE>>=
+run = fetchData("repeat-runners.csv")
+mean( net, data=run )
+@
+Some of the data was missing, thus the NA.
+
+{\bf The FIX}:
+<<>>=
+options(na.rm=TRUE)
+mean( net, data=run )
+@
+
+
+
+
+
 
 \vfill
 \end{multicols}

@@ -35,7 +35,60 @@ From Model Terms to Vectors
 
 Derive the model vectors for interaction terms.
 
-Fitting with Multiple Vectors
+Make a small, illustrative data set and a model from it.
+
+```{r}
+small = sample(CPS85,size=3)[,c("wage","educ","sector")]
+small
+mod = lm( wage ~ educ*sector, data=small)
+```
+
+I'll predict that the residuals from this model will be all zero --- it's a "perfect" fit to the data.
+```{r}
+resid(mod)
+```
+Understanding the geometry of the situation will make it easier for you to understand why this is.
+
+#### Write down the vectors as columns of numbers
+
+* response vector: 
+```{r}
+with( small, wage )
+```
+* intercept vector (all ones)
+* main effect due to educ
+```{r}
+with( small, educ )
+```
+* indicator vectors due to sector.  Include one level that's all zeros in this short data set.
+
+* interaction vectors as the component-wise products of the educ vector with each of the sector indicator vectors.
+
+#### Fitting as a linear algebra problem
+
+Show a potential linear combination of the vectors.  Just make up the coefficients.
+ 
+* Point out that the vectors that are all zeros don't count.  They have nothing to contribute.
+
+#### What R does
+
+```{r}
+coef(mod)
+```
+
+* These are the multipliers on the corresponding vectors.
+* One of the indicator vectors has been dropped: it's not needed.
+   * Redundancy: the dropped indicator vector can be constructed from the other vectors in the model.  That's why it's not needed.
+   * QUESTION: How would you construct it from the other vectors?
+   * Every categorical variable has one vector that is redundant (when the intercept vector is included in the model) R marks the "first" vector, alphabetically, as redundant.  This is arbitrary.
+   * It's a **choice** to include the intercept vector.  `lm()` does it, `mm()` does not.  By including the intercept vector, one of the indicator vectors from each categorical variable is made redundant, and the meaning of the coefficients on the other vectors changes: difference from reference group rather than groupwise mean.
+* There's an NA in the interaction term.  This signals a vector that R discovered was redundant by examining the vectors.
+   * As opposed to categorical variables, where one knows ahead of time that one level must be redundant (if the intercept is in the model).
+   * How would you construct the redundant vector from the others already in the model?
+* With three non-redundant vectors, any set of three values can be reaced.  In particular, the 3 non-redundant vectors in `mod` can reach any possible response vector exactly.  That's why the residuals must be zero in the model.
+
+
+Geometry of Fitting with Multiple Vectors
 ===================
 
 ### 1. Diagram with two explanatory vectors
