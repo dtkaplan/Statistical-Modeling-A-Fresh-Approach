@@ -423,31 +423,71 @@ options(width=40)
 options(show.signif.stars=FALSE)
 @
 
-
-
-<<tally>>=
-tally( ~ substance + sex, data=HELPrct )
+\subsection*{Tallying}
+A simple count of the number in each level
+<<tally1,results="hide">>=
+tally( ~ sex, data=CPS85)
 @
-<<densityplot,height=2.4>>=
-densityplot( ~ age | sex, groups=substance, data=HELPrct, auto.key=TRUE )
+A two-way table of counts
+<<tally2,results="hide">>=
+tally( ~ sex + married, data=CPS85)
 @
-<<bwplot>>=
-bwplot( age ~ substance | sex, data=HELPrct )
+Conditional proportions: A $|$ B means ``A conditioned on B".
+<<tally3,results="hide">>=
+tally( ~ sex | married, data=CPS85)
 @
-
-
-<<>>=
-xyplot( Sepal.Length ~ Sepal.Width, data=iris, groups=Species )
-@
+Different from \verb+~married|sex+.
 
 \subsection*{New Dataframe Variable}
 <<tidy=FALSE,message=FALSE>>=
 g = fetchData("Galton")
-names(g)
+@
+Add a variable named \texttt{mid}
+<<tidy=FALSE>>=
 g = transform(g,
      mid=(father+1.08*mother)/2)
-names(g)
+names(g)  #confirm that it's there
 @
+
+\subsection*{Subsets}
+Sometimes you want only part of a data set.
+<<tidy=FALSE>>=
+boys = subset(KidsFeet, sex=="B")
+elig = subset(CPS85, 
+        wage>10 & married=="Single")
+pros = subset(CPS85, 
+  sector %in% c("prof","manag"))
+@
+
+
+\subsection*{Distributions}
+Simple distribution
+<<densityplot1,height=2.4,fig.keep="none">>=
+densityplot( ~ age, data=CPS85 )
+@
+Overlaying two (or more) groups
+<<densityplot2,height=2.4,tidy=FALSE>>=
+densityplot( ~ age, groups=sex, 
+             data=CPS85,
+             auto.key=TRUE)
+@
+Side-by-side plots:
+<<densityplot3,height=2.4,fig.keep="none">>=
+densityplot( ~ age | sex, data=CPS85 )
+@
+
+<<bwplot,fig.keep="none">>=
+bwplot( age ~ sector, data=CPS85 )
+@
+
+\subsection*{Scatter Plots}
+<<fig.keep="none">>=
+xyplot( wage ~ age, data=CPS85 )
+@
+\texttt{groups=} and \texttt{|} work as with \texttt{densityplot()}.
+
+\vfill
+\columnbreak
 
 \subsection*{P's and Q's}
 Want to find the value that separates the lower 30\% from the higher 70\%:
@@ -460,29 +500,28 @@ pdata(10, wage, data=CPS85 )
 @
 
 
-\subsection*{Subsets}
-Sometimes you want only part of a data set.
-<<tidy=FALSE>>=
-boys = subset(KidsFeet, sex=="B")
-elig = subset(CPS85, 
-        wage>10 & married=="Single")
-pros = subset(CPS85, 
-  sector %in% c("prof","manag"))
-@
 
 \subsection*{Confidence Intervals}
+ {\bf ... via "normal theory"}
+
 <<tidy=FALSE>>=
 mod = lm( wage ~ educ, data=CPS85 )
 confint(mod)
 @
+See also \texttt{summary(mod)}.
 
-\paragraph{Through Bootstrapping}
+\bigskip
+
+ {\bf ... via bootstrapping}
+
 <<cache=TRUE,tidy=FALSE>>=
 s = do(500)*
   lm(wage~educ, data=resample(CPS85))
 sd(s) # standard error
-# try this: confint(s)
 @
+See also \texttt{confint(s)}
+\vill
+\columnbreak
 
 \subsection*{Quantitative $\rightarrow$ Categorical}
 <<tidy=FALSE>>=

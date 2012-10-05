@@ -8,10 +8,81 @@ Stats 155 Class Notes 2012-10-05
 Main Ideas for Today
 ====================
 
-1. Redundancy
-2. Fitting and the Orthogonality of the Residual in high dimensions
-3. Simpson's paradox
-4. Start with $R^2$.  Fraction of distance travelled to the response vector.  (But, we leave out the credit that would be assigned to the intercept.)
+1. The standard deviation, geometrically
+2. Fitting and orthogonality of the residual in high dimensions
+3. $R^2$.  Fraction of distance travelled to the response vector, but neglecting the intercept.
+4. Simpson's paradox
+5. Redundancy
+
+Standard deviation
+==================
+
+We've seen the standard deviation in it's role as describing the width of a distribution. That's an excellent way to think about the standard deviation.  
+
+#### Two rules of thumb for estimating the standard deviation:
+* The half-width at half height for a bell-shaped distribution
+* One quarter length of the 95% coverage interval
+
+#### The arithmetic: 
+
+First, the variance
+
+* $s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - m)^2$
+
+Then the standard deviation
+* $s = \sqrt{s^2}$ ... duh!
+
+#### The units
+Same as those of the quantity itself
+
+#### Geometrically
+
+Consider the very simple, all-cases-the-same model: `x ~ 1`  The only "explanatory" vector is the intercept vector.
+
+* The coefficient from this model is the grand mean $m$ of the values $x$.
+* The residuals are $x_i - m$.  The sum of squares of the residual is the square length of the residual vector.
+
+New idea: the "average per component length" of a vector.  This would be useful in describing the typical size of a residual for each case.
+
+* It might seem obvious that this should just be the length of the vector divided by the dimension of the space in which the vector lives.  But there's a better way.  The square-length divided by the dimension of the space.  What's nice about this is that it's more or less independent of the size of the sample.
+
+ACTIVITY:
+Have students fit the all-cases-the-same model to the Galton height data, but with different sample sizes.
+
+```{r message=FALSE}
+runners = fetchData("Cherry-Blossom-2008.csv")
+nrow(runners)
+small = sample(runners, size=200)
+big = sample(runners, size=8000)
+mod1 = lm( age ~ 1, data=small)
+mod2 = lm( age ~ 1, data=big)
+# average length per component
+sqrt(sum(resid(mod1)^2))/200
+sqrt(sum(resid(mod2)^2))/8000
+# average square length per component
+sum(resid(mod1)^2)/200
+sum(resid(mod2)^2)/8000
+# and the square root of that
+sqrt(sum(resid(mod1)^2)/200)
+sqrt(sum(resid(mod2)^2)/8000)
+```
+
+* Note that the average square length is consistent between the two sample sizes, but the average legnh is not.  We want our estimates to be about the system under study, not the irrelevant details of the sample we chose to collect.  So the average square length is better.
+
+* But what is the dimension of the space that the residual lives in?  $n-1$ since the residual is always orthogonal to the intercept vector.
+
+Fitting and orthogonality
+-------------------------
+The residuals will be orthogonal to each and every model vector
+```{r}
+mod = lm( wage ~ age*educ + exper, data=CPS85)
+with( data=CPS85, sum( resid(mod)*exper) )
+with( data=CPS85, sum( resid(mod)*age) )
+with( data=CPS85, sum( resid(mod)*educ) )
+with( data=CPS85, sum( resid(mod)*age*educ) )
+# but not
+with( data=CPS85, sum( resid(mod)*exper*educ) )
+```
 
 Redundancy
 ==========
@@ -22,6 +93,69 @@ How to make a model say anything you want about A, through redundancy.
 3. Fit `B ~ V`
 4. Fit `A ~ V`
 5. Combine the coefficients from (3) and (4) to make a model.
+
+Example: I run a small college and I want to show that wages increase by $2 per hour for every year of education.  Let's do this with the CPS85 data.
+
+Note first that there is a redundancy in the CPS85 data among age, exper, and educ.  Confirm that
+exper has been estimated in the data as age - (educ+6)
+
+There is one case --- # 350 --- that's wrong.  It was just an arithmetic mistake in the data.  (Actually, that's why we're using these data from 1985.  Anyone who wants to get some modern CPS data is encouraged to do so and will get some extra credit.)
+
+First, let's work the the corrected data 
+```{r}
+cps = fetchData("CPS85-corrected.csv")
+```
+
+We already know what the relationship is between experience and age and education: $educ = age - exper - 6$
+Confirm this:
+```{r}
+modEduc = lm( educ ~ age + exper, data=cps )
+```
+
+Now fit a model of wage versus age and experience ...
+```{r}
+mod1 = lm(wage ~ age + exper + educ, data=cps)
+coef(mod1)
+```
+
+Notice that the software has flagged the redundancy.  Education isn't playing a role in the model.
+
+One way to characterize the quality of the model is with the typical size of a residual.
+```{r}
+sd(resid(mod1))
+```
+
+Now I'm going to construct a function that includes education but gives the same model values as the fitted model and therefore has the same size residuals.
+
+To help, here's a function that's always zero, reflecting the redundancy among age, experience, education and the intercept:
+
+```{r}
+zero = makeFun( educ - (age-(exper+6)) ~ educ&age&exper)
+```
+
+Zero can be added to the model formula without changing anything.  Indeed, you can add 10 times zero without changing anything, or 100 or whatever you like.  Here's adding 10 times zero
+```{r}
+myMod2 = makeFun( -10.46027 + .9259656*age -.8208330*exper + 
+  10*zero(educ,age,exper) ~ educ&age&exper)
+```
+
+Both these models give exactly the same model values for all the data in the data set:
+```{r}
+v2 = with(cps, myMod2(age=age,educ=educ,exper=exper))
+sd(fitted(mod1)-v2)
+mean(fitted(mod1)-v2)
+sum( (fitted(mod1)-v2)^2 )
+```
+
+Let's look at the effect of education on wage.  One way to do this is to ask how wage changes with education: a derivative.
+```{r}
+effect1 = D( myMod(age=age,educ=educ,exper=exper)~educ)
+effect2 = D( myMod2(age=age,educ=educ,exper=exper)~educ)
+effect1( age=30,exper=10,educ=14)
+effect2( age=30,exper=10,educ=14)
+```
+
+According to the 2nd model, education is worth $10 per hour.
 
 Alignment and Simpson's Paradox
 ===========
