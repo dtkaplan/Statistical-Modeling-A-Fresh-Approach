@@ -286,17 +286,20 @@ Friday Quiz
 **Reading**: SM Ch. 9
 **Assignment**: `r I(PN(c(901,902,904,905)))`
 **In Class**: Weekly Quiz
+**Notes**: `r I(todaysNotes("2012-10-05.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-05-class)
 
 `r I(classDayContents("Mon", "Oct", 8 ))`
 **Topic**: Correlation and Partitioning (continued)
 **Reading**: SM Ch. 9 (review)
 **Assignment**: `r I(PN(c("9RQ",910,911,912,913,921)))`
+**Notes**: `r I(todaysNotes("2012-10-08.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-08-class)
 
 `r I(classDayContents("Wed", "Oct", 10 ))`
 **Topic**: Total and Partial Relationships
 **Reading**: SM Ch. 10
 **Assignment**: `r I(PN(c(922, 923,1001,1004,1010)))`
 **In Class**: `r I(PN(c(1002)))`
+**Notes**: `r I(todaysNotes("2012-10-10.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-10-class)
 
 **On Your Own**: [Is coffee good for you?](http://well.blogs.nytimes.com/2012/05/16/coffee-drinkers-may-live-longer/?ref=health)
 
@@ -305,16 +308,22 @@ Friday Quiz
 **Reading**: SM Ch. 10 (review)
 **Assignment**: `r I(PN(c("10RQ",1005,1011,1012,1020)))`
 **In Class**: Weekly Quiz
+**Notes**: `r I(todaysNotes("2012-10-12.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-12-class)
 
 `r I(classDayContents("Mon", "Oct", 15 ))`
 **Topic**: Confidence Intervals on Coefficients
 **Reading**: SM Ch. 12
 **Assignment**: `r I(PN(c(1021,1201,1202,1203,1205)))`
 
+**Notes**: `r I(todaysNotes("2012-10-15.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-15-class)
+
 `r I(classDayContents("Wed", "Oct", 17 ))`
 **Topic**: Review for Exam
 **Reading**:
 **Assignment**: Review Problems (to be posted)
+
+**Notes**: `r I(todaysNotes("2012-10-17.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-17-class)
+
 
 `r I(classDayContents("Fri", "Oct", 19 ))`
 **Mid-term Exam**
@@ -324,10 +333,14 @@ Friday Quiz
 **Reading**: SM Ch. 12
 **Assignment**: `r I(PN(c("12RQ",1210,1212)))`
 
+**Notes**: `r I(todaysNotes("2012-10-22.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-22-class)
+
 `r I(classDayContents("Wed", "Oct", 24 ))`
 **Topic**: Probability Models
 **Reading**: SM Ch. 11
 **Assignment**: `r I(PN(c("11RQ",1101,1102,1104,1105,1110,1121,1122)))`
+
+**Notes**: `r I(todaysNotes("2012-10-24.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-24-class)
 
 `r I(classDayContents("Fri", "Oct", 26 ))`
 *FALL BREAK*

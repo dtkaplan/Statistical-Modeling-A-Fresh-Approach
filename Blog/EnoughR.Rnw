@@ -9,7 +9,7 @@
 \usepackage{xcolor}
 
 
-\usepackage[landscape,margin=.5in,bottom=.35in,includehead,includefoot]{geometry}
+\usepackage[landscape,margin=.25in,bottom=.35in,includehead,includefoot]{geometry}
 \usepackage{probstat}
 \usepackage{hyperref}
 \usepackage{longtable}
@@ -301,40 +301,37 @@ listFun() # devel
 @
 
 \subsection*{Interactive}
-<<>>=
-mLM()
-mLineFit()
-mCI()
-mLinAlgebra()
-mHypTest()
-mPower()
+Only for classroom use.
+<<eval=FALSE,tidy=FALSE>>=
+mLM()  mLineFit()  mLinAlgebra()
+mCI()  mHypTest() mPower()
 @
 
+\subsection*{Formulas for Models}
+<<eval=FALSE>>=
+response ~ a+b # main effects
+response ~ a*b # interaction, too
+@
+Do not use \verb+|+ or \verb+groups=+.
 \vfill
 
 \columnbreak
 
-\subsection*{Formula Theme}
-The following syntax (often with 
-some parts omitted) is used for 
-graphical summaries and numerical summaries.
+\subsection*{Formulas for Graphs and Numerics}
+Plotting (e.g. \texttt{xyplot}, \texttt{densityplot}, \texttt{bwplot}) and simple numerics (e.g. \texttt{tally}, \texttt{mm}) use formulas in the following ways:
 
 <<>>=
 fname( y ~ x | z, data=..., 
                   groups=... )
 @
+\noindent \texttt{y}: is y-axis variable.  Leave blank for densityplots 
 
-For plots
-\begin{itemize}
-  \item
-		\texttt{y}: is y-axis variable
-	\item
-		\texttt{x}: is x-axis variable
-	\item
-		\texttt{z}: conditioning variable (separate panels)
-	\item
-		\texttt{groups}: conditioning variable (overlaid graphs)
-\end{itemize}
+\noindent \texttt{x}: is x-axis variable
+	
+\noindent \texttt{z}: conditioning variable (separate panes in graphs)
+	
+\noindent  \texttt{groups}: conditioning variable (overlaid in graphs)
+
 For other things \Sexpr{'y ~ x | z'} can usually be read \Sexpr{'y'} or depends on \Sexpr{'x'} separately for each \Sexpr{'z'}.
 
 \subsection*{Data and Variables}
