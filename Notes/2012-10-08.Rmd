@@ -5,11 +5,116 @@ Stats 155 Class Notes 2012-10-08
 # boilerplate
 ```
 
-Hand out [R Command Crib Sheet](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/EnoughR.pdf)
+Hand out the [R Command Crib Sheet](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/EnoughR.pdf).  
 
-Main Ideas for Today
+Where We Are
+=======================
+
+At this point in the course, after the "Week of Theory," you should have a better understanding of:
+1. Why the coefficients on any given term depend on what other terms are in the model. That Simpson's Paradox is not the act of an angry deity, but a simple consequence of alignment of explanatory vectors.
+2. The role that the intercept plays.  Why it's a choice to represent a model whose model values are groupwise means as either the means themselves or a reference mean and deltas to the other means.
+3. That alignment of vectors makes things a bit harder, but is not a fundamental difficulty so long as the alignment is not absolute, as in redundancy.  We can measure alignment between two vectors as an angle.  But we need a way to measure alignment between a vector and a set of vectors.
+4. That a rough measure of the "quality of a model" is the size of the residuals.  The smaller the typical residual, the better the model.
+
+You should already know how to fit models, even pretty complicated models that include lots of variables.  You understand that the model itself takes the form of a function, but that there are important attributes of a model that go beyond just the function itself, e.g. the residuals, model coefficients, confidence intervals on model coefficients.  
+
+But models are looking like they hard to interpret.  The quantification of effect size is complicated by interaction terms.  It's also complicated by the change in coefficients when an additional model term is put into a model.
+
+Where We're Heading
 ====================
 
-1. $R^2$ and its uses
-2. $r$ and why it's not so useful
+This week, we'll be developing some tools for interpreting models.  
+* The "official" statistical method for measuring alignment: not an angle but $R^2$ and $r$: the coefficient of determination and the correlation coefficient.  (Bad names: these "coefficients" are not like coefficients in models.  That's why $R^2$ and $r$ are so widely used.)
+* The use of partial derivatives applied to model functions to quantify effect size.  This will simplify the interpretation of effect size.  However, you'll discover that you need to be thoughtful about whether a partial derivative is what you want or not. 
 
+Orthogonality and Alignment
+======================
+
+Orthogonality of explanatory vectors is a nice, simplifying property. (One more demo of that today.)
+
+### Why Groupwise means are so simple 
+
+They are so simple that it's tempting to try to cast everything in terms of groupwise means.  But this is too limiting --- it doesn't, for example, allow us to deal with quantitative explanatory variables.
+
+Are there lessons to learn in terms of simplifying the interpretation of other kinds of coefficients?
+
+EXAMPLE: Suppose you have decided that the issue in wages is about unionization and whether or not the worker is a service worker --- all the other sectors are equivalent.  You add a new variable to the wage data:
+```{r}
+cps = fetchData("CPS85")
+cps = transform(cps, service = sector=="service" )
+mod1 = mm(wage ~ service, data=cps)
+```
+
+A colleague comes along with a theory that construction workers need to be broken out separately.  You're skeptical, but you do this anyways
+```{r}
+cps = transform(cps, const = sector=="const" )
+mod2 = mm(wage ~ service + const, data=cps)
+```
+
+Compare the two models:
+```{r}
+coef(mod1)
+coef(mod2)
+```
+Notice two things
+1. There's a redundancy.  Why?  (There are really only three groups: service, construction and the rest.)
+2. The first two coefficients didn't change from mod1 to mod2, even though we added in a new model term.
+
+By comparison, consider these two models:
+```{r}
+coef( lm(wage~age, data=cps))
+coef( lm(wage~age+exper, data=cps))
+```
+The coefficients change hugely.
+
+Don't think that this is about `mm()` versus `lm()`.  It's a matter of the vectors and whether they are orthogonal to one another or not.
+
+You can test whether two vectors are orthogonal by taking their dot product:
+```{r}
+with(data=cps, sum(service*const)) # orthogonal
+with(data=cps, sum(age*exper)) # not orthogonal
+```
+
+When the new vector is orthogonal to the one already in the model, the inclusion of the new vector in the model won't change the coefficients on the old vector. 
+
+
+#### Angle program in `m155development.R`
+```{r}
+fetchData("m155development.R")
+```
+
+This takes a model formula or a pair of numerical vectors.  
+```{r}
+with(data=cps, angle(service,const)) # orthogonal
+with(data=cps, angle(age,exper)) # not orthogonal
+```
+
+Remember that when using angle on a model or a model formul, you are finding the angle between the response and the subspace due to all the explanatory vectors.  
+```{r}
+angle( age ~ exper, data=cps )
+angle( age ~ exper - 1, data=cps )
+```
+
+
+## In PROGRESS
+
+Overall idea: $R^2$ summarizes the alignment on a 0-1 scale. 0 means not at all aligned (orthogonal); 1 means perfectly aligned (which might be 0 or 180 degrees). It always includes the intercept in the model --- the point is to account for variation.   That's why it can be calculated as the variance of the fitted divided by the variance of the response.
+
+Another way to think of it: The fraction of the square-distance that you've travelled to the response on the busses provided by your model vectors.
+
+### Little $r$
+
+* Just the square-root of $R^2$ from the simple model `A ~ B` with A and B both quantitative.
+* People who don't want to talk about model coefficients use the correlation coefficient. 
+    * The sign reflects the sign of the coefficient.  
+    * But the magnitude isn't an effect size.
+* $r$ is stupid if the relationship is nonlinear (try ccf versus month in utility data)
+* Our practices: 
+    * Use the coefficients to describe effect size (or, more generally, partial derivatives)
+    * Include what needs to be included in the model to capture the phenomena of interest.
+    
+### Watch Out
+
+* Sometimes people report $R$ instead of $R^2$ because it looks bigger!  You should be aware of this.
+* Example: SAT scores and college GPA have $R \approx 0.4$.  That sounds pretty large, but remember that $R^2 \approx 0.16$.  It wouldn't really matter which one you use, but it's wrong to compare two different things as if they were the same. 
+    * In SAT scores, there's a question of whether the lack of predictability is due to SAT or to GPA.  How would you decide?
