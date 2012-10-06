@@ -27,6 +27,25 @@ This week, we'll be developing some tools for interpreting models.
 * The "official" statistical method for measuring alignment: not an angle but $R^2$ and $r$: the coefficient of determination and the correlation coefficient.  (Bad names: these "coefficients" are not like coefficients in models.  That's why $R^2$ and $r$ are so widely used.)
 * The use of partial derivatives applied to model functions to quantify effect size.  This will simplify the interpretation of effect size.  However, you'll discover that you need to be thoughtful about whether a partial derivative is what you want or not. 
 
+Partitioning of Variability
+=============
+
+### Variance
+
+* Show that sd, IQR, 95% coverage don't partition variation
+* Var does partition variation
+
+### The "Coefficient of Determination" $R^2$
+
+* $R^2$ as ratio of variances
+    * Meaning of $R^2$ as fraction of variance accounted for by model
+    * Meaning of correlation coefficient r
+* Relationship between R^2 and r --- r is just for a straight-line model
+    * Example using ccf versus month: obviously a relationship but not a straight-line relationship
+* How R^2 Changes as we add in model terms
+* Nesting
+* Random vectors.
+
 Orthogonality and Alignment
 ======================
 

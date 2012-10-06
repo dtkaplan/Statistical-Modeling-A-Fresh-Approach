@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>Stats 155 Class Notes 2012-10-08</title>
+<title>Stats 155 Class Notes 2012-10-12</title>
 
 <base target="_blank"/>
 
@@ -174,226 +174,89 @@ hljs.initHighlightingOnLoad();
 </script>
 
 
-<!-- MathJax scripts -->
-<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
 
 
 </head>
 
 <body>
-<h1>Stats 155 Class Notes 2012-10-08</h1>
+<h1>Stats 155 Class Notes 2012-10-12</h1>
 
-<p>Hand out the <a href="http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/EnoughR.pdf">R Command Crib Sheet</a>.  </p>
+<p>Back to total versus partial</p>
 
-<h1>Where We Are</h1>
+<h3>Longitudinal running data</h3>
 
-<p>At this point in the course, after the &ldquo;Week of Theory,&rdquo; you should have a better understanding of:<br/>
-1. Why the coefficients on any given term depend on what other terms are in the model. That Simpson&#39;s Paradox is not the act of an angry deity, but a simple consequence of alignment of explanatory vectors.<br/>
-2. The role that the intercept plays.  Why it&#39;s a choice to represent a model whose model values are groupwise means as either the means themselves or a reference mean and deltas to the other means.<br/>
-3. That alignment of vectors makes things a bit harder, but is not a fundamental difficulty so long as the alignment is not absolute, as in redundancy.  We can measure alignment between two vectors as an angle.  But we need a way to measure alignment between a vector and a set of vectors.<br/>
-4. That a rough measure of the &ldquo;quality of a model&rdquo; is the size of the residuals.  The smaller the typical residual, the better the model.</p>
+<p>Running data: Compare the cross-sectional to the longitudinal data to get at how tie changes versus age.  Question: hold individual constant or not.</p>
 
-<p>You should already know how to fit models, even pretty complicated models that include lots of variables.  You understand that the model itself takes the form of a function, but that there are important attributes of a model that go beyond just the function itself, e.g. the residuals, model coefficients, confidence intervals on model coefficients.  </p>
-
-<p>But models are looking like they hard to interpret.  The quantification of effect size is complicated by interaction terms.  It&#39;s also complicated by the change in coefficients when an additional model term is put into a model.</p>
-
-<h1>Where We&#39;re Heading</h1>
-
-<p>This week, we&#39;ll be developing some tools for interpreting models.  </p>
-
-<ul>
-<li>The &ldquo;official&rdquo; statistical method for measuring alignment: not an angle but \( R^2 \) and \( r \): the coefficient of determination and the correlation coefficient.  (Bad names: these &ldquo;coefficients&rdquo; are not like coefficients in models.  That&#39;s why \( R^2 \) and \( r \) are so widely used.)</li>
-<li>The use of partial derivatives applied to model functions to quantify effect size.  This will simplify the interpretation of effect size.  However, you&#39;ll discover that you need to be thoughtful about whether a partial derivative is what you want or not. </li>
-</ul>
-
-<h1>Partitioning of Variability</h1>
-
-<h3>Variance</h3>
-
-<ul>
-<li>Show that sd, IQR, 95% coverage don&#39;t partition variation</li>
-<li>Var does partition variation</li>
-</ul>
-
-<h3>The &ldquo;Coefficient of Determination&rdquo; \( R^2 \)</h3>
-
-<ul>
-<li>\( R^2 \) as ratio of variances
-
-<ul>
-<li>Meaning of \( R^2 \) as fraction of variance accounted for by model</li>
-<li>Meaning of correlation coefficient r</li>
-</ul></li>
-<li>Relationship between R<sup>2</sup> and r &mdash; r is just for a straight-line model
-
-<ul>
-<li>Example using ccf versus month: obviously a relationship but not a straight-line relationship</li>
-</ul></li>
-<li>How R<sup>2</sup> Changes as we add in model terms</li>
-<li>Nesting</li>
-<li>Random vectors.</li>
-</ul>
-
-<h1>Orthogonality and Alignment</h1>
-
-<p>Orthogonality of explanatory vectors is a nice, simplifying property. (One more demo of that today.)</p>
-
-<h3>Why Groupwise means are so simple</h3>
-
-<p>They are so simple that it&#39;s tempting to try to cast everything in terms of groupwise means.  But this is too limiting &mdash; it doesn&#39;t, for example, allow us to deal with quantitative explanatory variables.</p>
-
-<p>Are there lessons to learn in terms of simplifying the interpretation of other kinds of coefficients?</p>
-
-<p>EXAMPLE: Suppose you have decided that the issue in wages is about unionization and whether or not the worker is a service worker &mdash; all the other sectors are equivalent.  You add a new variable to the wage data:</p>
-
-<pre><code class="r">cps = fetchData(&quot;CPS85&quot;)
+<pre><code class="r">f = fetchData(&quot;Cherry-Blossom-Long.csv&quot;)
 </code></pre>
 
-<pre><code>## Data CPS85 found in package.
+<pre><code>## Retrieving from
+## http://www.mosaic-web.org/go/datasets/Cherry-Blossom-Long.csv
 </code></pre>
 
-<pre><code class="r">cps = transform(cps, service = sector == &quot;service&quot;)
-mod1 = mm(wage ~ service, data = cps)
+<pre><code class="r">nrow(f)
 </code></pre>
 
-<p>A colleague comes along with a theory that construction workers need to be broken out separately.  You&#39;re skeptical, but you do this anyways</p>
-
-<pre><code class="r">cps = transform(cps, const = sector == &quot;const&quot;)
-mod2 = mm(wage ~ service + const, data = cps)
+<pre><code>## [1] 41248
 </code></pre>
 
-<p>Compare the two models:</p>
-
-<pre><code class="r">coef(mod1)
+<pre><code class="r">sample(f, size = 5)
 </code></pre>
 
-<pre><code>## FALSE  TRUE 
-## 9.482 6.537 
+<pre><code>##                   name.yob age    net    gun sex year previous nruns
+## 17056 jennifer furman 1979  26 119.65 119.65   F 2005        1     3
+## 15507      james hill 1956  43     NA  61.68   M 1999        0     2
+## 808     allen findley 1957  43  86.80  88.17   M 2000        0     2
+## 14506 hemali majithia 1979  29     NA 113.15   F 2008        1     2
+## 4388    brian schmidt 1969  36  54.38  54.43   M 2005        2     3
+##       orig.ids
+## 17056    17056
+## 15507    15507
+## 808        808
+## 14506    14506
+## 4388      4388
 </code></pre>
 
-<pre><code class="r">coef(mod2)
+<pre><code class="r">f = subset(f, nruns &gt; 5)
+nrow(f)
 </code></pre>
 
-<pre><code>## FALSE.FALSE  TRUE.FALSE  FALSE.TRUE   TRUE.TRUE 
-##       9.481       6.537       9.502         NaN 
+<pre><code>## [1] 6186
 </code></pre>
 
-<p>Notice two things<br/>
-1. There&#39;s a redundancy.  Why?  (There are really only three groups: service, construction and the rest.)<br/>
-2. The first two coefficients didn&#39;t change from mod1 to mod2, even though we added in a new model term.</p>
+<p>Two models</p>
 
-<p>By comparison, consider these two models:</p>
-
-<pre><code class="r">coef(lm(wage ~ age, data = cps))
+<pre><code class="r">mod1 = lm(net ~ age, data = f)
+mod2 = lm(net ~ age + name.yob, data = f)
 </code></pre>
 
-<pre><code>## (Intercept)         age 
-##     6.16747     0.07755 
+<pre><code class="r">head(coef(mod2))
 </code></pre>
 
-<pre><code class="r">coef(lm(wage ~ age + exper, data = cps))
+<pre><code>##                 (Intercept)                         age 
+##                     59.0891                      0.8393 
+##     name.yobabiy zewde 1967   name.yobadam anthony 1966 
+##                     13.5079                     -8.3130 
+## name.yobadam stolzberg 1976   name.yobai-mei chang 1964 
+##                    -11.3294                      4.6991 
 </code></pre>
 
-<pre><code>## (Intercept)         age       exper 
-##    -10.3819      0.9232     -0.8190 
+<pre><code class="r">mod1
 </code></pre>
 
-<p>The coefficients change hugely.</p>
-
-<p>Don&#39;t think that this is about <code>mm()</code> versus <code>lm()</code>.  It&#39;s a matter of the vectors and whether they are orthogonal to one another or not.</p>
-
-<p>You can test whether two vectors are orthogonal by taking their dot product:</p>
-
-<pre><code class="r">with(data = cps, sum(service * const))  # orthogonal
+<pre><code>## 
+## Call:
+## lm(formula = net ~ age, data = f)
+## 
+## Coefficients:
+## (Intercept)          age  
+##      72.051        0.305  
+## 
 </code></pre>
 
-<pre><code>## [1] 0
-</code></pre>
+<p>Note how substantially the age dependence differs depending on whether you are looking longitudinally or cross-sectionally.</p>
 
-<pre><code class="r">with(data = cps, sum(age * exper))  # not orthogonal
-</code></pre>
-
-<pre><code>## [1] 426214
-</code></pre>
-
-<p>When the new vector is orthogonal to the one already in the model, the inclusion of the new vector in the model won&#39;t change the coefficients on the old vector. </p>
-
-<h4>Angle program in <code>m155development.R</code></h4>
-
-<pre><code class="r">fetchData(&quot;m155development.R&quot;)
-</code></pre>
-
-<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/m155development.R
-</code></pre>
-
-<pre><code>## [1] TRUE
-</code></pre>
-
-<p>This takes a model formula or a pair of numerical vectors.  </p>
-
-<pre><code class="r">with(data = cps, angle(service, const))  # orthogonal
-</code></pre>
-
-<pre><code>## [1] 90
-</code></pre>
-
-<pre><code class="r">with(data = cps, angle(age, exper))  # not orthogonal
-</code></pre>
-
-<pre><code>## [1] 17.84
-</code></pre>
-
-<p>Remember that when using angle on a model or a model formul, you are finding the angle between the response and the subspace due to all the explanatory vectors.  </p>
-
-<pre><code class="r">angle(age ~ exper, data = cps)
-</code></pre>
-
-<pre><code>## [1] 3.628
-</code></pre>
-
-<pre><code class="r">angle(age ~ exper - 1, data = cps)
-</code></pre>
-
-<pre><code>## [1] 17.84
-</code></pre>
-
-<h2>In PROGRESS</h2>
-
-<p>Overall idea: \( R^2 \) summarizes the alignment on a 0-1 scale. 0 means not at all aligned (orthogonal); 1 means perfectly aligned (which might be 0 or 180 degrees). It always includes the intercept in the model &mdash; the point is to account for variation.   That&#39;s why it can be calculated as the variance of the fitted divided by the variance of the response.</p>
-
-<p>Another way to think of it: The fraction of the square-distance that you&#39;ve travelled to the response on the busses provided by your model vectors.</p>
-
-<h3>Little \( r \)</h3>
-
-<ul>
-<li>Just the square-root of \( R^2 \) from the simple model <code>A ~ B</code> with A and B both quantitative.</li>
-<li>People who don&#39;t want to talk about model coefficients use the correlation coefficient. 
-
-<ul>
-<li>The sign reflects the sign of the coefficient.<br/></li>
-<li>But the magnitude isn&#39;t an effect size.</li>
-</ul></li>
-<li>\( r \) is stupid if the relationship is nonlinear (try ccf versus month in utility data)</li>
-<li>Our practices: 
-
-<ul>
-<li>Use the coefficients to describe effect size (or, more generally, partial derivatives)</li>
-<li>Include what needs to be included in the model to capture the phenomena of interest.</li>
-</ul></li>
-</ul>
-
-<h3>Watch Out</h3>
-
-<ul>
-<li>Sometimes people report \( R \) instead of \( R^2 \) because it looks bigger!  You should be aware of this.</li>
-<li>Example: SAT scores and college GPA have \( R \approx 0.4 \).  That sounds pretty large, but remember that \( R^2 \approx 0.16 \).  It wouldn&#39;t really matter which one you use, but it&#39;s wrong to compare two different things as if they were the same. 
-
-<ul>
-<li>In SAT scores, there&#39;s a question of whether the lack of predictability is due to SAT or to GPA.  How would you decide?</li>
-</ul></li>
-</ul>
+<h3>Grades and the GPA</h3>
 
 </body>
 

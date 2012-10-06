@@ -1,0 +1,34 @@
+Stats 155 Class Notes 2012-10-12
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+Back to total versus partial
+
+### Longitudinal running data
+
+Running data: Compare the cross-sectional to the longitudinal data to get at how tie changes versus age.  Question: hold individual constant or not.
+
+```{r cache=TRUE}
+f = fetchData("Cherry-Blossom-Long.csv")
+nrow(f)
+sample(f,size=5)
+f = subset(f, nruns>5)
+nrow(f)
+```
+
+Two models
+```{r cache=TRUE}
+mod1 = lm( net ~ age, data=f)
+mod2 = lm( net ~ age + name.yob, data=f)
+```
+
+```{r}
+head( coef(mod2))
+mod1
+```
+Note how substantially the age dependence differs depending on whether you are looking longitudinally or cross-sectionally.
+
+### Grades and the GPA

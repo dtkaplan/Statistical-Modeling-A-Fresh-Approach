@@ -1,0 +1,27 @@
+Stats 155 Class Notes 2012-10-10
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+Partial versus total
+===============
+
+### Review of Partial Derivatives
+
+Change of one variable holding the other ones constant
+
+* Calculation from a model formula using coefficients
+* Calculation from model function by evaluating at nearby points
+
+### Real-world examples
+
+* Insurance example: Should we pay people not to be on the College's health plan?
+* NGOs and development aid: Speaker Christie Hansen talked about how donors for health funding in Kenya ended up funding other activities as the government moved money away from health toward agriculture, etc.
+* Merit aid. Will it reduce net tuition or increase it. Depends on whether we substantially change the yield.
+
+### Activity
+
+[In-class activity](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12#1002) (Will provide a paper handout)
+Car data: work with the two-dimensional graphs
