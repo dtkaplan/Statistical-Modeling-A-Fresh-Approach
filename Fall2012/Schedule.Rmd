@@ -63,7 +63,7 @@ todaysNotes <- function(fname,marker="notes") {
 
 ### Class Resources
 
-R: [RStudio server](http://www.macalester.edu/rstudio)  :: [Revisions to MOSAIC commands](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Errata/errata.html)  (e.g. `props` and `counts`)
+R: [RStudio server](http://www.macalester.edu/rstudio)  :: [Revisions to MOSAIC commands](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Errata/errata.html)  (e.g. `props` and `counts`) :: [Command Crib Sheet](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/EnoughR.pdf)
 
 [Moodle site](https://moodle.macalester.edu/course/view.php?id=1080) :: AcroScore [initial passwords](https://moodle.macalester.edu/mod/assign/view.php?id=12216) :: 
 

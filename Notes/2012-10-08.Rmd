@@ -1,0 +1,15 @@
+Stats 155 Class Notes 2012-10-08
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+Hand out [R Command Crib Sheet](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/EnoughR.pdf)
+
+Main Ideas for Today
+====================
+
+1. $R^2$ and its uses
+2. $r$ and why it's not so useful
+
