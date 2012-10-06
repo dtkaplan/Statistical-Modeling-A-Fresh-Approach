@@ -397,13 +397,13 @@ fetchData("m155development.R")
 
 \newpage
 
-\chead{\sf \bfseries \Large R Sampler for Intro Stats}
+\chead{\sf \bfseries \Large R Sampler for Intro to Statistical Modeling}
 
 \def\opt#1{#1}
 \def\squeeze{\vspace*{-4ex}}
 
 \begin{multicols}{4}
-\small
+\footnotesize
 \SweaveOpts{
 	eval=TRUE, 
 	fig.path='figures',
@@ -419,35 +419,69 @@ fetchData("m155development.R")
 options(width=40)
 options(show.signif.stars=FALSE)
 @
+\subsection*{Quick Look at a Data Frame}
+
+\vspace*{-.1in}
+<<results="hide",message=FALSE,eval=FALSE,tidy=FALSE>>=
+cps = fetchData("CPS85")
+names(cps)   nrow(cps)    summary(cps)  
+head(cps)    sample(cps,size=5)
+@
+
+\vspace*{-.2in}
 
 \subsection*{Tallying}
 A simple count of the number in each level
+
+\vspace*{-.1in}
+
 <<tally1,results="hide">>=
 tally( ~ sex, data=CPS85)
 @
 A two-way table of counts
+
+\vspace*{-.1in}
+
 <<tally2,results="hide">>=
 tally( ~ sex + married, data=CPS85)
 @
+
+\vspace*{-.1in}
 Conditional proportions: A $|$ B means ``A conditioned on B".
+
+\vspace*{-.1in}
 <<tally3,results="hide">>=
 tally( ~ sex | married, data=CPS85)
 @
+
+\vspace*{-.1in}
+
 Different from \verb+~married|sex+.
 
 \subsection*{New Dataframe Variable}
+
+\vspace*{-.2in}
+
 <<tidy=FALSE,message=FALSE>>=
 g = fetchData("Galton")
 @
 Add a variable named \texttt{mid}
+
+\vspace*{-.1in}
+
 <<tidy=FALSE>>=
 g = transform(g,
      mid=(father+1.08*mother)/2)
 names(g)  #confirm that it's there
 @
 
+\vspace*{-.2in}
+
 \subsection*{Subsets}
 Sometimes you want only part of a data set.
+
+\vspace*{-.1in}
+
 <<tidy=FALSE>>=
 boys = subset(KidsFeet, sex=="B")
 elig = subset(CPS85, 
@@ -455,7 +489,27 @@ elig = subset(CPS85,
 pros = subset(CPS85, 
   sector %in% c("prof","manag"))
 @
+{\bf ... Random subset}
 
+\vspace*{-.1in}
+<<results="hide">>=
+subset(CPS85,size=4)
+@
+
+\vspace*{-.2in}
+
+\subsection*{Data from Google Spreadsheets}
+In Google, choose {\sc File/Publish to the Web}.
+Get link to the published data as CSV, sheet 1.  
+Copy the link
+
+\vspace*{-.1in}
+<<eval=FALSE,tidy=FALSE>>=
+mydat=fetchGoogle("https://docs.google...")
+@
+
+\vfill
+\columnbreak
 
 \subsection*{Distributions}
 Simple distribution
@@ -468,38 +522,114 @@ densityplot( ~ age, groups=sex,
              data=CPS85,
              auto.key=TRUE)
 @
+\vspace*{-.2in}
 Side-by-side plots:
 <<densityplot3,height=2.4,fig.keep="none">>=
 densityplot( ~ age | sex, data=CPS85 )
 @
-
+\vspace*{-.2in}
 <<bwplot,fig.keep="none">>=
 bwplot( age ~ sector, data=CPS85 )
 @
 
+\vspace*{-.2in}
+
 \subsection*{Scatter Plots}
+
+\vspace*{-.1in}
 <<fig.keep="none">>=
 xyplot( wage ~ age, data=CPS85 )
 @
 \texttt{groups=} and \texttt{|} work as with \texttt{densityplot()}.
 
+\subsection*{Plotting Model Values}
+
+\vspace*{-.1in}
+
+<<fig.keep="none",tidy=FALSE>>=
+mod = lm(wage ~ educ+sex,data=CPS85 )
+xyplot(fitted(mod) ~ educ,data=CPS85 )
+xyplot(wage+fitted(mod) ~ educ,data=CPS85)
+@
+
+\vspace*{-.2in}
+
+\subsection*{Extract Model Information}
+
+\vspace*{-.1in}
+
+<<results="hide">>=
+mod = lm(wage~educ+sex,data=CPS85)
+coef(mod)
+fitted(mod)
+resid(mod)
+f = makeFun(mod) # model function
+@
 \vfill
 \columnbreak
 
 \subsection*{P's and Q's}
 Want to find the value that separates the lower 30\% from the higher 70\%:
-<<>>=
+
+\vspace*{-.1in}
+
+<<results="hide">>=
 qdata(0.3, wage, data=CPS85 )
 @
 Have a value and want to find what fraction of the cases are at or below the value:
-<<>>=
+
+\vspace*{-.1in}
+
+<<results="hide">>=
 pdata(10, wage, data=CPS85 )
 @
 
+\vspace*{-.2in}
 
+\subsection*{Randomization}
+Sample
+
+\vspace*{-.1in}
+<<results="hide">>=
+mysamp=sample(CPS85,size=100)
+@
+
+\vspace*{-.1in}
+
+Resample:
+
+\vspace*{-.1in}
+
+<<results="hide",tidy=FALSE>>=
+lm(wage~educ,data=resample(CPS85))
+@
+
+\vspace*{-.1in}
+
+Shuffle (for hypothesis testing)
+
+\vspace*{-.1in}
+
+<<results="hide",tidy=FALSE>>=
+lm(wage~shuffle(educ),data=CPS85)
+@
+
+Probability distributions:
+
+\vspace*{-.1in}
+
+<<eval=FALSE,tidy=FALSE>>=
+rnorm(10,mean=25,sd=2)
+rbinom(10,prob=.5,size=40)
+rpois(10,lambda=50) # events per period
+rexp(10,rate=0.01) # 1/average time btwn events
+@
+\vspace*{-.1in}
 
 \subsection*{Confidence Intervals}
  {\bf ... via "normal theory"}
+
+\vspace*{-.1in}
 
 <<tidy=FALSE>>=
 mod = lm( wage ~ educ, data=CPS85 )
@@ -510,6 +640,8 @@ See also \texttt{summary(mod)}.
 \bigskip
 
  {\bf ... via bootstrapping}
+
+\vspace*{-.1in}
 
 <<cache=TRUE,tidy=FALSE>>=
 s = do(500)*
@@ -525,6 +657,15 @@ See also \texttt{confint(s)}
 bwplot( height ~ as.factor(nkids), 
         data=Galton )
 @
+
+\subsection*{Sums of Squares, Dot Products}
+<<tidy=FALSE,results="hide">>=
+sum( fitted(mod)^2 )
+sum( resid(mod)^2 )
+with( data=CPS85, sum(wage^2))
+sum(fitted(mod)*resid(mod)) # dot prod
+@
+
 
 \subsection*{Something is Wrong}
 <<echo=FALSE,results="hide">>=
@@ -542,7 +683,9 @@ options(na.rm=TRUE)
 mean( net, data=run )
 @
 
+\subsection*{Can't Find Something Here?}
 
+Send a note to \verb+kaplan@macalester.edu+
 
 
 
