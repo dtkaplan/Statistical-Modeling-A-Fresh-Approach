@@ -317,7 +317,7 @@ I welcome proposals for skits to be made into short videos that would explain th
 * *Essential Epidemiology* Ch. 7 (Error)
 
 **Assignment**: 
-* Reading reflection: "On Washing Hands" `r I(RR("washinghands"))`
+* Reading reflection: "On Washing Hands" `r I(RR("washinghands"))` (N.B. You may have to page up on the target page to find the questions and the link to Moodle.)
 * Estimation Problem 2: Dengue Fever.  [Link to description](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/FermiProblems.html#dengue)
 * Columbia Epiville exercise on [Case-Control Studies](http://ccnmtl.columbia.edu/projects/epiville/case_control_study/).  Submit your answers on this [Google Form](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?hl=en_US&formkey=dHVYdkRjWjVPaWV3d3B0VFVIU0NnZUE6MQ#gid=0).
 * How's your glossary going? `r I(RR("glossary"))`
