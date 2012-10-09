@@ -298,7 +298,11 @@ Friday Quiz
 **Topic**: Total and Partial Relationships
 **Reading**: SM Ch. 10
 **Assignment**: `r I(PN(c(922, 923,1001,1004,1010)))`
-**In Class**: `r I(PN(c(1002)))`
+**In Class**: 
+
+* `r I(PN(c(1002)))`
+* Form groups for Survey Project
+
 **Notes**: `r I(todaysNotes("2012-10-10.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-10-class)
 
 **On Your Own**: [Is coffee good for you?](http://well.blogs.nytimes.com/2012/05/16/coffee-drinkers-may-live-longer/?ref=health)
@@ -308,6 +312,7 @@ Friday Quiz
 **Reading**: SM Ch. 10 (review)
 **Assignment**: `r I(PN(c("10RQ",1005,1011,1012,1020)))`
 **In Class**: Weekly Quiz
+
 **Notes**: `r I(todaysNotes("2012-10-12.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-12-class)
 
 `r I(classDayContents("Mon", "Oct", 15 ))`

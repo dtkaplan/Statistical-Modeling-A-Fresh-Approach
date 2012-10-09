@@ -301,11 +301,16 @@ listFun() # devel
 @
 
 \subsection*{Interactive}
-Only for classroom use.
+For classroom use.
 <<eval=FALSE,tidy=FALSE>>=
 mLM()  mLineFit()  mLinAlgebra()
 mCI()  mHypTest() mPower()
 @
+
+
+\vfill
+
+\columnbreak
 
 \subsection*{Formulas for Models}
 <<eval=FALSE>>=
@@ -313,11 +318,68 @@ response ~ a+b # main effects
 response ~ a*b # interaction, too
 @
 Do not use \verb+|+ or \verb+groups=+.
+
+\medskip
+
+{\bf Common forms:}
+
+All cases the same:
+
+\verb=response ~ 1=
+
+\medskip
+
+Main effects & intercept 
+\verb=response ~ X + Y=
+
+\medskip
+
+Exclude intercept  (Rarely used.  Be careful!)
+
+\verb=response ~ -1 + X + Y=
+
+\medskip
+
+Main effects and interaction:
+\verb=response ~ X * Y=
+
+\medskip
+
+Pure interaction (Rarely used.)
+\verb=response ~ X:Y=
+
+\medskip
+
+Polynomial terms:
+\verb=response ~ poly(X,2)=
+
+\medskip
+
+Random model vectors (pedagogical)
+\verb=response ~ rand(2)= 
+
+\subsection*{Data and Variables}
+<<tidy=FALSE>>=
+fetchData() # mosaic
+names()
+head()
+levels()
+subset()
+with()      # operate on data
+transform() # new var in data 
+factor()    # categorical vars
+merge()
+rank()
+@
+
+
+
 \vfill
 
 \columnbreak
 
-\subsection*{Formulas for Graphs and Numerics}
+
+\subsection*{Formulas for Graphs \& Numerics}
 Plotting (e.g. \texttt{xyplot}, \texttt{densityplot}, \texttt{bwplot}) and simple numerics (e.g. \texttt{tally}, \texttt{mm}) use formulas in the following ways:
 
 <<>>=
@@ -327,55 +389,18 @@ fname( y ~ x | z, data=...,
 \noindent \texttt{y}: is y-axis variable.  Leave blank for densityplots 
 
 \noindent \texttt{x}: is x-axis variable
-	
+  
 \noindent \texttt{z}: conditioning variable (separate panes in graphs)
 	
 \noindent  \texttt{groups}: conditioning variable (overlaid in graphs)
 
 For other things \Sexpr{'y ~ x | z'} can usually be read \Sexpr{'y'} or depends on \Sexpr{'x'} separately for each \Sexpr{'z'}.
 
-\subsection*{Data and Variables}
-<<>>=
-fetchData()   # mosaic
-names()
-head()
-levels()
-subset()
-with()
-transform()
-as.factor()
-merge()
-rank()
-@
-
-\vfill
-
-\columnbreak
-\subsection*{Model Terms}
-
-<<>>=
-# All cases the same:
-response ~ 1
-# Main effects & intercept 
-response ~ X + Y
-# Exclude intercept 
-# (Rarely used.  Be careful!)
-response ~ X + Y - 1
-# Main effects and interaction:
-response ~ X * Y
-# Pure interaction (Rarely used.)
-response ~ X:Y
-#Polynomial terms:
-response ~ poly(X,2)
-# Random model vectors (pedagogical)
-response ~ rand(2) # mosaic
-@
-
 \subsection*{Common Example Datasets}
 Can be used directly with \texttt{data=}:
-<<>>=
-Galton # heights
-CPS85 # wages
+<<tidy=FALSE>>=
+Galton       # heights
+CPS85        # wages
 KidsFeet
 Marriage
 SAT
@@ -390,6 +415,7 @@ courses = fetchData("courses.csv")
 # Load software in development:
 fetchData("m155development.R")
 @
+
 
 \vfill
 
@@ -519,8 +545,7 @@ densityplot( ~ age, data=CPS85 )
 Overlaying two (or more) groups
 <<densityplot2,height=2.4,tidy=FALSE>>=
 densityplot( ~ age, groups=sex, 
-             data=CPS85,
-             auto.key=TRUE)
+             data=CPS85, auto.key=TRUE)
 @
 \vspace*{-.2in}
 Side-by-side plots:
@@ -622,12 +647,12 @@ Probability distributions:
 rnorm(10,mean=25,sd=2)
 rbinom(10,prob=.5,size=40)
 rpois(10,lambda=50) # events per period
-rexp(10,rate=0.01) # 1/average time btwn events
+rexp(10,rate=0.01) # 1/ave time btw events
 @
 \vspace*{-.1in}
 
 \subsection*{Confidence Intervals}
- {\bf ... via "normal theory"}
+ {\bf ... via ``normal theory"}
 
 \vspace*{-.1in}
 
@@ -654,7 +679,7 @@ See also \texttt{confint(s)}
 
 \subsection*{Quantitative $\rightarrow$ Categorical}
 <<tidy=FALSE>>=
-bwplot( height ~ as.factor(nkids), 
+bwplot( height ~ factor(nkids), 
         data=Galton )
 @
 

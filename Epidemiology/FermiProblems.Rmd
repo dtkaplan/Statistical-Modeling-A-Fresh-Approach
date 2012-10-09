@@ -142,7 +142,7 @@ You have been asked to set up the system for vaccinating the people of Minnesota
 
 ### To answer in your essay:
 
-* How many nurses should you request be assigned to the vaccination program? `r I(moodle(20500,"NumberOfDoctors"))`
+* How many nurses should you request be assigned to the vaccination program? `r I(moodle(20500,"NumberOfNurses"))`
 
 Make sure to explain your estimate in sufficient detail so that the officials reading your request will be able to judge if your estimate is reasonable.
 

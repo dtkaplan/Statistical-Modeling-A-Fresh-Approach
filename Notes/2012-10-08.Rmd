@@ -27,24 +27,108 @@ This week, we'll be developing some tools for interpreting models.
 * The "official" statistical method for measuring alignment: not an angle but $R^2$ and $r$: the coefficient of determination and the correlation coefficient.  (Bad names: these "coefficients" are not like coefficients in models.  That's why $R^2$ and $r$ are so widely used.)
 * The use of partial derivatives applied to model functions to quantify effect size.  This will simplify the interpretation of effect size.  However, you'll discover that you need to be thoughtful about whether a partial derivative is what you want or not. 
 
+Accounting for Variation
+===================
+
+The definition offered for "statistics" at the beginning of the semester was
+
+> The explanation of or accounting for variation in the context of what remains unexplained.
+
+At this point, you should know
+1. What is meant by variation.  
+2. What is meant by "explanation" and why "accounted for" might be a more accurate. That We're concerned in our models with explaining just one quantity, labelled the "response variable," and are using the explanatory variable to do the explaining or accounting for.
+3. That "what remains unexplained" is represented by the residual.  So it's not at this point a philosophical statement of what we don't know, but just the difference between what the model says and what actually happened.
+
+Now we need to sort through the meaning of "in the context of".
+
+We will eventually reach $R^2$, a very widely used quantity.  So you might as well know what $R^2$ is: a ratio of variances: the variance in the fitted divided by the variance of the response. That is, how much the model created versus how much there was to create.
+
+Two ways do display $R^2$:
+* Do summary() on the model.
+* Use do(1), which is arranged to extract the $R^2$.
+
+Some questions:
+* (theoretical) Why variance and not standard deviation or something else? Ans: Partitioning.
+* (theoretical) Why var(fitted)/var(response) rather than var(fitted)/var(resid)?
+* (theoretical) Why the fitted model values can never have a larger variance than the response variable?
+* (practical) How big is big enough?
+
 Partitioning of Variability
 =============
 
 ### Variance
 
-* Show that sd, IQR, 95% coverage don't partition variation
-* Var does partition variation
+* Show that sd, IQR, 95% coverage don't partition variation. That is, the IQR of the fitted + IQR of resids is not necessarily IQR of response variable.
+* Var does partition variation.  This has to do with the residual being perpendicular to the fitted model values and the pythagorean theorem. 
+
+### Why not, say, var(fitted)/var(resid)?
+
+That would be reasonable, too.  var(fitted)/var(response) has a nice property of being easy to interpret.  It's always between 0 and 1.
+
+Later on we'll switch to a more technical statistic, called the F statistic, which is
+* F = (var(fitted)/m-1)/(var(resid)/(n-m-1))
+This has nice properties in terms of the shape of the probability distribution.  But fundamentally, it has no advantage over $R^2$.
+
+### Why is var(fitted) always no bigger than var(response)?
+
+This has to do with the length of vectors.  The variance is proportional to the length of the vector (after subtracting out the mean).  The triangle inequality mandates that the length of the leg of a right triangle cannot be longer than the length of the hypotenuse.
+
+Actually, you can create models that have a var(fitted) larger than var(response).  This involves either of two strategies:
+
+1. Not fitting the model.  If you don't fit, there's no guarantee that the residual is perpendicular to the fitted model values.
+2. Not including an intercept (or, the equivalent, which can be had by including a categorical variable).  This messes up the link between the length of the vector and the variance.
+
+Example (which shows one reason not to leave off the intercept):
+```{r}
+mod = lm( length ~ width - 1, data=KidsFeet )
+var(fitted(mod))
+with( KidsFeet, var(length))
+```
+
+To avoid this problem, there's another definition of $R^2$ used by `summary()` that reduces to the ratio of variances when the vector of 1s is in the model subspace.
+
+### How Big is Big Enough?
+
+This depends on your purpose.
+
+* $R^2 = 0.01$ on daily stock-market prices would be plenty for me to become the richest person in the world.
+* Rule of thumb often heard: Bigger than 0.15.  But this has no clear justification.
+    EXAMPLE: SAT versus freshman GPA: $R^2 = 0.16$  WATCH OUT, people sometimes report R in order to make it seem that the number is bigger.
+    Why this is wrong: it doesn't take into account how much evidence there is.  Suppose you did an experiement comparing 10 cases to 10 controls.  In reality, there was no relationship.  What do you see?
+```{r}
+max(do(100)*cor( rnorm(10),rnorm(10))^2)
+```
+TURN THIS INTO A BLOG: Early inference.
+* Comparing models.  Bigger $R^2$ is better.  (But is it really?)
+* Hypothesis testing approach: Can we detect the effect?
+
+### Correlation Coefficient.
+
+
+
+#### History.
+* Ellipical scatter plots.
+* Ellipses: ratio of minor to major axis legthth.
+
+
+#### Relationship between $R^2$ and $r$  
+$r$ is just for a straight-line model
+    * Example using ccf versus month: obviously a relationship but not a straight-line relationship
+
+### Comparing Models
+* How R^2 Changes as we add in model terms
+* Nesting
+* Random vectors.  Use `shuffle()` and a small data set.
+
+
+
 
 ### The "Coefficient of Determination" $R^2$
 
 * $R^2$ as ratio of variances
     * Meaning of $R^2$ as fraction of variance accounted for by model
     * Meaning of correlation coefficient r
-* Relationship between R^2 and r --- r is just for a straight-line model
-    * Example using ccf versus month: obviously a relationship but not a straight-line relationship
-* How R^2 Changes as we add in model terms
-* Nesting
-* Random vectors.
+
 
 Orthogonality and Alignment
 ======================

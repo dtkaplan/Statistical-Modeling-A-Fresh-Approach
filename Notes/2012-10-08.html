@@ -208,13 +208,132 @@ hljs.initHighlightingOnLoad();
 <li>The use of partial derivatives applied to model functions to quantify effect size.  This will simplify the interpretation of effect size.  However, you&#39;ll discover that you need to be thoughtful about whether a partial derivative is what you want or not. </li>
 </ul>
 
+<h1>Accounting for Variation</h1>
+
+<p>The definition offered for &ldquo;statistics&rdquo; at the beginning of the semester was</p>
+
+<blockquote>
+<p>The explanation of or accounting for variation in the context of what remains unexplained.</p>
+</blockquote>
+
+<p>At this point, you should know<br/>
+1. What is meant by variation.<br/><br/>
+2. What is meant by &ldquo;explanation&rdquo; and why &ldquo;accounted for&rdquo; might be a more accurate. That We&#39;re concerned in our models with explaining just one quantity, labelled the &ldquo;response variable,&rdquo; and are using the explanatory variable to do the explaining or accounting for.<br/>
+3. That &ldquo;what remains unexplained&rdquo; is represented by the residual.  So it&#39;s not at this point a philosophical statement of what we don&#39;t know, but just the difference between what the model says and what actually happened.</p>
+
+<p>Now we need to sort through the meaning of &ldquo;in the context of&rdquo;.</p>
+
+<p>We will eventually reach \( R^2 \), a very widely used quantity.  So you might as well know what \( R^2 \) is: a ratio of variances: the variance in the fitted divided by the variance of the response. That is, how much the model created versus how much there was to create.</p>
+
+<p>Two ways do display \( R^2 \):</p>
+
+<ul>
+<li>Do summary() on the model.</li>
+<li>Use do(1), which is arranged to extract the \( R^2 \).</li>
+</ul>
+
+<p>Some questions:</p>
+
+<ul>
+<li>(theoretical) Why variance and not standard deviation or something else? Ans: Partitioning.</li>
+<li>(theoretical) Why var(fitted)/var(response) rather than var(fitted)/var(resid)?</li>
+<li>(theoretical) Why the fitted model values can never have a larger variance than the response variable?</li>
+<li>(practical) How big is big enough?</li>
+</ul>
+
 <h1>Partitioning of Variability</h1>
 
 <h3>Variance</h3>
 
 <ul>
-<li>Show that sd, IQR, 95% coverage don&#39;t partition variation</li>
-<li>Var does partition variation</li>
+<li>Show that sd, IQR, 95% coverage don&#39;t partition variation. That is, the IQR of the fitted + IQR of resids is not necessarily IQR of response variable.</li>
+<li>Var does partition variation.  This has to do with the residual being perpendicular to the fitted model values and the pythagorean theorem. </li>
+</ul>
+
+<h3>Why not, say, var(fitted)/var(resid)?</h3>
+
+<p>That would be reasonable, too.  var(fitted)/var(response) has a nice property of being easy to interpret.  It&#39;s always between 0 and 1.</p>
+
+<p>Later on we&#39;ll switch to a more technical statistic, called the F statistic, which is</p>
+
+<ul>
+<li>F = (var(fitted)/m-1)/(var(resid)/(n-m-1))
+This has nice properties in terms of the shape of the probability distribution.  But fundamentally, it has no advantage over \( R^2 \).</li>
+</ul>
+
+<h3>Why is var(fitted) always no bigger than var(response)?</h3>
+
+<p>This has to do with the length of vectors.  The variance is proportional to the length of the vector (after subtracting out the mean).  The triangle inequality mandates that the length of the leg of a right triangle cannot be longer than the length of the hypotenuse.</p>
+
+<p>Actually, you can create models that have a var(fitted) larger than var(response).  This involves either of two strategies:</p>
+
+<ol>
+<li>Not fitting the model.  If you don&#39;t fit, there&#39;s no guarantee that the residual is perpendicular to the fitted model values.</li>
+<li>Not including an intercept (or, the equivalent, which can be had by including a categorical variable).  This messes up the link between the length of the vector and the variance.</li>
+</ol>
+
+<p>Example (which shows one reason not to leave off the intercept):</p>
+
+<pre><code class="r">mod = lm(length ~ width - 1, data = KidsFeet)
+var(fitted(mod))
+</code></pre>
+
+<pre><code>## [1] 1.958
+</code></pre>
+
+<pre><code class="r">with(KidsFeet, var(length))
+</code></pre>
+
+<pre><code>## [1] 1.736
+</code></pre>
+
+<p>To avoid this problem, there&#39;s another definition of \( R^2 \) used by <code>summary()</code> that reduces to the ratio of variances when the vector of 1s is in the model subspace.</p>
+
+<h3>How Big is Big Enough?</h3>
+
+<p>This depends on your purpose.</p>
+
+<ul>
+<li>\( R^2 = 0.01 \) on daily stock-market prices would be plenty for me to become the richest person in the world.</li>
+<li>Rule of thumb often heard: Bigger than 0.15.  But this has no clear justification.
+EXAMPLE: SAT versus freshman GPA: \( R^2 = 0.16 \)  WATCH OUT, people sometimes report R in order to make it seem that the number is bigger.
+Why this is wrong: it doesn&#39;t take into account how much evidence there is.  Suppose you did an experiement comparing 10 cases to 10 controls.  In reality, there was no relationship.  What do you see?</li>
+</ul>
+
+<pre><code class="r">max(do(100) * cor(rnorm(10), rnorm(10))^2)
+</code></pre>
+
+<pre><code>## result 
+## 0.5996 
+</code></pre>
+
+<p>TURN THIS INTO A BLOG: Early inference.</p>
+
+<ul>
+<li>Comparing models.  Bigger \( R^2 \) is better.  (But is it really?)</li>
+<li>Hypothesis testing approach: Can we detect the effect?</li>
+</ul>
+
+<h3>Correlation Coefficient.</h3>
+
+<h4>History.</h4>
+
+<ul>
+<li>Ellipical scatter plots.</li>
+<li>Ellipses: ratio of minor to major axis legthth.</li>
+</ul>
+
+<h4>Relationship between \( R^2 \) and \( r \)</h4>
+
+<p>\( r \) is just for a straight-line model<br/>
+    * Example using ccf versus month: obviously a relationship but not a straight-line relationship</p>
+
+<h3>Comparing Models</h3>
+
+<ul>
+<li>How R<sup>2</sup> Changes as we add in model terms</li>
+<li>Nesting</li>
+<li>Random vectors.  Use <code>shuffle()</code> and a small data set.</li>
 </ul>
 
 <h3>The &ldquo;Coefficient of Determination&rdquo; \( R^2 \)</h3>
@@ -226,14 +345,6 @@ hljs.initHighlightingOnLoad();
 <li>Meaning of \( R^2 \) as fraction of variance accounted for by model</li>
 <li>Meaning of correlation coefficient r</li>
 </ul></li>
-<li>Relationship between R<sup>2</sup> and r &mdash; r is just for a straight-line model
-
-<ul>
-<li>Example using ccf versus month: obviously a relationship but not a straight-line relationship</li>
-</ul></li>
-<li>How R<sup>2</sup> Changes as we add in model terms</li>
-<li>Nesting</li>
-<li>Random vectors.</li>
 </ul>
 
 <h1>Orthogonality and Alignment</h1>

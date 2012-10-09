@@ -5,6 +5,22 @@ Stats 155 Class Notes 2012-10-10
 # boilerplate
 ```
 
+
+
+
+
+Review
+=======
+$R^2$ between zero and 1.  
+* Use delta with nested models to decide if a model is better than junk.
+* SAT versus GPA, $R^2 \approx 0.16$.  Based on thousands of student records.
+* Little $r$ and the meaning of $r=0.40$
+
+Question about grades: How would you decide if the SAT is deficient or whether it is as good as it can possibly be and grades are deficient?
+
+
+
+
 Partial versus total
 ===============
 

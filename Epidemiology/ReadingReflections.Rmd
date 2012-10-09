@@ -85,6 +85,12 @@ Record your plan in a Google document that's shared with the entire group.  *Eac
 * What is it about cancer that lends itself to the dubious detection an "outbreak," whereas for other causes of illness (e.g., food contamination) there doesn't seem to be such a problem?
 `r I(moodle(15226,"clustermyth"))`
 
+### *Better*, "On Washing Hands": Reading Reflection
+
+* Give an example from the reading of "positive deviance."  Give an example of how the concept might apply at Macalester or in some other domain of importance to you?
+* Why was Semmelweis ineffective?
+`r I(moodle(22645, "washinghands"))`
+
 ### Koch's Postulates: Reading Reflection
 
 In this reading reflection, consider the ways in which Koch's postulates make sense or not.  As a point of reference, here is a recent article on [the ecosystem in the gut](http://www.nytimes.com/2011/11/01/health/scientist-examines-possible-link-between-antibiotics-and-obesity.html).  

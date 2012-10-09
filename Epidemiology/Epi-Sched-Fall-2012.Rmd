@@ -317,6 +317,8 @@ I welcome proposals for skits to be made into short videos that would explain th
 * *Essential Epidemiology* Ch. 7 (Error)
 
 **Assignment**: 
+* Reading reflection: "On Washing Hands" `r I(RR("washinghands"))`
+* Estimation Problem 2: Dengue Fever.  [Link to description](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/FermiProblems.html#dengue)
 * Columbia Epiville exercise on [Case-Control Studies](http://ccnmtl.columbia.edu/projects/epiville/case_control_study/).  Submit your answers on this [Google Form](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?hl=en_US&formkey=dHVYdkRjWjVPaWV3d3B0VFVIU0NnZUE6MQ#gid=0).
 * How's your glossary going? `r I(RR("glossary"))`
 
@@ -337,7 +339,8 @@ I welcome proposals for skits to be made into short videos that would explain th
 * *Essential Epidemiology*, Ch. 8
 * [Freedman, Pisani & Purves](https://moodle.macalester.edu/mod/resource/view.php?id=15231) Ch. 1
 
-**Assignment**: 
+**Assignment**:
+* Spreadsheets with Odds Ratios and Number Needed to Treat, and Population Attributable Fraction
 
 **On Your Own**:
 * [An interview with Hans Rossling, part 1](http://blog.ted.com/2009/05/14/qa_with_hans_ro/)
@@ -358,7 +361,8 @@ I welcome proposals for skits to be made into short videos that would explain th
 
 **Assignment**: 
 * [Epiville exercise on confounding](http://ccnmtl.columbia.edu/projects/epiville/confounding/).  Hand in your answers via this [Google Form](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dEFkYWdIdnEwWndkS0NKV18xelJlOUE6MQ).
-* Reading Reflection on Koch's postulates. 
+Estimation Problem 3: Immunization Resources.  [Link to description](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/FermiProblems.html#Number of Nurses)
+* Reading Reflection on Koch's postulates. `r I(RR("koch"))`
 
 **On Your Own**:
 * * A [documentary about polio](http://video.pbs.org/video/1174115155/) and the development of the Salk and Sabin vaccines. 
