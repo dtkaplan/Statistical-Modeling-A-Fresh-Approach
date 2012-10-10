@@ -300,8 +300,8 @@ Friday Quiz
 **Assignment**: `r I(PN(c(922, 923,1001,1004,1010)))`
 **In Class**: 
 
-* `r I(PN(c(1002)))`
-* Form groups for Survey Project
+* [Total versus Partial](https://dl.dropbox.com/u/5098197/ISM/total-partial.pdf)
+* Form groups for [Survey Project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf)
 
 **Notes**: `r I(todaysNotes("2012-10-10.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-10-class)
 
