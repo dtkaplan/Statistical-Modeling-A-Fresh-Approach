@@ -29,11 +29,84 @@ Survey Project
 Partial versus total
 ===============
 
+Suppose I have a used car.  I'm going away for a year and thinking of selling it.  On the other hand, it would be nice to have a car available when I get back.  How much will it cost me to delay selling the car for a year?
+
+Consider several models of used car prices fitted to data on used Hondas:
+```{r}
+cars = fetchData("used-hondas.csv")
+mod1 = lm( Price ~ Age, data=cars )
+mod2 = lm( Price ~ Mileage, data=cars )
+mod3 = lm( Price ~ Mileage + Age, data=cars )
+mod4 = lm( Price ~ Mileage * Age, data=cars )
+```
+
+Each of the first three is nested in the 4th.  You can play around with the various models this way:
+```{r eval=FALSE}
+fetchData("mLM.R")
+mLM( Price ~ Age*Mileage, data=cars )
+```
+Include and exclude terms to try to answer this question:
+> Which is the right model to use to inform my car-selling decision?
+
+Tempting to use model 1, since Age is the only variable that I'm interested in.
+```{r}
+xyplot( fitted(mod1)+Price ~ Age, data=cars )
+```
+
+It's a bit hard to see the model.  Let's try another way of plotting it.
+```{r}
+f1 = makeFun(mod1)
+plotPoints(Price ~ Age, data=cars)
+plotFun( f1(Age)~ Age, add=TRUE)
+```
+How much the price goes down with a year depends on how old the car is, but you can get the rate from the derivative of the function.  Let's evaluate that derivative for an 8-year old car with 50,000 miles:
+```{r}
+f1 = makeFun(mod1)
+df1 = D(f1(Age)~Age)
+df1(Age=8)
+```
+Or, since I'm really thinking about a 1-year difference:
+```{r}
+f1( Age=c(9,8), Mileage=50000 )
+```
+Take the difference.
+QUESTION: How come I get the same answer for the finite-difference and the derivative?
+
+But let's consider mod4
+```{r}
+f4 = makeFun(mod4)
+plotFun( f4(Age=a,Mileage=m)~a&m, 
+         a.lim=c(0,10), m.lim=c(0,100000),
+         levels=1000*(1:20),npts=200)
+plotPoints( Mileage ~ Age, data=cars,add=TRUE,
+            pch=20, col="red")
+```
+
+Examine the change as age goes up by one year.  Should I hold mileage constant or should I let the mileage change with age in the typical way?  
+
+Here's the same question another way: Do I want to compare cars with different mileages and different ages, or do I want to compare cares with different ages and the same mileage.
+
+Calculating the partial derivative or partial change:
+* Take a finite-difference approach 
+```{r}
+f4( Age=c(8,9),Mileage=50000)
+```
+
+* Use partial derivatives
+```{r}
+df4da = D( f4(Age=Age,Mileage=Mileage)~Age)
+df4da(Age=8, Mileage=50000 )
+```
+
+* Do it analytically, using the coefficients to construct the model polynomial.
+
+
 ### Review of Partial Derivatives
 
-Change of one variable holding the other ones constant
+Relate to the two-variable polynomial: $f(x,y) = a_0 + a_1 x + a_2 y + a3 x y + ...$
 
-* Calculation from a model formula using coefficients
+Relate to the three-variable polynomial.
+
 * Calculation from model function by evaluating at nearby points
 
 ### Real-world examples
