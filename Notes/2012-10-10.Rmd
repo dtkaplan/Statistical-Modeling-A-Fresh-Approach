@@ -18,7 +18,12 @@ $R^2$ between zero and 1.
 
 Question about grades: How would you decide if the SAT is deficient or whether it is as good as it can possibly be and grades are deficient?
 
+Survey Project
+===============
 
+1. Hand out [project description](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-ISM-Spring-2011-Term-Project/ISM-ISM-Spring-2011-Term-Project-A.html?access=ISM3) They are going to be creating a Google Form to collect the data.
+2. Ask for suggestions about project areas
+3. Have students form groups around common interests. 
 
 
 Partial versus total
@@ -39,5 +44,6 @@ Change of one variable holding the other ones constant
 
 ### Activity
 
-[In-class activity](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISMf12#1002) (Will provide a paper handout)
+[Total-vs-partial In-class activity](https://dl.dropbox.com/u/5098197/ISM/total-partial.pdf)
+
 Car data: work with the two-dimensional graphs
