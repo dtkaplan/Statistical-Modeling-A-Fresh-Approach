@@ -5,7 +5,34 @@ Stats 155 Class Notes 2012-10-12
 # boilerplate
 ```
 
-Back to total versus partial
+### Review
+
+We saw a general strategy for modeling when the concern is with effect size:
+
+1. Decide which sort of effect you want to study: total or partial.
+2. Construct a model that includes both the variable you are interested in and any covariates that you want to hold constant.  What sort of model 
+terms (e.g. interactions) you want to include is another matter, you have a choice.
+3. Compute a partial derivative with respect to the variable whose effect size you want to study holding the other variables constant.
+
+IMPORTANT: Leaving a covariate **out** of a model does not hold it constant.  Ignoring is not the same thing as holding constant.
+
+### More than one variable?
+
+It can occasionally happen that you want to study the effect of a variable that necessarily has an effect on another variable.  For instance, suppose we want to study the effect of education on wages.  But each year of education necessarily leads to a year less of "experience."  So, include both in the model:
+```{r tidy=FALSE}
+mod = lm( wage ~ sex*poly(exper,2)*educ + sector*educ, data=CPS85)
+f = makeFun(mod)
+f(sex="M", exper=9, educ=15,sector="prof") - f( sex="M", exper=10, educ=14, sector="prof")
+```
+
+You could also do this by constructing the differential involving both experience and education, but this will do.
+
+
+### Hold Constant or Not
+
+The in-class activity: 
+
+[Total-vs-partial In-class activity](https://dl.dropbox.com/u/5098197/ISM/total-partial.pdf)
 
 ### Longitudinal running data
 
@@ -32,3 +59,53 @@ mod1
 Note how substantially the age dependence differs depending on whether you are looking longitudinally or cross-sectionally.
 
 ### Grades and the GPA
+
+```{r}
+grades = fetchData("grades.csv")
+g2pt = fetchData("grade-to-number.csv")
+courses = fetchData("courses.csv")
+grades = merge(grades, g2pt) # Convert letter grade to number
+grades = merge(grades,courses)
+```
+
+Compute the GPA in the ordinary way:
+```{r}
+options( na.rm=TRUE )
+head( mean(gradepoint ~ sid, data=grades) )
+```
+
+... or by a model
+```{r}
+conventional = coef( lm( gradepoint ~ sid-1, data=grades))
+head( conventional )
+```
+
+What can we hold constant?  Department, level, class enrollment?
+```{r}
+adjusted = coef( lm( gradepoint ~ sid - 1 + dept + level + enroll, data=grades))
+head( adjusted )
+```
+
+How do they compare?
+```{r}
+xyplot( conventional ~ adjusted[1:443], pch=20 )
+```
+
+Or in terms of class rank:
+```{r}
+xyplot( rank(conventional) ~ rank(adjusted[1:443]), pch=20 )
+```
+
+Suppose the cut-off for class rank was to be $\geq 150$.  There are students who pass by the adjusted criteria but fail by the unadjusted.
+```{r}
+xyplot( rank(conventional) ~ rank(adjusted[1:443]), pch=20 )
+plotFun( y >=150 ~ x&y, add=TRUE )
+plotFun( x >=150 ~ x&y, add=TRUE )
+```
+
+The "takes easy courses" index: a positive number indicates taking easy courses.  
+```{r}
+densityplot( ~rank(conventional)- rank(adjusted[1:443]))
+```
+
+Cross the IDs of the people taking easy courses with the department or instructor ... to be done.
