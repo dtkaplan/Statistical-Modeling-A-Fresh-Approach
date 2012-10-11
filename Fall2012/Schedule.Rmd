@@ -301,7 +301,7 @@ Friday Quiz
 **In Class**: 
 
 * [Total versus Partial](https://dl.dropbox.com/u/5098197/ISM/total-partial.pdf)
-* Form groups for [Survey Project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf)
+* Form groups for [Survey Project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) and enter the names etc. [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773)
 
 **Notes**: `r I(todaysNotes("2012-10-10.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-10-class)
 
