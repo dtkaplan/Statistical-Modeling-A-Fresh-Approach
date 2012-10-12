@@ -353,13 +353,23 @@ Friday Quiz
 `r I(classDayContents("Mon", "Oct", 29 ))`
 **Topic**: Hypothesis Testing
 **Reading**: SM Ch. 13
-**Assignment**: `r I(PN(c(1111,1130,1135,1137,1301)))`
+**Assignment**: 
+
+* `r I(PN(c(1111,1130,1135,1137,1301)))`
+
+**Notes**: `r I(todaysNotes("2012-10-29.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-29-class)
 
 `r I(classDayContents("Wed", "Oct", 31 ))`
 **Topic**: Hypothesis Testing
 **Reading**: SM Ch. 13 (review)
-**Assignment**: `r I(PN(c("13RQ",1302)))`
+**Assignment**: 
+
+* `r I(PN(c("13RQ",1302)))`
+* Discuss your draft [Survey Project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) with your instructor. 
+
 **In Class**: `r I(PN(c(1315)))`
+
+**Notes**: `r I(todaysNotes("2012-10-31.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-31-class)
 
 **On Your Own**: The paper that won the [2012 Ignobel prize](http://www.improbable.com/ig/winners/) in neuroscience: [On brain activity in a dead salmon](http://www.jsur.org/ar/jsur_ben102010.pdf)
 
@@ -370,6 +380,7 @@ Friday Quiz
 **In Class**: 
 * Weekly Quiz
 * `r I(PN(c(1422)))`
+**Notes**: `r I(todaysNotes("2012-11-02.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-02-class)
 
 `r I(classDayContents("Mon", "Nov", 5 ))`
 **Topic**: Interpreting the p-value
@@ -379,6 +390,7 @@ Friday Quiz
 
 **Assignment**: `r I(PN(c("14RQ",1404,1405,1411,1412,1424)))`
 **In Class**: `r I(PN(c(1421)))`
+**Notes**: `r I(todaysNotes("2012-11-05.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-05-class)
 
 **On Your Own**: [Journalistic deficit disorder](http://www.economist.com/node/21563275)
 
@@ -386,38 +398,49 @@ Friday Quiz
 **Topic**: Hypothesis Testing on Parts of Models
 **Reading**: SM Ch. 15
 **Assignment**: `r I(PN(c()))`
+**Notes**: `r I(todaysNotes("2012-11-07.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-07-class)
 
 `r I(classDayContents("Fri", "Nov", 9 ))`
 **Topic**: Hypothesis Testing on Parts of Models (continued)
 **Reading**: SM Ch. 15 (review)
 **Assignment**: `r I(PN(c()))`
 **In Class**: Weekly Quiz
+**Notes**: `r I(todaysNotes("2012-11-09.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-09-class)
 
 `r I(classDayContents("Mon", "Nov", 12 ))`
 **Topic**: Choosing model terms
 **Reading**: [XKCD cartoon](http://xkcd.com/675/)
 **Assignment**: `r I(PN(c()))`
+**Notes**: `r I(todaysNotes("2012-11-12.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-12-class)
 
 `r I(classDayContents("Wed", "Nov", 14 ))`
 **Topic**: Non parametrics
 **Reading**:
-**Assignment**: `r I(PN(c()))`
+**Assignment**: 
+
+*`r I(PN(c()))`
+* Get final approval for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) from your instructor.
+
+**Notes**: `r I(todaysNotes("2012-11-14.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-14-class)
 
 `r I(classDayContents("Fri", "Nov", 16 ))`
 **Topic**: Logistic regression
 **Reading**: SM Ch. 16
 **Assignment**: `r I(PN(c()))`
 **In Class**: Weekly Quiz
+**Notes**: `r I(todaysNotes("2012-11-16.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-16-class)
 
 `r I(classDayContents("Mon", "Nov", 19 ))`
 **Topic**: Logistic regression
 **Reading**: SM Ch. 16
 **Assignment**: `r I(PN(c()))`
+**Notes**: `r I(todaysNotes("2012-11-19.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-19-class)
 
 `r I(classDayContents("Wed", "Nov", 21 ))`
 **Topic**: Logistic regression
 **Reading**: SM Ch. 16
 **Assignment**: `r I(PN(c()))`
+**Notes**: `r I(todaysNotes("2012-11-21.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-21-class)
 
 `r I(classDayContents("Fri", "Nov", 23 ))`
 *THANKSGIVING BREAK*
@@ -427,6 +450,7 @@ Friday Quiz
 **Reading**: 
 * SM Ch. 17
 * [XKCD cartoon](http://xkcd.com/925/)
+**Notes**: `r I(todaysNotes("2012-11-26.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-26-class)
 
 **Assignment**:
 
@@ -437,6 +461,9 @@ Friday Quiz
 * [XKCD cartoon](http://xkcd.com/552/)
 
 **Assignment**:
+* Hand in analysis and report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) by putting links [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773).
+
+**Notes**: `r I(todaysNotes("2012-11-28.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-28-class)
 
 `r I(classDayContents("Fri", "Nov", 30 ))`
 **Topic**: Causation
@@ -444,22 +471,31 @@ Friday Quiz
 **Assignment**: `r I(PN(c("17RQ")))`
 **In Class**: Weekly Quiz
 
+**Notes**: `r I(todaysNotes("2012-11-30.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-30-class)
+
 `r I(classDayContents("Mon", "Dec", 3 ))`
 **Topic**: Experiment and Design
 **Reading**: SM Ch. 18
 **Assignment**:
+**Notes**: `r I(todaysNotes("2012-12-03.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-03-class)
 
 `r I(classDayContents("Wed", "Dec", 5 ))`
 **Topic**: Experiment and Design
 **Reading**: SM Ch. 18
 **Assignment**:
+**Notes**: `r I(todaysNotes("2012-12-05.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-05-class)
 
 `r I(classDayContents("Fri", "Dec", 7 ))`
 **Topic**: Experiment and Design
 **Reading**: SM Ch. 18
 **Assignment**: `r I(PN(c("18RQ")))`
+**Notes**: `r I(todaysNotes("2012-12-07.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-07-class)
 
 `r I(classDayContents("Mon", "Dec", 10 ))`
 **Topic**: Course Review and Wrap-Up
 **Reading**:
 **Assignment**:
+* Revisions to quizzes due.
+* Hand in Mac-Weekly style report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773). (before end of exam period)
+
+**Notes**: `r I(todaysNotes("2012-12-10.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-10-class)

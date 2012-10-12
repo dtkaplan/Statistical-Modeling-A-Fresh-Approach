@@ -401,6 +401,7 @@ Some movies to get your Epi fix while on break:
 * *Plague City: SARS in Toronto*.  A CTV miniseries about the discovery and response to SARS. [on Netflix](https://movies.netflix.com/WiMovie/Plague_City_SARS_in_Toronto/70146848?locale=en-US)
 * A comparison of smallpox in Montreal in 1885 and a hypothetical outbreak today. [on Netflix](http://movies.netflix.com/WiMovie/Outbreak_Anatomy_of_a_Plague/70243165?trkid=7728649)
 * *The Andromeda Strain*, a sci-fi classic written by an MD. [on Netflix](http://movies.netflix.com/WiMovie/The_Andromeda_Strain/256317?trkid=2361637)
+
 --------------
 
 `r I(classDayContents("Tues", "Oct", 30 ))`
