@@ -1,0 +1,7 @@
+Stats 155 Class Notes 2012-11-09
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+

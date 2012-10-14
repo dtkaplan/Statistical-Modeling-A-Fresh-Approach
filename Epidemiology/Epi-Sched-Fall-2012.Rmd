@@ -340,12 +340,14 @@ I welcome proposals for skits to be made into short videos that would explain th
 * [Freedman, Pisani & Purves](https://moodle.macalester.edu/mod/resource/view.php?id=15231) Ch. 1
 
 **Assignment**:
-* Spreadsheets with Odds Ratios and Number Needed to Treat, and Population Attributable Fraction. [Description here](Activities/Spreadsheet-RR-NNT-OR.html). Your existing spreadsheet is [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=19092).
+* Spreadsheets with Odds Ratios and Number Needed to Treat, and Population Attributable Fraction. [Description here](http://rpubs.com/dtkaplan/Epi-spreadsheet-c). Your existing spreadsheet is [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=19092). 
 
 **On Your Own**:
 * [An interview with Hans Rossling, part 1](http://blog.ted.com/2009/05/14/qa_with_hans_ro/)
 
 **In-class**:
+
+* Sample size and statistical power
 
 -----------------
 
@@ -364,8 +366,12 @@ I welcome proposals for skits to be made into short videos that would explain th
 Estimation Problem 3: Immunization Resources.  [Link to description](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Epidemiology/FermiProblems.html#Number of Nurses)
 * Reading Reflection on Koch's postulates. `r I(RR("koch"))`
 
+**After Class**
+
+* 8pm showing of *Contagion* Location: O/R 100
+
 **On Your Own**:
-* * A [documentary about polio](http://video.pbs.org/video/1174115155/) and the development of the Salk and Sabin vaccines. 
+* A [documentary about polio](http://video.pbs.org/video/1174115155/) and the development of the Salk and Sabin vaccines. 
 
 **In-class**:
 
@@ -563,9 +569,11 @@ Thanksgiving Break!
 * Essential Epidemiology Ch. 14 (Prevention)
 * [Don Berwick's recommendations to the National Health Service.](http://www.kaiserhealthnews.org/Stories/2010/July/07/berwick-british-NHS-speech-transcript.aspx)
 * [Five-Hundred Life-Saving Interventions and their Cost Effectiveness](http://dl.dropbox.com/u/5098197/Epidemiology/500-interventions.pdf)
+* [A Possibly Fatal Mistake](http://www.nytimes.com/2012/10/14/opinion/sunday/kristof-a-possibly-fatal-mistake.html?pagewanted=all)
 
 **Assignment**: 
 * What is health insurance?  Your view.  `r I(RR("insurance"))`
+* Questions on "A possibly fatal mistake." `r I(RR("fatalmistake"))` 
 
 **In-class**:
 * [Allocating health-care resources](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Health-Care-Choices.pdf)

@@ -3,5 +3,257 @@ Stats 155 Class Notes 2012-10-15
 
 ```{r name="setup", child="notes-setup.Rmd"}
 # boilerplate
+options(na.rm=TRUE)
 ```
+
+Plans for the Week
+-------------------
+
+1. A bit more about total vs partial change (Monday)
+    * Gradepoint average example
+    * Running times changing with age
+2. Confidence intervals on model coefficients
+    * Mechanics.  
+        * Resampling and the resampling distribution.  (Monday)
+        * Model value and prediction distributions (Wednesday)  
+    * Interpretation
+        * Role of the variable **given** the covariates. (Monday)
+        * Coverage activity (Wednesday)
+3. Mid-term Exam
+
+Next Monday will be about collinearity and confidence intervals
+
+Next Wednesday about probability models.
+
+Then, after Fall break, we'll move into hypothesis testing.
+
+Where We Are
+-----------------
+
+You should understand that ...
+* A covariate is an explanatory variable, but one in which you, the modeler, happen not to be directly interested it.
+* When you have a model, you can interpret it by running "experiments" on the model.  The most common of these is to examine the effect of one variable by changing it and holding the others constant.  This corresponds to the idea of a partial derivative for a quantitative variable.  For a categorical variable, this is a partial difference. (Sometimes it makes sense to change more than one variable at a time if the two variables are aligned in some way, for instance years of work experience and of education.)
+* If you're going to be holding a covariate constant, you need to include that variable in the model.  There is still an open question about whether to include interaction terms, transformation terms, etc.  We have the hint of an idea that terms can be evaluated based on the way they change $R^2$ and whether a term adds more to $R^2$ than would a random variable.
+* Leaving a variable out of a model does not leave out that variable's influence on the system, it just hides it from your view.  So include covariates and use the interpretation/"experiment-on-model" phase to hold constant what you're not interested in.
+
+Where We're Heading
+----------------
+
+* Sampling distributions, resampling distributions, and confidence intervals on model coefficients can be constructed using the same methodology as we used when examining groupwise means.
+* Examining confidence intervals on model coefficients gives another way to judge the effectiveness of including additional model terms.  When the new terms are highly aligned with other terms in the model, the confidence intervals can grow uselessly large.
+* You can put a confidence interval on a prediction.  This has two parts: 
+    * The interval on the model value
+    * The wider interval on the prediction itself, which has to include the uncertainly due to the residual.
+    
+    
+Classroom Notes
+===============
+
+### Holding covariates constant
+
+From [Friday's notes](2012-10-12.html):
+
+1. GPA example
+2. Aging and running example
+
+### Confidence Intervals
+
+#### Review: 
+
+Sampling Distributions and Re-sampling Distributions
+
+Construct an interval using `do()` and `resample()`.
+```{r}
+s = do(100)*lm( width ~ sex + length, data=resample(KidsFeet) )
+sd(s) # standard error
+densityplot( ~length, data=s)
+```
+
+Using `confint()`
+
+Using `summary()`. Explain the standard error and how to get confidence intervals from that.
+
+#### Kids' foot width
+
+The setting for this problem is the question of whether girls' feet are narrower than boys'.  Confidence intervals give us a quick answer (based on the available data):
+```{r}
+mod = lm( width ~ sex, data=KidsFeet )
+confint(mod)
+```
+The confidence interval on the difference between boys' and girls' foot widths is entirely in the negative.  So even this small sample provides evidence that girls' feet are narrower than boys'.
+
+The real question, however, is whether, for any given shoe size (determined by length) the girls' feet are narrower:
+```{r}
+mod2 = lm( width ~ sex + length, data=KidsFeet )
+confint(mod2)
+```
+Not so much.
+
+If we make a complicated model, it's harder to interpret the confidence intervals on the coefficients:
+```{r}
+mod3 = lm( width ~ sex*length, data=KidsFeet )
+confint(mod3)
+```
+
+Notice how the confidence interval on sexG has gotten much wider.  This can be confusing, since sexG also enters in to the interaction term.  Model values are good to compare here:
+```{r}
+f3 = makeFun( mod3 )
+f3(length=25,sex="G")
+f3(length=25,sex=c("G","B"), interval="confidence")
+```
+
+There is considerable overlap between the two intervals.  
+
+Another sort of question to ask is, if we have a specific girl and a specific boy of the same foot length, how likely are their foot widths to be different:
+```{r}
+f3(length=25,sex=c("G","B"), interval="prediction")
+```
+The typical boy's value is very reasonable for a girl and vice versa.
+
+### Differences between confidence interval on the model value and on the prediction
+
+As the amount of data becomes very large, the CI on the model value becomes very narrow.  But the CI on the prediction always reflects the residuals.
+
+SIMULATION: 10000 kids feet.
+
+```{r}
+mod4 = lm( width ~ sex*length, data=resample(KidsFeet,size=10000) )
+f3 = makeFun( mod4 )
+f3(length=25,sex=c("G","B"), interval="confidence")
+f3(length=25,sex=c("G","B"), interval="prediction")
+```
+
+#### SAT and school spending
+
+Increased spending is associated with **lower** SAT scores
+
+```{r}
+confint( lm( sat~expend, data=SAT ))
+```
+
+Until you adjust for who took the test ...
+```{r}
+confint( lm( sat~expend+frac, data=SAT))
+```
+
+Do the same for salary and ratio.
+
+#### Can we see electricity offset gas heating in the utilities data?
+
+
+Some Choices in content
+------------------------
+
+### Geometry of Confidence Intervals
+
+What does the standard error depend on?
+
+* Size of residuals
+* number of cases (minus number of model vectors -- but we won't worry about this right now)
+* collinearity
+
+Logic behind non-resampling estimates of the standard error
+
+* Models partition into a deterministic and random component
+* Deterministic component is along the model vectors
+* Random component is the residual
+
+Key idea: if we collected another sample, the deterministic component would be the same, but the random component would be utterly different --- it would point in another direction.
+
+* Derivation of standard error for A ~ B
+* Derivation for A ~ B + C where B and C are somewhat collinear. Spacing of B-coefficient contours is set by direction of C
+
+Why does it depend on the number of cases: orthogonality of random vectors in high dimensions.
+
+
+
+### Groupwise means on the GPA. 
+
+Construct the data:
+```{r message=FALSE}
+grades = fetchData("grades.csv")
+g2pt = fetchData("grade-to-number.csv")
+courses = fetchData("courses.csv")
+grades = merge(grades, g2pt)
+```
+
+```{r}
+options(na.rm=TRUE)
+mod = mm(gradepoint ~ sid, data=grades)
+ci = confint(mod)
+head( ci )
+```
+
+A complicated graphic.  Each student is one line.  The horizontal extent shows the confidence interval for that student's GPA (based on just half the courses, so the real CI after 4 years would be shorter by $\sqrt{2}$).
+
+
+```{r fig.keep="last"}
+ci2 = ci[order( coef(mod) ),] # sort from lowest to highest. 
+plot( 1:2, ylim=c(0,455),xlim=c(1.5,4.5), type="n",
+      xlab="GPA",ylab="Class Rank")
+for (k in 1:nrow(ci2)) {
+  lines( ci2[k,c(2,3)], c(k,k), col=rgb(0,0,0,1 - .8*(k%%10!=0)))
+}
+```
+
+All the students whose confidence intervals intersect a given vertical line are equivalent.  But their class ranks can be very different.
+
+Why doesn't the registrar report the confidence interval?
+
+Bad reasons
+* Most people don't know how to interpret them.
+* It would suggest that grades are not certain.
+Good reason
+* The variation in grades is not just do to a random process, but to systematic effects such as the courses taken. Example: A student who gets a B in every course will have a narrow confidence interval.  But a student who takes half her courses in Dept. One and half in Dept. Two, getting an A in every course in One and a C in every course in Two is just as consistent.  We need to incorporate those effects when calculating the confidence interval.
+
+#### Aside: Departmentwise GPAs
+
+Add department and course information to data:
+```{r}
+courses = fetchData("courses.csv")
+grades = merge(grades,courses)
+```
+
+
+```{r}
+modd = mm(gradepoint ~ dept, data=grades)
+cid = confint(modd)
+head( cid )
+ci2d = cid[order( coef(modd) ),] # sort from lowest to highest. 
+plot( 1:2, ylim=c(0,40),xlim=c(1.5,4.5), type="n",
+      xlab="GPA",ylab="Department Order")
+for (k in 1:nrow(ci2d)) {
+  lines( ci2d[k,c(2,3)], c(k,k))
+}
+```
+
+### GPAs adjusting for department, level, and enrollment
+```{r}
+mod3 = lm( gradepoint ~ sid - 1 + dept + enroll + level, data=grades)
+```
+
+#### Student-by-student confidence intervals:
+```{r}
+cid = confint(mod3)[1:443,]
+ci2d = cid[order( coef(mod3)[1:443] ),] # sort from lowest to highest. 
+plot( 1:2, ylim=c(0,450),xlim=c(1.5,4.5), type="n",
+      xlab="Adjusted GPA",ylab="Class Rank")
+for (k in 1:nrow(ci2d)) {
+  lines( ci2d[k,], c(k,k))
+}
+```
+The inclusion of the covariates has increased the width of the confidence intervals.
+
+#### Department-by-department confidence intervals:
+```{r}
+mod4 = lm( gradepoint ~ dept - 1 + sid + enroll + level, data=grades)
+cid = confint(mod3)[1:40,]
+ci2d = cid[order( coef(mod3)[1:40] ),] # sort from lowest to highest. 
+plot( 1:2, ylim=c(0,45),xlim=c(1.5,4.5), type="n",
+      xlab="Adjusted GPA",ylab="Department")
+for (k in 1:nrow(ci2d)) {
+  lines( ci2d[k,], c(k,k))
+}
+```
+
 

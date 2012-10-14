@@ -318,7 +318,7 @@ Friday Quiz
 `r I(classDayContents("Mon", "Oct", 15 ))`
 **Topic**: Confidence Intervals on Coefficients
 **Reading**: SM Ch. 12
-**Assignment**: `r I(PN(c(1021,1201,1202,1203,1205)))`
+**Assignment**: `r I(PN(c(1021,1201,1202,1204,1205)))`
 
 **Notes**: `r I(todaysNotes("2012-10-15.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-15-class)
 

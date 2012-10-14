@@ -1,0 +1,8 @@
+Stats 155 Class Notes 2012-11-02
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+Fall Sampler

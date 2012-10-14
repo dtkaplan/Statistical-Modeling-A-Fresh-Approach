@@ -132,6 +132,13 @@ Third, say something about how you think health insurance should work:
 
 [Hand in on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=15869).
 
+------------------
+### <a name="fatalmistake">A Possibly Fatal Mistake</a>
+
+* Look through the chronology in the article.  If Mr. Androes had had health insurance would the outcome of have been different?
+* How does the article square with what we've been reading about PSA testing?
+
+`r I(moodle(15264, "fatal"))`
 
 ------------------
 

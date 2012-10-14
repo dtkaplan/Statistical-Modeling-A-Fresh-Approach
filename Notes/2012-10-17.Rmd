@@ -5,3 +5,6 @@ Stats 155 Class Notes 2012-10-17
 # boilerplate
 ```
 
+Collinearity in the SAT data: Including salary, class size and per-capital spending.
+
+Extreme collinearity in the wage data: including age, exper, educ.
