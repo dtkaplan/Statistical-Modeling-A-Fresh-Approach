@@ -1,0 +1,67 @@
+More Spreadsheet Formulas: Relative Risk, NNT, Odds Ratios, and Power
+========================================================
+
+For this assignment, you are going to add new tabs to your "Using Formulas" spreadsheet.  (The link you pasted should still be valid, [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=19092).  You'll edit the spreadsheet, of course, on Google and the new version will automatically be accessible for grading.  Or, if you handed in an Excel file, you'll need to upload your new file.)
+
+**Spreadsheet Tab**: Relative Risk and NTT.
+------------------------
+
+Create this table in the spreadsheet.  The basic data --- cells without formulas --- is the two way table **shown in bold**.  You will be entering formulas for the cells marked as ???. 
+
+                | Exposed  | Control | Total
+----------------|----------|---------|------
+Events          | **15**   | **100** | ???
+Non-Events      | **135**  | **150** | ???
+----------------|----------|---------|------
+Total Subjects  |  ???     | ???     | ???
+----------------|----------|---------|------
+Event Rate      |  ???     | ???     | 
+
+
+Below the table,  calculate each of the following, labelling the item appropriately:
+
+* Absolute Risk Reduction
+* Relative Risk Reduction
+* Number Needed to Treat
+
+You may wish to refer to the formulas given in the "Relative Risk" handout, [here](https://dl.dropbox.com/u/5098197/Epidemiology/Activities/relative-risk-nnt.pdf).
+
+**Spreadsheet Tab**: Odds Ratios
+--------------------------------
+
+Construct a table giving the basic two-way input data for a calculation of the odds ratio in a two-way table.
+
+            |  Cases  | Controls 
+------------|---------|----------
+Exposed     |  A      | B
+Not Exposed | C       | D
+
+You'll be filling in numbers where it says A, B, C, and D.
+
+1. Extend the table to show marginal totals, e.g., the total number of cases, the total number of exposed, etc.
+2. Below the data table, add two rows with the following information and the appropriate formulas.  (We'll be talking about the Lower and Upper numbers in class.  The formulas are given here just so that you can reference them.  Don't freak out!)
+
+Odds Ratio |  Lower | Upper
+-----------|--------|-------
+  ???      |  ???   | ????
+  
+The odds ratio is the familiar $\frac{A C}{B D}$ cross-multiplication of the numbers in the two-way table.
+
+To calculate the "Lower" bound on the confidence interval, you need two intermediate numbers.
+* Log odds ratio: $latex L_{or} = \ln(OR)$
+* "Standard Error": $latex SE = \sqrt{ \frac{1}{A} + \frac{1}{B} + \frac{1}{C} + \frac{1}{D}}$
+
+In terms of these intermediates, the Lower number is:
+$latex \exp( L_{or} - 2\times SE)$.  The Upper number is the same, but with a $+$ instead of $-$.
+
+Spreadsheet Tab: Power (To be illustrated in class)
+----------------------------
+
+In this tab, which you can add to your spreadsheet after we cover it in class, you're going to produce a "power" calculation.
+
+1. Copy over your Odds Ratio calculation into a new tab.
+2. Add a cell, next to the two-by-two table, labelled "Size Multiplier"
+3. In all your formulas, multiply each of the numbers A, B, C, and D by the size multiplier.
+
+To do the power calculation (roughly), adjust your size multiplier until the confidence interval on the odds ratio does *not* include 1.
+ 

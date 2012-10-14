@@ -340,7 +340,7 @@ I welcome proposals for skits to be made into short videos that would explain th
 * [Freedman, Pisani & Purves](https://moodle.macalester.edu/mod/resource/view.php?id=15231) Ch. 1
 
 **Assignment**:
-* Spreadsheets with Odds Ratios and Number Needed to Treat, and Population Attributable Fraction
+* Spreadsheets with Odds Ratios and Number Needed to Treat, and Population Attributable Fraction. [Description here](Activities/Spreadsheet-RR-NNT-OR.html). Your existing spreadsheet is [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=19092).
 
 **On Your Own**:
 * [An interview with Hans Rossling, part 1](http://blog.ted.com/2009/05/14/qa_with_hans_ro/)

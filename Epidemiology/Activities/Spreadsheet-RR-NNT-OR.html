@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>More Spreadsheet Formulas: Relative Risk, NNT, Odds Ratios, and Power</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>More Spreadsheet Formulas: Relative Risk, NNT, Odds Ratios, and Power</h1>
+
+<p>For this assignment, you are going to add new tabs to your &ldquo;Using Formulas&rdquo; spreadsheet.  (The link you pasted should still be valid, <a href="https://moodle.macalester.edu/mod/assign/view.php?id=19092">here on Moodle</a>.  You&#39;ll edit the spreadsheet, of course, on Google and the new version will automatically be accessible for grading.  Or, if you handed in an Excel file, you&#39;ll need to upload your new file.)</p>
+
+<h2><strong>Spreadsheet Tab</strong>: Relative Risk and NTT.</h2>
+
+<p>Create this table in the spreadsheet.  The basic data &mdash; cells without formulas &mdash; is the two way table <strong>shown in bold</strong>.  You will be entering formulas for the cells marked as ???. </p>
+
+<table><thead>
+<tr>
+<th></th>
+<th>Exposed</th>
+<th>Control</th>
+<th>Total</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Events</td>
+<td><strong>15</strong></td>
+<td><strong>100</strong></td>
+<td>???</td>
+</tr>
+<tr>
+<td>Non-Events</td>
+<td><strong>135</strong></td>
+<td><strong>150</strong></td>
+<td>???</td>
+</tr>
+<tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;</td>
+</tr>
+<tr>
+<td>Total Subjects</td>
+<td>???</td>
+<td>???</td>
+<td>???</td>
+</tr>
+<tr>
+<td>&mdash;&mdash;&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;-</td>
+<td>&mdash;&mdash;&mdash;</td>
+<td>&mdash;&mdash;</td>
+</tr>
+<tr>
+<td>Event Rate</td>
+<td>???</td>
+<td>???</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Below the table,  calculate each of the following, labelling the item appropriately:</p>
+
+<ul>
+<li>Absolute Risk Reduction</li>
+<li>Relative Risk Reduction</li>
+<li>Number Needed to Treat</li>
+</ul>
+
+<p>You may wish to refer to the formulas given in the &ldquo;Relative Risk&rdquo; handout, <a href="https://dl.dropbox.com/u/5098197/Epidemiology/Activities/relative-risk-nnt.pdf">here</a>.</p>
+
+<h2><strong>Spreadsheet Tab</strong>: Odds Ratios</h2>
+
+<p>Construct a table giving the basic two-way input data for a calculation of the odds ratio in a two-way table.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th>Cases</th>
+<th>Controls</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Exposed</td>
+<td>A</td>
+<td>B</td>
+</tr>
+<tr>
+<td>Not Exposed</td>
+<td>C</td>
+<td>D</td>
+</tr>
+</tbody></table>
+
+<p>You&#39;ll be filling in numbers where it says A, B, C, and D.</p>
+
+<ol>
+<li>Extend the table to show marginal totals, e.g., the total number of cases, the total number of exposed, etc.</li>
+<li>Below the data table, add two rows with the following information and the appropriate formulas.  (We&#39;ll be talking about the Lower and Upper numbers in class.  The formulas are given here just so that you can reference them.  Don&#39;t freak out!)</li>
+</ol>
+
+<table><thead>
+<tr>
+<th>Odds Ratio</th>
+<th>Lower</th>
+<th>Upper</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>???</td>
+<td>???</td>
+<td>????</td>
+</tr>
+</tbody></table>
+
+<p>The odds ratio is the familiar \( \frac{A C}{B D} \) cross-multiplication of the numbers in the two-way table.</p>
+
+<p>To calculate the &ldquo;Lower&rdquo; bound on the confidence interval, you need two intermediate numbers.</p>
+
+<ul>
+<li>Log odds ratio: \( L_{or} = \ln(OR) \)</li>
+<li>&ldquo;Standard Error&rdquo;: \( SE = \sqrt{ \frac{1}{A} + \frac{1}{B} + \frac{1}{C} + \frac{1}{D}} \)</li>
+</ul>
+
+<p>In terms of these intermediates, the Lower number is:<br/>
+\( \exp( L_{or} - 2\times SE) \).  The Upper number is the same, but with a \( + \) instead of \( - \).</p>
+
+<h2>Spreadsheet Tab: Power (To be illustrated in class)</h2>
+
+<p>In this tab, which you can add to your spreadsheet after we cover it in class, you&#39;re going to produce a &ldquo;power&rdquo; calculation.</p>
+
+<ol>
+<li>Copy over your Odds Ratio calculation into a new tab.</li>
+<li>Add a cell, next to the two-by-two table, labelled &ldquo;Size Multiplier&rdquo;</li>
+<li>In all your formulas, multiply each of the numbers A, B, C, and D by the size multiplier.</li>
+</ol>
+
+<p>To do the power calculation (roughly), adjust your size multiplier until the confidence interval on the odds ratio does <em>not</em> include 1.</p>
+
+</body>
+
+</html>
+
