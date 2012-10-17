@@ -5,6 +5,176 @@ Stats 155 Class Notes 2012-10-17
 # boilerplate
 ```
 
-Collinearity in the SAT data: Including salary, class size and per-capital spending.
+Announcements:
+
+* Remember the mid-term exam on Friday.  
+    * You won't need a computer for it.  I'll have a computer that you can use to do calculations, or you can use R, but you can't use any other resources.
+    * You can bring a 1-page sheet of notes.  The only restriction is that you write (or type) this yourself.  No xeroxing, no cut-and-paste from your friends' notes, etc.
+* Clearing up partial derivatives and coefficients
+    * When you want to measure the effect size of an explanatory variable, a partial derivative is appropriate for a quantitative variable and a partial difference is appropriate for a categorical variable.
+    * It's perfectly reasonable to make a finite-difference approximation to the derivative: calculating the model value at two different levels for the input.  You may also face the occasional situation when you need to be changing more than one variable simultaneously, as with the age-experience-educ triplet in the wage data.
+    * For models with just main effects, you can easily read the partial derivatives off from the coefficients.  For models with interactions, this is a little bit harder, since it involves adding together two or more terms.
+      Example:
+```{r}
+mod = lm( height ~ sex + mother*father, data=Galton )
+coef( mod )
+```
+The partial with respect to mother is the coefficient on mother plus the coefficient on mother:father multiplied by the father's height.  That is, the partial derivative with respect to mother is a function of father.
+
+
+Topic for today: Confidence Intervals
+=============
+
+
+Overview
+----------
+
+You measure something because you want to know what it is for some purpose.  Depending on the purpose, your measurement has to be more or less precise.  Examples:
+* Weight of a car: To the nearest 100 lbs is fine for just about every purpose.
+* Body temperature: A fever is above 38 deg, normal is 37 deg.  So you need a precision that's at least one degree.
+
+In building statistical models, we are making somewhat abstract measurements: measurements deriving from a complicated analysis of multiple cases.  Even so, those measurements have a purpose and, depending on your purpose, you need a certain precision.
+* Value of fireplaces in a house.  The measurement has to be precise enough to judge whether the benefit is worth the cost.
+* Effect of an intervention, say a medicine.  The measurement has to be more precise than the expected effect of the medicine.
+* A prediction.  The prediction should, ideally, be precise enough to inform the decision that is to be made on the basis of the precision.
+
+It's important to remember that:
+
+* You should always report the precision of your measurements.  A 95% confidence interval is a good way to do this, either high-to-low or plus-or-minus.  It's also common in some fields to report standard error.
+* You can always calculate the confidence interval.  `confint()` and `summary()` and the output of `makeFun()` will do it for the standard linear models.  Bootstrapping can always be used in more complicated cases.  Such calculations are not guaranteed --- there are assumptions behind them that may not be applicable in the situation at hand --- but a rough confidence interval is much better than no confidence interval at all.
+
+### At this point, you should know 
+
+* How to use `confint()`, `summary()`, and `makeFun()` to calculate a confindence interval.
+    * With `makeFun()`, you first use `makeFun()` to extract the model function, then evaluate that function with an optional `interval=` argument to generate the confidence intervals.  The choices are "confidence" and "prediction".  There's also a `level=` optional argument, set by default to 95%.
+```{r}
+mod = lm( width ~ sex*length, data=KidsFeet)
+f = makeFun(mod)
+f(sex="G",length=25)
+f(sex="G",length=25, interval="confidence")
+f(sex="G",length=25, interval="prediction")
+f(sex="G",length=25, interval="prediction", level=0.999)
+```
+* That the convention is to use 95% confidence, but other levels are possible.  
+* That in converting a standard error to a 95% margin of error, a multiplier of around 2 is appropriate: 1.96 is the favored value, but the two digits of precision implied is inappropriate.  (When there are just a handful of residual degrees of freedeom, a number bigger than 2 is useful.  `confint()` and `makeFun()` know about this.)
+* That there is a confidence interval that can be placed on a model value, and a wider confidence interval that gives the expected range of outcomes in an individual prediction.  Which is which depends on the value given to the argument `interval=` for the model function.
+
+#### Anecdote
+
+When not to use a 95% prediction interval.  
+
+I use an 60% or 80% interval when making predictions for the college about class sizes and tuition income.  That's because planning only needs to be done against a likely bad outcome, not for a 1-in-40 chance that something will happen.  The rare bad outcomes are dealt with by special mechanisms, e.g. re-allocation of budget, draws from the endowment, etc.
+
+
+
+### Today
+
+We'll talk about the things that determine the confidence interval and give some theory to help you understand why these things matter.
+
+It's important to understand what determines the confidence interval so that you can make choices in study design or data analysis that bring the confidence interval into an acceptable range for your purpose.
+
+Three factors that determine the confidence interval:
+
+* Size of the residuals -- CI grows with increasing residuals
+* Number of cases -- CI gets smaller as $latex 1/\sqrt{n}$
+* Colinearity  
+    * When looking at an individual coefficient, the CI is magnified by collinearity with other explanatory vectors.  This relationship is nonlinear --- $latex 1/\sin(\theta) $
+    * The CI on the model value is not affected by colinearity.\
+    
+Usually we will be looking at model coefficients.  The reason is that much of natural science and social science is concerned with effect sizes.  So we'll focus on that.  But predictions are also important.
+
+### Example: SAT data
+
+Statewise means in 50 states along with other variables.
+
+Expenditures per pupil are inversely associated with SAT scores:
+```{r}
+confint( lm( sat ~ expend, data=SAT ))
+```
+It's not a very precise measurement, but precise enough to conclude there is a negative association.
+
+We've already seen the importance of the fraction of students taking the test as a covariate.  
+```{r}
+confint( lm( sat ~ expend+frac, data=SAT ))
+```
+Simpson's paradox.
+
+Look at the other variables commonly associated with school "quality"
+```{r}
+confint( lm( sat ~ salary, data=SAT ))
+confint( lm( sat ~ salary + frac, data=SAT ))
+confint( lm( sat ~ ratio, data=SAT ))
+confint( lm( sat ~ ratio + frac, data=SAT ))
+```
+
+Let's do the grand untangling, including all three "quality" variables:
+```{r}
+mod = lm( sat ~ salary + ratio + expend + frac, data=SAT )
+confint(mod)
+```
+
+Now we've got nothing for the quality variables!  This is because of colinearity.
+
+To measure the angle between, say, salary and the other explanatory variable we can fit a model:
+```{r}
+smod = lm( salary ~ ratio + expend + frac, data=SAT )
+do(1)*smod
+# Finding the angle
+(180*pi)*acos( sqrt( var(fitted(smod))/var(salary,data=SAT)))
+```
+Just 10 degrees separates `salary` from the space of the other variables.
+
+Interaction terms can often aggrevate the colinearity situation 
+```{r}
+smod2 = lm( salary ~ ratio * expend * frac, data=SAT )
+do(1)*smod2
+# Finding the angle
+(180*pi)*acos( sqrt( var(fitted(smod2))/var(salary,data=SAT)))
+```
+5 degrees now.
+
+Looking at the variance inflation.
+```{r}
+ten = 10*pi/180 # in radians
+five = 5*pi/180
+1/sin(ten)
+1/sin(five)
+sin(ten)/sin(five)
+```
+
+Geometrical View of Confidence Intervals
+===================
+
+[CI geometry slides](https://dl.dropbox.com/u/5098197/ISM/CI-geometry-slides.pdf) 
+
+For coefficients and spread of coefficients as the ball gets bigger, see slides 38 and 39 from [geometry of statistics](https://dl.dropbox.com/u/5098197/ISM/geometry-and-statistics.pdf)
+
+Angles in High Dimensions
+=====================
+
+Write an angle program.  (You'll want to build this up in stages.)
+
+```{r}
+ang = makeFun((180/pi)*acos(sum(u*v)/sqrt(sum(u*u)*sum(v*v)))~u&v)
+```
+
+Random angles in 2 dimensions: 
+```{r}
+s = do(1000)*ang( rnorm(2),rnorm(2))
+densityplot(~result, data=s)
+```
+The angle is uniform on 0 to 180 degrees.  But this intuition is misleading in higher dimensions.  Do the same thing in 3 and higher dimensions.
+
+Do the same thing, but replacing one of the vectors with a fixed vector:
+```{r}
+v = rnorm(2)
+s = d(1000)*ang(rnorm(2),v)
+densityplot(~result, data=s)
+```
+
+Overall result: the standard deviation of the cosine of the angle is distributed as $latex 1/sqrt(n)$.  Random vectors tend to be orthogonal.
+
+ANOTHER EXAMPLE
+===============
 
 Extreme collinearity in the wage data: including age, exper, educ.
