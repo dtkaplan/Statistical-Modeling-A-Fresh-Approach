@@ -27,6 +27,7 @@ PN <- function(probs){
 
 Links: AcroScore [accounts](https://moodle.macalester.edu/mod/assign/view.php?id=12216) and [settings](http://datavis.math.macalester.edu:8080/AcroScore08/) : Assignments by Chapter `r I(acroChapter(chap=1))`, `r I(acroChapter(chap=2))`, `r I(acroChapter(chap=3))`, `r I(acroChapter(chap=4))`, `r I(acroChapter(chap=5))`, `r I(acroChapter(chap=6))`, `r I(acroChapter(chap=7))`, `r I(acroChapter(chap=8))`, `r I(acroChapter(chap=9))`, `r I(acroChapter(chap=10))`, `r I(acroChapter(chap=11))`, `r I(acroChapter(chap=12))`, `r I(acroChapter(chap=13))`, `r I(acroChapter(chap=14))`, `r I(acroChapter(chap=15))`, `r I(acroChapter(chap=16))`, `r I(acroChapter(chap=17))`, `r I(acroChapter(chap=18))`
 
+Chapter Problems with Answers: [1](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A-fbe4d15146.html?access=ISMf12), [2](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A-52fd1cbcb6.html?access=ISMf12), [3](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A-66968bea40.html?access=ISMf12), [4](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A-c552bde8e6.html?access=ISMf12), [5](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems-A/SM2-Chapter-5-Problems-A-6adcf01626.html?access=ISMf12), [6](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A-c0a1e77c23.html?access=ISMf12), to be posted: [7], [8], [9], [10]
 
  
 
@@ -333,6 +334,8 @@ Friday Quiz
 `r I(classDayContents("Fri", "Oct", 19 ))`
 **Mid-term Exam**
 
+Review Problems: [without answers](https://dl.dropbox.com/u/5098197/ISM/Mid-Term-Review.pdf) and then again, [with answers](https://dl.dropbox.com/u/5098197/ISM/Mid-Term-Review-answers.pdf)
+
 `r I(classDayContents("Mon", "Oct", 22 ))`
 **Topic**: Confidence Intervals on Coefficients (continued)
 **Reading**: SM Ch. 12
@@ -399,6 +402,7 @@ Friday Quiz
 **Reading**: SM Ch. 15
 **Assignment**: `r I(PN(c()))`
 **Notes**: `r I(todaysNotes("2012-11-07.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-07-class)
+**On Your Own**: [Dance of the p-values](https://www.youtube.com/watch?v=ez4DgdurRPg)
 
 `r I(classDayContents("Fri", "Nov", 9 ))`
 **Topic**: Hypothesis Testing on Parts of Models (continued)
@@ -406,6 +410,7 @@ Friday Quiz
 **Assignment**: `r I(PN(c()))`
 **In Class**: Weekly Quiz
 **Notes**: `r I(todaysNotes("2012-11-09.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-09-class)
+**On Your Own**: [What is a p-value?](https://www.youtube.com/watch?v=ax0tDcFkPic&feature=related)
 
 `r I(classDayContents("Mon", "Nov", 12 ))`
 **Topic**: Choosing model terms

@@ -1,0 +1,297 @@
+\documentclass{article}
+\usepackage[margin=.5in]{geometry}
+\pagestyle{empty}
+\begin{document}
+
+%\centerline{Cancer-Cluster Activities}
+
+\vspace*{-1in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+\newpage
+
+\vspace*{-1.in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\newpage
+
+\vspace*{-1in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\newpage
+
+\vspace*{-1.in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\newpage
+
+\vspace*{-1in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\vspace*{-1.75in}
+\begin{tabular}{cc}
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+&
+<<fig.width=3.5,fig.height=4,echo=FALSE>>=
+n=3000
+plot( runif(n),runif(n), xaxt="n",yaxt="n",xlab="",ylab="",pch=20,col=rgb(0,0,0,.3),cex=.2)
+@
+\\
+\end{tabular}
+
+\end{document}

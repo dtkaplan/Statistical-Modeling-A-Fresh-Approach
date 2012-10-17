@@ -1,0 +1,796 @@
+\documentclass{article}\usepackage{graphicx, color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\definecolor{fgcolor}{rgb}{0.2, 0.2, 0.2}
+\newcommand{\hlnumber}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlfunctioncall}[1]{\textcolor[rgb]{0.501960784313725,0,0.329411764705882}{\textbf{#1}}}%
+\newcommand{\hlstring}[1]{\textcolor[rgb]{0.6,0.6,1}{#1}}%
+\newcommand{\hlkeyword}[1]{\textcolor[rgb]{0,0,0}{\textbf{#1}}}%
+\newcommand{\hlargument}[1]{\textcolor[rgb]{0.690196078431373,0.250980392156863,0.0196078431372549}{#1}}%
+\newcommand{\hlcomment}[1]{\textcolor[rgb]{0.180392156862745,0.6,0.341176470588235}{#1}}%
+\newcommand{\hlroxygencomment}[1]{\textcolor[rgb]{0.43921568627451,0.47843137254902,0.701960784313725}{#1}}%
+\newcommand{\hlformalargs}[1]{\textcolor[rgb]{0.690196078431373,0.250980392156863,0.0196078431372549}{#1}}%
+\newcommand{\hleqformalargs}[1]{\textcolor[rgb]{0.690196078431373,0.250980392156863,0.0196078431372549}{#1}}%
+\newcommand{\hlassignement}[1]{\textcolor[rgb]{0,0,0}{\textbf{#1}}}%
+\newcommand{\hlpackage}[1]{\textcolor[rgb]{0.588235294117647,0.709803921568627,0.145098039215686}{#1}}%
+\newcommand{\hlslot}[1]{\textit{#1}}%
+\newcommand{\hlsymbol}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlprompt}[1]{\textcolor[rgb]{0.2,0.2,0.2}{#1}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{multicol}
+\usepackage[margin=.5in]{geometry}
+\pagestyle{empty}
+
+\begin{document}
+
+\centerline{Tables for Odds Ratio Confidence Intervals}
+
+
+
+
+
+
+
+\begin{multicols}{3}
+
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:11 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  23 &  29 \\ 
+  Lethargic &  18 &  30 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:11 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  25 &  21 \\ 
+  Lethargic &  21 &  33 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:11 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  23 &  30 \\ 
+  Lethargic &  19 &  28 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:11 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  23 &  29 \\ 
+  Lethargic &  20 &  28 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:11 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  25 &  26 \\ 
+  Lethargic &  23 &  26 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:11 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  31 &  22 \\ 
+  Lethargic &  22 &  25 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:11 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  31 &  20 \\ 
+  Lethargic &  18 &  31 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:11 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  23 &  19 \\ 
+  Lethargic &  26 &  32 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:11 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  27 &  24 \\ 
+  Lethargic &  19 &  30 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:11 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  28 &  22 \\ 
+  Lethargic &  24 &  26 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  25 &  24 \\ 
+  Lethargic &  23 &  28 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  26 &  21 \\ 
+  Lethargic &  22 &  31 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  22 &  27 \\ 
+  Lethargic &  16 &  35 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  29 &  23 \\ 
+  Lethargic &  18 &  30 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  25 &  23 \\ 
+  Lethargic &  21 &  31 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  26 &  19 \\ 
+  Lethargic &  22 &  33 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  33 &  22 \\ 
+  Lethargic &  23 &  22 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  26 &  19 \\ 
+  Lethargic &  21 &  34 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  28 &  24 \\ 
+  Lethargic &  20 &  28 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  31 &  22 \\ 
+  Lethargic &  19 &  28 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  23 &  24 \\ 
+  Lethargic &  17 &  36 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  26 &  20 \\ 
+  Lethargic &  15 &  39 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  23 &  24 \\ 
+  Lethargic &  24 &  29 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  17 &  20 \\ 
+  Lethargic &  25 &  38 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  27 &  23 \\ 
+  Lethargic &  13 &  37 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  21 &  29 \\ 
+  Lethargic &  17 &  33 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  26 &  29 \\ 
+  Lethargic &  14 &  31 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  32 &  17 \\ 
+  Lethargic &  18 &  33 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  30 &  25 \\ 
+  Lethargic &  19 &  26 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  28 &  24 \\ 
+  Lethargic &  23 &  25 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  29 &  15 \\ 
+  Lethargic &  26 &  30 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  24 &  27 \\ 
+  Lethargic &  16 &  33 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  30 &  25 \\ 
+  Lethargic &  16 &  29 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  25 &  32 \\ 
+  Lethargic &  14 &  29 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  21 &  27 \\ 
+  Lethargic &  17 &  35 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  19 &  33 \\ 
+  Lethargic &  12 &  36 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  27 &  22 \\ 
+  Lethargic &  21 &  30 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  27 &  23 \\ 
+  Lethargic &  23 &  27 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  21 &  27 \\ 
+  Lethargic &  18 &  34 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  18 &  23 \\ 
+  Lethargic &  21 &  38 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  33 &  26 \\ 
+  Lethargic &  22 &  19 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+% latex table generated in R 2.15.1 by xtable 1.7-0 package
+% Thu Oct 11 09:42:12 2012
+\begin{tabular}{rrr}
+  \hline
+ & Control & Disease \\ 
+  \hline
+Active &  29 &  21 \\ 
+  Lethargic &  21 &  29 \\ 
+   \hline
+\end{tabular}
+
+
+\bigskip
+
+
+
+
+\end{multicols}
+
+\newpage
+
+\centerline{Random p-values under the Null Hypothesis}
+\bigskip
+
+
+\noindent 0.79 \noindent 0.2 \noindent 0.77 \noindent 0.9 \noindent 0.25 \noindent 0.39 \noindent 0.14 \noindent 0.92 \noindent 0.47 \noindent 0.35 \noindent 0.75 \noindent 0.47 \noindent 0.36 \noindent 0.047 \noindent 0.27 \noindent 0.041 \noindent 0.33 \noindent 0.22 \noindent 0.66 \noindent 0.24
+
+
+\bigskip
+\noindent 0.32 \noindent 0.43 \noindent 0.58 \noindent 0.57 \noindent 0.015 \noindent 0.47 \noindent 0.73 \noindent 0.35 \noindent 0.32 \noindent 0.42 \noindent 0.95 \noindent 0.27 \noindent 0.14 \noindent 0.73 \noindent 0.12 \noindent 0.59 \noindent 0.52 \noindent 0.072 \noindent 0.77 \noindent 0.48
+
+
+\bigskip
+\noindent 0.16 \noindent 0.84 \noindent 0.95 \noindent 0.55 \noindent 0.77 \noindent 0.85 \noindent 0.73 \noindent 0.75 \noindent 0.97 \noindent 0.4 \noindent 0.61 \noindent 0.95 \noindent 0.3 \noindent 0.64 \noindent 0.5 \noindent 0.016 \noindent 0.047 \noindent 0.051 \noindent 0.61 \noindent 0.76
+
+
+\bigskip
+\noindent 0.9 \noindent 0.15 \noindent 0.47 \noindent 0.97 \noindent 0.56 \noindent 0.67 \noindent 0.98 \noindent 0.24 \noindent 0.3 \noindent 0.93 \noindent 0.73 \noindent 0.52 \noindent 0.4 \noindent 0.67 \noindent 0.7 \noindent 0.84 \noindent 0.41 \noindent 0.1 \noindent 0.83 \noindent 0.51
+
+
+\bigskip
+\noindent 0.53 \noindent 0.11 \noindent 0.26 \noindent 0.86 \noindent 0.59 \noindent 0.29 \noindent 0.45 \noindent 0.26 \noindent 0.71 \noindent 0.59 \noindent 0.94 \noindent 0.49 \noindent 0.34 \noindent 0.71 \noindent 0.58 \noindent 0.36 \noindent 0.45 \noindent 0.9 \noindent 0.28 \noindent 0.59
+
+
+\bigskip
+\noindent 0.2 \noindent 0.26 \noindent 0.35 \noindent 0.72 \noindent 0.17 \noindent 0.73 \noindent 0.075 \noindent 0.36 \noindent 0.18 \noindent 0.65 \noindent 0.73 \noindent 0.64 \noindent 0.93 \noindent 0.3 \noindent 0.27 \noindent 0.33 \noindent 0.86 \noindent 0.83 \noindent 0.03 \noindent 0.26
+
+
+\bigskip
+\noindent 0.41 \noindent 0.44 \noindent 0.87 \noindent 0.9 \noindent 0.47 \noindent 0.57 \noindent 0.89 \noindent 0.23 \noindent 0.59 \noindent 0.8 \noindent 0.74 \noindent 0.46 \noindent 0.89 \noindent 0.96 \noindent 0.044 \noindent 0.054 \noindent 0.35 \noindent 0.1 \noindent 0.076 \noindent 0.66
+
+
+\bigskip
+\noindent 0.48 \noindent 0.83 \noindent 0.038 \noindent 0.22 \noindent 0.18 \noindent 0.74 \noindent 0.21 \noindent 0.79 \noindent 1 \noindent 0.84 \noindent 0.96 \noindent 0.94 \noindent 0.78 \noindent 0.12 \noindent 0.81 \noindent 0.85 \noindent 0.69 \noindent 0.74 \noindent 0.96 \noindent 0.93
+
+
+\bigskip
+\noindent 0.44 \noindent 0.058 \noindent 0.21 \noindent 0.43 \noindent 0.62 \noindent 0.31 \noindent 0.95 \noindent 0.068 \noindent 0.7 \noindent 0.4 \noindent 0.49 \noindent 0.64 \noindent 0.72 \noindent 0.22 \noindent 0.51 \noindent 0.54 \noindent 0.79 \noindent 0.87 \noindent 0.3 \noindent 0.9
+
+
+\bigskip
+\noindent 0.56 \noindent 0.3 \noindent 0.14 \noindent 0.1 \noindent 0.59 \noindent 0.1 \noindent 0.93 \noindent 0.89 \noindent 0.78 \noindent 0.57 \noindent 0.88 \noindent 0.46 \noindent 0.64 \noindent 0.51 \noindent 0.85 \noindent 0.54 \noindent 0.13 \noindent 0.79 \noindent 0.89 \noindent 0.89
+
+
+\bigskip
+\noindent 0.93 \noindent 0.4 \noindent 0.28 \noindent 0.067 \noindent 0.75 \noindent 0.15 \noindent 0.3 \noindent 0.7 \noindent 0.81 \noindent 0.54 \noindent 0.48 \noindent 0.41 \noindent 0.64 \noindent 0.95 \noindent 0.57 \noindent 0.88 \noindent 0.12 \noindent 0.28 \noindent 0.8 \noindent 0.45
+
+
+\bigskip
+\noindent 0.93 \noindent 0.6 \noindent 0.6 \noindent 0.072 \noindent 0.052 \noindent 0.23 \noindent 0.47 \noindent 0.78 \noindent 0.35 \noindent 0.92 \noindent 0.87 \noindent 0.29 \noindent 0.64 \noindent 0.21 \noindent 0.093 \noindent 0.36 \noindent 0.43 \noindent 0.063 \noindent 0.44 \noindent 0.53
+
+
+\bigskip
+\noindent 0.44 \noindent 0.15 \noindent 0.89 \noindent 0.48 \noindent 0.92 \noindent 0.68 \noindent 0.92 \noindent 0.22 \noindent 0.7 \noindent 0.2 \noindent 0.053 \noindent 0.4 \noindent 0.25 \noindent 0.91 \noindent 0.25 \noindent 0.49 \noindent 0.56 \noindent 0.51 \noindent 0.81 \noindent 0.25
+
+
+\bigskip
+\noindent 0.41 \noindent 0.84 \noindent 0.44 \noindent 0.069 \noindent 0.41 \noindent 0.75 \noindent 0.48 \noindent 0.13 \noindent 0.47 \noindent 0.44 \noindent 0.25 \noindent 0.68 \noindent 0.46 \noindent 0.26 \noindent 0.77 \noindent 0.8 \noindent 0.28 \noindent 0.35 \noindent 0.1 \noindent 0.51
+
+
+\bigskip
+\noindent 0.0022 \noindent 0.81 \noindent 0.93 \noindent 0.011 \noindent 0.19 \noindent 0.32 \noindent 0.62 \noindent 0.92 \noindent 0.62 \noindent 0.43 \noindent 0.7 \noindent 0.52 \noindent 0.34 \noindent 0.61 \noindent 0.23 \noindent 0.084 \noindent 0.12 \noindent 0.79 \noindent 0.04 \noindent 0.55
+
+
+\bigskip
+\noindent 0.7 \noindent 0.91 \noindent 0.21 \noindent 0.79 \noindent 0.36 \noindent 0.71 \noindent 0.33 \noindent 0.77 \noindent 0.56 \noindent 0.58 \noindent 0.72 \noindent 0.21 \noindent 0.004 \noindent 0.47 \noindent 0.72 \noindent 0.79 \noindent 1 \noindent 0.36 \noindent 0.17 \noindent 0.24
+
+
+\bigskip
+\noindent 0.32 \noindent 0.69 \noindent 0.48 \noindent 0.48 \noindent 0.24 \noindent 0.89 \noindent 0.34 \noindent 0.68 \noindent 0.89 \noindent 0.82 \noindent 0.52 \noindent 0.94 \noindent 0.67 \noindent 0.58 \noindent 0.42 \noindent 1 \noindent 0.89 \noindent 0.37 \noindent 0.41 \noindent 0.69
+
+
+\bigskip
+\noindent 0.39 \noindent 0.3 \noindent 0.4 \noindent 0.31 \noindent 0.044 \noindent 0.92 \noindent 0.94 \noindent 0.16 \noindent 0.07 \noindent 0.2 \noindent 0.72 \noindent 0.18 \noindent 0.74 \noindent 0.53 \noindent 0.31 \noindent 0.27 \noindent 0.97 \noindent 0.52 \noindent 0.96 \noindent 0.99
+
+
+\bigskip
+\noindent 0.6 \noindent 0.81 \noindent 0.42 \noindent 0.96 \noindent 0.18 \noindent 0.48 \noindent 0.43 \noindent 0.33 \noindent 0.032 \noindent 0.39 \noindent 0.77 \noindent 0.52 \noindent 0.86 \noindent 0.99 \noindent 0.25 \noindent 0.75 \noindent 0.2 \noindent 0.3 \noindent 0.91 \noindent 0.029
+
+
+\bigskip
+\noindent 0.18 \noindent 0.87 \noindent 0.61 \noindent 0.19 \noindent 0.24 \noindent 0.33 \noindent 0.13 \noindent 0.69 \noindent 0.45 \noindent 0.29 \noindent 0.5 \noindent 0.92 \noindent 0.17 \noindent 0.74 \noindent 0.89 \noindent 0.65 \noindent 0.49 \noindent 0.95 \noindent 0.16 \noindent 0.77
+
+
+\bigskip
+\noindent 0.72 \noindent 0.9 \noindent 0.39 \noindent 0.65 \noindent 0.84 \noindent 0.03 \noindent 0.36 \noindent 0.42 \noindent 0.46 \noindent 0.67 \noindent 0.4 \noindent 0.57 \noindent 0.021 \noindent 0.84 \noindent 0.83 \noindent 0.25 \noindent 0.99 \noindent 0.84 \noindent 0.72 \noindent 0.89
+
+
+\bigskip
+\noindent 0.32 \noindent 0.61 \noindent 0.24 \noindent 0.095 \noindent 0.0038 \noindent 0.89 \noindent 0.67 \noindent 0.7 \noindent 0.5 \noindent 0.8 \noindent 0.96 \noindent 0.22 \noindent 0.45 \noindent 0.68 \noindent 1 \noindent 0.11 \noindent 0.7 \noindent 0.87 \noindent 0.93 \noindent 0.21
+
+
+\bigskip
+\noindent 0.24 \noindent 0.46 \noindent 0.33 \noindent 0.63 \noindent 0.35 \noindent 0.79 \noindent 0.25 \noindent 0.18 \noindent 0.38 \noindent 0.13 \noindent 0.26 \noindent 0.7 \noindent 0.68 \noindent 0.39 \noindent 0.34 \noindent 0.12 \noindent 0.52 \noindent 0.92 \noindent 0.76 \noindent 0.51
+
+
+\bigskip
+\noindent 0.4 \noindent 0.71 \noindent 0.38 \noindent 0.26 \noindent 0.6 \noindent 0.0088 \noindent 0.34 \noindent 0.73 \noindent 0.75 \noindent 0.21 \noindent 0.53 \noindent 0.4 \noindent 0.93 \noindent 0.97 \noindent 0.79 \noindent 0.44 \noindent 0.63 \noindent 0.22 \noindent 0.84 \noindent 0.15
+
+
+\bigskip
+\noindent 0.43 \noindent 0.77 \noindent 1 \noindent 0.28 \noindent 0.93 \noindent 0.45 \noindent 0.69 \noindent 0.77 \noindent 0.53 \noindent 0.91 \noindent 1 \noindent 0.67 \noindent 0.48 \noindent 0.95 \noindent 0.55 \noindent 0.27 \noindent 0.46 \noindent 0.14 \noindent 0.52 \noindent 0.53
+
+
+\bigskip
+\noindent 0.91 \noindent 0.15 \noindent 0.9 \noindent 0.67 \noindent 0.78 \noindent 0.62 \noindent 0.65 \noindent 0.57 \noindent 0.44 \noindent 0.32 \noindent 0.69 \noindent 0.5 \noindent 0.58 \noindent 0.28 \noindent 0.77 \noindent 0.25 \noindent 0.08 \noindent 0.63 \noindent 0.35 \noindent 0.061
+
+
+\bigskip
+\noindent 0.74 \noindent 0.073 \noindent 0.065 \noindent 0.13 \noindent 0.16 \noindent 0.71 \noindent 0.29 \noindent 0.97 \noindent 0.83 \noindent 0.32 \noindent 0.51 \noindent 0.95 \noindent 0.86 \noindent 0.28 \noindent 0.93 \noindent 0.6 \noindent 0.84 \noindent 0.68 \noindent 0.98 \noindent 0.26
+
+
+\bigskip
+\noindent 0.48 \noindent 0.63 \noindent 0.98 \noindent 0.45 \noindent 0.47 \noindent 0.34 \noindent 0.81 \noindent 0.39 \noindent 0.33 \noindent 0.83 \noindent 0.48 \noindent 0.64 \noindent 0.71 \noindent 0.66 \noindent 0.3 \noindent 0.51 \noindent 0.52 \noindent 0.054 \noindent 0.0067 \noindent 0.42
+
+
+\bigskip
+\noindent 0.63 \noindent 0.48 \noindent 0.48 \noindent 0.7 \noindent 0.32 \noindent 0.49 \noindent 0.99 \noindent 0.12 \noindent 0.37 \noindent 0.54 \noindent 0.91 \noindent 0.44 \noindent 0.16 \noindent 0.78 \noindent 0.22 \noindent 0.61 \noindent 0.87 \noindent 0.23 \noindent 0.21 \noindent 0.8
+
+
+\bigskip
+\noindent 0.56 \noindent 0.94 \noindent 0.99 \noindent 0.84 \noindent 0.24 \noindent 0.4 \noindent 0.93 \noindent 0.76 \noindent 0.41 \noindent 0.96 \noindent 0.76 \noindent 0.34 \noindent 0.059 \noindent 0.62 \noindent 0.66 \noindent 0.59 \noindent 0.085 \noindent 0.55 \noindent 0.43 \noindent 0.2
+
+
+\bigskip
+\noindent 0.65 \noindent 0.92 \noindent 0.018 \noindent 0.92 \noindent 0.81 \noindent 0.81 \noindent 0.2 \noindent 0.86 \noindent 0.97 \noindent 0.14 \noindent 0.5 \noindent 0.98 \noindent 0.15 \noindent 0.9 \noindent 0.85 \noindent 0.49 \noindent 0.54 \noindent 0.87 \noindent 0.64 \noindent 0.17
+
+
+\bigskip
+\noindent 0.25 \noindent 0.18 \noindent 0.052 \noindent 0.33 \noindent 0.69 \noindent 0.81 \noindent 0.23 \noindent 0.94 \noindent 0.79 \noindent 0.8 \noindent 0.78 \noindent 0.19 \noindent 0.55 \noindent 0.55 \noindent 0.35 \noindent 0.58 \noindent 0.31 \noindent 0.91 \noindent 0.38 \noindent 0.43
+
+
+\bigskip
+\noindent 0.42 \noindent 0.32 \noindent 0.31 \noindent 0.76 \noindent 0.54 \noindent 0.91 \noindent 0.11 \noindent 0.025 \noindent 0.35 \noindent 0.94 \noindent 0.72 \noindent 0.81 \noindent 0.85 \noindent 0.85 \noindent 0.13 \noindent 0.48 \noindent 0.82 \noindent 0.46 \noindent 0.98 \noindent 0.42
+
+
+\bigskip
+\noindent 0.59 \noindent 0.097 \noindent 0.17 \noindent 0.41 \noindent 0.81 \noindent 0.62 \noindent 0.12 \noindent 0.31 \noindent 0.37 \noindent 0.33 \noindent 0.42 \noindent 0.62 \noindent 0.033 \noindent 0.95 \noindent 0.97 \noindent 0.73 \noindent 0.21 \noindent 0.43 \noindent 0.55 \noindent 0.56
+
+
+\bigskip
+\noindent 0.84 \noindent 0.53 \noindent 0.84 \noindent 0.43 \noindent 0.85 \noindent 0.12 \noindent 0.51 \noindent 0.22 \noindent 0.6 \noindent 0.77 \noindent 0.51 \noindent 0.35 \noindent 0.13 \noindent 0.068 \noindent 0.48 \noindent 0.14 \noindent 0.29 \noindent 0.48 \noindent 0.95 \noindent 0.46
+
+
+\bigskip
+\noindent 0.11 \noindent 0.9 \noindent 0.88 \noindent 0.12 \noindent 0.98 \noindent 0.16 \noindent 0.15 \noindent 0.59 \noindent 0.039 \noindent 0.9 \noindent 0.46 \noindent 0.87 \noindent 0.42 \noindent 0.64 \noindent 0.34 \noindent 0.019 \noindent 0.04 \noindent 0.94 \noindent 0.069 \noindent 0.56
+
+
+\bigskip
+\noindent 0.38 \noindent 0.17 \noindent 0.97 \noindent 1 \noindent 0.53 \noindent 0.021 \noindent 0.16 \noindent 0.39 \noindent 0.72 \noindent 0.83 \noindent 0.19 \noindent 0.49 \noindent 0.061 \noindent 0.44 \noindent 0.8 \noindent 0.74 \noindent 0.56 \noindent 0.67 \noindent 0.74 \noindent 0.99
+
+
+\bigskip
+\noindent 0.098 \noindent 0.85 \noindent 0.78 \noindent 0.6 \noindent 0.027 \noindent 0.54 \noindent 0.0049 \noindent 0.084 \noindent 0.63 \noindent 0.67 \noindent 0.55 \noindent 0.7 \noindent 0.81 \noindent 0.11 \noindent 0.92 \noindent 0.58 \noindent 0.81 \noindent 0.24 \noindent 0.5 \noindent 0.38
+
+
+\bigskip
+\noindent 0.53 \noindent 1 \noindent 0.79 \noindent 0.26 \noindent 0.16 \noindent 0.15 \noindent 0.47 \noindent 0.81 \noindent 0.66 \noindent 0.73 \noindent 0.57 \noindent 0.054 \noindent 0.96 \noindent 0.97 \noindent 0.28 \noindent 0.32 \noindent 0.55 \noindent 0.8 \noindent 0.72 \noindent 0.43
+
+
+\bigskip
+\noindent 0.28 \noindent 0.92 \noindent 0.24 \noindent 0.41 \noindent 0.68 \noindent 0.72 \noindent 0.25 \noindent 0.91 \noindent 0.62 \noindent 0.16 \noindent 0.87 \noindent 0.5 \noindent 0.014 \noindent 0.76 \noindent 0.11 \noindent 0.082 \noindent 0.82 \noindent 0.34 \noindent 0.91 \noindent 0.26
+
+
+\bigskip
+
+
+
+    
+
+\end{document}

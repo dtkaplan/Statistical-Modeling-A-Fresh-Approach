@@ -1,0 +1,176 @@
+Epidemiology Notes 2012-10-02
+=====================
+
+In the News
+=============
+* A letter received this week:
+> Dear Middle School Parents,
+> 
+> I have been notified of a case of head lice in the middle school.  Please take the time to check your student this evening and notify the school should you find any head lice.  I have attached information to assist you in the process of lice removal.  School policy is to treat identified cases and double check the student before having him/her return to school.  Often is the case in middle school that the lice comes from younger siblings, and when identified and treated properly, we have been very effective in preventing further spread of the lice.  To that end, please be vigilant and check your student.  I have notified our cleaning service to ensure that proper cleaning of the middle school spaces occur to address this as well.
+
+
+    * What's the significance of it coming from siblings? Possibly much more contact between siblings than between school-mates. Higher transmission among younger children who share brushes, hats, etc.
+    
+* [School intervention in France](http://www.cnn.com/2009/HEALTH/09/13/france.kiss/index.html), it's a cultural thing!
+
+* [Teenage drinking and driving](http://www.nytimes.com/2012/10/03/health/fewer-teenagers-are-drinking-and-driving-cdc-says.html)
+    * Is the quantity reported in the first paragraph an absolute or relative risk reduction?
+    * What is the absolute quantity?  Is it substantial?
+    * What's the case definition?  Is it the same as "drunk driving"?
+    * In the fifth paragraph from the end, it says, "Eighty-five percent of high school students who reported drinking and driving in the prior month also admitted binge drinking, defined as having five or more drinks during a short time period."  Does this mean that binge drinking is a risk factor for drinking and driving? (Need to have a comparison group.  Do an odds ratio calculation.  Difference between risk ratio and odds ratio when the prevalence is not low.)
+    * Does this make sense, from the 2nd to last paragraph? "From 2000 to 2010, the percentage of high school seniors who did not drive during an average week jumped to 22 percent from 15 percent, the health agency said."  My calculation: 7 percent point fewer seniors are driving.  If 22 percent of them would have reported drinking and driving, then 7*.22 percentage points of the reduction would be accounted for.  That's only about one-tenth of the reduction.
+    
+* [Meningitis outbreak](http://www.nytimes.com/2012/10/04/health/meningitis-outbreak-grows-with-cases-in-5-states.html)
+    * Is this an epidemic?
+    * Is it an outbreak?
+    * Is it point-source or contagious?
+
+Epiville Exercises
+============
+Walk through the exercise and have students answer the questions.
+
+Calculations
+============
+* WHO activity on population attributable fraction
+
+Exponential Growth 
+==============
+
+### $R_0$
+
+Simple model of initial spread: each person infects (on average) $R_0$ additional people. Basic reproduction number: Number of new infections that results from the introduction of a single infectious individual.
+
+It is not a rate against time.  It doesn't tell how the curve will be shaped in time, just how it will be shaped in "generations".
+
+Table of $R_0$ from [Wikipedia](http://en.wikipedia.org/wiki/Basic_reproduction_number)
+
+Vaccination: Think of the goal being to get $R_0$ below 1.  If $p$ is the fraction of the population who are effectively vaccinated, then we need $R_0 (1-p) < 1$, implying that $p > 1 - 1/R_0$.  So for influenza, only half to 2/3 of the population needs to be vaccinated to stop the spread.
+
+#### Breaking down $R_0$
+
+As with the estimation problems, it can be helpful to tink about $R_0$ as having components:
+
+$R_0 = \beta \times c \times D$
+
+where:
+
+* $\beta$ average probability a contact will be infected over duration of a relationship (depends on the biology and behavior of infection)
+
+* c = average rate of getting into contact (isolation and quarantine minimize this parameter because infectious persons and those who are suspected to be infected are in minimal contact with healthy individuals)
+
+* D = average duration of infectiousness (this parameter represents length of symptomatic disease; we can modify D by shortening duration of infectiousness. This could be achieved by proper treatment of cases, as well as improving the general health of the at risk population.)
+
+### Doubling time
+
+#### Examples 
+
+* 30-minute doubling time of E. coli.
+* Influenza reproduces 100000-fold, of which 99.9 fail to infect another cell.  So there is a 100-fold increase in 10 hours.
+    * How many cells in the respiratory tract? A good, rough number for an organ is $10^9$.  
+    * How long before 1% of these cells are infected?  Four 10-hour cycles gives $10^8$ cells, more than 1%.  So less than 40 hours.
+    
+# PCAST report Box 3A
+
+Trace through their calculations based on just two assumptions: a 10-fold increase time of 10 days and 50 percent of the population will get infected.
+
+* Question: Is a 10-fold increase in 10 days the same as a 2-fold increase in 2 days?
+
+Where does the 10-fold increase in 10 days come from?  
+
+* Influenza has $R_0$ of 2-3.  So each case results in 2 to 3 new cases (in entirely susceptible population).  Suppose it takes 2 days to develop a full-blown case and another day or two to have contact with enough people to pass it to 2-3 individuals.
+So each cycle is about 4 days long and infects 2-3 individuals.  Call it $2.5$ cases per cycle.  To get to 10-fold increase takes (coincidentally) about $2.5$ cycles, since $2.5^{2.5} \approx 10$.  4 days times 2.5 cycles gives 10 days for a 10-fold increase.
+
+
+Follow through the calculations in Box 3A through a population starting with 1000 cases on Sept. 1.  50% of the population is 150 million people, so we need $n$ 10-fold increases such that $1000\times 10^n = 150000000$.  In other words, $n \approx 5$ --- 50 days brings us to mid-October.
+
+But notice that with so many people infected, the reproduction rate must fall.  We need a more subtle accounting of the time spread.
+
+
+
+### Immune response to Influenza
+
+
+* Capillaries must dilate to admit white blood cells.  How do you get them to dilate?  Fever?  
+    * Red blood cells are as big as a capillary: "The size of erythrocytes varies widely among vertebrate species; erythrocyte width is on average about 25% larger than capillary diameter and it has been hypothesized that this improves the oxygen transfer from erythrocytes to tissues." "A typical human erythrocyte has a disk diameter of approximately 6.2-8.2 µm[27] and a thickness at the thickest point of 2-2.5 µm and a minimum thickness in the centre of 0.8-1 µm, being much smaller than most other human cells."
+    * White blood cell diameter, approx. 10 µm: [see table](http://en.wikipedia.org/wiki/White_blood_cell) Macrophages are 5 times larger.
+* Immune response to one influenza virus recalls the immune response to other varieties to which the body has previously been exposed.  Thus, a new virus tends to suppress the spread of old viruses. There tends to be a dominant form of virus in peak seasons and it's usually a relatively new form, to which many people have not yet been exposed.
+
+### Population response
+
+* p. 114  Influenza pandemics generally infect from 15 to 40 percent of a population.  **Why not more?**
+
+### SIR Model
+
+Three groups: Susceptible, Infected, Recovered
+
+$\frac{dS}{dt} = - \beta S I$
+<br />
+$\frac{dI}{dt} = \beta S I - \gamma I$
+<br />
+$\frac{dR}{dt} = \gamma I$
+
+Use the `mSIR( )` manipulate applet in R, install with `fetchData(mSIR.R)`
+
+#### The Tipping Point
+
+Prob. of infection: 0.1
+Contacts per Day: 9
+Duration of disease decay: .799
+Initial infected: 1
+
+About 20% of the population gets the disease.
+
+Explore some policy implications:
+
+* Change contacts per day --- big effect
+* Change probability of infection --- big effect
+* Number of initial infected --- little effect
+
+What happens as duration is increased?  (NOTE: This means lowering the parameter.  You can see this by setting probability of infection to 0 and the initial infected to 50 --- then the exponential decay of infected shows up directly. 
+
+#### Endemic Disease
+
+Prob. of Infection: 0.35
+Contacts per day: 5
+Duration of disease decay: 0.457
+Initial infected: 5
+Births/day: 20
+
+
+Eradication of Polio
+----------------
+
+* Eradication and immunization.  Herd immunity.  Why was smallpox successful but polio not so much.
+* Highly visible signs makes it easy to diagnose.
+* Short time scale prevents people from travelling far.
+* Sickness makes it difficult to travel.  It's easy to avoid sick people.
+* Spread almost entirely by contact: no fomites (or very few).  In contrast, polio can survive for a long time outside the body.
+
+
+
+Hans Rossling Video on the spread of HIV
+----------------
+[Link to video](http://www.ted.com/talks/hans_rosling_the_truth_about_hiv.html)
+
+Treatment is too costly, must stop transmission.
+
+Is it war?  Zambia is peaceful but has a high rate.
+Is it poverty? More money, more HIV at the macro level.  Look at Tanzania in income groups
+
+Multiple partners
+less condom use
+age-disparate sex
+
+Concurancy
+Virus types m
+
+Risk of infection in 1 intercourse: 1:1000 for healthy, 1:100 for unhealthy
+Sweden: Serial monogamy therefore clamydia (which sticks around for many years)
+
+HIV has a peak of 3-6 weeks.
+
+
+
+* What did he have to say about $\beta$?
+* What about $c$?
+* What about $D$?  Botswana, people can survive 10-20 years.  Affects the prevalence but also the transmission.

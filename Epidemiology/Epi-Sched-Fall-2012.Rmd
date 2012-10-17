@@ -372,8 +372,10 @@ Estimation Problem 3: Immunization Resources.  [Link to description](http://dtka
 
 **On Your Own**:
 * A [documentary about polio](http://video.pbs.org/video/1174115155/) and the development of the Salk and Sabin vaccines. 
+* What is a p-value? [cartoon video](https://www.youtube.com/watch?v=ax0tDcFkPic&feature=related)
 
 **In-class**:
+* Dealing with Confounding: [Moped injury activity](http://dl.dropbox.com/u/5098197/Epidemiology/moped-activity.pdf)
 
 `r I(classDayContents("Tues", "Oct", 23 ))`
 **Topic**: Catch up. MID-TERM EXAM (second 45 minutes of class)
