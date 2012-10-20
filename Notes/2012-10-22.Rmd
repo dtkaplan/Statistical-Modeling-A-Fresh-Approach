@@ -5,3 +5,193 @@ Stats 155 Class Notes 2012-10-22
 # boilerplate
 ```
 
+Topics for the Day
+------------------
+
+* Review of the factors that shape a confidence interval on a model coefficient.
+    * Size of residuals
+    * Amount of data
+    * Colinearity among explanatory variables
+    
+    
+    
+But model coefficients are not the only thing you might want to put a confidence interval on.  Other things:
+    * $R^2$ and its friends
+    * model values and prediction values
+
+Geometrical Picture of Confidence Intervals
+-------------------
+
+[CI geometry slides](https://dl.dropbox.com/u/5098197/ISM/CI-geometry-slides.pdf) 
+
+For coefficients and spread of coefficients as the ball gets bigger, see slides 38 and 39 from [geometry of statistics](https://dl.dropbox.com/u/5098197/ISM/geometry-and-statistics.pdf)
+
+### What's the geometry of the number of data points?
+
+Looking at the distribution of angles between random vectors in 2 and higher dimensions. 
+
+Write an angle program.  (You'll want to build this up in stages.)
+
+```{r}
+ang = makeFun((180/pi)*acos(sum(u*v)/sqrt(sum(u*u)*sum(v*v)))~u&v)
+```
+
+Random angles in 2 dimensions: 
+```{r}
+s = do(1000)*ang( rnorm(2),rnorm(2))
+densityplot(~result, data=s)
+```
+The angle is uniform on 0 to 180 degrees.  But this intuition is misleading in higher dimensions.  Do the same thing in 3 and higher dimensions.
+
+Do the same thing, but replacing one of the vectors with a fixed vector:
+```{r}
+v = rnorm(2)
+s = do(1000)*ang(rnorm(2),v)
+densityplot(~result, data=s)
+```
+
+Now with a 3-dimensional vector:
+```{r}
+v = rnorm(3)
+s = do(1000)*ang(rnorm(3),v)
+densityplot(~result, data=s)
+```
+
+Now a 30-dimensional vector:
+```{r}
+v = rnorm(30)
+s = do(1000)*ang(rnorm(30),v)
+densityplot(~result, data=s, xlim=c(0,180))
+```
+
+The mean of the random angle is 90deg.  The standard deviation of the angle is close to being proportional to $\sqrt{1}{n}$. Random vectors tend to be orthogonal.
+
+Since the random vectors will tend to be almost orthogonal to the subspace of the explanatory vectors B and C, the size of the random ball will be reduced.  Reduced by how much: a factor of $\cos(\theta)$. 
+
+Overall result: the standard deviation of the cosine of the angle is distributed as $latex 1/sqrt(n)$.  
+
+Disastrous Collinearity
+===============
+
+Consider a model of wage that incorporates all of these variables: age, educ, exper.  
+
+Let's look at them one at a time:
+```{r}
+mod0 = lm( wage ~ exper, data=CPS85 )
+confint(mod0)
+0.07136-0.00092
+```
+
+Putting in covariates can reduce the confidence interval:
+```{r}
+mod1 = lm( wage ~ exper + sector*sex, data=CPS85 )
+head( confint(mod1) )
+0.08694-0.02329
+```
+
+The interval is reduced because the length of the residual vector has been reduced:
+```{r}
+sqrt(sum( resid(mod0)^2 ))
+sqrt(sum( resid(mod1)^2 ))
+```
+
+What about colinearity with the covariates:
+```{r}
+r2 = r.squared( lm( exper ~ sector*sex, data=CPS85 ))
+acos(sqrt(r2))*180/pi
+1/sin(acos(sqrt(r2)))  # variance inflation: 2%
+```
+
+
+Now add in another variable, perhaps treated as a covariate or perhaps because we want to untangle the effects of experience and eduction (lower experience is correlated with higher education).
+
+```{r}
+mod3 = lm( wage ~ exper + educ, data=CPS85 )
+confint(mod3)
+0.1389-0.0713
+```
+
+```{r}
+mod4 = lm( wage ~ exper + educ + sector*sex, data=CPS85 )
+head(confint(mod4))
+0.1334-0.0677
+```
+
+Only a small reduction in the width of the confidence interval.  Here's the reduction in the length of the residual vector.
+
+```{r}
+sqrt(sum( resid(mod3)^2 ))
+sqrt(sum( resid(mod4)^2 ))
+```
+
+Looking at the collinearity introducted by educ
+```{r}
+r2 = r.squared( lm( exper ~ educ + sector*sex, data=CPS85 ))
+acos(sqrt(r2))*180/pi
+1/sin(acos(sqrt(r2))) # variance inflation: 10%
+```
+
+Now add in age as well
+```{r}
+mod5 = lm( wage ~ exper + educ + age + sector*sex, data=CPS85 )
+head(confint(mod5))
+```
+
+The standard errors have exploded.  The length of the residual vector is smaller than in the previous model, 
+```{r}
+sqrt(sum( resid(mod4)^2 ))
+sqrt(sum( resid(mod5)^2 ))
+```
+but the variance inflation due to collinearity is much larger
+```{r}
+r2 = r.squared( lm( exper ~ educ + age + sector*sex, data=CPS85 ))
+acos(sqrt(r2))*180/pi  # less than 1 degree!
+1/sin(acos(sqrt(r2))) # variance inflation: 10%
+```   
+
+As we've seen before, in the CPS85 data, exper was derived from educ and age, but there was a mistake made in one case.  Fixing that mistake ...
+```{r}
+cps = fetchData("CPS85-corrected.csv")
+mod6 = lm( wage ~ exper + educ + age + sector*sex, data=cps )
+head(confint(mod6))
+```
+When the colinearity is absolute --- **redundancy** --- the software recognizes the situation and corrects it by deleting a redundant vector from the model.
+
+Prediction confidence intervals
+---------------
+
+For prediction or model values, colinearity is not a problem:
+```{r}
+mod1 = lm( wage ~ exper + sector*sex, data=CPS85)
+r.squared(mod1)
+f1 = makeFun(mod1)
+f1( exper=10,sex="F",sector="prof",interval="confidence" )
+mod2 = lm( wage ~ exper + educ + sector*sex, data=CPS85)
+r.squared(mod2)
+f2 = makeFun(mod2)
+f2( exper=10,educ=14, sex="F",sector="prof",interval="confidence" )
+mod3 = lm( wage ~ exper + educ + age + sector*sex, data=CPS85)
+r.squared(mod3)
+f3 = makeFun(mod3)
+f3( exper=10,educ=14, age = 30, sex="F",sector="prof",interval="confidence" )
+```
+
+Conclusions
+-------------
+
+### Effect Size
+
+When you construct a model to estimate an effect size (whether directly from a coefficient or from a partial derivative)
+
+* Use covariates to
+   * Adjust for what you want to hold constant in your analysis
+   * Reduce the size of the residual and thereby make the confidence interval tight.
+   * Watch out for colinearity.
+   
+If you absolutely need a colinear covariate for adjustment purposes, and your confidence intervals are too broad, then you'll need to collect more data.
+
+### Prediction/Classification
+
+When you construct a model to make a prediction, you don't need to worry about the colinearity.
+
+The problem with colinearity arises when you want to "share the credit" among 2 or more related (that is, colinear) variables.  Since there is an alignment, there is some ambiguity about how to split up credit for the various ways that the residual will point.

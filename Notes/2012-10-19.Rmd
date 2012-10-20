@@ -5,3 +5,4 @@ Stats 155 Class Notes 2012-10-19
 # boilerplate
 ```
 
+Mid-term Exam

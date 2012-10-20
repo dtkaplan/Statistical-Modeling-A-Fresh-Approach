@@ -142,39 +142,3 @@ five = 5*pi/180
 sin(ten)/sin(five)
 ```
 
-Geometrical View of Confidence Intervals
-===================
-
-[CI geometry slides](https://dl.dropbox.com/u/5098197/ISM/CI-geometry-slides.pdf) 
-
-For coefficients and spread of coefficients as the ball gets bigger, see slides 38 and 39 from [geometry of statistics](https://dl.dropbox.com/u/5098197/ISM/geometry-and-statistics.pdf)
-
-Angles in High Dimensions
-=====================
-
-Write an angle program.  (You'll want to build this up in stages.)
-
-```{r}
-ang = makeFun((180/pi)*acos(sum(u*v)/sqrt(sum(u*u)*sum(v*v)))~u&v)
-```
-
-Random angles in 2 dimensions: 
-```{r}
-s = do(1000)*ang( rnorm(2),rnorm(2))
-densityplot(~result, data=s)
-```
-The angle is uniform on 0 to 180 degrees.  But this intuition is misleading in higher dimensions.  Do the same thing in 3 and higher dimensions.
-
-Do the same thing, but replacing one of the vectors with a fixed vector:
-```{r}
-v = rnorm(2)
-s = d(1000)*ang(rnorm(2),v)
-densityplot(~result, data=s)
-```
-
-Overall result: the standard deviation of the cosine of the angle is distributed as $latex 1/sqrt(n)$.  Random vectors tend to be orthogonal.
-
-ANOTHER EXAMPLE
-===============
-
-Extreme collinearity in the wage data: including age, exper, educ.
