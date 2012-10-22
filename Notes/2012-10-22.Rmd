@@ -207,7 +207,7 @@ but the variance inflation due to collinearity is much larger
 ```{r}
 r2 = r.squared( lm( exper ~ educ + age + sector*sex, data=CPS85 ))
 acos(sqrt(r2))*180/pi  # less than 1 degree!
-1/sin(acos(sqrt(r2))) # variance inflation: 10%
+1/sin(acos(sqrt(r2))) # variance inflation: 7000% explosion!
 ```   
 
 As we've seen before, in the CPS85 data, exper was derived from educ and age, but there was a mistake made in one case.  Fixing that mistake ...
