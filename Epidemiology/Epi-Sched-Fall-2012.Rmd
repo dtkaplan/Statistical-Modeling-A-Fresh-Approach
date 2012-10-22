@@ -42,7 +42,7 @@ Upcoming Days
 `r I(classDayContents("Tues", "Oct", 23 ))`
 **Topic**: Catch up. MID-TERM EXAM (second 45 minutes of class)
 
-**[Examples of Exam Questions](https://dl.dropbox.com/u/5098197/Epidemiology/Epi-Mid-Term-Review-Collection.pdf)** These questions will give you a feel for the style of the questions likely to be asked on the exam.
+**[Examples of Exam Questions](https://dl.dropbox.com/u/5098197/Epidemiology/Epi-Mid-Term-Review-Collection.pdf)** These questions will give you a feel for the style of the questions likely to be asked on the exam.  Answers are given [here](https://dl.dropbox.com/u/5098197/Epidemiology/Epi-Mid-Term-Review-Collection-F2012-with-answers.pdf)
 
 **Study Guide for Exam**. In addition to the vocabulary and concepts, you'll be expected to be able to do certain calculations that we have done in class:
 
