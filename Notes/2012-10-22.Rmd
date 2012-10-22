@@ -8,16 +8,18 @@ Stats 155 Class Notes 2012-10-22
 Topics for the Day
 ------------------
 
-* Review of the factors that shape a confidence interval on a model coefficient.
-    * Size of residuals
-    * Amount of data
-    * Colinearity among explanatory variables
+Another **"Day of Theory"**
+
+Review of the factors that shape a confidence interval on a model coefficient.
     
-    
+* Size of residuals
+* Amount of data
+* Colinearity among explanatory variables
     
 But model coefficients are not the only thing you might want to put a confidence interval on.  Other things:
-    * $R^2$ and its friends
-    * model values and prediction values
+
+* $R^2$ and its friends
+* model values and prediction values
 
 Geometrical Picture of Confidence Intervals
 -------------------
@@ -30,15 +32,50 @@ For coefficients and spread of coefficients as the ball gets bigger, see slides 
 
 Looking at the distribution of angles between random vectors in 2 and higher dimensions. 
 
+#### Ask the class
+* if I pick a random vector on the board, what's the distribution of angles to the vector at 12 o'clock?  The "spinner problem."
+* What's the distribution of the angle to the vector at 3 o'clock? Should be the same.  It doesn't matter where the fixed vector is.
+* What's the distribution of the angle between two random vectors?  Should be the same.
+
+#### Confirm by simulation
+
+Ask for suggestions for ways to generate a randomly pointing vector in the plane.  Perhaps someone will suggest generating a random angle and taking the sine and cosine of that. Good idea, but this assumes that the angles to randomly generated vectors are evenly distributed. And it doesn't generalize to higher dimensions.
+
+Consider two ways to generate random numbers:
+
+* `runif(n, min=-1, max=1)`
+* `rnorm(n)`
+
+1. Generate a sample with large n (say n=10000) and report on the distribution.
+2. Generate x and y coordinates and plot them:
+```{r out.width="2in"}
+xyplot( runif(1000,min=-1,max=1) ~ runif(1000,min=-1,max=1) )
+xyplot( rnorm(1000) ~ rnorm(1000) )
+```
+3. Get the distribution of vectors.  From trigonometry, remember that the angle will be the arctan of the x and y coordinates.  Do `help(atan2)`  We'll do a very large simulation (n=100000) so we get a very smooth distribution:
+```{r out.width="2in"}
+sunif = atan2( runif(100000,min=-1,max=1), runif(100000,min=-1,max=1) )*180/pi
+densityplot(~sunif)
+snorm = atan2( rnorm(100000), rnorm(100000) )*180/pi
+densityplot(~snorm)
+```
+The uniform distribution doesn't generate uniformly distributed angles,  but the normal distribution does.
+
+`atan2()` works in the plane, but we'll want to experiment in higher dimensions as well.  So let's calculate the angle based on the dot product.  
 Write an angle program.  (You'll want to build this up in stages.)
 
-```{r}
-ang = makeFun((180/pi)*acos(sum(u*v)/sqrt(sum(u*u)*sum(v*v)))~u&v)
+```{r tidy=FALSE}
+ang = makeFun((180/pi)*acos(sum(u*v)/sqrt(sum(u*u)*sum(v*v)))~
+                u&v)
 ```
 
+Or, if you prefer, use the `angle()` program in `m155development.R`:
+```{r}
+fetchData("m155development.R")
+```
 Random angles in 2 dimensions: 
 ```{r}
-s = do(1000)*ang( rnorm(2),rnorm(2))
+s = do(1000)*angle( rnorm(2),rnorm(2))
 densityplot(~result, data=s)
 ```
 The angle is uniform on 0 to 180 degrees.  But this intuition is misleading in higher dimensions.  Do the same thing in 3 and higher dimensions.
@@ -46,25 +83,49 @@ The angle is uniform on 0 to 180 degrees.  But this intuition is misleading in h
 Do the same thing, but replacing one of the vectors with a fixed vector:
 ```{r}
 v = rnorm(2)
-s = do(1000)*ang(rnorm(2),v)
+s = do(1000)*angle(rnorm(2),v)
 densityplot(~result, data=s)
 ```
 
 Now with a 3-dimensional vector:
 ```{r}
 v = rnorm(3)
-s = do(1000)*ang(rnorm(3),v)
+s = do(1000)*angle(rnorm(3),v)
 densityplot(~result, data=s)
 ```
+
+Why aren't the angles uniformly distributed?  Demo: fix one of the vectors at the North Pole.  Toss a globe around the room.  Report the co-latitude of where your right middle finger lands.  (Co-latitude is the angle from the North Pole.  So the equator is at 90 deg.)  You're much more likely to land near the equator than near the poles.
+
 
 Now a 30-dimensional vector:
 ```{r}
 v = rnorm(30)
-s = do(1000)*ang(rnorm(30),v)
+s = do(1000)*angle(rnorm(30),v)
 densityplot(~result, data=s, xlim=c(0,180))
 ```
 
+ACTIVITY: Find a simple relationship between the mean angle and n.  Find a simple relationship between the variance of the angle and n.  Divide people up into 6 groups:
+1. use the angle in degrees, study the mean angle
+2. use the angle in degrees, study the variance of the angle
+3. use the angle in radians, study the mean angle (set `degrees=FALSE` in `angle()`)
+4. use the angle in radians, study the variance of the angle.
+5. use the cosine of the angle, study the mean cosine of the angle.
+6. use the cosine of the angle, study the variance of the angle.
+
+**Suggestions:**
+
+* Use large numbers of simulations, say `do(1000)`
+* Construct your theory for fairly large dimension, say 50 to 4000.
+* Once you have constructed your theory, see how well it holds for small dimension, say 2 to 5.
+
+
+**Results**
 The mean of the random angle is 90deg.  The standard deviation of the angle is close to being proportional to $\sqrt{1}{n}$. Random vectors tend to be orthogonal.
+
+
+
+
+### Back to the Geometry 
 
 Since the random vectors will tend to be almost orthogonal to the subspace of the explanatory vectors B and C, the size of the random ball will be reduced.  Reduced by how much: a factor of $\cos(\theta)$. 
 

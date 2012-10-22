@@ -61,7 +61,7 @@ Introduce the rxxx() operation for each.  For equal probabilities, just use
 
 ### Discrete
 
-* Equal probabilities: e.g. die toss, coin flip.  Parameter: how many possibilities.
+* Equal probabilities: e.g. die toss, coin flip, distributions of ranks of any continuous variable.  Parameter: how many possibilities.
 * Binomial: trials of a coin flip where the outcome is the number of "successes" or "heads" or "1s".  Parameters: 
     * **size** number of trials
     * **prob** probability of head on each trial
@@ -82,6 +82,11 @@ Why the "Normal" Distribution is Normal
 * add up binomial --- these should be binomial if they have the same `prob`, adding them up just increases the `size` parameter.  Prediction: binomial with large `size` will be normal.  Mean is $np$.  Var is $n p (1-p)$.
 * Add up two poissons and you should get a poisson.  `lambda` will be the sum of the lambdas.  Mean is lambda.  Variance is lambda.  ACTIVITY: Show that this is true.
 
+Basic Operations: P and Q
+----------------------
+
+The D operation
+------------------
 
 Returns on investments
 ----------------------

@@ -1,0 +1,21 @@
+Inference Early and Often in Introductory Statistics
+========================================================
+
+There's a tradition in mathematics education of presenting definitions and theory and algorithms first, then (sometimes) presenting applications and phenomena.  This certainly has it's place, but in a computationally oriented approach, the algorithms can often be expressed simply, making it possible for the phenomena to be introduced before the theory.
+
+Some phenomena involved in statistical inference:
+
+* Any sample statistic varies randomly due to the sampling process.
+* $R^2$ for a model will increase (or, at least, not decrease) whenever a new term is added to a model.  
+* (For those interested in the geometrical approach to statistics ...) The angle between random vectors tends towards 90deg as the dimension increases.
+
+I suggest that it's useful to demonstrate these phenomena early so that students can have them in mind when the terminology of inference is introduced.  Indeed, I introduce confidence intervals right after a demonstration of sampling variation as a way to quantify the sampling-induced variation.
+
+The Sampling Process
+--------------------
+
+$R^2$ and Model Terms
+---------------------
+
+Random Angles
+-------------
