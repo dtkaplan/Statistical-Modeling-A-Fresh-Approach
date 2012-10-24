@@ -15,6 +15,29 @@ Today, we're going to work with a completely different framework for modeling, o
 Even when something is regarded as random, it doesn't mean that it is completely unpredictable.  For instance, the roll of a pair of dice is much more likely to result in a 7 than an 11.  The models we'll work with today are ways of describing probabilities of different outcome.
 
 
+Example
+-------
+
+I was asked last month to help, pro bono, a contractor trying to improve the survivability of US Marine Corp amphibious vehicles.  The vehicles in use weren't designed around the threat of IEDs and the seating in them needs to be changed to provide better support in case of an explosion underneath, e.g. benches mounted on shock absorbers, no one sitting on the floor.  The hull configuration (that's what you call the bottom of an amphibious vehicle) also needs to be changed.  But it doesn't work just to make the vehicle bigger and heavier.  Heavier is always a problem, requiring a bigger engine, etc.  Bigger means not using an existing platform, which raises development costs and incurs delays.
+
+The people I was working with had a small contract to build a design around modifications to an existing USMC vehicle, the [AAV](http://en.wikipedia.org/wiki/Assault_Amphibious_Vehicle).  To make it work, they would have to allocate somewhat less space per marine.  They wanted to know how to figure out what space would work.
+
+Here are the data I was given the widths (in feet) of equipped marines and the number in a 17-person squad:
+
+Role              |    # in squad  |  5th  | median | 95th
+------------------|--------------|-------|--------|-------
+Rifleman          |       6      | 1.99  | 2.06   | 2.15
+Grenadier         |       6      | 1.99  | 2.05   | 2.24
+Pistol Carrier    |       1      | 2.28  | 2.36   | 2.67
+Automatic Rifleman|       4      | 2.00  | 2.06   | 2.34
+
+The standard calculation involves constructing a squad of 17 marines all at the 95th percentile.  The contractor thought this was unnecessarily large and asked whether it wouldn't suffice to make the vehicle big eough to handle a squad of median marines, figuring that the wider ones would share space with narrower marines and things would cancel out.
+
+I proposed to do a simulation of randomly generated squads and find out what vehicle size will accomodate the vast majority of squads.  I would generate random sizes that meet the above percentiles in a sensible way and add up the total width.  (It's a little bit simplified, because the seating plan has 8 marines on a side, with the pistol carrier at the forward bulkhead, facing backward toward the exit ramp.)
+
+**QUESTION** How should I generate random marine widths?
+
+
 Definitions
 -----------
 
@@ -70,9 +93,15 @@ Introduce the rxxx() operation for each.  For equal probabilities, just use
     
 ### Continuous
 
-* Uniform
+* Uniform.
+    * Parameters: Max and min
+    * Models: spinners (angles in 2-d, but not higher), p-values under the Null Hypothesis
 * Normal (gaussian)
+    * Parameters: mean and sd.
+    * Models: your general purpose model
 * Exponential
+    * Times between random events (earthquakes, 100-year storms)
+    * Parameter: `rate` (the mean time is 1/rate)
 * Log-normal --- wait for it ...
 
 Why the "Normal" Distribution is Normal
@@ -88,7 +117,7 @@ Basic Operations: P and Q
 The D operation
 ------------------
 
-Returns on investments
+**ACTIVITY**: Returns on investments
 ----------------------
 
 Stock market gives return of, say 5%/year  on average with a standard deviation of about 6%.  Simulate the total investment return over 50 years.  
