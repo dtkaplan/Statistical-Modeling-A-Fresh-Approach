@@ -5,3 +5,75 @@ Stats 155 Class Notes 2012-10-29
 # boilerplate
 ```
 
+Finish Up Continuous Probability Distributions
+---------------
+
+### From Friday
+
+* Uniform
+* Normal
+* Exponential
+* Lognormal
+
+### Activity on investment returns.
+
+### r, p, and q operations.  Also d.
+
+Hypothesis Testing
+---------------
+
+### Conditional Probabilities
+
+Bayes Rule
+
+The Beebee Bird
+
+### What to do when you have no prior?
+
+Simply assert that you are in the world of one hypothesis or another and see what happens in that world.  
+
+The Multi-World Metaphor for Statistical Inference 
+=================
+
+Motto: *Always know what world you are thinking about.*
+
+Statistical inference is hard to learn.  It will help if you can understand the underlying logic.  This will help you avoid major mis-interpretation of the results of statistical inference techniques.For example, even among professional scientists, the mainstream (mis)-understanding of p-values is that they reflect the probability that the null hypothesis is correct.
+
+Part of the reason why statistical inference is hard to grasp is that the logic is genuinely hard.  It involves contrapositives, it involves conditional probabilities, it involves ``hypotheses.'' And what is a hypothesis?  To a scientist, it is a kind of theory, an idea of how things work, an idea to be proven through lab or field research or the collection of data.  
+
+But statistics hews not to the scientist's but to the philosopher's or logician's rather abstract notion of a hypothesis: a ``proposition made as a basis for reasoning, without any assumption of its truth.''  (Oxford American Dictionaries)  Or more simply:
+
+> "A hypothesis is a statement that may be true or false."
+
+What kind of scientist would frame a hypothesis without some disposition to think it might be true?  Only a philosopher or a logician.
+
+
+To help connect the philosophy and logic of statistical hypotheses with the sensibilities of scientists, it might be helpful to draw from the theory of kinesthetic learning --- an active theory, not a philosophical proposition --- that learning is enhanced by carrying out a physical activity. Many practitioners of the reform style of teaching statistics engage in the kinesthetic style; they have students draw M\&Ms from a bag and count the brown ones, they have students walk randomly to see how far they get after $n$ steps, or, as we do in this class, they toss a globe around the classroom to see how often a students' index finger lands in the ocean.
+
+To teach hypothesis testing in a kinesthetic way, you need a physical representation of the various hypotheses found in statistical inference.  One way to do this involves not the actual physical activity of truly kinesthetic learning, but concrete stories of making different sorts of trips to different sorts of worlds.A hypothesis may be true on some worlds and false on others. On some planets we will know whether a hypothesis is true or false, on others, the truth of a hypothesis is an open question.
+
+Of course, the planet that we care about, the place about which we want to be able to draw conclusions.  It's Planet Earth:
+
+![Planet Earth](figure/planet_earth.png)
+
+We want to know which hypotheses are true on Earth and which are false.
+ 
+But Earth is a big and complicated place; it's hard to know exactly what's going on.  So, to deal with the limits of our abilities to collect data and to understand complexity, statistical inference involves a different set of planets.  These planets resemble Planet Earth in some ways and not in others.  But they are simple enough that we know exactly what's happening on them, so we know which hypotheses are true and which are false on these planets.
+
+
+These planets are:
+
+
+Planet Sample | Planet Null | Planet Alt
+--------------|-------------|--------
+![Planet Sample](figure/planet-sample.png) | ![Planet Null](figure/venus.png) | ![Planet Alt](figure/planet-alt.png) 
+
+Planet Sample is populated entirely with the cases we have collected on Planet Earth.  As such, it somewhat resembles Earth, but many of the details are missing, perhaps even whole countries or continents or seas. And of course, it is much smaller than Planet Earth.
+
+Planet Null is a boring planet.  Nothing is happening there. Express it how you will: All groups all have the same mean values. The model coefficients are zero. Different variables are unrelated to one another.  Dullsville.  But even if it's dull, it's not a polished billiard ball that looks the same from every perspective.  It's the clay from which Adam was created, the ashes and dust to which man returns.  But it varies from place to place, and that variation is not informative. It's just random.
+
+Finally, there is Planet Alt.  This is a cartoon planet, a caricature, a simplified representation of our idea of what is (or might be) going on, our theory of how the world might be working.  It's not going to be exactly the same as Planet Earth.  For one thing, our theory might be wrong.  But also, no theory is going to capture all the detail and complexity of the real world.
+
+In teaching statistical inference in a pseudo-kinesthetic way, we use the computer to let students construct each of the planets.  Then, working on that planet, the student can carry out simulations of familiar statistical operations.   Those simulations tell the student what they are likely to see *if they were on that planet*.  Our goal is to figure out whether Earth looks more like Planet Null or more like  Planet Alt.
+
+For the professional statisticians, the planet metaphor is unnecessary.  The professional has learned to keep straight the various roles of the null and alternative hypothesis, and why one uses a sample standard error to estimate the standard deviation of the sampling distribution from the population.  But most students find the array of concepts confusing and make basic categorical errors.  The concrete nature of the planets simplifies the task of keeping the concepts in order.  For instance, Type I errors only occur on Planet Null.  You have to be on Planet Alt to make a Type II error.  And, of course, no matter how many (re)samples we make on Planet Sample, it's never going to look more like Earth than the sample itself.
