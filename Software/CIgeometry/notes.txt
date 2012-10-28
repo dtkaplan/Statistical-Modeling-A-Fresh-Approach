@@ -1,0 +1,95 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Video with instruction panel. ============
+
+Welcome to our app on the geometry of measurement and confidence intervals.
+
+As you can see, there are four tabs on the right side of the app and some controls up above this video.  Each of the tabs has a different view of the system.  You can switch back and forth between them.  But first, some introduction ...
+
+This app is drawing the picture in variable space --- the space where each variable is a vector and each case is an axis.  There are two variables shown: B and C.  Following our usual convention, B is the explanatory variable of interest, say the dose of a new drug.  A is the outcome, say the eventual health status of the patient at the end of the study.  And C is a covariate: perhaps the  initial health of the patients at the start of the study.  We're modeling A by B, perhaps including C as a covariate in the model or perhaps not.
+
+The first tab, "Deterministic," shows the relationship among A, B, and C in the population and without any measurement noise.   Ordinarily, this is something that's hidden --- it's what you are trying to discover by taking measurements and building models.  But for this app, I want you to be able to know exactly what is going on.  So you can set the relationship in varying ways.  You'll always know what it really is, and you can compare that to the results of your measurements and models.
+
+The next two tabs, "Measurement" and "3-D View", show how data you collect are related to the underlying population values.  
+
+The final tab, "Confidence Interval" shows the concept behind construction of the confidence interval.
+
+The objective of the app is to help you see how the confidence interval is related to the amount of noise in your measurement of the response variable A, how colinearity between B and C affects your estimates of the roles played by B and C and the width of the confidence interval, and how the number of cases in your sample affects the precision of your estimates.
+
+You'll also be able to see, as you never could in real life,  the relationship between the "real" mechanism and the estimates you make by measurement and modeling.
+
+Video with Deterministic Tab ===============
+
+Here you are going to do something you never get to do in authentic statistical work: you're setting the mechanics of how your system works.  
+Ordinarily, the point of doing measurement and statistical modeling is to help you understand how the system works, and you'll do that in other tabs.  But here you'll be able to set and see what the "real" system is, so that you can compare it to the results of your statistical work.
+
+There are two coefficients here: one on the explanatory variable B and another coefficient on the covariate C.  By default, the coefficient on C is set to zero.  Try changing it by clicking on the up-and-down toggle on the box showing the C coefficient.  (Wait 5 seconds.)  You'll see the cross-hair marked A move in variable space.  "A" is the output of the system; it's a result of combining B and C.
+
+On the left control bar, there's a slider labelled "Angle of colinearity."  Try moving that. (WAIT 3 seconds.)  That angle sets the amount of correlation between the covariate C and variable B.
+
+Play with these controls until you're satisfied that you understand the relationships between A, B, and C and how the controls set those relationships.  
+
+Once you're satisfied, try out the three check-boxes on the right for displaying the results of projecting A onto B and C.  In each case, those contours allow you to read out from the position of A what will be the coefficients if you fitted A tilde B  or if you fitted A tilde B + C.  Of course, you yourself set the coefficients on A tilde B + C --- you can see them in the coefficient boxes in this tab.  But in real work, you wouldn't know the coefficients except by fitting the model.
+
+Here's a question:  There's some angle of colinearity where the two models A ~ B and A ~ B+ C give the same result for the B coefficient.  What is that angle?
+
+Video with measurement tab =============
+
+In this tab, you will see how the measurement of A relates to the deterministic value of A.  
+
+Whenever you measure something, there is variation introduced. This due to sampling variation in the random factors affecting your measurement.
+
+Press the "Generate new sample" box several times to get an idea about how the measurement varies from sample to sample.  The red arrow shows the difference between the deterministic value of A (which you would never know in reality) and the measurement, shown as a black dot within a circle.
+
+Also try changing the "Standard deviation of noise" slider to make the random component of the measurement larger or smaller.  (Wait 5 seconds.)
+
+Now move to the 3-D View tab, where you'll see the situation from a broader perspective.  There's no reason why the random factors should play out just in the B-C plane; in reality they affect all of the cases in your sample.  The result is that randomness --- the red line --- moves the measured value of A out of the B-C plane.  That is, A as measured doesn't depend only on B and C but on some other, unknown factors.  The 3-D view tries to show that the measured value of A -- shown as a black dot, is randomly off the B-C plane.  .The deterministic value, shown as an x, is in the plane.
+
+When you fit a model of measured A tilde B and C, you are projecting the black dot back onto the B-C plane.  It's shown as an open circle here.
+
+Generate new samples and switch back and forth between the "measurement" and "3-D View" tabs.  Make sure you understand the relationship between the two views, particularly the relationship among deterministic A (the x), measured A (the black dot) and the projection of measured A onto the B-C plane.
+
+Video with 3-d view tab =================
+
+Measured A is the black dot.  Fitting a model projects this down onto the B-C plane.  That's shown as the dark line connecting the black dot to the open circle.  This is the residual vector.   The residual is always exactly perpendicular to the plane --- that's the nature of the least-squares fitting process.  But the random factors --- the red line that connects the deterministic A and the measured A --- need not be perpendicular to the plane.  This is most evident for small sample sizes.  So try setting the "sample size n" to n=2. (Wait 3 seconds).  Generate several new random samples.  By and large, the random factors won't be perpendicular to B and C.
+
+But for large n --- try n=100 --- the statistics of randomness result in the random factors being almost always close to perpendicular to B and C. 
+
+The overall result is that for large sample size n, the projected version of measured A tends to be closer to the deterministic A than is the case for small sample sizes.  
+
+Now, to construct a sampling distribution.  We have an estimate of the length of the red random component.  Of course, we don't measure the red random component directly, but the residual vector gives us a good idea of how long it is.
+
+Imagine adding a new random vector to the measured A and then projecting this down onto the B-C plane.  That would give us a good idea of how far the deterministic A is from the model values.  We don't know what direction the deterministic A is, but by making lots of such samples, we can be confident that we'll cover it.  That's the job of the confidence interval.  Click on the "Show CI simulation" and you'll see many such random vectors and their projection back onto the B-C plane.  That gives an idea of how the confidence interval is calculated.
+
+
+
+Video with Conf. Interval tab. ============
+
+You saw in the "3-D View" tab how simulated random vectors can be used to construct a confidence interval.  This tab shows the same 
+thing, but looking straight down onto the B-C plane.  and instead of the handful of random trials with random vectors, the probability distribution is shown --- the red concentric circles.  
+
+The biggest dark circle shows 95% coverage.  It should happen that about 95% percent of the time, the deterministic A is within this circle.  You can press "Generate new sample" several times and see how things work out.  The deterministic A stays put --- it's deterministic.  But the measured A moves around, as does the 95% coverage region.
+
+Turn on the B coefficient contours, you'll see what range of B coefficients gives 95% coverage.  It's that range of coefficients that is actually the confidence interval on the B coefficient.
+
+
+
