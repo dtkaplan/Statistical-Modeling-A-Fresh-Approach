@@ -49,7 +49,9 @@ Change in style or format.  The old commands will still work, but the new versio
 * p. 83: Use of `transform()` [New page](p83.pdf)
 * p. 175-176: Use of `with()` rather than `$` [New page](p175-6.pdf)
 * p. 197: `tally()` replaces `table()` [New page](p196.pdf)
-* p. 236: Use of `with()` rather than `$`.  Fixed error in names of variables. [New page](p236.pdf)
+* p. 236:  [New page](p236.pdf)
+    * Use of `with()` rather than `$`.  Fixed error in names of variables.    
+    * Should say `interval='confidence'` for the interval on the model value
 * p. 316: Use `makeFun()` rather than `predict()` [New page](p316.pdf)
 
 
