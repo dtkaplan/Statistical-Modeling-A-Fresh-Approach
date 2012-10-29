@@ -500,6 +500,8 @@ Friday Quiz
 
 Review Problems: [without answers](https://dl.dropbox.com/u/5098197/ISM/Mid-Term-Review.pdf) and then again, [with answers](https://dl.dropbox.com/u/5098197/ISM/Mid-Term-Review-answers.pdf)
 
+**[Exam Answers and Grading Rubric](http://rpubs.com/dtkaplan/2243)** 
+
 `r I(classDayContents("Mon", "Oct", 22 ))`
 **Topic**: Confidence Intervals on Coefficients (continued)
 **Reading**: SM Ch. 12
