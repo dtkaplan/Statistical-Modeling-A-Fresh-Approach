@@ -91,6 +91,8 @@ Play with the various sliders and such.  See what you can make of the simulation
 
 **In Class**: `r I(PN(c(1315)))`
 
+**On Your Own**: An [introduction to Bayes Theorem](http://lesswrong.com/lw/2b0/bayes_theorem_illustrated_my_way/)
+
 **Notes**: `r I(todaysNotes("2012-10-31.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-31-class)
 
 **On Your Own**: The paper that won the [2012 Ignobel prize](http://www.improbable.com/ig/winners/) in neuroscience: [On brain activity in a dead salmon](http://www.jsur.org/ar/jsur_ben102010.pdf)

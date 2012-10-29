@@ -162,13 +162,81 @@ hr {
 
 <h3>r, p, and q operations.  Also d.</h3>
 
-<h2>Hypothesis Testing</h2>
+<h1>Statistical Inference</h1>
+
+<p>For the next few weeks, we&#39;re going to be studying techniques for &ldquo;statistical inference.&rdquo; The central question of inference is, &ldquo;What are we entitled to say about the real world based on the data we have collected?&rdquo;  The techniques involve a pattern of logic that is counter-intuitive to many people.  It involves <strong>conditional reasoning</strong> &mdash; thinking about what would happen if certain assumptions (called &ldquo;hypotheses&rdquo;) were true.  </p>
+
+<p>It&#39;s easy to forget that the reasoning is conditional, that assuming a hypothesis to be true does not make it true, and for this reason there are many misconceptions about statistical inference.</p>
+
+<p>We&#39;ll start with a more intuitive approach to inference, called the <strong>Bayesian</strong> approach.  The Bayesian approach is itself a worthy object of study and provides a powerful set of techniques for reasoning about the world.  However, the natural and social sciences are only slowly moving toward the use of the Bayesian approach.  Almost all technical literature is written using the <strong>Frequentist</strong> perspective. For that reason, we won&#39;t be using the Bayesian approach directly in this course.  Nevertheless, people seem to achieve a better grasp on the frequentist approach to hypothesis testing if they are able to contrast it with the Bayesian approach; it seems to be easier to overcome your intuition if you understand what your intuition is telling you.</p>
 
 <h3>Conditional Probabilities</h3>
 
-<p>Bayes Rule</p>
+<p>We&#39;ve talked about probabilities.  Now, we&#39;re going to be explicit about the setting in which a probability applies, called the <strong>condition</strong>.</p>
 
-<p>The Beebee Bird</p>
+<p>In statistical evidence, we want to draw a conclusion about the <strong>world</strong> based on some data.  A nice form for such conclusions is as a probability: the probability of the world being in a particular state given the data: p(world | data)</p>
+
+<p>But our knowledge of the world often takes a different form: p( data | world ) &mdash; if the world is a particular way, what are we likely to see.  Example: the Higgs Boson and energies of 125 TeV.  Make an assumption about the world: e.g. the <em>standand model of physics</em> and a corresponding energy for the Higgs Boson.  </p>
+
+<p>But what we are really interested in is p( world | data )<br/>
+Look at the data from the Large Hadron Collider at CERN.  How do we convert this into a statement about the world.</p>
+
+<p>Example: Suppose that you are interested in using headaches to diagnose whether someone has a flu or not.  Based on surveys of lots of people, you come up with the following data:</p>
+
+<table><thead>
+<tr>
+<th>Condition</th>
+<th>Flu</th>
+<th>Healthy</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Headache</td>
+<td>0.75</td>
+<td>0.03</td>
+</tr>
+<tr>
+<td>No headache</td>
+<td>0.25</td>
+<td>0.97</td>
+</tr>
+</tbody></table>
+
+<p>These are conditional probabilities: probabilities conditioned on whether or not a person has the flu. The are often written using notation like this: prob(Headache|Flu) </p>
+
+<p>Such conditional probabilities are often based on direct evidence; they are given.</p>
+
+<p>Now the problem.  You have a headache. What&#39;s the probability that you have the flu?</p>
+
+<ul>
+<li>Note that the column totals are 1.00.  The row totals don&#39;t have any obvious meaning.</li>
+<li>Introduce <strong>prior</strong> probability; the probability that you have the flu <strong>before</strong> you consider the data.<br/></li>
+<li>Let&#39;s set the prior for flu to be p(flu) = 0.02, and therefore the probability of being healthy is 0.98.</li>
+</ul>
+
+<p>Here&#39;s the basic rule for combining <strong>prior</strong> and <strong>conditional probabilities</strong> to construct a <strong>joint probability</strong>: p(flu &amp; headache) = p(headache|flu) p(flu)</p>
+
+<p>If this is true, then p(headache &amp; flu) = p(flu|headache) p(headache).</p>
+
+<p>So p(flu | headache) = p(headache | flu) p(flu) / p(headache)</p>
+
+<p>The tabular approach: construct joint probabilities.</p>
+
+<p>The tree approach: construct all the branches of the tree and then cross out those that aren&#39;t consistent with the evidence.</p>
+
+<p>EXAMPLE: Mammography</p>
+
+<p>Sensitivity: 90% probability of a positive test if the woman has breast cancer</p>
+
+<p>Specificity: 90% probability of a negative test if the woman does <strong>not</strong> have breast cancer.</p>
+
+<p>Prevalence: 1%</p>
+
+<p>You have a positive result.  What&#39;s the probability that you have breast cancer?</p>
+
+<h1>The Prior</h1>
+
+<p>Calculating a posterior probability requires a prior.</p>
 
 <h3>What to do when you have no prior?</h3>
 
