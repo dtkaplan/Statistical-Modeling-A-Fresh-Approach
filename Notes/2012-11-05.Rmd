@@ -5,6 +5,11 @@ Stats 155 Class Notes 2012-11-05
 # boilerplate
 ```
 
+### Election-Eve Activities
+
+* [512 paths to the White House](http://www.nytimes.com/interactive/2012/11/02/us/politics/paths-to-the-white-house.html?hp)
+* [A prediction contest](https://dl.dropbox.com/u/5098197/StatisticalModeling/Activities/ElectoralCollege.pdf) --- fill this in and hand it back.  We'll analyze the results on Wednesday.
+
 ### Hypothesis testing framework review
 
 The Ivory Billed woodpecker from a [hypothesis testing perspective](bayes-approach.pdf) second page.
@@ -46,7 +51,7 @@ Do `mHypTest(TRUE)` setting the "effect size" to about 0.4
 
 ### Activity
 
-Print out list of 20 p-values. Ask who has got the first one < 0.05? Who has got any of them? What's the smallest p-value in the class?
+Print out [list of 20 p-values](../Epidemiology/Notes/Activities/conf-interval-tables.pdf). Ask who has got the first one < 0.05? Who has got any of them? What's the smallest p-value in the class?
 
 Simulation activity:
 ```{r}
