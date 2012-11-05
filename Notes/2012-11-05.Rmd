@@ -5,3 +5,62 @@ Stats 155 Class Notes 2012-11-05
 # boilerplate
 ```
 
+### Hypothesis testing framework review
+
+The Ivory Billed woodpecker from a [hypothesis testing perspective](bayes-approach.pdf) second page.
+
+### Reminder about confidence intervals
+
+Confidence intervals are computed on Planet Samp.
+
+1. What fraction of the earth is covered by water?  Toss the globe around.
+2. How much of the US is within one mile of a road?  
+    * Use google maps with a location specified like this (100.342 W, 35.873 N)  and look for the green arrow rather than the "push-pin" (which gives the nearest address, which is typically near a road).
+    *Pick a random longitude between 65 and 125 degrees W, and a latitude between 25 and 50 degrees N.  If you get water, pick a new point.  (Here's a [map](USmap.png) that can be used to justify this range of locations.)
+    !<USmap.png>
+    * Tally up how many yesses and no's.
+    * Resample these to get a standard error.  Also do the regression report.
+
+### Shuffling 
+
+[Permutation test by hand](http://dl.dropbox.com/u/5098197/ISM/Activities/permutation-test.pdf)
+
+### Power
+
+How did I know that I could reject the Null in the shuffling problem?  I did a little simulation.
+```{r}
+mysim <- function(n=15) {
+   days = resample(1:31,size=n)
+   nums = ceiling( runif(n,min=0,max=days))
+   mod = lm(nums~days)
+   list(r2=r.squared(mod), p=summary(mod)$coef[2,4])
+}
+s15 = do(1000)*mysim(15) # typical R^2 is about 0.4
+mean(~r2, data=s15)
+tally( ~ p<0.05, data=s15,format='proportion')
+```
+
+Do `mHypTest(TRUE)` setting the "effect size" to about 0.4
+
+### Interpreting p-values
+
+### Activity
+
+Print out list of 20 p-values. Ask who has got the first one < 0.05? Who has got any of them? What's the smallest p-value in the class?
+
+Simulation activity:
+```{r}
+fetchData("simulate.r")
+d = run.sim( bogus.groups, ngroups=5, 10)
+bwplot(val~group, data=d)
+dd = subset( d, group %in% c("A", "E") ) # or whatever are the furthest-apart groups
+```
+
+Carry out a hypothesis test on a subset that is just the best and worst groups. How often do people get a p-value less than 0.05?
+
+Publication bias.  Filing cabinet problem.
+
+### Meta-studies and funnel plots 
+
+* The standard error and the funnel plot: looking at lots of studies and comparing their odds ratios and standard errors: Start at time 9:30 in [this TED video](http://www.ted.com/talks/ben_goldacre_battling_bad_science.html) 
+* [Wikipedia](http://en.wikipedia.org/wiki/Funnel_plot)

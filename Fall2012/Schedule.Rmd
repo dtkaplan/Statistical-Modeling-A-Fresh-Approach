@@ -110,7 +110,7 @@ Play with the various sliders and such.  See what you can make of the simulation
 **Topic**: Interpreting the p-value
 **Reading**: 
 * SM §14.4
-* [XKCD cartoon](http://xkcd.com/882/) and [another](http://xkcd.com/628/)
+* [XKCD cartoon](http://xkcd.com/882/) and [another](http://xkcd.com/628/) and [yet another](http://xkcd.com/892/)
 
 **Assignment**: `r I(PN(c("14RQ",1404,1405,1411,1412,1424)))`
 **In Class**: `r I(PN(c(1421)))`

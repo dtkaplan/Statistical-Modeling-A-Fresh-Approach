@@ -89,3 +89,10 @@ This lesson is really about the difference between a variable and a "model term"
 
 #### Untangling
 * An introduction using house prices.  This is based on a problem involving house prices in Saratoga Springs, NY developed by [Prof. Richard De Veaux](http://sites.williams.edu/rdeveaux/) of Williams College.   [Student handout](Activities/UntanglingHousePrices.pdf), in which students construct a multiple-regression model of house price as a function of various features of the house. These [Instructor Notes](Activities/UntanglingHousesInstructorNotes.html) go a bit further in explaining untangling, interaction, and introducing a transformation to prices.
+
+
+### Acknowledgments
+
+This material is based in part upon work supported by the National Science Foundation under Grant No. 0920350.  
+
+Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.

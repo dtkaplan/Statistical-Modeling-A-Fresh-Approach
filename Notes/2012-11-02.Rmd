@@ -5,4 +5,70 @@ Stats 155 Class Notes 2012-11-02
 # boilerplate
 ```
 
-Fall Sampler
+### Stock Prices
+
+Let's start by taking a trip to planet Sample.  We'll look at stock prices.  
+
+For now good reason, there's a two-step process for reading in the stock data:
+```{r}
+fetchData("getDJIAdata.R")
+djia = getDJIAdata()
+```
+
+Economists often look at "log prices," since changes are often proportional (think how inflation rates are given).  
+
+If we invest for 10 years (about 2500 days), what kind of return will we get?
+
+```{r}
+new = subset(djia, Date > as.Date("1990-01-01"))
+daily = diff( log(with(data=new, Close)))
+```
+
+Now a sample of 2500 days
+```{r}
+sim = exp(sum(resample(daily,size=2500)))
+```
+
+Or, many:
+```{r}
+s = do(1000)*exp(sum(resample(daily,size=2500)))
+densityplot(~result, data=s)
+```
+
+Looking at the distribution of yearly returns:
+```{r}
+yearly = do(1000)*exp(sum(resample(daily,size=250)))
+densityplot(~result, data=yearly)
+```
+What's the chance that you'll loose money in any given year?
+
+This analysis assumes that the daily returns are independent.  Are they.
+
+```{r}
+fetchData("takeLag.R")
+new = transform(new, change=(Close-Open)/Close)
+oneday = takeLag(new)
+```
+
+How would you decide if there is any relationship between one day and the next?
+
+### Drunkard's walk and hypothesis test
+
+### Ivory Bill done as a hypothesis test
+
+
+
+### R^2 as a test statistic
+
+Activity: fit the kids' feet data with different numbers of model terms: `rand(p)` 
+
+Find an average R^2 for each p and draw the graph of R^2 versus p.
+
+### From R^2 to F
+
+Construction of F
+
+Comparing the distribution of F to the distribution of R^2.  F is much more stable, easier to interpret.  We look for F near 1 if the null is true.
+
+### Power and Significance activity.
+
