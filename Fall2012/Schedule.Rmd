@@ -122,6 +122,7 @@ Play with the various sliders and such.  See what you can make of the simulation
 **Topic**: Hypothesis Testing on Parts of Models
 **Reading**: SM Ch. 15
 **Assignment**: `r I(PN(c()))`
+**In Class**: [Evaluating your election result model](http://glimmer.rstudio.com/mosaic/Election2012/)
 **Notes**: `r I(todaysNotes("2012-11-07.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-07-class)
 **On Your Own**: [Dance of the p-values](https://www.youtube.com/watch?v=ez4DgdurRPg)
 

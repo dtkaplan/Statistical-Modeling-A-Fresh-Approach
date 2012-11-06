@@ -127,7 +127,7 @@ Some movies to get your Epi fix while on break:
 * *Essential Epidemiology Chapter* Ch. 11.  Read this with an eye toward the [*Lancet*](https://moodle.macalester.edu/mod/resource/view.php?id=15256) reading for Thursday.
 
 **Assignment**: 
-* Estimation Problem: Risk for College Students: To be posted.
+* Estimation Problem: Risk for College Students: [Instructions and hand in on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=25737) 
 * [Columbia Epiville exercise on cohort studies](http://ccnmtl.columbia.edu/projects/epiville/cohort_study/).  Submit answers via [Google Forms](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDV0ZHR1U1Vwa25VaEFwTUd5SmF6ZWc6MQ).
 * Reading Reflection on *Essential Epidemiology* Ch. 11 `r I(RR('EE11'))`
 

@@ -28,7 +28,16 @@ Confidence intervals are computed on Planet Samp.
 
 ### Shuffling 
 
+A proof for the existence of Extra-Sensory Perception!  If I can get you to focus on a number, I can predict, to some extent, your thought process.
+
+Your birthday is a number that plays an important part in your thought process.  Generate a random number between 0 and your birday.
+
 [Permutation test by hand](http://dl.dropbox.com/u/5098197/ISM/Activities/permutation-test.pdf)
+
+Spreadsheet reading command:
+```{r}
+esp = fetchGoogle("https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dE5iMjZrcGFjTUtJSjg0T05NLW84Mmc&single=true&gid=0&output=csv")
+```
 
 ### Power
 
