@@ -17,7 +17,7 @@
 
 
 
-
+<iframe width="420" height="315" src="http://www.youtube.com/embed/yDPfEaY-j9E?rel=0" frameborder="0" allowfullscreen></iframe>
 
 Video with instruction panel. ============
 
@@ -38,6 +38,7 @@ The objective of the app is to help you see how the confidence interval is relat
 You'll also be able to see, as you never could in real life,  the relationship between the "real" mechanism and the estimates you make by measurement and modeling.
 
 Video with Deterministic Tab ===============
+<iframe width="420" height="315" src="http://www.youtube.com/embed/FPjjFAFBHaQ?rel=0" frameborder="0" allowfullscreen></iframe>
 
 Here you are going to do something you never get to do in authentic statistical work: you're setting the mechanics of how your system works.  
 Ordinarily, the point of doing measurement and statistical modeling is to help you understand how the system works, and you'll do that in other tabs.  But here you'll be able to set and see what the "real" system is, so that you can compare it to the results of your statistical work.
@@ -53,6 +54,7 @@ Once you're satisfied, try out the three check-boxes on the right for displaying
 Here's a question:  There's some angle of colinearity where the two models A ~ B and A ~ B+ C give the same result for the B coefficient.  What is that angle?
 
 Video with measurement tab =============
+<iframe width="420" height="315" src="http://www.youtube.com/embed/HNcSinU1HTU?rel=0" frameborder="0" allowfullscreen></iframe>
 
 In this tab, you will see how the measurement of A relates to the deterministic value of A.  
 
@@ -69,6 +71,7 @@ When you fit a model of measured A tilde B and C, you are projecting the black d
 Generate new samples and switch back and forth between the "measurement" and "3-D View" tabs.  Make sure you understand the relationship between the two views, particularly the relationship among deterministic A (the x), measured A (the black dot) and the projection of measured A onto the B-C plane.
 
 Video with 3-d view tab =================
+<iframe width="420" height="315" src="http://www.youtube.com/embed/b06-G799Zmc?rel=0" frameborder="0" allowfullscreen></iframe>
 
 Measured A is the black dot.  Fitting a model projects this down onto the B-C plane.  That's shown as the dark line connecting the black dot to the open circle.  This is the residual vector.   The residual is always exactly perpendicular to the plane --- that's the nature of the least-squares fitting process.  But the random factors --- the red line that connects the deterministic A and the measured A --- need not be perpendicular to the plane.  This is most evident for small sample sizes.  So try setting the "sample size n" to n=2. (Wait 3 seconds).  Generate several new random samples.  By and large, the random factors won't be perpendicular to B and C.
 
@@ -83,6 +86,7 @@ Imagine adding a new random vector to the measured A and then projecting this do
 
 
 Video with Conf. Interval tab. ============
+<iframe width="420" height="315" src="http://www.youtube.com/embed/9aalyMDN2j4?rel=0" frameborder="0" allowfullscreen></iframe>
 
 You saw in the "3-D View" tab how simulated random vectors can be used to construct a confidence interval.  This tab shows the same 
 thing, but looking straight down onto the B-C plane.  and instead of the handful of random trials with random vectors, the probability distribution is shown --- the red concentric circles.  

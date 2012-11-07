@@ -5,3 +5,139 @@ Stats 155 Class Notes 2012-11-07
 # boilerplate
 ```
 
+Grading the Election Predictions
+-------------------------
+
+
+A demo of the applet.  
+
+[Evaluating your election result model](http://glimmer.rstudio.com/mosaic/Election2012/)
+
+I still need to confirm that I have Silver's model correctly represented in the program --- being off by one or two clicks would severely hurt someone who put a lot of weight on Silver.
+
+Multiple Tests and the p-value
+-------------------------
+
+Are there easy grading professors?
+
+
+* Build a model of grade versus professor.  But since there's no point in having a "reference professor", let's suppress the intercept.
+```{r}
+grades = fetchData("grades.csv")
+g2n = fetchData("grade-to-number.csv")
+courses = fetchData("courses.csv")
+all = merge(grades, g2n)
+all = merge(all,courses)
+names(all)
+mod1 = lm( gradepoint ~ iid - 1, data=all )
+```
+Look at the distribution of p-values:
+```{r}
+pvals1 = summary(mod1)$coef[,4] # grab the 4th column 
+tally(~pvals1 < 0.05)
+```
+
+Every one of the p-values is less than 0.05.  Why?
+
+* What's the Null Hypothesis being tested?  On coefficients, the null of no effect corresponds to a coefficient of zero.  But no professor has a mean gradepoint of zero.
+
+Tweak: Center the grades on zero.  That is, subtract out the mean grade so that the null hypothesis value of zero is meaningful.
+```{r}
+options(na.rm=TRUE)
+all = transform(all, GP=gradepoint-mean(gradepoint))
+mod2 = lm( GP ~ iid - 1, data=all)
+pvals2 = summary(mod2)$coef[,4] # grab the 4th column 
+tally(~pvals2 < 0.05)
+```
+
+Ah! We've got 89 significant p-values.  Let's look at the distribution of grades.
+```{r}
+densityplot(~coef(mod2), groups = pvals2<0.05)
+```
+
+Things to point out:
+
+* Both positive values and negative grade values away from zero can generate p-values less than 0.05
+* Grades near zero don't generate significant p-values
+* Some grades away from zero are not significant --- that's because there aren't very many courses for those professors.
+
+The meaning of the t-statistic --- how far from zero the coefficient is, measured in units of the standard error.  Demonstrate this from the regression table.
+
+Relationship between t and p-value.  There's something called the t-distribution which has one parameter.  
+
+### One sided versus two sided tests
+
+When we calculate a p-value, there's a choice to be made --- should we count just one side or both sides in evaluating "as big or more extreme".  Many statistics texts spend a lot of time on this issue.  We're going to ignore it. And follow the Food and Drug Adminstration's rule: Surprising is surprising, whichever way it goes.
+
+### F versus t
+
+Historically, t came first, about 1906.  F was introduced in the 1920s as a generalization of t.  
+
+In econometrics, researchers tend to use t statistics to evaluate significance.  I'll push F statistics.  The F is a generalization of the t.  The rule is $t^2 = F$.  To demonstrate this:
+```{r}
+ts = rt( 10000, df=10 )
+Fs = rf( 10000, df1=1, df2=10 )
+```
+
+With t, you need to look at both tails.  The software does this automatically.  With F, only the tail $>1$ is meaningful, but this corresponds to both tails of the t.
+
+For both distributions the parameter (df for t, df2 for F) counts the dimension of the residual subspace.  This is effectively, how much data you have to use in estimating the size of the residual vector and therefore the standard error of the statistic.
+
+
+### How to interpret the p-values
+
+
+
+Should we take every p-value less than 0.05 to indicate a professor who is significantly easy or hard grading?  Let's look at the distribution of p-values on Planet Null.
+
+```{r}
+mod3 = lm( GP ~ shuffle(iid) - 1, data=all)
+pvals3 = summary(mod3)$coef[,4] # grab the 4th column 
+histogram( ~pvals3 )
+tally(~pvals3 < 0.05)
+```
+
+On Planet Null, the p-values are uniformly distributed between 0 and 1.  
+
+The Bonferroni correction.  To make up for the fact that there are inevitably false-positive rejections of the null on Planet Null, the Bonferroni correction adjusts the threshold for rejection based on the number of tests.  We have 359 professors, so the Bonferroni-adjusted threshold should be 0.05/359
+
+```{r}
+densityplot(~coef(mod2), groups = pvals2<0.05/359)
+tally( ~pvals2 < 0.05/359)
+```
+
+### Digression: Are p-values unif(0,1) on Planet Null?
+
+They would be if the assumptions behind the techniques used to calculate probabilities matched the reality behind the data.  One can get mislead.  A simple way to avoid the most eggregious forms of violation of the assumptions is to use the rank transform on quantitative data.
+
+```{r}
+goo = with(all, rank(GP))
+mod4 = lm( goo - mean(goo) ~ shuffle(iid) - 1, data=all)
+pvals4 = summary(mod4)$coef[,4] # grab the 4th column 
+histogram( ~pvals4 )
+tally(~pvals4 < 0.05)
+```
+
+
+### Interpreting p-values
+
+### Activity
+
+Print out [list of 20 p-values](../Epidemiology/Notes/Activities/conf-interval-tables.pdf). Ask who has got the first one < 0.05? Who has got any of them? What's the smallest p-value in the class?
+
+Simulation activity:
+```{r}
+fetchData("simulate.r")
+d = run.sim( bogus.groups, ngroups=5, 10)
+bwplot(val~group, data=d)
+dd = subset( d, group %in% c("A", "E") ) # or whatever are the furthest-apart groups
+```
+
+Carry out a hypothesis test on a subset that is just the best and worst groups. How often do people get a p-value less than 0.05?
+
+Publication bias.  Filing cabinet problem.
+
+### Meta-studies and funnel plots 
+
+* The standard error and the funnel plot: looking at lots of studies and comparing their odds ratios and standard errors: Start at time 9:30 in [this TED video](http://www.ted.com/talks/ben_goldacre_battling_bad_science.html) 
+* [Wikipedia](http://en.wikipedia.org/wiki/Funnel_plot)

@@ -157,6 +157,13 @@ As you pull together your thoughts in preparation for writing the letter, you mi
 
 [Hand in on Moodle.](https://moodle.macalester.edu/mod/assign/view.php?id=15396)
 
+### <a name="collegerisk">Risk for College Students</a>
+
+What are five common risky things that college students do in terms of excess mortality? Estimate how risky each is using years of potential life lost for an individual. Also estimate the prevalence of the risk. Your estimates might be largely guesswork, but try to put reasonable upper and lower bounds on the risk.
+
+For one of the five items, go beyond just guessing. Do a bit of Internet sleuthing and see what you can come up with. Don’t spend more than 30 minutes altogether. It helps if you pick a risk that you don’t expect everyone else in the class to be reporting on.
+
+[Hand in on Moodle.](https://moodle.macalester.edu/mod/assign/view.php?id=25736)
 --------------------
 
 ### A Deadly Misdiagnosis: Reading Reflection
