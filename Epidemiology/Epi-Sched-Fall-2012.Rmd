@@ -142,7 +142,7 @@ Some movies to get your Epi fix while on break:
 **Reading**: 
 * [*Lancet* article on the flu vaccine](https://moodle.macalester.edu/mod/resource/view.php?id=15256).
 * [Gigerenzer *et al.*](https://moodle.macalester.edu/mod/resource/view.php?id=15259) Sections I and II
-* *The Great Influenza* pp. 297-365 (MOVE TO LATER)
+
 
 **Assignment**: 
 * Reading Reflection on Gigerenzer Sections I and II `r I(RR('giger12'))`
@@ -165,6 +165,7 @@ Some movies to get your Epi fix while on break:
 * Hand in your formal write up of the Island Descriptive Study.  Hand in links to both your report and your data spreadsheet(s) on [Moodle, here](https://moodle.macalester.edu/mod/assign/view.php?id=15392).  Everyone in each group should enter into Moodle the names of all members of the group and the link to the files.
 
 **On Your Own**:
+* [Tracking an outbreak: fungal infection](http://www.nytimes.com/2012/11/06/health/doctors-chased-clues-to-identify-meningitis-outbreak.html?ref=health)
 
 **In-class**:
 * Stratifying risk in familiar events/exposures.
@@ -219,6 +220,7 @@ Thanksgiving Break!
 **Reading**: 
 * *Know Your Chances*, Chaps 6 & 7.  Compare Chap 7 to [this commentary](http://well.blogs.nytimes.com/2009/12/14/when-lowering-the-odds-of-cancer-isnt-enough/?hpw)
 * [Wear a bicycle helmet?](http://www.nytimes.com/2012/09/30/sunday-review/to-encourage-biking-cities-forget-about-helmets.html?src=me&ref=general)
+* *The Great Influenza* pp. 297-365 
 **Assignment**: 
 * State topic for Island Project Part 2: The Analytical Topic.  Report due the last day of class.
 * Reading relection on bicycle helmets [link to be posted.]

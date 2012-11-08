@@ -118,6 +118,11 @@ histogram( ~pvals4 )
 tally(~pvals4 < 0.05)
 ```
 
+#### An Example
+
+An article about organic food diet and health of young children in the [British Journal of Nutrition](https://dl.dropbox.com/u/5098197/ISM/OrganicFoods-14519.pdf).
+
+Table 3 shows odds ratios for five different foods for both moderately organic and strictly organic diets.  10 comparisons, one of which is significant at $p=0.02$.  Doing a Bonferroni adjustment suggests an appropriate threshold is 0.005.
 
 ### Interpreting p-values
 
