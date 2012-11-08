@@ -1,0 +1,174 @@
+Epidemiology Notes 2012-10-23
+=====================
+```{r message=FALSE,error=FALSE,warning=FALSE,echo=FALSE,results="hide"}
+require(mosaic, quietly=TRUE)
+```
+
+* Mid-term exam today: Last 45 minutes of the class.  
+
+In the News
+------------
+
+* [Bone marrow transplant pioneer](http://www.nytimes.com/2012/10/22/science/e-donnall-thomas-furthered-bone-marrow-transplants-dies.html) --- how could anyone have stuck with this given the early results?  What are the ethics of keeping trying in the face of failure?
+* [Earthquake prediction convictions in Italy](http://dotearth.blogs.nytimes.com/2012/10/22/italys-troubling-earthquake-convictions/)
+* Case reports on [Monster Energy drink and cardiac arrythmias](http://www.nytimes.com/2012/10/23/business/fda-receives-death-reports-citing-monster-energy-a-high-caffeine-drink.html?_r=0).  This was likely not the result of a case-control study, but of a suspected link between caffeine and arrythmia.  It's hard to imagine how one would sample cases in an unbiased way.
+    
+### Power
+
+How big would the study need to be to keep the confidence intervals well away from log odds of 0.  Play with the [odds-ratio spreadsheet](https://docs.google.com/spreadsheet/ccc?key=0Am13enSalO74dGEzYm4zS2Jrd0lfbllHRkxJXzU0b0E) which has a size multiplier that we can play with.   
+
+Walk through the simulation in "odds-ratio-power.Rmd" to show a more detailed calculation.
+
+Funnel plots and p-values.  
+--------------
+* The standard error and the funnel plot: looking at lots of studies and comparing their odds ratios and standard errors: Start at time 9:30 in [this TED video](http://www.ted.com/talks/ben_goldacre_battling_bad_science.html) 
+
+Confounding
+------------
+From Tuesday's notes.
+
+Polio story
+
+Movie: ["A Paralyzing Fear"](http://movies.netflix.com/WiMovie/A_Paralyzing_Fear_The_Story_of_Polio_in_America/70020312?trkid=2361637) 
+Play 40:30 to 47:17  live versus killed virus
+
+NFIP trial: 1:05 - 1:19.07
+
+1:07:35, Salk vaccinating his own children.
+
+
+* The standard error and the funnel plot: looking at lots of studies and comparing their odds ratios and standard errors: Start at time 9:30 in [http://www.ted.com/talks/ben_goldacre_battling_bad_science.html this TED video]
+* Hypothesis testing.  p-values.
+    * Same sort of analysis but create a sampling distribution under the Null Hypothesis and ask how likely the observed value is.
+    *Constructing the conditional sampling distribution by randomizing the explanatory variable.
+*The abuse of p-values and significance.  Multiple comparisons.  Hand out [lists of p-values](Activities/conf-interval-tables.pdf) pages 2 and 3
+
+
+Confounding
+---------------
+
+Examples ...
+
+
+
+### Smoking and Death
+
+Study of female voters in Whickhamshire, England.  Interviewed voters and recorded whether or not they smoked.  Followed up 20-years later to see who was still alive.  Here are the data.
+
+```{r message=FALSE,warning=FALSE,echo=FALSE,results="hide"}
+require(mosaic,quietly=TRUE)
+```
+
+```{r}
+w = fetchData("whickham.csv")
+with(w, table(smoker,outcome ))
+502*139/(443*230)
+```
+
+What does this odds ratio mean?  Keep in mind that the odds ratio refers to a particular layout of the table, with exposed in the top row and cases in the left column.  This has that backwards.  So the odds ratio of 0.68 means that smoker "No" is associated with low probability of being "Alive".
+
+Easier to interpret if we put the columns and rows in the conventional order.  Then OR > 1 means "exposure is associated with case status".  In other words, smoker is associated with lower probability of dying.
+
+We can ask for a confidence interval on this odds ratio
+```{r}
+exp( log(.6848)+c(-2,2)*sqrt(1/502+1/230+1/443+1/139))
+```
+
+Therefore, we have a statistically significant protective value of smoking on dying.
+
+But there is a confounder: age
+
+<pre>
+Age -> Dying
+  |     /  
+Smoking/
+</pre>
+
+
+### Voting on the Civil Rights Act
+
+
+A real-life example is the passage of the Civil Rights Act of 1964.  Overall, a larger fraction of Republican legislators voted in favor of the Act than Democrats. 
+
+In the House: 80% of Republicans versus 61% of Democrats
+
+In the Senate: 82% of Republicans versus 69% of Democrats
+
+However,  when the congressional delegations from the northern and southern states are considered separately,  a larger fraction of Democrats voted in favor of the act in both regions. This arose because regional affiliation is a very strong indicator of how a congressman or senator voted, but party affiliation is a weak indicator. 
+
+#### House Voting on the Civil Rights Act
+ 
+ Region |  Democrat |    | Republican  |
+--------|-----------|----|-------------|----
+Northern | 94% | (145/154) | 85% | (138/162)
+Southern | 7%  | (7/94)     | 0% | (0/10)
+Both     | 61% | (152/248) | 80% | (138/172)
+
+
+#### Senate Voting on the Civil Rights Act
+
+ Senate | Democrat | . | Republican| .
+--------|----------|---|-----------|--- 
+Northern|98% |(45/46)| 84% |(27/32)
+Southern|5% |(1/21)  | 0% | (0/1)
+Both    | 69% |(46/67) | 82% |(27/33)
+
+
+Berkeley Gender Bias Case
+------------------
+
+#### Admitted Applicants
+
+Sex   | Number Admitted | Fraction admitted
+------|-----------------|------------------
+Men   | 8442            | 44%
+Women | 4321            | 35%
+
+
+However when examining the individual departments, it was found that no department was significantly biased against women. In fact, most departments had a "small but ''statistically significant bias'' in favor of women."  The data from the six largest departments is listed below.
+
+Department  | Men | .  |  Women |  .
+------------|-----|----|--------|--------
+            | Applicants | Admitted | Applicants | Admitted
+ A          | 825        | 62%      | 108        | 82%
+ B          | 560        | 63%      | 25         | 68%
+ C          | 325        | 37%      | 593        | 34%
+ D          | 417        | 33%      | 375        | 35%
+ E          | 191        | 28%      | 393        | 24%
+ F          | 272        | 6%       | 341        | 7%
+
+
+[http://en.wikipedia.org/wiki/Simpson's_paradox tables on Wikipedia] (page down to Berkeley)
+
+
+Criteria for a variable being a confounder
+----------------------
+
+* a risk factor for the disease among those not exposed to the factor of interest.
+* associated with the exposure of interest
+* not an intermediate between exposure and outcome.
+
+![Confounding diagram 8.3 in EE](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-8-3.png)
+
+Dealing with Confounding
+------------------------
+
+### At Study Design Phase
+
+* Randomization : experimental assignment
+* Restriction : only allow in participants who have the same level of the confounding variable
+* Matching : make the controls specifically similar to the cases
+
+
+### At Data Analysis Phase
+
+* Stratification (this is what we will do)
+* Multivariate modeling (this is what is done in Math 155)
+* Instrumental Variables (Intent to treat)
+* Propensity score (probability of being given treatment based on covariates) --- match or stratify based on the propensity score
+
+#### Figure from EE.
+
+Quick summary is easier: Use strata-specific OR or the adjusted OR if the strata are similar.
+
+![Figure 8.4 from EE](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-8-4.png)

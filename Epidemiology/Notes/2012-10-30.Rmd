@@ -1,0 +1,242 @@
+Epidemiology Notes 2012-10-30
+=====================
+```{r message=FALSE,error=FALSE,warning=FALSE,echo=FALSE,results="hide"}
+require(mosaic, quietly=TRUE)
+```
+
+In the News
+------------
+* [Lifetime flu vaccine](http://www.nytimes.com/2012/10/30/science/scientists-move-closer-to-a-long-lasting-flu-vaccine.html?hp&_r=0)
+* [Second-hand Smoke](http://well.blogs.nytimes.com/2012/10/29/a-smoke-free-workplace-means-fewer-heart-attacks/)
+
+Funnel plots and p-values.  
+--------------
+* The standard error and the funnel plot: looking at lots of studies and comparing their odds ratios and standard errors: Start at time 9:30 in [this TED video](http://www.ted.com/talks/ben_goldacre_battling_bad_science.html) 
+
+Confounding
+------------
+From Tuesday's notes.
+
+Polio story
+
+Movie: ["A Paralyzing Fear"](http://movies.netflix.com/WiMovie/A_Paralyzing_Fear_The_Story_of_Polio_in_America/70020312?trkid=2361637) 
+Play 40:30 to 47:17  live versus killed virus
+
+NFIP trial: 1:05 - 1:19.07
+
+1:07:35, Salk vaccinating his own children.
+
+
+* The standard error and the funnel plot: looking at lots of studies and comparing their odds ratios and standard errors: Start at time 9:30 in [http://www.ted.com/talks/ben_goldacre_battling_bad_science.html this TED video]
+* Hypothesis testing.  p-values.
+    * Same sort of analysis but create a sampling distribution under the Null Hypothesis and ask how likely the observed value is.
+    *Constructing the conditional sampling distribution by randomizing the explanatory variable.
+*The abuse of p-values and significance.  Multiple comparisons.  Hand out [lists of p-values](Activities/conf-interval-tables.pdf) pages 2 and 3
+
+
+Confounding
+---------------
+
+Examples ...
+
+
+
+### Smoking and Death
+
+Study of female voters in Whickhamshire, England.  Interviewed voters and recorded whether or not they smoked.  Followed up 20-years later to see who was still alive.  Here are the data.
+
+```{r message=FALSE,warning=FALSE,echo=FALSE,results="hide"}
+require(mosaic,quietly=TRUE)
+```
+
+```{r}
+w = fetchData("whickham.csv")
+with(w, table(smoker,outcome ))
+502*139/(443*230)
+```
+
+What does this odds ratio mean?  Keep in mind that the odds ratio refers to a particular layout of the table, with exposed in the top row and cases in the left column.  This has that backwards.  So the odds ratio of 0.68 means that smoker "No" is associated with low probability of being "Alive".
+
+Easier to interpret if we put the columns and rows in the conventional order.  Then OR > 1 means "exposure is associated with case status".  In other words, smoker is associated with lower probability of dying.
+
+We can ask for a confidence interval on this odds ratio
+```{r}
+exp( log(.6848)+c(-2,2)*sqrt(1/502+1/230+1/443+1/139))
+```
+
+Therefore, we have a statistically significant protective value of smoking on dying.
+
+But there is a confounder: age
+
+<pre>
+Age -> Dying
+  |     /  
+Smoking/
+</pre>
+
+
+### Voting on the Civil Rights Act
+
+
+A real-life example is the passage of the Civil Rights Act of 1964.  Overall, a larger fraction of Republican legislators voted in favor of the Act than Democrats. 
+
+In the House: 80% of Republicans versus 61% of Democrats
+
+In the Senate: 82% of Republicans versus 69% of Democrats
+
+However,  when the congressional delegations from the northern and southern states are considered separately,  a larger fraction of Democrats voted in favor of the act in both regions. This arose because regional affiliation is a very strong indicator of how a congressman or senator voted, but party affiliation is a weak indicator. 
+
+#### House Voting on the Civil Rights Act
+ 
+ Region |  Democrat |    | Republican  |
+--------|-----------|----|-------------|----
+Northern | 94% | (145/154) | 85% | (138/162)
+Southern | 7%  | (7/94)     | 0% | (0/10)
+Both     | 61% | (152/248) | 80% | (138/172)
+
+
+#### Senate Voting on the Civil Rights Act
+
+ Senate | Democrat | . | Republican| .
+--------|----------|---|-----------|--- 
+Northern|98% |(45/46)| 84% |(27/32)
+Southern|5% |(1/21)  | 0% | (0/1)
+Both    | 69% |(46/67) | 82% |(27/33)
+
+
+Berkeley Gender Bias Case
+------------------
+
+#### Admitted Applicants
+
+Sex   | Number Admitted | Fraction admitted
+------|-----------------|------------------
+Men   | 8442            | 44%
+Women | 4321            | 35%
+
+
+However when examining the individual departments, it was found that no department was significantly biased against women. In fact, most departments had a "small but ''statistically significant bias'' in favor of women."  The data from the six largest departments is listed below.
+
+Department  | Men | .  |  Women |  .
+------------|-----|----|--------|--------
+            | Applicants | Admitted | Applicants | Admitted
+ A          | 825        | 62%      | 108        | 82%
+ B          | 560        | 63%      | 25         | 68%
+ C          | 325        | 37%      | 593        | 34%
+ D          | 417        | 33%      | 375        | 35%
+ E          | 191        | 28%      | 393        | 24%
+ F          | 272        | 6%       | 341        | 7%
+
+
+[http://en.wikipedia.org/wiki/Simpson's_paradox tables on Wikipedia] (page down to Berkeley)
+
+
+Criteria for a variable being a confounder
+----------------------
+
+* a risk factor for the disease among those not exposed to the factor of interest.
+* associated with the exposure of interest
+* not an intermediate between exposure and outcome.
+
+![Confounding diagram 8.3 in EE](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-8-3.png)
+
+Dealing with Confounding
+------------------------
+
+### At Study Design Phase
+
+* Randomization : experimental assignment
+* Restriction : only allow in participants who have the same level of the confounding variable
+* Matching : make the controls specifically similar to the cases
+
+
+### At Data Analysis Phase
+
+* Stratification (this is what we will do)
+* Multivariate modeling (this is what is done in Math 155)
+* Instrumental Variables (Intent to treat)
+* Propensity score (probability of being given treatment based on covariates) --- match or stratify based on the propensity score
+
+#### Figure from EE.
+
+Quick summary is easier: Use strata-specific OR or the adjusted OR if the strata are similar.
+
+![Figure 8.4 from EE](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/EE-Fig-8-4.png)
+
+### Stratification Exercise
+Hand out [stratification exercise](http://dl.dropbox.com/u/5098197/Epidemiology/moped-activity.pdf).  
+
+* Not using a helmet is clearly associated with head injury: OR about 4, doesn't change much when stratifying by position.
+* Position on the moped is not associated with head injury: OR for driver is about 1.06.
+* HOWEVER, on stratifying by helmet use, it works out that being a driver is riskier for both drivers and non-drivers.  OR about 1.4
+* Interpretation?  Maybe non-drivers are less likely to wear a helmet.  Test this by comparing helmet use for drivers and non-drivers.  (add up head injury and other injury for each of the four categories: (helmet/not) vs (driver/passenger)
+
+### Salk Vaccine trial
+
+From [Freedman, Pisani, and Purves, Ch. 1](https://moodle.macalester.edu/file.php/350/Readings/FPP-Ch1.pdf).  
+* Are the two studies consistent on their face?  
+* Are they consistent when volunteer status is accepted as a confounder?
+
+* Why is volunteer status a confounder?
+* Why the NFIB design with grades 1 and 3 as controls and grade 2 volunteers as treatment group?
+* "Human judgment seems necessary, to make the control group like the treatment group on the relevant variables --- family income as well as the children's general health, personality and social habits."  Why is personality and social habit relevant.
+* "Experience shows, however, that human judgment often results in substantial bias: it is better to rely on impersonal chance." The idea of blocking to combine human judgment and impersonal chance.
+
+### Epiville Confounding exercise
+* Use of matching to avoid confounding with age
+* Prior and posterior confounders reported in different ways.  (Question 7) (Question of significance?)
+* Design stage versus analysis stage (Question 8)
+
+
+
+### Necessary and Sufficient Exercise
+
+Hand out the [worksheet](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/necessary-and-sufficient-exercise.pdf).
+People should form into groups of at least 4 and fill in the worksheet for each of the following:
+
+* Necessary and Sufficient
+* Not Necessary, but sufficient
+* Not sufficient, but necessary
+* Neither necessary nor sufficient
+
+### Discussion of Austin Bradford Hill article
+
+"I have no wish, nor the skill, to embark upon a philosophical discussion of the meaning of `causation'."
+
+* Proximate versus distal cause
+* Proximate cause in liability.  "But for ..." [http://en.wikipedia.org/wiki/Proximate_cause]  isn't this anything that's necessary.  Compare to the diagrams.  Reading reflection?  Compare the epidemiologists notation of causation and contribution to causation with that of the legal system.
+
+#### Criteria:
+
+1. Strength
+    * Scrotal cancer in chimney sweeps: risk ratio of 200
+    * Lung cancer in smokers: risk ratio of 10-30
+    * Cholera and Southwark and Vauxhall company (versus Lambeth company): Risk ratio of 14
+    * Low strength: coronary thrombosis in smokers, risk ratio of 2
+    *Absolute versus relative rate: "I would reject the argument that what matters is the absolute difference between the death rates and not the ratio of one to another."
+2. Consistency: "has it been repeatedly observed by different persons, in different places, circumstances and times?
+    * This helps to rule out an alternative possible explanation for the cause.
+    * Watch out: "no number of exact repetitions would remove or necessarily reveal that fallacy."  Example: Peptic ulcer patients are questioned about recent anxieties or crises that may have precipitated the acute illness.  As controls, patients admitted for hernia.  "If your wife ran off with the lodger last week you still have to take your perforated ulcer to hospital without delay.  But with a hernia you might prefer to stay at home for a while."
+    * "I would myself put a good deal of weight upon similar results reached in quite different ways."
+3. Specificity.  "If the association is limited to specific workers and to particular sites and types of disease and there is no association between the work and other modes of dying, then clearly that is a strong argument in favour of causation."  
+    * But doesn't this contracdict "Consistency?"
+4. Temporality
+    * Nested case/control study example in book on heliobacter pyloris and stomach cancer.  Got the samples ''before'' diagnosis from the cohort study in which the case/control was nested.
+5. Dose-response (biological gradient)
+    * "We should invariably seek it."
+6. Plausibility
+    * Helpful if causation agent is biologically plausible.
+    * Watch out: "This is a feature I am convinced we cannot demand."  Examples: cell-phones and cancer.  Heliobacter pyloris and stomach cancer/ulcers
+7. Coherence --- are the observations consistent with the "generally known facts of the natural history and biology of the disease".
+    * Watch out: "Arsenic can undoubtedly cause cancer of the skin in man, but it has never been possible to demonstrate an effect on any other animal.
+8. Experiment.  Note how short.
+9. Analogy.  Example: Experience with thalidomide and rubella encourages us to accept "slighter but similar evidence with another drug or another viral disease in pregnancy."
+
+**But NOT**: significance
+
+### Epiville Causal Reasoning
+
+* Point out the dose-response suggested in the abstract, and the very large confidence intervals on the odds ratio.
+* Mayor who saved the storks.
+
+

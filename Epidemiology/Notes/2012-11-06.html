@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Epidemiology Notes 2012-11-01</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Epidemiology Notes 2012-11-01</h1>
+
+<h3>Outline for the Day</h3>
+
+<p>Handouts: page 600 of organic food and health article &mdash; to let students identify covariates.<br/>
+1. Covariates: <br/>
+    * Atlantic Flu Vaccine<br/>
+    * Organic food and health.  Identifying covariates.  Adjusting for them.  Meaning of p-value<br/>
+2. Causation: <br/>
+    * Quick review of Austin Bradford Hill criteria<br/>
+    * Rhetorical style of &ldquo;Myopia and ambient lighting&rdquo; &mdash; read through the article showing how the Hill criteria appear.</p>
+
+<h3>Atlantic Flu Vaccine</h3>
+
+<blockquote>
+<p>&ldquo;Study after study has found that people who get a flu shot in the fall are about half as likely to die that winter &ndash; from any cause &ndash; as people who do not.&rdquo;</p>
+
+<p>&ldquo;Influenza causes only a small minority of all deaths in the U.S., even among senior citizens, and even after adding in the deaths to which flu might have contributed indirectly. When researchers from the National Institute of Allergy and Infectious Diseases included all deaths from illnesses that flu aggravates, like lung disease or chronic heart failure, they found that flu accounts for, at most 10 percent of winter deaths among the elderly. So how could flu vaccine possibly reduce total deaths by half?&rdquo;</p>
+
+<p>&ldquo;Nobody really has a handle on how many of the deaths that are blamed on flu were actually caused by a flu virus, because few are confirmed by a laboratory. &quot;I used to be a family physician,&rdquo; says Jefferson. &ldquo;I&#39;ve never seen a patient come to my office with H1N1 written on his forehead. When an old person dies of respiratory failure after an influenza-like illness, they nearly always get coded as influenza.&rdquo;</p>
+
+<p>p. 50.  Other way flu researchers are fooled into thinking the vaccine is effective: use of a surrogate endpoint.  Need for placebo-controlled studies.</p>
+</blockquote>
+
+<h3>Consumption of Organic Foods and Risk of Atopic Disease</h3>
+
+<p><a href="http://dl.dropbox.com/u/5098197/Epidemiology/Figures/file14519-title.png">Title page</a></p>
+
+<ul>
+<li>Display covariate table on p. 3 (print this out for class) and ask them to look for possible covariates
+
+<ul>
+<li>Breast feeding</li>
+<li>Immunization</li>
+<li>Exposure to smoke</li>
+<li>Antibiotic exposure in first 6 months</li>
+<li>&ldquo;Although a trend for an association between organic food consumption and lower eczema risk was observed, this did not reach statistical signiﬁcance (Table 2). The adjusted OR were 0·95 (95 % CI 0·70, 1·28) and 0·76 (95 % CI 0·50,1·17) for moderately organic food consumption and strict organic food consumption compared to conventional food consumption.&rdquo;
+*<a href="http://dl.dropbox.com/u/5098197/Epidemiology/Figures/file14519-table2.png">Table 2</a>: Adjusted odds ratio.  By and large, adjustment pushes the OR toward 1.</li>
+<li><a href="http://dl.dropbox.com/u/5098197/Epidemiology/Figures/file14519-table3.png%20Table%203">Table 3</a>: Break-down into food categories.  Note that there is no Bonferonni adjustment.  Five food categories suggests that there is no significant result.</li>
+</ul></li>
+</ul>
+
+<h3><a href="http://epiville.ccnmtl.columbia.edu/cohort_study/">Epiville Cohort Studies</a></h3>
+
+<ul>
+<li><p>Question 3: Notice that the eligibility criteria exclude people who are already sick.  (It might be that sick people are more likely to work in the dangerous areas of the plant: &ldquo;What have I got to lose?  Nobody else will hire me.&rdquo;</p></li>
+<li><p>&ldquo;Intellectually Curious&rdquo; following question 6.  Note the dose-dependence.</p></li>
+</ul>
+
+<h1>Risk</h1>
+
+</body>
+
+</html>
+

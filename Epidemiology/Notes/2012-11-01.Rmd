@@ -1,0 +1,91 @@
+Epidemiology Notes 2012-11-01
+=====================
+```{r message=FALSE,error=FALSE,warning=FALSE,echo=FALSE,results="hide"}
+require(mosaic, quietly=TRUE)
+```
+
+In the News
+------------
+
+
+### At Data Analysis Phase
+
+* Stratification (this is what we will do)
+* Multivariate modeling (this is what is done in Math 155)
+* Instrumental Variables (Intent to treat)
+* Propensity score (probability of being given treatment based on covariates) --- match or stratify based on the propensity score
+
+
+
+
+### Epiville Confounding exercise
+* Use of matching to avoid confounding with age
+* Prior and posterior confounders reported in different ways.  (Question 7) (Question of significance?)
+* Design stage versus analysis stage (Question 8)
+
+### Organic Food debate
+
+Show the British Journal of Nutrition article
+
+* Confounders: SES
+* Multiple comparisons
+* Weak effect
+
+The question is not whether organic food consumption is associated with better health, but whether it **causes** better health.
+
+
+
+### Necessary and Sufficient Exercise
+
+A basic notion of causation involves "necessary " and/or "sufficient."  It's worthwhile to examine this in detail, just because it is so basic.  But keep in mind that "neither necessary nor sufficient" is often the relationship between a causal factor and the effect.
+
+Hand out the [worksheet](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/necessary-and-sufficient-exercise.pdf).
+People should form into groups of at least 4 and fill in the worksheet for each of the following:
+
+* Necessary and Sufficient
+* Not Necessary, but sufficient
+* Not sufficient, but necessary
+* Neither necessary nor sufficient
+
+### Discussion of Austin Bradford Hill article
+
+"I have no wish, nor the skill, to embark upon a philosophical discussion of the meaning of `causation'."
+
+* Proximate versus distal cause
+* Proximate cause in liability.  "But for ..." [http://en.wikipedia.org/wiki/Proximate_cause]  isn't this anything that's necessary.  Compare to the diagrams.  Reading reflection?  Compare the epidemiologists notation of causation and contribution to causation with that of the legal system.
+
+#### Criteria:
+
+1. Strength
+    * Scrotal cancer in chimney sweeps: risk ratio of 200
+    * Lung cancer in smokers: risk ratio of 10-30
+    * Cholera and Southwark and Vauxhall company (versus Lambeth company): Risk ratio of 14
+    * Low strength: coronary thrombosis in smokers, risk ratio of 2
+    * Absolute versus relative rate: "I would reject the argument that what matters is the absolute difference between the death rates and not the ratio of one to another."
+    * Why does strength matter?  Last paragraph on page 1 continuing onto page 2.  "On the other hand the death rate from coronary thrombosis in smokers is no more than twice, possibly less, the death rate in non-smokers.  Though there is good evidence to support causation it is surely much easier in this case to think of some features of life that may go hand-in-hand with smoking --- features that might conceivably be the real underlying cause or, at the least, an important contributor....  But to explain the pronounced excess in cancer of the lung [RR of 20 to 30] in any other environmental terms requires some feature of life so intimately linked with cigarette smoking and with the amount of smoking that such a feature should be easily detectable.  If we cannot detect it or reasonably infer a specific one, then in such circumstances I think we are reasonably entitled to reject the vague contention of the armchair critic `you can't prove it, there *may* be such a feature'."
+2. Consistency: "has it been repeatedly observed by different persons, in different places, circumstances and times?
+    * This helps to rule out an alternative possible explanation for the cause.
+    * Watch out: "no number of exact repetitions would remove or necessarily reveal that fallacy."  Example: Peptic ulcer patients are questioned about recent anxieties or crises that may have precipitated the acute illness.  As controls, patients admitted for hernia.  "If your wife ran off with the lodger last week you still have to take your perforated ulcer to hospital without delay.  But with a hernia you might prefer to stay at home for a while."
+    * "I would myself put a good deal of weight upon similar results reached in quite different ways."
+3. Specificity.  "If the association is limited to specific workers and to particular sites and types of disease and there is no association between the work and other modes of dying, then clearly that is a strong argument in favour of causation."  
+    * But doesn't this contracdict "Consistency?"
+4. Temporality
+    * Nested case/control study example in book on heliobacter pyloris and stomach cancer.  Got the samples ''before'' diagnosis from the cohort study in which the case/control was nested.
+5. Dose-response (biological gradient)
+    * "We should invariably seek it."
+6. Plausibility
+    * Helpful if causation agent is biologically plausible.
+    * Watch out: "This is a feature I am convinced we cannot demand."  Examples: cell-phones and cancer.  Heliobacter pyloris and stomach cancer/ulcers
+7. Coherence --- are the observations consistent with the "generally known facts of the natural history and biology of the disease".
+    * Watch out: "Arsenic can undoubtedly cause cancer of the skin in man, but it has never been possible to demonstrate an effect on any other animal.
+8. Experiment.  Note how short.
+9. Analogy.  Example: Experience with thalidomide and rubella encourages us to accept "slighter but similar evidence with another drug or another viral disease in pregnancy."
+
+**But NOT**: significance
+
+### Epiville Causal Reasoning
+
+* Point out the dose-response suggested in the abstract, and the very large confidence intervals on the odds ratio.
+* Mayor who saved the storks.
+
+
