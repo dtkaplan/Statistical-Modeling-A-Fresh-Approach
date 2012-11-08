@@ -1,0 +1,15 @@
+In Class, Sept. 10, 2012
+========================================================
+
+* What's the `c()` operator about?
+
+It collects things together.
+Try:
+```{r}
+sqrt(3,5,7)
+```
+The `sqrt()` operator is designed to work with a single input.  So it doesn't do the obvious thing here.  `c()` will put the things together into a single object:
+```{r}
+sqrt( c(3,5,7))
+```
+We'll use `c()` when we want to assemble a very small dataset quickly, although usually we'll read this from a data file.
