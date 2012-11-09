@@ -129,21 +129,36 @@ Play with the various sliders and such.  See what you can make of the simulation
 `r I(classDayContents("Fri", "Nov", 9 ))`
 **Topic**: Hypothesis Testing on Parts of Models (continued)
 **Reading**: SM Ch. 15 (review)
-**Assignment**: `r I(PN(c()))`
+**Assignment**: Catch up.
 **In Class**: Weekly Quiz
 **Notes**: `r I(todaysNotes("2012-11-09.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-09-class)
 **On Your Own**: [What is a p-value?](https://www.youtube.com/watch?v=ax0tDcFkPic&feature=related)
 
+..............
+
+**Saturday 10 November**
+
+[WagonFest mathematics talks](http://www.macalester.edu/dotAsset/a62c7bbd-1a75-45a3-903b-f52a56963600.pdf) in O/R 250
+* 2:10-2:55 pm: Paradoxical Dice
+* 3:00-3:45 pm "From Filters to Hat Problems"
+* 4:00-4:45 pm "A Drug Induced Random Walk"
+* 4:50-5:20 pm "Mathematics in Snow" (about sculpting snow)
+
+
+Hand in a paragraph describing one or more of these talks for extra credit in the homework. [Link to Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=26181)
+................
+
+
 `r I(classDayContents("Mon", "Nov", 12 ))`
 **Topic**: Choosing model terms
 **Reading**: [XKCD cartoon](http://xkcd.com/675/)
-**Assignment**: `r I(PN(c()))`
+**Assignment**: to be posted `r I(PN(c()))`
 **Notes**: `r I(todaysNotes("2012-11-12.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-12-class)
 
 `r I(classDayContents("Wed", "Nov", 14 ))`
 **Topic**: Non parametrics
-**Reading**:
-**Assignment**: 
+**Reading**: [XKCD cartoon on frequentist vs Bayesian](http://xkcd.com/1132/)
+**Assignment**: To be posted.
 
 *`r I(PN(c()))`
 * Get final approval for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) from your instructor.
