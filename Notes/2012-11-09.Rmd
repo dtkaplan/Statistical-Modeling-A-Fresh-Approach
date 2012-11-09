@@ -5,3 +5,153 @@ Stats 155 Class Notes 2012-11-09
 # boilerplate
 ```
 
+Where We Are
+-------------
+
+We've taken a little break from building models to study general ideas of *statistical inference*, drawing conclusions about the world from data. 
+
+* For the present, we've focussed on the idea of a *test statistic*, a number that we calculate from data.  Examples of test statistics:
+    * A model coefficient
+    * The t statistic, which is the coefficient divided by the standard error
+    * R^2 from a model
+    * F from a whole model, which is really just a restatement of R^2 including some additional information such as the number of model vectors and the number of cases.
+    * There are many other things that could sensibly be used as test statistics.  For example, partial changes where we examine the rate of change with respect to one variable while holding other variables constant.
+* In the *Hypothesis Testing* framework, the major concept is the *Null Hypothesis*.  Broadly speaking, this is that "nothing is going on."  
+    * In the case of model coefficients, the Null Hypothesis is that our data are drawn from a population in which the coefficient is zero.  (The same is true for t statistics, which are just coefficients divided by standard errors.)
+    * In the case of R^2 for a whole model test, the Null Hypothesis is that the explanatory vectors are no different from random junk.  Even random junk can give an R^2 bigger than zero, and we have a notion that a typical R^2 for junk is $(m-1)/(n-1)$ where $m$ is the number of model vectors and $n$ the number of cases.  (The $-1$ reflects the fact that the intercept vector cannot possibly account for any variation in the response.)
+* You also should have an idea that the *Alternative Hypothesis* will be playing a role.  So far we haven't said much about this beyond suggesting that the alternative hypothesis will help us decide on how much data should be collected for an effective study.  *Power* is the relevant term here.  We'll talk more about that next week.
+* You should feel very comfortable interpreting p-values in the nominal setting.  You should understand why the nominal setting does not necessarily correspond to the way hypothesis tests are used in practice: there are issues involved in doing multiple comparisons, how corrections like the Bonferroni correction try to fix things.
+* You should also feel comfortable that in the hypothesis testing framework, the only valid conclusions are "reject the null" and "fail to reject the null."
+* You should be good with the idea of conditional probability, why there is a tree representation of the relationship between priors, conditional probabilities, and joint probabilities, and understand why $p(A|B)$ is not in general the same as $p(B|A)$.  This is a matter of statistical literacy.  (If you're not comfortable with this, we should spend a bit more time on it.) 
+* You should be aware that there is a major rival to the hypothesis testing framework, Bayesian analysis.  You're expected to know only the most basic sorts of Bayesian calculations, which amount to pulling out the entries from a tree and understand the manipulation of such probabilities in a Bayesian way, e.g. the prior probability being transformed to the posterior in a simple setting such as, "If I have a headache, what's the chance that I have the flu."  We won't do much with Bayesian framework, but you should know that
+    * It is, in many respects, a more useful framework than hypothesis testing.  So it's important.
+    * It corresponds more closely to common sense than hypothesis testing.
+    * That nonetheless the hypothesis testing framework is dominant in the research literature, and you'll need to be fluent with it's terminology.
+
+Where We're Heading
+-------------------
+
+We're going to introduce another type of analysis of models, ANOVA, standing for "Analysis of Variance."
+* To "analyze" something means to "take it apart" and that's indeed what ANOVA does.  
+* ANOVA allows you to divide up the "credit" that different model terms or sets of terms get for explaining variance.  The amount of credit could sensibly be measured by a change in R^2, and that's essentially what ANOVA does.  But the traditional calculation involves not R^2 explicitly but instead "sums of squares."  You'll need to learn to read an ANOVA table, which is analogous to a regression table.
+* You'll see that "credit" depends on context, and so the amount of credit assigned by ANOVA to a model term depends on what other model terms are included in a model **and** where the model term of interest comes in the "pecking order."
+
+### A Teaser
+
+We sometimes need to deal with complicated models. We had one strategy for interpreting such models --- partial derivatives and partial change.  But we also need a strategy for deciding when evidence for including a variable or a term warrants doing so.  Looking at coefficients is very difficult.  Looking at R^2 hides how the different terms contribute.  Looking at the change in R^2 involves constructing lots and lots of models, which isn't itself a problem but is a hassle.  (Later, we'll see that it does hide something, what we'll come to call "eating the variance.")
+
+To illustrate, here's a complicated model of wages.  Do we really need all these terms:
+```{r}
+mod = lm( wage ~ sector*sex + exper*sex*educ + married*union*sector, data=CPS85)
+```
+
+The ANOVA report gives us a p-value for each model term, making it easy to spot what's helping and what's not.
+```{r}
+anova(mod)
+```
+Only one of the interaction terms seems to be contributing, and that's pretty marginal.
+
+Let's try for housing prices:
+```{r}
+houses = fetchData("SaratogaHouses.csv")
+hmod = lm(Price ~ Living.Area*Baths*Bedrooms*Fireplace*Age, data=houses)
+anova(hmod)
+```
+
+Our job today is to start developing a pretty clear understanding of ANOVA and how it works, so that we can interpret the results of ANOVA in useful ways.
+
+### ANOVA and Regression Report are Related
+
+Do a very simple model with one quantitative explanatory variable, e.g. 
+```{r}
+mod = lm( width ~ length, data=KidsFeet )
+summary(mod)
+anova(mod)
+```
+
+Work through the ANOVA calculation by comparing:
+
+* the simple calculation involving R^2, m and n to get F
+* the R^2 report at the end of the regression report
+* the p-value in the ANOVA report
+
+Show that F is equal to $t^2$.  The parameter is the number of degrees of freedom in the residual, which is simply n (number of cases) minus m (the number of coefficients,or, equivalently, the number of model vectors, including the intercept)
+
+The translation from t values to p values is based on the t-distribution.
+
+* Show that, for large df of residuals, it is effectively the same as the normal distribution.
+```{r}
+foo = rt(10000, df=100)
+xhistogram(~foo, fit="normal")
+```
+* For small df, it has fatter tails than the normal
+```{r}
+foo = rt(10000, df=4)
+xhistogram(~foo, fit="normal") # not a match
+```
+The normal doesn't put enough density at the center and puts way too little at the tails.  
+
+The reason for the long tails is that, when there are few degrees of freedom in the residual, we don't have a very good idea of the length of the residual vector.
+
+#### Digression
+
+This gets really bad when df is one or two.  
+* Calculate the 95% coverage intervals of t in terms of standard deviations for various df from large to small. 
+
+That the distribution of $t^2$ is called F, but there's more to F than $t^2$
+
+### Example: Do professors vary in how they grade? Revisited
+
+One place where F shines is when we want to look at many explanatory vectors collectively.
+
+In the last class, we looked at professor-wise gradepoint averages, with an eye to the question of whether some professors are easy grading.  We used as a test statistic, the model coefficient for each professor, and ran into the question of multiple comparisons.  
+
+Now let's return to the question using analysis of variance.
+
+```{r}
+grades = fetchData("grades.csv")
+courses = fetchData("courses.csv")
+g2n = fetchData("grade-to-number.csv")
+all = merge( grades, courses)
+all = merge(all, g2n) # a data set of every grade given, etc.
+```
+
+Suppose, instead of being concerned about individual professors, we were interested in the professorate as a whole: do they grade in a consistent way, where "consistent" means, "draw grades from a common pool."  This test can be done easily.  Build the model and see if the explanatory variable accounts for more than is likely to arise from chance:
+```{r}
+mod1 = lm( gradepoint ~ iid, data=all )
+r.squared(mod1)
+```
+
+The regression report actually gives a p-value for this r.squared.  It's not any different than we would get by travelling to Planet Null:  randomizing `iid` and seeing what is the distribution of R^2 on Planet Null.
+
+Another way to summarize the model is with an ANOVA report:
+```{r}
+anova(mod1)
+```
+
+Explain R^2 in terms of the graph of (hypothetical) R^2 versus number of junky model vectors.
+
+Now do it stepwise by finding the sum of squares of the fitted model values in a set of models `~1` and `~1 + iid`
+* Sum of squares of the fitted model values
+* DF ("degrees of freedom") a count of coefficients
+* Residual SS --- sum of squares of the residuals
+* Residual DF --- $n$ - DF of the model
+* Look at how things change when going from `~1` to `~1 +iid`.
+* "Mean square" is SS/DF
+
+A way to think of the F statistic: miles per gallon for the model terms compared to miles per gallon for the 
+
+### Breaking up the Variance into Parts
+
+Of course, it's not fair to credit professors for variation in grades that is really due to the students.  So we want to divide up the variation into that due to the students and that due to the professors.  ANOVA let's you do this:
+```{r}
+mod2 = lm( gradepoint ~ sid + iid, data=all )
+anova(mod2)
+```
+
+Interestingly, the result depends on the order in which you put the model terms, even though the model values do not at all depend on this.
+```{r}
+mod3 = lm( gradepoint ~ iid + sid, data=all )
+anova(mod3)
+sum( (fitted(mod2) - fitted(mod3))^2) # model values are the same
+```
