@@ -186,6 +186,21 @@ hljs.initHighlightingOnLoad();
 
 <h3>Grading the Election Model predictions</h3>
 
+<p>Hand out random papers with prediction models and direct students to <a href="http://glimmer.rstudio.com/mosaic/Election2012/">this app for evaluating your election result model</a>.  Adjust the parameters as indicated and write the resulting likelihood on the top of the paper.</p>
+
+<p>See who has the largest likelihood in the class.</p>
+
+<p>Suppose you were trying to decide between two hypotheses based on the data.  Here&#39;s how:</p>
+
+<p>p( mod1 | 332) = p(332|mod1)p(mod1)/p(332)</p>
+
+<p>What&#39;s p(332)?  Since either mod1 or mod2 is right (by your prior) then<br/>
+p(332) = p(332|mod1)p(mod1) + p(332|mod2)p(mod2)</p>
+
+<p>More simply, assign model a value of p(332|modX) p(modX).  The posterior probability p(modX|332) is simply the value p(332|modX)p(modX) divided by the sum of the similar term.</p>
+
+<p>If the priors are all the same, then the posterior probability is proportional to the likelihood.</p>
+
 <h2>ANOVA</h2>
 
 <h3>The elementary setting for ANOVA</h3>
@@ -369,11 +384,11 @@ anova(mod10)
 ## 
 ## Response: wage
 ##            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
-## sector      7   2572     367   18.01 &lt; 2e-16 ***
-## sex         1    436     436   21.37 4.8e-06 ***
-## exper       1    264     264   12.96 0.00035 ***
-## rand(10)   10    317      32    1.56 0.11655    
-## Residuals 514  10487      20                    
+## sector      7   2572     367   17.96 &lt; 2e-16 ***
+## sex         1    436     436   21.32 4.9e-06 ***
+## exper       1    264     264   12.93 0.00035 ***
+## rand(10)   10    293      29    1.43 0.16254    
+## Residuals 514  10512      20                    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 </code></pre>
@@ -477,6 +492,69 @@ anova(mod2)
 <p>Put terms first: they get credit.  Put terms later: they can help the earlier terms to get credit.</p>
 
 <p>Look at sex and race in the wage data.  Put them first.  Put them last.  What are the different interpretations?</p>
+
+<pre><code class="r">mod0 = lm(log(wage) ~ race + sex, data = CPS85)
+anova(mod0)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: log(wage)
+##            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## race        1    0.7    0.66     2.5    0.11    
+## sex         1    7.2    7.23    27.3 2.5e-07 ***
+## Residuals 531  140.6    0.26                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>Race isn&#39;t showing up as significant, but sex is.  Perhaps if we eat up the variance by putting in more explanatory variables &hellip;</p>
+
+<pre><code class="r">mod1 = lm(log(wage) ~ race + sex + sector + educ + exper + south, data = CPS85)
+anova(mod1)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: log(wage)
+##            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## race        1    0.7    0.66    3.47  0.0631 .  
+## sex         1    7.2    7.23   37.96 1.4e-09 ***
+## sector      7   24.8    3.54   18.56 &lt; 2e-16 ***
+## educ        1    5.5    5.52   28.95 1.1e-07 ***
+## exper       1    9.5    9.49   49.83 5.4e-12 ***
+## south       1    1.5    1.53    8.03  0.0048 ** 
+## Residuals 521   99.3    0.19                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>Significance of sex is even stronger  Race is right on the margin.  With more data (and this is a very limited amount of data) we might see something.</p>
+
+<p>But what if someone argues that it&#39;s really educational levels etc that matter and you have to see how these effect wage first:</p>
+
+<pre><code class="r">mod3 = lm(log(wage) ~ sector + educ + exper + south + sex + race, data = CPS85)
+anova(mod3)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: log(wage)
+##            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## sector      7   27.0    3.86   20.27 &lt; 2e-16 ***
+## educ        1    6.5    6.50   34.13 9.1e-09 ***
+## exper       1    8.8    8.83   46.34 2.7e-11 ***
+## south       1    1.5    1.45    7.63  0.0059 ** 
+## sex         1    5.2    5.23   27.46 2.3e-07 ***
+## race        1    0.1    0.13    0.70  0.4019    
+## Residuals 521   99.3    0.19                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>No indication that race is playing a role.</p>
+
+<p>QUESTION: But is race affecting education, experience, and sector?  If so, then race should go first.</p>
 
 <h2>An Odd Situation</h2>
 

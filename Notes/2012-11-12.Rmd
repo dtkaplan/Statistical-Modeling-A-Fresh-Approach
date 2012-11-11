@@ -7,6 +7,21 @@ Stats 155 Class Notes 2012-11-12
 
 ### Grading the Election Model predictions
 
+Hand out random papers with prediction models and direct students to [this app for evaluating your election result model](http://glimmer.rstudio.com/mosaic/Election2012/).  Adjust the parameters as indicated and write the resulting likelihood on the top of the paper.
+
+See who has the largest likelihood in the class.
+
+Suppose you were trying to decide between two hypotheses based on the data.  Here's how:
+
+p( mod1 | 332) = p(332|mod1)p(mod1)/p(332)
+
+What's p(332)?  Since either mod1 or mod2 is right (by your prior) then
+p(332) = p(332|mod1)p(mod1) + p(332|mod2)p(mod2)
+
+More simply, assign model a value of p(332|modX) p(modX).  The posterior probability p(modX|332) is simply the value p(332|modX)p(modX) divided by the sum of the similar term.
+
+If the priors are all the same, then the posterior probability is proportional to the likelihood.
+
 
 ANOVA
 -------------
@@ -144,6 +159,26 @@ Put terms first: they get credit.  Put terms later: they can help the earlier te
 
 Look at sex and race in the wage data.  Put them first.  Put them last.  What are the different interpretations?
 
+```{r}
+mod0 = lm( log(wage) ~ race + sex, data=CPS85)
+anova(mod0)
+```
+Race isn't showing up as significant, but sex is.  Perhaps if we eat up the variance by putting in more explanatory variables ...
+
+```{r}
+mod1 = lm( log(wage) ~ race + sex + sector + educ + exper + south, data=CPS85)
+anova(mod1)
+```
+Significance of sex is even stronger  Race is right on the margin.  With more data (and this is a very limited amount of data) we might see something.
+
+But what if someone argues that it's really educational levels etc that matter and you have to see how these effect wage first:
+```{r}
+mod3 = lm( log(wage) ~ sector + educ + exper + south + sex + race, data=CPS85)
+anova(mod3)
+```
+No indication that race is playing a role.
+
+QUESTION: But is race affecting education, experience, and sector?  If so, then race should go first.
 
 An Odd Situation
 -----------------

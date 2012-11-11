@@ -1,0 +1,49 @@
+Epidemiology Notes 2012-11-13
+=====================
+```{r message=FALSE,error=FALSE,warning=FALSE,echo=FALSE,results="hide"}
+require(mosaic, quietly=TRUE)
+```
+
+[Hitchhiking](http://www.nytimes.com/2012/11/11/opinion/sunday/hitchhikings-time-has-come-again.html?_r=0)
+
+
+
+Measuring Risk
+-------------
+
+Examples from the assignment:
+
+* [One](https://moodle.macalester.edu/mod/assign/view.php?id=25737&sid=14132&gid=14132&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=) Note that the exposure is typically regarded as yes/no rather than an intensity.
+* [Two](https://moodle.macalester.edu/mod/assign/view.php?id=25737&sid=14174&gid=14174&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=)
+* [Three](https://moodle.macalester.edu/mod/assign/view.php?id=25737&sid=14198&gid=14198&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=) Look at the calculation of unprotected sex.  The exposure is per person rather than per event or per year.
+
+### General Principles
+* Need to measure risks so that we can compare and prioritize them.  Do we need to put more resources into aviation safety?  How much will an investment improve things?  Child seats in cars?  In planes?  Preventive medicine?
+* Be diligent in describing ways to stratify risk so that people can make effective decisions.  Don't average over irrelevant groups.  Try to find ways to capture "dose dependence."
+* Watch out for "lifetime risk", which tends not be use useful for making individual decisions (but which might guide policy)
+
+* Estimation Problem: Go through their risk estimates for college students.
+
+#### Group Activity for Risk
+For the following, come up with some measures of '''exposure''' to the risk and of important stratifying variables. As Gigerenzer puts it: 4 questions
+* Risk of what?  I'm going to tell you this.
+* Time frame?  (Generalize to measuring exposure, passenger miles, vehicle miles, ...)
+* How big?
+* Does it apply to me?
+
+
+
+Risk areas:
+* Car accidents
+* Flying
+* Exposure to mercury, or to lead.
+* Exposure to radiation.
+* Rape/violent crime
+* Diabetes
+* Alcohol
+* Skiing/Mountain Climbing, etc.
+* Prostate cancer or Breast cancer
+* Stroke/cardiac disease
+* Pneumonia/Flu
+
+
