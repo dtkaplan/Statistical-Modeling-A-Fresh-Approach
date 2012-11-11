@@ -5,3 +5,21 @@ Stats 155 Class Notes 2012-11-14
 # boilerplate
 ```
 
+Still working ...
+
+One of the advantages of Planet Null is that it's easy to get there and collect data.  So we can know a lot about it.  Discoveries about Planet Null have played a large role in statistics.
+
+### Time for t
+
+Let's collect lots of coefficients on Planet Null and see what they have in common.  We'll do this by randomizing the response variable:
+```{r cache=TRUE}
+mod1 = lm( shuffle(wage)-mean(wage) ~ shuffle(sector)*shuffle(sex)*shuffle(age)*shuffle(exper)*shuffle(married)*shuffle(union), data=CPS85)
+houses = fetchData("SaratogaHouses.csv")
+mod2 = lm( shuffle(Price)-mean(Price) ~ shuffle(Living.Area)*shuffle(Baths)*shuffle(Bedrooms)*shuffle(Fireplace)*shuffle(Acres), data=houses )
+grades = fetchData("grades.csv")
+g2n = fetchData("grade-to-number.csv")
+courses = fetchData("courses.csv")
+all = merge(grades, g2n)
+all = merge(courses, all)
+mod3 = lm( rand(1) ~ shuffle(sessionID) + shuffle(dept) + shuffle(sid), data=all)
+```
