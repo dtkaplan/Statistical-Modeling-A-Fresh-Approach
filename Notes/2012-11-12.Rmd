@@ -5,6 +5,10 @@ Stats 155 Class Notes 2012-11-12
 # boilerplate
 ```
 
+```{r include=FALSE}
+require(xtable,quietly=TRUE)
+```
+
 ### Grading the Election Model predictions
 
 Hand out random papers with prediction models and direct students to [this app for evaluating your election result model](http://glimmer.rstudio.com/mosaic/Election2012/).  Adjust the parameters as indicated and write the resulting likelihood on the top of the paper.
@@ -28,25 +32,90 @@ ANOVA
 
 ### The elementary setting for ANOVA
 
-Differences among several groups.  When there are two groups, this is called a "t-test".  More than two, it's traditionally called simply ANOVA, even though it's only one kind of ANOVA.
+Differences among groups.  When there are two groups, this is called a "t-test".  More than two, it's traditionally called simply "ANOVA" or "one-way ANOVA", but it's just a standard application of the ANOVA procedure to a simple model.
 
-Do the simple ANOVA by hand by looking at sums of squares of fitted and residuals for `wage ~ sector`.
+#### The t-test
+
+Consider the difference between the sexes in wage:
+```{r}
+mod = lm( wage ~ sex, data=CPS85 )
+summary(mod)
+anova(mod)
+```
+Note that the regression report and the ANOVA report give the same p-value.  There's no "team" issue when there is just one coefficient at issue.
+
+For multiple groups, consider wage versus sector:
+```{r}
+mod2 = lm( wage ~ sector, data=CPS85 )
+summary(mod2)
+```
+In the regression report, each sector gets its own p-value with respect to the reference sector.  It might be that there is not enough evidence to support a claim that any given sector is different from the reference, but taken together they suggest that the overall variable is playing a role in explaining the response variable.  ANOVA provides a simple way to combine the contributions of all the levels of the variable.
+```{r}
+anova(mod2)
+```
+
+In the **Null Hypothesis** world, the "explanatory" variables are no better than the residuals.  Here's how that shows up in the ANOVA table
+```{r}
+modnull = lm( wage ~ shuffle(sector), data=CPS85 )
+anova(modnull)
+```
+
+
 
 ### Two categorical variables
 
 Example: Sector and sex
 
-Main effects, interaction
+```{r}
+mod = lm( wage ~ sector*sex, data=CPS85)
+anova(mod)
+```
+Have we detected an interaction?
+
+#### ACTIVITY
 
 Create the set of nested models and construct the ANOVA table by hand.
 
-Example: We'll work with log wage since that's more sensible in economic terms.
+#### Digression: Log prices and wages
+
+Prices are relative.  An indication of this is the almost universal use of percentages to describe inflation, wage increases, etc.  For example, an often quoted number is that women earn approximately 72 cents for each dollar earned by a man.  
+
+The naive way to find this number, which is in fact the way it is found, is to divide the average wage of women by the average wage of men, e.g.
+```{r}
+mean( wage ~ sex, data=CPS85)
+7.88/9.99
+```
+Close to the quoted number in this data set from the 1980s.
+
+A better way is to work with log wages, find the contribution from sex, and then convert that back into a multiplier.  That let's us adjust for various other factors.  Here's the basic calculation, done in log-wage style:
+```{r}
+lm( log(wage) ~ sex, data=CPS85 )
+exp(-0.2312)
+```
+
+Now we can include covariates:
+```{r}
+lm( log(wage) ~ sex + sector + exper + educ, data=CPS85 )
+exp(-0.2197)
+```
+
+Hardly any difference.  But maybe the model should be more complicated. 
+
+#### Activity
+
+Use ANOVA and log wages to see if interactions should be included in the model.  Example:
 ```{r}
 mod = lm(log(wage) ~ sector*sex, data=CPS85)
 anova(mod)
 ```
 
+####  Student Activity
 Question: Is there an interaction between age and mileage in the used car data?  Does it show up if we look at log prices?
+```{r}
+cars = fetchData("used-hondas.csv")
+anova(lm(log(Price)~Age*Mileage, data=cars))
+```
+
 
 ### Example: Do professors vary in how they grade? Revisited
 
@@ -77,7 +146,10 @@ Another way to summarize the model is with an ANOVA report:
 anova(mod1)
 ```
 
-Explain R^2 in terms of the graph of (hypothetical) R^2 versus number of junky model vectors.
+
+### Theory of F
+
+Explain R^2 in terms of the graph of (hypothetical) R^2 versus number of junky model vectors.  F is the ratio of segment slopes
 
 Now do it stepwise by finding the sum of squares of the fitted model values in a set of models `~1` and `~1 + iid`
 * Sum of squares of the fitted model values

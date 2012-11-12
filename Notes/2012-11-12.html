@@ -205,19 +205,208 @@ p(332) = p(332|mod1)p(mod1) + p(332|mod2)p(mod2)</p>
 
 <h3>The elementary setting for ANOVA</h3>
 
-<p>Differences among several groups.  When there are two groups, this is called a &ldquo;t-test&rdquo;.  More than two, it&#39;s traditionally called simply ANOVA, even though it&#39;s only one kind of ANOVA.</p>
+<p>Differences among groups.  When there are two groups, this is called a &ldquo;t-test&rdquo;.  More than two, it&#39;s traditionally called simply &ldquo;ANOVA&rdquo; or &ldquo;one-way ANOVA&rdquo;, but it&#39;s just a standard application of the ANOVA procedure to a simple model.</p>
 
-<p>Do the simple ANOVA by hand by looking at sums of squares of fitted and residuals for <code>wage ~ sector</code>.</p>
+<h4>The t-test</h4>
+
+<p>Consider the difference between the sexes in wage:</p>
+
+<pre><code class="r">mod = lm(wage ~ sex, data = CPS85)
+summary(mod)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = wage ~ sex, data = CPS85)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+##  -8.99  -3.53  -1.07   2.39  36.62 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    7.879      0.322   24.50  &lt; 2e-16 ***
+## sexM           2.116      0.437    4.84  1.7e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+## 
+## Residual standard error: 5.03 on 532 degrees of freedom
+## Multiple R-squared: 0.0422,  Adjusted R-squared: 0.0404 
+## F-statistic: 23.4 on 1 and 532 DF,  p-value: 1.7e-06
+</code></pre>
+
+<pre><code class="r">anova(mod)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: wage
+##            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## sex         1    594     594    23.4 1.7e-06 ***
+## Residuals 532  13483      25                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>Note that the regression report and the ANOVA report give the same p-value.  There&#39;s no &ldquo;team&rdquo; issue when there is just one coefficient at issue.</p>
+
+<p>For multiple groups, consider wage versus sector:</p>
+
+<pre><code class="r">mod2 = lm(wage ~ sector, data = CPS85)
+summary(mod2)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = wage ~ sector, data = CPS85)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -11.70  -3.04  -1.04   2.28  31.80 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      7.423      0.475   15.63  &lt; 2e-16 ***
+## sectorconst      2.079      1.149    1.81    0.071 .  
+## sectormanag      5.281      0.789    6.69  5.7e-11 ***
+## sectormanuf      0.613      0.740    0.83    0.407    
+## sectorother      1.078      0.740    1.46    0.146    
+## sectorprof       4.525      0.659    6.87  1.8e-11 ***
+## sectorsales      0.170      0.895    0.19    0.849    
+## sectorservice   -0.885      0.699   -1.27    0.206    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+## 
+## Residual standard error: 4.68 on 526 degrees of freedom
+## Multiple R-squared: 0.183,   Adjusted R-squared: 0.172 
+## F-statistic: 16.8 on 7 and 526 DF,  p-value: &lt;2e-16
+</code></pre>
+
+<p>In the regression report, each sector gets its own p-value with respect to the reference sector.  It might be that there is not enough evidence to support a claim that any given sector is different from the reference, but taken together they suggest that the overall variable is playing a role in explaining the response variable.  ANOVA provides a simple way to combine the contributions of all the levels of the variable.</p>
+
+<pre><code class="r">anova(mod2)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: wage
+##            Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## sector      7   2572     367    16.8 &lt;2e-16 ***
+## Residuals 526  11505      22                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>In the <strong>Null Hypothesis</strong> world, the &ldquo;explanatory&rdquo; variables are no better than the residuals.  Here&#39;s how that shows up in the ANOVA table</p>
+
+<pre><code class="r">modnull = lm(wage ~ shuffle(sector), data = CPS85)
+anova(modnull)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: wage
+##                  Df Sum Sq Mean Sq F value Pr(&gt;F)
+## shuffle(sector)   7    164    23.5    0.89   0.52
+## Residuals       526  13912    26.4
+</code></pre>
 
 <h3>Two categorical variables</h3>
 
 <p>Example: Sector and sex</p>
 
-<p>Main effects, interaction</p>
+<pre><code class="r">mod = lm(wage ~ sector * sex, data = CPS85)
+anova(mod)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: wage
+##             Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## sector       7   2572     367   17.50 &lt; 2e-16 ***
+## sex          1    436     436   20.77 6.5e-06 ***
+## sector:sex   6    175      29    1.39    0.22    
+## Residuals  519  10894      21                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>Have we detected an interaction?</p>
+
+<h4>ACTIVITY</h4>
 
 <p>Create the set of nested models and construct the ANOVA table by hand.</p>
 
-<p>Example: We&#39;ll work with log wage since that&#39;s more sensible in economic terms.</p>
+<h4>Digression: Log prices and wages</h4>
+
+<p>Prices are relative.  An indication of this is the almost universal use of percentages to describe inflation, wage increases, etc.  For example, an often quoted number is that women earn approximately 72 cents for each dollar earned by a man.  </p>
+
+<p>The naive way to find this number, which is in fact the way it is found, is to divide the average wage of women by the average wage of men, e.g.</p>
+
+<pre><code class="r">mean(wage ~ sex, data = CPS85)
+</code></pre>
+
+<pre><code>##     F     M 
+## 7.879 9.995
+</code></pre>
+
+<pre><code class="r">7.88/9.99
+</code></pre>
+
+<pre><code>## [1] 0.7888
+</code></pre>
+
+<p>Close to the quoted number in this data set from the 1980s.</p>
+
+<p>A better way is to work with log wages, find the contribution from sex, and then convert that back into a multiplier.  That let&#39;s us adjust for various other factors.  Here&#39;s the basic calculation, done in log-wage style:</p>
+
+<pre><code class="r">lm(log(wage) ~ sex, data = CPS85)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = log(wage) ~ sex, data = CPS85)
+## 
+## Coefficients:
+## (Intercept)         sexM  
+##       1.934        0.231
+</code></pre>
+
+<pre><code class="r">exp(-0.2312)
+</code></pre>
+
+<pre><code>## [1] 0.7936
+</code></pre>
+
+<p>Now we can include covariates:</p>
+
+<pre><code class="r">lm(log(wage) ~ sex + sector + exper + educ, data = CPS85)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = log(wage) ~ sex + sector + exper + educ, data = CPS85)
+## 
+## Coefficients:
+##   (Intercept)           sexM    sectorconst    sectormanag    sectormanuf  
+##        0.6978         0.2197         0.1637         0.2087         0.0447  
+##   sectorother     sectorprof    sectorsales  sectorservice          exper  
+##        0.0393         0.1976        -0.1513        -0.1539         0.0118  
+##          educ  
+##        0.0761
+</code></pre>
+
+<pre><code class="r">exp(-0.2197)
+</code></pre>
+
+<pre><code>## [1] 0.8028
+</code></pre>
+
+<p>Hardly any difference.  But maybe the model should be more complicated. </p>
+
+<h4>Activity</h4>
+
+<p>Use ANOVA and log wages to see if interactions should be included in the model.  Example:</p>
 
 <pre><code class="r">mod = lm(log(wage) ~ sector * sex, data = CPS85)
 anova(mod)
@@ -235,7 +424,30 @@ anova(mod)
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 </code></pre>
 
+<h4>Student Activity</h4>
+
 <p>Question: Is there an interaction between age and mileage in the used car data?  Does it show up if we look at log prices?</p>
+
+<pre><code class="r">cars = fetchData(&quot;used-hondas.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/used-hondas.csv
+</code></pre>
+
+<pre><code class="r">anova(lm(log(Price) ~ Age * Mileage, data = cars))
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: log(Price)
+##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## Age          1   8.33    8.33  599.43 &lt;2e-16 ***
+## Mileage      1   2.19    2.19  157.41 &lt;2e-16 ***
+## Age:Mileage  1   0.05    0.05    3.29  0.073 .  
+## Residuals   88   1.22    0.01                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
 
 <h3>Example: Do professors vary in how they grade? Revisited</h3>
 
@@ -293,7 +505,9 @@ r.squared(mod1)
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 </code></pre>
 
-<p>Explain R<sup>2</sup> in terms of the graph of (hypothetical) R<sup>2</sup> versus number of junky model vectors.</p>
+<h3>Theory of F</h3>
+
+<p>Explain R<sup>2</sup> in terms of the graph of (hypothetical) R<sup>2</sup> versus number of junky model vectors.  F is the ratio of segment slopes</p>
 
 <p>Now do it stepwise by finding the sum of squares of the fitted model values in a set of models <code>~1</code> and <code>~1 + iid</code></p>
 
@@ -384,11 +598,11 @@ anova(mod10)
 ## 
 ## Response: wage
 ##            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
-## sector      7   2572     367   17.96 &lt; 2e-16 ***
-## sex         1    436     436   21.32 4.9e-06 ***
-## exper       1    264     264   12.93 0.00035 ***
-## rand(10)   10    293      29    1.43 0.16254    
-## Residuals 514  10512      20                    
+## sector      7   2572     367   17.72 &lt; 2e-16 ***
+## sex         1    436     436   21.03 5.7e-06 ***
+## exper       1    264     264   12.76 0.00039 ***
+## rand(10)   10    151      15    0.73 0.69703    
+## Residuals 514  10654      21                    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 </code></pre>
