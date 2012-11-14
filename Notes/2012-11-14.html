@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Stats 155 Class Notes 2012-11-14</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>Stats 155 Class Notes 2012-11-14</h1>
+
+<h3>mLM and reading R<sup>2</sup> as more terms change</h3>
+
+<p>Show how terms increase R<sup>2,</sup> which gives the fraction of distance to the response variable.</p>
+
+<p>Introduce the idea of the log to handle the interaction between sector and sex, why the dollar amount of difference between the sectors should differ between the sexes.</p>
+
+<h3>Two categorical variables</h3>
+
+<p>Example: Sector and sex</p>
+
+<pre><code class="r">mod = lm(wage ~ sector * sex, data = CPS85)
+anova(mod)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: wage
+##             Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## sector       7   2572     367   17.50 &lt; 2e-16 ***
+## sex          1    436     436   20.77 6.5e-06 ***
+## sector:sex   6    175      29    1.39    0.22    
+## Residuals  519  10894      21                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>Have we detected an interaction?</p>
+
+<h4>ACTIVITY</h4>
+
+<p>Create the set of nested models and construct the ANOVA table by hand.</p>
+
+<h4>Digression: Log prices and wages</h4>
+
+<p>Prices are relative.  An indication of this is the almost universal use of percentages to describe inflation, wage increases, etc.  For example, an often quoted number is that women earn approximately 72 cents for each dollar earned by a man.  </p>
+
+<p>The naive way to find this number, which is in fact the way it is found, is to divide the average wage of women by the average wage of men, e.g.</p>
+
+<pre><code class="r">mean(wage ~ sex, data = CPS85)
+</code></pre>
+
+<pre><code>##     F     M 
+## 7.879 9.995
+</code></pre>
+
+<pre><code class="r">7.88/9.99
+</code></pre>
+
+<pre><code>## [1] 0.7888
+</code></pre>
+
+<p>Close to the quoted number in this data set from the 1980s.</p>
+
+<p>A better way is to work with log wages, find the contribution from sex, and then convert that back into a multiplier.  That let&#39;s us adjust for various other factors.  Here&#39;s the basic calculation, done in log-wage style:</p>
+
+<pre><code class="r">lm(log(wage) ~ sex, data = CPS85)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = log(wage) ~ sex, data = CPS85)
+## 
+## Coefficients:
+## (Intercept)         sexM  
+##       1.934        0.231
+</code></pre>
+
+<pre><code class="r">exp(-0.2312)
+</code></pre>
+
+<pre><code>## [1] 0.7936
+</code></pre>
+
+<p>Now we can include covariates:</p>
+
+<pre><code class="r">lm(log(wage) ~ sex + sector + exper + educ, data = CPS85)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = log(wage) ~ sex + sector + exper + educ, data = CPS85)
+## 
+## Coefficients:
+##   (Intercept)           sexM    sectorconst    sectormanag    sectormanuf  
+##        0.6978         0.2197         0.1637         0.2087         0.0447  
+##   sectorother     sectorprof    sectorsales  sectorservice          exper  
+##        0.0393         0.1976        -0.1513        -0.1539         0.0118  
+##          educ  
+##        0.0761
+</code></pre>
+
+<pre><code class="r">exp(-0.2197)
+</code></pre>
+
+<pre><code>## [1] 0.8028
+</code></pre>
+
+<p>Hardly any difference.  But maybe the model should be more complicated. </p>
+
+<h4>Activity</h4>
+
+<p>Use ANOVA and log wages to see if interactions should be included in the model.  Example:</p>
+
+<pre><code class="r">mod = lm(log(wage) ~ sector * sex, data = CPS85)
+anova(mod)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: log(wage)
+##             Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## sector       7   27.0    3.86   17.78 &lt; 2e-16 ***
+## sex          1    5.4    5.44   25.06 7.6e-07 ***
+## sector:sex   6    3.2    0.53    2.46   0.024 *  
+## Residuals  519  112.8    0.22                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<h4>Student Activity</h4>
+
+<p>Question: Is there an interaction between age and mileage in the used car data?  Does it show up if we look at log prices?</p>
+
+<pre><code class="r">cars = fetchData(&quot;used-hondas.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/used-hondas.csv
+</code></pre>
+
+<pre><code class="r">anova(lm(log(Price) ~ Age * Mileage, data = cars))
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: log(Price)
+##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## Age          1   8.33    8.33  599.43 &lt;2e-16 ***
+## Mileage      1   2.19    2.19  157.41 &lt;2e-16 ***
+## Age:Mileage  1   0.05    0.05    3.29  0.073 .  
+## Residuals   88   1.22    0.01                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<h3>Example: Do professors vary in how they grade? Revisited</h3>
+
+<p>One place where F shines is when we want to look at many explanatory vectors collectively.</p>
+
+<p>In the last class, we looked at professor-wise gradepoint averages, with an eye to the question of whether some professors are easy grading.  We used as a test statistic, the model coefficient for each professor, and ran into the question of multiple comparisons.  </p>
+
+<p>Now let&#39;s return to the question using analysis of variance.</p>
+
+<pre><code class="r">grades = fetchData(&quot;grades.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/grades.csv
+</code></pre>
+
+<pre><code class="r">courses = fetchData(&quot;courses.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/courses.csv
+</code></pre>
+
+<pre><code class="r">g2n = fetchData(&quot;grade-to-number.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/grade-to-number.csv
+</code></pre>
+
+<pre><code class="r">all = merge(grades, courses)
+all = merge(all, g2n)  # a data set of every grade given, etc.
+</code></pre>
+
+<p>Suppose, instead of being concerned about individual professors, we were interested in the professorate as a whole: do they grade in a consistent way, where &ldquo;consistent&rdquo; means, &ldquo;draw grades from a common pool.&rdquo;  This test can be done easily.  Build the model and see if the explanatory variable accounts for more than is likely to arise from chance:</p>
+
+<pre><code class="r">mod1 = lm(gradepoint ~ iid, data = all)
+r.squared(mod1)
+</code></pre>
+
+<pre><code>## [1] 0.1745
+</code></pre>
+
+<p>The regression report actually gives a p-value for this r.squared.  It&#39;s not any different than we would get by travelling to Planet Null:  randomizing <code>iid</code> and seeing what is the distribution of R<sup>2</sup> on Planet Null.</p>
+
+<p>Another way to summarize the model is with an ANOVA report:</p>
+
+<pre><code class="r">anova(mod1)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: gradepoint
+##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## iid        358    352   0.983    3.16 &lt;2e-16 ***
+## Residuals 5350   1665   0.311                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<h3>Theory of F</h3>
+
+<p>Explain R<sup>2</sup> in terms of the graph of (hypothetical) R<sup>2</sup> versus number of junky model vectors.  F is the ratio of segment slopes</p>
+
+<p>Now do it stepwise by finding the sum of squares of the fitted model values in a set of models <code>~1</code> and <code>~1 + iid</code></p>
+
+<ul>
+<li>Sum of squares of the fitted model values</li>
+<li>DF (&ldquo;degrees of freedom&rdquo;) a count of coefficients</li>
+<li>Residual SS &mdash; sum of squares of the residuals</li>
+<li>Residual DF &mdash; \( n \) - DF of the model</li>
+<li>Look at how things change when going from <code>~1</code> to <code>~1 +iid</code>.</li>
+<li>&ldquo;Mean square&rdquo; is SS/DF</li>
+</ul>
+
+<p>A way to think of the F statistic: miles per gallon for the model terms compared to miles per gallon for the </p>
+
+<h3>Breaking up the Variance into Parts</h3>
+
+<p>Of course, it&#39;s not fair to credit professors for variation in grades that is really due to the students.  So we want to divide up the variation into that due to the students and that due to the professors.  ANOVA let&#39;s you do this:</p>
+
+<pre><code class="r">mod2 = lm(gradepoint ~ sid + iid, data = all)
+anova(mod2)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: gradepoint
+##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## sid        442    645   1.459    6.76 &lt;2e-16 ***
+## iid        358    313   0.873    4.04 &lt;2e-16 ***
+## Residuals 4908   1060   0.216                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>Interestingly, the result depends on the order in which you put the model terms, even though the model values do not at all depend on this.</p>
+
+<pre><code class="r">mod3 = lm(gradepoint ~ iid + sid, data = all)
+anova(mod3)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: gradepoint
+##             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## iid        358    352   0.983    4.55 &lt;2e-16 ***
+## sid        442    606   1.370    6.34 &lt;2e-16 ***
+## Residuals 4908   1060   0.216                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<pre><code class="r">sum((fitted(mod2) - fitted(mod3))^2)  # model values are the same
+</code></pre>
+
+<pre><code>## [1] 1.039e-22
+</code></pre>
+
+<h2>Eating Up the Variance</h2>
+
+<p>The F statistic compares the &ldquo;credit&rdquo; earned by a model term to the mean square residual, which can be interpreted as the credit that would be earned by a junky random term.</p>
+
+<p>Fit a model and add in some random terms.  Show that the F for the random terms is about 1 and that the mean square of the residual is hardly changed by the random terms.</p>
+
+<pre><code class="r">mod0 = lm(wage ~ sector + sex + exper, data = CPS85)
+anova(mod0)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: wage
+##            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## sector      7   2572     367    17.8 &lt; 2e-16 ***
+## sex         1    436     436    21.1 5.3e-06 ***
+## exper       1    264     264    12.8 0.00037 ***
+## Residuals 524  10805      21                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>The mean square residual is about 20.</p>
+
+<p>Now throw in some junk:</p>
+
+<pre><code class="r">mod10 = lm(wage ~ sector + sex + exper + rand(10), data = CPS85)
+anova(mod10)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: wage
+##            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## sector      7   2572     367   18.00 &lt; 2e-16 ***
+## sex         1    436     436   21.36 4.8e-06 ***
+## exper       1    264     264   12.96 0.00035 ***
+## rand(10)   10    316      32    1.55 0.11969    
+## Residuals 514  10489      20                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>But what if a term eats more variance than a junky term.  That term makes it easier for the other terms to show significance.</p>
+
+<p>EXAMPLE:  Difference in age between husband and wife in couples getting married.</p>
+
+<p>Ask: Who is older in a married couple, the man or the woman?  By how much?  </p>
+
+<p>Let&#39;s see if the data support this:</p>
+
+<pre><code class="r">m = fetchData(&quot;marriage.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/marriage.csv
+</code></pre>
+
+<pre><code class="r">mod0 = mm(Age ~ Person, data = m)
+mod0
+</code></pre>
+
+<pre><code>## Groupwise Model.
+## Call:
+## Age ~ Person
+## 
+## Coefficients:
+## Bride  Groom  
+##  33.2   35.8
+</code></pre>
+
+<pre><code class="r">confint(mod0)
+</code></pre>
+
+<pre><code>##   group 2.5 % 97.5 %
+## 1 Bride 29.15  37.33
+## 2 Groom 31.70  39.87
+</code></pre>
+
+<pre><code class="r">mod1 = lm(Age ~ Person, data = m)
+summary(mod1)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = Age ~ Person, data = m)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -17.42 -12.02  -3.34   8.80  39.56 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    33.24       2.06   16.13   &lt;2e-16 ***
+## PersonGroom     2.55       2.91    0.87     0.38    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+## 
+## Residual standard error: 14.4 on 96 degrees of freedom
+## Multiple R-squared: 0.00789, Adjusted R-squared: -0.00245 
+## F-statistic: 0.763 on 1 and 96 DF,  p-value: 0.384
+</code></pre>
+
+<p>The point estimate is about right, but the margin of error is so large that we can&#39;t take this estimate very seriously.  The p-value is so large that we can&#39;t reject the null that there is no relationship between <code>Person</code> and age.</p>
+
+<p>Try adding in some other variables, astrological sign, years of education, etc. and show that this doesn&#39;t help much.</p>
+
+<p>Finally, add in the <code>BookpageID</code> variable.  </p>
+
+<pre><code class="r">mod2 = lm(Age ~ Person + BookpageID, data = m)
+anova(mod2)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Age
+##            Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## Person      1    159     159    9.07 0.0041 ** 
+## BookpageID 48  19127     398   22.77 &lt;2e-16 ***
+## Residuals  48    840      18                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<pre><code class="r">head(confint(mod2))
+</code></pre>
+
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)          18.7105 30.728
+## PersonGroom           0.8461  4.245
+## BookpageIDB230p1354  -9.1763  7.648
+## BookpageIDB230p1665  -6.6544 10.169
+## BookpageIDB230p1948 -13.7133  3.111
+## BookpageIDB230p539   -3.7393 13.085
+</code></pre>
+
+<p>This gives an individual ID to each marriage.  Putting this in the model effectively holds the couple constant when considering the <code>Person</code>.  In terms of ANOVA, <code>BookpageID</code> is eating up lots and lots of variance.</p>
+
+<h3>Example: Heating and Electricity Use</h3>
+
+<p>In theory, the electricity used in a house for lighting, computers, etc. should also be heating the house; eventually the energy in the electricity is transformed into heat.  But how much?  Perhaps the amount of electricity is small compared to the amount of heat.</p>
+
+<p>Let&#39;s look just at winter months, November through March, when heating is used pretty steadily:</p>
+
+<pre><code class="r">utils = fetchData(&quot;utilities.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/utilities.csv
+</code></pre>
+
+<pre><code class="r">winter = subset(utils, temp &lt; 55 &amp; ccf &gt; 45 &amp; month != 10)
+bwplot(gasbill/elecbill ~ as.factor(month), data = winter)
+</code></pre>
+
+<p><img src="data:image/png;base64,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Ko1369bNr3XLPZIfywIA4LcqA97lcql3795asmSJysrKJHkPSe/atUt9+/a1pcBg88orryghIeHa+8aNG+v55593sCIAACrzeYh+z549GjdunCRvoK9atUrTp09Xs2bN9PnnnysxMVFnz561s86g0bdvX+Xl5WndunVyu90aOnSoEhMTnS4LAIAKfAZ8WlqaXnvttSon3nzzzQEpKBSkpKTo3/7t35wuAwCAf8lnwNerV089evS49j4/P1+tWrVSTk6O3n33Xf34xz8O+3Y5AACCWbVtcj//+c81btw4lZSUaMCAAdq5c6fuueceHTt2zI76AACABdUG/Jtvvqk1a9bogw8+UFJSklatWqWHHnpI77//vh31AQAAC6ptkystLVV8fLxWr16tBx54QJJ05cqVCleSAwCA4FLljW5cLpd69uype++9Vzt27NDOnTu1aNEivf7665o1a5ZdNQIAAD9Veye7ZcuW6a233tIvfvEL3XLLLTp69Kg++eQTxcbG2lEfAEDSxRLp1LmKY03rS7Fue7Yj9FQb8B999JEWL16soqIieTwelZWVqbCwUC+//PK1Q/YAgMD64rT0ytaKY1PuktKa2rM9lJw+fVoul0vJyclOl+KoagN+0qRJGjt2rHJyctSxY0fFx8dr2bJlGj58uB31AQAk3dpCenmsc9tDwdmzZzVmzBht2rRJkpSRkaFly5YpKSnJ4cqcUe1FdufOndOsWbM0ZMgQXblyRU888YQGDhyo9evX21UjAADVmjRp0rVwl6T33ntPTzzxhIMVOavae9HHxcXp3LlzuvXWW7Vjxw5JUoMGDXw+VQ0AEHyW75be2ed0Ff6JsPDIzTVr1lQaW716tX/rRvj3lNFgVu0h+scff1ydO3fWV199pfz8fGVmZmrz5s3avXu3HfUBAK7TlVKnK/BfuUeK9HNOQkKCiouLK4zVq1fPv3XLJVe1d4gJDdX+GdOmTdO7776rqKgoffDBB+rUqZPWrFmjm266yY76AACokaeeeqrS2JNPPulAJcGh2j14SercubMkqWXLlpo9e3ZAC0Lg3FhfmvWOtPGg/3NPnZOiI6Ub4v2fuzNPWvSo//MAwB8zZ85UYmKili5dKpfLpaysLD322GNOl+WYagO+d+/eOnnyZIWxiIgI1a9fXxkZGfrlL3+piAhDjmcYLqOzdMuN1uau2CPV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" alt="plot of chunk unnamed-chunk-17"/> </p>
+
+<p>It looks like roughly twice as much is paid for gas as electricity.  So there&#39;s more money going into heating than lighting and other electricity uses. Considering that electricity is a much more expensive form of energy than natural gas, this suggests that there is much more energy being used for heating than for lighting.</p>
+
+<p>But since energy is a physical quantity, there is a very good theory of it.  In fact, both kWh and ccf are forms of energy, and so there is a conversion between them.  (Actually, ccf is a volume, but since the volumetric energy density of natural gas varies only by a few percent depending on other factors, we can treat it approximately as an energy.)  Looking it up on in <a href="http://en.wikipedia.org/wiki/Therm">Wikipedia</a> indicates that a ccf is roughly 29.3 kWh.</p>
+
+<pre><code class="r">bwplot(kwh/(29.3 * ccf) ~ as.factor(month), data = winter)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-18"/> </p>
+
+<p>Electricity energy use is about 10-20% compared to gas energy use in the winter months.  This suggests that we should be able to detect the electricity use.  It should show up as a negative coefficient on <code>kwh</code> in a model of <code>ccf</code>, with a magnitude of about \( 1/29.3 \) (the conversion factor between kwh and ccf).</p>
+
+<pre><code class="r">mod1 = lm(ccf ~ kwh, data = winter)
+summary(mod1)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = ccf ~ kwh, data = winter)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -82.38 -48.21   6.18  40.41 100.65 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 116.4193    31.9863    3.64   0.0007 ***
+## kwh           0.0420     0.0436    0.96   0.3407    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+## 
+## Residual standard error: 54.6 on 45 degrees of freedom
+## Multiple R-squared: 0.0202,  Adjusted R-squared: -0.00158 
+## F-statistic: 0.928 on 1 and 45 DF,  p-value: 0.341
+</code></pre>
+
+<pre><code class="r">anova(mod1)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: ccf
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)
+## kwh        1   2763    2763    0.93   0.34
+## Residuals 45 134066    2979
+</code></pre>
+
+<p>Alas, we can&#39;t reject the null.  Note that the two reports are giving the same information. There is only explanatory vector and so there is no &ldquo;team&rdquo; effect for ANOVA to help us understand.</p>
+
+<p>But there are other factors that affect natural gas use, and we may be able to explain some of these.  Doing so will reduce the size of the residuals and may make it easier to see the effect of electricity use on natural gas use.</p>
+
+<pre><code class="r">mod2 = lm(ccf ~ kwh + temp, data = winter)
+summary(mod2)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = ccf ~ kwh + temp, data = winter)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -44.82 -10.49  -3.72  12.33  45.12 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 299.4614    14.9283   20.06   &lt;2e-16 ***
+## kwh          -0.0225     0.0155   -1.46     0.15    
+## temp         -4.3683     0.2395  -18.24   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+## 
+## Residual standard error: 18.9 on 44 degrees of freedom
+## Multiple R-squared: 0.886,   Adjusted R-squared: 0.88 
+## F-statistic:  170 on 2 and 44 DF,  p-value: &lt;2e-16
+</code></pre>
+
+<pre><code class="r">anova(mod2)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: ccf
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## kwh        1   2763    2763    7.77 0.0078 ** 
+## temp       1 118411  118411  332.81 &lt;2e-16 ***
+## Residuals 44  15655     356                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>When put first in the model, <code>kwh</code> shows up as significant in ANOVA.  But when put last (try it!), it doesn&#39;t.  That&#39;s because both <code>temp</code> and <code>kwh</code> have a common contributing cause: winter.  <code>temp</code> is capable of explaining some of <code>kwh</code> and so putting <code>temp</code> first grabs some of the credit.</p>
+
+<h3>A sample-size calculation: One way to make Planet Alt.</h3>
+
+<p>How much data would we need to have to be able to test the conversion between <code>ccf</code> and <code>kwh</code> to within about 5%?  </p>
+
+<p>Creating Planet Alt as a copy of Planet Null.  Resample it with various sample sizes until the confidence intervals get acceptable in size.</p>
+
+<p>Emphasize: this cannot replace collecting the data, but indicates to us how much data we would need to collect to be able to get the sort of result we expect.</p>
+
+<h2>Choosing Model Terms</h2>
+
+<p>Put terms first: they get credit.  Put terms later: they can help the earlier terms to get credit.</p>
+
+<p>Look at sex and race in the wage data.  Put them first.  Put them last.  What are the different interpretations?</p>
+
+<pre><code class="r">mod0 = lm(log(wage) ~ race + sex, data = CPS85)
+anova(mod0)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: log(wage)
+##            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## race        1    0.7    0.66     2.5    0.11    
+## sex         1    7.2    7.23    27.3 2.5e-07 ***
+## Residuals 531  140.6    0.26                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>Race isn&#39;t showing up as significant, but sex is.  Perhaps if we eat up the variance by putting in more explanatory variables &hellip;</p>
+
+<pre><code class="r">mod1 = lm(log(wage) ~ race + sex + sector + educ + exper + south, data = CPS85)
+anova(mod1)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: log(wage)
+##            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## race        1    0.7    0.66    3.47  0.0631 .  
+## sex         1    7.2    7.23   37.96 1.4e-09 ***
+## sector      7   24.8    3.54   18.56 &lt; 2e-16 ***
+## educ        1    5.5    5.52   28.95 1.1e-07 ***
+## exper       1    9.5    9.49   49.83 5.4e-12 ***
+## south       1    1.5    1.53    8.03  0.0048 ** 
+## Residuals 521   99.3    0.19                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>Significance of sex is even stronger  Race is right on the margin.  With more data (and this is a very limited amount of data) we might see something.</p>
+
+<p>But what if someone argues that it&#39;s really educational levels etc that matter and you have to see how these effect wage first:</p>
+
+<pre><code class="r">mod3 = lm(log(wage) ~ sector + educ + exper + south + sex + race, data = CPS85)
+anova(mod3)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: log(wage)
+##            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## sector      7   27.0    3.86   20.27 &lt; 2e-16 ***
+## educ        1    6.5    6.50   34.13 9.1e-09 ***
+## exper       1    8.8    8.83   46.34 2.7e-11 ***
+## south       1    1.5    1.45    7.63  0.0059 ** 
+## sex         1    5.2    5.23   27.46 2.3e-07 ***
+## race        1    0.1    0.13    0.70  0.4019    
+## Residuals 521   99.3    0.19                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>No indication that race is playing a role.</p>
+
+<p>QUESTION: But is race affecting education, experience, and sector?  If so, then race should go first.</p>
+
+<h2>An Odd Situation</h2>
+
+<p>Sometimes the later term gets credit, but only because it was set up by an earlier term.  Without the earlier term, it wouldn&#39;t get credit.</p>
+
+<p>Examples: </p>
+
+<ul>
+<li>temperature in the alder data</li>
+<li>birth year, death year explaining lifespan.</li>
+</ul>
+
+<h2>ANOVA and near redundancy</h2>
+
+<p>The CPS85 data.  With ANOVA, you can throw all sorts of stuff into the model and not have to worry about redundancy or near redundancy. </p>
+
+<pre><code class="r">m1 = lm(wage ~ sector + exper + age + educ, data = CPS85)
+summary(m1)  # terrible standard errors
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = wage ~ sector + exper + age + educ, data = CPS85)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -10.36  -2.80  -0.65   2.01  33.92 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    -5.0445     6.8083   -0.74   0.4591    
+## sectorconst     3.0259     1.0984    2.75   0.0061 ** 
+## sectormanag     4.0025     0.7651    5.23  2.4e-07 ***
+## sectormanuf     1.7037     0.7186    2.37   0.0181 *  
+## sectorother     2.1345     0.7114    3.00   0.0028 ** 
+## sectorprof      2.7200     0.6766    4.02  6.7e-05 ***
+## sectorsales    -0.1196     0.8467   -0.14   0.8877    
+## sectorservice  -0.1434     0.6727   -0.21   0.8313    
+## exper          -0.0765     1.1133   -0.07   0.9452    
+## age             0.1751     1.1122    0.16   0.8749    
+## educ            0.5733     1.1182    0.51   0.6084    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+## 
+## Residual standard error: 4.42 on 523 degrees of freedom
+## Multiple R-squared: 0.274,   Adjusted R-squared: 0.26 
+## F-statistic: 19.7 on 10 and 523 DF,  p-value: &lt;2e-16
+</code></pre>
+
+<pre><code class="r">anova(m1)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: wage
+##            Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## sector      7   2572     367   18.80 &lt; 2e-16 ***
+## exper       1    213     213   10.91   0.001 ** 
+## age         1   1068    1068   54.65 5.7e-13 ***
+## educ        1      5       5    0.26   0.608    
+## Residuals 523  10219      20                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>Still working &hellip;</p>
+
+<p>One of the advantages of Planet Null is that it&#39;s easy to get there and collect data.  So we can know a lot about it.  Discoveries about Planet Null have played a large role in statistics.</p>
+
+<h3>Time for t</h3>
+
+<p>Let&#39;s collect lots of coefficients on Planet Null and see what they have in common.  We&#39;ll do this by randomizing the response variable:</p>
+
+<pre><code class="r">mod1 = lm(shuffle(wage) - mean(wage) ~ shuffle(sector) * shuffle(sex) * shuffle(age) * 
+    shuffle(exper) * shuffle(married) * shuffle(union), data = CPS85)
+houses = fetchData(&quot;SaratogaHouses.csv&quot;)
+mod2 = lm(shuffle(Price) - mean(Price) ~ shuffle(Living.Area) * shuffle(Baths) * 
+    shuffle(Bedrooms) * shuffle(Fireplace) * shuffle(Acres), data = houses)
+grades = fetchData(&quot;grades.csv&quot;)
+g2n = fetchData(&quot;grade-to-number.csv&quot;)
+courses = fetchData(&quot;courses.csv&quot;)
+all = merge(grades, g2n)
+all = merge(courses, all)
+mod3 = lm(rand(1) ~ shuffle(sessionID) + shuffle(dept) + shuffle(sid), data = all)
+</code></pre>
+
+</body>
+
+</html>
+

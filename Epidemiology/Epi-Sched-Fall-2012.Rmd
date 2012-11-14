@@ -39,82 +39,6 @@ QE <- function(name) { # Estimation problem}
 Upcoming Days
 -------------
 
-`r I(classDayContents("Tues", "Oct", 23 ))`
-**Topic**: Catch up. MID-TERM EXAM (second 45 minutes of class)
-
-**[Examples of Exam Questions](https://dl.dropbox.com/u/5098197/Epidemiology/Epi-Mid-Term-Review-Collection.pdf)** These questions will give you a feel for the style of the questions likely to be asked on the exam.  Answers are given [here](https://dl.dropbox.com/u/5098197/Epidemiology/Epi-Mid-Term-Review-Collection-F2012-with-answers.pdf)
-
-**Study Guide for Exam**. In addition to the vocabulary and concepts, you'll be expected to be able to do certain calculations that we have done in class:
-
-* Life expectancy
-* Odds ratio and interpretation of confidence intervals
-* Prevalence/Incidence
-* Relative Risk and Attributable Fraction
-
-In reviewing these calculations, go through the following end-of-chapter problems from the Essential Epidemiology textbook:
-* Chapter 2: Probs 1 and 2
-* Chapter 5: Probs 1, 2, 3, and 4
-
-A calculation problem on the test will be drawn from these very problems. You'll find answers to the problems in the back of the textbook. For life-expectancy calculations, review Appendix 5 from the book.
-
-* How's your glossary going? `r I(RR("glossary"))`
-
-**On Your Own**:
-* [An interview with Hans Rossling, part 2](http://blog.ted.com/2009/05/14/qa_with_hans_ro/)
-
-**In-class**: 
-* MID-TERM EXAM
-
--------------
-
-`r I(classDayContents("Thurs", "Oct", 25 ))`
-Fall Break!
-
-Some movies to get your Epi fix while on break:
-* *Plague City: SARS in Toronto*.  A CTV miniseries about the discovery and response to SARS. [on Netflix](https://movies.netflix.com/WiMovie/Plague_City_SARS_in_Toronto/70146848?locale=en-US)
-* A comparison of smallpox in Montreal in 1885 and a hypothetical outbreak today. [on Netflix](http://movies.netflix.com/WiMovie/Outbreak_Anatomy_of_a_Plague/70243165?trkid=7728649)
-* *The Andromeda Strain*, a sci-fi classic written by an MD. [on Netflix](http://movies.netflix.com/WiMovie/The_Andromeda_Strain/256317?trkid=2361637)
-
---------------
-
-`r I(classDayContents("Tues", "Oct", 30 ))`
-**Topic**: Association and Causation
-
-**Reading**: 
-* **Essential Epidemiology**, Ch. 10
-* [Austin Bradford Hill on association and causation](http://dl.dropbox.com/u/5098197/Epidemiology/Hill_1965.pdf)
-* [The Poverty Lab](https://moodle.macalester.edu/mod/resource/view.php?id=15239)
-
-**Assignment**: 
-* [Columbia Epiville exercise on causal reasoning](http://ccnmtl.columbia.edu/projects/epiville/causal_inference/).  Hand in your answers via [Google Forms](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDNrUF80NDMxTVdUTmhVS2NTaDU1NHc6MQ).
-* Listen to this [debate about organic food marketing](http://intelligencesquaredus.org/debates/past-debates/item/578-organic-food-is-marketing-hype) broadcast on National Public Radio. (Here's a [transcript](https://dl.dropbox.com/u/5098197/Epidemiology/organic-food.pdf) if you would rather read than listen.) How does the way health benefits were discussed compare to the ideas we have been studying? At time 38:00 in the audio recording (1:21:00 in the video, page 31 in the transcript), there is a question from the audience about specific health benefits. [Here is the article](https://moodle.macalester.edu/mod/resource/view.php?id=15243) that is referred to in the panelist's answer. (And here's a Sept. 2012 [newspaper story](http://www.nytimes.com/2012/09/04/science/earth/study-questions-advantages-of-organic-meat-and-produce.html?hp) about the issue of organic food and nutrition.)
-
-**On Your Own**:
-* [TED talk on social experiments and poverty](http://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty.html)
-
-**In-class**:
-* Dealing with Confounding: [Moped injury activity](http://dl.dropbox.com/u/5098197/Epidemiology/moped-activity.pdf)
-
-* [Necessary and sufficient exercise](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/necessary-and-sufficient-exercise.pdf)
-
-----------------
-
-`r I(classDayContents("Thurs", "Nov", 1 ))`
-**Topic**: Survival Analysis
-
-**Reading**: 
-* Malcolm Gladwell, [The Treatment](https://moodle.macalester.edu/mod/resource/view.php?id=15249)
-* [A Primer on Survival Analysis](http://www.nature.com/bjc/journal/v89/n2/pdf/6601118a.pdf).  You are not expected to understand every bit of it.
-* *The Great Influenza* pp. 252-298
-
-**Assignment**:
-* Reading Reflection on Survival Analysis `r I(RR("survival"))`
-* How's your glossary going? `r I(RR("glossary"))`
-
-**On Your Own**:
-* [A BBC podcast on the history of infectious diseases](http://downloads.bbc.co.uk/podcasts/radio4/iots/iots_20110608-1657b.mp3)
-
-**In-class**:
 
 ---------------
 
@@ -166,6 +90,7 @@ Some movies to get your Epi fix while on break:
 
 **On Your Own**:
 * [Tracking an outbreak: fungal infection](http://www.nytimes.com/2012/11/06/health/doctors-chased-clues-to-identify-meningitis-outbreak.html?ref=health)
+* [Radiation Dose Chart](http://xkcd.com/radiation/)
 
 **In-class**:
 * Stratifying risk in familiar events/exposures.
@@ -642,6 +567,82 @@ I welcome proposals for skits to be made into short videos that would explain th
 * What is a p-value? [cartoon video](https://www.youtube.com/watch?v=ax0tDcFkPic&feature=related)
 
 
+`r I(classDayContents("Tues", "Oct", 23 ))`
+**Topic**: Catch up. MID-TERM EXAM (second 45 minutes of class)
+
+**[Examples of Exam Questions](https://dl.dropbox.com/u/5098197/Epidemiology/Epi-Mid-Term-Review-Collection.pdf)** These questions will give you a feel for the style of the questions likely to be asked on the exam.  Answers are given [here](https://dl.dropbox.com/u/5098197/Epidemiology/Epi-Mid-Term-Review-Collection-F2012-with-answers.pdf)
+
+**Study Guide for Exam**. In addition to the vocabulary and concepts, you'll be expected to be able to do certain calculations that we have done in class:
+
+* Life expectancy
+* Odds ratio and interpretation of confidence intervals
+* Prevalence/Incidence
+* Relative Risk and Attributable Fraction
+
+In reviewing these calculations, go through the following end-of-chapter problems from the Essential Epidemiology textbook:
+* Chapter 2: Probs 1 and 2
+* Chapter 5: Probs 1, 2, 3, and 4
+
+A calculation problem on the test will be drawn from these very problems. You'll find answers to the problems in the back of the textbook. For life-expectancy calculations, review Appendix 5 from the book.
+
+* How's your glossary going? `r I(RR("glossary"))`
+
+**On Your Own**:
+* [An interview with Hans Rossling, part 2](http://blog.ted.com/2009/05/14/qa_with_hans_ro/)
+
+**In-class**: 
+* MID-TERM EXAM
+
+-------------
+
+`r I(classDayContents("Thurs", "Oct", 25 ))`
+Fall Break!
+
+Some movies to get your Epi fix while on break:
+* *Plague City: SARS in Toronto*.  A CTV miniseries about the discovery and response to SARS. [on Netflix](https://movies.netflix.com/WiMovie/Plague_City_SARS_in_Toronto/70146848?locale=en-US)
+* A comparison of smallpox in Montreal in 1885 and a hypothetical outbreak today. [on Netflix](http://movies.netflix.com/WiMovie/Outbreak_Anatomy_of_a_Plague/70243165?trkid=7728649)
+* *The Andromeda Strain*, a sci-fi classic written by an MD. [on Netflix](http://movies.netflix.com/WiMovie/The_Andromeda_Strain/256317?trkid=2361637)
+
+--------------
+
+`r I(classDayContents("Tues", "Oct", 30 ))`
+**Topic**: Association and Causation
+
+**Reading**: 
+* **Essential Epidemiology**, Ch. 10
+* [Austin Bradford Hill on association and causation](http://dl.dropbox.com/u/5098197/Epidemiology/Hill_1965.pdf)
+* [The Poverty Lab](https://moodle.macalester.edu/mod/resource/view.php?id=15239)
+
+**Assignment**: 
+* [Columbia Epiville exercise on causal reasoning](http://ccnmtl.columbia.edu/projects/epiville/causal_inference/).  Hand in your answers via [Google Forms](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDNrUF80NDMxTVdUTmhVS2NTaDU1NHc6MQ).
+* Listen to this [debate about organic food marketing](http://intelligencesquaredus.org/debates/past-debates/item/578-organic-food-is-marketing-hype) broadcast on National Public Radio. (Here's a [transcript](https://dl.dropbox.com/u/5098197/Epidemiology/organic-food.pdf) if you would rather read than listen.) How does the way health benefits were discussed compare to the ideas we have been studying? At time 38:00 in the audio recording (1:21:00 in the video, page 31 in the transcript), there is a question from the audience about specific health benefits. [Here is the article](https://moodle.macalester.edu/mod/resource/view.php?id=15243) that is referred to in the panelist's answer. (And here's a Sept. 2012 [newspaper story](http://www.nytimes.com/2012/09/04/science/earth/study-questions-advantages-of-organic-meat-and-produce.html?hp) about the issue of organic food and nutrition.)
+
+**On Your Own**:
+* [TED talk on social experiments and poverty](http://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty.html)
+
+**In-class**:
+* Dealing with Confounding: [Moped injury activity](http://dl.dropbox.com/u/5098197/Epidemiology/moped-activity.pdf)
+
+* [Necessary and sufficient exercise](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/necessary-and-sufficient-exercise.pdf)
+
+----------------
+
+`r I(classDayContents("Thurs", "Nov", 1 ))`
+**Topic**: Survival Analysis
+
+**Reading**: 
+* Malcolm Gladwell, [The Treatment](https://moodle.macalester.edu/mod/resource/view.php?id=15249)
+* [A Primer on Survival Analysis](http://www.nature.com/bjc/journal/v89/n2/pdf/6601118a.pdf).  You are not expected to understand every bit of it.
+* *The Great Influenza* pp. 252-298
+
+**Assignment**:
+* Reading Reflection on Survival Analysis `r I(RR("survival"))`
+* How's your glossary going? `r I(RR("glossary"))`
+
+**On Your Own**:
+* [A BBC podcast on the history of infectious diseases](http://downloads.bbc.co.uk/podcasts/radio4/iots/iots_20110608-1657b.mp3)
+
+**In-class**:
 
 
 
