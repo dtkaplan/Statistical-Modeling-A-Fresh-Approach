@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{multicol}
+\usepackage[margin=.5in]{geometry}
+\begin{document}
+\pagestyle{empty}
+\begin{multicols}{3}
+<<echo=FALSE,results="asis">>=
+nstudents=50
+flu = runif(nstudents)<.4
+headache = runif(nstudents)<.2
+headacheIfFlu = runif(nstudents) < .9
+headache[flu] = headacheIfFlu[flu]
+
+fluanswer = rep("No",nstudents)
+fluanswer[flu] = "Yes"
+headacheAnswer = rep("No",nstudents)
+headacheAnswer[headache] = "Yes"
+for (k in 1:nstudents) {
+  cat( paste( "\\noindent Headache: ",headacheAnswer[k], " .....      Flu: ", fluanswer[k],"\n\n\\bigskip\n\\bigskip\n\n",sep=""))
+}
+@
+
+\end{multicols}
+
+\end{document}

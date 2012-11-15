@@ -1,0 +1,244 @@
+Epidemiology Notes 2012-11-15
+=====================
+```{r message=FALSE,error=FALSE,warning=FALSE,echo=FALSE,results="hide"}
+require(mosaic, quietly=TRUE)
+```
+### Before class starts
+
+Show K-19 movie from 1:06:00 (left in movie) until 1:00:00 left in movie.
+
+[Page listing exposure of the crew who died](http://en.wikipedia.org/wiki/Soviet_submarine_K-19#Nuclear_accident)
+
+[Exposure in Hiroshima](http://pketko.com/Hiroshima/radiation.htm)
+
+### Radiation Dose Results
+
+Mark a scale about 10 feet long on the left board.  Put 2 sV in the middle of it and mark 0, .01, .1, .5, 1, 2, 3, 4, 5
+
+Hand out the radiation dose quiz answers.  Go through each question and mark on the board where the typical answers are.  
+
+Then mark the correct answers:
+
+1. Normal Yearly Dose 0.004000 sV
+2. Extra dose from a cross-US airplane flight 0.000040
+3. Extra dose from the potassium in eating one banana 0.0000001  (How many bananas is equivalent to one cross-US airplane flight? How many airplane flights does a pilot or flight attendant take in a year?)
+4. Extra dose from a CT scan of the head 0.002000
+5. Extra dose from a mammogram 0.000400
+6. Average annual extra dose from living with 10 mi of the Three-Mile Island plant since the 1979 accident 0.000080
+7. Extra dose to a person in Tokyo following the Fukushima accident. 0.000040
+8. EPA dose limit for emergency workers in lifesaving operations. 0.250000
+9. Dose received by the most severely exposed Fukushima plant workers. 0.180000
+10. Dose causing symptoms of radiation poisoning. 0.400000
+11. Acutely fatal radiation-poisoning dose. 4.000000
+
+
+#### Quantitative Literacy Question
+
+From your sheet, find the ratio of the answer to (g) and (k).  
+
+Plot this out.
+
+For the people who give a number near 1, ask how many people have died in Tokyo from radiation poisoning.
+
+
+### Less Politically Charged Activity
+
+* Put a drawing of the Sun, about 4 inches in diameter, on the center of the front table.  Place a yard stick next to it for scale.
+* Hand out blank sheets, and ask people to draw the Earth and Moon at the same scale.  They should also write where to place the sheet.  $1 prize to the person who gets the answer closest to correct.  Collect the papers and place them on the table. 
+
+[Scale of planet distances and diameters](http://cse.ssl.berkeley.edu/AtHomeAstronomy/act10_datasheet.html)
+
+
+### Quick Quiz on Risk and Heuristics
+
+[PDF file](https://dl.dropbox.com/u/5098197/Epidemiology/irrational-quiz.pdf)
+
+### In the News
+
+* [Malaria vaccine](http://www.nytimes.com/2012/11/10/health/malaria-vaccine-candidate-produces-disappointing-results-in-clinical-trial.html?hpw)
+* [Hitchhiking risk](http://www.nytimes.com/2012/11/11/opinion/sunday/hitchhikings-time-has-come-again.html?_r=0)
+* [Antibiotics risk](http://well.blogs.nytimes.com/2012/11/12/antibiotics-are-a-gift-to-be-handled-with-care/)
+* [Alzheimers precursors](http://www.nytimes.com/2012/11/13/health/alzheimers-precursors-founds-at-earlier-age.html?ref=health)
+
+### Media Triggers
+
+This isn't a main topic for us, but let's look at the "Media Triggers" listed in *Communicating about Risks to Public Health*
+
+For reference, here are two ongoing stories:
+
+* [General Petraeus](http://www.nytimes.com/2012/11/14/us/top-us-commander-in-afghanistan-is-linked-to-petraeus-scandal.html?hp&_r=0)
+* [Hurricane Sandy](http://www.nytimes.com/2012/11/13/nyregion/federal-flood-insurance-program-faces-new-stress.html?hp), global warming, fiscal problems.
+
+**from Box 6, Media Triggers:**
+
+A possible risk to public health is more likely to become a major story if the following are prominent or can readily be made to become so:
+
+1. Questions of **blame**
+2. Alleged **secrets and attempted "cover-ups"**
+3. **"Human interest"** through identifiable heroes, villains, dupes, etc. (as well as victims)
+4. Links with **existing high-profile issues or personalities**
+5. **Conflict**
+6. **Signal value**: the story as portent of further ills ("What next?")
+7. **Many people exposed** to the risk, even at low levels ("It could be you!")
+8. Strong **visual impact** (e.g. pictures of suffering)
+9. Links to **sex** and/or **crime**
+
+Review of Statistical Literacy
+-----------------
+
+* Understand that there is no certainty and no zero-risk, but only risks that are more or less acceptable.
+* Questions to ask about all risks
+    * Risk of what?
+    * Time frame?
+    * How big?  Absolute versus relative, or comparing the risk to a more familiar one.
+    * Does it apply to me?
+* Screening tests
+    * Understand that screening tests may have benefits and harms
+    * Understand that screening tests can make two errors: false positives and false negatives.
+    * Understand how to translate specificities, sensitivities, and other conditional probabilities into natural frequencies
+    * Understand that the goal of screening is not simply the early detection of disease; it is mortality reduction or improvement of quality of life
+* Treatment
+    * Understand that treatments typically have benefits and harms.
+    * Understand the size of the benefit and harm.
+* Questions about the science behind the numbers
+    * Quality of evidence?
+    * What conflicts of interest exist?
+
+In a little bit, we'll talk about quantifying risk.  But there is also an emotional or "irrational" response to risk that can dominate
+
+"Irrationality" and Heuristics
+----------------
+* Availability
+* Confirmation bias
+
+Illustrate with the Linda and Mississippi answers.  Tally these up on the board.
+
+
+Heuristics and Biases from Pointer's Reading (p. 11)
+
+* **Availability bias**: events are perceived to be more frequent if examples are easily brought to mind, so memorable events seem more common.
+* **Confirmation bias**: once a view has been formed, new evidence is generally made to fit: contrary information is filtered out, ambiguous data interpreted as confirmation, and consistent information seen as "proof positive".  One's own actions can also make expectations self-fulfilling.
+* **Overconfidence**: We think our predictions or estimates are more likely to be correct than they really are.  This bias appears to affect almost all professions, scientific or otherwise, as well as the lay public.  The few exceptions are those who --- like weather forecasters --- receive constant feedback on the accuracy of their predictions.
+
+#### Example: College admissions and success.
+
+* Availability: College Bulletin highlights interesting and successful alumni.  We don't talk about failures.
+* Confirmation: Number of applications goes up every year.  (Meaningless, because it becomes easier to apply and some colleges even fill out the application for you.)  Talk about admissions rate rather than yield rate.  Mix up the admissions rate for domestic and foreign students.  Interpretation of relatively flat GPA versus admissions rating profile --- we're making correct decisions rather than "it doesn't matter."  Ignore data on low-performing students, ignore data on different grading standards among departments.
+* Overconfidence: Admissions office thinks it makes correct decisions.  Story of the study looking at marginal students and the admissions decisions made differentially by admissions office and deans/faculty.  Absolutely no feedback to admissions office about failures or successes.  Indeed, no study of admissions rankings and academic success.
+
+
+### Fright Factors
+
+#### Activity looking at applicability of fright factors to various activities.
+
+
+[Activity hand-out](https://dl.dropbox.com/u/5098197/Epidemiology/fright-factors.pdf)
+
+
+
+Risks are generally more worrying (and less acceptable) if perceived:
+
+1. To be **involuntary** (e.g. exposure to pollution) rather than voluntary (e.g. dangerous sports or smoking)
+2. As **inequitably distributed** (some benefit while others suffer the consequences)
+3. As **inescapable** by taking personal precautions
+4. To arise from an **unfamiliar or novel** source
+5. To result from **man-made, rather than natural** sources
+6. To cause **hidden and irreversible** damage, e.g. through the onset of illness many years after exposure.
+7. To pose some particular danger to **small children or pregnant women** or more generally to **future generations**.
+8. To threaten a form of death (or illness/injury) arousing **particular dread**
+9. To damage **indentifiable rather than anonymous victims**.
+10. To be **poorly understood by science**.
+11. As subject to **contradictory statements** from responsible sources (or, even worse, from the same source)
+
+
+
+Review of answers from ionizing radiation exposure.  How close are we to getting it right?
+
+Problems in Interpreting Risk
+---------------
+
+People are not very good at interpreting numbers that are very big or very small.  
+
+#### Example: Millions, Billions, Trillions 
+
+From today's NYTimes: [Billions and Millions](http://afterdeadline.blogs.nytimes.com/2012/11/13/trouble-with-numbers/) --- see the first two examples.
+
+Our use of exponential notation builds on this difficulty of comparing numbers of very different scales.  The notation with prefixes doesn't help so much
+
+Put these in order from smallest to largest
+
+atto centi deci deka exa femto giga hecto kilo mega micro milli peta tera yocto yotta zetta zepto 
+
+yocto (y), zepto (z), atto (a), femto (f), pico (p), nano (n), micro (µ), milli (m), centi (c), deci (d), base, deka (da), hecto (h), kilo (k), mega (M), giga (G), tera (T), peta (P), exa (E), zetta (Z), yotta (Y)
+
+
+#### Example: Radiation exposure
+
+Hand out the [Radiation Dose Chart](http://xkcd.com/radiation/) and ask people to write down the relevant dose next to the answers already on the quiz.  That way they will have to work through the numbers.
+
+
+We tend to categorize things at extremes: very likely or not likely.
+
+Estimated and actual frequency of deaths from various causes:
+
+![Box 3 from "Pointers" reading](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/pointers-Box3.png)
+
+#### Community Risk Scale
+
+![Box 4 from "Pointers" reading](https://dl.dropbox.com/u/5098197/Epidemiology/Figures/pointers-Box4.png)
+
+
+Measuring Risk
+-------------
+Examples from the assignment:
+
+* [One](https://moodle.macalester.edu/mod/assign/view.php?id=25737&sid=14132&gid=14132&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=) Note that the exposure is typically regarded as yes/no rather than an intensity.
+* [Two](https://moodle.macalester.edu/mod/assign/view.php?id=25737&sid=14174&gid=14174&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=)
+* [Three](https://moodle.macalester.edu/mod/assign/view.php?id=25737&sid=14198&gid=14198&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=) Look at the calculation of unprotected sex.  The exposure is per person rather than per event or per year.
+
+### General Principles
+* Need to measure risks so that we can compare and prioritize them.  Do we need to put more resources into aviation safety?  How much will an investment improve things?  Child seats in cars?  In planes?  Preventive medicine?
+* Be diligent in describing ways to stratify risk so that people can make effective decisions.  Don't average over irrelevant groups.  Try to find ways to capture "dose dependence."
+* Watch out for "lifetime risk", which tends not be use useful for making individual decisions (but which might guide policy)
+
+* Estimation Problem: Go through their risk estimates for college students.
+
+#### Group Activity for Risk
+For the following, come up with some measures of '''exposure''' to the risk and of important stratifying variables. As Gigerenzer puts it: 4 questions
+* Risk of what?  I'm going to tell you this.
+* Time frame?  (Generalize to measuring exposure, passenger miles, vehicle miles, ...)
+* How big?
+* Does it apply to me?
+
+And I'll add:
+* Factors that strongly stratify the risk. Example: almost all "general aviation" accidents happen due to two causes: 
+* running out of fuel
+* flying during bad weather.
+Checking the weather report and checking the fuel would prevent them.  So, if you're concerned about the risk, you can deal with it pretty easily.
+
+
+Risk areas:
+* Car accidents
+* Flying
+* Exposure to mercury, or to lead.
+* Exposure to radiation.
+* Rape/violent crime
+* Diabetes
+* Alcohol
+* Skiing/Mountain Climbing, etc.
+* Prostate cancer or Breast cancer
+* Stroke/cardiac disease
+* Pneumonia/Flu
+
+Screening
+-------------
+
+### What Screening Tests Have You Had?
+* Tuberculosis
+* women: PAP smear
+* men: inquinal hernia (lifetime risk: 27% for men, 3% for women) --- "turn your head and cough"
+* SAT/ACT screening for readiness to get into college
+* first-year students: writing essay
+* I will propose: a screening test based on the radiation exposure in Tokyo and that causing acute radiation poisoning.
+
+
