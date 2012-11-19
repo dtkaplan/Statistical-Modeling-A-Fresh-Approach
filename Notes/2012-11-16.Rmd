@@ -5,6 +5,192 @@ Stats 155 Class Notes 2012-11-16
 # boilerplate
 ```
 
+The Power and Significance App
+---------------------
+
+```{r eval=FALSE}
+fetchData("mHypTest.R")
+mHypTest() # for a t-test.
+```
+Show how low degrees of freedom in the residual and high residual size lead to broad tails in the null distribution.  
+
+Turn on the alternative hypothesis and show how bigger effect size increases the power, as does a larger amount of data.
+* The effect size is the size of the coefficient under the alternative hypothesis.
+
+Now with the F distribution
+```{r eval=FALSE}
+mHypTest(TRUE) # for an F distribution
+```
+Effect size is in terms of R^2.
+
+The F Distribution
+---------------------
+
+Simulation with random explanatory vectors.  Vary the degrees of freedom in the residual to show how small degrees of freedom requires F to be big to reject the null.
+
+Show the F distribution analytically: that is with the df() operator.
+
+Compare F and t: t^2 is F.  One sided versus two sided tests.  
+
+
+Eating Up the Variance
+----------------
+
+The F statistic compares the "credit" earned by a model term to the mean square residual, which can be interpreted as the credit that would be earned by a junky random term.
+
+Fit a model and add in some random terms.  Show that the F for the random terms is about 1 and that the mean square of the residual is hardly changed by the random terms.
+
+```{r}
+mod0 = lm(wage ~ sector + sex + exper, data=CPS85)
+anova(mod0)
+```
+The mean square residual is about 20.
+
+Now throw in some junk:
+```{r}
+mod10 = lm( wage ~ sector + sex + exper + rand(10), data=CPS85)
+anova(mod10)
+```
+
+But what if a term eats more variance than a junky term.  That term makes it easier for the other terms to show significance.
+
+EXAMPLE:  Difference in age between husband and wife in couples getting married.
+
+Ask: Who is older in a married couple, the man or the woman?  By how much?  
+
+Let's see if the data support this:
+```{r}
+m = fetchData("marriage.csv")
+mod0 = mm( Age ~ Person, data=m )
+mod0
+confint(mod0)
+mod1 = lm( Age ~ Person, data=m )
+summary(mod1)
+```
+The point estimate is about right, but the margin of error is so large that we can't take this estimate very seriously.  The p-value is so large that we can't reject the null that there is no relationship between `Person` and age.
+
+Try adding in some other variables, astrological sign, years of education, etc. and show that this doesn't help much.
+
+Finally, add in the `BookpageID` variable.  
+```{r}
+mod2 = lm( Age ~ Person + BookpageID, data=m )
+anova(mod2)
+head(confint(mod2))
+```
+
+This gives an individual ID to each marriage.  Putting this in the model effectively holds the couple constant when considering the `Person`.  In terms of ANOVA, `BookpageID` is eating up lots and lots of variance.
+
+### Example: Heating and Electricity Use
+
+In theory, the electricity used in a house for lighting, computers, etc. should also be heating the house; eventually the energy in the electricity is transformed into heat.  But how much?  Perhaps the amount of electricity is small compared to the amount of heat.
+
+Let's look just at winter months, November through March, when heating is used pretty steadily:
+```{r}
+utils = fetchData("utilities.csv")
+winter = subset(utils, temp < 55 & ccf > 45 & month != 10 )
+bwplot( gasbill/elecbill ~ as.factor(month), data=winter)
+```
+It looks like roughly twice as much is paid for gas as electricity.  So there's more money going into heating than lighting and other electricity uses. Considering that electricity is a much more expensive form of energy than natural gas, this suggests that there is much more energy being used for heating than for lighting.
+
+But since energy is a physical quantity, there is a very good theory of it.  In fact, both kWh and ccf are forms of energy, and so there is a conversion between them.  (Actually, ccf is a volume, but since the volumetric energy density of natural gas varies only by a few percent depending on other factors, we can treat it approximately as an energy.)  Looking it up on in [Wikipedia](http://en.wikipedia.org/wiki/Therm) indicates that a ccf is roughly 29.3 kWh.
+
+```{r}
+bwplot( kwh/(29.3*ccf) ~ as.factor(month), data=winter)
+```
+
+Electricity energy use is about 10-20% compared to gas energy use in the winter months.  This suggests that we should be able to detect the electricity use.  It should show up as a negative coefficient on `kwh` in a model of `ccf`, with a magnitude of about $1/29.3$ (the conversion factor between kwh and ccf).
+```{r}
+mod1 = lm( ccf ~ kwh, data=winter )
+summary( mod1 )
+anova( mod1 )
+```
+Alas, we can't reject the null.  Note that the two reports are giving the same information. There is only explanatory vector and so there is no "team" effect for ANOVA to help us understand.
+
+But there are other factors that affect natural gas use, and we may be able to explain some of these.  Doing so will reduce the size of the residuals and may make it easier to see the effect of electricity use on natural gas use.
+```{r}
+mod2 = lm( ccf ~ kwh + temp, data=winter )
+summary(mod2)
+anova(mod2)
+```
+When put first in the model, `kwh` shows up as significant in ANOVA.  But when put last (try it!), it doesn't.  That's because both `temp` and `kwh` have a common contributing cause: winter.  `temp` is capable of explaining some of `kwh` and so putting `temp` first grabs some of the credit.
+
+### A sample-size calculation: One way to make Planet Alt.
+
+How much data would we need to have to be able to test the conversion between `ccf` and `kwh` to within about 5%?  
+
+Creating Planet Alt as a copy of Planet Null.  Resample it with various sample sizes until the confidence intervals get acceptable in size.
+
+Emphasize: this cannot replace collecting the data, but indicates to us how much data we would need to collect to be able to get the sort of result we expect.
+
+Choosing Model Terms
+--------------------
+
+Put terms first: they get credit.  Put terms later: they can help the earlier terms to get credit.
+
+Look at sex and race in the wage data.  Put them first.  Put them last.  What are the different interpretations?
+
+```{r}
+mod0 = lm( log(wage) ~ race + sex, data=CPS85)
+anova(mod0)
+```
+Race isn't showing up as significant, but sex is.  Perhaps if we eat up the variance by putting in more explanatory variables ...
+
+```{r}
+mod1 = lm( log(wage) ~ race + sex + sector + educ + exper + south, data=CPS85)
+anova(mod1)
+```
+Significance of sex is even stronger  Race is right on the margin.  With more data (and this is a very limited amount of data) we might see something.
+
+But what if someone argues that it's really educational levels etc that matter and you have to see how these effect wage first:
+```{r}
+mod3 = lm( log(wage) ~ sector + educ + exper + south + sex + race, data=CPS85)
+anova(mod3)
+```
+No indication that race is playing a role.
+
+QUESTION: But is race affecting education, experience, and sector?  If so, then race should go first.
+
+An Odd Situation
+-----------------
+
+Sometimes the later term gets credit, but only because it was set up by an earlier term.  Without the earlier term, it wouldn't get credit.
+
+Examples: 
+* temperature in the alder data
+* birth year, death year explaining lifespan.
+
+ANOVA and near redundancy
+------------------
+
+The CPS85 data.  With ANOVA, you can throw all sorts of stuff into the model and not have to worry about redundancy or near redundancy. 
+
+```{r}
+m1 = lm( wage ~ sector + exper + age + educ, data=CPS85)
+summary(m1) # terrible standard errors
+anova(m1)
+```
+
+
+Still working ...
+
+One of the advantages of Planet Null is that it's easy to get there and collect data.  So we can know a lot about it.  Discoveries about Planet Null have played a large role in statistics.
+
+### Time for t
+
+Let's collect lots of coefficients on Planet Null and see what they have in common.  We'll do this by randomizing the response variable:
+```{r eval=FALSE,cache=TRUE}
+mod1 = lm( shuffle(wage)-mean(wage) ~ shuffle(sector)*shuffle(sex)*shuffle(age)*shuffle(exper)*shuffle(married)*shuffle(union), data=CPS85)
+houses = fetchData("SaratogaHouses.csv")
+mod2 = lm( shuffle(Price)-mean(Price) ~ shuffle(Living.Area)*shuffle(Baths)*shuffle(Bedrooms)*shuffle(Fireplace)*shuffle(Acres), data=houses )
+grades = fetchData("grades.csv")
+g2n = fetchData("grade-to-number.csv")
+courses = fetchData("courses.csv")
+all = merge(grades, g2n)
+all = merge(courses, all)
+mod3 = lm( rand(1) ~ shuffle(sessionID) + shuffle(dept) + shuffle(sid), data=all)
+```
+
+
 Panel data with mother, father, children  just a small amount of varied ages, but show the children are younger than the parents.
 
 Lifespan versus year of birth (then add in year of death).

@@ -5,3 +5,98 @@ Stats 155 Class Notes 2012-11-19
 # boilerplate
 ```
 
+[Musical Theme for the Day](http://www.youtube.com/watch?v=G6djgavbp7c)
+
+Question: What does 5 to 9 mean?
+
+Modeling of Categorical Variables
+----------------
+
+We're going to do the simplest case: two-level variables.
+* This is an important case in practice since many problems have a substantial yes-no component, e.g. is the person living or dead.
+* Problems with more levels can be reduced to a tree-like traversal of two-way decisions.  An important technique --- but far from the only one --- is called CART.
+* The prediction problem --- given the inputs, what will be the output --- is often called "classification".
+* But often we observe the results and want to figure out what theories account for them.  In such cases, we need to look at model coefficients.
+
+Points to keep in mind as we study logistic regression
+------------
+* Many of the same concepts and terminologies apply: 
+    * response and explanatory variables
+    * model terms are just the same, including interaction and transformation terms
+    * degrees of freedom works in much the same way
+* Fitting is just as easy --- let the computer do it.
+* There's a regression report, standard errors, p-values on terms.
+* There's something analogous to the ANOVA report, though we won't spend much time on it.
+* But ...
+    * The fitted model values are not direct predictions of the outcome but probabilities.  
+    * Fitting is done in a different way
+    * The moral equivalent of variance of the residuals is called deviance.  There's also a summary of the quality of the fit with a lovely name: the "Akaike Information Criterion" (AIC).  After "heteroskedascity", this is my favorite statistics term.
+    * The models are nonlinear in the parameters and interpretation is somewhat more difficult.
+   
+Example:
+--------
+Just so that you'll see that it's easy to do, let's do a simple model: Can we predict the sex of one of the kids from the width and length of the foot?
+```{r}
+mod = glm( sex ~ width + length, data=KidsFeet, family="binomial")
+summary(mod)
+head(fitted(mod)) # probabilities
+```
+
+It's not obvious from the report whether these are the probability of being a girl or the probability of being a boy.  Here's a plot to help out:
+```{r}
+bwplot( fitted(mod) ~ sex, data=KidsFeet )
+```
+It seems that the probability refers to being a girl, since the girls have a higher probability than the boys.
+
+The functions themselves have a nice, graceful shape which you may recognize from Math 135 as being an S-function.
+```{r}
+f = makeFun(mod)
+plotFun( f(width=10, length)~length, length.lim=range(0,40))
+plotFun( f(width=width, length=length)~width&length,
+         length.lim=c(10,30),width.lim=c(7,12))
+```
+
+ACTIVITY: Try adding in an interaction term, etc.
+```{r}
+mod2 = glm( sex ~ length*width, 
+            data=KidsFeet, family="binomial")
+f2 = makeFun(mod2)
+plotFun( f2(width=width, length=length)~width&length,
+         length.lim=c(20,30),width.lim=c(7,10))
+plotPoints( length ~ width, data=KidsFeet, add=TRUE, col=KidsFeet$sex)
+```
+
+The Zero-One/TRUE-FALSE encoding
+------------------
+   
+Look at the data in `oring-damage.csv`, which is about the space shuttle.  The `damage` variable has been encoded as 0 or 1.
+
+```{r}
+oring = fetchData("oring-damage.csv")
+mod = glm( damage ~ temp, data=oring, family="binomial")
+f = makeFun(mod)
+plotFun( f(temp)~temp, temp.lim=range(0,100) )
+```
+
+Activity: Add in quadratic or cubic terms or stepwise terms and see how that changes the shape of the function.  For instance:
+```{r}
+mod2 = glm( damage ~ poly(temp,2) + (temp<70), 
+           data=oring, family="binomial")
+f2 = makeFun(mod2)
+plotFun( f2(temp)~temp, temp.lim=range(0,100) )
+```
+The function doesn't need to be a simple step.
+
+   
+Goals for this Unit
+------------
+Since fitting and the report generation is trivial, and the report interpretation is superficially the same, we don't need to spend much time on that.  Instead, we'll spend a bit of time on interpretation in a common setting: Case-Control studies.
+
+We tend to think about three main kinds of studies:
+* Experiment: You impose a treatment and see what happens.  (We'll be talking about this the last week of the semester.)
+* Cross-Sectional: Like your survey projects.  Sample from a population.
+* Cohort: You follow a group of people over time to see what develops.
+
+But there is another kind of study that people don't usually think about but that can be very useful in certain circumstances.  
+
+There is a group that wants to do its survey about health outcomes for college students and the factors that determine them.  
