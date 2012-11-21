@@ -44,3 +44,15 @@ angle.lm <- function(object, v2, data=NULL, degrees=TRUE) {
   response <- object$model[,1]
   angle.numeric(response,fitted(object), degrees=degrees)
 }
+
+# ============
+# Create a data frame from simple groupwise data:
+groupwiseData <- function(...) {
+  dots <- list(...)
+  nms <- names(dots)
+  res <- NULL
+  for( k in 1:length(dots) ) {
+    res <- rbind(res, data.frame(group=nms[k], val=dots[[k]]) )
+  }
+  return(res)
+}

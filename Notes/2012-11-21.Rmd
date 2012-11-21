@@ -5,3 +5,102 @@ Stats 155 Class Notes 2012-11-21
 # boilerplate
 ```
 
+A Day on Planet Alt
+-------------------
+
+### Background Software
+```{r}
+fetchData("m155development.R")
+fetchData("simulate.r")
+```
+
+
+
+Theme for the Day: The Alternative Hypothesis
+
+### A Simple Experiment
+
+Suppose that we've just invented a device that makes cars safer, and which we expect to reduce deaths by 10%. That would be a big improvement. We're going to do an experiment:
+* Select n sites where the device will be installed.  
+* Each site will select 200 cars.
+* Randomly assign half the cars to have our device, and do sham installation on the other cars to avoid the placebo effect.
+* Track the cars for a year. Compare the number of deaths in the treatment and in the control group.
+In designing the question we need to decide how big should n be?
+
+We already know something about Planet Alt: that the death rate will be lower by 10%.  Now we need to do a little bit more work to make a Planet Alt that's relevant to the data we will actually be creating on Planet Earth.  Death rates for vehicular accidents are given at the NHTSA web site <http://www-fars.nhtsa.dot.gov/Main/index.aspx>.
+
+The site indicates that in 2010, there were 15.65 vehicle accident deaths per 100,000 drivers per year.  We don't actually know that this rate will be relevant to our experiment.  
+* We're not conducting the experiment in 2010.
+* The death rate might vary from one type of car to another, and the sorts of device we install may not be applicable to all cars.
+Nonetheless, we'll construct Planet Alt with this rate in mind.
+
+
+Imagine that we collect data with $n=1000$ sites. (This corresponds to 100,000 cars in each of the treatment and control groups.)  The death rate at each site should be 15.65/1000.
+```{r}
+ourdata = groupwiseData(treatment=rpois(1000,lambda=0.9*15.65/1000),
+                    control=rpois(1000,lambda=15.65/1000))
+summary(lm( val ~ group, data=ourdata ))
+```
+Have everyone in the class do this and see how many of them were able to reject the null hypothesis.
+
+How many sites do we need to use to get 90% power?
+
+### Looking at the Standard Error
+
+Another way to think about this problem is to ask what is the precision of our estimate of the number of deaths.  It needs to be substantially smaller than the anticipated reduction in the death rate.  That reduction is 10% of 15.65/100 or ```r .1*15.65/1000```
+
+```{r}
+summary(lm( rpois(1000,lambda=0.9*15.65/1000)~1))
+```
+This is too large.  We should try to get it much smaller, perhaps one-sixth as large.  That will necessitate collecting 36 times as much data.
+
+Do the power calculation for that size.
+
+QUESTION: Given the number of sites, is there a practical way to do the experiment?
+How could we do the experiment in a less costly way?  (Find a high-risk group of cars.  Find an endpoint other than deaths, say injuries.)
+
+Here's a bit of information for [Pennsylvania](http://www.edgarsnyder.com/car-accident/car-accident-statistics.html).  
+* 87,949 people were injured in car crashes in PA in 2010.
+* 1324 people were killed.
+
+How big would the study need to be if studied injuries rather than deaths?
+
+Intercessory Prayer
+-------------------
+
+* [Wikipedia entry](http://en.wikipedia.org/wiki/Studies_on_intercessory_prayer)
+* [some papers](http://www.godandscience.org/apologetics/prayer.html) along with lists of p-values.  Why all the small p-values in Table 2? Pneumonia, intubation, anti-biotics are all related.
+* [A meta-analysis](http://www.sagepub.com/vaughnstudy/articles/intervention/Hodge.pdf)
+
+Abstracts
+-----------
+*[CCU outcomes](http://www.ncbi.nlm.nih.gov/pubmed/10547166)
+*[Retroactive prayer](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC61047/)
+
+Smallest Interesting Effect
+---------------
+
+We introduce a car safety device that we think will decrease highway deaths by 2%.  We want to carry out a study to confirm this theory.  We are going to do this by installing it in a certain number of cars, and compare the death rate in those cars to the death rate in unequipped cars.  (Pick participating cars, choose those to get the device at random.  Blind.)  Using accidents rather than deaths to increase the rate.
+
+[Fatalities per 100,000 registered vehicles](http://www-fars.nhtsa.dot.gov/Main/index.aspx)
+
+
+Simulations
+-------------
+### aspirin
+
+```{r}
+f = run.sim(aspirin, 50)
+summary(glm( stroke=="Y" ~ mgPerDay + sick, data=f ))$coef[2,4]
+```
+
+### vitaminD
+
+
+[activity](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Prob-17.26/ISM-Prob-17.26-A.html)
+
+What sample size do we need to get 90 percent power? (About 300.)
+```{r}
+s = do(100)*summary(lm( systolic ~ D + race, data=run.sim(vitaminD,30)))$coef[2,4]
+tally( ~result<0.05, data=s)
+```
