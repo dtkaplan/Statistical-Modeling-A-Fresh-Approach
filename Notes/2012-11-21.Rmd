@@ -65,37 +65,63 @@ Here's a bit of information for [Pennsylvania](http://www.edgarsnyder.com/car-ac
 
 How big would the study need to be if studied injuries rather than deaths?
 
-Intercessory Prayer
+A More Complicated Alternative
 -------------------
+Aspirin and stroke.
 
-* [Wikipedia entry](http://en.wikipedia.org/wiki/Studies_on_intercessory_prayer)
-* [some papers](http://www.godandscience.org/apologetics/prayer.html) along with lists of p-values.  Why all the small p-values in Table 2? Pneumonia, intubation, anti-biotics are all related.
-* [A meta-analysis](http://www.sagepub.com/vaughnstudy/articles/intervention/Hodge.pdf)
+The `aspirin` simulation gives a (not very detailed) model of the relationship between aspirin consumption and stroke.  It has a confounder, `sick`, which represents how sick the patient is.
 
-Abstracts
------------
-*[CCU outcomes](http://www.ncbi.nlm.nih.gov/pubmed/10547166)
-*[Retroactive prayer](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC61047/)
+You can see the overall structure of the simulation:
+```{r}
+aspirin
+```
+The simulation itself is a little bit complicated.  For what it's worth, you can look inside:
+```{r}
+equations(aspirin)
+```
+Imagine that your research team has constructed this model.  You've been asked to design the observational study.  Two questions:
+* Do you need to measure `sick` to get a meaningful result?
+* How big should the study be to detect the beneficial influence of aspirin on stroke?
 
-Smallest Interesting Effect
----------------
-
-We introduce a car safety device that we think will decrease highway deaths by 2%.  We want to carry out a study to confirm this theory.  We are going to do this by installing it in a certain number of cars, and compare the death rate in those cars to the death rate in unequipped cars.  (Pick participating cars, choose those to get the device at random.  Blind.)  Using accidents rather than deaths to increase the rate.
-
-[Fatalities per 100,000 registered vehicles](http://www-fars.nhtsa.dot.gov/Main/index.aspx)
-
-
-Simulations
--------------
-### aspirin
-
+Assuming that it's important to include `sick` as a covariate, here's one trial in a power calculation for a study of size $n=50$.
 ```{r}
 f = run.sim(aspirin, 50)
 summary(glm( stroke=="Y" ~ mgPerDay + sick, data=f ))$coef[2,4]
 ```
 
-### vitaminD
+Generate many trials and find the power.
 
+Then set the sample size as required to create a power of, say, 80%.
+
+How much larger would the sample size need to be to create a power of 95%.
+
+Group activity
+-------------------
+
+The power of vitamin D. [Handout](https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf).
+
+Why Most Published Research Findings Are False
+---------------------------
+
+[Paper](http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124) and book by John Ioannidis
+
+### Example: Intercessory Prayer
+-------------------
+
+* [Wikipedia entry](http://en.wikipedia.org/wiki/Studies_on_intercessory_prayer)
+* [some papers](http://www.godandscience.org/apologetics/prayer.html) along with lists of p-values.  Why all the small p-values in Table 2? Pneumonia, intubation, anti-biotics are all related.
+* [A meta-analysis](http://www.sagepub.com/vaughnstudy/articles/intervention/Hodge.pdf)  How big are the p-values?  
+
+### Abstracts
+*[CCU outcomes](http://www.ncbi.nlm.nih.gov/pubmed/10547166)
+*[Retroactive prayer](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC61047/).  How could prayer work retroactively?  Look at the last paragraph of the paper.
+
+How to avoid this problem?  Insist on a p-value of 0.0000001.  Repeat the aspirin study to find out how large it would need to be.  The sample size is surprisingly small.  
+
+
+
+vitaminD notes
+---------------
 
 [activity](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Prob-17.26/ISM-Prob-17.26-A.html)
 

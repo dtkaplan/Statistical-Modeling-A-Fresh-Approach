@@ -243,18 +243,18 @@ summary(lm(val ~ group, data = ourdata))
 ## 
 ## Residuals:
 ##    Min     1Q Median     3Q    Max 
-## -0.016 -0.016 -0.012 -0.012  1.988 
+## -0.015 -0.015 -0.012 -0.012  0.988 
 ## 
 ## Coefficients:
 ##              Estimate Std. Error t value Pr(&gt;|t|)   
-## (Intercept)   0.01200    0.00398    3.02   0.0026 **
-## groupcontrol  0.00400    0.00562    0.71   0.4770   
+## (Intercept)   0.01200    0.00365    3.29    0.001 **
+## groupcontrol  0.00300    0.00516    0.58    0.561   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
 ## 
-## Residual standard error: 0.126 on 1998 degrees of freedom
-## Multiple R-squared: 0.000253,    Adjusted R-squared: -0.000247 
-## F-statistic: 0.506 on 1 and 1998 DF,  p-value: 0.477
+## Residual standard error: 0.115 on 1998 degrees of freedom
+## Multiple R-squared: 0.000169,    Adjusted R-squared: -0.000331 
+## F-statistic: 0.338 on 1 and 1998 DF,  p-value: 0.561
 </code></pre>
 
 <p>Have everyone in the class do this and see how many of them were able to reject the null hypothesis.</p>
@@ -274,15 +274,15 @@ summary(lm(val ~ group, data = ourdata))
 ## 
 ## Residuals:
 ##    Min     1Q Median     3Q    Max 
-##  -0.02  -0.02  -0.02  -0.02   0.98 
+## -0.014 -0.014 -0.014 -0.014  0.986 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  0.02000    0.00443    4.52  7.1e-06 ***
+## (Intercept)  0.01400    0.00372    3.77  0.00018 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
 ## 
-## Residual standard error: 0.14 on 999 degrees of freedom
+## Residual standard error: 0.118 on 999 degrees of freedom
 </code></pre>
 
 <p>This is too large.  We should try to get it much smaller, perhaps one-sixth as large.  That will necessitate collecting 36 times as much data.</p>
@@ -301,37 +301,82 @@ How could we do the experiment in a less costly way?  (Find a high-risk group of
 
 <p>How big would the study need to be if studied injuries rather than deaths?</p>
 
-<h2>Intercessory Prayer</h2>
+<h2>A More Complicated Alternative</h2>
+
+<p>Aspirin and stroke.</p>
+
+<p>The <code>aspirin</code> simulation gives a (not very detailed) model of the relationship between aspirin consumption and stroke.  It has a confounder, <code>sick</code>, which represents how sick the patient is.</p>
+
+<p>You can see the overall structure of the simulation:</p>
+
+<pre><code class="r">aspirin
+</code></pre>
+
+<pre><code>## Causal Network with  3  vars:  sick, mgPerDay, stroke 
+## ===============================================
+## sick is exogenous
+## mgPerDay &lt;== sick 
+## stroke &lt;== sick &amp; mgPerDay
+</code></pre>
+
+<p>The simulation itself is a little bit complicated.  For what it&#39;s worth, you can look inside:</p>
+
+<pre><code class="r">equations(aspirin)
+</code></pre>
+
+<pre><code>## sick &lt;== sample(c(rep(0,20),1:10,1:3,8:10), nsamps,replace=TRUE) 
+## mgPerDay &lt;== 5*(sick&lt;2)*sample(c(0,0,0,0:10,0:20),nsamps, replace=TRUE) + (sick&gt;=2)*5*sample(c(0,0,0,0:20,10:20,15:20),nsamps,replace=TRUE) 
+## stroke &lt;== cut(rnorm(nsamps,mean=0,sd=5) + 2*sick - mgPerDay/10, c(-Inf,5,Inf), labels=c(&#39;N&#39;,&#39;Y&#39;))
+</code></pre>
+
+<p>Imagine that your research team has constructed this model.  You&#39;ve been asked to design the observational study.  Two questions:</p>
 
 <ul>
-<li><a href="http://en.wikipedia.org/wiki/Studies_on_intercessory_prayer">Wikipedia entry</a></li>
-<li><a href="http://www.godandscience.org/apologetics/prayer.html">some papers</a> along with lists of p-values.  Why all the small p-values in Table 2? Pneumonia, intubation, anti-biotics are all related.</li>
-<li><a href="http://www.sagepub.com/vaughnstudy/articles/intervention/Hodge.pdf">A meta-analysis</a></li>
+<li>Do you need to measure <code>sick</code> to get a meaningful result?</li>
+<li>How big should the study be to detect the beneficial influence of aspirin on stroke?</li>
 </ul>
 
-<h2>Abstracts</h2>
-
-<p>*<a href="http://www.ncbi.nlm.nih.gov/pubmed/10547166">CCU outcomes</a><br/>
-*<a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC61047/">Retroactive prayer</a></p>
-
-<h2>Smallest Interesting Effect</h2>
-
-<p>We introduce a car safety device that we think will decrease highway deaths by 2%.  We want to carry out a study to confirm this theory.  We are going to do this by installing it in a certain number of cars, and compare the death rate in those cars to the death rate in unequipped cars.  (Pick participating cars, choose those to get the device at random.  Blind.)  Using accidents rather than deaths to increase the rate.</p>
-
-<p><a href="http://www-fars.nhtsa.dot.gov/Main/index.aspx">Fatalities per 100,000 registered vehicles</a></p>
-
-<h2>Simulations</h2>
-
-<h3>aspirin</h3>
+<p>Assuming that it&#39;s important to include <code>sick</code> as a covariate, here&#39;s one trial in a power calculation for a study of size \( n=50 \).</p>
 
 <pre><code class="r">f = run.sim(aspirin, 50)
 summary(glm(stroke == &quot;Y&quot; ~ mgPerDay + sick, data = f))$coef[2, 4]
 </code></pre>
 
-<pre><code>## [1] 0.4697
+<pre><code>## [1] 0.009233
 </code></pre>
 
-<h3>vitaminD</h3>
+<p>Generate many trials and find the power.</p>
+
+<p>Then set the sample size as required to create a power of, say, 80%.</p>
+
+<p>How much larger would the sample size need to be to create a power of 95%.</p>
+
+<h2>Group activity</h2>
+
+<p>The power of vitamin D. <a href="https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf">Handout</a>.</p>
+
+<h2>Why Most Published Research Findings Are False</h2>
+
+<p><a href="http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124">Paper</a> and book by John Ioannidis</p>
+
+<h3>Example: Intercessory Prayer</h3>
+
+<hr/>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Studies_on_intercessory_prayer">Wikipedia entry</a></li>
+<li><a href="http://www.godandscience.org/apologetics/prayer.html">some papers</a> along with lists of p-values.  Why all the small p-values in Table 2? Pneumonia, intubation, anti-biotics are all related.</li>
+<li><a href="http://www.sagepub.com/vaughnstudy/articles/intervention/Hodge.pdf">A meta-analysis</a>  How big are the p-values?<br/></li>
+</ul>
+
+<h3>Abstracts</h3>
+
+<p>*<a href="http://www.ncbi.nlm.nih.gov/pubmed/10547166">CCU outcomes</a><br/>
+*<a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC61047/">Retroactive prayer</a>.  How could prayer work retroactively?  Look at the last paragraph of the paper.</p>
+
+<p>How to avoid this problem?  Insist on a p-value of 0.0000001.  Repeat the aspirin study to find out how large it would need to be.  The sample size is surprisingly small.  </p>
+
+<h2>vitaminD notes</h2>
 
 <p><a href="http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Prob-17.26/ISM-Prob-17.26-A.html">activity</a></p>
 
@@ -344,7 +389,7 @@ tally(~result &lt; 0.05, data = s)
 
 <pre><code>## 
 ##  TRUE FALSE Total 
-##    19    81   100
+##    16    84   100
 </code></pre>
 
 </body>
