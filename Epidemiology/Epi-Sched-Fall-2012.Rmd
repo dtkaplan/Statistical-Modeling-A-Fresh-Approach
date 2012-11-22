@@ -40,60 +40,6 @@ Upcoming Days
 -------------
 
 
----------------
-
-`r I(classDayContents("Tues", "Nov", 6 ))`
-**Topic**: Risk
-
-**Reading**:
-* An article about [causes of myopia](https://moodle.macalester.edu/mod/resource/view.php?id=15253) and a [response to it](https://moodle.macalester.edu/mod/resource/view.php?id=15254).
-* *Atlantic* [article on the flu vaccine](https://moodle.macalester.edu/mod/resource/view.php?id=15262)
-* *Essential Epidemiology Chapter* Ch. 11.  Read this with an eye toward the [*Lancet*](https://moodle.macalester.edu/mod/resource/view.php?id=15256) reading for Thursday.
-
-**Assignment**: 
-* Estimation Problem: Risk for College Students: [Instructions and hand in on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=25737) 
-* [Columbia Epiville exercise on cohort studies](http://ccnmtl.columbia.edu/projects/epiville/cohort_study/).  Submit answers via [Google Forms](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDV0ZHR1U1Vwa25VaEFwTUd5SmF6ZWc6MQ).
-* Reading Reflection on *Essential Epidemiology* Ch. 11 `r I(RR('EE11'))`
-
-**On Your Own**:
-
-**In-class**:
-
-
-`r I(classDayContents("Thurs", "Nov", 8 ))`
-**Topic**: Risk II
-
-**Reading**: 
-* [*Lancet* article on the flu vaccine](https://moodle.macalester.edu/mod/resource/view.php?id=15256).
-* [Gigerenzer *et al.*](https://moodle.macalester.edu/mod/resource/view.php?id=15259) Sections I and II
-
-
-**Assignment**: 
-* Reading Reflection on Gigerenzer Sections I and II `r I(RR('giger12'))`
-
-**On Your Own**:
-
-**In-class**:
-
-`r I(classDayContents("Tues", "Nov", 13 ))`
-**Topic**: Risk, stratification of risk, fright factors
-
-**Reading**: 
-* *Know your Chances*, Chap 5
-* [Plastic Panic](http://www.newyorker.com/reporting/2010/05/31/100531fa_fact_groopman#ixzz0ouYVlSDn)
-* [A training resource](http://dl.dropbox.com/u/5098197/Epidemiology/understanding-risk.pdf) from the UK National Health Service (NSH) on understanding and communicating risk. Before reading it, make sure you have some basic knowledge of Down Syndrome ([2](http://en.wikipedia.org/wiki/Down_syndrome), [3](http://en.wikipedia.org/wiki/Amniocentesis)) and Sickle Cell Anemia ([4](http://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0001554/), [5](http://en.wikipedia.org/wiki/Sickle-cell_disease)).
-* [Risk Communications and Public Health](http://books.google.com/books?id=PBH3bxSqdy0C&pg=PA8&lpg=PA8&dq=bennett+%22fright+factors%22&source=bl&ots=mjGkD9PCGr&sig=vsW1xpwW20ZfDyZvhf3RDklT0jc&hl=en&ei=XBHQTuHUBuri2gWrvLzJDw&sa=X&oi=book_result&ct=result&resnum=5&ved=0CE0Q6AEwBA#v=onepage&q&f=false) 2nd edition (2010) Peter Bennet et al. eds. Chapter 1, "Understanding Public Responses to Risk" pp. 3-22
-* [Communicating about Risks to Public Health: Points to Good Practice](http://www.bvsde.paho.org/tutorial6/fulltext/pointers.pdf)
-
-**Assignment**: 
-* Hand in your formal write up of the Island Descriptive Study.  Hand in links to both your report and your data spreadsheet(s) on [Moodle, here](https://moodle.macalester.edu/mod/assign/view.php?id=15392).  Everyone in each group should enter into Moodle the names of all members of the group and the link to the files.
-
-**On Your Own**:
-* [Tracking an outbreak: fungal infection](http://www.nytimes.com/2012/11/06/health/doctors-chased-clues-to-identify-meningitis-outbreak.html?ref=health)
-* [Radiation Dose Chart](http://xkcd.com/radiation/)
-
-**In-class**:
-* Stratifying risk in familiar events/exposures.
 
 
 `r I(classDayContents("Thurs", "Nov", 15 ))`
@@ -124,12 +70,10 @@ Upcoming Days
 
 **Assignment**:
 * *Essential Epidemiology* Chap. 15 end-of-chapter exercises 1, 2, & 3
-* [A probability calculation](http://dl.dropbox.com/u/5098197/Exercises/HTML/EPI-Evaluating-Eyewitness-Evidence/EPI-Evaluating-Eyewitness-Evidence-A.html)
 * Reading reflection on A Deadly Misdiagnosis, `r I(RR('misdiagnosis'))`
 * How's your glossary going? `r I(RR("glossary"))`
 
-**In Class**:
-* [Ethnic profiling activity](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/detection-article.pdf)
+
 
 ----------------
 
@@ -139,25 +83,41 @@ Thanksgiving Break!
 
 --------------------
 
-`r I(classDayContents("Tues", "Nov", 27 ))`
+
+`r I(classDayContents("Tues","Nov",27))`
+**Detection and Screening (continued)**
+
+**Reading**:
+* An [op-ed on mammography](http://www.nytimes.com/2012/11/22/opinion/cancer-survivor-or-victim-of-overdiagnosis.html?emc=eta1) and the [article from NEJM](http://www.nejm.org/doi/full/10.1056/NEJMoa1206809?query=featured_home)
+* US Preventive Services task force [statement for "consumers"](http://www.uspreventiveservicestaskforce.org/prostatecancerscreening/prostatecancerfact.pdf) and the technical [evidence summary](http://www.uspreventiveservicestaskforce.org/prostatecancerscreening/prcascres.pdf)
+
+**In Class**:
+* [Ethnic profiling activity](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/detection-article.pdf)
+* Screening for Mad-Cow disease
+
+**On Your Own**
+* 2009 NEJM studies on prostate cancer screening in [Europe](http://www.nejm.org/doi/pdf/10.1056/NEJMoa0810084) and the [US](http://www.nejm.org/doi/pdf/10.1056/NEJMoa0810696)
+
+-----------------
+
+`r I(classDayContents("Thurs", "Nov", 29 ))`
 **Topic**: Trade-Offs
 
 **Reading**: 
 * *Know Your Chances*, Chaps 6 & 7.  Compare Chap 7 to [this commentary](http://well.blogs.nytimes.com/2009/12/14/when-lowering-the-odds-of-cancer-isnt-enough/?hpw)
 * [Wear a bicycle helmet?](http://www.nytimes.com/2012/09/30/sunday-review/to-encourage-biking-cities-forget-about-helmets.html?src=me&ref=general)
-* *The Great Influenza* pp. 297-365 
 **Assignment**: 
-* State topic for Island Project Part 2: The Analytical Topic.  Report due the last day of class.
-* Reading relection on bicycle helmets [link to be posted.]
+* State topic for Island Project Part 2: The Analytical Topic.  Report due Dec 11, the last day of class.
+* [A probability calculation](http://dl.dropbox.com/u/5098197/Exercises/HTML/EPI-Evaluating-Eyewitness-Evidence/EPI-Evaluating-Eyewitness-Evidence-A.html) (You may already have done this.  It was originally mistakenly assigned for before Thanksgiving.)
+* Reading reflection on bicycle helmets [link to be posted.]
 
-**On Your Own**:
 
 **In-class**:
 * Screening for Mad-Cow disease
 * [Slides on Trade-Offs](http://dl.dropbox.com/u/5098197/Epidemiology/tradeoffs.pptx)
 
 
-`r I(classDayContents("Thurs", "Nov", 29 ))`
+`r I(classDayContents("Tues", "Dec", 4 ))`
 **Topic**: Trade-offs
 
 **Reading**: 
@@ -175,7 +135,7 @@ Thanksgiving Break!
 * [Risk Calculation -- Annuity Value](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Epi-Annuity-Game.pdf)
 
 
-`r I(classDayContents("Tues", "Dec", 4 ))`
+`r I(classDayContents("Thurs", "Dec", 6 ))`
 **Topic**: Health Care Reform
 
 **Reading**: 
@@ -191,7 +151,7 @@ Thanksgiving Break!
 * [Prioritizing health-care options](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/QALY-Methodology.pdf)
 
 
-`r I(classDayContents("Thurs", "Dec", 6 ))`
+`r I(classDayContents("Tues", "Dec", 11 ))`
 **Topic**: Reform, Improvement
 
 **Reading**: 
@@ -203,17 +163,10 @@ Thanksgiving Break!
 
 **In-class**:
 * The Calculus of Allocating Health Resources
+* Course evalauation
 
 **On Your Own**:
 * How's your glossary going? `r I(RR("glossary"))`
-
--------------------
-
-`r I(classDayContents("Tues", "Dec", 11 ))`
-**Topic**: Review, catch up
-
-**In-class**:
-* Course evaluation
 
 -------------------
 
@@ -644,5 +597,59 @@ Some movies to get your Epi fix while on break:
 
 **In-class**:
 
+---------------
+
+`r I(classDayContents("Tues", "Nov", 6 ))`
+**Topic**: Risk
+
+**Reading**:
+* An article about [causes of myopia](https://moodle.macalester.edu/mod/resource/view.php?id=15253) and a [response to it](https://moodle.macalester.edu/mod/resource/view.php?id=15254).
+* *Atlantic* [article on the flu vaccine](https://moodle.macalester.edu/mod/resource/view.php?id=15262)
+* *Essential Epidemiology Chapter* Ch. 11.  Read this with an eye toward the [*Lancet*](https://moodle.macalester.edu/mod/resource/view.php?id=15256) reading for Thursday.
+
+**Assignment**: 
+* Estimation Problem: Risk for College Students: [Instructions and hand in on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=25737) 
+* [Columbia Epiville exercise on cohort studies](http://ccnmtl.columbia.edu/projects/epiville/cohort_study/).  Submit answers via [Google Forms](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dDV0ZHR1U1Vwa25VaEFwTUd5SmF6ZWc6MQ).
+* Reading Reflection on *Essential Epidemiology* Ch. 11 `r I(RR('EE11'))`
+
+**On Your Own**:
+
+**In-class**:
+
+
+`r I(classDayContents("Thurs", "Nov", 8 ))`
+**Topic**: Risk II
+
+**Reading**: 
+* [*Lancet* article on the flu vaccine](https://moodle.macalester.edu/mod/resource/view.php?id=15256).
+* [Gigerenzer *et al.*](https://moodle.macalester.edu/mod/resource/view.php?id=15259) Sections I and II
+
+
+**Assignment**: 
+* Reading Reflection on Gigerenzer Sections I and II `r I(RR('giger12'))`
+
+**On Your Own**:
+
+**In-class**:
+
+`r I(classDayContents("Tues", "Nov", 13 ))`
+**Topic**: Risk, stratification of risk, fright factors
+
+**Reading**: 
+* *Know your Chances*, Chap 5
+* [Plastic Panic](http://www.newyorker.com/reporting/2010/05/31/100531fa_fact_groopman#ixzz0ouYVlSDn)
+* [A training resource](http://dl.dropbox.com/u/5098197/Epidemiology/understanding-risk.pdf) from the UK National Health Service (NSH) on understanding and communicating risk. Before reading it, make sure you have some basic knowledge of Down Syndrome ([2](http://en.wikipedia.org/wiki/Down_syndrome), [3](http://en.wikipedia.org/wiki/Amniocentesis)) and Sickle Cell Anemia ([4](http://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0001554/), [5](http://en.wikipedia.org/wiki/Sickle-cell_disease)).
+* [Risk Communications and Public Health](http://books.google.com/books?id=PBH3bxSqdy0C&pg=PA8&lpg=PA8&dq=bennett+%22fright+factors%22&source=bl&ots=mjGkD9PCGr&sig=vsW1xpwW20ZfDyZvhf3RDklT0jc&hl=en&ei=XBHQTuHUBuri2gWrvLzJDw&sa=X&oi=book_result&ct=result&resnum=5&ved=0CE0Q6AEwBA#v=onepage&q&f=false) 2nd edition (2010) Peter Bennet et al. eds. Chapter 1, "Understanding Public Responses to Risk" pp. 3-22
+* [Communicating about Risks to Public Health: Points to Good Practice](http://www.bvsde.paho.org/tutorial6/fulltext/pointers.pdf)
+
+**Assignment**: 
+* Hand in your formal write up of the Island Descriptive Study.  Hand in links to both your report and your data spreadsheet(s) on [Moodle, here](https://moodle.macalester.edu/mod/assign/view.php?id=15392).  Everyone in each group should enter into Moodle the names of all members of the group and the link to the files.
+
+**On Your Own**:
+* [Tracking an outbreak: fungal infection](http://www.nytimes.com/2012/11/06/health/doctors-chased-clues-to-identify-meningitis-outbreak.html?ref=health)
+* [Radiation Dose Chart](http://xkcd.com/radiation/)
+
+**In-class**:
+* Stratifying risk in familiar events/exposures.
 
 
