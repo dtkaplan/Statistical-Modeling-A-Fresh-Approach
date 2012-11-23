@@ -106,6 +106,7 @@ Thanksgiving Break!
 **Reading**: 
 * *Know Your Chances*, Chaps 6 & 7.  Compare Chap 7 to [this commentary](http://well.blogs.nytimes.com/2009/12/14/when-lowering-the-odds-of-cancer-isnt-enough/?hpw)
 * [Wear a bicycle helmet?](http://www.nytimes.com/2012/09/30/sunday-review/to-encourage-biking-cities-forget-about-helmets.html?src=me&ref=general)
+
 **Assignment**: 
 * State topic for Island Project Part 2: The Analytical Topic.  Report due Dec 11, the last day of class.
 * [A probability calculation](http://dl.dropbox.com/u/5098197/Exercises/HTML/EPI-Evaluating-Eyewitness-Evidence/EPI-Evaluating-Eyewitness-Evidence-A.html) (You may already have done this.  It was originally mistakenly assigned for before Thanksgiving.)

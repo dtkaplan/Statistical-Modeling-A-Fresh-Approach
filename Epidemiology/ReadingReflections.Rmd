@@ -112,6 +112,14 @@ This is a somewhat technical article and it is likely that you will find it diff
 * What is meta-analysis?
 `r I(moodle(15265, "EE11"))`
 
+### <a name="BicycleHelmet">Bicycle Helmets</a>
+
+Look at the [bicycle helmet page on Wikipedia]() and see if the information presented there supports the claims made in the article.  Also of interest is the listing of [fatalities per billion passenger ...](http://dspace.dial.pipex.com/town/square/ca14/ALYCIDON%20RAIL/INFORMED%20SOURCES%20ARCHIVE/INF%20SRCS%202000/Informed%20Sources%2010%202000.htm)
+* Do you buy the argument that the proper measure of risk is injuries per hour rather than per mile?
+* Approximately 2/3 of 300 interviewed riders (mostly kids!) say they wear helmets.  (See [this article in *Injury Prevention*](http://injuryprevention.bmj.com/content/8/1/42.full.pdf).)  Data from the IIHS shows that in 2008, of 714 bicycle-related deaths in the US, 58 were of riders wearing helmets.  Use this information to make an estimate of the odds ratio for death when wearing a helmet and turn this into an attributable fraction.  Try to estimate a number needed to treat. (Think of this as a combination reading reflection and estimation problem.)
+
+`r I(moodle(27551,"bicyclesafety"))`
+
 ### <a name="insurance">Health Insurance: Your View</a>
 
 This short essay is intended to probe what you already know about health insurance, before we read about it. A few paragraphs will do nicely.
