@@ -5,3 +5,9 @@ Stats 155 Class Notes 2012-11-26
 # boilerplate
 ```
 
+Demonstration of logistic regression and odds ratios.  "Effects of state helmet laws on bicycle helmet use by children and adolescents" [*Injury Prevention* 2002, 9:42-46](http://injuryprevention.bmj.com/content/8/1/42.full.pdf)
+
+Calculate the confidence interval on the odds ratio, e.g.
+```{r}
+exp( .7 + c(-1,1)*1.96*.294)
+```
