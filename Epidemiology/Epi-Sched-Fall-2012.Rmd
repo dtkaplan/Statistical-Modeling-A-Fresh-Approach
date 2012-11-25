@@ -110,7 +110,7 @@ Thanksgiving Break!
 **Assignment**: 
 * State topic for Island Project Part 2: The Analytical Topic.  Report due Dec 11, the last day of class.
 * [A probability calculation](http://dl.dropbox.com/u/5098197/Exercises/HTML/EPI-Evaluating-Eyewitness-Evidence/EPI-Evaluating-Eyewitness-Evidence-A.html) (You may already have done this.  It was originally mistakenly assigned for before Thanksgiving.)
-* Reading reflection on bicycle helmets [link to be posted.]
+* Reading reflection on bicycle helmets `r I(RR("BicycleHelmet"))`
 
 
 **In-class**:
