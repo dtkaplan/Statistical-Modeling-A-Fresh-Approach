@@ -90,9 +90,21 @@ This is a good time to start to review.  As we explore these new contexts, do th
 
 * **Chapter 15 Exercises**: `r I(PN(c("15RQ",1501,1502,1504,1505,1510,1511,1512,1521,1522)))`
 
+### Review Sessions with faculty
+
+* Wed 28 Nov: 3:30-4:30
+* Thurs 29 Nov: 7:30-8:30
+* Wed 5 Dec: 3:30-4:30
+* Thurs 6 Dec: 3:30-4:30
+* Thurs 6 Dec: 7:30-8:30
+* Wed 12 Dec: 3:30-4:30
+
+### Review Problems 
+
+To be posted.  You don't need to hand these in.
 
 `r I(classDayContents("Mon", "Nov", 26 ))`
-**Topic**: Logistic Regression:
+**Topic**: Power. Logistic Regression.
 
 **Reading**: 
 * SM Ch. 16
@@ -101,12 +113,20 @@ This is a good time to start to review.  As we explore these new contexts, do th
 * Finally! A working version of problem `r I(PN(c(1412)))`
 * `r I(PN(c("16RQ",1601,1602,1604)))` Due on Dec 10
 
+**In Class**:
+* [The Power of Vitamin D](https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
+* [Writing up your survey project in R/Markdown](http://rpubs.com/dtkaplan/survey-writeup-R-Markdown)
+
+**On Your Own**:
+* [Why most published research findings are false](http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124)
+
 **Notes**: `r I(todaysNotes("2012-11-26.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-26-class)
 
 
 
 `r I(classDayContents("Wed", "Nov", 28 ))`
 **Topic**: Causation
+
 **Reading**: 
 * SM Ch. 17
 * [XKCD cartoon](http://xkcd.com/925/)
@@ -119,6 +139,7 @@ This is a good time to start to review.  As we explore these new contexts, do th
 
 `r I(classDayContents("Fri", "Nov", 30 ))`
 **Topic**: Causation
+
 **Reading**: 
 * SM Ch. 17
 * [XKCD cartoon](http://xkcd.com/552/)

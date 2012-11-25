@@ -5,9 +5,67 @@ Stats 155 Class Notes 2012-11-26
 # boilerplate
 ```
 
+### Review of Power and the Alternative Hypothesis
+
+In-class activity on [the power of vitamin D](https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
+
+### Review of Logistic Regression
+
+#### Fitting logistic models
+
+* Constructing a yes/no variable with `==`
+* `glm` and the `family="binomial"`
+* The summary report
+    
+#### Confounding, covariates, and Logistic Regression
+
+The Whickham data.  
+
+I'll fill this in later. But, basically:
+
+```{r}
+w = fetchData("whickham.csv")
+mod0 = lm( outcome=="Alive" ~ smoker, data=w)
+mod1 = glm( outcome=="Alive" ~ smoker, data=w, family="binomial")
+coef(summary(mod0))
+coef(summary(mod1))
+xyplot( fitted(mod1) ~ fitted(mod0))
+```
+Interpret the two models as probabilities.  Translate the coefficients in the logistic model into probabilities in the second.  They are essentially the same think.  Both indicate that a smoker is significantly more likely to be alive.
+
+Now include the covariate of age, perhaps with an interaction of age and smoker:
+```{r}
+moda = lm( outcome=="Alive" ~ smoker*age, data=w)
+modb = glm( outcome=="Alive" ~ smoker*age, data=w, family="binomial")
+coef(summary(moda))
+coef(summary(modb))
+xyplot( fitted(modb)~fitted(moda))
+```
+
+Notice how the linear model admits probabilities that are larger than 1.
+
+### The odds ratio
 Demonstration of logistic regression and odds ratios.  "Effects of state helmet laws on bicycle helmet use by children and adolescents" [*Injury Prevention* 2002, 9:42-46](http://injuryprevention.bmj.com/content/8/1/42.full.pdf)
 
 Calculate the confidence interval on the odds ratio, e.g.
 ```{r}
 exp( .7 + c(-1,1)*1.96*.294)
 ```
+
+### Introduction to R/Markdown
+
+Activity: Modeling Barry Bonds in 2001.
+```{r}
+bonds = fetchData("bonds2001.csv")
+```
+
+Source: [Journal of Statistics Education](http://www.amstat.org/publications/jse/jse_data_archive.htm).  Bonds data submitted by Jerome P. Reiter, Institute of Statistics and Decision Sciences, Duke University, Box 90251, Durham, NC 27708, `jerry@stat.duke.edu`
+
+Student task: Build a model of whether Bonds gets on base as a function of whatever other variables appear appropriate to you.  Write it up in R/Markdown, including some nice graphic and an interpretation of your results.
+
+Here's one model:
+```{r}
+mod1 = glm( reachesBase==0 ~ outs + onFirst + onSecond+onThird + plateWithinGame, data=bonds, family="binomial")
+summary(mod1)
+```
+Evidently, Bonds was significantly more likely to get on base if there was another player on second base (`onSecond`), and taking into account his general downward trend over the course of a game (`plateWithinGame`)
