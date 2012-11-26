@@ -25,6 +25,8 @@ In practice, it works like this:
 
 So, with a bit of seed capital, and some muscle for enforcement, I can make money.
 
+Log odds: translate odds (which run 0 to $\infty$) into a variable with support from $-\infty$ to $\infty$.
+
 [An explanation resource on Dutch book](http://wmbriggs.com/blog/?p=3632)
 
 
@@ -153,7 +155,8 @@ Variables**:
     * Equals one if Bonds reaches first base on a single or error. 
     * Equals two if Bonds reaches second base on a double or error. 
     * Equals three if Bonds reaches third base on a triple or error. 
-    * Equals four if Bonds hits a home run. Equals five if Bonds walks or is hit by a pitch. 
+    * Equals four if Bonds hits a home run. 
+    * Equals five if Bonds walks or is hit by a pitch. 
 * **ERA**: Opposing pitchers' career earned run average as of the end of the 2000 season.
 * **scoreGiants**: Giants score just before first pitch to Bonds
 * **scoreOpponent**: Opposing team's score just before first pitch to Bonds.
