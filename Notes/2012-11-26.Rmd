@@ -4,10 +4,31 @@ Stats 155 Class Notes 2012-11-26
 ```{r name="setup", child="notes-setup.Rmd"}
 # boilerplate
 ```
+### Review of Odds
 
-### Review of Power and the Alternative Hypothesis
+An introduction to being a bookie.
 
-In-class activity on [the power of vitamin D](https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
+Who is going to win the Superbowl?  Solicit answers.  Add "the Twins" to the list.  Then go through the class and get people to lay a $1 or $2 bet on their choice.
+
+For each choice, the odds are simply calculated: the amount on that choice divided by the amount on all the other choices.
+
+If you win, you get your bet times the odds.  (You also keep your original money.)  If you lose, you pay up.
+
+Show that I, the bookie, can't lose money --- the payout in every case must be exactly equal to the amount paid by the people who lose.
+
+By shaving the odds a bit, I can guarantee to make money. (At least, if I can collect from the losers.)
+
+In practice, it works like this:
+* You call me up and lay a bet. 
+* If you lose, I keep track of your debt to me.  When this reaches too high a level, I threaten to break your legs.
+* If you win, I pay you.  Most likely, I just cancel your winnings from your already existing debt.
+
+So, with a bit of seed capital, and some muscle for enforcement, I can make money.
+
+[An explanation resource on Dutch book](http://wmbriggs.com/blog/?p=3632)
+
+
+
 
 ### Review of Logistic Regression
 
@@ -21,22 +42,58 @@ In-class activity on [the power of vitamin D](https://dl.dropbox.com/u/5098197/I
 
 The Whickham data.  
 
-I'll fill this in later. But, basically:
+This is drawn from a cohort study of nurses in Whickhamshire, England.  Nurses were asked many questions about their lifestyle, diet, etc.  Then they were revisited 20 years later.  This small data set just records their age at the first interview, whether they identified themselves as smokers, and whether they were still alive at the 20 year follow-up.
 
 ```{r}
 w = fetchData("whickham.csv")
-mod0 = lm( outcome=="Alive" ~ smoker, data=w)
-mod1 = glm( outcome=="Alive" ~ smoker, data=w, family="binomial")
+```
+
+First, let's look at the relationship between age and probability of being dead at the follow-up.  We'll compare a straightforward linear model with a logistic regression model:
+```{r}
+m = lm( outcome=="Dead" ~ age, data=w )
+m2 = glm( outcome=="Dead" ~ age, data=w, family="binomial")
+f = makeFun(m)
+f2 = makeFun(m2)
+plotFun( f(age)~age, age.lim=c(20,100))
+plotFun( f2(age)~age, add=TRUE, col="red", lwd=3)
+```
+
+Note that the models agree on the probability of death (before the 20 year follow-up) for women in their middle ages. 
+* At the extremes, the linear model is silly.  It has probability outside the range 0 to 1.
+* It doesn't work so well on the inside either, since the linear function can't be steeper in the center without being absurdly high near the edges.
+
+#### Interpreting the coefficients
+
+```{r}
+coef(summary(m))
+```
+The coefficient on `age` tells how the probability changes with an increase of one year in age.  This simple linear model says that the change in probability is constant across the ages. (We asked it to say that: it's a linear model!)
+
+* Linear Model: the probability of dying increases by 1.6 percentage points each year.
+* Logistic Model: the odds of dying increases by 12% per year.  That's not percentage points, but a multiplier of 0.12.  In other words, the odds of dying increases exponentially.  
+    * QUESTION: This means that the odds reaches $\infty$.  What probability corresponds to an odds of $\infty$?
+    
+    
+#### 95% confidence interval on the rate of odds increase
+
+```{r}
+exp( log(0.122) + 2*c(-1,1)*0.00694)
+```
+
+#### Smoking and Death
+```{r}
+mod0 = lm( outcome=="Dead" ~ smoker, data=w)
+mod1 = glm( outcome=="Dead" ~ smoker, data=w, family="binomial")
 coef(summary(mod0))
 coef(summary(mod1))
 xyplot( fitted(mod1) ~ fitted(mod0))
 ```
-Interpret the two models as probabilities.  Translate the coefficients in the logistic model into probabilities in the second.  They are essentially the same think.  Both indicate that a smoker is significantly more likely to be alive.
+Interpret the two models as probabilities.  Translate the coefficients in the logistic model into probabilities in the second.  They are essentially the same think.  Both indicate that a smoker is significantly less likely to be dead.
 
-Now include the covariate of age, perhaps with an interaction of age and smoker:
+Now include the covariate of age, perhaps with an interaction of age and smoker**:
 ```{r}
-moda = lm( outcome=="Alive" ~ smoker*age, data=w)
-modb = glm( outcome=="Alive" ~ smoker*age, data=w, family="binomial")
+moda = lm( outcome=="Dead" ~ smoker*age, data=w)
+modb = glm( outcome=="Dead" ~ smoker*age, data=w, family="binomial")
 coef(summary(moda))
 coef(summary(modb))
 xyplot( fitted(modb)~fitted(moda))
@@ -44,8 +101,16 @@ xyplot( fitted(modb)~fitted(moda))
 
 Notice how the linear model admits probabilities that are larger than 1.
 
-### The odds ratio
-Demonstration of logistic regression and odds ratios.  "Effects of state helmet laws on bicycle helmet use by children and adolescents" [*Injury Prevention* 2002, 9:42-46](http://injuryprevention.bmj.com/content/8/1/42.full.pdf)
+#### Why not use a polynomial model with `lm()`
+
+Polynomials go the wrong way: their tails head off to infinity.  The use of odds and the logarithm essentially solve the problem of getting a function that behaves nicely.
+
+
+### The odds ratio in use
+
+A study of bicycle helmet use and the influence of state law.
+
+Demonstration of logistic regression and odds ratios.  "Effects of state helmet laws on bicycle helmet use by children and adolescents" [*Injury Prevention* **2002, 9**:42-46](http**://injuryprevention.bmj.com/content/8/1/42.full.pdf)
 
 Calculate the confidence interval on the odds ratio, e.g.
 ```{r}
@@ -54,18 +119,41 @@ exp( .7 + c(-1,1)*1.96*.294)
 
 ### Introduction to R/Markdown
 
-Activity: Modeling Barry Bonds in 2001.
+Activity**: Modeling Barry Bonds in 2001.
 ```{r}
 bonds = fetchData("bonds2001.csv")
 ```
 
-Source: [Journal of Statistics Education](http://www.amstat.org/publications/jse/jse_data_archive.htm).  Bonds data submitted by Jerome P. Reiter, Institute of Statistics and Decision Sciences, Duke University, Box 90251, Durham, NC 27708, `jerry@stat.duke.edu`
+Source**: [Journal of Statistics Education](http**://www.amstat.org/publications/jse/jse_data_archive.htm).  Bonds data submitted by Jerome P. Reiter, Institute of Statistics and Decision Sciences, Duke University, Box 90251, Durham, NC 27708, `jerry@stat.duke.edu`
 
-Student task: Build a model of whether Bonds gets on base as a function of whatever other variables appear appropriate to you.  Write it up in R/Markdown, including some nice graphic and an interpretation of your results.
+Student task**: Build a model of whether Bonds gets on base as a function of whatever other variables appear appropriate to you.  Write it up in R/Markdown, including some nice graphic and an interpretation of your results.
 
-Here's one model:
+Here's one model**:
 ```{r}
 mod1 = glm( reachesBase==0 ~ outs + onFirst + onSecond+onThird + plateWithinGame, data=bonds, family="binomial")
 summary(mod1)
 ```
 Evidently, Bonds was significantly more likely to get on base if there was another player on second base (`onSecond`), and taking into account his general downward trend over the course of a game (`plateWithinGame`)
+
+Variables**:
+* **plateNo** Plate appearance number.
+* **gameNo**: Number of the game in the season.
+* **plateWithinGame**: Number of the plate appearance within the game.
+* **inSF**: Equals one for games in San Francisco and equals zero otherwise.
+* **onFirst**: Equals one when there is a runner on first base when Bonds appears and equals zero otherwise. 
+* **onSecond**: Equals one when there is a runner on second base when Bonds appears and equals zero otherwise. 
+* **onThird**: Equals one when there is a runner on third base when Bonds appears and equals zero otherwise. 
+* **outs**: Number of outs in inning when Bonds appears.
+* **inning**: Inning of plate appearance.
+* **runs**: Number of runs scored by Giants in the inning after first pitch to Bonds.
+* **walk**: Equals one if Bonds walks and equals zero otherwise.
+* **intentionalWalk**: Equals one if Bonds walks intentionally and equals zero otherwise.
+* **reachesBase**: 
+    * Equals zero if Bonds does not reach base.  
+    * Equals one if Bonds reaches first base on a single or error. 
+    * Equals two if Bonds reaches second base on a double or error. 
+    * Equals three if Bonds reaches third base on a triple or error. 
+    * Equals four if Bonds hits a home run. Equals five if Bonds walks or is hit by a pitch. 
+* **ERA**: Opposing pitchers' career earned run average as of the end of the 2000 season.
+* **scoreGiants**: Giants score just before first pitch to Bonds
+* **scoreOpponent**: Opposing team's score just before first pitch to Bonds.

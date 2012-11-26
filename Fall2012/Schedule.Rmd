@@ -114,7 +114,6 @@ To be posted.  You don't need to hand these in.
 * `r I(PN(c("16RQ",1601,1602,1604)))` Due on Dec 10
 
 **In Class**:
-* [The Power of Vitamin D](https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
 * [Writing up your survey project in R/Markdown](http://rpubs.com/dtkaplan/survey-writeup-R-Markdown)
 
 **On Your Own**:
@@ -132,6 +131,8 @@ To be posted.  You don't need to hand these in.
 * [XKCD cartoon](http://xkcd.com/925/)
 
 **Assignment**: `r I(PN(c(1605,1610,1612)))` Due on Dec 10
+
+**In-Class**: [The Power of Vitamin D](https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
 
 **Notes**: `r I(todaysNotes("2012-11-29.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-28-class)
 
