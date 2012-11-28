@@ -5,6 +5,108 @@ Stats 155 Class Notes 2012-11-28
 # boilerplate
 ```
 
-### Review of Power and the Alternative Hypothesis
+### In the News
+* Review session today 3:30-4:30 here in O/R 245
+* [Predicting Judges' Rulings](http://www.nytimes.com/2012/11/27/us/judges-rulings-follow-partisan-lines.html?hp&_r=0)
 
-In-class activity on [the power of vitamin D](https**://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
+### Logistic Regression
+
+When we do linear regression on a Zero/One variable, we are effectively modeling the probability.
+* Easy to see if there is a single, categorical explanatory variable --- the model value is just the groupwise means in the different levels of the variable.
+* A bit more subtle if the explanatory variable is quantitative.  Draw the picture with Zero/One response variable on the vertical axis and a quantitative variable on the horizontal axis.  Example: O-ring damage in the space shuttle.
+```{r}
+orings = fetchData("oring-damage.csv")
+xyplot( damage ~ temp, data=orings )
+```
+Sketch in the best fitting line.  But a line is too "stiff" and needs eventually to escape 0-1.  
+
+Remember that the idea of logistic regression is to fit a linear model to the "log odds", which is just the logarithm of $p/(1-p)$ --- a different format for the probability.  We haven't talked about **how** this is done.  That's more advanced.
+
+### Odds and the Odds Ratio
+
+Suppose we have some data on an illness and exposure to a potential toxin
+
+            |Sick|Healthy
+------------|---|---
+Exposed     | A | B
+Not Exposed | C | D
+
+Among the exposed, the risk of being sick is $A/(A+B)$.
+
+Among the unexposed, the risk of being sick is $C/(C+D)$.
+
+The risk ratio is the ... ratio of the two risks!  It tells how much more likely you are to get the sickness if you are exposed.
+
+Now suppose that the sickness is fairly rare, say roughly 1 in 1000.  It's a huge amount of work to measure the exposure on everybody.  Is it necessary, given that almost everybody is healthy.
+
+To avoid this problem, it's common to do a **case/control** study, where we pick sick people from a clinic and a similar number of healthy controls.  (Call up the friends of the sick kids.  They will be similar in age, activities, etc.)
+
+But now the ratio of A to B is wrong, it's roughly 1 to 1, whereas in the population it's roughly 1 to 1000
+
+Instead, we calculate the odds and the odds ratio.  $\frac{A/C}{B/D}$  
+Notice that if A is much less than B, and C is much less than D, the odds ratio is essentially the same as the risk ratio.
+
+
+### The odds ratio in use
+
+A study of bicycle helmet use and the influence of state law.
+
+Demonstration of logistic regression and odds ratios.  "Effects of state helmet laws on bicycle helmet use by children and adolescents" [*Injury Prevention* **2002, 9**:42-46](http**://injuryprevention.bmj.com/content/8/1/42.full.pdf)
+
+The coefficients in logistic regression correspond to log-odds ratios.
+
+When they say "adjusted Odds Ratio", they mean the odds ratio of one of the categorical variable levels relative to the reference level, with the other variables in the model as covariates.  Notice that they give a confidence interval on the odds ratio itself.  The calculation of this is straightforward given the standard error on the logistic regression coefficient.
+
+Calculate the confidence interval on the odds ratio, e.g.
+```{r}
+exp( .7 + c(-1,1)*1.96*.294)
+```
+**NOTE** They've made 
+### Introduction to Causal Reasoning
+
+#### Myopia
+
+* [Myopia article from Nature](http://dl.dropbox.com/u/5098197/ISM/myopia.pdf).  Note the extensive scientific jargon and the dismissing of the lack of causal evidence: "Although it does not establish a causal link, the statistical strength of the association of night-time light exposure and child- hood myopia does suggest that the absence of a daily period of darkness during early childhood is a potential precipitating factor in the development of myopia."
+
+It turns out that the parent's myopia is the disposing factor.  Shortsighted parents leave the lights on at night and their kids are shortsighted for genetic reasons.  A CNN news report is [here](http://www.cnn.com/HEALTH/9905/12/children.lights/index.htm). And here is the [abstract of the rebuttal](http://www.nature.com/nature/journal/v404/n6774/full/404143a0.html).
+
+#### Confounders as a diagram
+
+
+<pre>
+Variable   --->  Outcome
+   ^                 ^
+   |                 |
+   ---> Confounder <--
+</pre>
+
+#### SAT versus per-student spending
+
+Draw the causal diagram
+
+<pre>
+Spending  ---------->      SAT    <-------|
+      |                                   |
+Focus on Educ. ---> fraction taking SAT  -|
+</pre>
+
+#### Campaign Spending and the back-door network
+
+Research in political science shows that higher spending in campaigns is related to a lower vote for the incumbent.  Yet it's common sense that higher spending improves things for the candidate; that's why they do it.
+
+<pre>
+  Polls <-----    Popularity ---> vote outcome
+    |                                 ^
+    v                                 |
+  Spending ---------------------------
+</pre>
+
+### How to block a back-door?
+
+We've done it by including the covariate in the model.  But this is too crude an answer.
+
+Work session on Barry Bonds at Bat
+----------------
+
+Work on the Logistic Regression model of Bonds's hitting.
+

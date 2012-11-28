@@ -108,16 +108,7 @@ Notice how the linear model admits probabilities that are larger than 1.
 Polynomials go the wrong way: their tails head off to infinity.  The use of odds and the logarithm essentially solve the problem of getting a function that behaves nicely.
 
 
-### The odds ratio in use
 
-A study of bicycle helmet use and the influence of state law.
-
-Demonstration of logistic regression and odds ratios.  "Effects of state helmet laws on bicycle helmet use by children and adolescents" [*Injury Prevention* **2002, 9**:42-46](http**://injuryprevention.bmj.com/content/8/1/42.full.pdf)
-
-Calculate the confidence interval on the odds ratio, e.g.
-```{r}
-exp( .7 + c(-1,1)*1.96*.294)
-```
 
 ### Introduction to R/Markdown
 
