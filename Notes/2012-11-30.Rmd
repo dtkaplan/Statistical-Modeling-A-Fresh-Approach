@@ -5,3 +5,5 @@ Stats 155 Class Notes 2012-11-30
 # boilerplate
 ```
 
+**In the News**
+* [No one shot or stabbed in NY on Monday](http://www.npr.org/blogs/thetwo-way/2012/11/28/166083278/this-just-in-no-one-was-shot-or-stabbed-monday-in-new-york-city?sc=ipad&f=1001)  We know the annual murder rate: about 400/365 per day.  So there are many days when there will be no murders.  What must the "stabbing" rate be so that it would be a surprise that there were no murders or stabbings?  A poisson model.

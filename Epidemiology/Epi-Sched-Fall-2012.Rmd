@@ -135,6 +135,9 @@ Thanksgiving Break!
 * [Allocating health-care resources](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Health-Care-Choices.pdf)
 * [Risk Calculation -- Annuity Value](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/Epi-Annuity-Game.pdf)
 
+**On Your Own**:
+* [A critique of advertising tamoxifen](http://www.acponline.org/clinical_information/journals_publications/ecp/marapr00/womens.htm)
+
 
 `r I(classDayContents("Thurs", "Dec", 6 ))`
 **Topic**: Health Care Reform
