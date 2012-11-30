@@ -111,7 +111,7 @@ To be posted.  You don't need to hand these in.
 * SM Ch. 16
 
 **Assignment**: 
-* Finally! A working version of problem `r I(PN(c(1412)))`
+* Finally! Problem [14.12](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Problem-14.12/SM2-Problem-14.12-A.html?access=ISMf12)
 * `r I(PN(c("16RQ",1601,1602,1604)))` Due on Dec 10
 
 **In Class**:

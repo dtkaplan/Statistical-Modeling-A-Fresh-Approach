@@ -7,3 +7,59 @@ Stats 155 Class Notes 2012-11-30
 
 **In the News**
 * [No one shot or stabbed in NY on Monday](http://www.npr.org/blogs/thetwo-way/2012/11/28/166083278/this-just-in-no-one-was-shot-or-stabbed-monday-in-new-york-city?sc=ipad&f=1001)  We know the annual murder rate: about 400/365 per day.  So there are many days when there will be no murders.  What must the "stabbing" rate be so that it would be a surprise that there were no murders or stabbings?  A poisson model.
+
+#### Confounders as a diagram
+
+<pre>
+Variable   --->  Outcome
+   ^                 ^
+   |                 |
+   ---> Confounder <--
+</pre>
+
+#### SAT versus per-student spending
+
+Draw the causal diagram
+
+<pre>
+Spending  ---------->      SAT    <-------|
+      |                                   |
+Focus on Educ. ---> fraction taking SAT  -|
+</pre>
+
+#### Campaign Spending and the back-door network
+
+Research in political science shows that higher spending in campaigns is related to a lower vote for the incumbent.  Yet it's common sense that higher spending improves things for the candidate; that's why they do it.
+
+<pre>
+  Polls <-----    Popularity ---> vote outcome
+    |                                 ^
+    v                                 |
+  Spending ---------------------------
+</pre>
+
+### How to block a back-door?
+
+We've done it by including the covariate in the model.  But this is too crude an answer.
+
+### Example: Election Spending
+
+```{r}
+fetchData("simulate.r")
+campaign.spending
+equations(campaign.spending)
+```
+You can see from the equations how spending is related to vote: it increases it.  Let's look at what a statistical model has to say
+```{r}
+d = run.sim(campaign.spending, 435 ) # number of congressment
+summary( lm( vote ~ spending, data=d))
+```
+The problem: a back door pathway from spending to vote via popularity.  Block it by including a node on the pathway as a covariate.
+
+```{r}
+summary( lm( vote ~ spending + polls, data=d))
+```
+Work session on Barry Bonds at Bat
+----------------
+
+Work on the Logistic Regression model of Bonds's hitting.
