@@ -4,4 +4,165 @@ Stats 155 Class Notes 2012-12-03
 ```{r name="setup", child="notes-setup.Rmd"}
 # boilerplate
 ```
+$latex \newcommand{\ensuremath}[1]{#1}
+\newcommand{\pathway}[1]{\hbox{#1}}
+\newcommand{\causes}{\ensuremath{\Rightarrow}}
+\newcommand{\causedBy}{\ensuremath{\Leftarrow}}
+\newcommand{\correlatedWith}{\ensuremath{\nLeftrightarrow}}$
 
+
+### Software for Simulation
+
+You should do this even if you already have done so.  There were some corrections made to the software.
+
+```{r}
+fetchData("simulate.r")
+```
+
+### Chains in Causation
+
+Following the convention used throughout the book
+* $A$ is a response variable
+* $B$ is an explanatory variable
+* $C$ is a covariate.  We'll also use $D$, $E$, etc. as covariates and $U$ or $?$ as unobserved variables.
+
+#### Three linear pathways:
+* **Causal mediator**: $latex A \causedBy C \causedBy  B$.  Simulation: `cnet.mediator`
+* **Common cause**: $latex A \causedBy C \causes B$. Simulation: `cnet.common.cause`
+* **Witness**: $C$ is caused by both $A$ and $B$: $latex A \causes C \causedBy B$. Simulation: `cnet.witness`
+
+#### A circular pathway
+* A **recurrent network** (or, closed loop of causation): : $latex A \causes B \causes C \causes A$ or the variations.
+
+We won't deal with these.  They raise questions about "when".
+
+#### Correlation
+
+The notation $latex A \correlatedWith B$ means that there is a non-causal connection between $latex A$ and $latex B$.  This must be because there is some unobserved variable $U$ producing the correlation, such as 
+
+1. $latex A \causedBy U \causes B$
+2. $latex A \causes U \causedBy B$
+
+Note that if either of the arrows went the other way, we'd simply have $U$ being a causal mediator.
+
+We'll see later that (1) is not a possibility if $U$ is unobserved and unconnected to anything else.
+
+### The Rules for Observing or Blocking a Pathway
+
+Remember, we want to study the **causal** relationship between $latex A$ and $latex B$ and are trying to decide whether to include the covariate $latex C$.
+
+* Causal mediator: Including $latex C$ **blocks** the pathway, which is otherwise open.
+* Common cause: Including $latex C$ **blocks** the pathway, which is otherwise open.
+* Witness: Including $latex C$ **opens** the pathway, which is otherwise blocked.
+
+### Confirming these rules
+
+Run a simulation of $latex A$ against $latex B$.  When the coefficient in a model is zero, the pathway between $latex B$ and $latex A$ has been blocked. 
+
+#### Mediator
+
+```{r}
+equations(cnet.mediator)
+s = run.sim(cnet.mediator, 1000 )
+coef( summary( lm( A ~ B, data=s )))
+```
+The above model indicates that the pathway is open.
+
+Including the covariate $latex C$ blocks the pathway between $latex B$ and $latex A$.
+```{r}
+coef( summary( lm( A ~ B + C, data=s )))
+```
+
+### Common Cause
+
+```{r}
+equations(cnet.common.cause)
+s = run.sim(cnet.common.cause, 1000 )
+coef( summary( lm( A ~ B, data=s )))
+```
+The above model indicates that the pathway is open.
+
+Including the covariate $latex C$ blocks the pathway between $latex B$ and $latex A$.
+```{r}
+coef( summary( lm( A ~ B + C, data=s )))
+```
+
+### Witness
+
+```{r}
+equations(cnet.witness)
+s = run.sim(cnet.witness, 1000 )
+coef( summary( lm( A ~ B, data=s )))
+```
+The above model indicates that the pathway is blocked.
+
+Including the covariate $latex C$ opens the pathway between $latex B$ and $latex A$.
+```{r}
+coef( summary( lm( A ~ B + C, data=s )))
+```
+
+### The Jock Network 
+
+Imagine that we wanted to study the relationship between athletic ability and SAT scores.  The conventional wisdom is that athletes tend to have lower test scores.  The `jock` network implements one hypothesis.
+
+```{r}
+s = run.sim(jock, 1000)
+head(s)
+```
+
+In practice, SAT and athletic ability data on an individual might be available via a college, so let's pull out just the cases that are in college:
+```{r}
+college <- subset(s, College=="Yes")
+```
+
+Look at the relationship between IQ and Athletic:
+```{r}
+coef(summary(lm( IQ ~ Athletic, data=college)))
+```
+
+There is a relationship!
+
+Now look at the entire set of data:
+```{r}
+coef(summary(lm(IQ~Athletic, data=s)))
+```
+The relationship has disappeared.  Why?
+
+ACTIVITY: Look at the structure and equations of the `jock` network and explain.
+
+### In-Class Activity
+
+Here is the complete set of simple causal pathways among three variables.
+
+* In each case, write down whether the pathway is a mediator, a common cause, or a witness.
+* We've only studied the pathways with C in the middle.  For the others, figure out whether including C as a covariate opens or blocks the pathway between A and B.
+* Come up with a setting which assigns a meaning to A, B, and C.  Example: B is taking nitroglycerin, C is dilation of the arteries, A is getting a headache.  
+
+The possibilities for who can be in the middle: $latex A$ or $latex B$ or $latex C$
+
+#### $C$ in the middle
+
+* $latex B \causedBy C \causes A$
+* $latex B \causedBy C \causedBy A$
+* $latex B \causes C \causedBy A$
+* $latex B \causes C \causes A$
+
+#### $A$ in the middle
+
+* $latex B \causedBy A \causes C$
+* $latex B \causedBy A \causedBy C$
+* $latex B \causes A \causedBy C$
+* $latex B \causes A \causes C$
+
+#### $B$ in the middle
+
+* $latex A \causedBy B \causes C$
+* $latex A \causedBy B \causedBy C$
+* $latex A \causes B \causedBy C$
+* $latex A \causes B \causes C$
+
+
+Barry Bonds at Bat
+===================
+
+Analyzing the Survey Data
