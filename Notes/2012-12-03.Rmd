@@ -19,6 +19,12 @@ You should do this even if you already have done so.  There were some correction
 fetchData("simulate.r")
 ```
 
+### An example hypothetical causal network
+
+If we want to study the direct link between class size and test scores, we need to block the backdoor pathways.
+
+![score hypothetical causal network](figure/School-Test-Scores.png)
+
 ### Chains in Causation
 
 Following the convention used throughout the book
