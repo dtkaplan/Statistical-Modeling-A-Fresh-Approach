@@ -155,16 +155,21 @@ To be posted.  You don't need to hand these in.
 
 `r I(classDayContents("Mon", "Dec", 3 ))`
 **Topic**: Causation
+
 **Reading**: SM Ch. 17 and [XKCD cartoon](http://xkcd.com/687/)
-**Assignment**: `r I(PN(c("1706,1707,1708,1710")))`
+
+**Assignment**: `r I(PN(c(1706,1707,1708,1710)))`
+
+**In Class**: 
+* Processing Google Form survey data in R. [Notes](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.html) and the [Rmd file](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.Rmd).
+* [The survey link itself](https://docs.google.com/spreadsheet/viewform?formkey=dGttU3V6cXlkcmRkclZTLVlwNGlCQVE6MQ): Send it to your Mac friends!
 
 **Notes**: `r I(todaysNotes("2012-12-03.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-03-class)
 
 `r I(classDayContents("Wed", "Dec", 5 ))`
 **Topic**: Experiment and Design
+
 **Reading**: SM Ch. 18
-**Assignment**:
-* Hand in analysis and report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) by putting links [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773).
 
 **Notes**: `r I(todaysNotes("2012-12-05.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-05-class)
 
@@ -180,6 +185,8 @@ To be posted.  You don't need to hand these in.
 **Assignment**: 
 * Exercises from Chapter 15 onward
 * Revisions to quizzes due.
+**Assignment**:
+* Hand in analysis and report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) by putting links [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773).
 * Hand in Mac-Weekly style report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773). (before end of exam period)
 **Notes**: `r I(todaysNotes("2012-12-10.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-10-class)
 

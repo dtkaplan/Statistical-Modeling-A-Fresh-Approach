@@ -270,9 +270,9 @@ hljs.initHighlightingOnLoad();
 coef(summary(lm(A ~ B, data = s)))
 </code></pre>
 
-<pre><code>##               Estimate Std. Error   t value  Pr(&gt;|t|)
-## (Intercept)  0.0001425    0.04279   0.00333 9.973e-01
-## B           -0.9453657    0.04394 -21.51615 1.161e-84
+<pre><code>##             Estimate Std. Error  t value  Pr(&gt;|t|)
+## (Intercept) -0.04528    0.04640  -0.9758 3.294e-01
+## B           -0.92401    0.04661 -19.8231 5.352e-74
 </code></pre>
 
 <p>The above model indicates that the pathway is open.</p>
@@ -282,10 +282,10 @@ coef(summary(lm(A ~ B, data = s)))
 <pre><code class="r">coef(summary(lm(A ~ B + C, data = s)))
 </code></pre>
 
-<pre><code>##             Estimate Std. Error  t value   Pr(&gt;|t|)
-## (Intercept)  0.01101    0.03064   0.3593  7.194e-01
-## B           -0.02118    0.04346  -0.4873  6.261e-01
-## C           -0.94522    0.03067 -30.8229 4.497e-147
+<pre><code>##             Estimate Std. Error t value   Pr(&gt;|t|)
+## (Intercept) -0.01592    0.03235  -0.492  6.228e-01
+## B            0.05266    0.04425   1.190  2.342e-01
+## C           -1.01212    0.03113 -32.516 1.075e-158
 </code></pre>
 
 <h3>Common Cause</h3>
@@ -302,9 +302,9 @@ coef(summary(lm(A ~ B, data = s)))
 coef(summary(lm(A ~ B, data = s)))
 </code></pre>
 
-<pre><code>##             Estimate Std. Error t value  Pr(&gt;|t|)
-## (Intercept) -0.04451    0.03891  -1.144 2.530e-01
-## B           -0.48846    0.02758 -17.710 3.075e-61
+<pre><code>##             Estimate Std. Error  t value  Pr(&gt;|t|)
+## (Intercept)  0.03456    0.03829   0.9025 3.670e-01
+## B           -0.53287    0.02775 -19.2044 3.415e-70
 </code></pre>
 
 <p>The above model indicates that the pathway is open.</p>
@@ -314,10 +314,10 @@ coef(summary(lm(A ~ B, data = s)))
 <pre><code class="r">coef(summary(lm(A ~ B + C, data = s)))
 </code></pre>
 
-<pre><code>##              Estimate Std. Error  t value   Pr(&gt;|t|)
-## (Intercept) -0.004665    0.03024  -0.1543  8.774e-01
-## B            0.023814    0.02925   0.8141  4.158e-01
-## C           -1.070124    0.04165 -25.6938 3.951e-112
+<pre><code>##             Estimate Std. Error  t value  Pr(&gt;|t|)
+## (Intercept)  0.01190    0.03299   0.3606 7.184e-01
+## B           -0.09032    0.03362  -2.6868 7.335e-03
+## C           -0.86938    0.04647 -18.7071 3.640e-67
 </code></pre>
 
 <h3>Witness</h3>
@@ -335,8 +335,8 @@ coef(summary(lm(A ~ B, data = s)))
 </code></pre>
 
 <pre><code>##             Estimate Std. Error t value Pr(&gt;|t|)
-## (Intercept)  0.02543    0.03069  0.8288   0.4074
-## B            0.02404    0.03045  0.7895   0.4300
+## (Intercept) -0.01380    0.03156 -0.4373   0.6620
+## B            0.05148    0.03190  1.6140   0.1068
 </code></pre>
 
 <p>The above model indicates that the pathway is blocked.</p>
@@ -346,10 +346,10 @@ coef(summary(lm(A ~ B, data = s)))
 <pre><code class="r">coef(summary(lm(A ~ B + C, data = s)))
 </code></pre>
 
-<pre><code>##             Estimate Std. Error t value  Pr(&gt;|t|)
-## (Intercept) -0.01696    0.02249  -0.754  4.51e-01
-## B            0.51689    0.02786  18.556  2.97e-66
-## C           -0.48571    0.01648 -29.466 9.10e-138
+<pre><code>##             Estimate Std. Error  t value   Pr(&gt;|t|)
+## (Intercept) -0.01334    0.02282  -0.5847  5.589e-01
+## B            0.49981    0.02742  18.2267  2.753e-64
+## C           -0.50154    0.01660 -30.2095 7.252e-143
 </code></pre>
 
 <h3>The Jock Network</h3>
@@ -361,12 +361,12 @@ head(s)
 </code></pre>
 
 <pre><code>##       IQ Athletic College Varsity
-## 1  76.93    19.06      No      No
-## 2  92.89    21.27      No      No
-## 3 103.20    21.27      No      No
-## 4 106.16    19.73      No      No
-## 5 114.67    18.78     Yes      No
-## 6 119.20    19.61     Yes      No
+## 1  91.03    25.57      No      No
+## 2  83.87    23.48      No      No
+## 3 108.47    26.99     Yes      No
+## 4  89.09    20.94      No      No
+## 5 120.71    20.37     Yes      No
+## 6 116.66    20.42     Yes      No
 </code></pre>
 
 <p>In practice, SAT and athletic ability data on an individual might be available via a college, so let&#39;s pull out just the cases that are in college:</p>
@@ -379,9 +379,9 @@ head(s)
 <pre><code class="r">coef(summary(lm(IQ ~ Athletic, data = college)))
 </code></pre>
 
-<pre><code>##             Estimate Std. Error t value  Pr(&gt;|t|)
-## (Intercept)  156.058     4.6836   33.32 1.982e-99
-## Athletic      -1.914     0.2112   -9.06 2.308e-17
+<pre><code>##             Estimate Std. Error t value   Pr(&gt;|t|)
+## (Intercept)  151.441     4.5439  33.329 7.339e-102
+## Athletic      -1.701     0.2079  -8.182  8.493e-15
 </code></pre>
 
 <p>There is a relationship!</p>
@@ -392,8 +392,8 @@ head(s)
 </code></pre>
 
 <pre><code>##             Estimate Std. Error t value   Pr(&gt;|t|)
-## (Intercept) 99.75494      3.143 31.7385 2.121e-153
-## Athletic    -0.02026      0.155 -0.1307  8.960e-01
+## (Intercept) 99.54906      3.209 31.0206 1.803e-148
+## Athletic     0.02499      0.159  0.1572  8.752e-01
 </code></pre>
 
 <p>The relationship has disappeared.  Why?</p>

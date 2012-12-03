@@ -1,6 +1,8 @@
 Student Attitudes toward Online Courses
 ========================================================
 
+The source file for this document is [here](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.Rmd).  You can copy this into your editor to get started.
+
 ### Stuff to include at the top of your file
 
 But you can take out the comments.  Just leave the R code in place.  Next year, perhaps, we'll package this up.
@@ -45,7 +47,7 @@ This is a major part of the process, but not one that you need to write about.  
 ### Reading the File from Google Spreadsheets
 
 The data file itself can be read using the CSV link provided by Google on the "Publish to the web" dialog.  Once you have set this up in Google, you need merely include the link in a statement like this:
-```{r cache=TRUE}
+```{r}
 survey = fetchGoogle("https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dGttU3V6cXlkcmRkclZTLVlwNGlCQVE&single=true&gid=0&output=csv")
 ```
 
@@ -55,7 +57,7 @@ It usually takes a few seconds to complete this process.
 
 The names assigned by Google Forms to each column can be very lengthy:
 ```{r}
-names(survey)
+head(names(survey))
 ```
 
 You will almost certainly want to substitute short, informative names for the original verbose names.  You will do this by hand, explicitly for each column.  **You must be careful** to ensure that you are assigning the right name to each column.  Remember that one question in the form can create several columns in the spreadsheet.
@@ -132,5 +134,6 @@ tally( ~ MacLang, data=survey)
 If you would prefer to have the results formatted more nicely, try this:
 ```{r results="asis"}
 xtable( tally( ~Taken, data=survey ))
+xtable( tally( ~ Taken + MacLang, data=survey ))
 ```
 
