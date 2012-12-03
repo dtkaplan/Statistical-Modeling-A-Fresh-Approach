@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Student Attitudes toward Online Courses</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>Student Attitudes toward Online Courses</h1>
+
+<h3>Stuff to include at the top of your file</h3>
+
+<p>But you can take out the comments.  Just leave the R code in place.  Next year, perhaps, we&#39;ll package this up.</p>
+
+<h1>Loading the Data</h1>
+
+<p>This is a major part of the process, but not one that you need to write about.  This section is intended to get you started with the R techniques that you will need.</p>
+
+<h3>Reading the File from Google Spreadsheets</h3>
+
+<p>The data file itself can be read using the CSV link provided by Google on the &ldquo;Publish to the web&rdquo; dialog.  Once you have set this up in Google, you need merely include the link in a statement like this:</p>
+
+<pre><code class="r">survey = fetchGoogle(&quot;https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dGttU3V6cXlkcmRkclZTLVlwNGlCQVE&amp;single=true&amp;gid=0&amp;output=csv&quot;)
+</code></pre>
+
+<p>It usually takes a few seconds to complete this process.  </p>
+
+<h3>Creating Better Variable Names</h3>
+
+<p>The names assigned by Google Forms to each column can be very lengthy:</p>
+
+<pre><code class="r">names(survey)
+</code></pre>
+
+<pre><code>##  [1] &quot;Timestamp&quot;                                                                                                                                            
+##  [2] &quot;Have.you.taken.an.online.course.&quot;                                                                                                                     
+##  [3] &quot;Overall.Impression.online.courses..I.would.consider.taking.an.online.course.&quot;                                                                         
+##  [4] &quot;Overall.Impression.online.courses..Online.courses.are.rarely.worthwhile.&quot;                                                                             
+##  [5] &quot;Overall.Impression.online.courses..Online.courses.are.mainly.about.computer.science.subjects.&quot;                                                        
+##  [6] &quot;Overall.Impression.online.courses..An.online.course.can.be.an.effective.substitute.for.an.in.class.course.&quot;                                           
+##  [7] &quot;Do.you.know.anyone.who.has.taken.an.online.course.&quot;                                                                                                   
+##  [8] &quot;Did.you.take.an.AP.or.IB.test.based.on.a.high.school.course.&quot;                                                                                         
+##  [9] &quot;Did.you.get.Macalester.CREDIT.for.your.AP.or.IB.work.&quot;                                                                                                
+## [10] &quot;If.you.could.get.Macalester.credit.for.a.free.online.course....exam...would.you.consider.it...An.introduction.to.a.discipline.&quot;                       
+## [11] &quot;If.you.could.get.Macalester.credit.for.a.free.online.course....exam...would.you.consider.it...A.foreign.language.&quot;                                    
+## [12] &quot;If.you.could.get.Macalester.credit.for.a.free.online.course....exam...would.you.consider.it...A.specialized.subject.in.a.major.minor.concentration.&quot;  
+## [13] &quot;If.you.could.get.Macalester.credit.for.a.free.online.course....exam...would.you.consider.it...A.technical.subject..e.g..computer.programming..&quot;       
+## [14] &quot;If.you.could.get.Macalester.credit.for.a.free.online.course....exam...would.you.consider.it...A.mainstream.course.for.a.major.&quot;                       
+## [15] &quot;If.you.could.get.Macalester.credit.for.a.free.online.course....exam...would.you.consider.it...A.course.to.meet.a.distribution.requirement.&quot;           
+## [16] &quot;If.you.could.get.Macalester.credit.for.a.free.online.course....exam...would.you.consider.it...An.introduction.to.a.discipline..1&quot;                     
+## [17] &quot;If.you.could.get.Macalester.credit.for.a.free.online.course....exam...would.you.consider.it...A.foreign.language..1&quot;                                  
+## [18] &quot;If.you.could.get.Macalester.credit.for.a.free.online.course....exam...would.you.consider.it...A.specialized.subject.in.a.major.minor.concentration..1&quot;
+## [19] &quot;If.you.could.get.Macalester.credit.for.a.free.online.course....exam...would.you.consider.it...A.technical.subject..e.g..computer.programming...1&quot;     
+## [20] &quot;If.you.could.get.Macalester.credit.for.a.free.online.course....exam...would.you.consider.it...A.mainstream.course.for.a.major..1&quot;                     
+## [21] &quot;If.you.could.get.Macalester.credit.for.a.free.online.course....exam...would.you.consider.it...A.course.to.meet.a.distribution.requirement..1&quot;         
+## [22] &quot;Level.of.Interest&quot;
+</code></pre>
+
+<p>You will almost certainly want to substitute short, informative names for the original verbose names.  You will do this by hand, explicitly for each column.  <strong>You must be careful</strong> to ensure that you are assigning the right name to each column.  Remember that one question in the form can create several columns in the spreadsheet.</p>
+
+<p>Note that Google Forms may put the columns in the spreadsheet <strong>in a different order</strong> from the questions in the form. If you move around an item when making your form, Google Forms may even replicate the column, but not insert answers into that column: a &ldquo;zombie&rdquo; column.  This is easy to spot, but you must be careful to use the column that is being populated by submissions.  </p>
+
+<p>Here&#39;s the re-assignment for this survey about online courses. You can use the same basic structure for the commands, but substitute in your own names:</p>
+
+<pre><code class="r">names(survey)[1] = &quot;Time&quot;
+names(survey)[2] = &quot;Taken&quot;
+names(survey)[3] = &quot;WouldConsider&quot;
+names(survey)[4] = &quot;NotWorthwhile&quot;
+names(survey)[5] = &quot;AboutComp&quot;
+names(survey)[6] = &quot;GoodSubstitute&quot;
+names(survey)[7] = &quot;KnowSomeone&quot;
+names(survey)[8] = &quot;TakenAP&quot;
+names(survey)[9] = &quot;CreditAP&quot;
+names(survey)[10] = &quot;MacIntro&quot;
+names(survey)[11] = &quot;MacLang&quot;
+names(survey)[12] = &quot;MacSpecialized&quot;
+names(survey)[13] = &quot;MacTechnical&quot;
+names(survey)[14] = &quot;MacMajor&quot;
+names(survey)[15] = &quot;MacDistribution&quot;
+names(survey)[16] = &quot;Duplicate1&quot;
+names(survey)[17] = &quot;Duplicate2&quot;
+names(survey)[18] = &quot;Duplicate3&quot;
+names(survey)[19] = &quot;Duplicate4&quot;
+names(survey)[20] = &quot;Duplicate5&quot;
+names(survey)[21] = &quot;Duplicate6&quot;
+names(survey)[22] = &quot;MinutesSpent&quot;
+</code></pre>
+
+<p>I&#39;ve used <code>Duplicate#</code> to identify the zombie columns.  If it happens that some of your submissions end up in a zombie column, talk to Prof. Kaplan to sort things out.  It&#39;s not hard.</p>
+
+<h3>Setting the Levels of Categorical Variables</h3>
+
+<p>As with the column names, you may find that the variable levels assigned by Google Forms are too verbose. For example:</p>
+
+<pre><code class="r">levels(survey$Taken)
+</code></pre>
+
+<pre><code>## [1] &quot;Finished one&quot;        &quot;Never considered it&quot; &quot;Started one&quot;        
+## [4] &quot;Thought about it&quot;
+</code></pre>
+
+<pre><code class="r">levels(survey$WouldConsider)
+</code></pre>
+
+<pre><code>## [1] &quot;Agree&quot;          &quot;Neutral&quot;        &quot;Strongly agree&quot;
+</code></pre>
+
+<p>You can shorten them using statements like this.  Again, be sure to put the quotations inside the <code>c()</code> in the same order.</p>
+
+<pre><code class="r">names(survey$Taken) = c(&quot;Finished&quot;, &quot;Never&quot;, &quot;Started&quot;, &quot;Thought&quot;)
+names(survey$WouldConsider) = c(&quot;4&quot;, &quot;3&quot;, &quot;5&quot;)
+</code></pre>
+
+<p><strong>NOTE IN DEVELOPMENT</strong> Write a function that will handle Likert variables nicely, including their ordinal properties.</p>
+
+<h3>Fixing Checkbox Data</h3>
+
+<p>Google Forms has a checkbox question.  The checkboxes are not exclusive; more than one can be checked.  This creates a value that doesn&#39;t fit into our case/variable data scheme.  For instance:</p>
+
+<pre><code class="r">head(survey$CreditAP)
+</code></pre>
+
+<pre><code>## [1] Chemistry, Calculus, Economics                                                                                   
+## [2] Chemistry, Biology, Calculus, History (American, European, or other), Literature, Statistics, Language, Economics
+## [3] Biology                                                                                                          
+## [4] Calculus                                                                                                         
+## [5] Calculus                                                                                                         
+## [6]                                                                                                                  
+## 5 Levels:  Biology ... Chemistry, Calculus, Economics
+</code></pre>
+
+<p>The translation involves creating a new variable for each possible choice in the checkboxes.  This can be done with <code>fixCheckbox</code>, like this:</p>
+
+<pre><code class="r">survey = fixCheckbox(TakenAP, data = survey)
+survey = fixCheckbox(CreditAP, data = survey)
+</code></pre>
+
+<h1>Simple Displays of Answers</h1>
+
+<p>It&#39;s helpful to look at the distribution of answers to each question.  You don&#39;t necessarily need to report on every question.</p>
+
+<p>A tabular report is easy:</p>
+
+<pre><code class="r">tally(~Taken, data = survey)
+</code></pre>
+
+<pre><code>## 
+##        Finished one Never considered it         Started one 
+##                   3                   2                   1 
+##    Thought about it               Total 
+##                   1                   7
+</code></pre>
+
+<pre><code class="r">tally(~MacLang, data = survey)
+</code></pre>
+
+<pre><code>## 
+## Absolutely     Likely         No   Possibly      Total 
+##          3          1          2          1          7
+</code></pre>
+
+<p>If you would prefer to have the results formatted more nicely, try this:</p>
+
+<pre><code class="r">xtable(tally(~Taken, data = survey))
+</code></pre>
+
+<!-- html table generated in R 2.15.1 by xtable 1.7-0 package -->
+
+<!-- Mon Dec  3 08:51:10 2012 -->
+
+<TABLE border=1>
+<TR> <TH>  </TH> <TH> V1 </TH>  </TR>
+  <TR> <TD align="right"> Finished one </TD> <TD align="right"> 3.00 </TD> </TR>
+  <TR> <TD align="right"> Never considered it </TD> <TD align="right"> 2.00 </TD> </TR>
+  <TR> <TD align="right"> Started one </TD> <TD align="right"> 1.00 </TD> </TR>
+  <TR> <TD align="right"> Thought about it </TD> <TD align="right"> 1.00 </TD> </TR>
+  <TR> <TD align="right"> Total </TD> <TD align="right"> 7.00 </TD> </TR>
+   </TABLE>
+
+</body>
+
+</html>
+

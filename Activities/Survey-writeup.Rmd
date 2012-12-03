@@ -1,0 +1,148 @@
+Writing Up Your Survey Project in R/Markdown
+========================================================
+
+#### Authors: Daniel Kaplan and George Leiter
+
+##### Date: November 25, 2012
+
+### Abstract
+
+Although it shows up first, the abstract should be the last thing that you write.  It should contain a brief summary of your results.  The idea is to give the reader an opportunity to decide, in about 1 minute, if they want to investigate further.  
+
+* Bullet-point summaries are often effective.
+* This abstract is about writing abstracts, not the content of the document.  Your abstract should be a summary.
+* The basic principle of R/Markdown is that you write your document as plain text and then compile it into HTML.  The plain-text document looks like this:
+<pre>
+    * Bullet-point summaries are often effective.
+    * This abstract is about writing abstracts,  not the content of the document.  Your abstract should be a summary.
+    * The basic principle of R/Markdown is that you write your document as plain text and then compile it into HTML.  
+</pre>
+
+### Introduction 
+
+Markdown is a simple formatting syntax for writing web-based documents.  RStudio integrates R commands with Markdown, providing a straightforward way to write reports that combine data, analysis, graphics and commentary.
+
+I encourage you to use R/Markdown because it is easy and effective.  It will also introduce you to a more modern workflow than cutting and pasting into Word or Google Docs.  (Soon, there will be a Google-Doc like interface to R/Markdown, but for the present that is not available.) 
+
+### Creating a New Document 
+Create a new R/Markdown document by using the RStudio FILE/NEW/R Markdown menu item.  This will create a document with a little bit of text that you can safely delete.  In it's place, I suggest to copy the entirely of this document from "Writing Up Your Survey" to "That's It!"  Then you can gradually replace items such as the title, authors, and (most importantly) the contents.
+
+### Placing R Commands in the Document
+
+You put R commands directly in your document by including them in triple backquotes that look like this
+
+<pre>```{r}&#x000A;3 + 2&#x000A;```&#x000A;</pre>
+
+
+In your actual document, you'll type this without any indentation, and the backquotes won't appear in the HTML output.
+```{r}
+3+2
+```
+
+
+You will want to load the `mosaic` package.  (You only had to do this once, at the beginning of the semester, with RStudio. But R/Markdown needs you to do it every time you run the document.  
+
+MAKE SURE TO INCLUDE THE FOLLOWING backquoted content near the top of your document, before other R commands
+```{r include=FALSE}
+require(mosaic, quietly=TRUE)
+require(xtable, quietly=TRUE)
+```
+
+Notice that there is a "Run" button that lets you run single lines of R.  There's also a "Chunks" menu that lets you run all of the lines in a triple backquoted section.
+
+### Turning Your Document into HTML
+
+To produce the HTML document, you click the **Knit HTML** button.  An HTML window will appear that displays the document.  You will likely go through several iterations of editing the R/Markdown file and "compiling" the HTML document from it.  At some point, you will be satisfied.  Then, you can do either of two things:
+1. Use the "Save As" button in the HTML viewer to save the HTML file, just as you would any other document.  You can then hand this in on Moodle.
+2. Use the RPubs service to publish your HTML document, pasting the link to that document into Moodle.  This makes it easy to update the published document.
+
+Background on the Survey Project
+-----------------
+
+Write a short section describing the problem that motivated your project.  You may also want to say something about the hypotheses you held when you designed the survey.
+
+Description of the Survey
+-----------------
+
+At a minimum, put in a link to the survey form on Google.  In Markdown, you insert a link using square brackets followed by round brackets, [like this](http://rpubs.com/dtkaplan/1279).  You can also include a link by pasting the URL into angle braces, like this <http://rpubs.com/dtkaplan/1279>.
+
+Reading in Your Survey Data
+------------------
+
+You don't need to write up details about how you read in your survey, but by including the statements, you'll be able to get back to your survey whenever you have a new idea.  
+
+First, you'll need to set up your Google Spreadsheet [as described here](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Blog/GoogleSpreadsheets.html)
+
+Then, you can read in your file, by pasting the appropriate URL into an R command, like this:
+```{r}
+mydat = fetchGoogle("https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dEtyWGxpWWFsN3Z0OUlZNG5xYmRVWWc&single=true&gid=0&output=csv")
+```
+The names given to the spreadsheet rows by Google Forms will not be pretty.  I strongly suggest that you simplify them.  Here's the process:
+* Look at the spreadsheet on Google Forms.  **Don't change the spreadsheet.**  Decide on a name for each column and write down your choices in exact order.
+* Create an R/Markdown chunk that creates a list of the names.  Like this:
+```{r}
+mynames = c("shade","number")
+```
+* Assign your names to the dataframe, like this:
+```{r}
+colnames(mydat) = mynames
+```
+
+Describing Your Survey Data
+----------------
+Give a short summary of the data you collected, e.g.
+* The number of responses.
+* The distribution of responses to important questions.
+You can display these in tabular form or in graphical form, as appropriate
+
+For instance (using the CPS85 data --- it's from a survey, after all)
+```{r}
+tally( ~ sex | union, data=CPS85 )
+```
+
+You can present information graphically.  We covered many graphical formats in the course: scatterplots, densityplots, box-and-whisker plots.  You can use any of these.  You may also want to try out other formats.  Here are two examples:
+```{r}
+barchart( tally( ~ sector & sex, data=CPS85, margins=FALSE), auto.key=TRUE)
+```
+
+```{r}
+mosaicplot( sex ~ married, data=CPS85 )
+```
+
+Analyzing Your Data
+----------------
+You're going to fit models and use regression reports and ANOVA to draw conclusions from them.  Use such reports sparingly; show only what needs to be shown.
+
+ANOVA reports will show up nicely:
+```{r}
+mod1 = lm( wage~sex+educ, data=CPS85 )
+anova(mod1)
+```
+
+
+But regression reports are too verbose unless you take just the `coef()` part of the report:
+```{r}
+coef(summary(mod1))
+```
+
+If you are a neat freak, you may want to arrange your tabular results more beautifully.  Try this:
+```{r results="asis"}
+print(xtable(anova(mod1)),type="html")
+print(xtable(coef(summary(mod1))),type="html")
+print(xtable(tally(~sex|sector,data=CPS85)),type="html")
+```
+
+Feel free to integrate the analysis into the narrative of what you find.
+
+
+
+
+
+The Appendix
+================
+
+You will likely try out all sorts of things.  Some of them will end up in the final report, most of them will not.  Feel free to store the things you tried in an appendix, like this.  Think of it as a basement where you can keep things out of the way.
+
+Such a basement appendix isn't usual for a scientific communication, but your report is as much about learning to organize your analysis as to report it.
+
+### That's it!

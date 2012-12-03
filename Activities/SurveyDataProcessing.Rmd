@@ -1,0 +1,136 @@
+Student Attitudes toward Online Courses
+========================================================
+
+### Stuff to include at the top of your file
+
+But you can take out the comments.  Just leave the R code in place.  Next year, perhaps, we'll package this up.
+```{r include=FALSE}
+fixCheckbox <- function(nm, data, alone=FALSE,...){
+  if( missing(data)) stop("Must provide data= data frame.")
+  nm = as.character(substitute(nm)) # convert first argument to a name
+  if( !nm %in% names(data)) stop("First argument must be a name in the data frame.")
+  V <- as.character(data[[nm]])
+  L <- levels( data[[nm]] )
+  kill <- list("\\(.+?\\)"," ",...) # Strings to eliminate
+  for (k in 1:length(kill)) {
+    V <- gsub(kill[[k]],'',V)
+    L <- gsub(kill[[k]],'',L)
+  }
+  vars <- unique(unlist(strsplit(L,",",fixed=TRUE)))
+  res <- matrix(FALSE,nrow=length(V),ncol=length(vars))
+  for (k in 1:length(V)) {
+    res[k,] <- vars %in% unlist(strsplit(V[k],",",fixed=TRUE))
+  }
+  res <- as.data.frame(res)
+  colnames(res) <- paste(nm,vars,sep="")
+  if(alone) return(res)
+  else {
+    data[[nm]] <- NULL
+    return( cbind(data,res))
+  }
+}
+```
+
+```{r include=FALSE}
+require(mosaic)
+require(xtable)
+options(xtable.type="html")
+```
+
+Loading the Data
+=================
+
+This is a major part of the process, but not one that you need to write about.  This section is intended to get you started with the R techniques that you will need.
+
+### Reading the File from Google Spreadsheets
+
+The data file itself can be read using the CSV link provided by Google on the "Publish to the web" dialog.  Once you have set this up in Google, you need merely include the link in a statement like this:
+```{r cache=TRUE}
+survey = fetchGoogle("https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dGttU3V6cXlkcmRkclZTLVlwNGlCQVE&single=true&gid=0&output=csv")
+```
+
+It usually takes a few seconds to complete this process.  
+
+### Creating Better Variable Names
+
+The names assigned by Google Forms to each column can be very lengthy:
+```{r}
+names(survey)
+```
+
+You will almost certainly want to substitute short, informative names for the original verbose names.  You will do this by hand, explicitly for each column.  **You must be careful** to ensure that you are assigning the right name to each column.  Remember that one question in the form can create several columns in the spreadsheet.
+
+Note that Google Forms may put the columns in the spreadsheet **in a different order** from the questions in the form. If you move around an item when making your form, Google Forms may even replicate the column, but not insert answers into that column: a "zombie" column.  This is easy to spot, but you must be careful to use the column that is being populated by submissions.  
+
+Here's the re-assignment for this survey about online courses. You can use the same basic structure for the commands, but substitute in your own names:
+```{r}
+names(survey)[1] = "Time"
+names(survey)[2] = "Taken"
+names(survey)[3] = "WouldConsider"
+names(survey)[4] = "NotWorthwhile"
+names(survey)[5] = "AboutComp"
+names(survey)[6] = "GoodSubstitute"
+names(survey)[7] = "KnowSomeone"
+names(survey)[8] = "TakenAP"
+names(survey)[9] = "CreditAP"
+names(survey)[10] = "MacIntro"
+names(survey)[11] = "MacLang"
+names(survey)[12] = "MacSpecialized"
+names(survey)[13] = "MacTechnical"
+names(survey)[14] = "MacMajor"
+names(survey)[15] = "MacDistribution"
+names(survey)[16] = "Duplicate1"
+names(survey)[17] = "Duplicate2"
+names(survey)[18] = "Duplicate3"
+names(survey)[19] = "Duplicate4"
+names(survey)[20] = "Duplicate5"
+names(survey)[21] = "Duplicate6"
+names(survey)[22] = "MinutesSpent"
+```
+I've used `Duplicate#` to identify the zombie columns.  If it happens that some of your submissions end up in a zombie column, talk to Prof. Kaplan to sort things out.  It's not hard.
+
+### Setting the Levels of Categorical Variables
+
+As with the column names, you may find that the variable levels assigned by Google Forms are too verbose. For example:
+```{r}
+levels( survey$Taken )
+levels( survey$WouldConsider)
+```
+You can shorten them using statements like this.  Again, be sure to put the quotations inside the `c()` in the same order.
+```{r}
+names( survey$Taken ) = c("Finished","Never","Started","Thought")
+names( survey$WouldConsider ) = c("4","3","5")
+```
+
+**NOTE IN DEVELOPMENT** Write a function that will handle Likert variables nicely, including their ordinal properties.
+
+
+### Fixing Checkbox Data
+
+Google Forms has a checkbox question.  The checkboxes are not exclusive; more than one can be checked.  This creates a value that doesn't fit into our case/variable data scheme.  For instance:
+```{r}
+head( survey$CreditAP )
+```
+
+The translation involves creating a new variable for each possible choice in the checkboxes.  This can be done with `fixCheckbox`, like this:
+```{r}
+survey = fixCheckbox(TakenAP, data=survey)
+survey = fixCheckbox(CreditAP, data=survey)
+```
+
+Simple Displays of Answers
+==============
+
+It's helpful to look at the distribution of answers to each question.  You don't necessarily need to report on every question.
+
+A tabular report is easy:
+```{r}
+tally( ~ Taken, data=survey)
+tally( ~ MacLang, data=survey)
+```
+
+If you would prefer to have the results formatted more nicely, try this:
+```{r results="asis"}
+xtable( tally( ~Taken, data=survey ))
+```
+

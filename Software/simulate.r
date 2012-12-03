@@ -16,25 +16,39 @@ B.to.A = list(
 class(B.to.A) = 'cnet';
 
 # C causes both A and B
-cnet.witness = list(
-  vars = list(C=NULL, B=NULL, A=NULL),
+cnet.common.cause = list(
+  vars = list(C=NULL, B=NULL,A=NULL),
   eqn = c(
     'rnorm(nsamps)',
-    'C + rnorm(nsamps)',
-    'rnorm(nsamps) - C')
+    'rnorm(nsamps)+C',
+    'rnorm(nsamps)-C')
+);
+class(cnet.common.cause) = 'cnet';
+
+# C causes both A and B
+cnet.witness = list(
+  vars = list(A=NULL, B=NULL, C=NULL),
+  eqn = c(
+    'rnorm(nsamps)',
+    'rnorm(nsamps)',
+    'rnorm(nsamps) - A + B')
 );
 class(cnet.witness) = 'cnet';
 
-# Causal chain
-cnet.chain= list(
+# Mediator --- A <- C <- B 
+cnet.mediator= list(
   vars = list(B=NULL, C=NULL, A=NULL),
   eqn = c(
     'rnorm(nsamps)',
     'B + rnorm(nsamps)',
     'rnorm(nsamps) - C')
 );
-class(cnet.chain) = 'cnet';
+class(cnet.mediator) = 'cnet';
 
+`A<-C->B` <- cnet.common.cause
+`A->C<-B` <- cnet.witness
+`A<-C<-B` <- cnet.mediator 
+cnet.chain <- cnet.mediator # For backward compatibility.  Deprecate this.
 
 jock = list(
   vars = list( IQ=NULL, Athletic=NULL, College=NULL, Varsity=NULL),
@@ -105,14 +119,6 @@ cnet.unconnected.causes = list(
 );
 class(cnet.unconnected.causes) = 'cnet';
 
-cnet.witness = list(
-   vars = list( C = NULL, B = NULL, A = NULL),
-   eqn = c(
-        "rnorm( nsamps )",
-        "C + rnorm(nsamps, sd=.1)",
-        "C + rnorm(nsamps, sd=.1)")
-);
-class(cnet.witness) = 'cnet';
 
 cnet.connected.causes = list(
    vars = list( C = NULL, B = NULL, A = NULL),
