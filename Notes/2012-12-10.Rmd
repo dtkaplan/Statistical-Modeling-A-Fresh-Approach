@@ -5,3 +5,9 @@ Stats 155 Class Notes 2012-12-10
 # boilerplate
 ```
 
+Rank transform?
+
+Order dependence?
+
+Propensity score?
+

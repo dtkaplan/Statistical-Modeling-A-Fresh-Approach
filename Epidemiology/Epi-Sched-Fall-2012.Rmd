@@ -38,7 +38,11 @@ QE <- function(name) { # Estimation problem}
 
 Upcoming Days
 -------------
+Three review sessions will be held in Olin-Rice 254 (Math Computer Science Reading Room) in preparation for the end of the semester. 
 
+* **December 6**, Thursday 12:00  Topic:  Review of Exam I. 
+* **December 11**, Tuesday 11:30  Topic:  Review of Confounding, Survival Analysis and Sensitivity and Specificity
+* **December 13**, Thursday 6:30pm  Topic:  Review for Final Exam.
 
 
 

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Stats 155 Class Notes 2012-12-05</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>Stats 155 Class Notes 2012-12-05</h1>
+
+<h2>An experiment with heart rate</h2>
+
+<p>We&#39;re going to do an experiment to see if there is a relationship between posture (standing or sitting) and heart rate.</p>
+
+<ul>
+<li>Ask every second student to stand up.</li>
+<li>Put your finger against your <a href="http://en.wikipedia.org/wiki/External_carotid_artery">carotid artery</a> and press gently until you feel your pulse.</li>
+<li>At the signal, start counting heart beats. Count until the next signal (after 15 seconds).</li>
+<li>Your heart rate in beats per second is 4 times the count</li>
+</ul>
+
+<p>We&#39;ve just done an experiment, a procedure in which we impose certain conditions and measure the result.  In this case, the condition we imposed was sitting versus standing.</p>
+
+<p>We do experiments in order to measure with some precision the relationships involved.  Let&#39;s tally up the results of this experiment:</p>
+
+<ul>
+<li>Enter the data into <a href="https://docs.google.com/spreadsheet/ccc?key=0Am13enSalO74dE1COTRrYWVHN3dNR09TZHNLTkJnbHc#gid=0">this spreadsheet</a>.  There is one column for each of the three meeting times for the course.  Note that the posture data has been pre-entered, so enter the sitting people first and the standing people after.</li>
+</ul>
+
+<p>Now we&#39;ll analyze the data:</p>
+
+<pre><code class="r">s = fetchGoogle(&quot;https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dE1COTRrYWVHN3dNR09TZHNLTkJnbHc&amp;single=true&amp;gid=0&amp;output=csv&quot;)
+</code></pre>
+
+<pre><code>## Loading required package: RCurl
+</code></pre>
+
+<pre><code>## Loading required package: bitops
+</code></pre>
+
+<p>Plot out the density broken down by posture and a bwplot.</p>
+
+<p>Now, the model:</p>
+
+<pre><code class="r">coef(summary(lm(HR940 ~ Posture, data = s)))
+</code></pre>
+
+<pre><code>##                 Estimate Std. Error  t value Pr(&gt;|t|)
+## (Intercept)      16.2667      5.545  2.93358 0.006486
+## Posturestanding  -0.2667      7.718 -0.03455 0.972675
+</code></pre>
+
+<h3>Improving the Experiment</h3>
+
+<p>Could we improve the experiment.  Several ways:</p>
+
+<ul>
+<li>Measure HR more precisely.</li>
+<li>Specify posture more precisely.</li>
+<li>Collect more data from more people.</li>
+</ul>
+
+<p>But our focus here is on how to improve the experiment by a better design.</p>
+
+<p>To explore this, here is a program that will generate simulated HR data:</p>
+
+<pre><code class="r">fetchData(&quot;hr.R&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/hr.R
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<pre><code class="r">fetchData(&quot;simulate.r&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/simulate.r
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<p>To run it, you specify the subject ID numbers and the posture of each patient, which must be one of &ldquo;sitting&rdquo;, &ldquo;standing&rdquo;, &ldquo;lying&rdquo;.  Here&#39;s an example of running it on 10 people, half of whom are standing and half sitting.  <strong>NOTE</strong> the expression <code>1:10</code> is creating the numbers 1, 2, 3, &hellip;, 10.  That is, <code>1:10</code> makes 10 different people for the experiment.  The levels of the posture variable are recycled.</p>
+
+<pre><code class="r">s1 = heart.rate(who = 1:10, posture = c(&quot;sitting&quot;, &quot;standing&quot;))
+s1
+</code></pre>
+
+<pre><code>##    who  posture hr sex weight
+## 1   S1  sitting 52   F  75.27
+## 2   S2 standing 54   M  79.02
+## 3   S3  sitting 53   M  63.18
+## 4   S4 standing 62   M  52.30
+## 5   S5  sitting 51   F  66.33
+## 6   S6 standing 66   M  84.19
+## 7   S7  sitting 70   F  69.76
+## 8   S8 standing 61   F  66.96
+## 9   S9  sitting 50   F  46.71
+## 10 S10 standing 64   F  50.95
+</code></pre>
+
+<p>Can we see the difference between the two different postures?</p>
+
+<pre><code class="r">coef(summary(lm(hr ~ posture, data = s1)))
+</code></pre>
+
+<pre><code>##                 Estimate Std. Error t value  Pr(&gt;|t|)
+## (Intercept)         55.2      3.008  18.349 8.009e-08
+## posturestanding      6.2      4.254   1.457 1.831e-01
+</code></pre>
+
+<p>No significant difference.</p>
+
+<p>ACTIVITY: </p>
+
+<ul>
+<li>Run the simulation several times.  What&#39;s the power for a significance level of 0.05?  For a significance level of 0.01?</li>
+<li>Assign different groups of students to run experiments of size \( n=20 \), \( n=30 \), \( n=50 \), and so on. What sample size will give a power of 80% at a significance level of 0.01?</li>
+</ul>
+
+<p>This may seem odd at first, but let&#39;s add <code>who</code> as an explanatory variable:</p>
+
+<pre><code class="r">summary(lm(hr ~ posture + who, data = s1))
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = hr ~ posture + who, data = s1)
+## 
+## Residuals:
+## ALL 10 residuals are 0: no residual degrees of freedom!
+## 
+## Coefficients: (1 not defined because of singularities)
+##                 Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)           52         NA      NA       NA
+## posturestanding        9         NA      NA       NA
+## whoS10                 3         NA      NA       NA
+## whoS2                 -7         NA      NA       NA
+## whoS3                  1         NA      NA       NA
+## whoS4                  1         NA      NA       NA
+## whoS5                 -1         NA      NA       NA
+## whoS6                  5         NA      NA       NA
+## whoS7                 18         NA      NA       NA
+## whoS8                 NA         NA      NA       NA
+## whoS9                 -2         NA      NA       NA
+## 
+## Residual standard error: NaN on 0 degrees of freedom
+## Multiple R-squared:    1,    Adjusted R-squared:  NaN 
+## F-statistic:  NaN on 9 and 0 DF,  p-value: NA
+</code></pre>
+
+<p>Why did the p-values disappear?</p>
+
+<p>Now a slight variation on the experiment:</p>
+
+<pre><code class="r">s2 = heart.rate(who = rep(1:5, each = 2), posture = c(&quot;sitting&quot;, &quot;standing&quot;))
+s2
+</code></pre>
+
+<pre><code>##    who  posture hr sex weight
+## 1   S1  sitting 51   F  75.27
+## 2   S1 standing 55   F  75.27
+## 3   S2  sitting 52   M  79.02
+## 4   S2 standing 54   M  79.02
+## 5   S3  sitting 53   M  63.18
+## 6   S3 standing 55   M  63.18
+## 7   S4  sitting 60   M  52.30
+## 8   S4 standing 62   M  52.30
+## 9   S5  sitting 52   F  66.33
+## 10  S5 standing 54   F  66.33
+</code></pre>
+
+<p>Can we see the difference between the two different postures in this new experiment?</p>
+
+<pre><code class="r">coef(summary(lm(hr ~ posture, data = s2)))
+</code></pre>
+
+<pre><code>##                 Estimate Std. Error t value  Pr(&gt;|t|)
+## (Intercept)         53.6      1.575  34.036 6.067e-10
+## posturestanding      2.4      2.227   1.078 3.126e-01
+</code></pre>
+
+<pre><code class="r">coef(summary(lm(hr ~ posture + who, data = s2)))
+</code></pre>
+
+<pre><code>##                   Estimate Std. Error    t value  Pr(&gt;|t|)
+## (Intercept)      5.180e+01     0.4899  1.057e+02 4.797e-08
+## posturestanding  2.400e+00     0.4000  6.000e+00 3.883e-03
+## whoS2           -8.119e-15     0.6325 -1.284e-14 1.000e+00
+## whoS3            1.000e+00     0.6325  1.581e+00 1.890e-01
+## whoS4            8.000e+00     0.6325  1.265e+01 2.249e-04
+## whoS5           -9.936e-15     0.6325 -1.571e-14 1.000e+00
+</code></pre>
+
+<p>Why is the estimate from the second model much better than from the first?</p>
+
+<ul>
+<li>We&#39;ve introduced a new explanatory variable, <code>who</code> that accounts for a lot of the case-by-case variability.</li>
+<li>We couldn&#39;t do this in the original experiment, because <code>who</code> would have provided a perfect fit.</li>
+</ul>
+
+<h3>Principles of Experimental Design</h3>
+
+<ol>
+<li>Replicate!  You need to have many subjects.  Large \( n \) gives higher precision.  Remember, the standard error is proportional to \( 1/\sqrt{n-m} \), where \( m \) is the number of model terms.  You need to have some residual in order to know what your error is.</li>
+<li>Impose controlled variation!  That&#39;s why we had half the people stand up and half sit down.  To create variation.</li>
+<li>Minimize uncontrolled variation.  Make your experimental conditions as similar as possible (outside of the controlled variation).</li>
+<li>Make your controlled variation perpendicular to your uncontrolled variation.</li>
+<li>When you have multiple variables that you impose, make them mutually orthogonal.  Indeed, if you expect to be fitting a model with interaction terms, etc., arrange your intervention so that all the terms are mutually orthogonal.  That will give you better estimation properties.</li>
+</ol>
+
+<h3>Why the Second Experiment was Better</h3>
+
+<p>A major source of uncontrolled variation in the heart rate is the person-to-person variability.  There&#39;s nothing we can do about that directly.  However, we can try to arrange the experimental treatment to be orthogonal to the uncontrolled variation.  </p>
+
+<p>You can measure the angle between the imposed treatment and the uncontrolled variation with R<sup>2.</sup>  </p>
+
+<pre><code class="r">r.squared(lm(as.numeric(posture) ~ who, data = s1))
+</code></pre>
+
+<pre><code>## [1] 1
+</code></pre>
+
+<pre><code class="r">r.squared(lm(as.numeric(posture) ~ who, data = s2))
+</code></pre>
+
+<pre><code>## [1] 3.747e-31
+</code></pre>
+
+<p>In the second experiment, we had each person participate twice.  Intuitively, you can think of this as each person serving as his or her own control.  Mathematically, it&#39;s a matter of using the <code>who</code> variable to eat up variance, and ensuring that there is little or no overlap between what&#39;s explained by the <code>who</code> variable and what&#39;s explained by the <code>posture</code> variable.</p>
+
+<p>This gives us a much better experiment: smaller \( n \) for a given power, better precision in the measurement.  This is called a cross-over experiment.</p>
+
+<h4>Review orthogonality in terms of dot product, R<sup>2</sup></h4>
+
+<h2>When you can&#39;t do a cross-over</h2>
+
+<p>There are many settings when you only have one opportunity for each experimental unit.  For example, suppose instead of heart rate we were studying survival.  How should we arrange posture?</p>
+
+<p>Now it will be impossible to impose a posture that&#39;s orthogonal to <code>who</code>.  But we can come close.  Assign the posture randomly.  <code>posture = resample(c(&quot;sitting&quot;,&quot;standing&quot;), 1000)</code></p>
+
+<ul>
+<li>Show that this is approximately orthogonal to both <code>sex</code> and <code>weight</code>.</li>
+</ul>
+
+<h3>Blocking</h3>
+
+<p>We don&#39;t mean <strong>blocking</strong> as in football or as in blocking a path in a hypothetical causal network.  The &ldquo;blocking&rdquo; here refers to arranging your experimental units in groups. Within each group, the units are similar to one another.</p>
+
+<ul>
+<li>Blocking according to <code>sex</code>.  Break into two groups, one for males and one for females.  Assign the treatment randomly within each group.</li>
+<li>Blocking according to <code>weight</code>.  Break into groups of, say, two.  The people with the closest weights.  Then randomly assign one person to &ldquo;sitting&rdquo; and one person to &ldquo;standing&rdquo; within each group.</li>
+<li>Blocking according to both <code>sex</code> and <code>weight</code>: Divide into males and females.  Then subdivide each of those groups into small groups according to weight.  Randomly assign &ldquo;sitting&rdquo; and &ldquo;standing&rdquo; within each group.</li>
+</ul>
+
+<h3>Randomization is a Procedure</h3>
+
+<p>You should be able to document your randomization procedure.  It&#39;s not really enough to say, &ldquo;We did it at random.&rdquo;</p>
+
+<h3>Experiment for Causation</h3>
+
+<p>Often, especially in the social sciences, experiments are done to probe causal paths.  </p>
+
+<p>The basic idea is that by imposing a treatment, you alter the network.  If you assign posture, then all the other factors that might have been connected causally to posture are disconnected &mdash; only the downstream elements remain.</p>
+
+<h4>Observation versus experiment with the campaign spending simulation</h4>
+
+<p>When the study is done observationally, the results depend on what covariates you include in the model.  So you are looking at the consequences of your assumptions, rather than purely at the system under study.</p>
+
+<p>But when you impose a treatment, you have reconfigured the system in a known way.  All of the backdoor links that involve an incoming paths to the treatment have been blocked.</p>
+
+<p>Let&#39;s do an experiment where every other candidate gets $10M to spend, while the others get nothing:</p>
+
+<pre><code class="r">s = run.sim(campaign.spending, 5000, spending = c(0, 10))
+coef(summary(lm(vote ~ spending, data = s)))
+</code></pre>
+
+<pre><code>##             Estimate Std. Error t value  Pr(&gt;|t|)
+## (Intercept)   37.414    0.31824 117.564 0.000e+00
+## spending       0.315    0.04501   6.999 2.924e-12
+</code></pre>
+
+<pre><code class="r">coef(summary(lm(vote ~ spending + polls, data = s)))
+</code></pre>
+
+<pre><code>##             Estimate Std. Error t value  Pr(&gt;|t|)
+## (Intercept)   1.0291   0.216459   4.754 2.046e-06
+## spending      0.2240   0.015388  14.554 4.973e-47
+## polls         0.7323   0.003767 194.413 0.000e+00
+</code></pre>
+
+<p>The results don&#39;t depend on the covariates; within the margin of error, they are the same for the two models.</p>
+
+<p>Notice that I used 5000 units.  One reason for this is that I didn&#39;t make the variation in spending very large.  Here&#39;s a bigger variation with only 1/10th as many experimental units:</p>
+
+<pre><code class="r">s = run.sim(campaign.spending, 500, spending = c(0, 100))
+coef(summary(lm(vote ~ spending, data = s)))
+</code></pre>
+
+<pre><code>##             Estimate Std. Error t value   Pr(&gt;|t|)
+## (Intercept)  36.0453    0.99446   36.25 9.203e-142
+## spending      0.2495    0.01406   17.74  6.307e-55
+</code></pre>
+
+<pre><code class="r">coef(summary(lm(vote ~ spending + polls, data = s)))
+</code></pre>
+
+<pre><code>##             Estimate Std. Error t value   Pr(&gt;|t|)
+## (Intercept)   1.2178   0.687078   1.772  7.693e-02
+## spending      0.2484   0.004975  49.932 8.418e-196
+## polls         0.7301   0.012373  59.011 1.185e-226
+</code></pre>
+
+<p>[It would be better to make spending orthogonal to polls.  There&#39;s no good way to do that in this simulation, except by setting the popularity and polls from one simulation when creating the next simulation.]</p>
+
+</body>
+
+</html>
+
