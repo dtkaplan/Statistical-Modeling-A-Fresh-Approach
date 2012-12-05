@@ -180,6 +180,8 @@ hljs.initHighlightingOnLoad();
 <body>
 <h1>Student Attitudes toward Online Courses</h1>
 
+<h4>Daniel Kaplan, Wed Dec  5 09:29:15 2012</h4>
+
 <p>The source file for this document is <a href="http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.Rmd">here</a>.  You can copy this into your editor to get started.</p>
 
 <h3>Stuff to include at the top of your file</h3>
@@ -276,7 +278,43 @@ names(survey)[22] = &quot;MinutesSpent&quot;
 names(survey$WouldConsider) = c(&quot;4&quot;, &quot;3&quot;, &quot;5&quot;)
 </code></pre>
 
-<p><strong>NOTE IN DEVELOPMENT</strong> Write a function that will handle Likert variables nicely, including their ordinal properties.</p>
+<h4>Likert Variables</h4>
+
+<p>Some categorical variables are reasonably modeled as quantitative.  This is true particularly of Likert variables, the sort of ordinal scale from &ldquo;strongly disagree&rdquo; up through &ldquo;strongly agree&rdquo;.</p>
+
+<p>The function <code>LikertToQuant()</code> lets you easily construct a numerical variable encoding the ordinal information in the categorical variable.</p>
+
+<p>The first step is to look at the order of the levels in the categorical variable, for instance,</p>
+
+<pre><code class="r">with(survey, levels(WouldConsider))
+</code></pre>
+
+<pre><code>## [1] &quot;Agree&quot;             &quot;Disagree&quot;          &quot;Neutral&quot;          
+## [4] &quot;Strongly agree&quot;    &quot;Strongly disagree&quot;
+</code></pre>
+
+<p>We&#39;re going to assign a numerical value of 0 to Neutral, -1 to Disagree, and so on.  Altogether, the five levels in the report will correspond to numerical values of 1, -1, 0, 2, -2.  Here&#39;s the creation of a new variable in the data frame with this numerical encoding</p>
+
+<pre><code class="r">survey = transform(survey, WouldConsiderQ = LikertToQuant(WouldConsider, order = c(1, 
+    -1, 0, 2, -2)))
+</code></pre>
+
+<p>Now you can model the Likert variable using the quantitative response techniques we have been studying.  For instance,</p>
+
+<pre><code class="r">anova(lm(WouldConsiderQ ~ Taken, data = survey))
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: WouldConsiderQ
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## Taken      3    7.9    2.64    3.04  0.038 *
+## Residuals 48   41.8    0.87                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<p>[Note in draft: Why not use the built-in ordinal features of factors?]</p>
 
 <h3>Fixing Checkbox Data</h3>
 
@@ -291,7 +329,7 @@ names(survey$WouldConsider) = c(&quot;4&quot;, &quot;3&quot;, &quot;5&quot;)
 ## [4] Calculus                                                                                                         
 ## [5] Calculus                                                                                                         
 ## [6]                                                                                                                  
-## 23 Levels:  Biology ... Statistics
+## 27 Levels:  Biology ... Statistics
 </code></pre>
 
 <p>The translation involves creating a new variable for each possible choice in the checkboxes.  This can be done with <code>fixCheckbox</code>, like this:</p>
@@ -299,6 +337,8 @@ names(survey$WouldConsider) = c(&quot;4&quot;, &quot;3&quot;, &quot;5&quot;)
 <pre><code class="r">survey = fixCheckbox(TakenAP, data = survey)
 survey = fixCheckbox(CreditAP, data = survey)
 </code></pre>
+
+<p>Note that <code>transform()</code> is not being used to create the new variables.  <code>fixCheckbox()</code> takes care of everything.</p>
 
 <h1>Simple Displays of Answers</h1>
 
@@ -311,9 +351,9 @@ survey = fixCheckbox(CreditAP, data = survey)
 
 <pre><code>## 
 ##        Finished one Never considered it         Started one 
-##                  10                  17                   2 
+##                  12                  24                   2 
 ##    Thought about it               Total 
-##                  11                  40
+##                  14                  52
 </code></pre>
 
 <pre><code class="r">tally(~MacLang, data = survey)
@@ -321,7 +361,7 @@ survey = fixCheckbox(CreditAP, data = survey)
 
 <pre><code>## 
 ## Absolutely     Likely         No   Possibly   Unlikely      Total 
-##         10          8         10          6          6         40
+##         14         10         11          9          8         52
 </code></pre>
 
 <p>If you would prefer to have the results formatted more nicely, try this:</p>
@@ -331,15 +371,15 @@ survey = fixCheckbox(CreditAP, data = survey)
 
 <!-- html table generated in R 2.15.1 by xtable 1.7-0 package -->
 
-<!-- Mon Dec  3 11:43:10 2012 -->
+<!-- Wed Dec  5 09:29:18 2012 -->
 
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> V1 </TH>  </TR>
-  <TR> <TD align="right"> Finished one </TD> <TD align="right"> 10.00 </TD> </TR>
-  <TR> <TD align="right"> Never considered it </TD> <TD align="right"> 17.00 </TD> </TR>
+  <TR> <TD align="right"> Finished one </TD> <TD align="right"> 12.00 </TD> </TR>
+  <TR> <TD align="right"> Never considered it </TD> <TD align="right"> 24.00 </TD> </TR>
   <TR> <TD align="right"> Started one </TD> <TD align="right"> 2.00 </TD> </TR>
-  <TR> <TD align="right"> Thought about it </TD> <TD align="right"> 11.00 </TD> </TR>
-  <TR> <TD align="right"> Total </TD> <TD align="right"> 40.00 </TD> </TR>
+  <TR> <TD align="right"> Thought about it </TD> <TD align="right"> 14.00 </TD> </TR>
+  <TR> <TD align="right"> Total </TD> <TD align="right"> 52.00 </TD> </TR>
    </TABLE>
 
 <pre><code class="r">xtable(tally(~Taken + MacLang, data = survey))
@@ -347,15 +387,15 @@ survey = fixCheckbox(CreditAP, data = survey)
 
 <!-- html table generated in R 2.15.1 by xtable 1.7-0 package -->
 
-<!-- Mon Dec  3 11:43:10 2012 -->
+<!-- Wed Dec  5 09:29:18 2012 -->
 
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> Absolutely </TH> <TH> Likely </TH> <TH> No </TH> <TH> Possibly </TH> <TH> Unlikely </TH> <TH> Total </TH>  </TR>
-  <TR> <TD align="right"> Finished one </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 10.00 </TD> </TR>
-  <TR> <TD align="right"> Never considered it </TD> <TD align="right"> 6.00 </TD> <TD align="right"> 2.00 </TD> <TD align="right"> 4.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 2.00 </TD> <TD align="right"> 17.00 </TD> </TR>
+  <TR> <TD align="right"> Finished one </TD> <TD align="right"> 5.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 12.00 </TD> </TR>
+  <TR> <TD align="right"> Never considered it </TD> <TD align="right"> 6.00 </TD> <TD align="right"> 4.00 </TD> <TD align="right"> 5.00 </TD> <TD align="right"> 5.00 </TD> <TD align="right"> 4.00 </TD> <TD align="right"> 24.00 </TD> </TR>
   <TR> <TD align="right"> Started one </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 2.00 </TD> </TR>
-  <TR> <TD align="right"> Thought about it </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 2.00 </TD> <TD align="right"> 2.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 11.00 </TD> </TR>
-  <TR> <TD align="right"> Total </TD> <TD align="right"> 10.00 </TD> <TD align="right"> 8.00 </TD> <TD align="right"> 10.00 </TD> <TD align="right"> 6.00 </TD> <TD align="right"> 6.00 </TD> <TD align="right"> 40.00 </TD> </TR>
+  <TR> <TD align="right"> Thought about it </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 2.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 14.00 </TD> </TR>
+  <TR> <TD align="right"> Total </TD> <TD align="right"> 14.00 </TD> <TD align="right"> 10.00 </TD> <TD align="right"> 11.00 </TD> <TD align="right"> 9.00 </TD> <TD align="right"> 8.00 </TD> <TD align="right"> 52.00 </TD> </TR>
    </TABLE>
 
 </body>

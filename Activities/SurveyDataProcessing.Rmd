@@ -1,12 +1,15 @@
 Student Attitudes toward Online Courses
 ========================================================
 
+#### Daniel Kaplan, `r I(date())`
+
 The source file for this document is [here](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.Rmd).  You can copy this into your editor to get started.
 
 ### Stuff to include at the top of your file
 
 But you can take out the comments.  Just leave the R code in place.  Next year, perhaps, we'll package this up.
 ```{r include=FALSE}
+# Arrange data variable as in LikertToQuant
 fixCheckbox <- function(nm, data, alone=FALSE,...){
   if( missing(data)) stop("Must provide data= data frame.")
   nm = as.character(substitute(nm)) # convert first argument to a name
@@ -30,6 +33,17 @@ fixCheckbox <- function(nm, data, alone=FALSE,...){
     data[[nm]] <- NULL
     return( cbind(data,res))
   }
+}
+```
+```{r include=FALSE}
+
+LikertToQuant <- function(nm, data=parent.frame(), order, ...){
+  if( missing(order)) stop("Must give a numerical value for each level.")
+  nm = as.character(substitute(nm)) # convert first argument to a name
+  if( length(order) != length(levels(data[[nm]])))
+      stop("Must provide as many quantitative values as levels in the categorical")
+  newvar = order[as.numeric(data[[nm]])]
+  return(newvar)
 }
 ```
 
@@ -104,8 +118,27 @@ names( survey$Taken ) = c("Finished","Never","Started","Thought")
 names( survey$WouldConsider ) = c("4","3","5")
 ```
 
-**NOTE IN DEVELOPMENT** Write a function that will handle Likert variables nicely, including their ordinal properties.
+#### Likert Variables
 
+Some categorical variables are reasonably modeled as quantitative.  This is true particularly of Likert variables, the sort of ordinal scale from "strongly disagree" up through "strongly agree".
+
+The function `LikertToQuant()` lets you easily construct a numerical variable encoding the ordinal information in the categorical variable.
+
+The first step is to look at the order of the levels in the categorical variable, for instance,
+```{r}
+with(survey,levels(WouldConsider))
+```
+We're going to assign a numerical value of 0 to Neutral, -1 to Disagree, and so on.  Altogether, the five levels in the report will correspond to numerical values of 1, -1, 0, 2, -2.  Here's the creation of a new variable in the data frame with this numerical encoding
+```{r}
+survey = transform( survey, WouldConsiderQ=LikertToQuant(WouldConsider,order=c(1,-1,0,2,-2)))
+```
+
+Now you can model the Likert variable using the quantitative response techniques we have been studying.  For instance,
+```{r}
+anova(lm( WouldConsiderQ ~ Taken, data=survey ))
+```
+
+[Note in draft: Why not use the built-in ordinal features of factors?]
 
 ### Fixing Checkbox Data
 
@@ -119,6 +152,8 @@ The translation involves creating a new variable for each possible choice in the
 survey = fixCheckbox(TakenAP, data=survey)
 survey = fixCheckbox(CreditAP, data=survey)
 ```
+
+Note that `transform()` is not being used to create the new variables.  `fixCheckbox()` takes care of everything.
 
 Simple Displays of Answers
 ==============
