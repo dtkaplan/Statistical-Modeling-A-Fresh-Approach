@@ -153,4 +153,50 @@ coef(summary(lm(vote ~ spending, data=s)))
 coef(summary(lm(vote ~ spending+polls, data=s)))
 ```
 
-[It would be better to make spending orthogonal to polls.  There's no good way to do that in this simulation, except by setting the popularity and polls from one simulation when creating the next simulation.]
+### In-Class Activity
+
+An experiment with aspirin.
+
+#### For reference: An observational study
+
+```{r}
+obs = run.sim(aspirin, 500)
+```
+
+Construct a logistic equation model of stroke:
+```{r}
+mod = lm( stroke=="Y" ~ mgPerDay, data=obs )
+coef(summary(mod))
+mod2 = lm( stroke=="Y" ~ mgPerDay + sick, data=obs )
+coef(summary(mod2))
+```
+
+#### The Experimental Study
+
+(Have the students do this.)
+
+Create an experimental intervention:
+```{r}
+exper = run.sim(aspirin, 500, mgPerDay=c(0,100))
+```
+
+Now the analysis:
+```{r}
+emod = lm( stroke=="Y" ~ mgPerDay, data=exper )
+coef(summary(emod))
+emod2 = lm( stroke=="Y" ~ mgPerDay + sick, data=exper )
+coef(summary(emod2))
+```
+
+The two models give the same result.  The second model, depending on measuring and using the covariate `sick`, doesn't change the result, but it does eat up deviance (the logistic equivalent of variance)
+
+### Creating Orthogonality (Still in Draft)
+
+[Need to write some blocking software that can create an intervention that's orthogonal to a set of covariates]
+
+It would be better to make spending orthogonal to polls.  There's no good way to do that in this simulation, except by setting the popularity and polls from one simulation when creating the next simulation.
+
+```{r}
+# Get the poll data.  This involve
+prelim = run.sim(campaign.spending, 100)
+```

@@ -489,7 +489,77 @@ coef(summary(lm(vote ~ spending, data = s)))
 ## polls         0.7301   0.012373  59.011 1.185e-226
 </code></pre>
 
-<p>[It would be better to make spending orthogonal to polls.  There&#39;s no good way to do that in this simulation, except by setting the popularity and polls from one simulation when creating the next simulation.]</p>
+<h3>In-Class Activity</h3>
+
+<p>An experiment with aspirin.</p>
+
+<h4>For reference: An observational study</h4>
+
+<pre><code class="r">obs = run.sim(aspirin, 500)
+</code></pre>
+
+<p>Construct a logistic equation model of stroke:</p>
+
+<pre><code class="r">mod = lm(stroke == &quot;Y&quot; ~ mgPerDay, data = obs)
+coef(summary(mod))
+</code></pre>
+
+<pre><code>##               Estimate Std. Error t value  Pr(&gt;|t|)
+## (Intercept)  0.3060503  0.0353370  8.6609 6.554e-17
+## mgPerDay    -0.0002174  0.0006233 -0.3488 7.274e-01
+</code></pre>
+
+<pre><code class="r">mod2 = lm(stroke == &quot;Y&quot; ~ mgPerDay + sick, data = obs)
+coef(summary(mod2))
+</code></pre>
+
+<pre><code>##              Estimate Std. Error t value  Pr(&gt;|t|)
+## (Intercept)  0.196663  0.0245781   8.002 8.728e-15
+## mgPerDay    -0.003238  0.0004443  -7.287 1.252e-12
+## sick         0.098743  0.0041377  23.864 1.925e-84
+</code></pre>
+
+<h4>The Experimental Study</h4>
+
+<p>(Have the students do this.)</p>
+
+<p>Create an experimental intervention:</p>
+
+<pre><code class="r">exper = run.sim(aspirin, 500, mgPerDay = c(0, 100))
+</code></pre>
+
+<p>Now the analysis:</p>
+
+<pre><code class="r">emod = lm(stroke == &quot;Y&quot; ~ mgPerDay, data = exper)
+coef(summary(emod))
+</code></pre>
+
+<pre><code>##             Estimate Std. Error t value  Pr(&gt;|t|)
+## (Intercept)  0.40400  0.0276437  14.615 1.653e-40
+## mgPerDay    -0.00236  0.0003909  -6.037 3.076e-09
+</code></pre>
+
+<pre><code class="r">emod2 = lm(stroke == &quot;Y&quot; ~ mgPerDay + sick, data = exper)
+coef(summary(emod2))
+</code></pre>
+
+<pre><code>##              Estimate Std. Error t value  Pr(&gt;|t|)
+## (Intercept)  0.229622  0.0220955  10.392 5.040e-23
+## mgPerDay    -0.002835  0.0002892  -9.803 7.384e-21
+## sick         0.085480  0.0041774  20.462 5.890e-68
+</code></pre>
+
+<p>The two models give the same result.  The second model, depending on measuring and using the covariate <code>sick</code>, doesn&#39;t change the result, but it does eat up deviance (the logistic equivalent of variance)</p>
+
+<h3>Creating Orthogonality (Still in Draft)</h3>
+
+<p>[Need to write some blocking software that can create an intervention that&#39;s orthogonal to a set of covariates]</p>
+
+<p>It would be better to make spending orthogonal to polls.  There&#39;s no good way to do that in this simulation, except by setting the popularity and polls from one simulation when creating the next simulation.</p>
+
+<pre><code class="r"># Get the poll data.  This involve
+prelim = run.sim(campaign.spending, 100)
+</code></pre>
 
 </body>
 
