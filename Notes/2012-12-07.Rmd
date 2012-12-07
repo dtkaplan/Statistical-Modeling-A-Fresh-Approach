@@ -5,6 +5,26 @@ Stats 155 Class Notes 2012-12-07
 # boilerplate
 ```
 
+
+
+#### Quote for the Day: 
+
+> "Theorie ist, wenn man alles weiss, aber nichts funktioniert. Praxis ist, wenn alles funktioniert, aber niemand weiss warum. Hier ist Theorie und Praxis vereint: nichts funktioniert… und niemand weiss wieso!" --- **Albert Einstein**
+
+
+
+#### Back to work ...
+
+For later use:
+```{r}
+fetchData("survey-processing.R")
+fetchData("simulate.r")
+```
+The survey processing software includes `fixCheckbox` and `LikertToQuant`.
+We'll work with these a bit later in the class.
+
+### A Scientific Question
+
 In his graduate work at the University of Fairbanks, Alaska, [Mike Anderson](http://www.macalester.edu/~andersonm/) studied [nitrogen fixing](http://en.wikipedia.org/wiki/Nitrogen_fixation) by bacteria. 
 
 He writes:
@@ -106,15 +126,105 @@ anova( lm( rank(SNF)~RF+PERH2O+ONECM+FIVECM+SAMPPER, data=alder))
 anova( lm( rank(SNF)~RF+SAMPPER+FIVECM+ONECM+PERH2O, data=alder))
 ```
 
+Which is it?  Is the water important or not?
+
+Alas, this same problem appears with `RF` itself.
+```{r}
+anova( lm( rank(SNF)~RF+PERH2O+ONECM+FIVECM+SAMPPER, data=alder))
+anova( lm( rank(SNF)~PERH2O+ONECM+FIVECM+SAMPPER+RF, data=alder))
+```
+
+#### DISCUSSION: So is `RF` important or not?
+1. There's evidence to support a claim that `RF` is related to nitrogen fixing.
+2. There's evidence to support a claim that `RF` is not directly related to nitrogen fixing.
+3. In everyday language, what is it about the biological/ecological/geological situation that creates the ambiguity? [That RF depends on `SITE` and `SITE` is strongly related to water, temperature, ...]
+4. Construct a model or other statistical analysis that supports your hypothesis in (3).
+
+There's probably no compelling way to resolve the ambiguity about `RF` from these data.  You can construct a theory in the form of a model of how the system works and then construct your model based on the theory, blocking backdoor pathways as appropriate.  But, as Einstein said: 
+
+**A theory is something nobody believes, except the person who made it.**
+
+Much more convincing to construct an experiment.  How might this be done with the alder situation?  
+* Not clear!
+* Try to innoculate the area with one bacterium or another?
+* Change the water?  The soil temperature?
+* Given that we have reason to believe that location, water, temperature, etc. are important, we will want to arrange the different bacteria so that the space spanned by the variable is as orthogonal as possible to the quantities we measure.
+
+Review blocking in this context: Divide up the plots into groups.  Within each group, all the plots are similar. Then randomly assign the bacteria (or water, or soil temperature) within each block.
+
+To give the whole of Einstein's quote:
+**A theory is something nobody believes, except the person who made it. An experiment is something everybody believes, except the person who made it.**
+
+The Aspirin Experiment
+-------------------
+
+First, a preliminary observational study of 1000 people.
+```{r}
+Obs = run.sim(aspirin,1000)
+coef(summary( glm( stroke=="Y" ~ mgPerDay, data=Obs, family="binomial")))
+coef(summary( glm( stroke=="Y" ~ mgPerDay + sick, data=Obs, family="binomial")))
+```
+Without including the covariate `sick`, we can't see any effect of aspirin.  With sick in place, it looks like aspirin is somewhat protective.
+
+QUESTION: How does aspirin change the odds of having a stroke?  [Ans. : Pick a dosage for aspirin, multiply by the coefficient, and undo the log.]
+
+But we're going to run into problems with getting people to accept the results of this study:
+* They will argue that some other variable might be at work.
+* They will challenge how we measure `sick` in practice.
+* They will say that the study is overly simplistic.
+
+Questions we can answer without problem: 
+* Is there evidence for a relationship?
+* Is the magnitude of the relationship substantial?
+
+But to convince people, let's do an experiment.
+
+Step 1: Decide what dose to give people.  
+Step 2: Run the experiment:
+
+```{r}
+Ex = run.sim( aspirin, 1000, mgPerDay=c(0,100))
+coef(summary( glm( stroke=="Y" ~ mgPerDay, data=Ex, family="binomial")))
+coef(summary( glm( stroke=="Y" ~ mgPerDay + sick, data=Ex, family="binomial")))
+```
+
+The coefficient changes.  In a linear model, it wouldn't change this much.  But nonlinear models are more complicated.
+
+Is there evidence for an interaction?
+```{r}
+coef(summary( glm( stroke=="Y" ~ mgPerDay * sick, data=Ex, family="binomial")))
+```
+Nah.
+
+The experiment is pretty clean.  We could have used many fewer people: smaller $n$.
 
 ### Intent to Treat
 
-### Instrumental Variables
+In reality, we're not going to have perfect compliance with our instructions.  Some people given a placebo will take aspirin anyways.  Some people won't take their aspirin.
 
-### Matching and Propensity Scores
+To simulate this, we'll tell the program to add in an influence without severing the connection from `sick` to `mgPerDay`.
 
+```{r}
+experiment.size=200
+influence = resample( c(30,70), experiment.size)
+Ex2 = run.sim( aspirin, experiment.size, mgPerDay=influence, inject=TRUE )
+```
+Show that with `inject=TRUE`, the values of `mgPerDay` reflect both the input and the variable `sick`
 
-### Review of Power and the Alternative Hypothesis
+Now build the model:
+```{r}
+coef(summary( glm( stroke=="Y" ~ mgPerDay, data=Ex2, family="binomial")))
+coef(summary( glm( stroke=="Y" ~ mgPerDay + sick, data=Ex2, family="binomial")))
+```
 
-In-class activity on [the power of vitamin D](https**://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
+The result is still ambiguous.  (A larger experiment would fix this)
+
+**Intent to treat** means to use the assigned values rather than the measured values.
+
+```{r}
+coef(summary( glm( stroke=="Y" ~ influence, data=Ex2, family="binomial")))
+coef(summary( glm( stroke=="Y" ~ influence + sick, data=Ex2, family="binomial")))
+```
+
+This idea of using **intent** rather than the actual treatment is counter-intuitive.  But it's easily understood in terms of the causal diagrams.  There's no back-door pathway from **intent** to **stroke**.
 

@@ -5,9 +5,18 @@ Stats 155 Class Notes 2012-12-10
 # boilerplate
 ```
 
-Rank transform?
+### For Monday
 
-Order dependence?
 
-Propensity score?
+
+### Instrumental Variables
+
+### Matching and Propensity Scores
+
+
+### Review of Power and the Alternative Hypothesis
+
+In-class activity on [the power of vitamin D](https**://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
+
+
 
