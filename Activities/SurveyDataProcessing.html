@@ -180,7 +180,7 @@ hljs.initHighlightingOnLoad();
 <body>
 <h1>Student Attitudes toward Online Courses</h1>
 
-<h4>Daniel Kaplan, Wed Dec  5 09:29:15 2012</h4>
+<h4>Daniel Kaplan, Fri Dec  7 15:51:39 2012</h4>
 
 <p>The source file for this document is <a href="http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.Rmd">here</a>.  You can copy this into your editor to get started.</p>
 
@@ -258,24 +258,29 @@ names(survey)[22] = &quot;MinutesSpent&quot;
 
 <p>As with the column names, you may find that the variable levels assigned by Google Forms are too verbose. For example:</p>
 
-<pre><code class="r">levels(survey$Taken)
+<pre><code class="r">tally(~Taken, data = survey)
 </code></pre>
 
-<pre><code>## [1] &quot;Finished one&quot;        &quot;Never considered it&quot; &quot;Started one&quot;        
-## [4] &quot;Thought about it&quot;
-</code></pre>
-
-<pre><code class="r">levels(survey$WouldConsider)
-</code></pre>
-
-<pre><code>## [1] &quot;Agree&quot;             &quot;Disagree&quot;          &quot;Neutral&quot;          
-## [4] &quot;Strongly agree&quot;    &quot;Strongly disagree&quot;
+<pre><code>## 
+##        Finished one Never considered it         Started one 
+##                  12                  25                   2 
+##    Thought about it               Total 
+##                  14                  53
 </code></pre>
 
 <p>You can shorten them using statements like this.  Again, be sure to put the quotations inside the <code>c()</code> in the same order.</p>
 
-<pre><code class="r">names(survey$Taken) = c(&quot;Finished&quot;, &quot;Never&quot;, &quot;Started&quot;, &quot;Thought&quot;)
-names(survey$WouldConsider) = c(&quot;4&quot;, &quot;3&quot;, &quot;5&quot;)
+<pre><code class="r">levels(survey$Taken) = c(&quot;Finished&quot;, &quot;Never&quot;, &quot;Started&quot;, &quot;Thought&quot;)
+</code></pre>
+
+<p>Make sure to test that your statement gave good results, e.g.</p>
+
+<pre><code class="r">tally(~Taken, data = survey)
+</code></pre>
+
+<pre><code>## 
+## Finished    Never  Started  Thought    Total 
+##       12       25        2       14       53
 </code></pre>
 
 <h4>Likert Variables</h4>
@@ -308,8 +313,8 @@ names(survey$WouldConsider) = c(&quot;4&quot;, &quot;3&quot;, &quot;5&quot;)
 ## 
 ## Response: WouldConsiderQ
 ##           Df Sum Sq Mean Sq F value Pr(&gt;F)  
-## Taken      3    7.9    2.64    3.04  0.038 *
-## Residuals 48   41.8    0.87                 
+## Taken      3    6.3   2.111     2.2    0.1 .
+## Residuals 49   47.0   0.959                 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 </code></pre>
@@ -350,10 +355,8 @@ survey = fixCheckbox(CreditAP, data = survey)
 </code></pre>
 
 <pre><code>## 
-##        Finished one Never considered it         Started one 
-##                  12                  24                   2 
-##    Thought about it               Total 
-##                  14                  52
+## Finished    Never  Started  Thought    Total 
+##       12       25        2       14       53
 </code></pre>
 
 <pre><code class="r">tally(~MacLang, data = survey)
@@ -361,7 +364,7 @@ survey = fixCheckbox(CreditAP, data = survey)
 
 <pre><code>## 
 ## Absolutely     Likely         No   Possibly   Unlikely      Total 
-##         14         10         11          9          8         52
+##         14         11         11          9          8         53
 </code></pre>
 
 <p>If you would prefer to have the results formatted more nicely, try this:</p>
@@ -371,15 +374,15 @@ survey = fixCheckbox(CreditAP, data = survey)
 
 <!-- html table generated in R 2.15.1 by xtable 1.7-0 package -->
 
-<!-- Wed Dec  5 09:29:18 2012 -->
+<!-- Fri Dec  7 15:51:41 2012 -->
 
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> V1 </TH>  </TR>
-  <TR> <TD align="right"> Finished one </TD> <TD align="right"> 12.00 </TD> </TR>
-  <TR> <TD align="right"> Never considered it </TD> <TD align="right"> 24.00 </TD> </TR>
-  <TR> <TD align="right"> Started one </TD> <TD align="right"> 2.00 </TD> </TR>
-  <TR> <TD align="right"> Thought about it </TD> <TD align="right"> 14.00 </TD> </TR>
-  <TR> <TD align="right"> Total </TD> <TD align="right"> 52.00 </TD> </TR>
+  <TR> <TD align="right"> Finished </TD> <TD align="right"> 12.00 </TD> </TR>
+  <TR> <TD align="right"> Never </TD> <TD align="right"> 25.00 </TD> </TR>
+  <TR> <TD align="right"> Started </TD> <TD align="right"> 2.00 </TD> </TR>
+  <TR> <TD align="right"> Thought </TD> <TD align="right"> 14.00 </TD> </TR>
+  <TR> <TD align="right"> Total </TD> <TD align="right"> 53.00 </TD> </TR>
    </TABLE>
 
 <pre><code class="r">xtable(tally(~Taken + MacLang, data = survey))
@@ -387,15 +390,15 @@ survey = fixCheckbox(CreditAP, data = survey)
 
 <!-- html table generated in R 2.15.1 by xtable 1.7-0 package -->
 
-<!-- Wed Dec  5 09:29:18 2012 -->
+<!-- Fri Dec  7 15:51:41 2012 -->
 
 <TABLE border=1>
 <TR> <TH>  </TH> <TH> Absolutely </TH> <TH> Likely </TH> <TH> No </TH> <TH> Possibly </TH> <TH> Unlikely </TH> <TH> Total </TH>  </TR>
-  <TR> <TD align="right"> Finished one </TD> <TD align="right"> 5.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 12.00 </TD> </TR>
-  <TR> <TD align="right"> Never considered it </TD> <TD align="right"> 6.00 </TD> <TD align="right"> 4.00 </TD> <TD align="right"> 5.00 </TD> <TD align="right"> 5.00 </TD> <TD align="right"> 4.00 </TD> <TD align="right"> 24.00 </TD> </TR>
-  <TR> <TD align="right"> Started one </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 2.00 </TD> </TR>
-  <TR> <TD align="right"> Thought about it </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 2.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 14.00 </TD> </TR>
-  <TR> <TD align="right"> Total </TD> <TD align="right"> 14.00 </TD> <TD align="right"> 10.00 </TD> <TD align="right"> 11.00 </TD> <TD align="right"> 9.00 </TD> <TD align="right"> 8.00 </TD> <TD align="right"> 52.00 </TD> </TR>
+  <TR> <TD align="right"> Finished </TD> <TD align="right"> 5.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 12.00 </TD> </TR>
+  <TR> <TD align="right"> Never </TD> <TD align="right"> 6.00 </TD> <TD align="right"> 5.00 </TD> <TD align="right"> 5.00 </TD> <TD align="right"> 5.00 </TD> <TD align="right"> 4.00 </TD> <TD align="right"> 25.00 </TD> </TR>
+  <TR> <TD align="right"> Started </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 0.00 </TD> <TD align="right"> 1.00 </TD> <TD align="right"> 2.00 </TD> </TR>
+  <TR> <TD align="right"> Thought </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 2.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 3.00 </TD> <TD align="right"> 14.00 </TD> </TR>
+  <TR> <TD align="right"> Total </TD> <TD align="right"> 14.00 </TD> <TD align="right"> 11.00 </TD> <TD align="right"> 11.00 </TD> <TD align="right"> 9.00 </TD> <TD align="right"> 8.00 </TD> <TD align="right"> 53.00 </TD> </TR>
    </TABLE>
 
 </body>

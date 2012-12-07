@@ -109,13 +109,15 @@ I've used `Duplicate#` to identify the zombie columns.  If it happens that some 
 
 As with the column names, you may find that the variable levels assigned by Google Forms are too verbose. For example:
 ```{r}
-levels( survey$Taken )
-levels( survey$WouldConsider)
+tally( ~Taken, data=survey)
 ```
 You can shorten them using statements like this.  Again, be sure to put the quotations inside the `c()` in the same order.
 ```{r}
-names( survey$Taken ) = c("Finished","Never","Started","Thought")
-names( survey$WouldConsider ) = c("4","3","5")
+levels( survey$Taken ) = c("Finished","Never","Started","Thought")
+```
+Make sure to test that your statement gave good results, e.g.
+```{r}
+tally( ~ Taken, data=survey )
 ```
 
 #### Likert Variables
