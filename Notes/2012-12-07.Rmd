@@ -5,6 +5,108 @@ Stats 155 Class Notes 2012-12-07
 # boilerplate
 ```
 
+In his graduate work at the University of Fairbanks, Alaska, [Mike Anderson](http://www.macalester.edu/~andersonm/) studied [nitrogen fixing](http://en.wikipedia.org/wiki/Nitrogen_fixation) by bacteria. 
+
+He writes:
+> My dissertation research centers on symbiotic interactions between alder plants (*Alnus spp.*) and nitrogen-fixing *Frankia* bacteria on the 100-mile-wide floodplain of the Tanana River near Fairbanks. In this area the symbiosis with *Frankia* allows alder to colonize newly-formed river terraces, which are very low in soil nitrogen (N). The competitive edge provided to alder by Frankia during this process is short-lived, however, because the alders quickly enhance the availability of N in the soil, which helps other plant species colonize these sites. Large changes in the community and ecosystem follow over the next ~150 years, which changes the environmental context of the relationship between alder and Frankia. How this relationship responds to these changes is the subject of my dissertation research.
+
+One question in his research is how genetic variation in *Frankia* influences the amount of of nitrogen in the soil.  With great effort, he collected data, which we have in the `alder.csv` data set.
+```{r}
+alder = fetchData("alder.csv")
+```
+
+Of particular interest to us today are these variables:
+* `SNF`: specific nitrogen fixation
+* `RF`: the genetic characterization of the bacteria by restriction fragmentation (thus, "RF")
+* `ONECM`: the temperature measured at 1cm soil depth
+* `FIVECM`: the temperature measured at 5cm soid depth
+* `PERH20`: the percentage of the soil that's water
+* `SITE`: an identifier for the site location
+* `LAND`: the type of the site
+* `SAMPPER`: the time in the season when the information was collected.  A specific Julian calendar day is given by `JULDAY`
+
+
+Let's do a simple test of whether nitrogen fixation is related to the genetic classification of the bacteria:
+```{r}
+anova( lm( SNF ~ RF, data=alder))
+```
+
+Questions:
+* How many cases were there?
+* How many levels of the genetic classification were there?
+
+It's always sensible to look at the distribution of your data.  For instance:
+```{r out.height=2}
+bwplot( SNF ~ RF, data=alder )
+```
+
+I'm a little bit concerned here about the outliers.  Maybe they are skewing the results.  Perhaps a single point is being overly influential.
+
+Easy to find out: We'll construct the sampling distribution of F by randomization:
+```{r cache=TRUE}
+s = do(1000)*anova( lm( SNF ~ shuffle(RF), data=alder))[1,4]
+tally( ~ result > 4.8, data=s)
+```
+
+This is a similar result to what we got parametrically, that is, using the F distribution from theory.
+
+When in doubt about whether a result is being influenced by outliers, you can do the parametric test on the **rank** of the data.
+
+ACTIVITY: 
+* Show that the rank has a uniform distribution
+* Make a boxplot and a conditional density plot of the rank SNF
+
+Here's the result on the rank:
+```{r}
+anova( lm( rank(SNF) ~ RF+PERH20, data=alder))
+```
+
+Is this p-value right?  We can check it by randomization:
+```{r cache=TRUE}
+s = do(1000)*anova( lm( rank(SNF) ~ shuffle(RF), data=alder))[1,4]
+tally( ~ result > 1.9538, data=s)
+```
+Very close!
+
+QUESTION: How should I decide if the result is close to 0.087?
+
+There are other transformations that can be used.  Economists often use the logarithm, which makes sense for prices.  Biologists sometimes use logs or square roots, and for proportions they use arc-sines.  The rank is a good general-purpose solution.  It's really only an issue if there are outliers.
+
+Let's stick with the rank and see if we can improve the p-value a bit by including covariates.  Maybe water and soil temperature have an effect?
+```{r}
+anova( lm( rank(SNF)~RF+PERH2O, data=alder ))
+```
+Water is clearly important!  But it didn't eat up so much variance that it makes `RF` look much better.
+
+```{r}
+anova( lm( rank(SNF)~RF+ONECM, data=alder))
+```
+Same story.
+
+```{r}
+anova( lm( rank(SNF)~RF+FIVECM, data=alder))
+```
+
+Why not try both temperatures?  Compare these two ANOVA reports
+```{r}
+anova( lm( rank(SNF)~RF+ONECM+FIVECM, data=alder))
+anova( lm( rank(SNF)~RF+FIVECM+ONECM, data=alder))
+```
+
+Maybe the time in the season?
+```{r}
+anova( lm( rank(SNF)~RF+ONECM+FIVECM+SAMPPER, data=alder))
+anova( lm( rank(SNF)~RF+SAMPPER+FIVECM+ONECM, data=alder))
+```
+
+And the water?
+Maybe the time in the season?
+```{r}
+anova( lm( rank(SNF)~RF+PERH2O+ONECM+FIVECM+SAMPPER, data=alder))
+anova( lm( rank(SNF)~RF+SAMPPER+FIVECM+ONECM+PERH2O, data=alder))
+```
+
+
 ### Intent to Treat
 
 ### Instrumental Variables

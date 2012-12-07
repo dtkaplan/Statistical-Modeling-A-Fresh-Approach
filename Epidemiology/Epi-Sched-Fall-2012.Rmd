@@ -151,7 +151,7 @@ Thanksgiving Break!
     * "The Bell Curve"
     * "For Performance"
 * Goldhill, ["How American Health Care Killed My Father"](http://dl.dropbox.com/u/5098197/Epidemiology/HowHealthCareKilledMyFather.pdf)
-* The Cost Cunundrum
+* [The Cost Cunundrum](http://www.newyorker.com/reporting/2009/06/01/090601fa_fact_gawande)
 * Bio-ethicist [Peter Singer](http://en.wikipedia.org/wiki/Peter_Singer) on [QALYs: Why we must ration health care](http://www.nytimes.com/2009/07/19/magazine/19healthcare-t.html?_r=1&pagewanted=all).
 * [QALYs on Wikipedia](http://dl.dropbox.com/u/5098197/Epidemiology/qaly-method.pdf)
 

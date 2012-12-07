@@ -1,13 +1,11 @@
 Instructors' Resources for Teaching Statistical Modeling
 ========================================================
 
-NOTE: This document is being constructed over the course of the Fall 2012 semester.  Check back for updates!
 
 ### Day-by-Day Syllabus for Statistical Modeling
 
-* **CURRENT SEMESTER** Fall 2012: [Math 155 at Macalester College](Fall2012/Schedule.html) including instructor notes.
-* Past Semesters
-    * [Spring 2011](http://test.causeweb.org/wiki/mosaic/index.php/Math_155_Kaplan_Spring_2011_Day-by-Day) on the MOSAIC wiki.
+[Math 155 at Macalester College](Fall2012/Schedule.html) including detailed instructor notes.
+
 
 ### Exercises
 ``` {r echo=FALSE}

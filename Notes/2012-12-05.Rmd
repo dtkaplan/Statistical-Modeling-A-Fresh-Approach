@@ -29,7 +29,7 @@ Plot out the density broken down by posture and a bwplot.
 
 Now, the model:
 ```{r}
-coef(summary( lm( HR940 ~ Posture, data=s)))
+coef(summary( lm( HR1050 ~ Posture, data=s)))
 ```
 
 ### Improving the Experiment
