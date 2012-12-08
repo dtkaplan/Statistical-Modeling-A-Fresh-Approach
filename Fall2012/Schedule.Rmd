@@ -25,9 +25,11 @@ PN <- function(probs){
 }
 ```
 
-Links: AcroScore [accounts](https://moodle.macalester.edu/mod/assign/view.php?id=12216) and [settings](http://datavis.math.macalester.edu:8080/AcroScore08/) : Assignments by Chapter `r I(acroChapter(chap=1))`, `r I(acroChapter(chap=2))`, `r I(acroChapter(chap=3))`, `r I(acroChapter(chap=4))`, `r I(acroChapter(chap=5))`, `r I(acroChapter(chap=6))`, `r I(acroChapter(chap=7))`, `r I(acroChapter(chap=8))`, `r I(acroChapter(chap=9))`, `r I(acroChapter(chap=10))`, `r I(acroChapter(chap=11))`, `r I(acroChapter(chap=12))`, `r I(acroChapter(chap=13))`, `r I(acroChapter(chap=14))`, `r I(acroChapter(chap=15))`, `r I(acroChapter(chap=16))`, `r I(acroChapter(chap=17))`, `r I(acroChapter(chap=18))`
+Links: AcroScore [accounts](https://moodle.macalester.edu/mod/assign/view.php?id=12216) and [settings](http://datavis.math.macalester.edu:8080/AcroScore08/) 
 
-Chapter Problems with Answers: [1](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A-fbe4d15146.html?access=ISMf12), [2](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A-52fd1cbcb6.html?access=ISMf12), [3](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A-66968bea40.html?access=ISMf12), [4](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A-c552bde8e6.html?access=ISMf12), [5](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems-A/SM2-Chapter-5-Problems-A-6adcf01626.html?access=ISMf12), [6](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A-c0a1e77c23.html?access=ISMf12), [7](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A-52198c7aaa.html?access=ISMf12), [8](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A-b95d0bc5e4.html?access=ISMf12), [9](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A-be59bbb3bf.html?access=ISMf12), [10](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A-7f494807e6.html?access=ISMf12)
+Assignments by Chapter `r I(acroChapter(chap=1))`, `r I(acroChapter(chap=2))`, `r I(acroChapter(chap=3))`, `r I(acroChapter(chap=4))`, `r I(acroChapter(chap=5))`, `r I(acroChapter(chap=6))`, `r I(acroChapter(chap=7))`, `r I(acroChapter(chap=8))`, `r I(acroChapter(chap=9))`, `r I(acroChapter(chap=10))`, `r I(acroChapter(chap=11))`, `r I(acroChapter(chap=12))`, `r I(acroChapter(chap=13))`, `r I(acroChapter(chap=14))`, `r I(acroChapter(chap=15))`, `r I(acroChapter(chap=16))`, `r I(acroChapter(chap=17))`, `r I(acroChapter(chap=18))`
+
+Chapter Problems with Answers: [1](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A-fbe4d15146.html?access=ISMf12), [2](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A-52fd1cbcb6.html?access=ISMf12), [3](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A-66968bea40.html?access=ISMf12), [4](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A-c552bde8e6.html?access=ISMf12), [5](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems-A/SM2-Chapter-5-Problems-A-6adcf01626.html?access=ISMf12), [6](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A-c0a1e77c23.html?access=ISMf12), [7](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A-52198c7aaa.html?access=ISMf12), [8](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A-b95d0bc5e4.html?access=ISMf12), [9](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A-be59bbb3bf.html?access=ISMf12), [10](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A-7f494807e6.html?access=ISMf12), [11](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A-1853ee9d84.html?access=ISMf12), [12](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A-072a06d63c.html?access=ISMf12), [13](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-13-Problems-A-6d55c1fdaf.html/access=ISMf12), [14](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A-07c06edc61.html?access=ISMf12), [15](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-15-Problems/SM2-Chapter-15-Problems-A-09150dcdd7.html?access=ISMf12), [16](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-16-Problems/SM2-Chapter-16-Problems-A-0016af6074.html?access=ISMf12), [17](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-17-Problems/SM2-Chapter-17-Problems-A-63d8e03bf3.html?access=ISMf12)
 
  
 
@@ -63,21 +65,35 @@ todaysNotes <- function(fname,marker="notes") {
 ### Upcoming Class Days
 
 
+`r I(classDayContents("Fri", "Dec", 7 ))`
+**Topic**: Experiment and Design
 
-`r I(classDayContents("Mon", "Nov", 19 ))`
-**Topic**: Odds Ratios and Logistic regression
+**Reading**: SM Ch. 18
 
-**Reading**: SM Ch. 16
+**Assignment**:
+* Car Prices Revisited. 
+    Back in September, you made an analysis of used-car prices. [Here's a link to the original report site on Moodle.](https://moodle.macalester.edu/mod/assign/view.php?id=20907&action=grading).  You, individually, not as a group, should review that report and re-evaluate your claims using the tools you have learned since then: confidence intervals, hypothesis testing, and so on.  **This should not be a lot of work.** You don't need to discover new things about car prices, just review your old claims.  It's perfectly fine to conclude that your previous claims are not supported by the evidence. 
 
-**Notes**: `r I(todaysNotes("2012-11-19.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-19-class)
+    You can write your report either on Google Docs (handing in a link to your document after making **absolutely sure** that you have shared the document with "anyone with the link."  You can also write your new report in R/Markdown for 5 points extra credit --- see the instructions [here](http://rpubs.com/dtkaplan/3129) and the [sample .Rmd document that you can copy as a starting point](../Activities/used-cars-redux.Rmd).
 
-`r I(classDayContents("Wed", "Nov", 21 ))`
-**Topic**: Power and the Alternative Hypothesis
+    Hand in your **individual** report [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=28870)
 
-**Notes**: `r I(todaysNotes("2012-11-21.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-21-class)
+**Notes**: `r I(todaysNotes("2012-12-07.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-07-class)
 
-`r I(classDayContents("Fri", "Nov", 23 ))`
-*THANKSGIVING BREAK*
+`r I(classDayContents("Mon", "Dec", 10 ))`
+**Topic**: Experiment and Design
+
+**Reading**: SM Ch. 18
+
+**Assignment**: 
+* Exercises from Chapter 15 onward
+* Revisions to quizzes due.
+* Hand in analysis and report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) by putting links [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773).
+* Hand in Mac-Weekly style report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773). (before end of exam period)
+
+**In Class**: [End-of-semester course survey](https://docs.google.com/spreadsheet/viewform?formkey=dGk5bzVXbUpXRlNtN3N1ZEMwUl9jeXc6MQ).  
+
+**Notes**: `r I(todaysNotes("2012-12-10.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-10-class)
 
 
 -----------------
@@ -107,95 +123,6 @@ This is a good time to start to review.  As we explore these new contexts, do th
 ### Review Problems 
 
 To be posted.  You don't need to hand these in.
-
-`r I(classDayContents("Mon", "Nov", 26 ))`
-**Topic**: Power. Logistic Regression.
-
-**Reading**: 
-* SM Ch. 16
-
-**Assignment**: 
-* Finally! Problem [14.12](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Problem-14.12/SM2-Problem-14.12-A.html?access=ISMf12)
-* `r I(PN(c("16RQ",1601,1602,1604)))` Due on Dec 10
-
-**In Class**:
-* [Writing up your survey project in R/Markdown](http://rpubs.com/dtkaplan/survey-writeup-R-Markdown)
-
-**On Your Own**:
-* [Why most published research findings are false](http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124)
-
-**Notes**: `r I(todaysNotes("2012-11-26.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-26-class)
-
-
-
-`r I(classDayContents("Wed", "Nov", 28 ))`
-**Topic**: Causation
-
-**Reading**: 
-* SM Ch. 17
-* [XKCD cartoon](http://xkcd.com/925/)
-
-**Assignment**: `r I(PN(c(1605,1610,1612)))` Due on Dec 10
-
-**In-Class**: [The Power of Vitamin D](https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
-
-**Notes**: `r I(todaysNotes("2012-11-29.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-28-class)
-
-
-
-`r I(classDayContents("Fri", "Nov", 30 ))`
-**Topic**: Causation
-
-**Reading**: 
-* SM Ch. 17
-* [XKCD cartoon](http://xkcd.com/552/)
-
-**Assignment**: `r I(PN(c("17RQ",1701,1702,1705)))` Due on Dec 10
-
-**In Class**: Weekly Quiz
-
-**Notes**: `r I(todaysNotes("2012-11-30.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-30-class)
-
-
-`r I(classDayContents("Mon", "Dec", 3 ))`
-**Topic**: Causation
-
-**Reading**: SM Ch. 17 and [XKCD cartoon](http://xkcd.com/687/)
-
-**Assignment**: `r I(PN(c(1706,1707,1708,1710)))`
-
-**In Class**: 
-* Processing Google Form survey data in R. [Notes](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.html) and the [Rmd file](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.Rmd).
-* [The survey link itself](https://docs.google.com/spreadsheet/viewform?formkey=dGttU3V6cXlkcmRkclZTLVlwNGlCQVE6MQ): Send it to your Mac friends!
-
-**Notes**: `r I(todaysNotes("2012-12-03.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-03-class)
-
-`r I(classDayContents("Wed", "Dec", 5 ))`
-**Topic**: Experiment and Design
-
-**Reading**: SM Ch. 18
-
-**Notes**: `r I(todaysNotes("2012-12-05.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-05-class)
-
-`r I(classDayContents("Fri", "Dec", 7 ))`
-**Topic**: Experiment and Design
-**Reading**: SM Ch. 18
-**Assignment**:
-**Notes**: `r I(todaysNotes("2012-12-07.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-07-class)
-
-`r I(classDayContents("Mon", "Dec", 10 ))`
-**Topic**: Experiment and Design
-**Reading**: SM Ch. 18
-**Assignment**: 
-* Exercises from Chapter 15 onward
-* Revisions to quizzes due.
-**Assignment**:
-* Hand in analysis and report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) by putting links [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773).
-* Hand in Mac-Weekly style report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773). (before end of exam period)
-
-**In Class**: [End-of-semester course survey](https://docs.google.com/spreadsheet/viewform?formkey=dGk5bzVXbUpXRlNtN3N1ZEMwUl9jeXc6MQ).  
-
-**Notes**: `r I(todaysNotes("2012-12-10.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-10-class)
 
 
 
@@ -378,6 +305,7 @@ Friday Quiz
 
 `r I(classDayContents("Wed", "Sept", 26 ))`
 **Topic**: Formulas and Coefficients
+
 **Reading**: 
 * SM §7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9
 * [XKCD cartoon](http://xkcd.com/605/)
@@ -395,8 +323,11 @@ Friday Quiz
 
 `r I(classDayContents("Fri", "Sept", 28 ))`
 **Topic**: Fitting and Least Squares
+
 **Reading**: SM §7.10, SM §8.1, 8.2 
+
 **Assignment**: `r I(PN(c(714,716,721,722, 731, 801)))`
+
 **In Class**: Weekly Quiz
 
 **Notes**: `r I(todaysNotes("2012-09-28.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-28-class)
@@ -404,8 +335,11 @@ Friday Quiz
 
 `r I(classDayContents("Mon", "Oct", 1 ))`
 **Topic**: Geometry of Least Squares Fitting
+
 **Reading**: SM §8.3
+
 **Assignment**: `r I(PN(c(802, 804, 805, 811)))`
+
 **In Class**: 
 * Help write the R crib sheet for Math 155.  Tell us your coolest or hardest to remember R command.  Enter [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=21540)
 * [Case versus Variable Spaces](https://dl.dropbox.com/u/5098197/ISM/case-vs-variable-space.pdf)
@@ -414,29 +348,42 @@ Friday Quiz
 
 `r I(classDayContents("Wed", "Oct", 3 ))`
 **Topic**: Redundancy and Colinearity
+
 **Reading**: SM §8.4, 8.5
+
 **Assignment**:  `r I(PN(c("8RQ",805,812)))`
+
 **In Class**: [Redundancy activity](https://dl.dropbox.com/u/5098197/ISM/redundancy.pdf) 
 
 **Notes**: `r I(todaysNotes("2012-10-03.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-03-class)
 
 `r I(classDayContents("Fri", "Oct", 5 ))`
 **Topic**: Correlation and Partitioning, $R^2$
+
 **Reading**: SM Ch. 9
+
 **Assignment**: `r I(PN(c(901,902,904,905)))`
+
 **In Class**: Weekly Quiz
+
 **Notes**: `r I(todaysNotes("2012-10-05.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-05-class)
 
 `r I(classDayContents("Mon", "Oct", 8 ))`
 **Topic**: Correlation and Partitioning (continued)
+
 **Reading**: SM Ch. 9 (review)
+
 **Assignment**: `r I(PN(c("9RQ",910,911,912,913,921)))`
+
 **Notes**: `r I(todaysNotes("2012-10-08.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-08-class)
 
 `r I(classDayContents("Wed", "Oct", 10 ))`
 **Topic**: Total and Partial Relationships
+
 **Reading**: SM Ch. 10
+
 **Assignment**: `r I(PN(c(922, 923,1001,1004,1010)))`
+
 **In Class**: 
 
 * [Total versus Partial](https://dl.dropbox.com/u/5098197/ISM/total-partial.pdf)
@@ -448,22 +395,29 @@ Friday Quiz
 
 `r I(classDayContents("Fri", "Oct", 12 ))`
 **Topic**: Total and Partial Relationships (continued)
+
 **Reading**: SM Ch. 10 (review)
+
 **Assignment**: `r I(PN(c("10RQ",1005,1011,1012,1020)))`
+
 **In Class**: Weekly Quiz
 
 **Notes**: `r I(todaysNotes("2012-10-12.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-12-class)
 
 `r I(classDayContents("Mon", "Oct", 15 ))`
 **Topic**: Confidence Intervals on Coefficients
+
 **Reading**: SM Ch. 12
+
 **Assignment**: `r I(PN(c(1021,1201,1202,1204,1205)))`
 
 **Notes**: `r I(todaysNotes("2012-10-15.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-15-class)
 
 `r I(classDayContents("Wed", "Oct", 17 ))`
 **Topic**: Review for Exam
+
 **Reading**:
+
 **Assignment**: Review Problems (to be posted)
 
 **Notes**: `r I(todaysNotes("2012-10-17.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-17-class)
@@ -478,14 +432,18 @@ Review Problems: [without answers](https://dl.dropbox.com/u/5098197/ISM/Mid-Term
 
 `r I(classDayContents("Mon", "Oct", 22 ))`
 **Topic**: Confidence Intervals on Coefficients (continued)
+
 **Reading**: SM Ch. 12
+
 **Assignment**: `r I(PN(c("12RQ",1210,1212)))`
 
 **Notes**: `r I(todaysNotes("2012-10-22.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-22-class)
 
 `r I(classDayContents("Wed", "Oct", 24 ))`
 **Topic**: Probability Models
+
 **Reading**: SM Ch. 11
+
 **Assignment**: `r I(PN(c("11RQ",1101,1102,1104,1105,1110,1121,1122)))`
 
 **Notes**: `r I(todaysNotes("2012-10-24.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-24-class)
@@ -495,7 +453,9 @@ Review Problems: [without answers](https://dl.dropbox.com/u/5098197/ISM/Mid-Term
 
 `r I(classDayContents("Mon", "Oct", 29 ))`
 **Topic**: Continuous Random Variables.  Start Hypothesis Testing
+
 **Reading**: Review SM Ch. 11, start on SM Ch. 13
+
 **Assignment**: 
 
 * `r I(PN(c(1111,1130,1135,1137,1301)))`
@@ -514,9 +474,10 @@ Play with the various sliders and such.  See what you can make of the simulation
 
 `r I(classDayContents("Wed", "Oct", 31 ))`
 **Topic**: Hypothesis Testing
-**Reading**: SM Ch. 13
-**Assignment**: 
 
+**Reading**: SM Ch. 13
+
+**Assignment**: 
 * `r I(PN(c("13RQ",1302)))`
 * Discuss your draft [Survey Project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) with your instructor. 
 
@@ -530,39 +491,56 @@ Play with the various sliders and such.  See what you can make of the simulation
 
 `r I(classDayContents("Fri", "Nov", 2 ))`
 **Topic**: Testing Whole Models with $latex R^2$ and F
+
 **Reading**: SM §14.1, 14.2, 14.3, 14.5
+
 **Assignment**: `r I(PN(c(1401,1402)))`
+
 **In Class**: 
 * Weekly Quiz
 * `r I(PN(c(1422)))`
+
 **Notes**: `r I(todaysNotes("2012-11-02.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-02-class)
 
 `r I(classDayContents("Mon", "Nov", 5 ))`
 **Topic**: Interpreting the p-value
+
 **Reading**: 
 * SM §14.4
 * [XKCD cartoon](http://xkcd.com/882/) and [another](http://xkcd.com/628/) and [yet another](http://xkcd.com/892/)
 
 **Assignment**: `r I(PN(c("14RQ",1404,1405,1411,1412,1424)))`
+
 **In Class**: `r I(PN(c(1421)))`
+
 **Notes**: `r I(todaysNotes("2012-11-05.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-05-class)
 
 **On Your Own**: [Journalistic deficit disorder](http://www.economist.com/node/21563275)
 
 `r I(classDayContents("Wed", "Nov", 7 ))`
 **Topic**: Hypothesis Testing on Parts of Models
+
 **Reading**: SM Ch. 15
+
 **Assignment**: `r I(PN(c("15RQ",1501)))`
+
 **In Class**: [Evaluating your election result model](http://glimmer.rstudio.com/mosaic/Election2012/)
+
 **Notes**: `r I(todaysNotes("2012-11-07.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-07-class)
+
 **On Your Own**: [Dance of the p-values](https://www.youtube.com/watch?v=ez4DgdurRPg)
 
 `r I(classDayContents("Fri", "Nov", 9 ))`
 **Topic**: Hypothesis Testing on Parts of Models (continued)
+
 **Reading**: SM Ch. 15 (review)
+
 **Assignment**: `r I(PN(c(1502,1504,1505,1511)))`
+
 **In Class**: Weekly Quiz
+
 **Notes**: `r I(todaysNotes("2012-11-09.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-09-class)
+
 **On Your Own**: [What is a p-value?](https://www.youtube.com/watch?v=ax0tDcFkPic&feature=related)
 
 ..............
@@ -582,13 +560,18 @@ Hand in a paragraph describing one or more of these talks for extra credit in th
 
 `r I(classDayContents("Mon", "Nov", 12 ))`
 **Topic**: Choosing model terms
+
 **Reading**: [XKCD cartoon](http://xkcd.com/675/)
+
 **Assignment**:  `r I(PN(c(1512,1521)))`
+
 **Notes**: `r I(todaysNotes("2012-11-12.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-12-class)
 
 `r I(classDayContents("Wed", "Nov", 14 ))`
 **Topic**: Non parametrics
+
 **Reading**: [XKCD cartoon on frequentist vs Bayesian](http://xkcd.com/1132/)
+
 **Assignment**: 
 *`r I(PN(c(1522)))`
 * Get final approval for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) from your instructor.
@@ -597,7 +580,97 @@ Hand in a paragraph describing one or more of these talks for extra credit in th
 
 `r I(classDayContents("Fri", "Nov", 16 ))`
 **Topic**: Logistic regression
+
 **Reading**: SM Ch. 16
+
 **Assignment**: `r I(PN(c()))`
+
 **In Class**: Weekly Quiz
+
 **Notes**: `r I(todaysNotes("2012-11-16.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-16-class)
+
+
+
+`r I(classDayContents("Mon", "Nov", 19 ))`
+**Topic**: Odds Ratios and Logistic regression
+
+**Reading**: SM Ch. 16
+
+**Notes**: `r I(todaysNotes("2012-11-19.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-19-class)
+
+`r I(classDayContents("Wed", "Nov", 21 ))`
+**Topic**: Power and the Alternative Hypothesis
+
+**Notes**: `r I(todaysNotes("2012-11-21.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-21-class)
+
+`r I(classDayContents("Fri", "Nov", 23 ))`
+*THANKSGIVING BREAK*
+
+`r I(classDayContents("Mon", "Nov", 26 ))`
+**Topic**: Power. Logistic Regression.
+
+**Reading**: 
+* SM Ch. 16
+
+**Assignment**: 
+* Finally! Problem [14.12](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Problem-14.12/SM2-Problem-14.12-A.html?access=ISMf12)
+* `r I(PN(c("16RQ",1601,1602,1604)))` Due on Dec 10
+
+**In Class**:
+* [Writing up your survey project in R/Markdown](http://rpubs.com/dtkaplan/survey-writeup-R-Markdown)
+
+**On Your Own**:
+* [Why most published research findings are false](http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124)
+
+**Notes**: `r I(todaysNotes("2012-11-26.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-26-class)
+
+
+
+`r I(classDayContents("Wed", "Nov", 28 ))`
+**Topic**: Causation
+
+**Reading**: 
+* SM Ch. 17
+* [XKCD cartoon](http://xkcd.com/925/)
+
+**Assignment**: `r I(PN(c(1605,1610,1612)))` Due on Dec 10
+
+**In-Class**: [The Power of Vitamin D](https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
+
+**Notes**: `r I(todaysNotes("2012-11-29.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-28-class)
+
+
+
+`r I(classDayContents("Fri", "Nov", 30 ))`
+**Topic**: Causation
+
+**Reading**: 
+* SM Ch. 17
+* [XKCD cartoon](http://xkcd.com/552/)
+
+**Assignment**: `r I(PN(c("17RQ",1701,1702,1705)))` Due on Dec 10
+
+**In Class**: Weekly Quiz
+
+**Notes**: `r I(todaysNotes("2012-11-30.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-30-class)
+
+
+`r I(classDayContents("Mon", "Dec", 3 ))`
+**Topic**: Causation
+
+**Reading**: SM Ch. 17 and [XKCD cartoon](http://xkcd.com/687/)
+
+**Assignment**: `r I(PN(c(1706,1707,1708,1710)))`
+
+**In Class**: 
+* Processing Google Form survey data in R. [Notes](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.html) and the [Rmd file](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.Rmd).
+* [The survey link itself](https://docs.google.com/spreadsheet/viewform?formkey=dGttU3V6cXlkcmRkclZTLVlwNGlCQVE6MQ): Send it to your Mac friends!
+
+**Notes**: `r I(todaysNotes("2012-12-03.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-03-class)
+
+`r I(classDayContents("Wed", "Dec", 5 ))`
+**Topic**: Experiment and Design
+
+**Reading**: SM Ch. 18
+
+**Notes**: `r I(todaysNotes("2012-12-05.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-05-class)

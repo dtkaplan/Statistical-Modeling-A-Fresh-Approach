@@ -1,0 +1,122 @@
+Car Prices Revisited
+=====================
+
+#### Nalpak Ynnad, `r I(date())`
+
+The original data collection and report was done with classmates B. Franklin, J. Adams, and T. Jefferson.  
+
+> COMMENTARY: This document serves two purposes: an example template for your used-car revision and an explanation of what's going on in that revision.  The content marked in type like this paragraph is commentary, not part of the commentary.
+
+```{r include=FALSE}
+# boilerplate that you should include in your document.
+require(mosaic) 
+require(xtable)
+options(xtable.type="html")
+```
+
+> You need to read your document into R.  If it's a CSV file, the best thing is to get the file name as a character string and then paste it into a command.  To get the string, at the R console, give this command (but don't put the command in your document, just give it at the console): 
+```{r eval=FALSE,echo=-2}
+file.choose()
+"/Users/kaplan/Desktop/used-hondas.csv"
+```
+> Once you have the file name as a string, paste that into `fetchData()`:
+```{r}
+mycars = fetchData("/Users/kaplan/Desktop/used-hondas.csv")
+```
+> If your data is in a Google Spreadsheet, make sure to publish the file to the web and grab the CSV link.  Then paste that character string into `fetchGoogle()`, making sure to put the link between quotation marks.
+```{r}
+mycars = fetchGoogle("https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dHpOa2szV2c4WmJ0NURERFh0dTdLY2c&single=true&gid=0&output=csv")
+```
+
+> Either way, the data are now read in to R.
+
+### Description of Data
+
+We studied used Honda Accords in three locations: St. Paul, MN; Raleigh-Durham, NC; and Santa Cruz, CA.
+
+#### Are prices different by location?
+
+```{r}
+mod1 = lm(Price ~ Location, data=mycars)
+mod1 
+```
+In our original report, we concluded that cars in Santa Cruz are $1300 more expensive than in Durham, but cars in St. Paul are $300 cheaper.
+
+Looking at the regression report:
+```{r results="asis"}
+xtable(summary( mod1 ))
+```
+
+The p-values suggest that there is not enough data to support such a claim about the differences between the locations.  Indeed, the margin of error is $\pm 2300$ dollars.
+
+An ANOVA analysis of the model also indicates that location is not associated with price:
+```{r results="asis"}
+xtable(anova( mod1 ))
+```
+
+#### Price by mileage
+
+A simple model of price by mileage
+```{r}
+mod2 = lm( Price ~ Mileage, data=mycars)
+```
+This indicates that price goes down by 10 cents per mile.
+
+Revisiting this model:
+```{r results="asis"}
+xtable( summary(mod2) )
+```
+The 95% confidence interval is $10.0 \pm 0.9$ cents per gallon.
+
+
+
+#### Price by age and mileage
+
+We hypothesized that mileage and age are the primary determinants of used-car price.  Model 3 tries to untangle their respective effects:
+```{r}
+mod3 = lm( Price ~ Age + Mileage, data=mycars )
+```
+
+We concluded that the price of a used Honda goes down by $538 per year (on average) and 7.7 cents per mile driven.
+
+Looking now at the regression report ...
+```{r results="asis"}
+xtable(summary(mod3))
+```
+We see that both age and mileage are statistically significant.  Confidence intervals are:
+* Age: $538 \pm 230$ dollars per year decrease in price
+* Mileage: $7.7 \pm 1.4$ cents per mile decrease in price
+
+The margin of error on mileage has gone up, even though age was included as a covariate and is eating up variance.  Perhaps  this is due to the collinearity between age and mileage:
+```{r}
+r.squared( lm( Age ~ Mileage, data=mycars))
+```
+
+The root mean-square residual tells the typical size of a residual --- it's the generalization of the standard deviation.
+```{r results="asis"}
+xtable( anova(mod3) )
+```
+
+```{r}
+sqrt(2948695)
+```
+About $1700 is a typical deviation for an actual car from the model price.
+
+
+
+
+#### Prices by age and location
+
+In model 4, we looked for an interaction between age and location in determining price:
+```{r}
+mod4 = lm( Price ~ Age*Location, data=mycars )
+```
+In our original report, we concluded that the effect of age differs by location.  ANOVA is an appropriate technique here, since it lets us look at all the vectors that are involved in the interaction.
+```{r results="asis"}
+xtable( anova(mod4) )
+```
+There's no evidence for a dependence of price on location nor for an interaction between location and age in determining the price.
+
+> COMPILING YOUR REPORT.  When you press the "Knit HTML" button, your .Rmd file will be translated into an HTML file.  You can download this file from RStudio to your computer, and then upload it to Moodle to hand it in.
+
+
