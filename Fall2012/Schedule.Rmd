@@ -65,29 +65,25 @@ todaysNotes <- function(fname,marker="notes") {
 ### Upcoming Class Days
 
 
-`r I(classDayContents("Fri", "Dec", 7 ))`
-**Topic**: Experiment and Design
 
-**Reading**: SM Ch. 18
-
-**Assignment**:
-* Car Prices Revisited. 
-    Back in September, you made an analysis of used-car prices. [Here's a link to the original report site on Moodle.](https://moodle.macalester.edu/mod/assign/view.php?id=20907&action=grading).  You, individually, not as a group, should review that report and re-evaluate your claims using the tools you have learned since then: confidence intervals, hypothesis testing, and so on.  **This should not be a lot of work.** You don't need to discover new things about car prices, just review your old claims.  It's perfectly fine to conclude that your previous claims are not supported by the evidence. 
-
-    You can write your report either on Google Docs (handing in a link to your document after making **absolutely sure** that you have shared the document with "anyone with the link."  You can also write your new report in R/Markdown for 5 points extra credit --- see the instructions [here](http://rpubs.com/dtkaplan/3129) and the [sample .Rmd document that you can copy as a starting point](../Activities/used-cars-redux.Rmd).
-
-    Hand in your **individual** report [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=28870)
-
-**Notes**: `r I(todaysNotes("2012-12-07.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-07-class)
 
 `r I(classDayContents("Mon", "Dec", 10 ))`
 **Topic**: Experiment and Design
 
 **Reading**: SM Ch. 18
 
-**Assignment**: 
+**Assignment for today**:
+* Car Prices Revisited. 
+    Back in September, you made an analysis of used-car prices. [Here's a link to the original report site on Moodle.](https://moodle.macalester.edu/mod/assign/view.php?id=20907&action=grading).  You, individually, not as a group, should review that report and re-evaluate your claims using the tools you have learned since then: confidence intervals, hypothesis testing, and so on.  **This should not be a lot of work.** You don't need to discover new things about car prices, just review your old claims.  It's perfectly fine to conclude that your previous claims are not supported by the evidence. Here's an [example](http://rpubs.com/dtkaplan/3129) written in Rmd format.
+
+    You can write your report either on Google Docs (handing in a link to your document after making **absolutely sure** that you have shared the document with "anyone with the link."  You can also write your new report in R/Markdown for 5 points extra credit --- see the instructions [here](http://rpubs.com/dtkaplan/3129) and the [sample .Rmd document that you can copy as a starting point](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/used-cars-redux.Rmd).
+
+    Hand in your **individual** report [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=28870)
+
+
+**Assignment due by end of exam week**: 
 * Exercises from Chapter 15 onward
-* Revisions to quizzes due.
+* Revisions to quizzes due .
 * Hand in analysis and report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) by putting links [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773).
 * Hand in Mac-Weekly style report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773). (before end of exam period)
 
@@ -674,3 +670,12 @@ Hand in a paragraph describing one or more of these talks for extra credit in th
 **Reading**: SM Ch. 18
 
 **Notes**: `r I(todaysNotes("2012-12-05.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-05-class)
+
+`r I(classDayContents("Fri", "Dec", 7 ))`
+**Topic**: Experiment and Design
+
+**Reading**: SM Ch. 18
+
+**Assignment**:
+
+**Notes**: `r I(todaysNotes("2012-12-07.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-07-class)
