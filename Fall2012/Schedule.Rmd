@@ -62,10 +62,24 @@ todaysNotes <- function(fname,marker="notes") {
 
 <span style="color:red">Final Exam : Sections 01 & 02: Friday 14 Dec;  Section 03: Thurday 13 Dec.</span>
 
-### Upcoming Class Days
+### End-of-Semester Review
+* **Chapter 15 Exercises**: `r I(PN(c("15RQ",1501,1502,1504,1505,1510,1511,1512,1521,1522)))`
 
+### Review Sessions with faculty
 
+* Wed 28 Nov: 3:30-4:30
+* Thurs 29 Nov: 7:30-8:30
+* Wed 5 Dec: 3:30-4:30
+* Thurs 6 Dec: 3:30-4:30
+* Thurs 6 Dec: 7:30-8:30
+* Mon 10 Dec: 2:30-3:30 (location to be announced)
+* Wed 12 Dec: 3:30-4:30
 
+### Review Problems 
+
+These are typically problems from previous exams or that were written for review.  We give no promise that the exam will be just like these, but they are a pretty good guide to the style of many exam problems.
+
+Two versions of the same problems: [without answers](https://dl.dropbox.com/u/5098197/ISM/End-Collection.pdf) and [with answers](https://dl.dropbox.com/u/5098197/ISM/End-Collection-with-Answers.pdf).
 
 `r I(classDayContents("Mon", "Dec", 10 ))`
 **Topic**: Experiment and Design
@@ -90,35 +104,6 @@ todaysNotes <- function(fname,marker="notes") {
 **In Class**: [End-of-semester course survey](https://docs.google.com/spreadsheet/viewform?formkey=dGk5bzVXbUpXRlNtN3N1ZEMwUl9jeXc6MQ).  
 
 **Notes**: `r I(todaysNotes("2012-12-10.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-10-class)
-
-
------------------
-### Toward the End of the Semester
-
-You've now seen the core concepts and methods of statistical modeling.  The rest of the semester is intended to help you review and solidify your understanding.  We'll do this by using statistical models in three contexts:
-
-1. Yes/No models --- logistic regression.  The aims here are to provide you with an important technique that employs the logic of statistical modeling but with a slightly different nomenclature.
-2. Causation and the choice of covariates.  You've seen how to choose model terms based on ideas from statistical inference and "evidence."  Now you'll see a new criterion for selecting model terms that respects what you believe is true about causation.
-3. Experiment.  The basic idea is to impose an intervention on a system and then analyzing the results.  Experiments provide the most compelling form of evidence, yet they cannot always (or even often) be performed.  
-
-
-This is a good time to start to review.  As we explore these new contexts, do the exercises from Chapter 15 to solidify your understanding of that basic material.  These exercises will be due at the last class day.
-
-* **Chapter 15 Exercises**: `r I(PN(c("15RQ",1501,1502,1504,1505,1510,1511,1512,1521,1522)))`
-
-### Review Sessions with faculty
-
-* Wed 28 Nov: 3:30-4:30
-* Thurs 29 Nov: 7:30-8:30
-* Wed 5 Dec: 3:30-4:30
-* Thurs 6 Dec: 3:30-4:30
-* Thurs 6 Dec: 7:30-8:30
-* Mon 10 Dec: 2:30-3:30 (location to be announced)
-* Wed 12 Dec: 3:30-4:30
-
-### Review Problems 
-
-To be posted.  You don't need to hand these in.
 
 
 
@@ -573,6 +558,19 @@ Hand in a paragraph describing one or more of these talks for extra credit in th
 * Get final approval for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) from your instructor.
 
 **Notes**: `r I(todaysNotes("2012-11-14.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-14-class)
+
+-----------------
+### Toward the End of the Semester
+
+You've now seen the core concepts and methods of statistical modeling.  The rest of the semester is intended to help you review and solidify your understanding.  We'll do this by using statistical models in three contexts:
+
+1. Yes/No models --- logistic regression.  The aims here are to provide you with an important technique that employs the logic of statistical modeling but with a slightly different nomenclature.
+2. Causation and the choice of covariates.  You've seen how to choose model terms based on ideas from statistical inference and "evidence."  Now you'll see a new criterion for selecting model terms that respects what you believe is true about causation.
+3. Experiment.  The basic idea is to impose an intervention on a system and then analyzing the results.  Experiments provide the most compelling form of evidence, yet they cannot always (or even often) be performed.  
+
+
+This is a good time to start to review.  As we explore these new contexts, do the exercises from Chapter 15 to solidify your understanding of that basic material.  These exercises will be due at the last class day.
+
 
 `r I(classDayContents("Fri", "Nov", 16 ))`
 **Topic**: Logistic regression
