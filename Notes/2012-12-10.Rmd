@@ -143,6 +143,34 @@ In the $\chi^2$ test you can see the origins of many of the concepts that have s
 
 ### The $\chi^2$ test for independence
 
+
+
+Here's a simulation example with a continuous predictor from [UCLA](http://www.ats.ucla.edu/stat/r/dae/poissonreg.htm).  The response is the number of awards given to students.  The explanatory variables are the score on a math exam and the type of program in which the student was enrolled.  The case is an individual student.
+
+```{r}
+p <- read.csv("http://www.ats.ucla.edu/stat/data/poisson_sim.csv")
+p <- within(p, {
+    prog <- factor(prog, levels = 1:3, labels = c("General", "Academic", "Vocational"))
+    id <- factor(id)
+})
+summary(p)
+```
+
+And the analysis:
+```{r}
+m1 = glm(num_awards ~ prog + math, family = "poisson", data = p)
+summary(m1)
+```
+```{r}
+m2 = glm(num_awards ~ prog * math, family = "poisson", data = p)
+summary(m2)
+```
+
+No sign of an interaction.
+
+
+
+
 This corresponds to the interaction term.
 
 Do an example with two categorical variables.
