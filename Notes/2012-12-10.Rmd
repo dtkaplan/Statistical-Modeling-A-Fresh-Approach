@@ -51,7 +51,7 @@ Green   | 773      | 731.9
 Golden   | 231       | 243.9
 Green-striped | 238  | 243.9
 Golden-green-striped     | 59      | 81.3
-TOTAL     | 515      | 515
+TOTAL     | 1301     | 1301
 
 It's pretty obvious which phenotype corresponds to the "9" and which to the "1".  The question is whether the observation is consistent with the theory.
 
