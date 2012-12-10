@@ -5,18 +5,165 @@ Stats 155 Class Notes 2012-12-10
 # boilerplate
 ```
 
-### For Monday
+A Cultural-Literacy Guide to Statistical Practice
+--------------------
+
+When you go to a different country, it helps to learn some of the basics of the culture: where it's polite to slurp your soup, how many times to kiss when greeting, whether to shake your head to say "yes".
+
+In this course, you've been learning a particular approach to statistical reasoning based on the idea of fitting models.  It's a very general and powerful approach.  But it's **not** the approach that most people learn.  You need to be aware of this when working with others: they will find incomprehensible some of the language that you use fluently.  In particular:
+* "covariate" is not widely understood
+* "linear regression", or just "regression", is used to mean modeling one continuous variable by another --- the simple straight-line model A~B.  There is only one explanatory variable in "linear regression"; "multiple regression" is used to describe the technique that we have been using with `lm()` and multiple variables.
+* "interaction" is generally unknown.
+* The basic technique, a t-test, is about comparing the means of two groups.  We've done this with linear regression, but people will be confused because they were taught that linear regression is something utterly different from a t-test.
+* "ANOVA" refers to looking at the differences among several group means, the generalization of the t-test.
+* "Bootstrapping", "resampling", and "randomization" (what we've been doing with `resample()` and `shuffle()`) are obscure terms, not typically understood.
+* There are many, many named tests that get applied in different circumstances.  
+    * one-sample t-test: comparing a group mean to a fixed null value
+        * For us: `summary( lm( A-null ~ 1) )`
+    * two-sample t-test: the mean of two groups
+        * For us: `summary( lm( A~G) )`
+    * paired t-test: a t-test applied to naturally paired (e.g. before and after) data
+        * For us: `anova( lm(A~when + pairID) )
+    * two sample p-test: comparing two proportions. 
+        * For us: `summary( lm( A=="Yes" ~ G) )`
+    * equal variance two-sample t-test: comparing the means of two groups
+        * No exact equivalent for us, but then the test is not really useful for much anyways.
+    * one-way ANOVA: comparing the means of several groups
+        * For us: `anova( lm( A~G) )`
+    * rank sum test, spearman rank correlation, and other "non-parametric tests"
+        * For us: take the `rank()` before fitting the model
+    * The chi-squared test.  
+        * For us: logistic regression or poisson regression
+
+### The $\chi^2$ test ("chi squared")
+
+Chi-squared is a much beloved test, one of the first statistical tests.  There's also a chi-squared distribution, which is analogous to an F distribution or a t distribution and has, as a parameter, "degrees of freedom".  It is associated with Karl Pearson the dean of statistics at the turn of the 19th-20th century.
+
+The $\chi^2$ test is used for two distinct but related purposes: 
+* Testing for "independence" of two variables.  Our analogous term is "interaction".
+* Comparing an observed set of frequencies to a model probability.
+
+Example: In genetics, dihybrid crosses produce 4 phenotypes.  They have, theoretically, a rate of expression of 9:3:3:1.  For instance, in an agricultural experiment, 515 plants have been grown from a dihybrid cross and the four phenotypes appear like this:
+
+Phenotype | Observed | Expected in Theory
+----------|----------| ------
+Golden    | 293      | 289.69
+Striped   | 96       | 96.56
+Golden Striped | 92  | 96.56
+Brown     | 34       | 32.19
+TOTAL     | 515      | 515
+
+It's pretty obvious which phenotype corresponds to the "9" and which to the "1".  The question is whether the observation is consistent with the theory.
+
+In this class, we've focussed on fitting models to observed data with the goal of relating explanatory variables to a response.  In this dihybrid problem, however, the emphasis is different: we have a model and we want to know if the data are consistent with it.
+
+We've already seen such questions in the context of the Null Hypothesis.  So let's let the theory be our null hypothesis and ask if the data are consistent with the null.  To do this, we need
+1. a test statistic
+2. the distribution of the test statistic under the Null.
+
+An obvious test statistic to use is the sum of square residuals.  Here's a program to calculate that:
+```{r}
+ssResids = function(observed, expected = 515*c(9,3,3,1)/16) 
+  sum((observed-expected)^2)
+```
+
+Our test statistic:
+```{r}
+ts = ssResids(c(293,96,92,34))
+ts
+```
+
+To carry out a hypothesis test, we need to be able to generate samples from the Null Hypothesis.  Since we know the rate at which each phenotype is being generated, we can use the poisson random number generator.
+```{r}
+counts = rpois(4, lambda=515*c(9,3,3,1)/16)
+counts
+```
+
+This method is good, but it's not necessarily consistent with the total number of observations, 515.  So, a trick:
+```{r}
+makeSample = function(expected=512*c(9,3,3,1)/16) {
+  n = sum(expected)
+  table( resample(1:length(expected), prob=expected/n, size=round(n)))
+}
+```
+
+Now, the sampling distribution under the Null Hypothesis:
+```{r}
+s = do(1000)*ssResids(observed=makeSample())
+```
+
+And the p-value:
+```{r}
+mean( s > ts)
+```
+It's no surprise at all to see the values we got under the Null Hypothesis.
+
+As it happens, the test statistic that we developed historically is a bit different:
+```{r}
+chisq.stat = function(observed, expected=515*c(9,3,3,1)/16){
+  sum( (observed-expected)^2 / expected )
+}
+```
+
+Running the hypothesis test:
+```{r}
+s2 = do(1000)*chisq.stat(observed=makeSample())
+t2 = chisq.stat(c(293,96,92,34))
+mean( s2 > t2 )
+```
+Basically the same result.
+
+There's a reason to prefer the $\chi^2$ statistic to the simple sum of square residuals.  The reason is that we actually know what will be the variance of a poisson random variable.
+
+ACTIVITY:
+Generate a large poisson sample of a given $\lambda$. Find the standard deviation. Try this for several different $\lambda$, say $\lambda=25,100,400,1600,6400$.   
+* How is the standard deviation related to $\lambda$?
+* How is the variance related to $\lambda$?
+
+By dividing (observed-expected)^2 by expected, we are effectively creating a z^2 variable, the square of a normal random variable with mean=0 and sd=1.  
+
+There was some controversy in the early days about what the distribution of the sum of $k$ z^2 variables should be.  It was called the $\chi^2$ distribution, but it was observed that adding up three z^2 variables was closer to what was observed for 4 categories in the chi-squared test than adding up four z^2 variables.
+
+Of course, making such a finding required that there be some definition of "closer to".  This involved some argument.  Remember, in 1900, calculations were difficult.  But now it's easy to see that three is better than four.  For example, when the distributions match, plotting one versus another (in sorted order) should give a straight line along the diagonal.
+```{r}
+z3 = do(1000)*sum( rnorm(3)^2 )
+z4 = do(1000)*sum( rnorm(4)^2 )
+plotPoints( sort(z3$result)~ sort(s2$result))
+plotFun( x ~ x, add=TRUE, col="red")
+plotPoints( sort(z4$result)~ sort(s2$result))
+plotFun( x ~ x, add=TRUE, col="red")
+mean(result, data=z3)
+mean(result, data=z4)
+mean(result, data=s2)
+```
+What's going on here is that the four observations had to add up to 515.  In other words, the residuals must add up to zero.  This is very much what happens when we fit a model: the residuals must add up to zero because we've fitted the model.  In this case, we've fitted the expectation so that it must add up to 515.  This requirement takes one degree of freedom out of the expected number.  Historically, thus was the concept of degrees of freedom born.
+
+In the $\chi^2$ test you can see the origins of many of the concepts that have shaped our approach to statistical modeling: residuals, sum of square residuals as a figure of merit, the sampling distribution under a null hypothesis, degrees of freedom.
 
 
+### The $\chi^2$ test for independence
 
-### Instrumental Variables
+This corresponds to the interaction term.
 
-### Matching and Propensity Scores
+Do an example with two categorical variables.
+
+Work through the degrees of freedom.
 
 
-### Review of Power and the Alternative Hypothesis
+## On to the Future in Statistics
 
-In-class activity on [the power of vitamin D](https**://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
+The techniques that we've studied in this course were born at the end of the 19th century, had their adolescence in the early part of the 20th century.  They were developed originally for the analysis of laboratory experiments, but quickly were adopted to the analysis of complex observational studies.
+
+The ideas behind resampling and randomization emerged in the early part of the 20th century, but they were impractical until electronic computers were invented.  
+
+Only now, in the 2010s are the computational ideas becoming mainstream in statistical education, so hardly anyone older than you will know about them.
+
+Where things are heading:
+* Big data, where we try to glean patterns from large number of cases in observational data.  
+    * Example: You've watched two movies on Netflix.  Other people have watched these movies, too.  Can we make a good recommendation of movies for you based on the characteristics of the other viewers.
+    * Example: Your credit card has just been used at a gas station.  Might it have been stolen?
+* Little $n$ big $m$.  Microarray data, where you may have $n=10$ samples with $m=40000$ variables.
+* Bayesian computation.  The Bayesian approach to probability is, to many people, more compelling than the frequentist/hypothesis-testing approach.  The computations required are difficult.  But they are becoming possible.
 
 
 

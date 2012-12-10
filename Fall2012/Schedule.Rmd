@@ -86,11 +86,11 @@ Two versions of the same problems: [without answers](https://dl.dropbox.com/u/50
 
 **Reading**: SM Ch. 18
 
-**Assignment for today**:
+**Assignment for today**: (deadline: end of exam week)
 * Car Prices Revisited. 
     Back in September, you made an analysis of used-car prices. [Here's a link to the original report site on Moodle.](https://moodle.macalester.edu/mod/assign/view.php?id=20907&action=grading).  You, individually, not as a group, should review that report and re-evaluate your claims using the tools you have learned since then: confidence intervals, hypothesis testing, and so on.  **This should not be a lot of work.** You don't need to discover new things about car prices, just review your old claims.  It's perfectly fine to conclude that your previous claims are not supported by the evidence. Here's an [example](http://rpubs.com/dtkaplan/3129) written in Rmd format.
 
-    You can write your report either on Google Docs (handing in a link to your document after making **absolutely sure** that you have shared the document with "anyone with the link."  You can also write your new report in R/Markdown for 5 points extra credit --- see the instructions [here](http://rpubs.com/dtkaplan/3129) and the [sample .Rmd document that you can copy as a starting point](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/used-cars-redux.Rmd).
+    You can write your report either on Google Docs (handing in a link to your document after making **absolutely sure** that you have shared the document with "anyone with the link."  You can also write your new report in R/Markdown for 5 points extra credit --- see the instructions [here](http://rpubs.com/dtkaplan/3129) and the [sample .Rmd document](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/used-cars-redux.Rmd) that you can copy as a starting point. (This may show up as a file download in your browser, so check your "downloads" directory.)
 
     Hand in your **individual** report [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=28870)
 
