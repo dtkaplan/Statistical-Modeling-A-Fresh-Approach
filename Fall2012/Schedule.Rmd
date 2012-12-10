@@ -101,7 +101,7 @@ Two versions of the same problems: [without answers](https://dl.dropbox.com/u/50
 * Hand in analysis and report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) by putting links [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773).
 * Hand in Mac-Weekly style report for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) [on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773). (before end of exam period)
 
-**In Class**: [End-of-semester course survey](https://docs.google.com/spreadsheet/viewform?formkey=dGk5bzVXbUpXRlNtN3N1ZEMwUl9jeXc6MQ).  
+**In Class**: [End-of-semester course survey](https://docs.google.com/spreadsheet/viewform?formkey=dGk5bzVXbUpXRlNtN3N1ZEMwUl9jeXc6MQ).  This is **required** but anonymous.  Once you've completed the survey (following the previous link), then go to this link at [Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=28987) to tell us that you've done it.  Be honest!  Thanks.
 
 **Notes**: `r I(todaysNotes("2012-12-10.html", "i"))` :: [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-10-class)
 

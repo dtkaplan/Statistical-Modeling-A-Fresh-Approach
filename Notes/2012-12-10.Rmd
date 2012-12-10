@@ -43,17 +43,24 @@ The $\chi^2$ test is used for two distinct but related purposes:
 * Testing for "independence" of two variables.  Our analogous term is "interaction".
 * Comparing an observed set of frequencies to a model probability.
 
-Example: In genetics, dihybrid crosses produce 4 phenotypes.  They have, theoretically, a rate of expression of 9:3:3:1.  For instance, in an agricultural experiment, 515 plants have been grown from a dihybrid cross and the four phenotypes appear like this:
+Example: In genetics, [di-hybrid cross](http://www.biology.arizona.edu/mendelian_genetics/problem_sets/dihybrid_cross/03t.html) involves mating two organisms, one with a dominant trait and one with a recessive trait.  Their offspring are then mated, producing 4 phenotypes in the second generation.  The second generation has, theoretically, a rate of expression of 9:3:3:1.  For instance, in an agricultural experiment, 1301 plants have been grown from a dihybrid cross and the four phenotypes appear like this:
 
 Phenotype | Observed | Expected in Theory
 ----------|----------| ------
-Golden    | 293      | 289.69
-Striped   | 96       | 96.56
-Golden Striped | 92  | 96.56
-Brown     | 34       | 32.19
+Green   | 773      | 731.9
+Golden   | 231       | 243.9
+Green-striped | 238  | 243.9
+Golden-green-striped     | 59      | 81.3
 TOTAL     | 515      | 515
 
 It's pretty obvious which phenotype corresponds to the "9" and which to the "1".  The question is whether the observation is consistent with the theory.
+
+This example is drawn from Snedecor and Cochran (1989), *Statistical Methods* 8th ed.  p 196.  It draws on work done by Lindstrom (1918).  That the example dates from 1918 and is still being used in 1989 says something about the pedigree of the $\chi^2$ test.  Here are the data in a simple R form
+
+```{r}
+LindstromObs = c(773, 231, 238, 59)
+LindstromExp = 1301*c(9,3,3,1)/16
+```
 
 In this class, we've focussed on fitting models to observed data with the goal of relating explanatory variables to a response.  In this dihybrid problem, however, the emphasis is different: we have a model and we want to know if the data are consistent with it.
 
@@ -63,25 +70,25 @@ We've already seen such questions in the context of the Null Hypothesis.  So let
 
 An obvious test statistic to use is the sum of square residuals.  Here's a program to calculate that:
 ```{r}
-ssResids = function(observed, expected = 515*c(9,3,3,1)/16) 
+ssResids = function(observed, expected) 
   sum((observed-expected)^2)
 ```
 
 Our test statistic:
 ```{r}
-ts = ssResids(c(293,96,92,34))
+ts = ssResids(observed=LindstromObs,expected=LindstromExp)
 ts
 ```
 
 To carry out a hypothesis test, we need to be able to generate samples from the Null Hypothesis.  Since we know the rate at which each phenotype is being generated, we can use the poisson random number generator.
 ```{r}
-counts = rpois(4, lambda=515*c(9,3,3,1)/16)
+counts = rpois(4, lambda=LindstromExp )
 counts
 ```
 
-This method is good, but it's not necessarily consistent with the total number of observations, 515.  So, a trick:
+This method is good, but it's not necessarily consistent with the total number of observations, 1301.  So, a trick:
 ```{r}
-makeSample = function(expected=512*c(9,3,3,1)/16) {
+makeSample = function(expected) {
   n = sum(expected)
   table( resample(1:length(expected), prob=expected/n, size=round(n)))
 }
@@ -89,29 +96,31 @@ makeSample = function(expected=512*c(9,3,3,1)/16) {
 
 Now, the sampling distribution under the Null Hypothesis:
 ```{r}
-s = do(1000)*ssResids(observed=makeSample())
+s = do(1000)*ssResids(observed=makeSample(LindstromExp),expected=LindstromExp)
 ```
 
 And the p-value:
 ```{r}
-mean( s > ts)
+mean( result > ts, data=s)
 ```
-It's no surprise at all to see the values we got under the Null Hypothesis.
+The observed data are a little bit surprising.
 
 As it happens, the test statistic that we developed historically is a bit different:
 ```{r}
-chisq.stat = function(observed, expected=515*c(9,3,3,1)/16){
+chisq.stat = function(observed, expected){
   sum( (observed-expected)^2 / expected )
 }
 ```
 
-Running the hypothesis test:
+Running the hypothesis test. Here, the sampling distribution under the null:
 ```{r}
-s2 = do(1000)*chisq.stat(observed=makeSample())
-t2 = chisq.stat(c(293,96,92,34))
-mean( s2 > t2 )
+s2 = do(1000)*chisq.stat(observed=makeSample(LindstromExp), expected=LindstromExp)
+t2 = chisq.stat(observed=LindstromObs,expected=LindstromExp)
+mean( result > t2, data=s2 )
 ```
-Basically the same result.
+The p-value is lower than before, in fact below 0.05.  (Remember, there's nothing magical about 0.05.  It's just a convention.)  Quoting Snedecor: "Lindstrom commented that the deviations [from Mendelian genetic theory] could be largely explained by a physiological cause, namely the weakened condition of the last three classes due to their chlorophyll abnormality.  He pointed out in particular that the last class (golden-green-striped) was not very vigorous."
+
+The change in the p-value occurred because the division by `expected` in the $\chi^2$ statistic means that equal weight is being put on each of the 4 categories.  In the simple sum of squares, equal weight is put on each of the cases.  
 
 There's a reason to prefer the $\chi^2$ statistic to the simple sum of square residuals.  The reason is that we actually know what will be the variance of a poisson random variable.
 
@@ -144,6 +153,22 @@ In the $\chi^2$ test you can see the origins of many of the concepts that have s
 ### The $\chi^2$ test for independence
 
 
+An example from Snedecor (1989, p. 202) looks at 196 patients classified according to change in health of leprosy patients and degree of skin damage (called "infiltration").  
+
+Degree of Infiltration | Marked Improvement | Moderate | Slight | Stationary | Worse | TOTAL
+-----------------------|--------------------|----------|--------|------------|-------|-------
+Little | 11 | 27 | 42 | 53 |  11 | 144
+Much | 7 | 15 | 16 | 13 | 1 | 52
+TOTAL | 18 | 42 | 58 | 66 | 12 | 196 
+
+
+In our modeling framework, we would likely see whether there is a relationship between "Degree of Infiltration" and Improvement by making a logistic regression model with "Degree of Infiltration" as the response. The $\chi^2$ test constructs a null hypothesis probability model by assuming that the two variables are independent and then tests the chi-square statistic against that model.  Not much different.
+
+Absent a modeling technique for multi-level response variables, we don't have an exact analog of the chi-squared test using modeling.
+
+Note that the appropriate test here is actually "Fisher's Exact Test", which avoids an approximation made in the $\chi^2$ test.
+
+#### Models of Counts
 
 Here's a simulation example with a continuous predictor from [UCLA](http://www.ats.ucla.edu/stat/r/dae/poissonreg.htm).  The response is the number of awards given to students.  The explanatory variables are the score on a math exam and the type of program in which the student was enrolled.  The case is an individual student.
 
