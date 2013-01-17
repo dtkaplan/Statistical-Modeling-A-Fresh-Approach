@@ -1,0 +1,590 @@
+```{r include=FALSE}
+require(mosaic)
+source("schedule-software.R")
+```
+
+<!--     WEEK 1  -->
+`r I(classDayContents("Mon", "Jan", 28 ))`
+**Topic**: Introduction to the course. Randomness, modeling, and inference.
+
+**Reading**: 
+* *Statistical Modeling* textbook §1.1, 1.2, 1.3.  The book is available in both new and used forms in the Macalester bookstore.  Students on the wait list for the course may, understandably, not want to buy the book until they know they will be joining the course.  To make sure that everyone has access to the book, the publisher provides the first few chapters in online format: [Chap. 1](http://www.mosaic-web.org/go/StatisticalModeling/Chapters/Chapter-01.pdf) and [Chap. 2](http://www.mosaic-web.org/go/StatisticalModeling/Chapters/Chapter-02.pdf)
+* A [recent newspaper report](http://www.nytimes.com/2012/08/21/health/how-well-you-sleep-may-hinge-on-race.html?_r=1) that frames some of the technical issues covered by the course.
+* An [orientation for parents](http://rpubs.com/dtkaplan/1477).  This is the link for notes for a class the college ran for parents of entering students on Saturday 1 Sept 2012.  Feel free to send it to your parents or others who ask what you're going to be doing in statistics.
+* Login to R. [Instructions](http://rpubs.com/dtkaplan/1398).  The [RStudio server](http://www.macalester.edu/rstudio)
+
+**Assignment**: 
+* Do the reading! 
+
+**In Class**:
+* Activities on randomness.
+* Basics with R.
+* Using AcroScore [a video](http://dl.dropbox.com/u/5098197/Videos/AcroScoreIntro.swf)
+
+
+**On Your Own**:
+* Watch this one-hour documentary: [The Joy of Stats](http://www.gapminder.org/videos/the-joy-of-stats/) with Hans Rossling
+
+Notes: `r I(todaysNotes("2012-09-05.html","2013-01-28.html", "instr"))`
+
+`r I(classDayContents("Wed", "Jan", 30 )) # ==============================`
+**Topic**: Data: cases, variables, tables, and codebooks
+
+**Reading**: 
+* Statistical Modeling §1.4, §2.1, 2.2, 2.3, 2.4
+* Recent news report: [Sleep and Senility](http://www.npr.org/blogs/health/2012/08/27/159983037/sleepless-nights-may-put-the-aging-brain-at-risk-of-dementia?sc=ipad&f=1001)
+
+**Assignment**:  
+* A video on [using AcroScore](http://dl.dropbox.com/u/5098197/Videos/AcroScoreIntro.swf).  Your initial passwords [are here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=12216).  Change your password to something more sensible by [logging in here](http://datavis.math.macalester.edu:8080/AcroScore08) and going to the Settings item, then the "Change Password" tab. AcroScore works only on Firefox and Safari browsers, sorry.
+* Exercises: `r I(PN(c("1RQ",101,102,104,105,110 )))`
+* Reading Reflection on Sleep and Senility. [Hand in on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=13720). UPDATE LINK
+* Quick survey to do **before** class: [link](https://spreadsheets.google.com/embeddedform?formkey=dEV1cW1rTWhpLUhITVFNVGpnQjNqT3c6MQ&theme=0AX42CRMsmRFbUy04ZWQwMDYwMS02YjZhLTQ2ZjMtYjcyNy0zYWNlMzlmYTAxNmY&embedded=true&ifq)
+
+**In-class**: 
+* [Link to Moodle site](https://moodle.macalester.edu/mod/assign/view.php?id=13577) for your introductory spreadsheet UPDATE LINK
+* Starting with R. 
+
+Notes: `r I(todaysNotes("2012-09-07.html","2013-01-30.html", "notes"))` 
+
+
+
+`r I(classDayContents("Fri", "Feb", 1 ))`
+**Topic**: Organization of data (cont.), descriptive statistics
+
+**Reading**: 
+* SM §2.5, SM §3.1, 3.2, 3.3
+* [XKCD cartoon](http://xkcd.com/539/)
+
+**Assignment**:
+* Exercises `r I(PN(c(111,112,"2RQ",202,204,301,323,353)))`
+* Elevator experiment: Instructions `r I(PN(c(336)))`. -- Upload your file or a link to your file [here](https://moodle.macalester.edu/mod/assign/view.php?id=17379).
+* [Start-of-course knowledge survey](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Statistics-Knowledge-Survey/SM2-Statistics-Knowledge-Survey-A.html?access=ISMf12)
+
+
+**In-Class**:
+* Table on [Marital status of active-duty forces](https://dl.dropbox.com/u/5098197/Math155/ActiveDuty_MaritalStatus.xls) from [data.gov](https://explore.data.gov/Population/Active-Duty-Marital-Status/r84k-m39h) and the [PDF handout](https://dl.dropbox.com/u/5098197/ISM/How-Many-Variables.pdf).  Hand in your sample data file [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=17378).   
+
+Notes: `r I(todaysNotes("2012-09-10.html","2013-02-01.html","notes"))` 
+
+
+<!--     WEEK 2 -->
+
+`r I(classDayContents("Mon", "Feb", 4 ))`
+**Topic**: Descriptive statistics: variance
+
+**Reading**: SM §3.4, 3.5, [XKCD cartoon](http://xkcd.com/833/)
+
+**Assignment**: Exercises `r I(PN(c(209,214,222,302,303,304,305,306,308,311,312,315,317,318,319 )))`
+
+**In Class**: [Measures of a distribution](https://dl.dropbox.com/u/5098197/ISM/Numerical-Summaries.pdf)
+
+**On Your Own**: A *RadioLab* [episode about stochasticity](http://www.radiolab.org/2009/jun/15/)
+
+Notes: `r I(todaysNotes("2012-09-12.html", "2013-02-06.html", "notes"))` 
+
+`r I(classDayContents("Wed", "Feb", 6 ))`
+**Topic**: Groupwise Models
+
+**Reading**: SM Ch. 4
+
+**Assignment**: `r I(PN(c(314,316,"3RQ",403,404,405,406,410)))`
+
+**In Class**:
+
+* Weekly Quiz.  This week, it's about R. A [study-guide is available here](https://dl.dropbox.com/u/5098197/ISM/R-basics-guide.pdf).
+
+Notes: `r I(todaysNotes("2012-09-14.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-14-class) -->
+
+`r I(classDayContents("Fri", "Feb", 8 ))`
+**Topic**: Model values, residuals, and variance.  Sampling and resampling.
+
+**Reading**: SM Ch. 4 (review).  SM §5.1, 5.2
+
+**Assignment**: `r I(PN(c(354,"4RQ",407,408,501,502)))`
+
+**Notes**: `r I(todaysNotes("2012-09-17.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-17-class) -->
+
+**In-Class**: [Unfit models](https://dl.dropbox.com/u/5098197/ISM/Unfit-Models.pdf) activity
+
+<!--      WEEK 3      -->
+
+
+`r I(classDayContents("Mon", "Feb", 11 ))`
+**Topic**: Confidence intervals
+
+**Reading**: SM §5.3, 5.4, 5.5, 5.7
+
+**Assignment**: `r I(PN(c("5RQ",503,512,517,520)))`
+
+**In Class**: 
+Precision and sampling.  (Precision is easy.  Accuracy will take the rest of the course!)
+
+**Notes**: `r I(todaysNotes("2012-09-19.html", "i"))`  
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-19-class) -->
+
+
+`r I(classDayContents("Wed", "Feb", 13 ))`
+**Topic**: Language of Models
+
+**Reading**: SM §6.1, 6.2, 6.3, 6.4
+
+**Assignment**: 
+* Required: `r I(PN(c(513,523, 530, 531,601,602,604,611,613)))`
+* Optional, for the theoretically oriented.  `r I(PN(c(540)))`
+
+**In Class**:
+Wednesday Quiz
+
+**On Your Own**: 
+* Bias in sampling: Steven Strogatz on [why your friends have more friends than you do](http://opinionator.blogs.nytimes.com/2012/09/17/friends-you-can-count-on/?ref=opinion)
+* One of our data sets is based on the General Social Survey from 1985.  Here's an article based on the ongoing [General Social Survey in 2012](http://www.nytimes.com/2012/09/21/health/intangible-dividend-in-an-anti-poverty-experiment-happiness.html?_r=1&hp).
+
+**Notes**: `r I(todaysNotes("2012-09-21.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-21-class) -->
+
+`r I(classDayContents("Fri", "Feb", 15 ))`
+**Topic**: From Model Terms to Formulas and Coefficients
+**Reading**: SM §6.5, 6.6, 6.7, SM §7.1, 7.2
+**Assignment**: 
+* Required `r I(PN(c("6RQ",605,610, 612, 701, 702 )))`
+* Extensions `r I(PN(c(620,621)))`, [XKCD cartoon](http://xkcd.com/418/).  What regression model for this?
+
+
+**Notes**: `r I(todaysNotes("2012-09-24.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-24-class) -->
+
+
+<!--     WEEK 4     -->
+
+`r I(classDayContents("Mon", "Feb", 18 ))`
+**Topic**: Formulas and Coefficients
+
+**Reading**: 
+* SM §7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9
+* [XKCD cartoon](http://xkcd.com/605/)
+
+**Assignment**: 
+* Exercises `r I(PN(c("7RQ", 704, 705,710,711,712, 713,715)))`
+* Car project (group project): `r I(PN(c(723)))` Hand in [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=20907)
+* [Instructions for reading Google spreadsheets into R](http://rpubs.com/dtkaplan/GoogleSpreadsheets)
+
+**In Class**:
+* [Untangling House Prices](https://dl.dropbox.com/u/5098197/ISM/UntanglingHousePrices.pdf)
+
+**Notes**: `r I(todaysNotes("2012-09-26.html", "i"))`  
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-26-class) -->
+
+
+`r I(classDayContents("Wed", "Feb", 20 ))`
+**Topic**: Fitting and Least Squares
+
+**Reading**: SM §7.10, SM §8.1, 8.2 
+
+**Assignment**: `r I(PN(c(714,716,721,722, 731, 801)))`
+
+**In Class**: Weekly Quiz
+
+**Notes**: `r I(todaysNotes("2012-09-28.html", "i"))`  
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-28-class)  -->
+
+
+`r I(classDayContents("Fri", "Feb", 22 ))`
+**Topic**: Geometry of Least Squares Fitting
+
+**Reading**: SM §8.3
+
+**Assignment**: `r I(PN(c(802, 804, 805, 811)))`
+
+**In Class**: 
+* [Case versus Variable Spaces](https://dl.dropbox.com/u/5098197/ISM/case-vs-variable-space.pdf)
+
+**Notes**: `r I(todaysNotes("2012-10-01.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-01-class) -->
+
+<!--     WEEK 5   -->
+
+`r I(classDayContents("Mon", "Feb", 25 ))`
+**Topic**: Redundancy and Colinearity
+
+**Reading**: SM §8.4, 8.5
+
+**Assignment**:  `r I(PN(c("8RQ",805,812)))`
+
+**In Class**: [Redundancy activity](https://dl.dropbox.com/u/5098197/ISM/redundancy.pdf) 
+
+**Notes**: `r I(todaysNotes("2012-10-03.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-03-class) -->
+
+`r I(classDayContents("Wed", "Feb", 27 ))`
+**Topic**: Correlation and Partitioning, $R^2$
+
+**Reading**: SM Ch. 9
+
+**Assignment**: `r I(PN(c(901,902,904,905)))`
+
+**In Class**: Weekly Quiz
+
+**Notes**: `r I(todaysNotes("2012-10-05.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-05-class) -->
+
+`r I(classDayContents("Fri", "March", 1 ))`
+**Topic**: Correlation and Partitioning (continued)
+
+**Reading**: SM Ch. 9 (review)
+
+**Assignment**: `r I(PN(c("9RQ",910,911,912,913,921)))`
+
+**Notes**: `r I(todaysNotes("2012-10-08.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-08-class) -->
+
+<!--      WEEK 6 -->
+
+
+`r I(classDayContents("Mon", "March", 4 ))`
+**Topic**: Total and Partial Relationships
+
+**Reading**: SM Ch. 10
+
+**Assignment**: `r I(PN(c(922, 923,1001,1004,1010)))`
+
+**In Class**: 
+
+* [Total versus Partial](https://dl.dropbox.com/u/5098197/ISM/total-partial.pdf)
+* Form groups for [Survey Project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) and enter the names etc. [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773)
+
+**Notes**: `r I(todaysNotes("2012-10-10.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-10-class) -->
+
+**On Your Own**: [Is coffee good for you?](http://well.blogs.nytimes.com/2012/05/16/coffee-drinkers-may-live-longer/?ref=health)
+
+`r I(classDayContents("Wed", "March", 6 ))`
+**Topic**: Total and Partial Relationships (continued)
+
+**Reading**: SM Ch. 10 (review)
+
+**Assignment**: `r I(PN(c("10RQ",1005,1011,1012,1020)))`
+
+**In Class**: Weekly Quiz
+
+**Notes**: `r I(todaysNotes("2012-10-12.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-12-class) -->
+
+`r I(classDayContents("Fri", "March", 8 ))`
+**Topic**: Confidence Intervals on Coefficients
+
+**Reading**: SM Ch. 12
+
+**Assignment**: `r I(PN(c(1021,1201,1202,1204,1205)))`
+
+**Notes**: `r I(todaysNotes("2012-10-15.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-15-class) -->
+
+<!--     WEEK 7   -->
+
+`r I(classDayContents("Mon", "March", 11 ))`
+**Topic**: Review for Exam
+
+**Reading**:
+
+**Assignment**: Review Problems (to be posted)
+
+**Notes**: `r I(todaysNotes("2012-10-17.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-17-class) -->
+
+
+`r I(classDayContents("Wed", "March", 13 ))`
+**Mid-term Exam**
+
+Review Problems: [without answers](https://dl.dropbox.com/u/5098197/ISM/Mid-Term-Review.pdf) and then again, [with answers](https://dl.dropbox.com/u/5098197/ISM/Mid-Term-Review-answers.pdf)
+
+**[Exam Answers and Grading Rubric] to be posted.** 
+<!--(http://rpubs.com/dtkaplan/2243) --> 
+
+`r I(classDayContents("Fri", "March", 15 ))`
+**Topic**: Probability Models
+
+**Reading**: SM Ch. 11
+
+**Assignment**: `r I(PN(c("11RQ",1101,1102,1104,1105,1110,1121,1122)))`
+
+**Notes**: `r I(todaysNotes("2012-10-24.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-24-class) -->
+
+
+<!--   Spring Break -->
+
+
+<!--    WEEK 8 -->
+
+`r I(classDayContents("Mon","March", 25))`
+**Topic** Continuous Random Variables.  Confidence Intervals on Coefficients.
+
+**Reading**: Review SM Ch. 11.  Start on SM Ch. 12
+
+**Assignment**: 
+* `r I(PN(c(1111,1130,1135,1137)))`
+
+
+`r I(classDayContents("Wed", "March", 27 ))`
+**Topic**: Confidence Intervals on Coefficients (continued)
+
+**Reading**: SM Ch. 12
+
+**Assignment**: `r I(PN(c("12RQ",1210,1212)))`
+
+**In Class**:
+Play with [this applet](http://glimmer.rstudio.com/mosaic/CIgeometry/) written over fall break for Math 155 students to be able to play with the geometry of projection and of confidence intervals.  Here's the story:
+
+* In the "Deterministic" tab, you choose coefficients on B and a covariate C that generate the "real" or "population" values (marked x) of a response variable A.
+* In the "Measurement" tab, the "population" is sampled randomly.  This results, of course, in a measured response that's likely different from the "real" value.
+* In the "3-D View" tab, you can look at the situation from above the B,C-place.  The "real values" (marked x) have a random component added to them (shown in red).  For fitting, this is projected onto the B,C-plane to a sampled version of vector A. 
+* In the "Confidence Intervals" tab, the red area shows the likely locations for random simulations of the residuals residual added to the measured A to simulate a new measured value.  Projecting these back onto B gives an estimate for the confidence interval.
+
+
+**Notes**: `r I(todaysNotes("2012-10-22.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-22-class) -->
+
+
+`r I(classDayContents("Fri", "March", 29 ))`
+**Topic**: Hypothesis Testing
+
+**Reading**: SM Ch. 13
+
+**Assignment**: 
+
+* `r I(PN(c(1301)))`
+
+**Notes**: `r I(todaysNotes("2012-10-29.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-29-class) -->
+
+<!--     WEEK 9    -->
+
+
+
+`r I(classDayContents("Mon", "April", 1 ))`
+**Topic**: Hypothesis Testing (continued)
+
+**Reading**: Review SM Ch. 13
+
+**Assignment**: 
+* `r I(PN(c("13RQ",1302)))`
+* Discuss your draft [Survey Project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) with your instructor. 
+
+**In Class**: `r I(PN(c(1315)))`
+
+**On Your Own**: An [introduction to Bayes Theorem](http://lesswrong.com/lw/2b0/bayes_theorem_illustrated_my_way/)
+
+**Notes**: `r I(todaysNotes("2012-10-31.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-31-class) -->
+
+**On Your Own**: The paper that won the [2012 Ignobel prize](http://www.improbable.com/ig/winners/) in neuroscience: [On brain activity in a dead salmon](http://www.jsur.org/ar/jsur_ben102010.pdf)
+
+`r I(classDayContents("Wed", "April", 3 ))`
+**Topic**: Testing Whole Models with $latex R^2$ and F
+
+**Reading**: SM §14.1, 14.2, 14.3, 14.5
+
+**Assignment**: `r I(PN(c(1401,1402)))`
+
+**In Class**: 
+* `r I(PN(c(1422)))`
+
+**Notes**: `r I(todaysNotes("2012-11-02.html", "i"))`  
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-02-class) -->
+
+`r I(classDayContents("Fri", "April", 5 ))`
+**Topic**: Interpreting the p-value
+
+**Reading**: 
+* SM §14.4
+* [XKCD cartoon](http://xkcd.com/882/) and [another](http://xkcd.com/628/) and [yet another](http://xkcd.com/892/)
+
+**Assignment**: `r I(PN(c("14RQ",1404,1405,1411,1412,1424)))`
+
+**In Class**: `r I(PN(c(1421)))`
+
+**Notes**: `r I(todaysNotes("2012-11-05.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-05-class) -->
+
+**On Your Own**: [Journalistic deficit disorder](http://www.economist.com/node/21563275)
+
+<!--    WEEK   10
+
+`r I(classDayContents("Mon", "April", 8 ))`
+**Topic**: Hypothesis Testing on Parts of Models
+
+**Reading**: SM Ch. 15
+
+**Assignment**: `r I(PN(c("15RQ",1501)))`
+
+**In Class**: [Evaluating your election result model](http://glimmer.rstudio.com/mosaic/Election2012/)
+
+**Notes**: `r I(todaysNotes("2012-11-07.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-07-class) -->
+
+**On Your Own**: [Dance of the p-values](https://www.youtube.com/watch?v=ez4DgdurRPg)
+
+`r I(classDayContents("Wed", "April", 10 ))`
+**Topic**: Hypothesis Testing on Parts of Models (continued)
+
+**Reading**: SM Ch. 15 (review)
+
+**Assignment**: `r I(PN(c(1502,1504,1505,1511)))`
+
+**Notes**: `r I(todaysNotes("2012-11-09.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-09-class) -->
+
+**On Your Own**: [What is a p-value?](https://www.youtube.com/watch?v=ax0tDcFkPic&feature=related)
+
+
+`r I(classDayContents("Fri", "April", 12 ))`
+**Topic**: Choosing model terms
+
+**Reading**: [XKCD cartoon](http://xkcd.com/675/)
+
+**Assignment**:  `r I(PN(c(1512,1521)))`
+
+**Notes**: `r I(todaysNotes("2012-11-12.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-12-class) -->
+
+<!--     WEEK 11    -->
+
+`r I(classDayContents("Mon", "April", 15 ))`
+**Topic**: Non parametrics
+
+**Reading**: [XKCD cartoon on frequentist vs Bayesian](http://xkcd.com/1132/)
+
+**Assignment**: 
+*`r I(PN(c(1522)))`
+* Get final approval for your [survey project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) from your instructor.
+
+**Notes**: `r I(todaysNotes("2012-11-14.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-14-class) -->
+
+-----------------
+### Toward the End of the Semester
+
+You've now seen the core concepts and methods of statistical modeling.  The rest of the semester is intended to help you review and solidify your understanding.  We'll do this by using statistical models in three contexts:
+
+1. Yes/No models --- logistic regression.  The aims here are to provide you with an important technique that employs the logic of statistical modeling but with a slightly different nomenclature.
+2. Causation and the choice of covariates.  You've seen how to choose model terms based on ideas from statistical inference and "evidence."  Now you'll see a new criterion for selecting model terms that respects what you believe is true about causation.
+3. Experiment.  The basic idea is to impose an intervention on a system and then analyzing the results.  Experiments provide the most compelling form of evidence, yet they cannot always (or even often) be performed.  
+
+
+This is a good time to start to review.  As we explore these new contexts, do the exercises from Chapter 15 to solidify your understanding of that basic material.  These exercises will be due at the last class day.
+
+
+`r I(classDayContents("Wed", "April", 17 ))`
+**Topic**: Logistic regression
+
+**Reading**: SM Ch. 16
+
+**Assignment**: `r I(PN(c()))`
+
+**In Class**: Weekly Quiz
+
+**Notes**: `r I(todaysNotes("2012-11-16.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-16-class) -->
+
+
+
+`r I(classDayContents("Fri", "April", 19 ))`
+**Topic**: Odds Ratios and Logistic regression
+
+**Reading**: SM Ch. 16
+
+**Notes**: `r I(todaysNotes("2012-11-19.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-19-class) -->
+
+
+<!--    WEEK 12  -->
+
+`r I(classDayContents("Mon", "April", 22 ))`
+**Topic**: Power and the Alternative Hypothesis
+
+**Notes**: `r I(todaysNotes("2012-11-21.html", "i"))` 
+<!--  [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-21-class) -->
+
+`r I(classDayContents("Wed", "April", 24 ))`
+**Topic**: Power. Logistic Regression.
+
+**Reading**: 
+* SM Ch. 16
+
+**Assignment**: 
+* `r I(PN(c("16RQ",1601,1602,1604)))` Due on Dec 10
+
+**In Class**:
+* [Writing up your survey project in R/Markdown](http://rpubs.com/dtkaplan/survey-writeup-R-Markdown)
+
+**On Your Own**:
+* [Why most published research findings are false](http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124)
+
+**Notes**: `r I(todaysNotes("2012-11-26.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-26-class) -->
+
+
+
+`r I(classDayContents("Fri", "April", 26 ))`
+**Topic**: Causation
+
+**Reading**: 
+* SM Ch. 17
+* [XKCD cartoon](http://xkcd.com/925/)
+
+**Assignment**: `r I(PN(c(1605,1610,1612)))` Due on Dec 10
+
+**In-Class**: [The Power of Vitamin D](https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
+
+**Notes**: `r I(todaysNotes("2012-11-29.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-28-class) -->
+
+
+<! -- WEEK 13   -->
+
+`r I(classDayContents("Mon", "April", 29 ))`
+**Topic**: Causation
+
+**Reading**: 
+* SM Ch. 17
+* [XKCD cartoon](http://xkcd.com/552/)
+
+**Assignment**: `r I(PN(c("17RQ",1701,1702,1705)))` Due on May10
+
+**Notes**: `r I(todaysNotes("2012-11-30.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-30-class) -->
+
+
+`r I(classDayContents("Wed", "May", 1 ))`
+**Topic**: Causation
+
+**Reading**: SM Ch. 17 and [XKCD cartoon](http://xkcd.com/687/)
+
+**Assignment**: `r I(PN(c(1706,1707,1708,1710)))`
+
+**In Class**: 
+* Processing Google Form survey data in R. [Notes](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.html) and the [Rmd file](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.Rmd).
+* [The survey link itself](https://docs.google.com/spreadsheet/viewform?formkey=dGttU3V6cXlkcmRkclZTLVlwNGlCQVE6MQ): Send it to your Mac friends!
+
+**Notes**: `r I(todaysNotes("2012-12-03.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-03-class) -->
+
+`r I(classDayContents("Fri", "May", 3 ))`
+**Topic**: Experiment and Design
+
+**Reading**: SM Ch. 18
+
+**Notes**: `r I(todaysNotes("2012-12-05.html", "i"))` 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-05-class) -->
+
+`r I(classDayContents("Mon", "May", 6 ))`
+**Topic**: Experiment and Design
+
+**Reading**: SM Ch. 18
+
+**Assignment**:
+
+**Notes**: `r I(todaysNotes("2012-12-07.html", "i"))` 
+<!--  [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-07-class) -->

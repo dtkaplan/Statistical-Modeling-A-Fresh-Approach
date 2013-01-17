@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title><a name="Day-2013-Jan-28">Mon 28 Jan</a></title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<!--     WEEK 1  -->
+
+<hr>
+
+<h3><a name="Day-2013-Jan-28">Mon 28 Jan</a></h3>
+
+<p><strong>Topic</strong>: Introduction to the course. Randomness, modeling, and inference.</p>
+
+<p><strong>Reading</strong>: </p>
+
+<ul>
+<li><em>Statistical Modeling</em> textbook §1.1, 1.2, 1.3.  The book is available in both new and used forms in the Macalester bookstore.  Students on the wait list for the course may, understandably, not want to buy the book until they know they will be joining the course.  To make sure that everyone has access to the book, the publisher provides the first few chapters in online format: <a href="http://www.mosaic-web.org/go/StatisticalModeling/Chapters/Chapter-01.pdf">Chap. 1</a> and <a href="http://www.mosaic-web.org/go/StatisticalModeling/Chapters/Chapter-02.pdf">Chap. 2</a></li>
+<li>A <a href="http://www.nytimes.com/2012/08/21/health/how-well-you-sleep-may-hinge-on-race.html?_r=1">recent newspaper report</a> that frames some of the technical issues covered by the course.</li>
+<li>An <a href="http://rpubs.com/dtkaplan/1477">orientation for parents</a>.  This is the link for notes for a class the college ran for parents of entering students on Saturday 1 Sept 2012.  Feel free to send it to your parents or others who ask what you&#39;re going to be doing in statistics.</li>
+<li>Login to R. <a href="http://rpubs.com/dtkaplan/1398">Instructions</a>.  The <a href="http://www.macalester.edu/rstudio">RStudio server</a></li>
+</ul>
+
+<p><strong>Assignment</strong>: </p>
+
+<ul>
+<li>Do the reading! </li>
+</ul>
+
+<p><strong>In Class</strong>:</p>
+
+<ul>
+<li>Activities on randomness.</li>
+<li>Basics with R.</li>
+<li>Using AcroScore <a href="http://dl.dropbox.com/u/5098197/Videos/AcroScoreIntro.swf">a video</a></li>
+</ul>
+
+<p><strong>On Your Own</strong>:</p>
+
+<ul>
+<li>Watch this one-hour documentary: <a href="http://www.gapminder.org/videos/the-joy-of-stats/">The Joy of Stats</a> with Hans Rossling</li>
+</ul>
+
+<p>Notes: <a href='../Notes/2013-01-28.html'>instr</a><a href='../Notes/2012-09-05.html'>*</a></p>
+
+<hr>
+
+<h3><a name="Day-2013-Jan-30">Wed 30 Jan</a></h3>
+
+<p><strong>Topic</strong>: Data: cases, variables, tables, and codebooks</p>
+
+<p><strong>Reading</strong>: </p>
+
+<ul>
+<li>Statistical Modeling §1.4, §2.1, 2.2, 2.3, 2.4</li>
+<li>Recent news report: <a href="http://www.npr.org/blogs/health/2012/08/27/159983037/sleepless-nights-may-put-the-aging-brain-at-risk-of-dementia?sc=ipad&amp;f=1001">Sleep and Senility</a></li>
+</ul>
+
+<p><strong>Assignment</strong>:  </p>
+
+<ul>
+<li>A video on <a href="http://dl.dropbox.com/u/5098197/Videos/AcroScoreIntro.swf">using AcroScore</a>.  Your initial passwords <a href="https://moodle.macalester.edu/mod/assign/view.php?id=12216">are here on Moodle</a>.  Change your password to something more sensible by <a href="http://datavis.math.macalester.edu:8080/AcroScore08">logging in here</a> and going to the Settings item, then the &ldquo;Change Password&rdquo; tab. AcroScore works only on Firefox and Safari browsers, sorry.</li>
+<li>Exercises: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISM13s#1RQ'>1.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISM13s#101'>1.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISM13s#102'>1.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISM13s#104'>1.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISM13s#105'>1.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISM13s#110'>1.10</a></li>
+<li>Reading Reflection on Sleep and Senility. <a href="https://moodle.macalester.edu/mod/assign/view.php?id=13720">Hand in on Moodle</a>. UPDATE LINK</li>
+<li>Quick survey to do <strong>before</strong> class: <a href="https://spreadsheets.google.com/embeddedform?formkey=dEV1cW1rTWhpLUhITVFNVGpnQjNqT3c6MQ&amp;theme=0AX42CRMsmRFbUy04ZWQwMDYwMS02YjZhLTQ2ZjMtYjcyNy0zYWNlMzlmYTAxNmY&amp;embedded=true&amp;ifq">link</a></li>
+</ul>
+
+<p><strong>In-class</strong>: </p>
+
+<ul>
+<li><a href="https://moodle.macalester.edu/mod/assign/view.php?id=13577">Link to Moodle site</a> for your introductory spreadsheet UPDATE LINK</li>
+<li>Starting with R. </li>
+</ul>
+
+<p>Notes: <a href='../Notes/2013-01-30.html'>notes</a><a href='../Notes/2012-09-07.html'>*</a> </p>
+
+<hr>
+
+<h3><a name="Day-2013-Feb-1">Fri 1 Feb</a></h3>
+
+<p><strong>Topic</strong>: Organization of data (cont.), descriptive statistics</p>
+
+<p><strong>Reading</strong>: </p>
+
+<ul>
+<li>SM §2.5, SM §3.1, 3.2, 3.3</li>
+<li><a href="http://xkcd.com/539/">XKCD cartoon</a></li>
+</ul>
+
+<p><strong>Assignment</strong>:</p>
+
+<ul>
+<li>Exercises <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISM13s#111'>1.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A.html?access=ISM13s#112'>1.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISM13s#2RQ'>2.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISM13s#202'>2.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISM13s#204'>2.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#301'>3.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#323'>3.23</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#353'>3.53</a></li>
+<li>Elevator experiment: Instructions <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#336'>3.36</a>. &ndash; Upload your file or a link to your file <a href="https://moodle.macalester.edu/mod/assign/view.php?id=17379">here</a>.</li>
+<li><a href="https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Statistics-Knowledge-Survey/SM2-Statistics-Knowledge-Survey-A.html?access=ISMf12">Start-of-course knowledge survey</a></li>
+</ul>
+
+<p><strong>In-Class</strong>:</p>
+
+<ul>
+<li>Table on <a href="https://dl.dropbox.com/u/5098197/Math155/ActiveDuty_MaritalStatus.xls">Marital status of active-duty forces</a> from <a href="https://explore.data.gov/Population/Active-Duty-Marital-Status/r84k-m39h">data.gov</a> and the <a href="https://dl.dropbox.com/u/5098197/ISM/How-Many-Variables.pdf">PDF handout</a>.  Hand in your sample data file <a href="https://moodle.macalester.edu/mod/assign/view.php?id=17378">here on Moodle</a>.<br/></li>
+</ul>
+
+<p>Notes: <a href='../Notes/2013-02-01.html'>notes</a><a href='../Notes/2012-09-10.html'>*</a> </p>
+
+<!--     WEEK 2 -->
+
+<hr>
+
+<h3><a name="Day-2013-Feb-4">Mon 4 Feb</a></h3>
+
+<p><strong>Topic</strong>: Descriptive statistics: variance</p>
+
+<p><strong>Reading</strong>: SM §3.4, 3.5, <a href="http://xkcd.com/833/">XKCD cartoon</a></p>
+
+<p><strong>Assignment</strong>: Exercises <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISM13s#209'>2.09</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISM13s#214'>2.14</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A.html?access=ISM13s#222'>2.22</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#302'>3.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#303'>3.03</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#304'>3.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#305'>3.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#306'>3.06</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#308'>3.08</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#311'>3.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#312'>3.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#315'>3.15</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#317'>3.17</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#318'>3.18</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#319'>3.19</a></p>
+
+<p><strong>In Class</strong>: <a href="https://dl.dropbox.com/u/5098197/ISM/Numerical-Summaries.pdf">Measures of a distribution</a></p>
+
+<p><strong>On Your Own</strong>: A <em>RadioLab</em> <a href="http://www.radiolab.org/2009/jun/15/">episode about stochasticity</a></p>
+
+<p>Notes: <a href='../Notes/2013-02-06.html'>notes</a><a href='../Notes/2012-09-12.html'>*</a> </p>
+
+<hr>
+
+<h3><a name="Day-2013-Feb-6">Wed 6 Feb</a></h3>
+
+<p><strong>Topic</strong>: Groupwise Models</p>
+
+<p><strong>Reading</strong>: SM Ch. 4</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#314'>3.14</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#316'>3.16</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#3RQ'>3.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISM13s#403'>4.03</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISM13s#404'>4.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISM13s#405'>4.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISM13s#406'>4.06</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISM13s#410'>4.10</a></p>
+
+<p><strong>In Class</strong>:</p>
+
+<ul>
+<li>Weekly Quiz.  This week, it&#39;s about R. A <a href="https://dl.dropbox.com/u/5098197/ISM/R-basics-guide.pdf">study-guide is available here</a>.</li>
+</ul>
+
+<p>Notes: <a href='../Notes/i'>notes</a><a href='../Notes/2012-09-14.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-14-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-Feb-8">Fri 8 Feb</a></h3>
+
+<p><strong>Topic</strong>: Model values, residuals, and variance.  Sampling and resampling.</p>
+
+<p><strong>Reading</strong>: SM Ch. 4 (review).  SM §5.1, 5.2</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A.html?access=ISM13s#354'>3.54</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISM13s#4RQ'>4.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISM13s#407'>4.07</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A.html?access=ISM13s#408'>4.08</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISM13s#501'>5.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISM13s#502'>5.02</a></p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-09-17.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-17-class) -->
+
+<p><strong>In-Class</strong>: <a href="https://dl.dropbox.com/u/5098197/ISM/Unfit-Models.pdf">Unfit models</a> activity</p>
+
+<!--      WEEK 3      -->
+
+<hr>
+
+<h3><a name="Day-2013-Feb-11">Mon 11 Feb</a></h3>
+
+<p><strong>Topic</strong>: Confidence intervals</p>
+
+<p><strong>Reading</strong>: SM §5.3, 5.4, 5.5, 5.7</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISM13s#5RQ'>5.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISM13s#503'>5.03</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISM13s#512'>5.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISM13s#517'>5.17</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISM13s#520'>5.20</a></p>
+
+<p><strong>In Class</strong>: 
+Precision and sampling.  (Precision is easy.  Accuracy will take the rest of the course!)</p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-09-19.html'>*</a>  </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-19-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-Feb-13">Wed 13 Feb</a></h3>
+
+<p><strong>Topic</strong>: Language of Models</p>
+
+<p><strong>Reading</strong>: SM §6.1, 6.2, 6.3, 6.4</p>
+
+<p><strong>Assignment</strong>: </p>
+
+<ul>
+<li>Required: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISM13s#513'>5.13</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISM13s#523'>5.23</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISM13s#530'>5.30</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISM13s#531'>5.31</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISM13s#601'>6.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISM13s#602'>6.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISM13s#604'>6.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISM13s#611'>6.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISM13s#613'>6.13</a></li>
+<li>Optional, for the theoretically oriented.  <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems/SM2-Chapter-5-Problems-A.html?access=ISM13s#540'>5.40</a></li>
+</ul>
+
+<p><strong>In Class</strong>:
+Wednesday Quiz</p>
+
+<p><strong>On Your Own</strong>: </p>
+
+<ul>
+<li>Bias in sampling: Steven Strogatz on <a href="http://opinionator.blogs.nytimes.com/2012/09/17/friends-you-can-count-on/?ref=opinion">why your friends have more friends than you do</a></li>
+<li>One of our data sets is based on the General Social Survey from 1985.  Here&#39;s an article based on the ongoing <a href="http://www.nytimes.com/2012/09/21/health/intangible-dividend-in-an-anti-poverty-experiment-happiness.html?_r=1&amp;hp">General Social Survey in 2012</a>.</li>
+</ul>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-09-21.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-21-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-Feb-15">Fri 15 Feb</a></h3>
+
+<p><strong>Topic</strong>: From Model Terms to Formulas and Coefficients
+<strong>Reading</strong>: SM §6.5, 6.6, 6.7, SM §7.1, 7.2
+<strong>Assignment</strong>: </p>
+
+<ul>
+<li>Required <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISM13s#6RQ'>6.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISM13s#605'>6.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISM13s#610'>6.10</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISM13s#612'>6.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#701'>7.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#702'>7.02</a></li>
+<li>Extensions <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISM13s#620'>6.20</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A.html?access=ISM13s#621'>6.21</a>, <a href="http://xkcd.com/418/">XKCD cartoon</a>.  What regression model for this?</li>
+</ul>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-09-24.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-24-class) -->
+
+<!--     WEEK 4     -->
+
+<hr>
+
+<h3><a name="Day-2013-Feb-18">Mon 18 Feb</a></h3>
+
+<p><strong>Topic</strong>: Formulas and Coefficients</p>
+
+<p><strong>Reading</strong>: </p>
+
+<ul>
+<li>SM §7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9</li>
+<li><a href="http://xkcd.com/605/">XKCD cartoon</a></li>
+</ul>
+
+<p><strong>Assignment</strong>: </p>
+
+<ul>
+<li>Exercises <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#7RQ'>7.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#704'>7.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#705'>7.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#710'>7.10</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#711'>7.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#712'>7.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#713'>7.13</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#715'>7.15</a></li>
+<li>Car project (group project): <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#723'>7.23</a> Hand in <a href="https://moodle.macalester.edu/mod/assign/view.php?id=20907">here on Moodle</a></li>
+<li><a href="http://rpubs.com/dtkaplan/GoogleSpreadsheets">Instructions for reading Google spreadsheets into R</a></li>
+</ul>
+
+<p><strong>In Class</strong>:</p>
+
+<ul>
+<li><a href="https://dl.dropbox.com/u/5098197/ISM/UntanglingHousePrices.pdf">Untangling House Prices</a></li>
+</ul>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-09-26.html'>*</a>  </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-26-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-Feb-20">Wed 20 Feb</a></h3>
+
+<p><strong>Topic</strong>: Fitting and Least Squares</p>
+
+<p><strong>Reading</strong>: SM §7.10, SM §8.1, 8.2 </p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#714'>7.14</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#716'>7.16</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#721'>7.21</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#722'>7.22</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISM13s#731'>7.31</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISM13s#801'>8.01</a></p>
+
+<p><strong>In Class</strong>: Weekly Quiz</p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-09-28.html'>*</a>  </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-09-28-class)  -->
+
+<hr>
+
+<h3><a name="Day-2013-Feb-22">Fri 22 Feb</a></h3>
+
+<p><strong>Topic</strong>: Geometry of Least Squares Fitting</p>
+
+<p><strong>Reading</strong>: SM §8.3</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISM13s#802'>8.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISM13s#804'>8.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISM13s#805'>8.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISM13s#811'>8.11</a></p>
+
+<p><strong>In Class</strong>: </p>
+
+<ul>
+<li><a href="https://dl.dropbox.com/u/5098197/ISM/case-vs-variable-space.pdf">Case versus Variable Spaces</a></li>
+</ul>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-10-01.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-01-class) -->
+
+<!--     WEEK 5   -->
+
+<hr>
+
+<h3><a name="Day-2013-Feb-25">Mon 25 Feb</a></h3>
+
+<p><strong>Topic</strong>: Redundancy and Colinearity</p>
+
+<p><strong>Reading</strong>: SM §8.4, 8.5</p>
+
+<p><strong>Assignment</strong>:  <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISM13s#8RQ'>8.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISM13s#805'>8.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A.html?access=ISM13s#812'>8.12</a></p>
+
+<p><strong>In Class</strong>: <a href="https://dl.dropbox.com/u/5098197/ISM/redundancy.pdf">Redundancy activity</a> </p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-10-03.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-03-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-Feb-27">Wed 27 Feb</a></h3>
+
+<p><strong>Topic</strong>: Correlation and Partitioning, \( R^2 \)</p>
+
+<p><strong>Reading</strong>: SM Ch. 9</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISM13s#901'>9.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISM13s#902'>9.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISM13s#904'>9.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISM13s#905'>9.05</a></p>
+
+<p><strong>In Class</strong>: Weekly Quiz</p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-10-05.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-05-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-March-1">Fri 1 March</a></h3>
+
+<p><strong>Topic</strong>: Correlation and Partitioning (continued)</p>
+
+<p><strong>Reading</strong>: SM Ch. 9 (review)</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISM13s#9RQ'>9.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISM13s#910'>9.10</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISM13s#911'>9.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISM13s#912'>9.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISM13s#913'>9.13</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISM13s#921'>9.21</a></p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-10-08.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-08-class) -->
+
+<!--      WEEK 6 -->
+
+<hr>
+
+<h3><a name="Day-2013-March-4">Mon 4 March</a></h3>
+
+<p><strong>Topic</strong>: Total and Partial Relationships</p>
+
+<p><strong>Reading</strong>: SM Ch. 10</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISM13s#922'>9.22</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A.html?access=ISM13s#923'>9.23</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISM13s#1001'>10.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISM13s#1004'>10.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISM13s#1010'>10.10</a></p>
+
+<p><strong>In Class</strong>: </p>
+
+<ul>
+<li><a href="https://dl.dropbox.com/u/5098197/ISM/total-partial.pdf">Total versus Partial</a></li>
+<li>Form groups for <a href="https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf">Survey Project</a> and enter the names etc. <a href="https://moodle.macalester.edu/mod/assign/view.php?id=22773">here on Moodle</a></li>
+</ul>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-10-10.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-10-class) -->
+
+<p><strong>On Your Own</strong>: <a href="http://well.blogs.nytimes.com/2012/05/16/coffee-drinkers-may-live-longer/?ref=health">Is coffee good for you?</a></p>
+
+<hr>
+
+<h3><a name="Day-2013-March-6">Wed 6 March</a></h3>
+
+<p><strong>Topic</strong>: Total and Partial Relationships (continued)</p>
+
+<p><strong>Reading</strong>: SM Ch. 10 (review)</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISM13s#10RQ'>10.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISM13s#1005'>10.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISM13s#1011'>10.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISM13s#1012'>10.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISM13s#1020'>10.20</a></p>
+
+<p><strong>In Class</strong>: Weekly Quiz</p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-10-12.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-12-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-March-8">Fri 8 March</a></h3>
+
+<p><strong>Topic</strong>: Confidence Intervals on Coefficients</p>
+
+<p><strong>Reading</strong>: SM Ch. 12</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A.html?access=ISM13s#1021'>10.21</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISM13s#1201'>12.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISM13s#1202'>12.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISM13s#1204'>12.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISM13s#1205'>12.05</a></p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-10-15.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-15-class) -->
+
+<!--     WEEK 7   -->
+
+<hr>
+
+<h3><a name="Day-2013-March-11">Mon 11 March</a></h3>
+
+<p><strong>Topic</strong>: Review for Exam</p>
+
+<p><strong>Reading</strong>:</p>
+
+<p><strong>Assignment</strong>: Review Problems (to be posted)</p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-10-17.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-17-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-March-13">Wed 13 March</a></h3>
+
+<p><strong>Mid-term Exam</strong></p>
+
+<p>Review Problems: <a href="https://dl.dropbox.com/u/5098197/ISM/Mid-Term-Review.pdf">without answers</a> and then again, <a href="https://dl.dropbox.com/u/5098197/ISM/Mid-Term-Review-answers.pdf">with answers</a></p>
+
+<p><strong>[Exam Answers and Grading Rubric] to be posted.</strong> </p>
+
+<!--(http://rpubs.com/dtkaplan/2243) --> 
+
+<hr>
+
+<h3><a name="Day-2013-March-15">Fri 15 March</a></h3>
+
+<p><strong>Topic</strong>: Probability Models</p>
+
+<p><strong>Reading</strong>: SM Ch. 11</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISM13s#11RQ'>11.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISM13s#1101'>11.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISM13s#1102'>11.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISM13s#1104'>11.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISM13s#1105'>11.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISM13s#1110'>11.10</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISM13s#1121'>11.21</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISM13s#1122'>11.22</a></p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-10-24.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-24-class) -->
+
+<!--   Spring Break -->
+
+<!--    WEEK 8 -->
+
+<hr>
+
+<h3><a name="Day-2013-March-25">Mon 25 March</a></h3>
+
+<p><strong>Topic</strong> Continuous Random Variables.  Confidence Intervals on Coefficients.</p>
+
+<p><strong>Reading</strong>: Review SM Ch. 11.  Start on SM Ch. 12</p>
+
+<p><strong>Assignment</strong>: </p>
+
+<ul>
+<li><a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISM13s#1111'>11.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISM13s#1130'>11.30</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISM13s#1135'>11.35</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-11-Problems/SM2-Chapter-11-Problems-A.html?access=ISM13s#1137'>11.37</a></li>
+</ul>
+
+<hr>
+
+<h3><a name="Day-2013-March-27">Wed 27 March</a></h3>
+
+<p><strong>Topic</strong>: Confidence Intervals on Coefficients (continued)</p>
+
+<p><strong>Reading</strong>: SM Ch. 12</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISM13s#12RQ'>12.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISM13s#1210'>12.10</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A.html?access=ISM13s#1212'>12.12</a></p>
+
+<p><strong>In Class</strong>:
+Play with <a href="http://glimmer.rstudio.com/mosaic/CIgeometry/">this applet</a> written over fall break for Math 155 students to be able to play with the geometry of projection and of confidence intervals.  Here&#39;s the story:</p>
+
+<ul>
+<li>In the &ldquo;Deterministic&rdquo; tab, you choose coefficients on B and a covariate C that generate the &ldquo;real&rdquo; or &ldquo;population&rdquo; values (marked x) of a response variable A.</li>
+<li>In the &ldquo;Measurement&rdquo; tab, the &ldquo;population&rdquo; is sampled randomly.  This results, of course, in a measured response that&#39;s likely different from the &ldquo;real&rdquo; value.</li>
+<li>In the &ldquo;3-D View&rdquo; tab, you can look at the situation from above the B,C-place.  The &ldquo;real values&rdquo; (marked x) have a random component added to them (shown in red).  For fitting, this is projected onto the B,C-plane to a sampled version of vector A. </li>
+<li>In the &ldquo;Confidence Intervals&rdquo; tab, the red area shows the likely locations for random simulations of the residuals residual added to the measured A to simulate a new measured value.  Projecting these back onto B gives an estimate for the confidence interval.</li>
+</ul>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-10-22.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-22-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-March-29">Fri 29 March</a></h3>
+
+<p><strong>Topic</strong>: Hypothesis Testing</p>
+
+<p><strong>Reading</strong>: SM Ch. 13</p>
+
+<p><strong>Assignment</strong>: </p>
+
+<ul>
+<li><a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-13-Problems/SM2-Chapter-13-Problems-A.html?access=ISM13s#1301'>13.01</a></li>
+</ul>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-10-29.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-29-class) -->
+
+<!--     WEEK 9    -->
+
+<hr>
+
+<h3><a name="Day-2013-April-1">Mon 1 April</a></h3>
+
+<p><strong>Topic</strong>: Hypothesis Testing (continued)</p>
+
+<p><strong>Reading</strong>: Review SM Ch. 13</p>
+
+<p><strong>Assignment</strong>: </p>
+
+<ul>
+<li><a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-13-Problems/SM2-Chapter-13-Problems-A.html?access=ISM13s#13RQ'>13.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-13-Problems/SM2-Chapter-13-Problems-A.html?access=ISM13s#1302'>13.02</a></li>
+<li>Discuss your draft <a href="https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf">Survey Project</a> with your instructor. </li>
+</ul>
+
+<p><strong>In Class</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-13-Problems/SM2-Chapter-13-Problems-A.html?access=ISM13s#1315'>13.15</a></p>
+
+<p><strong>On Your Own</strong>: An <a href="http://lesswrong.com/lw/2b0/bayes_theorem_illustrated_my_way/">introduction to Bayes Theorem</a></p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-10-31.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-31-class) -->
+
+<p><strong>On Your Own</strong>: The paper that won the <a href="http://www.improbable.com/ig/winners/">2012 Ignobel prize</a> in neuroscience: <a href="http://www.jsur.org/ar/jsur_ben102010.pdf">On brain activity in a dead salmon</a></p>
+
+<hr>
+
+<h3><a name="Day-2013-April-3">Wed 3 April</a></h3>
+
+<p><strong>Topic</strong>: Testing Whole Models with \( R^2 \) and F</p>
+
+<p><strong>Reading</strong>: SM §14.1, 14.2, 14.3, 14.5</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISM13s#1401'>14.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISM13s#1402'>14.02</a></p>
+
+<p><strong>In Class</strong>: </p>
+
+<ul>
+<li><a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISM13s#1422'>14.22</a></li>
+</ul>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-11-02.html'>*</a>  </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-02-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-April-5">Fri 5 April</a></h3>
+
+<p><strong>Topic</strong>: Interpreting the p-value</p>
+
+<p><strong>Reading</strong>: </p>
+
+<ul>
+<li>SM §14.4</li>
+<li><a href="http://xkcd.com/882/">XKCD cartoon</a> and <a href="http://xkcd.com/628/">another</a> and <a href="http://xkcd.com/892/">yet another</a></li>
+</ul>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISM13s#14RQ'>14.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISM13s#1404'>14.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISM13s#1405'>14.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISM13s#1411'>14.11</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISM13s#1412'>14.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISM13s#1424'>14.24</a></p>
+
+<p><strong>In Class</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A.html?access=ISM13s#1421'>14.21</a></p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-11-05.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-05-class) -->
+
+<p><strong>On Your Own</strong>: <a href="http://www.economist.com/node/21563275">Journalistic deficit disorder</a></p>
+
+<!--    WEEK   10
+
+<hr>
+###  <a name="Day-2013-April-8">Mon 8 April</a>
+**Topic**: Hypothesis Testing on Parts of Models
+
+**Reading**: SM Ch. 15
+
+**Assignment**: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-15-Problems/SM2-Chapter-15-Problems-A.html?access=ISM13s#15RQ'>15.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-15-Problems/SM2-Chapter-15-Problems-A.html?access=ISM13s#1501'>15.01</a>
+
+**In Class**: [Evaluating your election result model](http://glimmer.rstudio.com/mosaic/Election2012/)
+
+**Notes**: <a href='../Notes/i'>notes</a><a href='../Notes/2012-11-07.html'>*</a> 
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-07-class) -->
+
+<p><strong>On Your Own</strong>: <a href="https://www.youtube.com/watch?v=ez4DgdurRPg">Dance of the p-values</a></p>
+
+<hr>
+
+<h3><a name="Day-2013-April-10">Wed 10 April</a></h3>
+
+<p><strong>Topic</strong>: Hypothesis Testing on Parts of Models (continued)</p>
+
+<p><strong>Reading</strong>: SM Ch. 15 (review)</p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-15-Problems/SM2-Chapter-15-Problems-A.html?access=ISM13s#1502'>15.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-15-Problems/SM2-Chapter-15-Problems-A.html?access=ISM13s#1504'>15.04</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-15-Problems/SM2-Chapter-15-Problems-A.html?access=ISM13s#1505'>15.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-15-Problems/SM2-Chapter-15-Problems-A.html?access=ISM13s#1511'>15.11</a></p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-11-09.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-09-class) -->
+
+<p><strong>On Your Own</strong>: <a href="https://www.youtube.com/watch?v=ax0tDcFkPic&amp;feature=related">What is a p-value?</a></p>
+
+<hr>
+
+<h3><a name="Day-2013-April-12">Fri 12 April</a></h3>
+
+<p><strong>Topic</strong>: Choosing model terms</p>
+
+<p><strong>Reading</strong>: <a href="http://xkcd.com/675/">XKCD cartoon</a></p>
+
+<p><strong>Assignment</strong>:  <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-15-Problems/SM2-Chapter-15-Problems-A.html?access=ISM13s#1512'>15.12</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-15-Problems/SM2-Chapter-15-Problems-A.html?access=ISM13s#1521'>15.21</a></p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-11-12.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-12-class) -->
+
+<!--     WEEK 11    -->
+
+<hr>
+
+<h3><a name="Day-2013-April-15">Mon 15 April</a></h3>
+
+<p><strong>Topic</strong>: Non parametrics</p>
+
+<p><strong>Reading</strong>: <a href="http://xkcd.com/1132/">XKCD cartoon on frequentist vs Bayesian</a></p>
+
+<p><strong>Assignment</strong>: 
+*<a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-15-Problems/SM2-Chapter-15-Problems-A.html?access=ISM13s#1522'>15.22</a></p>
+
+<ul>
+<li>Get final approval for your <a href="https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf">survey project</a> from your instructor.</li>
+</ul>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-11-14.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-14-class) -->
+
+<hr/>
+
+<h3>Toward the End of the Semester</h3>
+
+<p>You&#39;ve now seen the core concepts and methods of statistical modeling.  The rest of the semester is intended to help you review and solidify your understanding.  We&#39;ll do this by using statistical models in three contexts:</p>
+
+<ol>
+<li>Yes/No models &mdash; logistic regression.  The aims here are to provide you with an important technique that employs the logic of statistical modeling but with a slightly different nomenclature.</li>
+<li>Causation and the choice of covariates.  You&#39;ve seen how to choose model terms based on ideas from statistical inference and &ldquo;evidence.&rdquo;  Now you&#39;ll see a new criterion for selecting model terms that respects what you believe is true about causation.</li>
+<li>Experiment.  The basic idea is to impose an intervention on a system and then analyzing the results.  Experiments provide the most compelling form of evidence, yet they cannot always (or even often) be performed.<br/></li>
+</ol>
+
+<p>This is a good time to start to review.  As we explore these new contexts, do the exercises from Chapter 15 to solidify your understanding of that basic material.  These exercises will be due at the last class day.</p>
+
+<hr>
+
+<h3><a name="Day-2013-April-17">Wed 17 April</a></h3>
+
+<p><strong>Topic</strong>: Logistic regression</p>
+
+<p><strong>Reading</strong>: SM Ch. 16</p>
+
+<p><strong>Assignment</strong>: </p>
+
+<p><strong>In Class</strong>: Weekly Quiz</p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-11-16.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-16-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-April-19">Fri 19 April</a></h3>
+
+<p><strong>Topic</strong>: Odds Ratios and Logistic regression</p>
+
+<p><strong>Reading</strong>: SM Ch. 16</p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-11-19.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-19-class) -->
+
+<!--    WEEK 12  -->
+
+<hr>
+
+<h3><a name="Day-2013-April-22">Mon 22 April</a></h3>
+
+<p><strong>Topic</strong>: Power and the Alternative Hypothesis</p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-11-21.html'>*</a> </p>
+
+<!--  [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-21-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-April-24">Wed 24 April</a></h3>
+
+<p><strong>Topic</strong>: Power. Logistic Regression.</p>
+
+<p><strong>Reading</strong>: </p>
+
+<ul>
+<li>SM Ch. 16</li>
+</ul>
+
+<p><strong>Assignment</strong>: </p>
+
+<ul>
+<li><a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-16-Problems/SM2-Chapter-16-Problems-A.html?access=ISM13s#16RQ'>16.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-16-Problems/SM2-Chapter-16-Problems-A.html?access=ISM13s#1601'>16.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-16-Problems/SM2-Chapter-16-Problems-A.html?access=ISM13s#1602'>16.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-16-Problems/SM2-Chapter-16-Problems-A.html?access=ISM13s#1604'>16.04</a> Due on Dec 10</li>
+</ul>
+
+<p><strong>In Class</strong>:</p>
+
+<ul>
+<li><a href="http://rpubs.com/dtkaplan/survey-writeup-R-Markdown">Writing up your survey project in R/Markdown</a></li>
+</ul>
+
+<p><strong>On Your Own</strong>:</p>
+
+<ul>
+<li><a href="http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124">Why most published research findings are false</a></li>
+</ul>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-11-26.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-26-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-April-26">Fri 26 April</a></h3>
+
+<p><strong>Topic</strong>: Causation</p>
+
+<p><strong>Reading</strong>: </p>
+
+<ul>
+<li>SM Ch. 17</li>
+<li><a href="http://xkcd.com/925/">XKCD cartoon</a></li>
+</ul>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-16-Problems/SM2-Chapter-16-Problems-A.html?access=ISM13s#1605'>16.05</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-16-Problems/SM2-Chapter-16-Problems-A.html?access=ISM13s#1610'>16.10</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-16-Problems/SM2-Chapter-16-Problems-A.html?access=ISM13s#1612'>16.12</a> Due on Dec 10</p>
+
+<p><strong>In-Class</strong>: <a href="https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf">The Power of Vitamin D</a></p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-11-29.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-28-class) -->
+
+<p>&lt;! &ndash; WEEK 13   &ndash;&gt;</p>
+
+<hr>
+
+<h3><a name="Day-2013-April-29">Mon 29 April</a></h3>
+
+<p><strong>Topic</strong>: Causation</p>
+
+<p><strong>Reading</strong>: </p>
+
+<ul>
+<li>SM Ch. 17</li>
+<li><a href="http://xkcd.com/552/">XKCD cartoon</a></li>
+</ul>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-17-Problems/SM2-Chapter-17-Problems-A.html?access=ISM13s#17RQ'>17.RQ</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-17-Problems/SM2-Chapter-17-Problems-A.html?access=ISM13s#1701'>17.01</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-17-Problems/SM2-Chapter-17-Problems-A.html?access=ISM13s#1702'>17.02</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-17-Problems/SM2-Chapter-17-Problems-A.html?access=ISM13s#1705'>17.05</a> Due on May10</p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-11-30.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-30-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-May-1">Wed 1 May</a></h3>
+
+<p><strong>Topic</strong>: Causation</p>
+
+<p><strong>Reading</strong>: SM Ch. 17 and <a href="http://xkcd.com/687/">XKCD cartoon</a></p>
+
+<p><strong>Assignment</strong>: <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-17-Problems/SM2-Chapter-17-Problems-A.html?access=ISM13s#1706'>17.06</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-17-Problems/SM2-Chapter-17-Problems-A.html?access=ISM13s#1707'>17.07</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-17-Problems/SM2-Chapter-17-Problems-A.html?access=ISM13s#1708'>17.08</a>, <a href='https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-17-Problems/SM2-Chapter-17-Problems-A.html?access=ISM13s#1710'>17.10</a></p>
+
+<p><strong>In Class</strong>: </p>
+
+<ul>
+<li>Processing Google Form survey data in R. <a href="http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.html">Notes</a> and the <a href="http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.Rmd">Rmd file</a>.</li>
+<li><a href="https://docs.google.com/spreadsheet/viewform?formkey=dGttU3V6cXlkcmRkclZTLVlwNGlCQVE6MQ">The survey link itself</a>: Send it to your Mac friends!</li>
+</ul>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-12-03.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-03-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-May-3">Fri 3 May</a></h3>
+
+<p><strong>Topic</strong>: Experiment and Design</p>
+
+<p><strong>Reading</strong>: SM Ch. 18</p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-12-05.html'>*</a> </p>
+
+<!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-05-class) -->
+
+<hr>
+
+<h3><a name="Day-2013-May-6">Mon 6 May</a></h3>
+
+<p><strong>Topic</strong>: Experiment and Design</p>
+
+<p><strong>Reading</strong>: SM Ch. 18</p>
+
+<p><strong>Assignment</strong>:</p>
+
+<p><strong>Notes</strong>: <a href='../Notes/i'>notes</a><a href='../Notes/2012-12-07.html'>*</a> </p>
+
+<!--  [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-07-class) -->
+
+</body>
+
+</html>
+
