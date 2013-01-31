@@ -3,6 +3,10 @@ require(mosaic)
 source("schedule-software.R")
 ```
 
+### Setting up an RStudio Account
+
+[Instructions here](http://rpubs.com/dtkaplan/1398)
+
 <!--     WEEK 1  -->
 `r I(classDayContents("Mon", "Jan", 28 ))`
 **Topic**: Introduction to the course. Randomness, modeling, and inference.
@@ -551,7 +555,7 @@ This is a good time to start to review.  As we explore these new contexts, do th
 * SM Ch. 17
 * [XKCD cartoon](http://xkcd.com/552/)
 
-**Assignment**: `r I(PN(c("17RQ",1701,1702,1705)))` Due on May10
+**Assignment**: `r I(PN(c("17RQ",1701,1702,1705)))` Due on May 10
 
 **Notes**: `r I(todaysNotes("2012-11-30.html", "i"))` 
 <!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-30-class) -->
