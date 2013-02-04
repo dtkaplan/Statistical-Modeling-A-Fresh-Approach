@@ -1,0 +1,235 @@
+February 4, 2013 Class Notes
+--------------------------
+
+```{r include=FALSE}
+require(mosaic, quietly=TRUE)
+```
+
+### Announcements
+
+* Quiz on Wednesday.  Hand out the study guide.  You will want to have R working by tomorrow so that you can study.
+* We'll harvest the first chapter's exercises on Friday.  So make sure to have AcroScore working by then.
+* Preceptor review session tonight at 6-7.
+* Review session by Google Hangout on Tuesday at 9:00-9:30pm.
+
+
+### Questions about height
+
+It's not silly to ask, "How tall are you?"
+
+But it is silly to ask, "Why are you the height that you are?"
+
+Or, when comparing two people, "Why are your heights different in the way they are?"
+
+#### Why are these questions silly?
+
+* Because you have only one height, and any number of explanations might account for it, e.g. the Aristotelian idea that you head toward your proper place.
+
+#### The statistical question is
+
+What accounts for the variation of height from person to person in a group of people?
+
+Some possible factors:
+* Nutrition
+* Parents' height
+* Ethnicity
+* Illness
+
+There are still lots of potential theories that might account for height in terms of these factors, but with a large group the possible theories will be severely constrained by the data.  
+
+### Task for today
+
+Ways to describe variation and, particularly, ways to quantify it.
+
+```{r}
+g = fetchData("Galton")
+```
+
+#### On Friday, we looked at various graphical displays
+
+* histogram
+* density plot (and the dot plot below it)
+* box-and-whiskers plot
+
+Explain the density plot by reference to the dotplot of points at the bottom of the figure.  The height of the graph shows how dense the points are.
+
+More technically, imagine a graph --- the cumulative distribution function --- showing the fraction of cases that fall below a given value versus that given value.  This will be a upward stepping graph, like this:
+```{r}
+plot(ecdf(g$height)) # not a command the students need to know
+```
+The density plot is the derivative of this graph.  Note that if you integrate the derivative from $-\infty$ to $\infty$, you'll get 1, the total of increase in the original function.  In other words, the area under the entire density curve is 1.  That's what determines the units on the vertical axis of the density curve.
+
+When to use each:
+* Histogram: rarely.  Instead, use a density plot
+* Density plot: when there is just one or two distributions you want to compare.
+* Box-and-whisker plot: When you are comparing two or more distributions, or when you want to highlight outliers.
+
+```{r}
+bwplot(height ~ sex, data=g)
+```
+
+
+#### What's an outlier.
+
+The 1.5 IQR rule of thumb.  Demo this by showing a box-and-whisker plot with some outliers and showing how the whiskers extend to 1.5 IQR from the first and third quartiles.
+
+
+## Numerical summaries of distributions 
+
+A number describes one thing.  You need to know what is the one thing that each of these numbers is describing in  terms of a distribution:
+
+* mean
+* standard deviation
+* variance
+* IQR
+* median
+* minimum
+* maximum
+* a percentile at level p
+
+Some numerical descriptions involve two numbers:
+* range
+* 95% coverage interval
+* 50% (or whatever coverage level)
+
+### Computing these
+
+The operators are `mean`, `median`, `sd`, `var`, `IQR`, `qdata`, `max`, `min`, `range`, `confint`
+
+Examples:
+```{r}
+mean(height, data=g)
+sd(height, data=g)
+```
+
+Most of the operators we will use throughout the course will work this way.  
+
+Some of the operators don't recognize the `data=` syntax.  We'd like to fix this, but it isn't always possible without a re-organization of base software, which is too widely used to change.  This is the downside of using professional-level software --- it's not oriented toward beginners.  On the other hand, once you learn to use it, you'll be able to do professional things. 
+
+These other operators want to work on a variable that's already been extracted from a data frame, they don't do the extraction themselves.
+
+```{r}
+IQR( g$height )
+```
+I'll tend to use this syntax:
+```{r}
+with( data=g, IQR(height))
+with( data=g, confint(father))
+```
+
+
+
+### Interpreting these Measures
+
+It can be helpful to think of arranging these various quantities along two conceptual dimensions:
+
+#### Location and Scatter
+
+* Center: mean, median
+* Range: max, min, 95% coverage
+* Scatter: standard deviation, variance, IQR
+* Non-central: a percentile
+
+#### Inclusion and robustness
+
+* All inclusive, but sensitive to outliers. ("non-robust")
+* All inclusive, but not sensitive to outliers ("robust")
+* Plausible: leaves out the very extremes
+* Mainstream: emphasizes the middle.
+
+### Computational Exercise: Testing Robustness
+
+Technique: Creating an Outlier
+
+Let's change one height value in the Galton data to be an outrageous outlier:
+```{r}
+bogus = g
+bogus$height[25] = 800 # You don't need to use this command
+```
+
+Play with the various measures and see which ones are very different between `g` and `bogus`.
+
+### Dealing with Outliers
+
+* If it's just a mistake, mark it as such.  Best to do this in your analysis rather than in your original data.
+* Use medians and IQR rather than mean and variance.  This doesn't generalize very well, however, to modeling relationships.
+* Transforms, e.g. logarithms.  At the end of the course, we'll introduce a simple and general approach based on ranks.
+* Logarithms are widely used in economics, but for a somewhat different reason than dealing with outliers.
+
+
+### Order statistics
+
+Take everyone out into the hall and line them up from shortest to tallest.  Assign each person a **rank**, which is just their order in the line.  When there is a tie, the order of the people involved in the tie is arbitrary, so average the naive ranks that would be assigned to the people involved in the tie.
+
+Point out the min, max, median, first and third quantile.
+
+#### The Variance and Standard Deviation
+
+Sometimes it's nice to be able to summarize a distribution with just a small set of numbers.  Some possibilities:
+
+* max and min (what's the problem with this?)
+* first and third quartile
+* median and IQR
+* mean and standard deviation
+
+We'll be making extensive use of the mean and standard deviation in this course.  The reason to prefer these won't become apparent until a few weeks into the semester.
+
+"Standard Deviation" -> "Typical Spread" in a more modern terminology.
+
+In French, it's literally "typical spread": [ėcart type](http://fr.wikipedia.org/wiki/%C3%89cart_type)
+
+Give the formulas for mean and standard deviation
+$$ m = \frac{1}{n}\sum_{k=1}^{n} x_k$$
+$$ v = \frac{1}{n-1} \sum_{k=1}^{n} (x_k - m)^2 $$
+$$ s = \sqrt{v} $$
+
+Eyeballing: Standard deviation on a bell-shaped distribution: more or less the half-width at half-height.
+
+Units of m and s.  
+
+Examples of estimation of s.
+* Ages of workers in the CPS85 data set.  Compare to max and min.
+* Imagine the distribution of speeds of cars on a highway with smooth traffic flow.
+* Ages of students at Macalester. (about 1 year)
+
+[In-class activity]((https://dl.dropbox.com/u/5098197/ISM/Numerical-Summaries.pdf) on the properties of the various measures.
+
+
+
+
+### Measurement and measurement bias
+* Instrumental or procedural error. Measure heights of people with a ruler, but with the ruler not level.
+* Subject or response bias: "How many of you are intravenous drug users?"
+* Global warming. Measurement gauges have been encroached on by urbanization.
+
+
+### Sampling and sampling bias
+* Self-selection bias for surveys
+* Problems with convenience samples: e.g., interview students at library on Friday night about their study habits
+* Selection and survival bias: we don't see the kids who drop out of school, tracking a random sample of Alzheimer's patients to see how long they survive --- you're more likely to sample those who survive a long time.
+
+### Random sampling
+* Sampling frame and formal methods.  Use `sample` 
+
+#### In-Class Activity
+
+* Sampling Bias Activity `s = select.books()` which needs to be proceeded by
+```{r}
+fetchData("simulate.r")
+```
+
+[Instructor's write up](../Activities/SelectingLibraryBooks.html)
+
+
+
+### What do your fellow students know about statistics
+```{r}
+ks = fetchData("/Users/kaplan/Dropbox/Stat155Fall2012/knowledge-survey-2012-09-11.csv")
+for (item in levels(ks$ProblemItem)) {
+  print( item )
+  print(tally(~as.character(AnswerContents), data=subset(ks, ProblemItem==item)))
+  print("")
+}
+```
+
+

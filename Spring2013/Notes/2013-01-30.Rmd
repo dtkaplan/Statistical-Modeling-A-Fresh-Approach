@@ -1,6 +1,11 @@
 January 30, 2013
 ========================================================
 
+```{r include=FALSE}
+require(mosaic, quietly=TRUE, warn.conflicts=FALSE)
+require(xtable, quietly=TRUE, warn.conflicts=FALSE)
+```
+
 ### Before Class
 
 * Circulate the name-tag list.
