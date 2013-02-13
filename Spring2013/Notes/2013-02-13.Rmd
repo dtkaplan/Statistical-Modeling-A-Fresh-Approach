@@ -1,0 +1,217 @@
+February 13 Class Notes 
+===========================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+### Before class
+
+* [Accuracy and Precision of calorie information](http://www.nytimes.com/video/2013/02/12/opinion/100000002061153/calorie-detective.html) --- they are really interested in whether the calorie counts are right on average, but this isn't what they are looking at. What can we say about the evidence that they are providing for calorie labels being systematically off?  
+
+### Precision Demo
+
+Have two students come to the front of the class.  Use a ruler to translate the top of their head to the board.  But have one of the students stand substantially in front of the other, so that there is a steeper angle on the ruler.  
+
+Do the marks on the board indicate that one of the students is taller than the other?
+
+Since we didn't adopt a sensible measurement protocol, there is a large variation in the measurement, so we can't use the measurements to decide which is taller.
+
+### Precision in Practice
+
+Do women earn less than men according to the 1985 CPS survey?
+```{r}
+cps = fetchData("CPS85")
+mod = mm(wage ~ sex, data=cps)
+coef(mod)
+```
+The coefficients suggest a difference, but how do we know how precise the measurements are?  That's what the confidence intervals are for.
+```{r}
+confint(mod)
+```
+If they don't overlap, we have good reason to think that the measurements are precise enough to indicate reliably/repeatably the difference.  
+
+If they overlap hugely, we don't have such reason.  
+
+If there's a bit of overlap, we'll need to be more careful: age and sex
+```{r}
+mod2 = mm(age ~ sex, data=cps)
+confint(mod2)
+```
+
+### Confidence Intervals
+
+Two equivalent formats
+* $L$ to $U$ with $c$ confidence
+* $p \pm m$ with $c$ confidence
+
+Three components:
+1. Point estimate $p$
+2. Margin of error $m$
+3. Confidence level $c$ typically 95%
+
+Two main methods:
+* Compute the 95% coverage interval of the sampling distribution.  
+    * To convert to the margin-of-error format, divide the width of that interval by 2.
+* Find the standard error.
+    * To convert to the margin-of-error format, multiply 2 times the standard error.  (Why 2? For bell shaped distributions it covers about 95%.)
+
+With resampling replications, confint program will do this whichever way you ask:
+```{r}
+trials = do(100)*mm(wage~sex, data=resample(cps))
+confint( trials, method="stderr")
+confint( trials, method="quantile")
+```
+
+Almost always, however, you'll take a short-cut and just ask for the confidence interval by passing the model itself, rather than a set of trials, to `confint`. As it happens, this is done with the standard error method.
+```{r}
+mod = mm( net ~ sex, data=sample(run, size=800))
+confint(mod)
+```
+
+The shorthand way of talking generally involves the standard error.  You're supposed to know to multiply it by 2 to get a 95% margin of error.  
+
+Why don't we just talk about the margin of error and forget the standard error?  Because the standard error is a standard deviation (of a sampling distribution) and for historical reasons the standard deviation is considered basic.
+
+
+### The Standard Error
+
+Defined as the standard deviation of the sampling distribution.
+
+In practice, we compute the standard error as the standard deviation of the resampling distribution.
+
+The standard error quantifies how precise a model coefficients is. It depends on several things, and as we go through the course we'll encounter these.  But one of them we can understand right now and it shapes critically how you decide to collect a sample:
+
+The standard error depends on the **size of the sample**.  
+* More data means a more precise estimate.  Remember this always.
+* Now, let's quantify this dependence.
+
+**Student Activity** Use sampling and iteration for 200 times to calculate the standard error for different sample sizes.  Assign a sample size to each student: 25, 50, 100, 200, 400, 800, 1600, 3200
+
+Example:
+```{r cache=TRUE}
+run = fetchData("repeat-runners.csv")
+trials = do(200)*mm( net ~ sex, data=sample(run,size=800))
+sd(trials)
+```
+Draw a plot of the standard error versus sample size.  Show that the standard error gets smaller as $1/\sqrt{n}$.  You need 4 times as much data to get an estimate that's twice as precise.
+
+
+## Review
+Groupwise models
+* Easy enough to fit groupwise models.  The groupwise mean is a nice estimate for the parameter that eliminates the bias in the residuals and minimizes the variance.
+* We can use more than one categorical variable as a grouping variable.  When we do this, we get results for all the "crosses".
+* Right now, we have a rule of thumb to see if two groups are different: do their confidence intervals overlap.
+
+**BUT ...**
+* What if we want to use a quantitative variable as an explanatory variable?
+* What if we have more than one categorical variable?
+* What if we have a mixture of quantitative and categorical variables?
+
+Why would we want to use more than one variable?  Because things are complicated.
+
+Example: Do wages depend on sex in the CPS85 data?
+```{r}
+mod = mm( wage ~ sex, data=CPS85 )
+coef(mod) # men make about $2.20 per hour more
+summary(mod) # the confidence intervals don't overlap
+```
+
+### Digression using resampling 
+We could find the resampling distribution on the difference between men's and women's wages using the techniques we talked about in the last class.  Just for convenience, we can use the `diff()` function to find the difference between the two groups:
+```{r cache=TRUE, out.width="2in"}
+diff( coef(mod) )  # The point estimate
+# Do some resampling to get the resampling distribution
+trials = do(100)*diff( 
+  coef( mm(wage ~ sex, data=resample(CPS85))))
+qdata(c(0.025, .975), M, data=trials)
+sd( trials) # Standard error
+densityplot( ~ M, data=trials )
+```
+So there seems to be a difference between the men's and women's average wages. 
+
+#### Possible other factors
+
+Ways in which men and women might differ:
+* education
+* age
+* type of job
+
+How could we look at the issue of differences between the sexes in age, taking into account these other possibilities?
+
+Sector of the economy is easy:
+```{r}
+summary(mm(wage~sex+sector, data=CPS85))
+```
+Compare the corresponding sector for the different sexes.  The confidence intervals often overlap.
+
+How to add in additional variables, e.g. age and education?
+
+One intuitive idea is to break up the quantitative variables into categorical variables. For instance, `age`
+```{r}
+mod3 = mm( wage ~ sex + sector + cut(age, breaks=c(0,20,40,60,80)), data=cps)
+```
+Look at `confint(mod3)` and tell me about the overlap between the confidence intervals.  They are huge.  The problem is that there isn't much data in any one group.
+```{r}
+tally( ~ sex + sector + cut(age, breaks=c(0,20,40,60,80)), data=cps)
+```
+
+We can do better.  The key to doing better is to recognize that some pairs of groups are "nearby" and the nearby groups should have related results.  This is what `lm()` will do for us.  Time to take off the training 
+
+The basic models
+-----------------
+
+Assume we have a response variable D, a quantitative explanatory variable, A, and a categorical variable G.
+Here are the basic types of models, illustrated on the swimming data. 
+
+More complicated models mainly add additional variables but follow the same overall pattern.
+
+```{r}
+swim = fetchData("swim100m.csv")
+```
+
+* `D ~ 1`  
+
+All cases are the same.  There is one parameter, the grand mean.
+```{r fig.height=4}
+mod = lm( time ~ 1, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+
+* `D ~ 1 + A`
+The cases vary with the quantitative variable.  There are two parameters: slope and intercept.
+```{r fig.height=4}
+mod = lm( time ~ 1 + year, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+
+* `D ~ 1 + G`
+The groupwise mean model.  But note that the parameters are written differently, as an "intercept" and a "difference".  QUESTION: Which difference is it?
+```{r fig.height=4}
+mod = lm( time ~ 1 + sex, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+
+* `D ~ 1 + A + G`
+Both variables play a role.  The parameters are "intercept," "slope," and "difference between groups."
+
+```{r fig.height=4}
+mod = lm( time ~ 1 + year + sex, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+Note that the slope is the same for the two groups.
+
+To see a different slope for the two groups, we have to ask the model to permit such a thing:
+
+* `D ~ 1 + A + G + A:G`
+```{r fig.height=4}
+mod = lm( time ~ 1 + year + sex + year:sex, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+
+With `lm()`, you can add in lots of variables and keep the confidence intervals small --- there aren't so many "groups".  What's difficult is that the idea of "group" breaks down.  So we'll have to learn to interpret the language of linear models.
+
+
+### Weekly quiz
+
+

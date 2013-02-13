@@ -1,0 +1,223 @@
+In-Class Notes: 2012-09-19
+========================================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+### Words for the Day
+
+**Accuracy** versus **Precision**
+
+* What's the difference?
+* Synonyms for them.
+
+The dictionary gets it substantially wrong:
+>    **precision** |priˈsi zh ən|
+>    noun
+>    the quality, condition, or fact of being exact and accurate : the deal was planned and executed with military precision.
+>    • [as adj. ] marked by or adapted for accuracy and exactness : a precision instrument.
+>    • technical refinement in a measurement, calculation, or specification, esp. as represented by the number of digits given : this has brought an unprecedented degree of precision to the business of dating rocks | a precision of six decimal figures. Compare with accuracy .
+>   **ORIGIN** mid 18th cent.: from French précision or Latin praecisio(n-), from praecidere ‘cut off’ (see precise ).
+
+Thesaurus synonyms: tools crafted with precision: exactness, exactitude, accuracy, correctness, preciseness; care, carefulness, meticulousness, scrupulousness, punctiliousness, methodicalness, rigor, rigorousness.
+
+Today is all about Precision and how to measure and convey it.  For us, the meaning of precision is "the degree of repeatability" or "reproducibility."  Sometimes this is conveyed by the "number of digits", which is to say "the position of the last digit that matters".  
+
+One wikipedia definition is useless: precision (statistics)<http://en.wikipedia.org/wiki/Precision_(statistics)>.
+
+Another one, [accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision) is more on target.
+
+### Review from last class
+
+We saw that the choice of parameters in a model could be automated: fit the model, thereby choosing the parameters that eliminate bias in the residuals and minimize the variance.
+
+Of course, the chosen parameters depend on the data to which the model is fitted.  Insofar as this data is a random sample from a population, the parameters themselves are random.  The question for use today is, "How random?"
+
+### The sampling process
+
+Sample 100 runners from the runners data set and find the mean running time.  Because there is some missing data, you'll need to do something like this:
+```{r}
+options(na.rm=TRUE)
+```
+
+```{r cache=TRUE}
+options(na.rm=TRUE)
+run = fetchData("repeat-runners.csv")
+nrow(run)
+mysamp = sample(run,size=100)
+mymod = mm( net ~ sex, data=mysamp)
+mymod
+```
+
+Across the class, comparing the different students, see what the range of values is.
+
+Do it several times on the instructor's computer.
+```{r}
+do(5) * mm( net ~ sex, data=sample(run,size=100))
+```
+
+Do it many times with do and plot out the sampling distribution.
+```{r cache=TRUE}
+trials = do(100) * mm( net ~ sex, data=sample(run,size=100))
+densityplot( ~F, data=trials )
+densityplot( ~M, data=trials )
+```
+
+Or, to put them both on one plot, which I want to do to compare to the population distribution, here's a more esoteric command:
+```{r}
+require(reshape2)
+densityplot( ~value, groups=variable, data=melt(trials[,1:2]))
+```
+
+How do we measure the **width** of the sampling distribution.  With the standard deviation of the distribution.  
+```{r}
+sd(trials)
+```
+This is called the **standard error** of the distribution.
+
+**IMPORTANT** the standard error of the distribution is not at all the same as the distribution of the population.  Here's that distribution of individual net running times:
+```{r}
+densityplot( ~net, groups=sex, data=run)
+```
+
+
+### Resampling
+
+You don't typically have the population at hand.  (If you did ... )
+
+So we simulate the sampling distribution by constructing a simulated population that consists of many copies of the original.  You could think of this as creating a pot of data, pouring into the pot many copies of the sample so that you have a huge set of cases to choose from.  
+
+In practice, this is implemented by **sampling with replacement**.  To contrast sampling with resampling:
+```{r}
+set = c(1,2,3,4)
+sample(set)
+sample(set)
+sample(set)
+resample(set)
+resample(set)
+resample(set)
+```
+
+The `resample()` function is set up, by default, to create a simulated sample that's the same size as the original.
+
+### Student task
+
+Take your sample of size 100 and fit the model to a resampled set of data:
+```{r}
+mm( net ~ sex, data=resample(mysamp))
+mm( net ~ sex, data=resample(mysamp))
+mm( net ~ sex, data=resample(mysamp))
+```
+
+Do this many times to create the resampling distribution:
+```{r cache=TRUE}
+rs = do(100)* mm( net ~ sex, data=resample(mysamp))
+```
+What's the width of this distribution?
+```{r}
+sd(rs)
+```
+That constitutes an estimate of the standard error of the coefficients of this model.
+
+
+```{r}
+summary(mymod)
+```
+
+QUESTION: Where does the information to do this come from, since `mymod` doesn't see anything but the particular sample that we took?
+
+### The Standard Error
+
+The standard error depends on the size of the sample.  More data means a more precise estimate.  Let's quantify this.
+
+**Student Activity** Use sampling and iteration for 200 times to calculate the standard error for different sample sizes.  Assign a sample size to each student: 25, 50, 100, 200, 400, 800, 1600, 3200
+
+Example:
+```{r cache=TRUE}
+trials = do(200)*mm( net ~ sex, data=sample(run,size=800))
+sd(trials)
+```
+Draw a plot of the standard error versus sample size.  Show that the standard error gets smaller as $1/\sqrt{n}$.  You need 4 times as much data to get an estimate that's twice as precise.
+
+### From the Sampling/Resampling Distribution to a Confidence Interval
+
+Two equivalent formats
+* $L$ to $U$ with $c$ confidence
+* $p \pm m$ with $c$ confidence
+
+Three components:
+1. Point estimate $p$
+2. Margin of error $m$
+3. Confidence level $c$ typically 95\%
+
+Two main methods:
+* Compute the 95\% coverage interval of the sampling distribution
+* Make the margin of error 2 times the standard error.  (Why 2? For bell shaped distributions it covers about 95\%.)
+
+The confint program will do this whichever way you ask:
+```{r}
+confint( trials, method="stderr")
+confint( trials, method="quantile")
+```
+
+**Simulation**
+
+Have students generate a random sample of 100,000 from a normal distribution with a specied mean and standard deviation.  Then calculate the 95% coverage interval.  Note that it extends from the mean about $\pm 2$ standard deviations.
+
+Example:
+```{r}
+samp = rnorm(100000, mean=20, sd=5)
+qdata(c(0.025,0.975), samp) # should be about 10 to 30
+```
+
+The second method, using the standard error, is very common, because it's easier to get a good estimate of the standard error than to get the 2.5 or 97.5 percentile.
+
+
+### Interpreting the Confidence Interval
+
+#### Differences between groups
+
+Simple visual method: do the confidence intervals overlap?  Later on we'll see a more sophisticated method called hypothesis testing.  
+
+#### Coverage
+Have everyone construct a groupwise model of the wage data against some grouping variable and pick some group to examine.
+* First, do it to the entire data set, as if it were a population.
+* Second, do it to a sample of 100 cases.
+* Construct a 50% confidence interval.
+
+Example:
+```{r}
+popParameter = mm( net ~ sex, data=run)
+popParameter
+mymod = mm( net ~ sex, data=sample(run,size=100))
+confint(mymod,level=0.5)
+```
+
+Is the population parameter value within your confidence interval?
+
+Have fun with the students whose interval doesn't cover their population parameter.  Lead them to understand that with a confidence level of 50%, you'll cover the population parameter only half the time.  
+
+In any given study, you can't know if your confidence interval includes the population parameter.  But if you follow the right techniques, your interval will include the population parameter 95% (or whatever the confidence level is) of the time.
+
+Why not 100% confidence?  This would have to extend to infinity.
+
+### Significant digits and the confidence interval
+
+A simple method: Report two digits of the (doubled) standard error.  Then report the point estimate to the same digit as the smallest digit in your standard error.
+
+Examples:
+* Point estimate=3418384.783, sd=67213.5.  
+
+Round doubled sd to two digits: 130000.
+Report point estimate to the same digit: 3420000 $\pm$ 130000 with 95% confidence.
+
+### Going forward
+
+Don't confusion precision with accuracy.  The confidence interval tells you the precision of your estimate, based on the variability that comes about from the sampling process.  But however precise your estimate is, it may still be inaccurate.  Some reasons:
+* Your sample may not be representative.  Randomness fixes this, but not everything that you think is random is indeed random.
+* There may be other factors involved that influence the system and that your model has not taken account of.  
+
+We'll be moving on to build models involving multiple explanatory variables in the next class.  Part of doing that will be to expand the notion of models across groupwise means.
+
+We saw an example of this in the first class, with the early studies of smoking and mortality.  Breaking things up into groups by smoking status, without taking into account age, gave a result that we now know to be wrong.
