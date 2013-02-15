@@ -1,0 +1,59 @@
+February 13 Class Notes 
+===========================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+The basic models
+-----------------
+
+Assume we have a response variable D, a quantitative explanatory variable, A, and a categorical variable G.
+Here are the basic types of models, illustrated on the swimming data. 
+
+More complicated models mainly add additional variables but follow the same overall pattern.
+
+```{r}
+swim = fetchData("swim100m.csv")
+```
+
+* `D ~ 1`  
+
+All cases are the same.  There is one parameter, the grand mean.
+```{r fig.height=4}
+mod = lm( time ~ 1, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+
+* `D ~ 1 + A`
+The cases vary with the quantitative variable.  There are two parameters: slope and intercept.
+```{r fig.height=4}
+mod = lm( time ~ 1 + year, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+
+* `D ~ 1 + G`
+The groupwise mean model.  But note that the parameters are written differently, as an "intercept" and a "difference".  QUESTION: Which difference is it?
+```{r fig.height=4}
+mod = lm( time ~ 1 + sex, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+
+* `D ~ 1 + A + G`
+Both variables play a role.  The parameters are "intercept," "slope," and "difference between groups."
+
+```{r fig.height=4}
+mod = lm( time ~ 1 + year + sex, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+Note that the slope is the same for the two groups.
+
+To see a different slope for the two groups, we have to ask the model to permit such a thing:
+
+* `D ~ 1 + A + G + A:G`
+```{r fig.height=4}
+mod = lm( time ~ 1 + year + sex + year:sex, data=swim)
+xyplot( time + fitted(mod) ~ year, data=swim)
+```
+
+With `lm()`, you can add in lots of variables and keep the confidence intervals small --- there aren't so many "groups".  What's difficult is that the idea of "group" breaks down.  So we'll have to learn to interpret the language of linear models.
