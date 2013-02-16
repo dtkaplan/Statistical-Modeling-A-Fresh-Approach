@@ -1,9 +1,70 @@
-February 13 Class Notes 
+February 15, 2013 Class Notes 
 ===========================
 
 ```{r name="setup", child="notes-setup.Rmd"}
 # boilerplate
 ```
+
+Where we are
+-------------
+
+* You have some basic modeling terminology:
+    * Response variable
+    * Explanatory variables
+* You have a way to measure the amount of variation
+    * Variance in the response variable.  You can consider analogous ways, e.g. standard deviation, IQR, 95% range, range, but the variance is standard and for good reasons
+* You have a way to measure "how much variation" your model has "explained"
+    * Variance of the fitted model values
+* You have a way to measure how much variation remains unexplained 
+    * Variance of the residuals
+* You understand that --- when measured with the variance --- models partition variation between the fitted model values and the residuals.
+
+## ACTIVITY
+
+Demonstrate the partitioning of variation.
+
+1. Open a document with Rmd.
+2. In that document read in some data and fit a model to it using `mm`
+3. Show that the variation is partitioned between fitted and residuals.  Show that the variance does this exactly.  Then see if the sd or IQR does it.
+4. Publish your document to RPubs.  Paste the link into Moodle [here](https://moodle.macalester.edu/mod/assign/view.php?id=17573)
+5. Now show that adding a new explanatory variable decreases how much variability remains unexplained.
+6. In a bit, we're going to do the same with `lm`
+
+Models as Functions
+-----------------
+
+We're now going to make a change in perspective.  Instead of considering "groups" and assigning the model value based on which group a case belongs to, we're going to think about models as **functions**. 
+
+You are used to using functions when transforming a numerical input to a numerical output, e.g. $latex x=A \sin(2\pi t/P)$ transforms input $latex t$ into an output.  So functions are a natural way to include quantitative explanatory variables in a model.
+
+You may not yet be used to treating categorical variables as inputs to a function.  That's mainly because the standard algebraic notation (e.g., $latex \sqrt(x)$) doesn't support it.  But computer notation can do it in any number of ways.
+
+For instance, we could build a function that takes the group name as an input and returns the corresponding groupwise value.  
+
+```{r}
+fetchData("m155development.R") # load the software
+f = listFun(Antelope=2,Beaver=-1,Cougar=7)
+f("Cougar")
+```
+You won't ever use `listFun` again, but you will see functions that take categories as inputs.
+
+* There is a **standard modeling framework**.  There are many, many different ways in which you could combine inputs into an output.  The one we will use is based in the mathematics of low-order polynomials.  For quantitative variables, this is straightforward, no more than $latex z = m x + n y + b$.  For categorical variables, imagine that we have a preceeding function that turns each category into a number.  Then the following equation would work fine:
+$$latex z = m x + n y + b + p f(\mbox{animal}).$$
+
+* As with polynomials, you can create new "terms" by combining the quantities in various ways.  For example,
+$$latex z = a_0 + a_1 x + a_2 x^2 + a_3 y + a_4 y^2 + a_5 x y +  a_6 f(\mbox{animal}) + a_7 x g(\mbox{animal})$$
+and so on.  (Soon, we'll introduce a standard, simple approach to functions of categorical variables, called "indicator functions".)
+
+* The models are called "linear models" because they are linear combinations of functions of the explanatory variables.
+
+* Some names for these terms:
+    * **intercept** --- the constant 
+    * **main effect** --- the variable directly, e.g. $latex age$
+    * **interaction term** --- a product of two (or more) quantities, e.g., $latex age \times income$
+    * **transformation terms** --- a nonlinear function of a quantity, e.g. $latex age^2$
+    
+* **Model design**: The choice of model terms.
+* **Model fitting**: Finding the best linear combination of the model terms to match the response variable.
 
 The basic models
 -----------------
@@ -57,3 +118,97 @@ xyplot( time + fitted(mod) ~ year, data=swim)
 ```
 
 With `lm()`, you can add in lots of variables and keep the confidence intervals small --- there aren't so many "groups".  What's difficult is that the idea of "group" breaks down.  So we'll have to learn to interpret the language of linear models.
+
+## Form Groups for Car Project
+
+Outline the [used car project](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#723) and show some data from <http://www.cars.com>.  Perhaps MINI Coopers.
+
+Get students to form groups right now, oriented around different kinds of cars.  They should make a Google Spreadsheet and share it with all the other members of their group.
+
+
+
+
+The Overall Modeling Process
+--------------------------
+The **modelling process**, in this framework, is
+
+1. Choose the response variable, based on the motivation you have for constructing your model.
+2. Pick explanatory variables
+3. Decide which terms to construct from the explanatory variables.
+4. Fit the model --- this is automatic, given (3) and the data.
+5. Interpret the model, including consideration of the residuals.  We'll spend a lot of time on this in the second half of the course.
+6. Perhaps modify the model based on the information in (5) and go back to step (2).  There may be many iterations of this.
+7. Interpret the model in terms of the scientific or policy questions of interest.  This may also involve iterating back to steps (1) or (2)
+
+Right now, we are going to focus on step (3).  For now, we'll pretend that (1) and (2) are obvious --- but (2) especially can involve considerable nuance and debate.  We'll also spend a bit of time on the techniques used in (7).
+
+### The Math 135 Heuristic and two upcoming heuristics
+
+Reminder of what "heuristic" means and why heuristics are useful.
+
+Possible definition "Computing a solution by rules that are loosely defined."
+
+From [Wikipedia](http://en.wikipedia.org/wiki/Heuristic): 
+> Heuristic refers to experience-based techniques for problem solving, learning, and discovery. Where an exhaustive search is impractical, heuristic methods are used to speed up the process of finding a satisfactory solution. Examples of this method include using a rule of thumb, an educated guess, an intuitive judgment, or common sense.
+
+> In more precise terms, heuristics are strategies using readily accessible, though loosely applicable, information to control problem solving in human beings and machines.
+
+We use heuristics to provide guidance and a ready way to move forward, while allowing room for judgment.
+
+Back in *Applied Calculus*, we introduced a heuristic for including terms in a polynomial model.
+* intercept and main effects: always
+* quadratic terms (a particular type of transformation term): if we have a local, internal extremum.
+* interaction term: if the effect of one input depends on the value of the other input.
+
+That heuristic is still valid.  In statistics, we'll be able to introduce another heuristic, based on the amount of evidence we have in the data to support the inclusion of any particular term.  We won't be able to introduce this for a few weeks.
+
+At the very end of the course, we'll introduce still another heuristic, based on the connections between variables in our theory of how the system we are modeling works.
+
+
+Introducing $latex R^2$ Briefly
+--------------------------
+Since we're trying to account for variation in the response variable, it's helpful to have a way to quantify how much variation we have accounted for.  The quantity called "R-squared" --- $latex R^2$, officially "the coefficient of determination" although hardly anyone uses that name --- is a standard way to do this.  Briefly, $latex R^2$ is the fraction of variance in the response variable that is "captured" by the model.  It is always between 0 (didn't capture any) and 1 (got it all!).
+
+
+
+### Activity
+Visual choice of model terms
+
+Instructions are [given here](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Selecting-Model-Terms/ISM-Selecting-Model-Terms-A.html?access=ISM3)  (These have to be reformatted as a handout and as an instructor's guide.)
+
+The only substantive differences is in the way the software is loaded:
+```{r}
+fetchData("mLM.R")
+```
+
+The program itself is called `mLM()` (not `lm.select.terms()`)
+
+Model Formulas and Coefficients
+-------------------------------
+
+Fit some models and work students through the calculations.  The `makeFun()` function can help in this.  
+
+A suggested style for a calculation:
+```{r}
+mod = lm( wage ~ sex + age, data=CPS85 )
+coef(mod)
+```
+What is the wage for a female of age 40?  A male of age 30?  Work through the arithmetic "by hand".
+```{r}
+4.65 + 0*2.274 + 40*0.0852 # for the 40-year old female
+4.65 + 1*2.274 + 30*0.0852 # for the 30-year old male
+```
+
+You can also turn the model information into a mathematical function:
+```{r}
+f = makeFun(mod)
+f(sex="F", age=40)
+f(sex="M", age=30)
+```
+
+Other settings:
+* Natural gas usage by average temperature in `utilities.csv`
+* ... more ...
+
+
+

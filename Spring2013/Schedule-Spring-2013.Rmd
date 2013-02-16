@@ -150,11 +150,14 @@ Wednesday Quiz
 
 `r I(classDayContents("Fri", "Feb", 15 ))`
 **Topic**: From Model Terms to Formulas and Coefficients
+
 **Reading**: SM §6.5, 6.6, 6.7, SM §7.1, 7.2
+
 **Assignment**: 
 * Required `r I(PN(c("6RQ",605,610, 612, 701, 702 )))`
 * Extensions `r I(PN(c(620,621)))`, [XKCD cartoon](http://xkcd.com/418/).  What regression model for this?
 
+**In Class**: Partitioning variability.  Using the R-Markdown system.  [Hand-in a link to your document here.](https://moodle.macalester.edu/mod/assign/view.php?id=17573)
 
 **Notes**: `r I(todaysNotes("2012-09-24.html", "i"))` 
 <!-- [Class notes](http://rpubs.com/dtkaplan/m155-2013-02-15-class) -->

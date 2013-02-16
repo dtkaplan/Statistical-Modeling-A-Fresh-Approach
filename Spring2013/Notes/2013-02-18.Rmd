@@ -1,0 +1,56 @@
+February 18, 2013 Class Notes
+========================================================
+
+
+### Notation
+
+In the `lm()` program (and `mm()` and `glm()` programs), we write the response variable to the left of the `~` and the model terms, separated by the `+` notation, on the right side.  Don't confuse `+` with mathematical addition.  It really is just a separator for the various terms we are going to be including in the linear combination that will constitute the model.
+
+* The `1` means "intercept".  As it happens, the software will automatically include the intercept even if you don't say `1`.  If you want to exclude the intercept, you use a special notation: `-1`.
+
+Example of simple models with and without the intercept term.
+```{r}
+lm( height ~ 1 + father, data=Galton )
+lm( height ~ father, data=Galton ) # same thing as previous
+lm( height ~ father - 1, data=Galton ) # leave out intercept
+```
+
+* The name of the variable, e.g. `father` means that variable as a main effect.
+
+* An interaction term is introduced with a `:` between variable names.
+```{r}
+lm( height ~ father + mother + father:mother, data=Galton )
+```
+
+* Since the polynomial modeling heuristic includes main effects by default, there is a special notation to signal that we want both the main effects and the interaction:
+```{r}
+lm( height ~ father*mother, data=Galton )
+```
+
+* Transformation terms: apply the function to the variable. Example:
+```{r}
+lm( height ~ cos(father), data=Galton ) # silly model!
+swim = fetchData("swim100m.csv")
+swimmod = lm( time ~ sex * exp( -year/50 ), data=swim) 
+xyplot( time + fitted(swimmod) ~ year, data=swim)
+```
+
+(N.B.: For instructors ... Beware that the above exponential model just barely makes it within the floating-point arithmetic capabilities of the computer.  Applying an exponential to numbers arguments like $latex -20$ can be perilous.  Better to have rescaled year to, say, start at 1900.)
+
+* Quadratic terms are fairly common, and so there is a nice way to specify that you want both the main effect and higher-order polynomial terms:
+```{r}
+swimmod2 = lm( time ~ sex*poly(year,2), data=swim)
+xyplot( time + fitted(swimmod2) ~ year, data=swim)
+```
+
+N.B. For instructors ... You may be tempted to write polynomial terms directly, for instance
+```{r}
+swimmod3 = lm( time ~ sex*( year + I(year^2)), data=swim)
+xyplot( time + fitted(swimmod3) ~ year, data=swim)
+``` 
+Note the use of `I()` to instruct R to treat arithmetical symbols in the numerical way.  Also, note that `poly()` cleverly does a shift into orthogonal polynomials to preserve numerical stability.  As such, the specific coefficients in `swimmod2` and `swimmod3` will be different, even though the model formulas amount to the same thing.
+```{r}
+swimmod2
+swimmod3
+```
+In order to deal with the possible double meaning of symbols like `+`, you can use `I()` to signal to R to treat the mathematical operations literally.
