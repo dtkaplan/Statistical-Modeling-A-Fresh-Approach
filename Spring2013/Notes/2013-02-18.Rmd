@@ -1,6 +1,17 @@
 February 18, 2013 Class Notes
 ========================================================
 
+```{r include=FALSE}
+require(mosaic)
+``` 
+
+### Back to RMarkdown
+
+Several people had problems compiling their documents.  These were caused by ill-formed commands earlier in the document.
+
+Use the "Chunks" menu to run individual chunks by copying them to your console.
+
+Write up a short document about partitioning variance and post it to Moodle.
 
 ### Notation
 
@@ -54,3 +65,55 @@ swimmod2
 swimmod3
 ```
 In order to deal with the possible double meaning of symbols like `+`, you can use `I()` to signal to R to treat the mathematical operations literally.
+
+Introducing $latex R^2$ Briefly
+--------------------------
+Since we're trying to account for variation in the response variable, it's helpful to have a way to quantify how much variation we have accounted for.  The quantity called "R-squared" --- $latex R^2$, officially "the coefficient of determination" although hardly anyone uses that name --- is a standard way to do this.  Briefly, $latex R^2$ is the fraction of variance in the response variable that is "captured" by the model.  It is always between 0 (didn't capture any) and 1 (got it all!).
+
+
+
+### Activity
+Visual choice of model terms
+
+Instructions are [given here](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Selecting-Model-Terms/ISM-Selecting-Model-Terms-A.html?access=ISM3)  (These have to be reformatted as a handout and as an instructor's guide.)
+
+The only substantive differences is in the way the software is loaded:
+```{r}
+fetchData("mLM.R")
+```
+
+The program itself is called `mLM()` (not `lm.select.terms()`)
+
+Model Formulas and Coefficients
+-------------------------------
+
+Fit some models and work students through the calculations.  The `makeFun()` function can help in this.  
+
+A suggested style for a calculation:
+```{r}
+mod = lm( wage ~ sex + age, data=CPS85 )
+coef(mod)
+```
+What is the wage for a female of age 40?  A male of age 30?  Work through the arithmetic "by hand".
+```{r}
+4.65 + 0*2.274 + 40*0.0852 # for the 40-year old female
+4.65 + 1*2.274 + 30*0.0852 # for the 30-year old male
+```
+
+You can also turn the model information into a mathematical function:
+```{r}
+f = makeFun(mod)
+f(sex="F", age=40)
+f(sex="M", age=30)
+```
+
+Other settings:
+* Natural gas usage by average temperature in `utilities.csv`
+* ... more ...
+
+## Form Groups for Car Project
+
+Outline the [used car project](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#723) and show some data from <http://www.cars.com>.  Perhaps MINI Coopers.
+
+Get students to form groups right now, oriented around different kinds of cars.  They should make a Google Spreadsheet and share it with all the other members of their group.
+
