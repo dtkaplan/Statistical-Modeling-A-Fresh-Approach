@@ -1,0 +1,161 @@
+February 25, 2013 Class Notes
+=============
+
+```{r include=FALSE}
+require(mosaic)
+options(na.rm=TRUE)
+```
+
+Statistical Geometry
+----------
+
+## Back to Case Space versus Variable Space
+
+![Adam and Eve picture](https://dl.dropbox.com/u/5098197/ISM/Figures/Adam-and-Eve.png)
+
+
+### `lm()` does what we do by eye
+
+1. Make a vector A (small integer values), e.g. `A = c(-3,4)`
+2. Make a vector B. e.g., `B = c(0,2)`
+3. Draw the vectors on the board.
+4. Eyeball the coefficient by projection.
+5. Fit the model `A ~B-1` and pull off the coefficient.
+6. Now try the model `A ~ B+1` (including the intercept)
+7. Show how to fit the model by eye using the vector walk.
+
+
+### Review of Geometry through Arithmetic
+
+
+* scaling
+* addition
+* linear combination
+* square-length is sum of squares
+* dot product operation `sum(a*b)`
+* angle in terms of a dot product
+* projection as a dot product
+* orthgonality is when the dot product is zero.
+
+### From Model Terms to Vectors
+
+
+Derive the model vectors for interaction terms.
+
+Make a small, illustrative data set and a model from it.
+
+```{r}
+small = sample(CPS85,size=5)[,c("wage","educ","sector")]
+small
+```
+
+#### Write down the vectors as columns of numbers
+
+* response vector: 
+```{r}
+with( small, wage )
+```
+* intercept vector (all ones)
+* main effect due to educ
+```{r}
+with( small, educ )
+```
+* indicator vectors due to sector.  Include one level that's all zeros in this short data set.
+
+* interaction vectors as the component-wise products of the educ vector with each of the sector indicator vectors.
+
+### Geometry of Fitting with Multiple Vectors
+
+1. Diagram with two explanatory vectors
+2. Why coefficients change as you go from one explanatory vector to two.
+
+### What's going on with 
+
+### Trashing the Intercept
+
+Almost all models will (and should!) include an intercept term.  
+
+You've seen that the value of the intercept is not always directly relevant: swimming times in the Roman era!
+
+Since we're interested in explaining variation, we might as well eliminate the part of each variable that isn't about variation, the mean.  Many important statistical measures do exactly that.
+* $R^2$ which looks at the variation of the fitted model values and response variable.
+* $r^2$ which is just $R^2$ for a simplified model.
+
+Let's compare two models with and without the mean:
+```{r}
+swim = fetchData("swim100m.csv")
+mod1 = lm( time ~ year, data=swim )
+coef(mod1)
+mod1b = lm(time ~ year-1, data=swim )
+coef(mod1b) # Completely different!
+swim = transform(swim, timeV=time-mean(time), yearV=year-mean(year) )
+mod2 = lm(timeV ~ yearV, data=swim)
+coef(mod2)
+mod2b = lm(timeV ~ yearV-1, data=swim)
+coef(mod2b) # same
+```
+
+
+### Measuring alignment
+
+Use the angle between the vectors.
+
+More sophisticated: take into account that there is (almost always) an intercept term in the model, 
+$r$
+
+### The Consequences of Alignment
+
+When explanatory vectors aren't perpendicular, the coefficients depend on both vectors.  Going from `A ~ B` to `A ~ B + C` will change the coefficient on B.
+
+### Residual and Explanatory Vectors are Orthogonal
+
+Show that the residual is orthogonal to each and every model vector.  It doesn't matter which vector or which model.
+
+### Redundancy
+
+The extreme case of alignment is when the explanatory vectors are exactly parallel.  Then you could choose any coefficient you want on one of the vectors and make it up with the others.
+
+Demonstration:
+```{r}
+swim = transform(swim, day=year*365)
+lm( time ~ year + day + sex, data=swim)
+lm( time ~ day + year + sex, data=swim)
+```
+
+What does R do?  It drops the redundant vector.
+
+There's another, more subtle form of redundancy: when a vector lies in a subspace spanned by other vectors.  Let's make the indicator variables.
+```{r}
+swim = transform(swim, guys=sex=="M", gals=sex=="F")
+```
+
+Now try some models:
+```{r}
+coef(lm(time~guys, data=swim))
+coef(lm(time~gals, data=swim))
+coef(lm(time~guys+gals,data=swim))
+coef(lm(time~gals+guys,data=swim))
+coef(lm(time~gals+guys-1,data=swim))
+```
+
+Every categorical variable is redundant with the intercept vector.
+
+We throw away the indicator vector for one level of the variable to avoid the redundancy.
+
+Putting the intercept into the model changes the meaning of the coefficient on the other vectors as well as the numerical value.
+
+Draw a vector picture with just sexF.  Then add in indicator for sexM.  This is what `mm()` is doing.  The coefficients for the different sexes are independent of one another.  
+
+Draw a vector picture with just the intercept.  Then modify it to add in an indicator variable for sexF.  Since the intercept and sexF are aligned, adding in sexF changes the meaning of the intercept, and adding in the intercept changes the meaning of sexF.
+
+### Other points.
+
+* These are the multipliers on the corresponding vectors.
+* One of the indicator vectors has been dropped: it's not needed.
+   * Redundancy: the dropped indicator vector can be constructed from the other vectors in the model.  That's why it's not needed.
+   * QUESTION: How would you construct it from the other vectors?
+   * Every categorical variable has one vector that is redundant (when the intercept vector is included in the model) R marks the "first" vector, alphabetically, as redundant.  This is arbitrary.
+   * It's a **choice** to include the intercept vector.  `lm()` does it, `mm()` does not.  By including the intercept vector, one of the indicator vectors from each categorical variable is made redundant, and the meaning of the coefficients on the other vectors changes: difference from reference group rather than groupwise mean.
+* NA is used to signal a vector that R discovered was redundant by examining the vectors themselves.  Example: female construction workers constructed by the interaction of `sex` and `sector` in the CPS85 data.
+
+

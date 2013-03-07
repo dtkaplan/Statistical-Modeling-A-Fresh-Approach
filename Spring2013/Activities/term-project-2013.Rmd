@@ -1,0 +1,89 @@
+The Math 155 Term Project
+============================
+
+### Spring 2013
+
+For your term project, you and your group will design and carry out a survey of the college community and analyze the results.  Groups should be between two and five members.  
+
+A major emphasis of this course is discovering and quantifying **causal** relationships.  This reflects the overall mission of the college to develop citizen leaders who can engage the community and foster productive change.  For this reason, the subject of your survey should be a current or proposed policy that would affect the conduct of the college or the conditions of students or other members of the community.  It's essential that the subject center on the evaluation of the policy in terms of impact.  This is not intended to be an opinion poll, although surveying opinions might be a part of your project.
+
+Here are several examples of situations that relate to current or proposed policies at the college.  You and your group are welcome to choose one of these, or you may have an idea of your own.
+
+
+1. The college has a policy of  meeting "full demonstrated need" for financial aid.  Does it?  Is the aid too stingy or too generous?  
+2. Do the study away policies work well?
+3. How effective is the writing requirement where are its deficiencies?  (The same can be asked of the quantitative thinking requirement, the domestic multiculturalism requirement, the internationalism requirement, the divisional distribution requirement, etc.)
+4. How effective is help for internship/employment?
+5. How effective are the academic help services?  (Example: course preceptors or the MAX center.)
+6. How is the library used and is it still relevant in an era of vast Internet resources?
+7. Are class sizes too big?
+
+These are all open-ended questions and a thorough consideration might require much more work that you will be able to put into a term project for this course.  You are welcome to focus on one or two facets of the situation.  
+
+**Example** Are class sizes too big?
+
+Don't just ask for student opinions.  Presumably, some classes are too big and some aren't.  What are the factors that determine whether a class is too big?  Obviously the number of students enrolled is a major factor, but also there is the style of the class, whether the class provides skills needed for downstream classes, whether individual feedback (e.g., in writing or computer programming) is important, whether the classes are taken to meet distribution requirements, whether there is a course project, etc.  How do students judge when a class is too big or too small?  Is it true that only small classes have productive discussions?  
+
+
+
+**Example**  Strategic Planning.
+
+As you may know, the college is currently developing a strategic plan to guide activities over the next decade.  In February 2013, the Board of Trustees sent out a list of seven questions to guide planning.  Some of these are general, some financial/economic, and some relate directly to the student experience such as these three questions:
+
+
+    (2) What role should information technologies, including evolving technologies associated with distance learning, play at the college over the next several years and beyond? Do we imagine that these technologies will alter Macalester’s target audience?
+
+    (6) Without diminishing our core commitment to a liberal arts education, how can we best ensure that students are also receiving sound preparation for rewarding and successful careers?
+
+    (7) Given the costs of providing a residential college experience at a time when higher education is becoming increasingly non-residential, what steps should be taken to assess, maximize, and promote the personal and intellectual benefits of that experience?
+
+From such questions, you can generate hypotheses, e.g. "Three years of college is enough."  Then strategize about what sorts of questions might address your hypothesis, e.g. "When did you decide on a major?"  Remember, the goal is not to survey student opinion but to collect data  and to look for relationships among variables, e.g. Does the timing of a choice of  a major depend on the field? What factors led to your deciding on a major?  How might your decision have been facilitated?  
+
+
+### Components of the Project
+
+1.  Form a group and decide on a policy topic to investigate.
+1.  Get preliminary approval from the instructor.  This is important to avoid excessive overlap between different groups' projects.
+1.  Interview "experts" to determine the issues involved in the policy decision, and decide what information your survey needs to collect.
+1.  Design a set of survey questions and decide on a sampling frame you can use for surveying.  Be realistic and pragmatic. 
+1.  Discuss your survey questions with the course instructor and get approval for them. In this meeting, you should present a summary of your conclusions about what needs to be undertaken to comply with the Macalester Institutional Review Board policies.  (See below for more information.)
+1.  Implement your survey using Google Forms or SurveyMonkey or similar web-based software.  You can get outside help for this, from computer-savvy classmates, other students, or the instructor.  But, **before sending out your survey**, ...
+1.  Get final approval of the survey and the sampling frame from the course instructor.  Expect to make some changes in the survey in order to get this approval.  If needed, arrange for approval from the Macalester Institutional Review Board.
+1.  Analyze your results and produce a formal write-up of your analysis and your recommendations based on the analysis.  Your write-up can take the form of either a 10-minute presentation for the class or a several-page paper.  Set the technical level of your presentation/report to be A students who finished Math 155 last year.
+
+
+
+
+### Budgeting Your Effort
+You should budget 10 hours of effort from each group member for this project.  As a rough guide:
+
+*  30 minutes to form a group and decide on a topic.
+*  60 minutes interviewing experts and synthesizing the information you get.
+*  60 minutes designing the survey questions.
+*  30 minutes reviewing the Institutional Review Board policies and complying with them.
+*  30 minutes revising them after feedback from the instructor.
+*  60 minutes implementing them in a web format.  If you don't know how to do this, get help.
+*  30 minutes compiling appropriate email addresses, Facebook links, etc.  
+*  30 minutes cleaning the data.  (Less if your survey is properly designed.)
+*  60 minutes analyzing the data.
+*  60 minutes producing the formal, technical-level presentation.
+*  60 minutes writing the op-ed article.
+
+### Human Studies & Confidentiality
+
+You will be undertaking this project in the context of a course.  That means that professional-level standards need to be applied in safeguarding the confidentiality of data you collect.  For example, it would be inappropriate to collect survey data that purports to be anonymous, and then to publish excerpts or analysis that identifies individual respondents.  If you want to quote someone in a way that might reasonably be traceable to the individual, you need to get that individual's explicit consent.  
+
+There are formal college policies for research involving human subjects.  The governing document is "Research Involving Human Participants at Macalester College," prepared in 2009 by the chair of the College's Institutional Review Board, Prof. Martin Gunderson.  A copy is available at [here](http://www.macalester.edu/committees/irb/documents/IRB%20Guidelines%202009.pdf) . 
+
+Your work must comply with these policies.  Read the document and make sure you have a solid idea of what approval, if any, is required and be prepared to make a case to the course instructor supporting your ideas.  You must get your instructor's approval before undertaking the survey component of your study.
+
+### Schedule
+
+You will use Google Docs to produce your report or presentation as well as preliminary documents such as survey results and data files.  Upload links to Moodle to hand in your work.  
+
+* **End of March**.  Finish through component (5).
+* **Mid April**.   Through component (7).  Have the electronic form of your survey working and have the instructor's approval.
+* **End of April**.  Analysis and report in component (8).
+
+
+Feel free to accelerate this schedule.

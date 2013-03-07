@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Epidemiology Notes 2012-12-04</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>Epidemiology Notes 2012-12-04</h1>
+
+<ul>
+<li><a href="http://www.nytimes.com/2012/05/28/nyregion/fragile-calculus-in-plans-to-fix-pension-systems.html?pagewanted=all">Public Pension Funds</a></li>
+<li><a href="http://health.usnews.com/health-news/news/articles/2012/12/03/flu-season-arrives-early-and-it-could-be-severe-cdc">Tis the season for flu</a>
+
+<ul>
+<li><a href="http://www.cdc.gov/flu/weekly/">CDC site</a></li>
+<li><a href="http://www.google.org/flutrends/">Google Flu Trends</a></li>
+</ul></li>
+<li><a href="http://www.nytimes.com/2012/12/04/business/ruling-backs-drug-industry-on-off-label-marketing.html?_r=0&amp;adxnnl=1&amp;adxnnlx=1354630512-61/U4kBTzV7CQsnPYKgssw">Free speech?</a></li>
+<li><a href="http://www.nytimes.com/2012/12/02/business/stand-up-desks-gaining-favor-in-the-workplace.html?hpw&amp;_r=0">Stand up!</a></li>
+</ul>
+
+<h2>A Possibly Fatal Mistake</h2>
+
+<p>Why didn&#39;t he see a doctor when he started having difficulty peeing?</p>
+
+<ul>
+<li>&ldquo;several hundred dollars out of pocket&rdquo;</li>
+</ul>
+
+<p>Why didn&#39;t he see a doctor when he saw pee in his urine</p>
+
+<ul>
+<li>&ldquo;I was extremely busy at work&rdquo;</li>
+</ul>
+
+<p>Went to an urgent care clinic. (&ldquo;I didn&#39;t have a regular physician and hadn&#39;t been getting annual physicals.&rdquo;)  Mis-diagnosis.  (DTK doesn&#39;t have a regular physician and doesn&#39;t get annual physicals: it&#39;s every 5 years.  Annual physicals are not necessarily a good thing.)</p>
+
+<p>What are the arguments being made?</p>
+
+<ul>
+<li>That small amounts of money create disincentives to do the right thing.</li>
+<li>That we would save money if people got treated earlier.</li>
+</ul>
+
+<p>Central political d</p>
+
+<h2>Trade-Offs</h2>
+
+<h1>Where We Were</h1>
+
+<h2>Hard Trade-Off Problem</h2>
+
+<h3>The Problem</h3>
+
+<p>You are alone at an isolated beach with your two children, Anna and Bob, ages 5 and 1.  </p>
+
+<ul>
+<li>Anna goes swimming and is caught in an undertow.<br/></li>
+<li>You cannot swim well; you have a 50:50 chance of rescuing Anna or drowning yourself.</li>
+</ul>
+
+<h4>What should you do?</h4>
+
+<ol>
+<li>Save Anna (age 5) and leave Bob (age 1) on deserted beach risking drowning yourself (50% chance).</li>
+<li>Stay with Bob and hope for the best with Anna.</li>
+<li>Take Bob with you to try to rescue Anna.</li>
+</ol>
+
+<h4>Discussion</h4>
+
+<ul>
+<li>There&#39;s no right answer.</li>
+<li>We think it&#39;s reasonable for people to make decisions based on their own beliefs.</li>
+<li>Still, the numbers make a difference.<br/>
+
+<ul>
+<li>Slide the 50% chance toward zero and 100% and see how people&#39;s opinions change.</li>
+<li>Is there another parent to take care of the surviving child?  Is there anyone else on the beach?</li>
+<li>Is there any hope of rescue from someone else?</li>
+</ul></li>
+</ul>
+
+<h3>Individual versus Social Decisions</h3>
+
+<p>In an decision made by an individual, you are entitled to use intuition.</p>
+
+<p>Social decisions, if made by groups, must involve discussion and debate.</p>
+
+<p>Mathematics provides a framework for discussing dilemmas and evaluating trade-offs.
+It doesn’t provide the answer, just a way of making comparisons explicit.</p>
+
+<h4>A Social Dilemma</h4>
+
+<ul>
+<li><a href="http://www.nytimes.com/2002/03/20/us/tiny-heart-devices-reduce-death-rate-but-cost-is-concern.html">Implantable Cardioverters Defibrillators</a></li>
+</ul>
+
+<h5>Cost Analysis</h5>
+
+<p>For every 20 such patients given an ICD, on average one life will be saved.</p>
+
+<ul>
+<li>Cost: $30,000 x 20 = $600,000 per life</li>
+</ul>
+
+<p>What else could we do with $600,000?  Drug treatment programs, head start, highway safety, pre-natal care.</p>
+
+<ul>
+<li>What is the added survival time?</li>
+<li>Personal versus societal decisions: 
+&gt; Dr. Zipes said he planned to implant defibrillators in patients who should be helped and argue with their insurers later.  &ldquo;Very honestly, if it were I or my father or a loved one, I&#39;d want them to get it,&rdquo; he said.</li>
+</ul>
+
+<h5>Question</h5>
+
+<p>How much should the government be willing to spend to provide implantable cardioverters-defibrillators?</p>
+
+<ul>
+<li>$50,000 per saved life</li>
+<li>$200,000 per saved life</li>
+<li>$400,000 per saved life</li>
+<li>$600,000 per saved life</li>
+<li>$800,000 per saved life</li>
+<li>$1,000,000 per saved life</li>
+<li>Don’t be crass, Kaplan.  You shouldn’t put a dollar value on life.</li>
+</ul>
+
+<p>Would your answer to the previous question have changed if you took into account the age of the ICD recipient?</p>
+
+<ul>
+<li>No.  The value of a life doesn’t depend on age.</li>
+<li>No.  We told you not to be crass, Kaplan.  Now stop it.</li>
+<li>Yes.  It’s reasonable to spend less on an older person.</li>
+<li>Yes.  It’s reasonable to spend more on an older person.</li>
+</ul>
+
+<h1>Moving Onward</h1>
+
+<h3>Terminology</h3>
+
+<ul>
+<li><strong>Policy variables</strong> &mdash; the inputs that we can set.  Examples: 
+
+<ul>
+<li>whether to give a drug/treatment, </li>
+<li>whether to have a screening program</li>
+<li>whether to provide vaccinations</li>
+<li>whether to require vaccinations</li>
+<li>to have a co-pay for insurance</li>
+<li>to have a waiting list for treatment</li>
+<li>etc</li>
+</ul></li>
+<li><strong>Policy</strong> &mdash; a setting of all the relevant policy variables.</li>
+<li><strong>Outputs</strong> &mdash; the quantities that we are interested in obtaining. Example: number of lives, amount of disability, &hellip;.</li>
+<li><strong>Mechanisms</strong> &mdash; how the policy variables influence the outputs. Example: co-pays for insurance reduce people&#39;s use of medical services.</li>
+</ul>
+
+<h3>Optimization</h3>
+
+<p>When there is a single output, we can adjust the policy variables to optimize the output. </p>
+
+<p>Optimization lets you make the best out of your resources.  But it requires a quantitative scale of output, which isn’t always possible.</p>
+
+<h4>Question</h4>
+
+<p>Choose the policy that gives the best value of the output.</p>
+
+<pre>
+Worse        <----- C -------A -------D--B------>      Better
+</pre>
+
+<h4>Continuous Policy Variables</h4>
+
+<p>Example: Amount of insurance co-pay</p>
+
+<p>Mechanisms: </p>
+
+<ul>
+<li>Co-pays decrease use of medical services, which can reduce contact with sick people and allow more resources to be spent on people who really need it.</li>
+<li>But medical services also help some people.</li>
+</ul>
+
+<p>The mechanisms conflict, producing an optimal value of the input to get the best output.</p>
+
+<pre><code class="r">plotFun(20 - x * exp(-x/30) ~ x, x.lim = c(0, 100), lwd = 3, xlab = &quot;Co-pay&quot;, 
+    ylab = &quot;Lost Days of Work&quot;, main = &quot;An Imagined Scenario&quot;)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-3"/> </p>
+
+<h3>Optima with Two (or more) Objectives</h3>
+
+<pre>
+better on objective 2
+ ^
+ |    C
+ |        
+ |                           B    
+ |
+ |
+ |                               D
+ |
+ |
+ |          A
+ |
+ |
+--------------------------------------> better on objective 1
+
+</pre>
+
+<h4>But not all situations are hard</h4>
+
+<pre>
+better on objective 2
+ ^
+ |        
+ |                               B
+ |
+ |     C
+ |                           D
+ |
+ |
+ |          A
+ |
+ |
+--------------------------------------> better on objective 1
+
+</pre>
+
+<h3>More Terminology</h3>
+
+<ul>
+<li><strong>Incommensurate</strong>.  Two quantities are incommensurate when they cannot be directed compared.  Example: Inches and Liters.  Example: Human rights &amp; GDP.  CO2 &amp; GDP.</li>
+<li><strong>Domination</strong>.  One policy dominates another when all the outputs are better  than the outputs for another policy</li>
+</ul>
+
+<h3>Some situations with Trade-Offs</h3>
+
+<ul>
+<li><strong>Design trade-offs</strong>
+
+<ul>
+<li>Detection: Sensitivity versus specificity.<br/></li>
+<li>Design generally</li>
+</ul></li>
+<li>Mine-versus-yours 
+
+<ul>
+<li>Allocation of resources to competing parties or goals.  Example: immigration policy: more low-income workers may benefit high-income families at the cost of wages for low-income natives.</li>
+</ul></li>
+</ul>
+
+<p>Slides starting at 27.</p>
+
+<h1>Insurance</h1>
+
+<h3>What people wrote:</h3>
+
+<h4>Definitions</h4>
+
+<blockquote>
+<p>Insurance- a program in which participants pay a fee for the guaranteed access to financial support and protection from unintended, unforseeable “catastrophes”.</p>
+
+<p>My basic understanding of insurance in general is that it is an investment toward your safety.  Insurance is something that applies to personal risk of death - life insurance, car insurance, and health insurance are all accessed in emergencies.  In determining insurance rates, different lifestyle factors are considered to be more or less risky than others, and can affect insurance coverage.  This seems to be a bit counterintuitive or shallow to me, because I think insurance should be a natural right, or at least be made more accessible to everyone. </p>
+
+<p>Insurance is a way of protecting against any exorbitant costs due to unforeseen complications in any given situation, making the costs that occur due to random events more manageable on a reasonable financial time scale (set costs every pay period that you know will occur, as opposed to very high bills to pay for damages when they occur, and no costs in between).</p>
+
+<p>Insurance is a method of distributing risk among a group of people. Everyone who wants to (or legally has to) purchase insurance, thereby contributing some sum into the general pool. Then, when a particular negative outcome befalls one of the members of the group (such as a car accident), the pooled resources are used to cover some or all of the cost.</p>
+
+<p>Insurance is something you pay a fee to be given.  You pay a small amount of money, and then if something happens where you’d need a large amount of money (to the point where you’d have trouble paying out of pocket), the insurance company provides that.  The company still makes a profit on the money everyone pays in, because only some of them will actually need coverage for things.</p>
+</blockquote>
+
+<h4>Required?</h4>
+
+<blockquote>
+<p>Everyone should have insurance, it should be provided for free.</p>
+
+<p>I think requiring all citizens to have valid health insurance is a good start, but ideally, nobody would have to buy it. This applies, however, to health insurance&ndash;I believe that since homeowners’ insurance and auto insurance, for example, are based on a consumer decision to purchase an item and insure it, they should still be privately owned and charged for.</p>
+
+<p>Everyone should be required to have health insurance so people can get treated and there are fewer ER visits. (This will reduce the government spending for ER). Since insurance should be required it must also be affordable, therefore people who cannot afford insurance should receive assistance to pay for it.</p>
+
+<p>I think that if insurance is going to be a source of security in our healthcare system, then everyone should have access to it for free.  When some people are able to buy more insurance than others, it compromises the motivations of health care professionals and the entire healthcare system.  Insurance is not immune to other social privileges that some people have.   If it is not universal, then we could find ourselves in a sticky situation in times of crisis.</p>
+
+<p>If people would be required to have health insurance, then it ought be required that health insurance is affordable, lest we force the unwealthy to commit a crime of not having it. It should be this way because health insurance leads to a healthier and happier community which contributes to a more successful and harmonious country. But to some people, this is small change compared to the travesties that might ensue if the government is allowed to require that we care about people other than ourselves.</p>
+
+<p>I definitely think that people should be required to have health insurance. I believe there should be a basic package that all individuals should have to purchase. I believe there should be premiums or upgrades for those who want to afford them for an extra cost. That extra cost could then be used to subsidize the cost of insurance for those who could otherwise not afford it.</p>
+
+<p>Everyone should have insurance and everyone should have to pay what they can manage to pay. Redistribution of wealth is necessary because the fact is poorer people are sicker, thus making them poorer; it&#39;s an endless and pernicious cycle.</p>
+</blockquote>
+
+<h4>Paying and Taxes</h4>
+
+<blockquote>
+<p>Since low-income patients often have the most health problems, wealthier patients should help subsidize the cost for lower-income patients by paying a higher premium. Thus, the payment amount should be based off income, much like our tax systems. Under the current system, the cost of many uninsured patients is paid for by the government and therefore is borne by tax payers. Requiring people to have health insurance would help reduce premiums for high-risk patients by making the overall pool of patients less riskier, as younger and generally healthier patients are then forced to buy insurance. Health insurance cannot be provided for free as the cost of care must be borne by someone, whether that is the government or private individuals. If the government is bearing the cost, it would be forced to raise taxes in order to pay the higher costs. </p>
+
+<p>I also do not think that everyone should pay the same amount; those who willingly engage in unhealthy activities, such as heavy smoking and alcohol drinking, as well as regular fast food consumption, should pay due to the health problems that are associated with such behaviors. I also do believe in universal, free healthcare, so I suppose the state would pay the balance of this hypothetical insurance with the money they collet from taxpapers, particularly the richest citizens.
+Everyone should pay premiums based on their income. Everyone’s payment should be the same in the sense that the percentage that people pay is the same. Since wealthier people are paying higher premiums the payments being the same should not be a big deal. However, payments should not be so high that people can’t afford health care even with insurance.</p>
+</blockquote>
+
+<p>QUESTION: What is the organizational unit here?  A family?  An individual?  Should my children pay insurance based on their own income? </p>
+
+<blockquote>
+<p>While the idea that people with preexisting conditions should have to pay far more or be denied care is ridiculous, people making obvious choices that lead to us paying more (i.e. smokers, etc) should probably have to pay more. </p>
+</blockquote>
+
+<p>QUESTION: What about a smoker who repents?  Should they now pay less?</p>
+
+<blockquote>
+<p>I believe everyone should pay the same amount of percentage income; probably somewhere around 5%, as health is a useful necessity. In this way healthcare should more than pay for itself.</p>
+</blockquote>
+
+<p>My health insurance payments this year, for a family of 5, are about $22,500.  In addition, I&#39;ll pay about $4000 in Medicare Tax (and another $12,500 in Social Security Tax).  These add together my individual and the employer payments.</p>
+
+<p>A Mac employee with half my income would pay about $25,000 instead of my $26,500.  This would amount to about 30% of total compensation.  </p>
+
+<blockquote>
+<p>The German system is based on compulsory insurance that is paid in part by an individual, the employer and the government, that is, through taxes. The current rate for individuals is around 8% of their monthly income, undemployed people receive the same common standard of insurance through welfare benefits. Insurance in Germany is acquired with birth and there is no price discrimination based on medical conditions.</p>
+
+<p>Health insurance covers any condition in need of treatment, dental care, regular check-ups, parts of prescription drug costs, small and major operations and hospital stays. In order to prevent the system from getting out of hand, a system has been established where a patient is required to pay an equivalent of $13 quarterly if they see a doctor, and patients are required to see their general physician before they go to a specialist. If they fail to do so, another $13 fee is required for every visit. Similarely, patients are required to contribute $13 for every day they stay in the hospital. These charges are harshly debated in Germany, said to make health care too expensive for the individual. On the other hand, insurance is virtually free (my mother, on a good middle class income, pays $40 a month for complete health insurance for herself and for me), and this way the state gives patients an incentive to value medical care more. </p>
+</blockquote>
+
+<h4>What&#39;s Covered?</h4>
+
+<blockquote>
+<p>Alternatively, the cost of insurance could be determined by the amount of income an individual has. Again, the extra cost could then be used to subsidize it for others. I believe that only necessary procedures that handle life threatening diseases should be covered.</p>
+</blockquote>
+
+<p>QUESTION: The ankle-fusing operation for my 82-year old mother?  Knee replacement for golfers?</p>
+
+<blockquote>
+<p>If I had control overt this nation&#39;s health care program, any medical care someone needed would get it for free. I would perhaps exclude unecessary plastic and cosmetic surgeries from being covered in my program  or the government would only partly subsidize these operations.</p>
+</blockquote>
+
+<p>QUESTION: End-of-life care?</p>
+
+<h4>Human Right</h4>
+
+<blockquote>
+<p>I think that health is a human right and everyone should have equal access to health care. I also believe that by providing universal health care, that the nation as a whole becomes more productive.</p>
+
+<p>Health insurance should be a right, not a privilege. I think that other developed countries got it right with universal health care. The focus on a greater good is beneficial to entire societies.</p>
+</blockquote>
+
+<h4>Costs</h4>
+
+<blockquote>
+<p>I’ll assume that an average American woman would pay about $2,000 a year and an average American man would pay about $2,500 annually. What is covered probably depends on the company, but I assume that a decent-quality health insurance would cover a doctor’s visit at least twice every year and surgeries that are non-elective (for example, cosmetic surgery would generally not be covered).</p>
+</blockquote>
+
+<ul>
+<li>Government regulated and supported: <a href="https://moodle.macalester.edu/mod/assign/view.php?id=15869&amp;sid=19256&amp;gid=19256&amp;plugin=onlinetext&amp;action=viewpluginassignsubmission&amp;returnaction=grading&amp;returnparams=">one</a></li>
+</ul>
+
+<h1>Annuity Calculation</h1>
+
+<p>Insurance and annuities.  </p>
+
+<p>Price out an annuity using mortality tables.</p>
+
+<p>See the <a href="https://docs.google.com/spreadsheet/ccc?key=0Am13enSalO74dFJHdFpXX0hZUk5iUkt1WkM0T1NndlE">google docs Annuity Calculations</a> .  </p>
+
+<p>The back story.  At Age 60 you buy an annuity with your savings.  It will pay you an annual amount, starting at age 65, until you die.  For simplicity, I imagine that you can die only at ages 65, 70, 75, and so on.  The annuity company might not have to pay you anything, if you die at age 65.  On the other hand, if you live until 105, they might need to pay quite a lot. </p>
+
+<p>You pay 1,000,000 dollars.  How much is the annuity company willing to pay you each year?</p>
+
+<p>The annuity company can invest your money at the Interest Earnings Rate.</p>
+
+<p>Set interest earnings rate to zero to start off.  Figure out what you have to pay for the annuity so that the company makes a small profit.</p>
+
+<p>Change the earnings rate to something non-zero, for instance 0.0875, which is the annual interest rate used by many state-sponsored pension plans. Show how the amount paid is strongly influenced by this assumption.</p>
+
+<p>Change the mortality profile to make it less likely to die at 65 and more likely to die at 75: what effect does that have.  Move the incremental probability down toward age 105 and see what happens.</p>
+
+<p>Split into two groups &mdash; move 70 year-old deaths to 85 and vice versa.  How much does this change the pay out compared to the average.  Use this to illustrate adverse selection.</p>
+
+<p>Results: At 25 percent administrative costs, 1,000,000 dollars will give a 43.5K dollar annual payout in the baseline age distribution (with no annual interest rate earnings).</p>
+
+<p>Move the 70 year old deaths to 85 and the payout is 40K dollars. Move the 85 year old deaths to 70 and the payout is 47.6K dollars.  So there will be a big incentive to shift from the group plan to the young-death plan if you qualify.  But this will leave only the low-death people in the regular plan, so it&#39;s rates will go up.</p>
+
+<p>Situation with medical costs is more extreme, since these are effectively unbounded.</p>
+
+<h1>500 Life-Saving Interventions</h1>
+
+<p>This is a meta-study. Criteria for inclusion were given in Section 2.1.  Notice that they don&#39;t have a third reviewer to adjudicate disputes.</p>
+
+<p>&ldquo;This kind of variation is unnerving because economic efficiency in promoting survival requires that the marginal benefit per dollar spent be equal across investments.&rdquo;</p>
+
+<ul>
+<li>Question: Why look for economic efficiency?</li>
+<li>Why definition 5?  &ldquo;Future costs and life years saved should all be discounted to their present value at a rate of 5%.&rdquo;</li>
+<li>Note definition 2?  &ldquo;Costs and effectiveness should be evaluated from the societal perspective.&rdquo;  This is why it costs so little to have laws requiring things, even if it would be expensive to provide those things.</li>
+<li>Note definition 6?  &ldquo;Marginal or incremental.&rdquo;  They are often comparing one standard to another.</li>
+</ul>
+
+<p>Go through the appendix:  Note that the estimates are not necessarily right!</p>
+
+<ul>
+<li>Flammability standards for children&#39;s sleepwear versus clothing.</li>
+<li>B-58 ejection seat &mdash; see <a href="http://en.wikipedia.org/wiki/Convair_B-58_Hustler">this link</a> which contains a description of the Mach 2 pod.  So, not necessarily typical.</li>
+<li>Note low estimates of cost per life for mammography</li>
+<li>Screen blood donors for HIV.</li>
+</ul>
+
+</body>
+
+</html>
+

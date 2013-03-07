@@ -1,0 +1,101 @@
+March 6, 2013 Class Notes
+=============
+
+```{r include=FALSE}
+require(mosaic)
+options(na.rm=TRUE)
+```
+
+Longitudinal versus cross-sectional running data.
+
+Handout on Total vs Partial
+
+Confidence intervals on coefficients
+=============
+### Longitudinal running data
+
+Running data: Compare the cross-sectional to the longitudinal data to get at how tie changes versus age.  Question: hold individual constant or not.
+
+```{r cache=TRUE}
+f = fetchData("Cherry-Blossom-Long.csv")
+nrow(f)
+sample(f,size=5)
+f = subset(f, nruns>5)
+nrow(f)
+```
+
+Two models
+```{r cache=TRUE}
+mod1 = lm( net ~ age, data=f)
+mod2 = lm( net ~ age + name.yob, data=f)
+```
+
+```{r}
+head( coef(mod2))
+mod1
+```
+Note how substantially the age dependence differs depending on whether you are looking longitudinally or cross-sectionally.
+
+
+Example: Grades
+
+
+### Grades and the GPA
+
+```{r}
+grades = fetchData("grades.csv")
+g2pt = fetchData("grade-to-number.csv")
+courses = fetchData("courses.csv")
+grades = merge(grades, g2pt) # Convert letter grade to number
+grades = merge(grades,courses)
+```
+
+Compute the GPA in the ordinary way:
+```{r}
+options( na.rm=TRUE )
+head( mean(gradepoint ~ sid, data=grades) )
+```
+
+... or by a model
+```{r}
+conventional = coef( lm( gradepoint ~ sid-1, data=grades))
+head( conventional )
+```
+
+What can we hold constant?  Department, level, class enrollment?
+```{r}
+adjusted = coef( lm( gradepoint ~ sid - 1 + dept + level + enroll, data=grades))
+head( adjusted )
+```
+
+How do they compare?
+```{r}
+xyplot( conventional ~ adjusted[1:443], pch=20 )
+```
+
+Or in terms of class rank:
+```{r}
+xyplot( rank(conventional) ~ rank(adjusted[1:443]), pch=20 )
+```
+
+Suppose the cut-off for class rank was to be $\geq 150$.  There are students who pass by the adjusted criteria but fail by the unadjusted.
+```{r}
+xyplot( rank(conventional) ~ rank(adjusted[1:443]), pch=20 )
+plotFun( y >=150 ~ x&y, add=TRUE )
+plotFun( x >=150 ~ x&y, add=TRUE )
+```
+
+The "takes easy courses" index: a positive number indicates taking easy courses.  
+```{r}
+densityplot( ~rank(conventional)- rank(adjusted[1:443]))
+```
+
+Cross the IDs of the people taking easy courses with the department or instructor ... to be done.
+
+Or perhaps the Age coefficient on the running model, with and without controlling for the individual.
+
+We need to understand how confidence intervals can change as we add in covariates.
+
+## Geometry of Confidence Intervals
+
+[Shiny App](http://glimmer.rstudio.com/mosaic/CIgeometry/)

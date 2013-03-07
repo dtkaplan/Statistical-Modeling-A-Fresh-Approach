@@ -261,7 +261,7 @@ Wednesday Quiz
 **In Class**: 
 
 * [Total versus Partial](https://dl.dropbox.com/u/5098197/ISM/total-partial.pdf)
-* Form groups for [Survey Project](https://dl.dropbox.com/u/5098197/ISM/survey-project.pdf) and enter the names etc. [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=22773)
+* Form groups for the [**term project**](http://rpubs.com/dtkaplan/math155-spring2013-term-project).  Enter information about your project and group [on this Google Doc](https://docs.google.com/a/macalester.edu/document/d/12dyhb_FUFWqbagUVGFLWsvLnNLy9jW2umiPiKUjZ4Kc/edit?usp=sharing) so that the whole class can see.  **Also**, to get a grade, **every person** should enter the names etc. [here on Moodle](https://moodle.macalester.edu/mod/assign/view.php?id=19817)
 
 **Notes**: `r I(todaysNotes("2012-10-10.html", "i"))` 
 <!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-10-class) -->
@@ -530,6 +530,7 @@ This is a good time to start to review.  As we explore these new contexts, do th
 
 **On Your Own**:
 * [Why most published research findings are false](http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124)
+* [Advice on choosing a major](http://xkcd.com/1052/) to the tune of "A Modern Major General." [Listen here](http://www.youtube.com/watch?v=pRexBMPeRTo). See also the original from [The Pirates of Penzance](http://www.youtube.com/watch?v=zSGWoXDFM64), an [elemental version](http://www.youtube.com/watch?v=AcS3NOQnsQM), and, without endorsement, [a collection](http://www.youtube.com/playlist?list=PL81E47F8C9314A1D7)
 
 **Notes**: `r I(todaysNotes("2012-11-26.html", "i"))` 
 <!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-26-class) -->

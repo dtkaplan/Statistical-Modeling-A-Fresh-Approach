@@ -1,0 +1,204 @@
+Epidemiology Notes 2012-12-11
+=====================
+```{r message=FALSE,error=FALSE,warning=FALSE,echo=FALSE,results="hide"}
+require(mosaic, quietly=TRUE)
+```
+
+### Course Evaluation
+
+Link to the [Google Form](https://docs.google.com/spreadsheet/viewform?formkey=dFRvcDY2dk9YYlY5YTVjVkVGSFJpYUE6MQ)
+
+
+### In the News
+* [Obesity down](http://www.nytimes.com/2012/12/11/health/childhood-obesity-drops-in-new-york-and-philadelphia.html?_r=0).  But they don't know why.
+* [Fixing antibiotics](http://www.nytimes.com/2012/12/10/opinion/teaming-up-to-make-new-antibiotics.html) --- suggestions for a new commercial model for developing antibiotics.
+* [Eyewitness identification](http://www.nytimes.com/2012/12/06/opinion/a-check-on-bad-eyewitness-identifications.html)
+
+### Experiments on Eyewitness Accuracy
+
+* Stage a fake crime 200 times in front of 200 different witnesses.  
+* Ask the witness to pick out the offender from a 6-person line-up
+
+Condition    | Picked Offender | Picked Similar-looking person | Picked another person | No choice made
+----|-----------------|-------------------------------|--------------------------|--------------
+Offender in lineup | 54 | 13 | 12 | 21
+Offender not in lineup | NA | 38 | 30 | 32
+
+
+Cost Conundrum
+----------
+
+
+Discussion: 
+
+* What's necessary treatment depends on the region.
+* That it's not driven by demographics or the cost of living in a region.
+* That you could save a substantial amount, about half.
+* "In the ware over the culture of medicine --- the war over whether our country's anchor model will be Mayo or AcAllen --- the Mayo model is losing.  In the sharpest economic downturn that our health system has faced in half a century, many people in medicine don't see why they should do the hard work of organizing themselves in ways that reduce waste and improve quality if it means sacrificing revenue."
+
+What points does Gawande make about possible ways to lower costs?
+* You can lower costs and improve health care by having physicians work cooperatively.  There is a dominating policy.
+* That profit motivation drives high costs.  
+    * Unnecessary testing
+    * Kickbacks
+
+
+
+QUESTION: If it's possible to lower costs while improving care, why isn't someone making a killing by offering low-cost, high-quality health care and pocketing half of the profits that come from being lower cost than the competition?
+
+Basic method: Comparison
+-------------------
+* Regional comparison
+* Demographic comparison
+* Comparison over time (e.g., malpractice costs)
+
+Let's compare different sectors
+------------------
+
+Take as a comparison a sector of the economy that also has run-away costs and see the ways in which it's similar and different from health care.
+
+My suggestion: Education
+
+Similarities:
+* Schools spend very, very different amounts on students and outcomes are pretty much the same.
+* Outcome is hard to measure.
+* Time with physician is like class size.
+* Complaints about profit making.
+
+* Real spending is hard to measure, e.g. financial aid is sometimes counted as an expense. Price discrimination makes it hard to say what something "costs."
+* Decision making is not made by the spender.
+
+
+But the overall education sector is not-for-profit.
+
+
+
+
+    
+
+
+
+Insurance
+===============
+
+### What people wrote:
+
+#### Definitions
+
+> Insurance- a program in which participants pay a fee for the guaranteed access to financial support and protection from unintended, unforseeable “catastrophes”.
+
+> My basic understanding of insurance in general is that it is an investment toward your safety.  Insurance is something that applies to personal risk of death - life insurance, car insurance, and health insurance are all accessed in emergencies.  In determining insurance rates, different lifestyle factors are considered to be more or less risky than others, and can affect insurance coverage.  This seems to be a bit counterintuitive or shallow to me, because I think insurance should be a natural right, or at least be made more accessible to everyone. 
+
+> Insurance is a way of protecting against any exorbitant costs due to unforeseen complications in any given situation, making the costs that occur due to random events more manageable on a reasonable financial time scale (set costs every pay period that you know will occur, as opposed to very high bills to pay for damages when they occur, and no costs in between).
+
+> Insurance is a method of distributing risk among a group of people. Everyone who wants to (or legally has to) purchase insurance, thereby contributing some sum into the general pool. Then, when a particular negative outcome befalls one of the members of the group (such as a car accident), the pooled resources are used to cover some or all of the cost.
+
+> Insurance is something you pay a fee to be given.  You pay a small amount of money, and then if something happens where you’d need a large amount of money (to the point where you’d have trouble paying out of pocket), the insurance company provides that.  The company still makes a profit on the money everyone pays in, because only some of them will actually need coverage for things.
+
+#### Required?
+
+> Everyone should have insurance, it should be provided for free.
+
+> I think requiring all citizens to have valid health insurance is a good start, but ideally, nobody would have to buy it. This applies, however, to health insurance--I believe that since homeowners’ insurance and auto insurance, for example, are based on a consumer decision to purchase an item and insure it, they should still be privately owned and charged for.
+
+> Everyone should be required to have health insurance so people can get treated and there are fewer ER visits. (This will reduce the government spending for ER). Since insurance should be required it must also be affordable, therefore people who cannot afford insurance should receive assistance to pay for it.
+
+> I think that if insurance is going to be a source of security in our healthcare system, then everyone should have access to it for free.  When some people are able to buy more insurance than others, it compromises the motivations of health care professionals and the entire healthcare system.  Insurance is not immune to other social privileges that some people have.   If it is not universal, then we could find ourselves in a sticky situation in times of crisis.
+
+> If people would be required to have health insurance, then it ought be required that health insurance is affordable, lest we force the unwealthy to commit a crime of not having it. It should be this way because health insurance leads to a healthier and happier community which contributes to a more successful and harmonious country. But to some people, this is small change compared to the travesties that might ensue if the government is allowed to require that we care about people other than ourselves.
+
+> I definitely think that people should be required to have health insurance. I believe there should be a basic package that all individuals should have to purchase. I believe there should be premiums or upgrades for those who want to afford them for an extra cost. That extra cost could then be used to subsidize the cost of insurance for those who could otherwise not afford it.
+
+> Everyone should have insurance and everyone should have to pay what they can manage to pay. Redistribution of wealth is necessary because the fact is poorer people are sicker, thus making them poorer; it's an endless and pernicious cycle.
+
+#### Paying and Taxes
+
+> Since low-income patients often have the most health problems, wealthier patients should help subsidize the cost for lower-income patients by paying a higher premium. Thus, the payment amount should be based off income, much like our tax systems. Under the current system, the cost of many uninsured patients is paid for by the government and therefore is borne by tax payers. Requiring people to have health insurance would help reduce premiums for high-risk patients by making the overall pool of patients less riskier, as younger and generally healthier patients are then forced to buy insurance. Health insurance cannot be provided for free as the cost of care must be borne by someone, whether that is the government or private individuals. If the government is bearing the cost, it would be forced to raise taxes in order to pay the higher costs. 
+
+> I also do not think that everyone should pay the same amount; those who willingly engage in unhealthy activities, such as heavy smoking and alcohol drinking, as well as regular fast food consumption, should pay due to the health problems that are associated with such behaviors. I also do believe in universal, free healthcare, so I suppose the state would pay the balance of this hypothetical insurance with the money they collet from taxpapers, particularly the richest citizens.
+> Everyone should pay premiums based on their income. Everyone’s payment should be the same in the sense that the percentage that people pay is the same. Since wealthier people are paying higher premiums the payments being the same should not be a big deal. However, payments should not be so high that people can’t afford health care even with insurance.
+
+QUESTION: What is the organizational unit here?  A family?  An individual?  Should my children pay insurance based on their own income? 
+ 
+> While the idea that people with preexisting conditions should have to pay far more or be denied care is ridiculous, people making obvious choices that lead to us paying more (i.e. smokers, etc) should probably have to pay more. 
+
+QUESTION: What about a smoker who repents?  Should they now pay less?
+ 
+> I believe everyone should pay the same amount of percentage income; probably somewhere around 5%, as health is a useful necessity. In this way healthcare should more than pay for itself.
+
+My health insurance payments this year, for a family of 5, are about $22,500.  In addition, I'll pay about $4000 in Medicare Tax (and another $12,500 in Social Security Tax).  These add together my individual and the employer payments.
+
+A Mac employee with half my income would pay about $25,000 instead of my $26,500.  This would amount to about 30% of total compensation.  
+
+> The German system is based on compulsory insurance that is paid in part by an individual, the employer and the government, that is, through taxes. The current rate for individuals is around 8% of their monthly income, undemployed people receive the same common standard of insurance through welfare benefits. Insurance in Germany is acquired with birth and there is no price discrimination based on medical conditions.
+
+> Health insurance covers any condition in need of treatment, dental care, regular check-ups, parts of prescription drug costs, small and major operations and hospital stays. In order to prevent the system from getting out of hand, a system has been established where a patient is required to pay an equivalent of $13 quarterly if they see a doctor, and patients are required to see their general physician before they go to a specialist. If they fail to do so, another $13 fee is required for every visit. Similarely, patients are required to contribute $13 for every day they stay in the hospital. These charges are harshly debated in Germany, said to make health care too expensive for the individual. On the other hand, insurance is virtually free (my mother, on a good middle class income, pays $40 a month for complete health insurance for herself and for me), and this way the state gives patients an incentive to value medical care more. 
+
+
+#### What's Covered?
+
+> Alternatively, the cost of insurance could be determined by the amount of income an individual has. Again, the extra cost could then be used to subsidize it for others. I believe that only necessary procedures that handle life threatening diseases should be covered.
+
+QUESTION: The ankle-fusing operation for my 82-year old mother?  Knee replacement for golfers?
+
+> If I had control overt this nation's health care program, any medical care someone needed would get it for free. I would perhaps exclude unecessary plastic and cosmetic surgeries from being covered in my program  or the government would only partly subsidize these operations.
+
+QUESTION: End-of-life care?
+
+#### Human Right
+
+> I think that health is a human right and everyone should have equal access to health care. I also believe that by providing universal health care, that the nation as a whole becomes more productive.
+
+> Health insurance should be a right, not a privilege. I think that other developed countries got it right with universal health care. The focus on a greater good is beneficial to entire societies.
+
+#### Costs
+
+> I’ll assume that an average American woman would pay about $2,000 a year and an average American man would pay about $2,500 annually. What is covered probably depends on the company, but I assume that a decent-quality health insurance would cover a doctor’s visit at least twice every year and surgeries that are non-elective (for example, cosmetic surgery would generally not be covered).
+
+* Government regulated and supported: [one](https://moodle.macalester.edu/mod/assign/view.php?id=15869&sid=19256&gid=19256&plugin=onlinetext&action=viewpluginassignsubmission&returnaction=grading&returnparams=)
+
+Annuity Calculation
+================
+
+Insurance and annuities.  
+
+Price out an annuity using mortality tables.
+
+See the [google docs Annuity Calculations](https://docs.google.com/spreadsheet/ccc?key=0Am13enSalO74dFJHdFpXX0hZUk5iUkt1WkM0T1NndlE) .  
+
+The back story.  At Age 60 you buy an annuity with your savings.  It will pay you an annual amount, starting at age 65, until you die.  For simplicity, I imagine that you can die only at ages 65, 70, 75, and so on.  The annuity company might not have to pay you anything, if you die at age 65.  On the other hand, if you live until 105, they might need to pay quite a lot. 
+
+You pay 1,000,000 dollars.  How much is the annuity company willing to pay you each year?
+
+The annuity company can invest your money at the Interest Earnings Rate.
+
+Set interest earnings rate to zero to start off.  Figure out what you have to pay for the annuity so that the company makes a small profit.
+
+Change the earnings rate to something non-zero, for instance 0.0875, which is the annual interest rate used by many state-sponsored pension plans. Show how the amount paid is strongly influenced by this assumption.
+
+Change the mortality profile to make it less likely to die at 65 and more likely to die at 75: what effect does that have.  Move the incremental probability down toward age 105 and see what happens.
+
+Split into two groups --- move 70 year-old deaths to 85 and vice versa.  How much does this change the pay out compared to the average.  Use this to illustrate adverse selection.
+
+Results: At 25 percent administrative costs, 1,000,000 dollars will give a 43.5K dollar annual payout in the baseline age distribution (with no annual interest rate earnings).
+
+Move the 70 year old deaths to 85 and the payout is 40K dollars. Move the 85 year old deaths to 70 and the payout is 47.6K dollars.  So there will be a big incentive to shift from the group plan to the young-death plan if you qualify.  But this will leave only the low-death people in the regular plan, so it's rates will go up.
+
+Situation with medical costs is more extreme, since these are effectively unbounded.
+
+Count Something
+-----------------
+
+"My third answer for becoming a positive deviant: *Count something*." --- from Atul Gawande, *Better*, p. 254
+
+Example: Daily risk of a respiratory illness: "Reducing the risk of an illness from 0.5% per day to 0.05% per day. Hard to detect the change anecdotally, so people don't notice the difference in performance. But it plays out in a major way over a long period of time."
+
+
+Lord Kelvin
+> "I often say that when you can measure what you are speaking about, and express it in numbers, you know something about it; but when you cannot express it in numbers, your knowledge is of a meagre and unsatisfactory kind; it may be the beginning of knowledge, but you have scarcely, in your thoughts, advanced to the stage of science, whatever the matter may be." --- "
+Lecture on "Electrical Units of Measurement" (3 May 1883), published in Popular Lectures Vol. I, p. 73
+
+QALY Methodology
+------------
+
+Form groups and work through the [QALY exercise](http://dl.dropbox.com/u/5098197/Epidemiology/Activities/QALY-Methodology.pdf).

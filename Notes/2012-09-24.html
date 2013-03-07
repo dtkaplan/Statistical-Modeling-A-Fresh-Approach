@@ -6,8 +6,6 @@
 
 <title>Stats 155 Class Notes 2012-09-24</title>
 
-<base target="_blank"/>
-
 <style type="text/css">
 body, td {
    font-family: sans-serif;
@@ -52,13 +50,14 @@ pre {
    margin-top: 0;
    max-width: 95%;
    border: 1px solid #ccc;
+   white-space: pre-wrap;
 }
 
 pre code {
    display: block; padding: 0.5em;
 }
 
-code.r {
+code.r, code.cpp {
    background-color: #F8F8F8;
 }
 
@@ -216,14 +215,14 @@ f(&quot;Cougar&quot;)
 </code></pre>
 
 <pre><code>## Cougar 
-##      7 
+##      7
 </code></pre>
 
 <ul>
-<li><p>There is a <strong>standard modeling framework</strong>.  There are many, many different ways in which you could combine inputs into an output.  The one we will use is based in the mathematics of low-order polynomials.  For quantitative variables, this is straightforward, no more than \( z = m x + n y + b \).  For categorical variables, imagine that we have a preceeding function that turns each category into a number.  Then the following equation would work fine:<br/>
+<li><p>There is a <strong>standard modeling framework</strong>.  There are many, many different ways in which you could combine inputs into an output.  The one we will use is based in the mathematics of low-order polynomials.  For quantitative variables, this is straightforward, no more than \( z = m x + n y + b \).  For categorical variables, imagine that we have a preceeding function that turns each category into a number.  Then the following equation would work fine:
 \[ z = m x + n y + b + p f(\mbox{animal}). \]</p></li>
-<li><p>As with polynomials, you can create new &ldquo;terms&rdquo; by combining the quantities in various ways.  For example,<br/>
-\[ z = a_0 + a_1 x + a_2 x^2 + a_3 y + a_4 y^2 + a_5 x y +  a_6 f(\mbox{animal}) + a_7 x g(\mbox{animal}) \]<br/>
+<li><p>As with polynomials, you can create new &ldquo;terms&rdquo; by combining the quantities in various ways.  For example,
+\[ z = a_0 + a_1 x + a_2 x^2 + a_3 y + a_4 y^2 + a_5 x y +  a_6 f(\mbox{animal}) + a_7 x g(\mbox{animal}) \]
 and so on.  (Soon, we&#39;ll introduce a standard, simple approach to functions of categorical variables, called &ldquo;indicator functions&rdquo;.)</p></li>
 <li><p>The models are called &ldquo;linear models&rdquo; because they are linear combinations of functions of the explanatory variables.</p></li>
 <li><p>Some names for these terms:</p>
@@ -305,8 +304,7 @@ and so on.  (Soon, we&#39;ll introduce a standard, simple approach to functions 
 ## 
 ## Coefficients:
 ## (Intercept)       father  
-##      39.110        0.399  
-## 
+##      39.110        0.399
 </code></pre>
 
 <pre><code class="r">lm(height ~ father, data = Galton)  # same thing as previous
@@ -318,8 +316,7 @@ and so on.  (Soon, we&#39;ll introduce a standard, simple approach to functions 
 ## 
 ## Coefficients:
 ## (Intercept)       father  
-##      39.110        0.399  
-## 
+##      39.110        0.399
 </code></pre>
 
 <pre><code class="r">lm(height ~ father - 1, data = Galton)  # leave out intercept
@@ -331,8 +328,7 @@ and so on.  (Soon, we&#39;ll introduce a standard, simple approach to functions 
 ## 
 ## Coefficients:
 ## father  
-##  0.964  
-## 
+##  0.964
 </code></pre>
 
 <ul>
@@ -349,8 +345,7 @@ and so on.  (Soon, we&#39;ll introduce a standard, simple approach to functions 
 ## 
 ## Coefficients:
 ##   (Intercept)         father         mother  father:mother  
-##      132.3478        -1.2060        -1.4294         0.0247  
-## 
+##      132.3478        -1.2060        -1.4294         0.0247
 </code></pre>
 
 <ul>
@@ -366,8 +361,7 @@ and so on.  (Soon, we&#39;ll introduce a standard, simple approach to functions 
 ## 
 ## Coefficients:
 ##   (Intercept)         father         mother  father:mother  
-##      132.3478        -1.2060        -1.4294         0.0247  
-## 
+##      132.3478        -1.2060        -1.4294         0.0247
 </code></pre>
 
 <ul>
@@ -383,8 +377,7 @@ and so on.  (Soon, we&#39;ll introduce a standard, simple approach to functions 
 ## 
 ## Coefficients:
 ## (Intercept)  cos(father)  
-##     66.7618      -0.0094  
-## 
+##     66.7618      -0.0094
 </code></pre>
 
 <pre><code class="r">swim = fetchData(&quot;swim100m.csv&quot;)
@@ -432,8 +425,7 @@ xyplot(time + fitted(swimmod3) ~ year, data = swim)
 ##         (Intercept)                 sexM       poly(year, 2)1  
 ##               64.57                -9.64               -76.13  
 ##      poly(year, 2)2  sexM:poly(year, 2)1  sexM:poly(year, 2)2  
-##               27.23                36.31               -22.49  
-## 
+##               27.23                36.31               -22.49
 </code></pre>
 
 <pre><code class="r">swimmod3
@@ -447,8 +439,7 @@ xyplot(time + fitted(swimmod3) ~ year, data = swim)
 ##    (Intercept)            sexM            year       I(year^2)  
 ##       1.90e+04       -1.54e+04       -1.90e+01        4.79e-03  
 ##      sexM:year  sexM:I(year^2)  
-##       1.56e+01       -3.96e-03  
-## 
+##       1.56e+01       -3.96e-03
 </code></pre>
 
 <p>In order to deal with the possible double meaning of symbols like <code>+</code>, you can use <code>I()</code> to signal to R to treat the mathematical operations literally.</p>
@@ -485,7 +476,7 @@ coef(mod)
 </code></pre>
 
 <pre><code>## (Intercept)        sexM         age 
-##     4.65425     2.27469     0.08522 
+##     4.65425     2.27469     0.08522
 </code></pre>
 
 <p>What is the wage for a female of age 40?  A male of age 30?  Work through the arithmetic &ldquo;by hand&rdquo;.</p>
@@ -509,14 +500,14 @@ f(sex = &quot;F&quot;, age = 40)
 </code></pre>
 
 <pre><code>##     1 
-## 8.063 
+## 8.063
 </code></pre>
 
 <pre><code class="r">f(sex = &quot;M&quot;, age = 30)
 </code></pre>
 
 <pre><code>##     1 
-## 9.485 
+## 9.485
 </code></pre>
 
 <p>Other settings:</p>

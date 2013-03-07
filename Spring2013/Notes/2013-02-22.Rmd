@@ -1,0 +1,116 @@
+February 22, 2013 Class Notes
+=============
+
+```{r include=FALSE}
+require(mosaic)
+options(na.rm=TRUE)
+```
+
+Where We Are
+-------------
+
+1. You can fit models.
+2. The model partitions variation between what's explained and what's not explained: the fitted model values and the residuals.
+3. Fitting means setting parameters to make the residuals as small as possible.  This is automatic.
+4. You can also make the residuals smaller by adding new explanatory variables and terms to the model. Does this mean we should add in many things to a model?
+
+Where We Need to Be
+-------------
+1. How to interpret a model with multiple variables?  With interaction terms and transformation terms, the "effect" of a variable can be spread around several terms in the model.
+2. How to decide when enough is enough in adding new terms to a model?
+
+This week and next, we'll be working with three main ideas:
+
+1. Colinearity.
+2. Redundancy (which is the extreme state of colinearity)
+3. Measuring how much of the variation in response values a model has captured.  (You may already know that $R^2$ does this, but it helps to know why it's even possible to do at all.)
+
+The tool that we will use to explore these ideas is geometry.  Some people will find that this immediately illuminates what's going on.  Some people will not find it helpful at all.  I don't know why there are such different reactions from different people.  I encourage you to keep an open mind as we talk about geometry.  The worst case is that you will spend a couple of hours (spread over the next weeks) that won't lead anywhere for you.  That's not too big a bet to place on the possibility that you may find it truly useful, as many people do.
+
+Untangling
+-----------
+
+### Finish [Untangling House Prices]()
+
+* Build models involving various explanatory variables.
+* Which explanatory variables might be related to one another?
+    * Bedrooms and living area.  A bigger house may have more bedrooms.  What model to test for that?
+* Contrast these models:
+```{r}
+houses=fetchData("SaratogaHouses.csv")
+lm( Price ~ Bedrooms, data=houses )
+lm( Price ~ Bedrooms + Living.Area, data=houses)
+```
+
+### SAT and School Expenditures
+
+Simpson's paradox in expenditures and fraction taking the SAT.
+* How to show that frac and expen are related?
+
+Least Squares
+-------------
+
+Visual fitting a line activity.
+
+Load the software:
+```{r}
+fetchData("mLineFit.R")
+```
+Then run it:
+```{r eval=FALSE}
+mLineFit( width ~ length, data=KidsFeet )
+```
+Vary the slope and intercept using the sliders.
+
+QUESTIONS:
+* Make a graph of the sum of square residuals versus the slider value. What shape does it have?  Is it symmetric?
+* Notice that the graph is flat near the minimum.  This means that the detailed choice of parameters doesn't much matter, so long as it's near the minimum.  How to define "near the minimum"?
+
+### Aside: "... in the context of what remains unexplained"
+
+Although model fitting makes the residuals as small as possible for a given model "design", it's not appropriate to choose a design solely on the basis of making the residuals small.
+
+Doing so conflicts with the idea of taking a random sample and the variation that's induced by taking a sample. 
+
+Statistical Geometry
+--------------------
+### Vectors, abstractly 
+* Idea of a vector: length and direction, but not position.
+* Operations on vectors: addition, scaling, linear combination, length, angle between, projection, extraction of coefficients
+*These operations using arithmetic.  Projection of b onto a:   $a \times \frac{b \cdot a}{a \cdot a}$
+* Orthogonality in terms of dot products: when the dot product is zero.  Exer. [9.10](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Prob-9.10/ISM-Prob-9.10-A.html 9.10) then [9.12](http://dl.dropbox.com/u/5098197/Exercises/HTML/ISM-Prob-9.12/ISM-Prob-9.12-A.html).
+
+### Case Space versus variable space
+
+![Adam and Eve picture](https://dl.dropbox.com/u/5098197/ISM/Figures/Adam-and-Eve.png)
+
+#### [Activity comparing case space and variable space](https://dl.dropbox.com/u/5098197/ISM/case-vs-variable-space.pdf)
+
+#### Fitting with one explanatory vector in variable space.  
+
+Show that the residual is perpendicular to the model.  The model triangle.
+* Examples
+    * The mean  `A ~ 1`
+    * Line through the origin `A ~ B - 1`
+    
+*Calculations using the computer [Math_155_Activity_on_Statistical_Geometry_and_Computing] --- ask students to build their own models using their own data and confirm this:
+* Sums of squares add up in the pythagorean way.
+* The angle between the fitted and residuals is 90 degrees.  That is, the dot product is zero.
+* The angle between the residuals and each and every quantitative variable and each and every level of a categorical variable is zero.
+
+Example: 
+```{r}
+kids = fetchData("kidsfeet.csv")
+mod = lm( width ~ length*sex + domhand, data=kids)
+sum( resid(mod)*kids$length )
+sum( resid(mod)*(kids$sex=="B"))
+sum( resid(mod)*(kids$domhand=="R"))
+```
+
+
+### Looking forward 
+
+* R^2 relates to the cosine of the angle between the fitted model values and the response variable --- '''once the mean is subtracted out'''
+* How to fit with more than one model vector.  Simpson's paradox and how it relates to correlations among explanatory variables.
+
+    

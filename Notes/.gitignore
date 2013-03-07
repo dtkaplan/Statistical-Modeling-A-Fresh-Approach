@@ -1,0 +1,5 @@
+*.md
+*.aux
+*.log
+*.synctex.gz
+cache

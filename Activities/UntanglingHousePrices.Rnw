@@ -58,7 +58,7 @@ Note: If you make a box-and-windows plot of price versus the number of bedrooms,
 bwplot( Price ~ as.factor(Bedrooms), data=houses )
 @
 
-\paragraph{Question 3}: Look at the median price of homes broken down by the number of bedrooms.  How much is an additional bathroom worth?  (Note: A "half bathroom" refers to a bathroom without a shower or bath, such as a "powder room".  A typical house with 2.5 baths will have two "full baths" and one half bathroom.)
+\paragraph{Question 3}: Look at the median price of homes broken down by the number of bathrooms.  How much is an additional bathroom worth?  (Note: A "half bathroom" refers to a bathroom without a shower or bath, such as a "powder room".  A typical house with 2.5 baths will have two "full baths" and one half bathroom.)
 
 \bigskip
 

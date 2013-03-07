@@ -1,0 +1,260 @@
+Math 155: Introduction to Statistical Modeling
+====================
+
+``` {r echo=FALSE}
+# Setting up the calendar material
+makeDayLinkName <- function(month,day,year=2012){
+  paste("Day-", year, "-", month, "-", day, sep="")
+}
+dd <- function(month,day,year=2012) {
+  paste("<a target='self' href='#",makeDayLinkName(month,day,year),"'>",day,"</a>",sep="")
+}
+classDayContents <- function(weekday="", month, day, year=2012) {
+  # put in the header and a bookmark
+  paste("### ", 
+        paste('<a name="',makeDayLinkName(month,day,year),'">',weekday," ", day," ", month,"</a>",sep=""))
+}
+```
+**Class Schedule**
+
+        | : | M | W | F | : | M | W | F | : | M | W | F | : | M | W | F | : | M | W | F
+--------|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---
+*Sept* | | | `r I(dd("Sept",5))` | `r I(dd("Sept",7))` | |`r I(dd("Sept",10))` |`r I(dd("Sept",12))` |`r I(dd("Sept",14))` | | `r I(dd("Sept",17))` |`r I(dd("Sept",19))` |`r I(dd("Sept",21))` | | `r I(dd("Sept",24))` |`r I(dd("Sept",26))` |`r I(dd("Sept",28))` | | | | 
+*Oct* |  |  `r I(dd("Oct",1))` |  `r I(dd("Oct",3))` | `r I(dd("Oct",5))` | | `r I(dd("Oct",8))` |`r I(dd("Oct",10))` |`r I(dd("Oct",12))` | | `r I(dd("Oct",15))` |`r I(dd("Oct",17))` |`r I(dd("Oct",19))` | | `r I(dd("Oct",22))` |`r I(dd("Oct",24))` | 26 | | `r I(dd("Oct",29))` |`r I(dd("Oct",31))` |
+*Nov* | | | | `r I(dd("Nov",2))` | | `r I(dd("Nov",5))` |  `r I(dd("Nov",7))` | `r I(dd("Nov",9))` | |  `r I(dd("Nov",12))` | `r I(dd("Nov",14))` | `r I(dd("Nov",16))` | | `r I(dd("Nov",19))` | `r I(dd("Nov",21))` | 23 | |  `r I(dd("Nov",26))` | `r I(dd("Nov",28))` | `r I(dd("Nov",30))` 
+*Dec* | | `r I(dd("Dec",3))` | `r I(dd("Dec",5))` | `r I(dd("Dec",7))` | | `r I(dd("Dec",10))` 
+
+`r I(classDayContents("Wed", "Sept", 5 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Sept", 7 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Mon", "Sept", 10 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+`r I(classDayContents("Wed", "Sept", 12 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Sept", 14 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Mon", "Sept", 17 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Wed", "Sept", 19 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Sept", 21 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Mon", "Sept", 24 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Wed", "Sept", 26 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Sept", 28 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Mon", "Oct", 1 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Wed", "Oct", 3 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Oct", 5 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Mon", "Oct", 8 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Wed", "Oct", 10 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Oct", 12 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Mon", "Oct", 15 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Wed", "Oct", 17 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Oct", 19 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Mon", "Oct", 22 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Wed", "Oct", 24 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Oct", 26 ))`
+*FALL BREAK*
+
+`r I(classDayContents("Mon", "Oct", 29 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Wed", "Oct", 31 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Nov", 2 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Mon", "Nov", 5 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Wed", "Nov", 7 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Nov", 9 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Mon", "Nov", 12 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Wed", "Nov", 14 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Nov", 16 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Mon", "Nov", 19 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Wed", "Nov", 21 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Nov", 23 ))`
+*THANKSGIVING BREAK*
+
+`r I(classDayContents("Mon", "Nov", 26 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Wed", "Nov", 28 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Nov", 30 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Mon", "Dec", 3 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Wed", "Dec", 5 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Fri", "Dec", 7 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+`r I(classDayContents("Mon", "Dec", 10 ))`
+**Topic**: 
+**Readings**:
+**Assignment**:
+
+
+Looking at what the extensions of markdown have to offer.
+
+* Equations like $latex x^2 + \exp{x^2}$ or $$latex \int_0^{\infty} e^{-x} dx .$$
+* Citations [see @kaplan2012 or something or other]
+* Auto links <mailto:dtkaplan@gmail.com>
+* A table
+
+
+
+
+
+1. First
+2. Second
+1. Third
+
+
+```
+Delimited <- function(x) {
+  x^2
+}
+```
+
+```{r fig.width=7, fig.height=6}
+plot(cars)
+```
+This is the caption of the picture.
+
+And back to a new paragraph.

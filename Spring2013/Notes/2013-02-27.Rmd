@@ -1,0 +1,233 @@
+February 27, 2013 Class Notes
+=============
+
+```{r include=FALSE}
+require(mosaic)
+options(na.rm=TRUE)
+```
+
+## Review
+
+We're going to use this vector picture to study some features of modeling.
+
+Draw pictures for two models
+
+* `A ~ B`
+* `A ~ B+C`
+
+with B and C in the board and A off of the board.
+
+The basic question: **What happens when we add in a new model term?**
+
+
+
+Main Ideas for Today
+====================
+
+
+1. The standard deviation and variance, geometrically
+2. Fitting and orthogonality of the residual in high dimensions
+3. $R^2$.  Fraction of distance travelled to the response vector, but neglecting the intercept.
+3. Nesting, geometrically.  You must be able to get further in a larger subspace that includes 
+4. Simpson's paradox
+5. Redundancy
+
+Standard deviation
+==================
+
+We've seen the standard deviation in it's role as describing the width of a distribution. That's an excellent way to think about the standard deviation.  
+
+#### Two rules of thumb for estimating the standard deviation:
+* The half-width at half height for a bell-shaped distribution
+* One quarter length of the 95% coverage interval
+
+#### The arithmetic: 
+
+First, the variance
+
+* $s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - m)^2$
+
+Then the standard deviation
+* $s = \sqrt{s^2}$ ... duh!
+
+#### The units
+Same as those of the quantity itself
+
+#### Geometrically
+
+Consider the very simple, all-cases-the-same model: `x ~ 1`  The only "explanatory" vector is the intercept vector.
+
+* The coefficient from this model is the grand mean $m$ of the values $x$.
+* The residuals are $x_i - m$.  The sum of squares of the residual is the square length of the residual vector.
+
+New idea: the "average per component length" of a vector.  This would be useful in describing the typical size of a residual for each case.
+
+* It might seem obvious that this should just be the length of the vector divided by the dimension of the space in which the vector lives.  But there's a better way.  The square-length divided by the dimension of the space.  What's nice about this is that it's more or less independent of the size of the sample.
+
+ACTIVITY:
+Have students fit the all-cases-the-same model to the Galton height data, but with different sample sizes.
+
+```{r message=FALSE}
+runners = fetchData("Cherry-Blossom-2008.csv")
+nrow(runners)
+small = sample(runners, size=200)
+big = sample(runners, size=8000)
+mod1 = lm( age ~ 1, data=small)
+mod2 = lm( age ~ 1, data=big)
+# average length per component
+sqrt(sum(resid(mod1)^2))/200
+sqrt(sum(resid(mod2)^2))/8000
+# average square length per component
+sum(resid(mod1)^2)/200
+sum(resid(mod2)^2)/8000
+# and the square root of that
+sqrt(sum(resid(mod1)^2)/200)
+sqrt(sum(resid(mod2)^2)/8000)
+```
+
+* Note that the average square length is consistent between the two sample sizes, but the average legnh is not.  We want our estimates to be about the system under study, not the irrelevant details of the sample we chose to collect.  So the average square length is better.
+
+* But what is the dimension of the space that the residual lives in?  $n-1$ since the residual is always orthogonal to the intercept vector.
+
+Fitting and orthogonality
+-------------------------
+The residuals will be orthogonal to each and every model vector
+```{r}
+mod = lm( wage ~ age*educ + exper, data=CPS85)
+with( data=CPS85, sum( resid(mod)*exper) )
+with( data=CPS85, sum( resid(mod)*age) )
+with( data=CPS85, sum( resid(mod)*educ) )
+with( data=CPS85, sum( resid(mod)*age*educ) )
+# but not
+with( data=CPS85, sum( resid(mod)*exper*educ) )
+```
+
+ACTIVITY: Show this is true for any model.
+
+
+## R^2 geometrically
+
+Little r measures alignment between two vectors (after the intercept has been taken out).  $\sqrt{R^2} = \cos(\theta)$
+
+## Simpsons Paradox
+
+ACTIVITY: 
+
+### Draw a picture of the situation with diabetes, age, and weight.
+
+* Diabetes is correlated with weight.
+* Weight and age are negatively correlated.
+* Diabetes is positively correlated with age.
+
+Show how ignoring weight tends to diminish the correlation between diabetes and age.
+
+Show how ignoring age tends to diminish the correlation with diabetes and weight.
+
+### Draw a picture of the SAT situation
+
+* SAT is weakly negatively correlated with EXPENDITURES
+* SAT is strongly negatively correlated with FRACTION
+* FRACTION is  negatively correlated with EXPEND
+
+Show that if you ignore fraction, you get a different result than if you include fraction.
+
+## Redundancy
+
+How to make a model say anything you want about A, through redundancy. 
+
+1. Pick a variable B and the coefficient you want on it.
+2. Find other vectors V in whose space the variable B lies. 
+3. Fit `B ~ V`
+4. Fit `A ~ V`
+5. Combine the coefficients from (3) and (4) to make a model.
+
+Example: I run a small college and I want to show that wages increase by $2 per hour for every year of education.  Let's do this with the CPS85 data.
+
+Note first that there is a redundancy in the CPS85 data among age, exper, and educ.  Confirm that
+exper has been estimated in the data as age - (educ+6)
+
+There is one case --- # 350 --- that's wrong.  It was just an arithmetic mistake in the data.  (Actually, that's why we're using these data from 1985.  Anyone who wants to get some modern CPS data is encouraged to do so and will get some extra credit.)
+
+First, let's work the the corrected data 
+```{r}
+cps = fetchData("CPS85-corrected.csv")
+```
+
+We already know what the relationship is between experience and age and education: $educ = age - exper - 6$
+Confirm this:
+```{r}
+modEduc = lm( educ ~ age + exper, data=cps )
+```
+
+Now fit a model of wage versus age and experience ...
+```{r}
+mod1 = lm(wage ~ age + exper + educ, data=cps)
+coef(mod1)
+f1 = makeFun(lm(wage~educ+age+exper, data=cps))
+```
+
+Notice that the software has flagged the redundancy.  Education isn't playing a role in the model.
+
+One way to characterize the quality of the model is with the typical size of a residual.
+```{r}
+sd(resid(mod1))
+```
+
+Now I'm going to construct a function that includes education but gives the same model values as the fitted model and therefore has the same size residuals.
+
+To help, here's a function that's always zero, reflecting the redundancy among age, experience, education and the intercept:
+
+```{r}
+zero = makeFun( educ - (age-(exper+6)) ~ educ&age&exper)
+```
+
+Zero can be added to the model formula without changing anything.  Indeed, you can add 10 times zero without changing anything, or 100 or whatever you like.  Here's adding 10 times zero
+```{r}
+myMod2 = makeFun( -10.46027 + .9259656*age -.8208330*exper + 
+  10*zero(educ,age,exper) ~ educ&age&exper)
+```
+
+Both these models give exactly the same model values for all the data in the data set:
+```{r}
+v2 = with(cps, myMod2(age=age,educ=educ,exper=exper))
+sd(fitted(mod1)-v2)
+mean(fitted(mod1)-v2)
+sum( (fitted(mod1)-v2)^2 )
+```
+
+Let's look at the effect of education on wage.  One way to do this is to ask how wage changes with education: a derivative.
+```{r}
+effect1 = D( f1(age=age,educ=educ,exper=exper)~educ)
+effect2 = D( myMod2(age=age,educ=educ,exper=exper)~educ)
+effect1( age=30,exper=10,educ=14)
+effect2( age=30,exper=10,educ=14)
+```
+
+According to the 2nd model, education is worth $10 per hour.
+
+Alignment and Simpson's Paradox
+===========
+By careful choice of covariates, you can influence what the role of the variable is.
+
+Simpson's paradox, or more generally the dependence of the coefficients of the variables on the covariates, is a simple consequence of alignment.  It's going to happen, like it or not.
+
+We'll need more guidance on the choice of covariates.
+
+Approaches we will see:
+
+1. Use of experimental assignment and randomization to create orthogonality
+2. Analysis of covariance
+3. Causation-related inference.
+
+The Coefficient of Variation: $R^2$
+============
+How much have we explained ... what fraction of the distance to the response variable have we gone.
+
+BUT ... want to emphasize variance, not the mean.  So we want the fraction orthogonal to the intercept.  We don't want to give undue credit to something that happens to be aligned with the intercept.
+
+Geometry of Fitting with Multiple Vectors
+===================
+
+### 1. Diagram with two explanatory vectors
+
+### 2. Show that the residual is orthogonal to each and every model vector.

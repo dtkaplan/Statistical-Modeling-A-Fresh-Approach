@@ -351,6 +351,48 @@ xyplot(time + fitted(swimmod3) ~ year, data = swim)
 
 <p>In order to deal with the possible double meaning of symbols like <code>+</code>, you can use <code>I()</code> to signal to R to treat the mathematical operations literally.</p>
 
+<h2>Comparing <code>mm</code> and <code>lm</code></h2>
+
+<p>Model wage by <code>sex</code>, <code>sector</code> and <code>exper</code></p>
+
+<h3><code>mm</code> approach &mdash; divide up into groups</h3>
+
+<pre><code class="r">mod1 = mm(wage ~ sex + sector + cut(exper, breaks = c(0, 5, 10, 20, 40)), data = CPS85)
+head(confint(mod1))
+</code></pre>
+
+<pre><code>##              group   2.5 % 97.5 %
+## 1 F.clerical.(0,5]  1.5790  8.078
+## 2 M.clerical.(0,5]  4.0547 10.554
+## 3    F.const.(0,5]     NaN    NaN
+## 4    M.const.(0,5]  2.8324 20.028
+## 5    F.manag.(0,5] 10.6770 18.367
+## 6    M.manag.(0,5] -0.5344 11.624
+</code></pre>
+
+<p>Problem: many, many groups, so not much data in each.</p>
+
+<h3><code>lm</code> approach &mdash; select terms</h3>
+
+<pre><code class="r">mod2 = lm(wage ~ sex + sector + exper, data = CPS85)
+confint(mod2)
+</code></pre>
+
+<pre><code>##                  2.5 %  97.5 %
+## (Intercept)    4.85391  7.0288
+## sexM           1.28076  3.0176
+## sectorconst   -2.13439  2.4662
+## sectormanag    2.84352  5.9354
+## sectormanuf   -1.90184  1.0235
+## sectorother   -1.82014  1.2482
+## sectorprof     2.74612  5.3096
+## sectorsales   -2.33520  1.1299
+## sectorservice -2.79908 -0.1037
+## exper          0.02609  0.0895
+</code></pre>
+
+<p>Now the question is how to interpret these confidence intervals.  Do we compare them to one another or to zero?</p>
+
 <h2>Introducing \( R^2 \) Briefly</h2>
 
 <p>Since we&#39;re trying to account for variation in the response variable, it&#39;s helpful to have a way to quantify how much variation we have accounted for.  The quantity called &ldquo;R-squared&rdquo; &mdash; \( R^2 \), officially &ldquo;the coefficient of determination&rdquo; although hardly anyone uses that name &mdash; is a standard way to do this.  Briefly, \( R^2 \) is the fraction of variance in the response variable that is &ldquo;captured&rdquo; by the model.  It is always between 0 (didn&#39;t capture any) and 1 (got it all!).</p>
@@ -431,6 +473,24 @@ f(sex = &quot;F&quot;, age = 40)
 <p>Outline the <a href="https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A.html?access=ISMf12#723">used car project</a> and show some data from <a href="http://www.cars.com">http://www.cars.com</a>.  Perhaps MINI Coopers.</p>
 
 <p>Get students to form groups right now, oriented around different kinds of cars.  They should make a Google Spreadsheet and share it with all the other members of their group.</p>
+
+<h2>Units of coefficients</h2>
+
+<ul>
+<li>Quick review of the arithmetic of units and dimensions.</li>
+<li>Simple examples:
+
+<ul>
+<li>foot width as a function of foot length and sex (explain why length is a sensible explanatory variable and width is a sensible response when trying to model whether girls&#39; feet are narrower than boys&#39;: the way shoes are sized by length.)</li>
+<li>child&#39;s height as a function of the father&#39;s height.  Then introduce an interaction between father and mother to get at the units.</li>
+</ul></li>
+</ul>
+
+<h2>Example of an Interaction</h2>
+
+<p>The story is pretty straightforward.  Your job is to see why this corresponds to an interaction term:</p>
+
+<p>Newspaper article: <a href="http://www.nytimes.com/2011/02/22/science/22tier.html?_r=1&amp;hp">a study of &ldquo;hidden&rdquo; ovulation</a> and whether it&#39;s really hidden. Note the interaction between ovulation phase and romantic attachment. : &ldquo;Previous research had shown that a woman at the fertile stage of her menstrual cycle seems more attractive, and that same effect was observed here — but only when this woman was rated by a man who wasn’t already involved with someone else. The other guys, the ones in romantic relationships, rated her as significantly less attractive when she was at the peak stage of fertility, presumably because at some level they sensed she then posed the greatest threat to their long-term relationships.</p>
 
 </body>
 

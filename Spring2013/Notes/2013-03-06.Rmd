@@ -1,0 +1,168 @@
+March 6, 2013 Class Notes
+=============
+
+```{r include=FALSE}
+require(mosaic)
+options(na.rm=TRUE)
+```
+
+
+### Review of Partial Derivatives
+
+A derivative is a way of describing how to (quantitative) variables are related: it converts a change in one variable into a change in the other.
+
+Partial derivatives are derivatives that hold all other variables constant.
+
+Relate to the two-variable polynomial: $f(x,y) = a_0 + a_1 x + a_2 y + a_3 x y + ...$
+
+With an interaction coefficient, the derivative with respect to $x$ depends on $y$.
+
+
+
+### Discussion
+
+Sometimes you want partial derivatives, sometimes you don't.
+
+#### Kids feet data.
+
+The question is whether girls' shoes are narrower than boys' because girls' feet are narrower.  Address this.
+
+#### Wages
+
+* Is there discrimination on the basis of sex?  Build a potentially complicated model and look at the partial change with respect to sex?
+* What's the effect of education?  If you increase education by one year, you ought to decrease experience by one year.  
+
+
+### Choice of Covariates
+
+Consider the models `A ~ B+C` or `A ~ B*C`
+
+When you include the covariate C,  and look at the coefficient on B, you are essentially looking at the partial of A with respect to B.
+
+If you want to look at the total effect, you can either ...
+* leave C out of the model
+* evaluate the model for the proposed change in B together with the consequent change in C.
+
+### Example: Looking at the Used Car Price Models
+
+```{r}
+cars = fetchData("used-hondas.csv")
+mod1 = lm( Price ~ Mileage, data=cars)
+mod2 = lm( Price ~ Mileage*Age, data=cars)
+amod = lm( Age ~ Mileage-1, data=cars) # Why suppress the intercept
+```
+
+A 10000 mile increase in mileage is associated with a 0.57 year increase in age
+
+Looking at the size of the effect:
+```{r}
+coef(mod1)
+coef(mod2)
+coef(amod)
+f1 = makeFun(mod1)
+f2 = makeFun(mod2)
+```
+Looking at the coefficients from the two models, the first says that the relationship of price to mileage is to decrease by about 10 cents/mile.  For mod 2, for a 4-year old car, the partial of price with respect to mileage is about -8 cents/mile.
+```{r}
+f1(Mileage=40000)-f1(Mileage=50000)
+f2(Mileage=40000,Age=4)-f2(Mileage=50000,Age=4)
+f2(Mileage=40000,Age=4)-f2(Mileage=50000,Age=4.57)
+```
+
+
+### Activity
+
+Look at the Saratoga house price data.  Build and evaluate appropriate models to answer these questions:
+
+(1) What's the effect of adding a fireplace?
+
+* Should you hold the other variables constant?
+
+(2) What's the effect of adding a bedroom?
+
+* Should you hold living area constant?
+
+(3) What's the effect of partitioning off the living room to create a bedroom?
+
+* Should you hold living area constant?
+
+### Activity
+
+[Total-vs-partial In-class activity](https://dl.dropbox.com/u/5098197/ISM/total-partial.pdf)
+
+### Longitudinal running data
+
+Running data: Compare the cross-sectional to the longitudinal data to get at how tie changes versus age.  Question: hold individual constant or not.
+
+```{r cache=TRUE}
+f = fetchData("Cherry-Blossom-Long.csv")
+nrow(f)
+sample(f,size=5)
+f = subset(f, nruns>5)
+nrow(f)
+```
+
+Two models
+```{r cache=TRUE}
+mod1 = lm( net ~ age, data=f)
+mod2 = lm( net ~ age + name.yob, data=f)
+```
+Model 1 suggests a decrease of about 0.3 minutes per year of age, but Model 2 is much larger, 0.83 minutes per year of age.
+
+```{r}
+coef(mod1)
+head( coef(mod2))
+```
+Note how substantially the age dependence differs depending on whether you are looking longitudinally or cross-sectionally.
+
+### Grades and the GPA
+
+```{r}
+grades = fetchData("grades.csv")
+g2pt = fetchData("grade-to-number.csv")
+courses = fetchData("courses.csv")
+grades = merge(grades, g2pt) # Convert letter grade to number
+grades = merge(grades,courses)
+```
+
+Compute the GPA in the ordinary way:
+```{r}
+options( na.rm=TRUE )
+head( mean(gradepoint ~ sid, data=grades) )
+```
+
+... or by a model
+```{r}
+conventional = coef( lm( gradepoint ~ sid-1, data=grades))
+head( conventional )
+```
+
+What can we hold constant?  Department, level, class enrollment?
+```{r}
+adjusted = coef( lm( gradepoint ~ sid - 1 + dept + level + enroll, data=grades))
+head( adjusted )
+```
+
+How do they compare?
+```{r}
+xyplot( conventional ~ adjusted[1:443], pch=20 )
+```
+
+Or in terms of class rank:
+```{r}
+xyplot( rank(conventional) ~ rank(adjusted[1:443]), pch=20 )
+```
+
+Suppose the cut-off for class rank was to be $\geq 150$.  There are students who pass by the adjusted criteria but fail by the unadjusted.
+```{r}
+xyplot( rank(conventional) ~ rank(adjusted[1:443]), pch=20 )
+plotFun( y >=150 ~ x&y, add=TRUE )
+plotFun( x >=150 ~ x&y, add=TRUE )
+```
+
+The "takes easy courses" index: a positive number indicates taking easy courses.  
+```{r}
+densityplot( ~rank(conventional)- rank(adjusted[1:443]))
+```
+
+

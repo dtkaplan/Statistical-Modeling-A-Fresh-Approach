@@ -1,0 +1,63 @@
+February 20, 2013 Class Notes
+=============
+
+```{r include=FALSE}
+require(mosaic)
+options(na.rm=TRUE)
+```
+
+Reviewing the car price models.
+
+* [One](http://rpubs.com/drathakr/4539)
+```{r}
+cars1 = fetchGoogle("https://docs.google.com/spreadsheet/pub?key=0Akkdc3QLDbyAdGxNRDAzcG5aRGJBSVFHa3ljaHVObnc&output=csv")
+confint(lm( Price ~ Age, data=cars1))
+confint(lm( Price ~ Miles, data=cars1))
+confint(lm( Price ~ Age+Miles, data=cars1))
+```
+
+* [Two](https://docs.google.com/document/d/1POuNT3nWBnqF7c7CTIEbWnl-MCVK6sVEGcRns8cAIbs/edit)
+    [Spreadsheet](https://docs.google.com/spreadsheet/ccc?key=0AnVnVAhrWOVPdDhpaVFiS0RtUTlwVjdyS2xnNnNWSUE#gid=0)
+    
+Construct models using Zip, Age, Miles and discuss the units.  What happens with interaction terms?  What are the units of those?
+
+
+```{r}
+prius = fetchData("M155/Spring2013/ToyotaPrius.csv") # fetchData("Spring2013/Notes/ToyotaPrius.csv")
+lm( Price ~ Age, data=prius)
+```
+What does the intercept mean?  Price of a hypothetical prius produced in year 0 --- the Roman prius (not to be confused with Priapus).
+
+```{r}
+prius = transform(prius, Age=2013-Year)
+mod = lm( Price ~ Age+Miles, data=prius)
+mod
+# make a 2-d plot of this
+f1 = makeFun(mod)
+plotFun( f(Age=a, Miles=m)~ a&m, 
+         a.lim=c(0,10),m.lim=c(0,100000))
+lm( Price ~ Age+Miles+Zip, data=prius)
+lm( Price ~ Age + Miles*Zip, data=prius)
+```
+
+#### Watch out! An outlier in price.
+
+```{r}
+mod = lm( Price ~ Age*Miles, data=prius)
+f = makeFun(mod)
+plotFun( f(Age=a, Miles=m)~ a&m, a.lim=c(0,10),m.lim=c(0,100000))
+max( Miles, data=prius)
+pp =subset(prius, Miles < 100000)
+mod = lm( Price ~ Age*Miles, data=pp)
+f = makeFun(mod)
+plotFun( f(Age=a, Miles=m)~ a&m, a.lim=c(0,10),m.lim=c(0,100000))
+```
+
+
+### Untangling
+
+Untangling
+----------
+* Foot width as a function of sex and foot length.
+* SAT and school expenditures
+* [House prices](../Activities/UntanglingHousePrices.pdf)
