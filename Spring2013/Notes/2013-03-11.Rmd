@@ -1,0 +1,263 @@
+Monday March 11, 2013 Class notes
+==================
+
+```{r include=FALSE}
+require(mosaic)
+options(na.rm=TRUE)
+```
+
+### The Big Picture
+
+1. Judgment and expertise is incredibly important
+    * Which explanatory variables are important
+    * What do you want to hold constant to answer the question at hand.
+2. Literacy: 
+    * Already: variance, variation, outliers, 95% intervals, quantitative vs categorical
+    * Coming: frugality with degrees of freedom, experiment, causal chains
+2. Technical questions:
+    * Whether to include interaction and transformation terms
+    * Is colinearity involved.
+2. You can "untangle" explanatory variables.
+3. You can analyze models simulating "holding variables constant"
+4. You can use confidence intervals how precise your measurement of a claimed effect is.
+    * confidence intervals on coefficients.
+    * confidence intervals on model values.  See the [Modeling notes for Week 4 DCV](file:///Users/kaplan/kaplanfiles/Github/DataAndComputingFundamentals/Notes/Day4/ModelFunctions.html)
+    * confidence intervals on predictions.
+    
+A demo from our own software:
+```{r kidsexample}
+kids = fetchData("KidsFeet")
+mod = lm( width ~ length*sex, data=kids)
+f = makeFun(mod)
+foo = with(data.frame(width,length,sex,f(length=length,sex=sex,data=kids,interval="confidence")), data=kids)
+xyplot(width + lwr + upr ~ length | sex, data=foo)
+foo = with(data.frame(width,length,sex,f(length=length,sex=sex,data=kids,interval="prediction")), data=kids)
+xyplot(width + lwr + upr ~ length | sex, data=foo)
+xyplot(width + lwr + upr ~ length , data=foo)
+```
+
+What does the confidence-interval/standard-error depend on?
+* Size of residuals
+* number of cases (minus number of model vectors -- but we won't worry about this right now)
+* colinearity
+
+Logic behind non-resampling estimates of the standard error
+
+* Models partition into a deterministic and random component
+* Deterministic component is along the model vectors
+* Random component is the residual
+
+Key idea: if we collected another sample, the deterministic component would be the same, but the random component would be utterly different --- it would point in another direction.
+
+## Geometry of Confidence Intervals
+
+[Shiny App](http://glimmer.rstudio.com/mosaic/CIgeometry/)
+
+### Why does it depend on the number of cases? 
+
+The 3-dimensional view is inherently misleading.  The "third"" dimension in the drawings is really a subspace that may have dimension $> 1$.
+
+We need to understand something about how random vectors work in high dimensions.
+
+Distribution of random vectors
+
+```{r}
+fetchData("m155development.R") # for the angle program
+```
+
+Generate some randomly directed points in 2 dimensions:
+```{r}
+x = rnorm(1000)
+y = rnorm(1000)
+xyplot(y~x)
+```
+
+Angles between random vectors: How are they distributed?
+
+```{r}
+s = do(1000)* angle(rnorm(2),rnorm(2))
+densityplot(~result, data=s)
+```
+
+Now do it in three dimensions.  In higher dimensions.  What's the pattern?
+
+Why is it different in 3 than in two dimensions?
+
+Toss around the globe again.  We'll consider the north pole as one of the vectors.  Why are you much more likely to land near the equator than near the poles?
+
+
+### Groupwise means on the GPA. 
+
+Construct the data:
+```{r message=FALSE}
+grades = fetchData("grades.csv")
+g2pt = fetchData("grade-to-number.csv")
+courses = fetchData("courses.csv")
+grades = merge(grades, g2pt)
+```
+
+```{r}
+options(na.rm=TRUE)
+mod = mm(gradepoint ~ sid, data=grades)
+ci = confint(mod)
+head( ci )
+```
+
+A complicated graphic.  Each student is one line.  The horizontal extent shows the confidence interval for that student's GPA (based on just half the courses, so the real CI after 4 years would be shorter by $\sqrt{2}$).
+
+
+```{r fig.keep="last"}
+ci2 = ci[order( coef(mod) ),] # sort from lowest to highest. 
+plot( 1:2, ylim=c(0,455),xlim=c(1.5,4.5), type="n",
+      xlab="GPA",ylab="Class Rank")
+for (k in 1:nrow(ci2)) {
+  lines( ci2[k,c(2,3)], c(k,k), col=rgb(0,0,0,1 - .8*(k%%10!=0)))
+}
+```
+
+All the students whose confidence intervals intersect a given vertical line are equivalent.  But their class ranks can be very different.
+
+Why doesn't the registrar report the confidence interval?
+
+Bad reasons
+* Most people don't know how to interpret them.
+* It would suggest that grades are not certain.
+Good reason
+* The variation in grades is not just do to a random process, but to systematic effects such as the courses taken. Example: A student who gets a B in every course will have a narrow confidence interval.  But a student who takes half her courses in Dept. One and half in Dept. Two, getting an A in every course in One and a C in every course in Two is just as consistent.  We need to incorporate those effects when calculating the confidence interval.
+
+#### Aside: Departmentwise GPAs
+
+Add department and course information to data:
+```{r}
+courses = fetchData("courses.csv")
+grades = merge(grades,courses)
+```
+
+
+```{r}
+modd = mm(gradepoint ~ dept, data=grades)
+cid = confint(modd)
+head( cid )
+ci2d = cid[order( coef(modd) ),] # sort from lowest to highest. 
+plot( 1:2, ylim=c(0,40),xlim=c(1.5,4.5), type="n",
+      xlab="GPA",ylab="Department Order")
+for (k in 1:nrow(ci2d)) {
+  lines( ci2d[k,c(2,3)], c(k,k))
+}
+```
+
+### GPAs adjusting for department, level, and enrollment
+```{r}
+mod3 = lm( gradepoint ~ sid - 1 + dept + enroll + level, data=grades)
+```
+
+#### Student-by-student confidence intervals:
+```{r}
+cid = confint(mod3)[1:443,]
+ci2d = cid[order( coef(mod3)[1:443] ),] # sort from lowest to highest. 
+plot( 1:2, ylim=c(0,450),xlim=c(1.5,4.5), type="n",
+      xlab="Adjusted GPA",ylab="Class Rank")
+for (k in 1:nrow(ci2d)) {
+  lines( ci2d[k,], c(k,k))
+}
+```
+The inclusion of the covariates has increased the width of the confidence intervals.
+
+#### Department-by-department confidence intervals:
+```{r}
+mod4 = lm( gradepoint ~ dept - 1 + sid + enroll + level, data=grades)
+cid = confint(mod3)[1:40,]
+ci2d = cid[order( coef(mod3)[1:40] ),] # sort from lowest to highest. 
+plot( 1:2, ylim=c(0,45),xlim=c(1.5,4.5), type="n",
+      xlab="Adjusted GPA",ylab="Department")
+for (k in 1:nrow(ci2d)) {
+  lines( ci2d[k,], c(k,k))
+}
+```
+
+
+Confidence intervals on coefficients
+=============
+### Longitudinal running data
+
+Running data: Compare the cross-sectional to the longitudinal data to get at how tie changes versus age.  Question: hold individual constant or not.
+
+```{r cache=TRUE}
+f = fetchData("Cherry-Blossom-Long.csv")
+nrow(f)
+sample(f,size=5)
+f = subset(f, nruns>5)
+nrow(f)
+```
+
+Two models
+```{r cache=TRUE}
+mod1 = lm( net ~ age, data=f)
+mod2 = lm( net ~ age + name.yob, data=f)
+```
+
+```{r}
+confint(mod1)
+head( confint(mod2))
+```
+Note how substantially the age dependence differs depending on whether you are looking longitudinally or cross-sectionally.
+
+
+Example: Grades
+
+
+### Grades and the GPA
+
+```{r}
+grades = fetchData("grades.csv")
+g2pt = fetchData("grade-to-number.csv")
+courses = fetchData("courses.csv")
+grades = merge(grades, g2pt) # Convert letter grade to number
+grades = merge(grades,courses)
+```
+
+Compute the GPA in the ordinary way:
+```{r}
+options( na.rm=TRUE )
+head( mean(gradepoint ~ sid, data=grades) )
+```
+
+... or by a model
+```{r}
+conventional = coef( lm( gradepoint ~ sid-1, data=grades))
+head( conventional )
+```
+
+What can we hold constant?  Department, level, class enrollment?
+```{r}
+adjusted = coef( lm( gradepoint ~ sid - 1 + dept + level + enroll, data=grades))
+head( adjusted )
+```
+
+How do they compare?
+```{r}
+xyplot( conventional ~ adjusted[1:443], pch=20 )
+```
+
+Or in terms of class rank:
+```{r}
+xyplot( rank(conventional) ~ rank(adjusted[1:443]), pch=20 )
+```
+
+Suppose the cut-off for class rank was to be $\geq 150$.  There are students who pass by the adjusted criteria but fail by the unadjusted.
+```{r}
+xyplot( rank(conventional) ~ rank(adjusted[1:443]), pch=20 )
+plotFun( y >=150 ~ x&y, add=TRUE )
+plotFun( x >=150 ~ x&y, add=TRUE )
+```
+
+The "takes easy courses" index: a positive number indicates taking easy courses.  
+```{r}
+densityplot( ~rank(conventional)- rank(adjusted[1:443]))
+```
+
+Cross the IDs of the people taking easy courses with the department or instructor ... to be done.
+
+Or perhaps the Age coefficient on the running model, with and without controlling for the individual.
+
+We need to understand how confidence intervals can change as we add in covariates.

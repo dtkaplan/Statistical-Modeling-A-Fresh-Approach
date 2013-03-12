@@ -1,4 +1,4 @@
-March 6, 2013 Class Notes
+March 8, 2013 Class Notes
 =============
 
 ```{r include=FALSE}
@@ -6,96 +6,171 @@ require(mosaic)
 options(na.rm=TRUE)
 ```
 
-Longitudinal versus cross-sectional running data.
+Where We Are
+-----------------
 
-Handout on Total vs Partial
+You should understand that ...
+* A covariate is an explanatory variable, but one in which you, the modeler, happen not to be directly interested it.
+* When you have a model, you can interpret it by running "experiments" on the model.  The most common of these is to examine the effect of one variable by changing it and holding the others constant.  This corresponds to the idea of a partial derivative for a quantitative variable.  For a categorical variable, this is a partial difference. (Sometimes it makes sense to change more than one variable at a time if the two variables are aligned in some way, for instance years of work experience and of education.)
+* If you're going to be holding a covariate constant, you need to include that variable in the model.  There is still an open question about whether to include interaction terms, transformation terms, etc.  We have the hint of an idea that terms can be evaluated based on the way they change $R^2$ and whether a term adds more to $R^2$ than would a random variable.
+* Leaving a variable out of a model does not leave out that variable's influence on the system, it just hides it from your view.  So include covariates and use the interpretation/"experiment-on-model" phase to hold constant what you're not interested in.
 
-Confidence intervals on coefficients
-=============
-### Longitudinal running data
+Where We're Heading
+----------------
 
-Running data: Compare the cross-sectional to the longitudinal data to get at how tie changes versus age.  Question: hold individual constant or not.
+* Sampling distributions, resampling distributions, and confidence intervals on model coefficients can be constructed using the same methodology as we used when examining groupwise means.
+* Examining confidence intervals on model coefficients gives another way to judge the effectiveness of including additional model terms.  When the new terms are highly aligned with other terms in the model, the confidence intervals can grow uselessly large.
+* You can put a confidence interval on a prediction.  This has two parts: 
+    * The interval on the model value
+    * The wider interval on the prediction itself, which has to include the uncertainly due to the residual.
+    
+    
+Classroom Notes
+===============
 
-```{r cache=TRUE}
-f = fetchData("Cherry-Blossom-Long.csv")
-nrow(f)
-sample(f,size=5)
-f = subset(f, nruns>5)
-nrow(f)
+### What fraction of the Earth's surface is covered by water?
+
+Toss around the globe.  
+
+* Look at where your middle finger on the right hand lands.  Water=1, Land=0, can't tell: skip.
+* Collect a sample of about 20 readings.  How precise is this?
+* Resample it and look at the fraction.  This is the resampling distribution.
+* The sampling distribution would involve repeating the trials, but this is too tedious.
+
+
+
+
+#### Review: 
+
+Sampling Distributions and Re-sampling Distributions
+
+Construct an interval using `do()` and `resample()`.
+```{r}
+s = do(100)*lm( width ~ sex + length, data=resample(KidsFeet) )
+sd(s) # standard error
+densityplot( ~length, data=s)
 ```
 
-Two models
-```{r cache=TRUE}
-mod1 = lm( net ~ age, data=f)
-mod2 = lm( net ~ age + name.yob, data=f)
+Using `confint()`
+
+Using `summary()`. Explain the standard error and how to get confidence intervals from that.
+
+#### Kids' foot width
+
+The setting for this problem is the question of whether girls' feet are narrower than boys'.  Confidence intervals give us a quick answer (based on the available data):
+```{r}
+mod = lm( width ~ sex, data=KidsFeet )
+confint(mod)
+```
+The confidence interval on the difference between boys' and girls' foot widths is entirely in the negative.  So even this small sample provides evidence that girls' feet are narrower than boys'.
+
+The real question, however, is whether, for any given shoe size (determined by length) the girls' feet are narrower:
+```{r}
+mod2 = lm( width ~ sex + length, data=KidsFeet )
+confint(mod2)
+```
+Not so much.
+
+If we make a complicated model, it's harder to interpret the confidence intervals on the coefficients:
+```{r}
+mod3 = lm( width ~ sex*length, data=KidsFeet )
+confint(mod3)
+```
+
+Notice how the confidence interval on sexG has gotten much wider.  This can be confusing, since sexG also enters in to the interaction term.  Model values are good to compare here:
+```{r}
+f3 = makeFun( mod3 )
+f3(length=25,sex="G")
+f3(length=25,sex=c("G","B"), interval="confidence")
+```
+
+There is considerable overlap between the two intervals.  
+
+Another sort of question to ask is, if we have a specific girl and a specific boy of the same foot length, how likely are their foot widths to be different:
+```{r}
+f3(length=25,sex=c("G","B"), interval="prediction")
+```
+The typical boy's value is very reasonable for a girl and vice versa.
+
+### Differences between confidence interval on the model value and on the prediction
+
+As the amount of data becomes very large, the CI on the model value becomes very narrow.  But the CI on the prediction always reflects the residuals.
+
+SIMULATION: 10000 kids feet.
+
+```{r}
+mod4 = lm( width ~ sex*length, data=resample(KidsFeet,size=10000) )
+f3 = makeFun( mod4 )
+f3(length=25,sex=c("G","B"), interval="confidence")
+f3(length=25,sex=c("G","B"), interval="prediction")
+```
+
+#### SAT and school spending
+
+Increased spending is associated with **lower** SAT scores
+
+```{r}
+confint( lm( sat~expend, data=SAT ))
+```
+
+Until you adjust for who took the test ...
+```{r}
+confint( lm( sat~expend+frac, data=SAT))
+```
+
+Do the same for salary and ratio.
+
+### Can we see electricity offset gas heating in the utilities data?
+
+There are all sorts of things that effect our use of natural gas for heating:
+* How the thermostat is set.
+* Winds
+* Humidity
+* Snowfall
+* When the door is open.
+
+One therm (roughly 1ccf) is about 29 kwh.  So, 1 kwh is about 1/29 = 0.03 ccf. [See Wikipedia entry](http://en.wikipedia.org/wiki/Therm)
+
+```{r}
+u = fetchData("utilities.csv")
+winter = subset(u, temp < 50 )
+# There's an outlier
+winter = subset(winter, ccf > 50)
+confint(lm( ccf ~ temp + kwh, data=winter))
 ```
 
 ```{r}
-head( coef(mod2))
-mod1
-```
-Note how substantially the age dependence differs depending on whether you are looking longitudinally or cross-sectionally.
-
-
-Example: Grades
-
-
-### Grades and the GPA
-
-```{r}
-grades = fetchData("grades.csv")
-g2pt = fetchData("grade-to-number.csv")
-courses = fetchData("courses.csv")
-grades = merge(grades, g2pt) # Convert letter grade to number
-grades = merge(grades,courses)
+u = fetchData("/Users/kaplan/kaplanfiles/stats-book/DataSets/utilities-up-to-date.csv")
+winter = subset(u, temp < 50 )
+# There's an outlier
+winter = subset(winter, ccf > 50)
+confint(lm( ccf ~ temp + kwh, data=winter))
 ```
 
-Compute the GPA in the ordinary way:
-```{r}
-options( na.rm=TRUE )
-head( mean(gradepoint ~ sid, data=grades) )
-```
+## Some Choices in context
 
-... or by a model
-```{r}
-conventional = coef( lm( gradepoint ~ sid-1, data=grades))
-head( conventional )
-```
 
-What can we hold constant?  Department, level, class enrollment?
-```{r}
-adjusted = coef( lm( gradepoint ~ sid - 1 + dept + level + enroll, data=grades))
-head( adjusted )
-```
+### Geometry of Confidence Intervals
 
-How do they compare?
-```{r}
-xyplot( conventional ~ adjusted[1:443], pch=20 )
-```
+What does the standard error depend on?
 
-Or in terms of class rank:
-```{r}
-xyplot( rank(conventional) ~ rank(adjusted[1:443]), pch=20 )
-```
+* Size of residuals
+* number of cases (minus number of model vectors -- but we won't worry about this right now)
+* collinearity
 
-Suppose the cut-off for class rank was to be $\geq 150$.  There are students who pass by the adjusted criteria but fail by the unadjusted.
-```{r}
-xyplot( rank(conventional) ~ rank(adjusted[1:443]), pch=20 )
-plotFun( y >=150 ~ x&y, add=TRUE )
-plotFun( x >=150 ~ x&y, add=TRUE )
-```
+Logic behind non-resampling estimates of the standard error
 
-The "takes easy courses" index: a positive number indicates taking easy courses.  
-```{r}
-densityplot( ~rank(conventional)- rank(adjusted[1:443]))
-```
+* Models partition into a deterministic and random component
+* Deterministic component is along the model vectors
+* Random component is the residual
 
-Cross the IDs of the people taking easy courses with the department or instructor ... to be done.
+Key idea: if we collected another sample, the deterministic component would be the same, but the random component would be utterly different --- it would point in another direction.
 
-Or perhaps the Age coefficient on the running model, with and without controlling for the individual.
+* Derivation of standard error for A ~ B
+* Derivation for A ~ B + C where B and C are somewhat collinear. Spacing of B-coefficient contours is set by direction of C
 
-We need to understand how confidence intervals can change as we add in covariates.
 
 ## Geometry of Confidence Intervals
 
 [Shiny App](http://glimmer.rstudio.com/mosaic/CIgeometry/)
+
