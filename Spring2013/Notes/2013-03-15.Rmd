@@ -1,0 +1,156 @@
+Friday 15 March 2013 Stats 155 Class Notes
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+Background
+----------
+
+All through the semester we have worked within a certain framework for modeling: models which partition variation in a response variable into an "explained" part (using the variation in explanatory variables) and into a "residual" part, which has been treated as completely random.
+
+Today, we're going to work with a completely different framework for modeling, one that is completely descriptive and doesn't try to partition variation into deterministic and random parts --- everything is regarded as random.
+
+Even when something is regarded as random, it doesn't mean that it is completely unpredictable.  For instance, the roll of a pair of dice is much more likely to result in a 7 than an 11.  The models we'll work with today are ways of describing probabilities of different outcome.
+
+
+Example
+-------
+
+I was asked last semester to help, pro bono, a contractor trying to improve the survivability of US Marine Corp amphibious vehicles.  The vehicles in use weren't designed around the threat of IEDs and the seating in them needs to be changed to provide better support in case of an explosion underneath, e.g. benches mounted on shock absorbers, no one sitting on the floor.  The hull configuration (that's what you call the bottom of an amphibious vehicle) also needs to be changed.  But it doesn't work just to make the vehicle bigger and heavier.  Heavier is always a problem, requiring a bigger engine, etc.  Bigger means not using an existing platform, which raises development costs and incurs delays.
+
+The people I was working with had a small contract to build a design around modifications to an existing USMC vehicle, the [AAV](http://en.wikipedia.org/wiki/Assault_Amphibious_Vehicle).  To make it work, they would have to allocate somewhat less space per marine.  They wanted to know how to figure out what space would work.
+
+Here are the data I was given the widths (in feet) of equipped marines and the number in a 17-person squad:
+
+Role              |    # in squad  |  5th  | median | 95th
+------------------|--------------|-------|--------|-------
+Rifleman          |       6      | 1.99  | 2.06   | 2.15
+Grenadier         |       6      | 1.99  | 2.05   | 2.24
+Pistol Carrier    |       1      | 2.28  | 2.36   | 2.67
+Automatic Rifleman|       4      | 2.00  | 2.06   | 2.34
+
+The standard calculation involves constructing a squad of 17 marines all at the 95th percentile.  The contractor thought this was unnecessarily large and asked whether it wouldn't suffice to make the vehicle big eough to handle a squad of median marines, figuring that the wider ones would share space with narrower marines and things would cancel out.
+
+I proposed to do a simulation of randomly generated squads and find out what vehicle size will accomodate the vast majority of squads.  I would generate random sizes that meet the above percentiles in a sensible way and add up the total width.  (It's a little bit simplified, because the seating plan has 8 marines on a side, with the pistol carrier at the forward bulkhead, facing backward toward the exit ramp.)
+
+**QUESTION** How should I generate random marine widths?
+
+
+Definitions
+-----------
+
+A **probability** is a number between 0 and 1.  0 means "impossible" and 1 means "certain".  Values between 0 and 1 indicate possibility, with bigger numbers indicating a greater possibility.
+
+A **random variable** is a quantity (a number) that is random.
+
+A **sample space** (poorly named) is the set of possible values for that number.
+
+A **probability model** is an assignment of a probability to each member of the sample space.
+
+It's helpful to distinguish between two kinds of sample spaces that apply to random variables:
+
+* **discrete numbers** such as the outcome of rolling a die
+* **continuous numbers** that can take on any value in a range.  (The range might be infinite or finite.)
+
+For discrete numbers, it's possible to assign a probability to each outcome.
+
+For continuous numbers, it's possible to assign a probability to a range of outcomes.  Or, by dividing the probability by the extent of the range, one can assign a **probability density** to each outcome.  We usually treat this probability density as a function of the value of the random value: $p(x)$ 
+
+We'll often use probabilities and probability densities in a similar way.  
+
+* For a discrete sample space, the assigned probabilities over all the members of the space must add up to 1.
+* For a continuous sample space, the integral over the assigned probability over the possible values must be one, that is: $\int_{-\infty}^{infty} p(x) dx = 1$.
+
+
+Creating Probability Models
+-------------------
+
+There are several approaches to creating probability models, that is, to making an association between a probability and a member of the sample space:
+
+* Indifference.  Or, in fancier words, equipartition. The 6 outcomes of a die roll are equally likely.  The two outcomes of a coin toss (represented as 0 or 1) are equally likely.
+* Combination.  A given outcome can sometimes be described as a combination of outcomes from one or more trials: a compound event.  Using rules for the combination of probabilities, the probability of a compound event can be calculated from the known (or presumed) probabilities of the simpler events.
+* Intuition or subjective knowledge.  "I think there's about a 1/3 chance I'll get an interview."
+* Mechanism or setting.  There are a variety of probability models that are used for different settings.  We're going to study these.
+
+Your job is to learn how the setting relates to the choice of probability model and the meaning of the parameter(s) for each model.
+
+Some Important Probability Models
+--------------------
+
+Introduce the rxxx() operation for each.  For equal probabilities, just use 
+`resample(1:k, size=n)`.  Generate random numbers from each.  Ask them to find the mean and standard deviation of each.
+
+### Discrete
+
+* Equal probabilities: e.g. die toss, coin flip, distributions of ranks of any continuous variable.  Parameter: how many possibilities.
+* Binomial: trials of a coin flip where the outcome is the number of "successes" or "heads" or "1s".  Parameters: 
+    * **size** number of trials
+    * **prob** probability of head on each trial
+* Poisson: Number of events that happen in a given.  Example: number of cars passing by a point, number of shooting stars in a minute's observation of the sky, number of snowflakes that land on your glove in a minute.  Parameter:
+    * **lambda** mean number of events.
+    
+### Continuous
+
+* Uniform.
+    * Parameters: Max and min
+    * Models: spinners (angles in 2-d, but not higher), p-values under the Null Hypothesis
+* Normal (gaussian)
+    * Parameters: mean and sd.
+    * Models: your general purpose model
+* Exponential
+    * Times between random events (earthquakes, 100-year storms)
+    * Parameter: `rate` (the mean time is 1/rate)
+* Log-normal --- wait for it ...
+
+Why the "Normal" Distribution is Normal
+------------------
+
+* add up uniform
+* add up binomial --- these should be binomial if they have the same `prob`, adding them up just increases the `size` parameter.  Prediction: binomial with large `size` will be normal.  Mean is $np$.  Var is $n p (1-p)$.
+* Add up two poissons and you should get a poisson.  `lambda` will be the sum of the lambdas.  Mean is lambda.  Variance is lambda.  ACTIVITY: Show that this is true.
+
+Basic Operations: P and Q
+----------------------
+
+The D operation
+------------------
+
+**ACTIVITY**: Returns on investments
+----------------------
+
+Stock market gives return of, say 5%/year  on average with a standard deviation of about 6%.  Simulate the total investment return over 50 years.  
+
+```{r}
+prod( 1+rnorm(50,mean=.05,sd=0.06))
+```
+
+Have each student do their own, then congratulate the student who got the highest return.
+
+Then show the overall distribution:
+```{r}
+trials = do(1000)*prod( 1+rnorm(50,mean=.05,sd=0.06))
+densityplot(~trials)
+```
+
+This distribution has a name: lognormal.  It reflects the fact that the log of the values has a normal distribution.
+```{r}
+densityplot(~log(trials))
+```
+
+Matching a Model to Data
+-----------------
+
+In fitting linear models, we've used the sum of square residuals, the difference between the observed and theoretical values squared. $E^2 = \sum (x_i - m_i)^2$
+
+In fitting a probability model (for discrete outcomes) there is a similar approach.
+
+$E^2 = \sum (expected_i - observed_i)^2$
+
+This criterion doesn't really work well.  For instance, if the expected is zero, then the observed should be impossible.  But this formula doesn't reflect that fact.
+
+The standard matching criterion is called a $\chi^2$ (chi-squared) and is
+$\chi^2 = \sum \frac{(expected_i - observed_i)^2}{expected^2}$
+
+Another way to measure the match between a set of observations and a probability model is via the **likelihood**: the probability of the observations if the model were right.
