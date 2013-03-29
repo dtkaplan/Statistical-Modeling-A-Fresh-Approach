@@ -1,0 +1,83 @@
+Friday March 29 Class Notes
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+
+
+
+
+### The Multi-World Metaphor
+
+How to travel to the different worlds ...
+
+* Planet Sample: resampling
+* Planet Null: shuffling
+* Planet Alt: You need to construct such a world (we'll pick this up in a few days)
+
+We've already done several examples using resampling --- the idea is to see how much sampling variation there would be if the world were just like our sample.
+
+Now to do shuffling.
+
+Work with model coefficients and $R^2$ from a few models, with shuffling of an explanatory variable, or shuffling of the response.
+
+Example: Sector of the economy and wages
+```{r}
+mod = lm( wage ~ sector*sex+ educ + exper, data=CPS85 )
+observedr2 = r.squared(mod)
+observedr2
+```
+
+Now go to Planet Null
+```{r}
+s = do(1000)*lm(wage~shuffle(sector)*sex + educ + exper, data=CPS85)
+densityplot(~r.squared, data=s)
+tally( ~r.squared >= observedr2, data=s )
+```
+
+What's the p-value?
+
+Do the same on a coefficient and look at the two-tailed test.
+
+### Stocks on Planet Null
+
+```{r}
+fetchData("getDJIAdata.R")
+djia = getDJIAdata() # djia-2011.csv is the basic file
+xyplot( Close ~ Date, data=djia)
+```
+
+Look at the day-to-day differences in log prices:
+```{r}
+dd = with( djia, diff( log(Close)))
+mean(dd)
+```
+
+Subtract out the mean, shuffle, cumulative sum, and exponentiate to create a realization:
+```{r}
+ddnull = dd - mean(dd)
+sim = exp(cumsum(shuffle(ddnull)))
+xyplot(sim ~ Date, data=djia)
+```
+
+### Drunk Driving Example
+
+Planet Null: 
+* Set up a roadblock, pull out the people who are not drunk.  Measure their results.
+
+Planet Alt
+* Take the drunk people, measure their results.
+
+What's the decision threshold?
+
+What's the 
+
+
+### App for playing with Significance and Power
+
+```{r eval=FALSE}
+fetchData("mHypTest.R")
+mHypTest() # by default, a coefficient
+```

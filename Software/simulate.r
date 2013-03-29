@@ -149,8 +149,22 @@ aspirin = list(
 );
 class(aspirin) = 'cnet';
 # ============================
+accidentReduction = list(
+    vars = list(danger=NULL,effect=0,threshold=0.9,intersection=NULL,before=NULL,zone=NULL,after=NULL),
+    hidden=c(1,2,3),
+    eqn=c(
+      "runif(n,min=1,max=40)",
+      0,   # above -100
+      0.9, # must be between 0 and 1
+      "sample(cross(rep(c('Snelling','Fairview','Cleveland','Hamline','Lexington'),each=n),rep(paste(c('Selby','Fairmont','Jefferson','Hartford','Ford','Marshall','StClair','Grand','Randolph','Ford','Summit'),c('','',LETTERS[1:3]),sep=''),n)),size=n)",
+      "rpois(n,lambda=danger)",
+      "before > qdata(threshold, before)",
+      "rpois(n,lambda=(danger + effect*zone*danger/100))") # effect is a percentage, e.g. -30, +50
+);
+class(accidentReduction) = 'cnet';
 
 
+# =======================
 salaries = list(
    vars = list( age=NULL, sex=NULL, children=NULL,rank=NULL, salary=NULL ),
    eqn = c(
