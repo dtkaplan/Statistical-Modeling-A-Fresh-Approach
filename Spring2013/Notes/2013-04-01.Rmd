@@ -1,0 +1,130 @@
+Monday April 1 Class Notes
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+## Review of Vocabulary
+
+* Two hypotheses:
+   * Null Hypothesis.  The star of the show.
+        Some ways to think about it:
+        * nothing is going on
+        * coefficients are zero
+        * vectors are random
+        You either **reject** or **fail to reject** the Null.
+    * The Alternative Hypothesis.  A supporting actor.
+        * Your best guess of what's happening
+        * The smallest interesting effect
+        * The results of a preliminary study.
+        You use this to design your study.  The Alternative needs to be very specific and drawn from expert knowledge.  There is a tradition in statistics education of referring to the alternative as an "anything but" kind of hypothesis.  This is a bad idea.
+* Two kinds of error
+    * Type I: Reject the Null even though the Null is right
+    * Type II: Fail to reject the Null even though the Alternative is right.
+* p-value: probability of the observed value or stronger under the Null
+    * significance level --- the p-value is the "achieved significance level".  Comes from the idea of using confidence intervals to do a hypothesis test: related to the confidence level.
+* power: probability of rejecting the Null under the Alternative Hypothesis.
+
+## The Summary Report and the p-value
+
+Show the t-statistic and the translation into a p-value.
+
+Show the p-value reported on R^2.
+
+Notice that the alternative plays no role whatsoever in the regression report.
+
+## The Multi-World Metaphor for Statistical Inference 
+
+Motto: *Always know what world you are thinking about.*
+
+![Planet Earth](planet_earth.png)
+
+We want to know which hypotheses are true on Earth and which are false.
+
+
+The planets involved in statistical inference are:
+
+
+Planet Sample | Planet Null | Planet Alt
+--------------|-------------|--------
+![Planet Sample](planet-sample.png) | ![Planet Null](venus.png) | ![Planet Alt](planet-alt.png) 
+
+
+How to travel to the different worlds ...
+
+* Planet Sample: resampling
+* Planet Null: shuffling
+* Planet Alt: You need to construct such a world (we'll pick this up today)
+
+### Other hypotheses, with content
+
+Side-by-side comparison: <http://en.wikipedia.org/wiki/File:PileatedIvoryWoodpecker.svg>
+
+[Some of the photographic evidence](http://www.fishcrow.com/pearl29mar08.html)
+The Ivory Billed woodpecker from a [hypothesis testing perspective](bayes-approach.pdf) second page.
+
+
+
+### App for playing with Significance and Power
+
+```{r eval=FALSE}
+fetchData("mHypTest.R")
+mHypTest() # by default, a coefficient
+```
+
+
+### Stocks on Planet Null
+
+```{r}
+fetchData("getDJIAdata.R")
+djia = getDJIAdata() # djia-2011.csv is the basic file
+xyplot( Close ~ Date, data=djia)
+```
+
+Look at the day-to-day differences in log prices:
+```{r}
+dd = with( djia, diff( log(Close)))
+mean(dd)
+```
+
+Subtract out the mean, shuffle, cumulative sum, and exponentiate to create a realization:
+```{r}
+ddnull = dd - mean(dd)
+sim = exp(cumsum(shuffle(ddnull)))
+xyplot(sim ~ Date, data=djia)
+```
+
+
+### Shuffling 
+
+A proof for the existence of Extra-Sensory Perception!  If I can get you to focus on a number, I can predict, to some extent, your thought process.
+
+Your birthday is a number that plays an important part in your thought process.  Generate a random number between 0 and your birday.
+
+[Permutation test by hand](http://dl.dropbox.com/u/5098197/ISM/Activities/permutation-test.pdf)
+
+Spreadsheet reading command:
+```{r}
+esp = fetchGoogle("https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dE5iMjZrcGFjTUtJSjg0T05NLW84Mmc&single=true&gid=0&output=csv")
+```
+
+### Power
+
+How did I know that I could reject the Null in the shuffling problem?  I did a little simulation.
+```{r}
+mysim <- function(n=15) {
+   days = resample(1:31,size=n)
+   nums = ceiling( runif(n,min=0,max=days))
+   mod = lm(nums~days)
+   list(r2=r.squared(mod), p=summary(mod)$coef[2,4])
+}
+s15 = do(1000)*mysim(24) # typical R^2 is about 0.4
+mean(~r2, data=s15)
+tally( ~ p<0.05, data=s15,format='proportion')
+```
+
+Do `mHypTest(TRUE)` setting the "effect size" to about 0.4
+
+
+
