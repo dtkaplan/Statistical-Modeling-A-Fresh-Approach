@@ -1,0 +1,93 @@
+Wednesday April 3 Class Notes
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+
+
+### Review of Vocabulary
+
+A graphical way of thinking about hypothesis testing.
+
+App for playing with Significance and Power
+
+```{r eval=FALSE}
+fetchData("mHypTest.R")
+mHypTest() # by default, a coefficient
+```
+
+
+### Power
+
+How did I know that I could reject the Null in the shuffling problem?  I did a little simulation.
+```{r}
+mysim <- function(n=15) {
+   days = resample(1:31,size=n)
+   nums = ceiling( runif(n,min=0,max=days))
+   mod = lm(nums~days)
+   list(r2=r.squared(mod), p=summary(mod)$coef[2,4])
+}
+s15 = do(1000)*mysim(24) # typical R^2 is about 0.4
+mean(~r2, data=s15)
+tally( ~ p<0.05, data=s15,format='proportion')
+```
+
+### Hypothesis tests on individual coefficients
+
+The p-value on an individual coefficient.
+
+Simulate life on Planet Null by shuffling the variables involved in the coefficient.
+
+What's the distribution of p-values on Planet Null?
+
+```{r}
+summary(lm(width ~ sex + length, data=KidsFeet))$coef
+summary(lm(width ~ shuffle(sex) + length, data=KidsFeet))$coef
+summary(lm(width ~ shuffle(sex) + length, data=KidsFeet))$coef[2,4]
+s = do(1000)*summary(lm(width ~ shuffle(sex) + length, data=KidsFeet))$coef[2,4]
+densityplot(~result,data=s)
+```
+
+
+### R^2 as a test statistic
+
+What's the distribution of R^2 under the Null Hypothesis?
+
+What do we mean by the Null Hypothesis?
+* All explanatory variables are unrelated to the response.
+* Just one explanatory variable is related?
+* Some subset of explanatory variables are related?
+
+We're going to study the "Whole Model" Null Hypothesis.  
+
+Show distribution of R^2.
+
+### It's nice to have some theory. 
+
+What's the typical value of R^2 if you make up $m-1$ random vectors to explain $n$ data points.  (We'll always include an intercept in the model in addition to the random vectors.)
+
+```{r}
+kids = fetchData("KidsFeet")
+r.squared( lm( width ~ rand(10), data=kids))
+s = do(1000)*r.squared( lm( width ~ rand(10), data=kids))
+densityplot(~result, data=s)
+```
+
+* Do it for no random vectors.
+* Do it for 40 random vectors.  R^2 is always 1
+* What's the smallest $m-1$ can be to get an R^2 of 1?
+* Do it for 1, 2, 3, 4, random vectors, 10, 20, 30 random vectors.  What's the pattern?
+
+Now do it for the `CPS85` data.  Tell me how many random vectors you would need to get a typical R^2 of 0.2.  Then simulate this and confirm your answer.
+
+Do `mHypTest(TRUE)` setting the "effect size" to about 0.4
+Translation to F.
+
+```{r}
+s = do(1000)*r.squared( lm( width ~ rand(10), data=kids))
+s = transform(s, F=(result/10)/((1-result)/(38-10)))
+densityplot(~F, data=s)
+plotFun(df(x,10,28)~x, add=TRUE, col="red")
+```
