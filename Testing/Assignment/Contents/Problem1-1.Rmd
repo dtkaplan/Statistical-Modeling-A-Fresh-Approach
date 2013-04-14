@@ -1,0 +1,63 @@
+An Example Problem
+========================================================
+
+```{r echo=FALSE}
+..QuestionCount.. <- 0
+..TextCount.. <- 0
+NextQuestionNumber <- function(){
+  ..QuestionCount.. <<- ..QuestionCount..+1
+  return(..QuestionCount..)
+}
+NextTextNumber <- function(){
+  ..TextCount.. <<- ..TextCount..+1
+  return(..TextCount..)
+}
+Question <- function(name=NextQuestionNumber(),...){
+  dots <- list(...)
+  nms <- names(dots)
+  res <- paste("<select name='in",name,
+               "'><option value='NA' selected>UNANSWERED</option>",
+               sep="")
+  for (k in 1:length(dots)) {
+    opt <- paste("<option value='",dots[[k]],"'>",nms[k],"</option>",sep="")
+    res <- paste(res, opt)
+  }
+  res <- paste(res, 
+               paste("</select><span id='out",name,
+                     "' class='shiny-html-output'> </span>",sep=""))
+  return(res)
+}
+TrueOrFalse <- function(name=NextQuestionNumber(),ans=TRUE) {
+  Question(name=name,"TRUE"=ans,"FALSE"=!ans)
+}
+
+TextEntry <- function(name=NextTextNumber(),default=""){
+  res <- paste("<textarea cols='60' rows='5' name='text",
+               name,"'>",default,"</textarea>",sep="")
+  res <- paste(res, paste("<span id='tout",name,
+                          "' class='shiny-html-output'></span>",sep=""))
+  return(res)
+}
+```
+### Text questions
+
+Write an essay about something:
+
+`r I(TextEntry())`
+
+
+### Here's one of my new questions: 
+
+Which of the following is a true statement? `r I(Question(Argentina="No",Russia="Wrong-o",Canada="You betcha!"))`
+* Argentina is a country near China?
+* Russia is a country near Bolivia?
+* Canada is a country near the US?
+
+### And a True/False Question
+
+* The rain in Spain falls mainly on the plain. `r I(TrueOrFalse(ans=TRUE))`
+
+
+```{r}
+plot(1:20, pch=1:20)
+```

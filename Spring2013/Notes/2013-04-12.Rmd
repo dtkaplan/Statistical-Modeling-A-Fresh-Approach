@@ -1,82 +1,46 @@
-Wednesday April 10, 2013 Stats 155 Class Notes 
+Friday April 12, 2013 Stats 155 Class Notes 
 ==================
 
 ```{r name="setup", child="notes-setup.Rmd"}
 # boilerplate
 ```
 
-### A Metaphor for ANOVA
+### Graphical depictions of ANOVA
 
-The [Harlem Globetrotters](http://en.wikipedia.org/wiki/Harlem_Globetrotters) are a basketball team.  For the past 85 years, they have played basketball against their own opponents: a sham team.  Often, towards the end of the show, they bring members of the audience down onto the court to play against them.
+* R^2 versus m graph
+* Variable-space graph.  How far did the original term get you?  How much further does the next term get you?
 
-* Sham team: the intercept
-* A few members from the audience: a model term
-* Perhaps another few members from the audience: another model term.
-* The kids they crowd the court with at the very end: the residuals.
+Constrast with variable-space depiction of regression report.  Order doesn't matter.
 
-Keep track of the (square)points scored and numbers of players on the court.  This corresponds to the sum of squares and the degrees of freedom.  The question is, are the model terms more effective at scoring (per player) than the kids?
+### Review
 
-Draw up a table.
+* Two different standard reports for models
+    * regression report
+    * ANOVA report
+* Regression puts each variable in the context of all the others
+* ANOVA puts each variable into the context of
+    * What gets added onto what the previous variables can explain
+    * Cleaning up residuals with the following variables.
 
 
-### Finish up the structure of the ANOVA table.
+## Commonly Used Tests
 
-Basic information
-* Incremental degrees of freedom and sum of squares
-* Mean square flows from that
-* F compares each term's mean square to the mean square of the residuals
-    * Mean square of the residual is an estimate of how much random stuff there is per degree of freedom: the moral equivalent to the variance
-```{r}
-anova( lm( wage ~ 1, data=CPS85 ))
-var( wage, data=CPS85 )
-```
-* F gets turned into p
-
-#### F into p
-
-Simulation approach: Go to Planet Null
-```{r}
-anova(lm( wage ~ sector, data=CPS85))
-anova(lm( wage ~ sector, data=CPS85))[1,4]
-s = do(1000)*anova(lm( wage ~ shuffle(sector), data=CPS85))[1,4]
-densityplot(~result, data=s)
-```
-
-Compare to the theoretical distribution:
-```{r}
-densityplot(~result, data=s)
-plotFun( df(x, 7, 526)~x, col="red",add=TRUE)
-```
-
-#### Watch out for long tails
-
-ACTIVITY: Find the influence of the two parameters in the F distribution:
-* degrees of freedom in the numerator (model term) 
-* degrees of freedom in the denominator (residuals)
-
-Also look at 
-* the significance level
-* the effect size (quantified as R^2).
-
-Question: 
-How do these three things affect how big F has to be to be above the threshold?
-
-Produce a general description
-
-```{r eval=FALSE}
-fetchData("mHypTest.R")
-mHypTest(TRUE) # by default, a coefficient
-```
+But not at all the general use for ANOVA
 
 ### One-way ANOVA (so called)
 
+
+An attempt to be honest with p-values and avoid the problem of multiple comparisons.
+
 Several levels of a categorical variable.  Null hypothesis is generally phrased as "the levels are all the same."
 
-t-test: two levels.
+Compare to t-test: two levels.
 
 Professors: many levels.
 
 ### Two categorical variables
+
+Typical central question: Is there an interaction between the variables?
 
 Example: Sector and sex
 
@@ -86,11 +50,7 @@ anova(mod)
 ```
 Have we detected an interaction?
 
-#### ACTIVITY
-
-Create the set of nested models and construct the ANOVA table by hand.
-
-#### Digression: Log prices and wages
+#### Digression: Log prices, indices, and wages
 
 Prices are relative.  An indication of this is the almost universal use of percentages to describe inflation, wage increases, etc.  For example, an often quoted number is that women earn approximately 72 cents for each dollar earned by a man.  
 
@@ -160,21 +120,6 @@ Another way to summarize the model is with an ANOVA report:
 anova(mod1)
 ```
 
-
-### Theory of F
-
-Explain R^2 in terms of the graph of (hypothetical) R^2 versus number of junky model vectors.  F is the ratio of segment slopes
-
-Now do it stepwise by finding the sum of squares of the fitted model values in a set of models `~1` and `~1 + iid`
-* Sum of squares of the fitted model values
-* DF ("degrees of freedom") a count of coefficients
-* Residual SS --- sum of squares of the residuals
-* Residual DF --- $n$ - DF of the model
-* Look at how things change when going from `~1` to `~1 +iid`.
-* "Mean square" is SS/DF
-
-A way to think of the F statistic: miles per gallon for the model terms compared to miles per gallon for the 
-
 ### Breaking up the Variance into Parts
 
 Of course, it's not fair to credit professors for variation in grades that is really due to the students.  So we want to divide up the variation into that due to the students and that due to the professors.  ANOVA let's you do this:
@@ -236,4 +181,9 @@ head(confint(mod2))
 ```
 
 This gives an individual ID to each marriage.  Putting this in the model effectively holds the couple constant when considering the `Person`.  In terms of ANOVA, `BookpageID` is eating up lots and lots of variance.
+
+### ACTIVITY
+
+Consider the `SAT` data and `sat` as the response variable.  Make models with `frac`, `salary`, `expend` and `salary` as the explanatory variables.  Try different orders for the explanatory variables.  Try both the ANOVA and the regression reports.  Come up with a theory of what's happening.
+
 

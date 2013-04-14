@@ -1,0 +1,8 @@
+Problem 1.2
+========================================================
+
+Just to see what happens with another problem.
+
+```{r}
+rnorm(10)
+```
