@@ -297,7 +297,7 @@ Wednesday Quiz
 
 **Reading**:
 
-**Assignment**: Review Problems (to be posted)
+**Assignment**: [Review Problems](https://dl.dropbox.com/u/5098197/ISM/Mid-Term-Review.pdf) 
 
 **Notes**: `r I(todaysNotes("2012-10-17.html", "i"))` 
 <!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-10-17-class) -->
@@ -486,7 +486,7 @@ This is a good time to start to review.  As we explore these new contexts, do th
 
 **Assignment**: `r I(PN(c()))`
 
-**In Class**: Weekly Quiz
+**In Class**: Modeling Barry Bonds
 
 **Notes**: `r I(todaysNotes("2012-11-16.html", "i"))` 
 <!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-16-class) -->
@@ -517,7 +517,7 @@ This is a good time to start to review.  As we explore these new contexts, do th
 * SM Ch. 16
 
 **Assignment**: 
-* `r I(PN(c("16RQ",1601,1602,1604)))` Due on TO BE POSTED
+* `r I(PN(c("16RQ",1601,1602,1604)))` Due on May 10
 
 **In Class**:
 * [Writing up your survey project in R/Markdown](http://rpubs.com/dtkaplan/survey-writeup-R-Markdown)
@@ -538,7 +538,7 @@ This is a good time to start to review.  As we explore these new contexts, do th
 * SM Ch. 17
 * [XKCD cartoon](http://xkcd.com/925/)
 
-**Assignment**: `r I(PN(c(1605,1610,1612)))` Due  TO BE POSTED
+**Assignment**: `r I(PN(c(1605,1610,1612)))` Due on May 10
 
 **In-Class**: [The Power of Vitamin D](https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
 

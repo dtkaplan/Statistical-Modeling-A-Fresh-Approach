@@ -1,0 +1,165 @@
+Friday April 19, 2013 Stats 155 Class Notes 
+==================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+### The ideas behind logistic regression
+
+* Straight-line models of probability are too stiff --- go outside of 0-1 interval
+* Residual is problematic when dealing with observations that are Yes/No.  
+    * Suppose the model probability of an event is 0.2 and it happens.  What's the residual?
+    * Suppose the model probability of an event is 0.1 and it happens.  What's the residual?  How different should it be from the residual for a model probability of 0.2?
+    * What should the residual be if the model probability were 0.000001?  Certainly it should be much bigger than for a model value of 0.1
+* We fit models by optimizing the "likelihood" --- the probability of the observations given the model.  There is a quantity called the "residual deviance" that is calculated from the likelihood that is analogous to the residual variance.  There's a nice mathematical theory of this, which we won't be covering in this course.
+
+### Linear Modeling of Groups
+
+Calculates the groupwise mean, which gives a probability if the response is 0/1.
+```{r}
+w = fetchData("whickham.csv")
+# Create a zero-one survived variable
+w = transform(w,survived=outcome=="Alive")
+# Model survival by smoking
+mod = lm( survived ~ smoker, data=w)
+f = makeFun(mod)
+f(smoker=c("Yes","No"))
+```
+
+Now to calculate the probability of the outcome according to the model. This is really a conditional probability, p(outcome|model). Work through this by hand, then translate into a number for the entire group.
+
+```{r}
+w = transform(w, prob=ifelse(survived,f(smoker),1-f(smoker)) )
+```
+Now we have a probability for each outcome.  Assuming that the outcomes are independent, the probability of the whole set of outcomes is the product of all the outcomes.
+```{r}
+with(w, prod(prob))
+```
+Although this looks like zero, it's really not --- it's just a very small number.  Computer round-off has come into play.  To avoid this problem, and for other, theoretical reasons, one works with the log-likelihood: the logarithm of the likelihood.
+```{r a}
+with(w, sum(log(prob)))
+```
+
+This approach is fine for categorical variables, but it doesn't work when there is more than one variable or when there are quantitative explanatory variables.  The reason is that the model value can go outside the range 0-1.
+```{r b}
+mod2 = lm( survived ~ age, data=w)
+f2 = makeFun(mod2)
+w = transform(w, prob2=ifelse(survived,f2(age),1-f2(age)) )
+with(w, range(prob2))
+```
+
+
+#### Fitting logistic models
+
+* Constructing a yes/no variable with `==`
+* `glm` and the `family="binomial"`
+* The summary report
+    
+#### Confounding, covariates, and Logistic Regression
+
+The Whickham data.  
+
+This is drawn from a cohort study of nurses in Whickhamshire, England.  Nurses were asked many questions about their lifestyle, diet, etc.  Then they were revisited 20 years later.  This small data set just records their age at the first interview, whether they identified themselves as smokers, and whether they were still alive at the 20 year follow-up.
+
+First, let's look at the relationship between age and probability of being dead at the follow-up.  We'll compare a straightforward linear model with a logistic regression model:
+```{r}
+m = lm( survived ~ age, data=w )
+m2 = glm( survived ~ age, data=w, family="binomial")
+f = makeFun(m)
+f2 = makeFun(m2)
+plotFun( f(age)~age, age.lim=c(20,100))
+plotFun( f2(age)~age, add=TRUE, col="red", lwd=3)
+```
+
+Note that the models agree on the probability of surviving for women in their middle ages. 
+* At the extremes, the linear model is silly.  It has probability outside the range 0 to 1.
+* It doesn't work so well on the inside either, since the linear function can't be steeper in the center without being absurdly high near the edges.
+
+#### Interpreting the coefficients
+
+```{r}
+coef(summary(m))
+```
+The coefficient on `age` tells how the probability changes with an increase of one year in age.  This simple linear model says that the change in probability is constant across the ages. (We asked it to say that: it's a linear model!)
+
+* Linear Model: the probability of dying increases by 1.6 percentage points each year.
+* Logistic Model: the odds of dying increases by 12% per year.  That's not percentage points, but a multiplier of 0.12.  In other words, the odds of dying increases exponentially.  
+    * QUESTION: This means that the odds reaches $\infty$.  What probability corresponds to an odds of $\infty$?
+    
+    
+#### 95% confidence interval on the rate of odds increase
+
+```{r}
+exp( log(0.122) + 2*c(-1,1)*0.00694)
+```
+
+#### Smoking and Death
+```{r}
+mod0 = lm( survived ~ smoker, data=w)
+mod1 = glm( survived ~ smoker, data=w, family="binomial")
+coef(summary(mod0))
+coef(summary(mod1))
+xyplot( fitted(mod1) ~ fitted(mod0))
+```
+Interpret the two models as probabilities.  Translate the coefficients in the logistic model into probabilities in the second.  They are essentially the same think.  Both indicate that a smoker is significantly less likely to be dead.
+
+Now include the covariate of age, perhaps with an interaction of age and smoker**:
+```{r}
+moda = lm( survived ~ smoker*age, data=w)
+modb = glm( survived ~ smoker*age, data=w, family="binomial")
+coef(summary(moda))
+coef(summary(modb))
+xyplot( fitted(modb)~fitted(moda))
+```
+
+Notice how the linear model admits probabilities that are smaller than zero.
+
+#### Why not use a polynomial model with `lm()`
+
+Polynomials go the wrong way: their tails head off to infinity.  The use of odds and the logarithm essentially solve the problem of getting a function that behaves nicely.
+
+
+### Introduction to R/Markdown
+
+Activity**: Modeling Barry Bonds in 2001.
+```{r}
+bonds = fetchData("bonds2001.csv")
+```
+
+Source**: [Journal of Statistics Education](http**://www.amstat.org/publications/jse/jse_data_archive.htm).  Bonds data submitted by Jerome P. Reiter, Institute of Statistics and Decision Sciences, Duke University, Box 90251, Durham, NC 27708, `jerry@stat.duke.edu`
+
+Student task**: Build a model of whether Bonds gets on base as a function of whatever other variables appear appropriate to you.  Write it up in R/Markdown, including some nice graphic and an interpretation of your results.
+
+Here's one model**:
+```{r}
+mod1 = glm( reachesBase==0 ~ outs + onFirst + onSecond+onThird + plateWithinGame, data=bonds, family="binomial")
+summary(mod1)
+```
+Evidently, Bonds was significantly more likely to get on base if there was another player on second base (`onSecond`), and taking into account his general downward trend over the course of a game (`plateWithinGame`)
+
+Variables**:
+* **plateNo** Plate appearance number.
+* **gameNo**: Number of the game in the season.
+* **plateWithinGame**: Number of the plate appearance within the game.
+* **inSF**: Equals one for games in San Francisco and equals zero otherwise.
+* **onFirst**: Equals one when there is a runner on first base when Bonds appears and equals zero otherwise. 
+* **onSecond**: Equals one when there is a runner on second base when Bonds appears and equals zero otherwise. 
+* **onThird**: Equals one when there is a runner on third base when Bonds appears and equals zero otherwise. 
+* **outs**: Number of outs in inning when Bonds appears.
+* **inning**: Inning of plate appearance.
+* **runs**: Number of runs scored by Giants in the inning after first pitch to Bonds.
+* **walk**: Equals one if Bonds walks and equals zero otherwise.
+* **intentionalWalk**: Equals one if Bonds walks intentionally and equals zero otherwise.
+* **reachesBase**: 
+    * Equals zero if Bonds does not reach base.  
+    * Equals one if Bonds reaches first base on a single or error. 
+    * Equals two if Bonds reaches second base on a double or error. 
+    * Equals three if Bonds reaches third base on a triple or error. 
+    * Equals four if Bonds hits a home run. 
+    * Equals five if Bonds walks or is hit by a pitch. 
+* **ERA**: Opposing pitchers' career earned run average as of the end of the 2000 season.
+* **scoreGiants**: Giants score just before first pitch to Bonds
+* **scoreOpponent**: Opposing team's score just before first pitch to Bonds.
+
+

@@ -1,0 +1,140 @@
+Monday April 15, 2013 Stats 155 Class Notes 
+==================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+**Carson wrote**:
+I've encountered some problems in grading Friday's quizzes, mainly regarding how to give partial credits to the last question, which asks to state the Null Hypothesis:
+
+* Type A answers: confusion of causation and correlations. Here are the sample answers:
+    1. Station does not affect/impact calories
+    2. Calorie intake does not vary as a function of station
+    3. Calorie intake does not depend on station
+    4. Station does not account for variations in calorie intake 
+
+Especially for 1) and 2), I feel that the answers imply strongly the causal direction of the relationship, which should not be found in a null hypothesis.
+
+* Type B answers: phrases indicating results of testing, rather than hypotheses itself
+    1. Station does not correlate/predict calorie variations
+
+
+* Type C answers: others 
+    1.  The station variables account for the variation more than random vector fields
+    2.  The term station is doing no better than the residual terms in explaining the variation of the response variable.
+
+### Eating variance: the age-at-marriage problem
+
+Eating Up the Variance
+----------------
+
+
+EXAMPLE:  Difference in age between husband and wife in couples getting married.
+
+Ask the class: Who is older in a married couple, the man or the woman?  By how much?  
+
+Let's see if the data support this:
+```{r}
+m = fetchData("marriage.csv")
+mod0 = mm( Age ~ Person, data=m )
+mod0
+confint(mod0)
+mod1 = lm( Age ~ Person, data=m )
+summary(mod1)
+```
+The point estimate is about right, but the margin of error is so large that we can't take this estimate very seriously.  The p-value is so large that we can't reject the null that there is no relationship between `Person` and age.
+
+Try adding in some other variables, astrological sign, years of education, etc. and show that this doesn't help much.
+
+Finally, add in the `BookpageID` variable.  
+```{r}
+mod2 = lm( Age ~ Person + BookpageID, data=m )
+anova(mod2)
+head(confint(mod2))
+```
+
+This gives an individual ID to each marriage.  Putting this in the model effectively holds the couple constant when considering the `Person`.  In terms of ANOVA, `BookpageID` is eating up lots and lots of variance.
+
+### A Simple Experiment
+
+Suppose that we've just invented a device that makes cars safer, and which we expect to reduce deaths by 10%. That would be a big improvement. We're going to do an experiment:
+* Select n sites where the device will be installed.  
+* Each site will select 200 cars.
+* Randomly assign half the cars to have our device, and do sham installation on the other cars to avoid the placebo effect.
+* Track the cars for a year. Compare the number of deaths in the treatment and in the control group.
+In designing the question we need to decide how big should n be?
+
+We already know something about Planet Alt: that the death rate will be lower by 10%.  Now we need to do a little bit more work to make a Planet Alt that's relevant to the data we will actually be creating on Planet Earth.  Death rates for vehicular accidents are given at the NHTSA web site <http://www-fars.nhtsa.dot.gov/Main/index.aspx>.
+
+The site indicates that in 2010, there were 15.65 vehicle accident deaths per 100,000 drivers per year.  We don't actually know that this rate will be relevant to our experiment.  
+* We're not conducting the experiment in 2010.
+* The death rate might vary from one type of car to another, and the sorts of device we install may not be applicable to all cars.
+Nonetheless, we'll construct Planet Alt with this rate in mind.
+
+
+Imagine that we collect data with $n=1000$ sites. (This corresponds to 100,000 cars in each of the treatment and control groups.)  The death rate at each site should be 15.65/1000.
+```{r}
+n=1000
+ourdata = data.frame(treatment=rpois(n,lambda=0.9*15.65/1000),
+                    control=rpois(n,lambda=15.65/1000))
+require(reshape2)
+ourdata = melt(ourdata)
+summary(lm( value ~ variable, data=ourdata ))
+```
+Have everyone in the class do this and see how many of them were able to reject the null hypothesis.
+
+How many sites do we need to use to get 90% power?
+
+### Looking at the Standard Error
+
+Another way to think about this problem is to ask what is the precision of our estimate of the number of deaths.  It needs to be substantially smaller than the anticipated reduction in the death rate.  That reduction is 10% of 15.65/100 or ```r .1*15.65/1000```
+
+```{r}
+summary(lm( rpois(1000,lambda=0.9*15.65/1000)~1))
+```
+This is too large.  We should try to get it much smaller, perhaps one-sixth as large.  That will necessitate collecting 36 times as much data.
+
+Do the power calculation for that size.
+
+QUESTION: Given the number of sites, is there a practical way to do the experiment?
+How could we do the experiment in a less costly way?  (Find a high-risk group of cars.  Find an endpoint other than deaths, say injuries.)
+
+Here's a bit of information for [Pennsylvania](http://www.edgarsnyder.com/car-accident/car-accident-statistics.html).  
+* 87,949 people were injured in car crashes in PA in 2010.
+* 1324 people were killed.
+
+How big would the study need to be if studied injuries rather than deaths?
+
+## Win/Lose, Yes/No, Life & Death
+
+[Fugue for Tinhorns](http://www.youtube.com/watch?v=NxAX74gM8DY) from *Guys and Dolls*.
+
+### Review of Odds
+
+An introduction to being a bookie.
+
+Who is going to win the World Series?  Solicit answers.  Then go through the class and get people to lay a $1 or $2 bet on their choice.
+
+For each choice, the odds are simply calculated: the amount on all the other choices divided by the amount on the choices itself.
+
+If you win, you get your bet times the odds.  (You also keep your original money.)  If you lose, you pay up.
+
+Show that I, the bookie, can't lose money --- the payout in every case must be exactly equal to the amount paid by the people who lose.
+
+By shaving the odds a bit, I can guarantee to make money. (At least, if I can collect from the losers.)
+
+In practice, it works like this:
+* You call me up and lay a bet. 
+* If you lose, I keep track of your debt to me.  When this reaches too high a level, I threaten to break your legs.
+* If you win, I pay you.  Most likely, I just cancel your winnings from your already existing debt.
+
+So, with a bit of seed capital, and some muscle for enforcement, I can make money.
+
+Log odds: translate odds (which run 0 to $\infty$) into a variable with support from $-\infty$ to $\infty$.
+
+[An explanation resource on Dutch book](http://wmbriggs.com/blog/?p=3632)
+
+
+
+

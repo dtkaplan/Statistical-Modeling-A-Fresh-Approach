@@ -2,3 +2,7 @@ Pete's Problem
 ========================================================
 
 This is a problem for Pete.  It has no solution.
+
+Let's try something better.  What do you think.
+
+`r I(TextEntry())`

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Monday April 15, 2013 Stats 155 Class Notes </title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<h1>Monday April 15, 2013 Stats 155 Class Notes </h1>
+
+<p><strong>Carson wrote</strong>:
+I&#39;ve encountered some problems in grading Friday&#39;s quizzes, mainly regarding how to give partial credits to the last question, which asks to state the Null Hypothesis:</p>
+
+<ul>
+<li>Type A answers: confusion of causation and correlations. Here are the sample answers:
+
+<ol>
+<li>Station does not affect/impact calories</li>
+<li>Calorie intake does not vary as a function of station</li>
+<li>Calorie intake does not depend on station</li>
+<li>Station does not account for variations in calorie intake </li>
+</ol></li>
+</ul>
+
+<p>Especially for 1) and 2), I feel that the answers imply strongly the causal direction of the relationship, which should not be found in a null hypothesis.</p>
+
+<ul>
+<li><p>Type B answers: phrases indicating results of testing, rather than hypotheses itself</p>
+
+<ol>
+<li>Station does not correlate/predict calorie variations</li>
+</ol></li>
+<li><p>Type C answers: others </p>
+
+<ol>
+<li> The station variables account for the variation more than random vector fields</li>
+<li> The term station is doing no better than the residual terms in explaining the variation of the response variable.</li>
+</ol></li>
+</ul>
+
+<h3>Eating variance: the age-at-marriage problem</h3>
+
+<h2>Eating Up the Variance</h2>
+
+<p>EXAMPLE:  Difference in age between husband and wife in couples getting married.</p>
+
+<p>Ask the class: Who is older in a married couple, the man or the woman?  By how much?  </p>
+
+<p>Let&#39;s see if the data support this:</p>
+
+<pre><code class="r">m = fetchData(&quot;marriage.csv&quot;)
+</code></pre>
+
+<pre><code>## Retrieving from http://www.mosaic-web.org/go/datasets/marriage.csv
+</code></pre>
+
+<pre><code class="r">mod0 = mm(Age ~ Person, data = m)
+mod0
+</code></pre>
+
+<pre><code>## Groupwise Model.
+## Call:
+## Age ~ Person
+## 
+## Coefficients:
+## Bride  Groom  
+##  33.2   35.8
+</code></pre>
+
+<pre><code class="r">confint(mod0)
+</code></pre>
+
+<pre><code>##   group 2.5 % 97.5 %
+## 1 Bride 29.15  37.33
+## 2 Groom 31.70  39.87
+</code></pre>
+
+<pre><code class="r">mod1 = lm(Age ~ Person, data = m)
+summary(mod1)
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = Age ~ Person, data = m)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -17.42 -12.02  -3.34   8.80  39.56 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)    33.24       2.06   16.13   &lt;2e-16 ***
+## PersonGroom     2.55       2.91    0.87     0.38    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+## 
+## Residual standard error: 14.4 on 96 degrees of freedom
+## Multiple R-squared: 0.00789, Adjusted R-squared: -0.00245 
+## F-statistic: 0.763 on 1 and 96 DF,  p-value: 0.384
+</code></pre>
+
+<p>The point estimate is about right, but the margin of error is so large that we can&#39;t take this estimate very seriously.  The p-value is so large that we can&#39;t reject the null that there is no relationship between <code>Person</code> and age.</p>
+
+<p>Try adding in some other variables, astrological sign, years of education, etc. and show that this doesn&#39;t help much.</p>
+
+<p>Finally, add in the <code>BookpageID</code> variable.  </p>
+
+<pre><code class="r">mod2 = lm(Age ~ Person + BookpageID, data = m)
+anova(mod2)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Age
+##            Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## Person      1    159     159    9.07 0.0041 ** 
+## BookpageID 48  19127     398   22.77 &lt;2e-16 ***
+## Residuals  48    840      18                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+</code></pre>
+
+<pre><code class="r">head(confint(mod2))
+</code></pre>
+
+<pre><code>##                        2.5 % 97.5 %
+## (Intercept)          18.7105 30.728
+## PersonGroom           0.8461  4.245
+## BookpageIDB230p1354  -9.1763  7.648
+## BookpageIDB230p1665  -6.6544 10.169
+## BookpageIDB230p1948 -13.7133  3.111
+## BookpageIDB230p539   -3.7393 13.085
+</code></pre>
+
+<p>This gives an individual ID to each marriage.  Putting this in the model effectively holds the couple constant when considering the <code>Person</code>.  In terms of ANOVA, <code>BookpageID</code> is eating up lots and lots of variance.</p>
+
+<h3>A Simple Experiment</h3>
+
+<p>Suppose that we&#39;ve just invented a device that makes cars safer, and which we expect to reduce deaths by 10%. That would be a big improvement. We&#39;re going to do an experiment:</p>
+
+<ul>
+<li>Select n sites where the device will be installed.<br/></li>
+<li>Each site will select 200 cars.</li>
+<li>Randomly assign half the cars to have our device, and do sham installation on the other cars to avoid the placebo effect.</li>
+<li>Track the cars for a year. Compare the number of deaths in the treatment and in the control group.
+In designing the question we need to decide how big should n be?</li>
+</ul>
+
+<p>We already know something about Planet Alt: that the death rate will be lower by 10%.  Now we need to do a little bit more work to make a Planet Alt that&#39;s relevant to the data we will actually be creating on Planet Earth.  Death rates for vehicular accidents are given at the NHTSA web site <a href="http://www-fars.nhtsa.dot.gov/Main/index.aspx">http://www-fars.nhtsa.dot.gov/Main/index.aspx</a>.</p>
+
+<p>The site indicates that in 2010, there were 15.65 vehicle accident deaths per 100,000 drivers per year.  We don&#39;t actually know that this rate will be relevant to our experiment.  </p>
+
+<ul>
+<li>We&#39;re not conducting the experiment in 2010.</li>
+<li>The death rate might vary from one type of car to another, and the sorts of device we install may not be applicable to all cars.
+Nonetheless, we&#39;ll construct Planet Alt with this rate in mind.</li>
+</ul>
+
+<p>Imagine that we collect data with \( n=1000 \) sites. (This corresponds to 100,000 cars in each of the treatment and control groups.)  The death rate at each site should be 15.65/1000.</p>
+
+<pre><code class="r">n = 1000
+ourdata = data.frame(treatment = rpois(n, lambda = 0.9 * 15.65/1000), control = rpois(n, 
+    lambda = 15.65/1000))
+require(reshape2)
+</code></pre>
+
+<pre><code>## Loading required package: reshape2
+</code></pre>
+
+<pre><code class="r">ourdata = melt(ourdata)
+</code></pre>
+
+<pre><code>## Using as id variables
+</code></pre>
+
+<pre><code class="r">summary(lm(value ~ variable, data = ourdata))
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = value ~ variable, data = ourdata)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -0.015 -0.015 -0.011 -0.011  0.989 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      0.01500    0.00358    4.19    3e-05 ***
+## variablecontrol -0.00400    0.00507   -0.79     0.43    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+## 
+## Residual standard error: 0.113 on 1998 degrees of freedom
+## Multiple R-squared: 0.000312,    Adjusted R-squared: -0.000189 
+## F-statistic: 0.623 on 1 and 1998 DF,  p-value: 0.43
+</code></pre>
+
+<p>Have everyone in the class do this and see how many of them were able to reject the null hypothesis.</p>
+
+<p>How many sites do we need to use to get 90% power?</p>
+
+<h3>Looking at the Standard Error</h3>
+
+<p>Another way to think about this problem is to ask what is the precision of our estimate of the number of deaths.  It needs to be substantially smaller than the anticipated reduction in the death rate.  That reduction is 10% of 15.65/100 or <code>0.0016</code></p>
+
+<pre><code class="r">summary(lm(rpois(1000, lambda = 0.9 * 15.65/1000) ~ 1))
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = rpois(1000, lambda = 0.9 * 15.65/1000) ~ 1)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -0.011 -0.011 -0.011 -0.011  0.989 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   0.0110     0.0033    3.33  0.00089 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+## 
+## Residual standard error: 0.104 on 999 degrees of freedom
+</code></pre>
+
+<p>This is too large.  We should try to get it much smaller, perhaps one-sixth as large.  That will necessitate collecting 36 times as much data.</p>
+
+<p>Do the power calculation for that size.</p>
+
+<p>QUESTION: Given the number of sites, is there a practical way to do the experiment?
+How could we do the experiment in a less costly way?  (Find a high-risk group of cars.  Find an endpoint other than deaths, say injuries.)</p>
+
+<p>Here&#39;s a bit of information for <a href="http://www.edgarsnyder.com/car-accident/car-accident-statistics.html">Pennsylvania</a>.  </p>
+
+<ul>
+<li>87,949 people were injured in car crashes in PA in 2010.</li>
+<li>1324 people were killed.</li>
+</ul>
+
+<p>How big would the study need to be if studied injuries rather than deaths?</p>
+
+<h2>Win/Lose, Yes/No, Life &amp; Death</h2>
+
+<p><a href="http://www.youtube.com/watch?v=NxAX74gM8DY">Fugue for Tinhorns</a> from <em>Guys and Dolls</em>.</p>
+
+<h3>Review of Odds</h3>
+
+<p>An introduction to being a bookie.</p>
+
+<p>Who is going to win the World Series?  Solicit answers.  Then go through the class and get people to lay a $1 or $2 bet on their choice.</p>
+
+<p>For each choice, the odds are simply calculated: the amount on all the other choices divided by the amount on the choices itself.</p>
+
+<p>If you win, you get your bet times the odds.  (You also keep your original money.)  If you lose, you pay up.</p>
+
+<p>Show that I, the bookie, can&#39;t lose money &mdash; the payout in every case must be exactly equal to the amount paid by the people who lose.</p>
+
+<p>By shaving the odds a bit, I can guarantee to make money. (At least, if I can collect from the losers.)</p>
+
+<p>In practice, it works like this:</p>
+
+<ul>
+<li>You call me up and lay a bet. </li>
+<li>If you lose, I keep track of your debt to me.  When this reaches too high a level, I threaten to break your legs.</li>
+<li>If you win, I pay you.  Most likely, I just cancel your winnings from your already existing debt.</li>
+</ul>
+
+<p>So, with a bit of seed capital, and some muscle for enforcement, I can make money.</p>
+
+<p>Log odds: translate odds (which run 0 to \( \infty \)) into a variable with support from \( -\infty \) to \( \infty \).</p>
+
+<p><a href="http://wmbriggs.com/blog/?p=3632">An explanation resource on Dutch book</a></p>
+
+</body>
+
+</html>
+
