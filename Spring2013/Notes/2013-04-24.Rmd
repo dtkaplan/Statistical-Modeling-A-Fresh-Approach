@@ -1,9 +1,29 @@
 Wednesday 24 April
 ===========================
 
+### Preliminaries:
+
+One group is doing an experiment to see how quickly people respond to emails/moodle/twitter.  Some of the notices will be sent out through this course, so you will all see them.  You don't have to respond if you don't want to.  But I want to encourage you to join the study.
 
 Twitter/Moodle/Email survey  [link here](https://docs.google.com/a/macalester.edu/spreadsheet/viewform?formkey=dFZxVEctcHNpYkR4N3BCX205bjh5anc6MQ)
 
-Deer experiment
+### Short review of odds
 
-Survey processing.
+* Two way table in the standard format
+    * The odds ratio: A*C/B*D
+* Logistic regression and the link function
+    * Odds $=\frac{p}{1-p}$
+    * Probability $\frac{odds}{1+odds}$
+* Model formula from logistic regression gives the log odds.
+
+
+
+### Deer experiment
+
+Work through [project here](http://rpubs.com/dtkaplan/deer-crossing)
+
+### Survey processing.
+
+Example of survey processing commands [here](http://rpubs.com/dtkaplan/m155-processing-survey-data) and the [raw template](https://github.com/dtkaplan/Statistical-Modeling-A-Fresh-Approach/blob/gh-pages/Activities/SurveyProcessing.Rmd).
+
+### Weekly Quiz

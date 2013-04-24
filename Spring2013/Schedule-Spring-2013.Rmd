@@ -511,7 +511,7 @@ This is a good time to start to review.  As we explore these new contexts, do th
 
 **In Class**: 
 * [Deer crossing](http://rpubs.com/dtkaplan/deer-crossing) ... continued
-* [Processing Survey Data](http://rpubs.com/dtkaplan/m155-processing-survey-data) and the template itself: 
+* [Processing Survey Data](http://rpubs.com/dtkaplan/m155-processing-survey-data) and the template itself: [cut and paste from here](https://github.com/dtkaplan/Statistical-Modeling-A-Fresh-Approach/blob/gh-pages/Activities/SurveyProcessing.Rmd)
 * The **last weekly quiz**
 
 **Notes**: `r I(todaysNotes("2012-11-21.html", "i"))` 
