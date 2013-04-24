@@ -498,6 +498,8 @@ This is a good time to start to review.  As we explore these new contexts, do th
 
 **Reading**: SM Ch. 16
 
+**In Class**: [Power and deer crossings](http://rpubs.com/dtkaplan/deer-crossing)
+
 **Notes**: `r I(todaysNotes("2012-11-19.html", "i"))` 
 <!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-19-class) -->
 
@@ -506,6 +508,11 @@ This is a good time to start to review.  As we explore these new contexts, do th
 
 `r I(classDayContents("Wed", "April", 24 ))`
 **Topic**: Power and the Alternative Hypothesis
+
+**In Class**: 
+* [Deer crossing](http://rpubs.com/dtkaplan/deer-crossing) ... continued
+* [Processing Survey Data](http://rpubs.com/dtkaplan/m155-processing-survey-data) and the template itself: 
+* The **last weekly quiz**
 
 **Notes**: `r I(todaysNotes("2012-11-21.html", "i"))` 
 <!--  [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-21-class) -->
