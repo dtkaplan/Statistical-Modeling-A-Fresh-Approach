@@ -9,7 +9,12 @@ Twitter/Moodle/Email survey  [link here](https://docs.google.com/a/macalester.ed
 
 ### Short review of odds
 
-* Two way table in the standard format
+Draw transition diagram of how one gets to and from each representation:
+
+Log odds <= log/exp=>  Odds  <=p/(1-p) or Odds/1+Odds=>   Probability
+
+
+* Two way table in the standard format: Heart attack and working out.  Use heart attack patients as the cases.  Call their siblings to get the controls.
     * The odds ratio: A*C/B*D
 * Logistic regression and the link function
     * Odds $=\frac{p}{1-p}$

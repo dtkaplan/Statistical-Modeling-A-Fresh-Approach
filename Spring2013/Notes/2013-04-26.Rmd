@@ -1,0 +1,105 @@
+Friday 26 April
+===========================
+
+## Survey processing.
+
+Example of survey processing commands [here](http://rpubs.com/dtkaplan/m155-processing-survey-data) and the [raw template](https://github.com/dtkaplan/Statistical-Modeling-A-Fresh-Approach/blob/gh-pages/Activities/SurveyProcessing.Rmd).
+
+## Introduction to Causal Reasoning
+
+### Myopia
+
+* [Myopia article from Nature](http://dl.dropbox.com/u/5098197/ISM/myopia.pdf).  Note the extensive scientific jargon and the dismissing of the lack of causal evidence: "Although it does not establish a causal link, the statistical strength of the association of night-time light exposure and childhood myopia does suggest that the absence of a daily period of darkness during early childhood is a potential precipitating factor in the development of myopia."
+
+It turns out that the parent's myopia is the disposing factor.  Shortsighted parents leave the lights on at night and their kids are shortsighted for genetic reasons.  A CNN news report is [here](http://www.cnn.com/HEALTH/9905/12/children.lights/index.htm). And here is the [abstract of the rebuttal](http://www.nature.com/nature/journal/v404/n6774/full/404143a0.html).
+
+
+```{r tikz-ex, echo=FALSE,eval=FALSE,engine = "tikz", fig.cap = "Funky tikz", fig.ext = 'png', cache=TRUE}
+\usetikzlibrary{arrows}
+\begin{tikzpicture}[node distance=5cm, auto,>=latex', thick, scale = 2.0]
+\node (P) {$P$};
+\node (B) [right of=P] {$B$};
+\node (A) [below of=P] {$A$};
+\node (C) [below of=B] {$C$};
+\node (P1) [node distance=1.4cm, left of=P, above of=P] {$\hat{P}$};
+\draw[->] (P) to node {$f$} (B);
+\draw[->] (P) to node [swap] {$g$} (A);
+\draw[->] (A) to node [swap] {$f$} (C);
+\draw[->] (B) to node {$g$} (C);
+\draw[->, bend right] (P1) to node [swap] {$\hat{g}$} (A);
+\draw[->, bend left] (P1) to node {$\hat{f}$} (B);
+\draw[->, dashed] (P1) to node {$k$} (P);
+\end{tikzpicture}
+```
+
+#### Confounders as a diagram
+
+```{r confounder, engine = "tikz", fig.cap = "Funky tikz", fig.ext = 'png', cache=TRUE, echo=FALSE}
+\usetikzlibrary{arrows,shapes,snakes}
+\begin{tikzpicture}[node distance=5cm, auto,>=latex', thick, scale = 2.0]
+\node[rectangle,fill=blue!10] (V) {\LARGE Variable};
+\node[rectangle,fill=blue!10] (Out) at ([shift={(3,0)}] V) {\LARGE Outcome};
+\node[ellipse,fill=red!10] (A) at ([shift={(1.5,-1.5)}] V) {\LARGE Confounder};
+\draw[->,ultra thick] (V) to (Out);
+\draw[<->,ultra thick,bend right] (V) to (A);
+\draw[<->,ultra thick,bend right] (A) to (Out);
+\end{tikzpicture}
+```
+
+#### SAT versus per-student spending
+
+Draw the causal diagram
+
+```{r sat, engine = "tikz", fig.cap = "Funky tikz", fig.ext = 'png', cache=TRUE, echo=FALSE}
+\usetikzlibrary{arrows,shapes,snakes}
+\begin{tikzpicture}[node distance=5cm, auto,>=latex', thick, scale = 2.0]
+\node[rectangle,fill=blue!10] (Spend) {\LARGE Spending};
+\node[rectangle,fill=blue!10] (SAT) at ([shift={(3,0)}] Spend) {\LARGE SAT};
+\node[ellipse,fill=red!10] (Focus) at ([shift={(-.5,-2)}] Spend) {\LARGE \parbox{3cm}{\raggedright Focus on Education}};
+\node[rectangle,fill=blue!10] (Frac) at ([shift={(.5,-2)}] SAT) {\LARGE \parbox{3cm}{\raggedleft Fraction taking SAT}};
+\draw[->,ultra thick] (Spend) to (SAT);
+\draw[->,ultra thick] (Focus) to (Frac);
+\draw[<->,ultra thick,bend left] (Focus) to (Spend);
+\draw[->,ultra thick] (Frac) to (SAT);
+\end{tikzpicture}
+```
+
+
+<pre>
+Spending  ---------->      SAT    <-------|
+      |                                   |
+Focus on Educ. ---> fraction taking SAT  -|
+</pre>
+
+#### Campaign Spending and the back-door network
+
+Research in political science shows that higher spending in campaigns is related to a lower vote for the incumbent.  Yet it's common sense that higher spending improves things for the candidate; that's why they do it.
+
+<pre>
+  Polls <-----    Popularity ---> vote outcome
+    |                                 ^
+    v                                 |
+  Spending ---------------------------
+</pre>
+
+### How to block a back-door?
+
+We've done it by including the covariate in the model.  But this is too crude an answer.
+
+### Example: Election Spending
+
+```{r}
+fetchData("simulate.r")
+campaign.spending
+equations(campaign.spending)
+```
+You can see from the equations how spending is related to vote: it increases it.  Let's look at what a statistical model has to say
+```{r}
+d = run.sim(campaign.spending, 435 ) # number of congressment
+summary( lm( vote ~ spending, data=d))
+```
+The problem: a back door pathway from spending to vote via popularity.  Block it by including a node on the pathway as a covariate.
+
+```{r}
+summary( lm( vote ~ spending + polls, data=d))
+```
