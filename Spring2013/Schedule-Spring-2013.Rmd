@@ -511,7 +511,7 @@ This is a good time to start to review.  As we explore these new contexts, do th
 
 **In Class**: 
 * [Deer crossing](http://rpubs.com/dtkaplan/deer-crossing) ... continued
-* [Processing Survey Data](http://rpubs.com/dtkaplan/m155-processing-survey-data) and the template itself: [cut and paste from here](https://github.com/dtkaplan/Statistical-Modeling-A-Fresh-Approach/blob/gh-pages/Activities/SurveyProcessing.Rmd)
+
 * The **last weekly quiz**
 
 **Notes**: `r I(todaysNotes("2012-11-21.html", "i"))` 
@@ -523,11 +523,12 @@ This is a good time to start to review.  As we explore these new contexts, do th
 **Reading**: 
 * SM Ch. 16
 
+**In Class**:
+* [Processing Survey Data](http://rpubs.com/dtkaplan/m155-processing-survey-data) and the template itself: [cut and paste from here](https://github.com/dtkaplan/Statistical-Modeling-A-Fresh-Approach/blob/gh-pages/Activities/SurveyProcessing.Rmd)
+
 **Assignment**: 
 * `r I(PN(c("16RQ",1601,1602,1604)))` Due on May 10
 
-**In Class**:
-* [Writing up your survey project in R/Markdown](http://rpubs.com/dtkaplan/survey-writeup-R-Markdown)
 
 **On Your Own**:
 * [Why most published research findings are false](http://www.plosmedicine.org/article/info:doi/10.1371/journal.pmed.0020124)
@@ -547,7 +548,9 @@ This is a good time to start to review.  As we explore these new contexts, do th
 
 **Assignment**: `r I(PN(c(1605,1610,1612)))` Due on May 10
 
-**In-Class**: [The Power of Vitamin D](https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
+**In-Class**:
+* [Hypothetical Causal Networks](../../Activities/ConstructingHypotheticalNetworks.html)
+* [The Power of Vitamin D](https://dl.dropbox.com/u/5098197/ISM/power-vitamin-D.pdf)
 
 **Notes**: `r I(todaysNotes("2012-11-29.html", "i"))` 
 <!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-11-28-class) -->
@@ -562,6 +565,9 @@ This is a good time to start to review.  As we explore these new contexts, do th
 * SM Ch. 17
 * [XKCD cartoon](http://xkcd.com/552/)
 
+**In Class**:
+* Writing up your survey report in R. [Notes](http://rpubs.com/dtkaplan/5866).  You will want to copy the raw template from here
+
 **Assignment**: `r I(PN(c("17RQ",1701,1702,1705)))` Due on May 10
 
 
@@ -573,10 +579,6 @@ This is a good time to start to review.  As we explore these new contexts, do th
 
 **Assignment**: `r I(PN(c(1706,1707,1708,1710)))`
 
-**In Class**: 
-* Processing Google Form survey data in R. [Notes](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.html) and the [Rmd file](http://dtkaplan.github.com/Statistical-Modeling-A-Fresh-Approach/Activities/SurveyDataProcessing.Rmd).
-* [The survey link itself](https://docs.google.com/spreadsheet/viewform?formkey=dGttU3V6cXlkcmRkclZTLVlwNGlCQVE6MQ): Send it to your Mac friends!
-
 
 `r I(classDayContents("Mon", "May", 6 ))`
 **Topic**: Experiment and Design
@@ -586,3 +588,7 @@ This is a good time to start to review.  As we explore these new contexts, do th
 **Notes**: `r I(todaysNotes("2012-12-05.html", "i"))` 
 <!-- [Class notes](http://rpubs.com/dtkaplan/m155-2012-12-05-class) -->
 
+
+### Final Exam
+
+* [Review Materials](http://rpubs.com/dtkaplan/5792)

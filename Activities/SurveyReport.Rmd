@@ -1,0 +1,187 @@
+Your Survey Report
+=======================
+
+#### `r I(date())`
+#### Daniel Kaplan
+#### Math 155 Survey Project
+
+* *Replace the "Your Survey Report" above with your own title.  Include all of the authors' names.
+
+```{r include=FALSE}
+require(mosaic)
+require(plyr)
+require(xtable)
+options(na.rm=TRUE)
+```
+
+Remember our in-class survey?
+
+<iframe src="https://docs.google.com/forms/d/12G023bq9YoqifZwGW9-DBg1doZxEQ3F5sUC5LoNR9Cw/viewform?embedded=true#start=openform" width="500" height="300" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+We've already looked at how to read in the data from Google and reformat it to make it easier to apply the operations we have learned in R.  
+
+## Reading in the Data
+
+You typically won't want to include this part in your report.  I've consolidated all the commands here.  If you look at the R fences in the source Rmd document, you'll see a statement `echo=FALSE` which signals to the system not to print out the commands.  They get executed in the background.  
+
+```{r message=FALSE,warning=FALSE,echo=FALSE}
+myCSVLink = "https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dG5pakswQTR2OGdubnl5ZUM4c0kwMVE&single=true&gid=0&output=csv"
+d = fetchGoogle(myCSVLink)
+### Put in NA for empty or blank answers
+for (k in 1:length(d)){
+  temp = d[[k]]
+  temp[temp %in% c(""," ","  ", "   ")] = NA
+  d[k] = temp
+}
+### Fix the Names
+origNames = names(d)
+names(d)[2] = "SkillLevel"
+names(d)[3] = "Division"
+names(d)[4] = "Web"
+names(d)[5] = "Spreadsheet"
+names(d)[6] = "Data"
+names(d)[7] = "Systems"
+names(d)[8] = "StudyMore"
+# releveling
+require(plyr) # just need to do once, like require(mosaic)
+# check that the spelling matches in the next line
+newLevels = c("Fine Arts"="Art","Science/Math"="Sci",
+              "Humanities"="Hum","Social Science Division"="SS")
+d$Division = revalue(d$Division,newLevels)
+d$Division = factor(d$Division,levels=newLevels)
+studyMoreLevels = c("Lack of interest"="Boring",
+                    "Perceived lack of ability"="Unable",
+                    "Not high enough priority"="Busy",
+                    "Nothing --- I'm planning to study more"="WillDo",
+                    "Not useful"="Useless")
+d$StudyMore = revalue(d$StudyMore,studyMoreLevels)
+d$StudyMore = factor(d$StudyMore,levels=studyMoreLevels)
+### Ordinal Variables
+likertLevels = c("I don't need"="None" ,
+                 "Helps to know about it"="Little", 
+                 "Somewhat important in my field"="Some",
+                 "Very important in my field"="Very")
+# This is a way of doing exactly the same thing for several variables
+# Don't change anything but "likertLevels" and the names of the variables
+for (var in c("Web","Spreadsheet","Data","Systems")){
+  temp = revalue(d[[var]], likertLevels)
+  d[var] = factor(temp, ordered=TRUE,levels=likertLevels)
+}
+```
+
+
+## Background
+
+
+* *Describe the motivation for your survey here*
+
+An important component of modern statistics is computational.  Accordingly, we invest a considerable amount of time and effort --- both for students and faculty --- in using computation intensively in our courses.  This survey attempts to examine student attitudes toward computation.  (Of course, mainly, it's a simple survey for collecting data to illustrate data processing and writing up a survey report.)
+
+*You should also include one or more hypotheses here ... * We had several hypotheses in designing the survey:
+    * Students who think that skills in data analysis are important, are more likely to be inclined to study more about computing, unless they think it's beyond their ability.
+    * Students with a current higher skill level are more likely to be inclined to study more about computing.
+    
+Don't be afraid to state hypotheses that you think are obvious.  Even if it's obvious, you'll still want to try to demonstrate them from your data.
+
+## Methods
+
+*Describe how you distributed your survey*
+
+This survey was displayed in class in Math 155 and students were given time to complete it during the class.
+
+## Description of the Variables
+
+*Give a short description of the important variables individually*  You don't need to be exhaustive, just orient the reader to the important bits.
+
+The students answering the survey were primarily in the natural and social sciences:
+```{r}
+barchart(tally(~Division,data=d,margins=FALSE,format="count"), auto.key = TRUE)
+```
+
+Many students preceive themselves as lacking ability in computing ("Unable") 
+```{r}
+barchart(tally(~StudyMore,data=d,margins=FALSE,format="count"), auto.key = TRUE)
+```
+
+### YOUR TASK 1
+
+Make a simple graphic to display how students regard the importance of computing in data analysis.
+
+```{r}
+# Your graphics statements go here
+```
+
+## Graphical descriptions of relationships between variables
+
+*You may sometimes want to drop some ill-populated levels*
+
+Natural and social science students seem to be about the same regarding their inclination to study more.
+
+```{r}
+dd = droplevels(subset(d, !Division %in% c("Art","Hum")))
+mosaicplot(Division~StudyMore, data=dd,las=2,col=rainbow(5))
+```
+
+
+### YOUR TASK 2
+
+Make a simple graphic that's relevant to the two hypotheses given above
+
+```{r}
+# Your graphics statements go here
+```
+
+## Modeling Analysis
+
+Does the inclination to study more depend on the student's rating of the importance of data analysis?  Here's a logistic regression model of whether a student will study more based on division and whether they think computation is important in data analysis:
+
+```{r tidy=FALSE}
+mod = glm( StudyMore=="WillDo" ~ as.numeric(Data) + Division, 
+           data=d, family="binomial")
+```
+The regression table:
+```{r results="asis",echo=FALSE}
+print(xtable(summary(mod)),type="html")
+```
+The coefficient on "Data"" (the importance of computation in data analysis) is positive.  This suggests that students with a higher estimation of importance are more likely to be inclined to study more computation.  But the p-value is so low that we cannot reject the null hypothesis.
+
+*Note that `as.numeric(Data)` was used so that the ordinal properties of the variable were considered.  This treats the ordinal variable as quantitative.*
+
+*You may want to modify your models.  For instance, Division doesn't show up as significant in the above.  You do not need to include every model you try in your write-up.  But give a short summary, e.g.*
+Division doesn't seem to be related to inclination to study more computing.
+
+### Task 3
+
+Build and interpret a model of whether students with a higher skill level are more likely to intend to study more computing.
+
+
+### Sample Size
+
+*If your p-values are too large to reject the null, it's helpful to give some guidance to future researchers.  Select a sample size that will give you a p-value of 0.01 and report that.  To do this, you'll need to vary the sample size until you find one that works reliably.  You don't have to show the calculations you do, just give the result.  (Your instructor can check it out by using that sample size!)*
+
+Here's an example of the calculation:
+* Suppose we had a sample of 1000 respondants, similar to the sample we did get:
+```{r tidy=FALSE,echo=-3}
+largerSample = resample(d,size=1000)
+mod = glm( StudyMore=="WillDo" ~ as.numeric(Data) + Division, 
+           data=largerSample, family="binomial")
+summary(mod)
+```
+
+*Remember, you don't have to include the table in your report, just the conclusion.*
+
+### Task 4
+
+Repeat the above lines to find a small size that gives a p-value of about 0.01.  
+
+## Conclusions
+
+Summarize your conclusions briefly here.  You don't need to present more statistical analysis; you've already done that.
+
+## Comments
+
+Only students with computers in class were able to do the survey.  Perhaps they find computing less important, and so the results may be biased toward students who have a stronger interest in computing.
+
+Very few arts and humanities students are enrolled in the class.
+
+*State weaknesses in your methodology.*  This won't detract from your grade, indeed the opposite.

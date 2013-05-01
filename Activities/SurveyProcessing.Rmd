@@ -27,6 +27,12 @@ You'll need the "publish as CSV" link from Google.  Give this to `fetchGoogle()`
 ```{r message=FALSE,warning=FALSE}
 myCSVLink = "https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dG5pakswQTR2OGdubnl5ZUM4c0kwMVE&single=true&gid=0&output=csv"
 d = fetchGoogle(myCSVLink)
+### Put in NA for empty or blank answers
+for (k in 1:length(d)){
+  temp = d[[k]]
+  temp[temp %in% c(""," ","  ", "   ")] = NA
+  d[k] = temp
+}
 ```
 
 ### Fix the Names
@@ -81,7 +87,7 @@ newLevels = c("Fine Arts"="Art","Science/Math"="Sci",
 Now you will assign these new levels to your variable:
 ```{r}
 d$Division = revalue(d$Division,newLevels)
-levels(d$Division) = newLevels
+d$Division = factor(d$Division,levels=newLevels)
 ```
 This involves two commands for each variable.  The first changes the names of the levels.  The second does something a little more obscure. It makes sure that the full set of possible levels is available for graphics, models, etc.
 

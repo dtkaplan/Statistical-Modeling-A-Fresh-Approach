@@ -200,6 +200,12 @@ hljs.initHighlightingOnLoad();
 
 <pre><code class="r">myCSVLink = &quot;https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dG5pakswQTR2OGdubnl5ZUM4c0kwMVE&amp;single=true&amp;gid=0&amp;output=csv&quot;
 d = fetchGoogle(myCSVLink)
+### Put in NA for empty or blank answers
+for (k in 1:length(d)) {
+    temp = d[[k]]
+    temp[temp %in% c(&quot;&quot;, &quot; &quot;, &quot;  &quot;, &quot;   &quot;)] = NA
+    d[k] = temp
+}
 </code></pre>
 
 <h3>Fix the Names</h3>
@@ -269,7 +275,7 @@ names(d)[4] = &quot;Web&quot;
 <pre><code class="r">mean(SkillLevel, data = d)
 </code></pre>
 
-<pre><code>## [1] 3.25
+<pre><code>## [1] 2.273
 </code></pre>
 
 <h3>Categorical Variables</h3>
@@ -297,7 +303,7 @@ newLevels = c(&quot;Fine Arts&quot;=&quot;Art&quot;,&quot;Science/Math&quot;=&qu
 <pre><code>## The following `from` values were not present in `x`: Humanities
 </code></pre>
 
-<pre><code class="r">levels(d$Division) = newLevels
+<pre><code class="r">d$Division = factor(d$Division, levels = newLevels)
 </code></pre>
 
 <p>This involves two commands for each variable.  The first changes the names of the levels.  The second does something a little more obscure. It makes sure that the full set of possible levels is available for graphics, models, etc.</p>
@@ -307,7 +313,10 @@ newLevels = c(&quot;Fine Arts&quot;=&quot;Art&quot;,&quot;Science/Math&quot;=&qu
 <pre><code class="r">relevel(d$Division, ref = &quot;Hum&quot;)
 </code></pre>
 
-<pre><code>## [1] Hum Sci SS  Art SS 
+<pre><code>##  [1] Sci  Art  SS   &lt;NA&gt; SS   SS   &lt;NA&gt; Sci  SS   Sci  Sci  Sci  Sci  Sci 
+## [15] Sci  SS   Sci  SS   Sci  SS   Sci  SS   Sci  Sci  SS   Sci  SS   Sci 
+## [29] Sci  Sci  SS   SS   SS   Sci  Sci  Sci  Sci  Sci  SS   SS   Sci  SS  
+## [43] Sci  Sci  SS   Sci 
 ## Levels: Hum Art Sci SS
 </code></pre>
 
@@ -330,10 +339,6 @@ newLevels = c(&quot;Fine Arts&quot;=&quot;Art&quot;,&quot;Science/Math&quot;=&qu
 d$Web = revalue(d$Web, likertLevels)
 </code></pre>
 
-<pre><code>## The following `from` values were not present in `x`: Very important in my
-## field
-</code></pre>
-
 <p>When you construct the translation (here called <code>likertLevels</code>), make sure to order it in the natural way, from one end to the other.  Here, the order goes &ldquo;None&rdquo;, &ldquo;Little&rdquo;,&ldquo;Some&rdquo;,&ldquo;Very&rdquo;.  You often will be able to use the same translation across multiple variables.</p>
 
 <p>Now, tell R that the variable is ordered:</p>
@@ -346,7 +351,7 @@ d$Web = revalue(d$Web, likertLevels)
 <pre><code class="r">head(d$Web)
 </code></pre>
 
-<pre><code>## [1] Some   None   Some   &lt;NA&gt;   Little
+<pre><code>## [1] Some   None   Some   &lt;NA&gt;   Little Very  
 ## Levels: None &lt; Little &lt; Some &lt; Very
 </code></pre>
 

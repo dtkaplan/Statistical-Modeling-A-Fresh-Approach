@@ -1,0 +1,56 @@
+Constructing Hypothetical Causal Networks
+=================================
+
+### Statistical Modeling: A Fresh Approach
+
+Each of the following settings consists of a relationship of interest to you, the modeler, as well as several other factors that might play a role.
+
+Draw a hypothetical causal network that reflects your (common sense) understanding of the relationships among the factors.  Make sure that you have the causal direction indicated according to your beliefs.  (Don't include very weak connections; just ones that you think might be pretty strong.) You can use the words **in bold** as the names of your network nodes.
+
+Be prepared to give a justification for each arrow you draw, or for each potential arrow that you don't include in your network.
+
+Later, we'll analyze the networks to decide what factors ought to be included as covariates.
+
+
+## The New Puppy
+
+You want to see whether people are happier after they get a puppy.
+
+* Do they have a new **puppy**
+* **Happiness**
+* Amount of **sleep**
+
+
+## Gift Giving
+
+A researcher wants to understand the relationship between two siblings --- say, an older sister and a younger one --- by measuring the older sister's change in happiness and the younger sister's change in happiness when the older gives a gift to her younger sister.
+
+* **Older** sister's change of happiness --- response
+* **Younger** sister's change of happiness --- explanatory
+* The **quality** of the gift
+* The **cost** to the older sister of the gift
+
+----------------------
+
+## Income and SAT Score
+
+There's [some evidence](http://economix.blogs.nytimes.com/2009/08/27/sat-scores-and-family-income/) that students from higher-income families tend to have higher SAT scores.  Suppose you undertake to study the relationship between income and SAT by analyzing data on individual students.
+
+* Family **income**
+* **SAT** score
+* **IQ**
+* Quality of **high-school** education
+* Amount of **tutoring** for the SAT
+* Knowing how the **system** works overall (e.g. how to apply to college)
+
+
+## Spending and Debt
+
+It's observed that people with higher debt tend to spend more.  You want to test the possibility that higher levels of debt tend to increase spending.
+
+* Level of **debt**
+* Amount of **spending**
+* Yearly **income**
+* Whether the person went to **college**
+* The person's psychological **prediliction** to spend.
+* The person's life and work **skills**.
