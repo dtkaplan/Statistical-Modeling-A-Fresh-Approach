@@ -524,7 +524,7 @@ This is a good time to start to review.  As we explore these new contexts, do th
 * SM Ch. 16
 
 **In Class**:
-* [Processing Survey Data](http://rpubs.com/dtkaplan/m155-processing-survey-data) and the template itself: [cut and paste from here](https://github.com/dtkaplan/Statistical-Modeling-A-Fresh-Approach/blob/gh-pages/Activities/SurveyProcessing.Rmd)
+* [Processing Survey Data](http://rpubs.com/dtkaplan/m155-processing-survey-data) and the template itself: [cut and paste from here](https://raw.github.com/dtkaplan/Statistical-Modeling-A-Fresh-Approach/gh-pages/Activities/SurveyProcessing.Rmd)
 
 **Assignment**: 
 * `r I(PN(c("16RQ",1601,1602,1604)))` Due on May 10
@@ -566,7 +566,7 @@ This is a good time to start to review.  As we explore these new contexts, do th
 * [XKCD cartoon](http://xkcd.com/552/)
 
 **In Class**:
-* Writing up your survey report in R. [Notes](http://rpubs.com/dtkaplan/5866).  You will want to copy the raw template from here
+* Writing up your survey report in R. [Notes](http://rpubs.com/dtkaplan/5866).  You will want to copy the [raw template from here](https://raw.github.com/dtkaplan/Statistical-Modeling-A-Fresh-Approach/gh-pages/Activities/SurveyReport.Rmd) to cut and paste into RStudio.
 
 **Assignment**: `r I(PN(c("17RQ",1701,1702,1705)))` Due on May 10
 
