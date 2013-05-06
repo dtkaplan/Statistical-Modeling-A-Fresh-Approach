@@ -5,6 +5,10 @@ Stats 155 Class Notes 2012-11-21
 # boilerplate
 ```
 
+```{r include=FALSE}
+require(reshape2)
+```
+
 A Day on Planet Alt
 -------------------
 
@@ -37,9 +41,11 @@ Nonetheless, we'll construct Planet Alt with this rate in mind.
 
 Imagine that we collect data with $n=1000$ sites. (This corresponds to 100,000 cars in each of the treatment and control groups.)  The death rate at each site should be 15.65/1000.
 ```{r}
-ourdata = groupwiseData(treatment=rpois(1000,lambda=0.9*15.65/1000),
-                    control=rpois(1000,lambda=15.65/1000))
-summary(lm( val ~ group, data=ourdata ))
+ourdata = data.frame(treatment=rpois(10000,lambda=0.9*15.65/1000),
+                    control=rpois(10000,lambda=15.65/1000))
+require(reshape2)
+ourdata = melt(ourdata)
+summary(lm( value ~ variable, data=ourdata ))
 ```
 Have everyone in the class do this and see how many of them were able to reject the null hypothesis.
 

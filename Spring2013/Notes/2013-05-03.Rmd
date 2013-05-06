@@ -1,0 +1,252 @@
+Friday May 3, 2013: Stats 155
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+## Causation and Experiment
+
+Last session we looked at hypothetical causal networks.  There were pretty simple rules for including or excluding a covariate in order to open or block a pathway.  But:
+* There's no guarantee that our hypothesis corresponds to reality.
+
+We need a reliable and authoritative way to establish the existence and strength of a causal link, that works regardless of the correspondence between our hypothesis and reality.
+
+Consider the mediator network:
+```{r message=FALSE}
+fetchData("simulate.r")
+cnet.mediator
+```
+
+We can see what the structure of the network is, but suppose we want to discover the causal structure without being able to see the network.  Here's how:
+
+* Pick two variables you're interested in seeing the connection between, say A and B.
+* Create an intervention:
+```{r}
+myintervention = rnorm(100)
+```
+* Apply the intervention to one of the variables:
+```{r}
+toA = run.sim(cnet.mediator,100,A=myintervention)
+```
+* Look for a correlation between your intervention and the target variable
+```{r}
+summary(lm(B~A, data=toA))
+```
+* Now go the other way:
+```{r}
+toB = run.sim(cnet.mediator,100,B=myintervention)
+summary(lm(A~B, data=toB))
+```
+
+### Setting a categorical intervention
+
+A couple of ways:
+```{r}
+myvals = resample( c("N","Y"), 100)
+myvals2 = rep( c("N","Y"), 50)
+```
+
+### Activity 
+
+Use this technique to map out the causal connections on these networks
+`campaign.spending`, `cnet.common.cause`, `cnet.witness`, `cnet.chain`, `aspirin`, `jock`,`heights`
+
+### How to set the intervention?
+
+We want to maximize the variance but not go above a certain limit (as in the dose of aspirin).  An efficient way to do this is to make an intervention that's of the form 0, 1, 0, 1
+
+## An experiment with heart rate
+
+We're going to do an experiment to see if there is a relationship between posture (standing or sitting) and heart rate.
+
+* Ask every second student to stand up.
+* Put your finger against your [carotid artery](http://en.wikipedia.org/wiki/External_carotid_artery) and press gently until you feel your pulse.
+* At the signal, start counting heart beats. Count until the next signal (after 15 seconds).
+* Your heart rate in beats per second is 4 times the count
+
+We've just done an experiment, a procedure in which we impose certain conditions and measure the result.  In this case, the condition we imposed was sitting versus standing.
+
+We do experiments in order to measure with some precision the relationships involved.  Let's tally up the results of this experiment:
+* Enter the data into [this spreadsheet](https://docs.google.com/spreadsheet/ccc?key=0Am13enSalO74dE1COTRrYWVHN3dNR09TZHNLTkJnbHc#gid=0).  There is one column for each of the three meeting times for the course.  Note that the posture data has been pre-entered, so enter the sitting people first and the standing people after.
+
+Now we'll analyze the data:
+```{r}
+s = fetchGoogle("https://docs.google.com/spreadsheet/pub?key=0Am13enSalO74dE1COTRrYWVHN3dNR09TZHNLTkJnbHc&single=true&gid=0&output=csv")
+```
+
+Plot out the density broken down by posture and a bwplot.
+
+Now, the model:
+```{r}
+coef(summary( lm( HR1050 ~ Posture, data=s)))
+```
+
+### Improving the Experiment
+
+Could we improve the experiment.  Several ways:
+* Measure HR more precisely.
+* Specify posture more precisely.
+* Collect more data from more people.
+
+But our focus here is on how to improve the experiment by a better design.
+
+To explore this, here is a program that will generate simulated HR data:
+```{r}
+fetchData("hr.R")
+fetchData("simulate.r")
+```
+To run it, you specify the subject ID numbers and the posture of each patient, which must be one of "sitting", "standing", "lying".  Here's an example of running it on 10 people, half of whom are standing and half sitting.  **NOTE** the expression `1:10` is creating the numbers 1, 2, 3, ..., 10.  That is, `1:10` makes 10 different people for the experiment.  The levels of the posture variable are recycled.
+```{r}
+s1 = heart.rate( who=1:10, posture=c("sitting","standing"))
+s1
+```
+Can we see the difference between the two different postures?
+```{r}
+coef( summary( lm( hr ~ posture, data=s1 )))
+```
+No significant difference.
+
+ACTIVITY: 
+* Run the simulation several times.  What's the power for a significance level of 0.05?  For a significance level of 0.01?
+* Assign different groups of students to run experiments of size $n=20$, $n=30$, $n=50$, and so on. What sample size will give a power of 80% at a significance level of 0.01?
+
+This may seem odd at first, but let's add `who` as an explanatory variable:
+```{r}
+summary(lm( hr ~ posture + who, data=s1 ))
+```
+Why did the p-values disappear?
+
+Now a slight variation on the experiment:
+```{r}
+s2 = heart.rate( who=rep(1:5, each=2), posture=c("sitting","standing"))
+s2
+```
+Can we see the difference between the two different postures in this new experiment?
+```{r}
+coef( summary( lm( hr ~ posture, data=s2 )))
+coef( summary( lm( hr ~ posture + who, data=s2 )))
+```
+Why is the estimate from the second model much better than from the first?
+* We've introduced a new explanatory variable, `who` that accounts for a lot of the case-by-case variability.
+* We couldn't do this in the original experiment, because `who` would have provided a perfect fit.
+
+### Principles of Experimental Design
+
+1. Replicate!  You need to have many subjects.  Large $n$ gives higher precision.  Remember, the standard error is proportional to $1/\sqrt{n-m}$, where $m$ is the number of model terms.  You need to have some residual in order to know what your error is.
+2. Impose controlled variation!  That's why we had half the people stand up and half sit down.  To create variation.
+3. Minimize uncontrolled variation.  Make your experimental conditions as similar as possible (outside of the controlled variation).
+4. Make your controlled variation perpendicular to your uncontrolled variation.
+5. When you have multiple variables that you impose, make them mutually orthogonal.  Indeed, if you expect to be fitting a model with interaction terms, etc., arrange your intervention so that all the terms are mutually orthogonal.  That will give you better estimation properties.
+
+### Why the Second Experiment was Better
+
+A major source of uncontrolled variation in the heart rate is the person-to-person variability.  There's nothing we can do about that directly.  However, we can try to arrange the experimental treatment to be orthogonal to the uncontrolled variation.  
+
+You can measure the angle between the imposed treatment and the uncontrolled variation with R^2.  
+```{r}
+r.squared(lm( as.numeric(posture) ~ who, data=s1))
+r.squared(lm( as.numeric(posture) ~ who, data=s2))
+```
+In the second experiment, we had each person participate twice.  Intuitively, you can think of this as each person serving as his or her own control.  Mathematically, it's a matter of using the `who` variable to eat up variance, and ensuring that there is little or no overlap between what's explained by the `who` variable and what's explained by the `posture` variable.
+
+This gives us a much better experiment: smaller $n$ for a given power, better precision in the measurement.  This is called a cross-over experiment.
+
+#### Review orthogonality in terms of dot product, R^2
+
+When you can't do a cross-over
+-----------
+
+There are many settings when you only have one opportunity for each experimental unit.  For example, suppose instead of heart rate we were studying survival.  How should we arrange posture?
+
+
+Now it will be impossible to impose a posture that's orthogonal to `who`.  But we can come close.  Assign the posture randomly.  `posture = resample(c("sitting","standing"), 1000)`
+
+* Show that this is approximately orthogonal to both `sex` and `weight`.
+
+### Blocking
+
+We don't mean **blocking** as in football or as in blocking a path in a hypothetical causal network.  The "blocking" here refers to arranging your experimental units in groups. Within each group, the units are similar to one another.
+
+* Blocking according to `sex`.  Break into two groups, one for males and one for females.  Assign the treatment randomly within each group.
+* Blocking according to `weight`.  Break into groups of, say, two.  The people with the closest weights.  Then randomly assign one person to "sitting" and one person to "standing" within each group.
+* Blocking according to both `sex` and `weight`: Divide into males and females.  Then subdivide each of those groups into small groups according to weight.  Randomly assign "sitting" and "standing" within each group.
+
+### Randomization is a Procedure
+
+You should be able to document your randomization procedure.  It's not really enough to say, ``We did it at random."
+
+### Experiment for Causation
+
+Often, especially in the social sciences, experiments are done to probe causal paths.  
+
+The basic idea is that by imposing a treatment, you alter the network.  If you assign posture, then all the other factors that might have been connected causally to posture are disconnected --- only the downstream elements remain.
+
+#### Observation versus experiment with the campaign spending simulation
+
+When the study is done observationally, the results depend on what covariates you include in the model.  So you are looking at the consequences of your assumptions, rather than purely at the system under study.
+
+But when you impose a treatment, you have reconfigured the system in a known way.  All of the backdoor links that involve an incoming paths to the treatment have been blocked.
+
+Let's do an experiment where every other candidate gets $10M to spend, while the others get nothing:
+```{r}
+s = run.sim(campaign.spending, 5000, spending=c(0,10))
+coef(summary(lm(vote ~ spending, data=s)))
+coef(summary(lm(vote ~ spending+polls, data=s)))
+```
+The results don't depend on the covariates; within the margin of error, they are the same for the two models.
+
+Notice that I used 5000 units.  One reason for this is that I didn't make the variation in spending very large.  Here's a bigger variation with only 1/10th as many experimental units:
+```{r}
+s = run.sim(campaign.spending, 500, spending=c(0,100))
+coef(summary(lm(vote ~ spending, data=s)))
+coef(summary(lm(vote ~ spending+polls, data=s)))
+```
+
+### In-Class Activity
+
+An experiment with aspirin.
+
+#### For reference: An observational study
+
+```{r}
+obs = run.sim(aspirin, 500)
+```
+
+Construct a logistic equation model of stroke:
+```{r}
+mod = lm( stroke=="Y" ~ mgPerDay, data=obs )
+coef(summary(mod))
+mod2 = lm( stroke=="Y" ~ mgPerDay + sick, data=obs )
+coef(summary(mod2))
+```
+
+#### The Experimental Study
+
+(Have the students do this.)
+
+Create an experimental intervention:
+```{r}
+exper = run.sim(aspirin, 500, mgPerDay=c(0,100))
+```
+
+Now the analysis:
+```{r}
+emod = lm( stroke=="Y" ~ mgPerDay, data=exper )
+coef(summary(emod))
+emod2 = lm( stroke=="Y" ~ mgPerDay + sick, data=exper )
+coef(summary(emod2))
+```
+
+The two models give the same result.  The second model, depending on measuring and using the covariate `sick`, doesn't change the result, but it does eat up deviance (the logistic equivalent of variance)
+
+### Creating Orthogonality (Still in Draft)
+
+[Need to write some blocking software that can create an intervention that's orthogonal to a set of covariates]
+
+It would be better to make spending orthogonal to polls.  There's no good way to do that in this simulation, except by setting the popularity and polls from one simulation when creating the next simulation.
+
+```{r}
+# Get the poll data.  This involve
+prelim = run.sim(campaign.spending, 100)
+```

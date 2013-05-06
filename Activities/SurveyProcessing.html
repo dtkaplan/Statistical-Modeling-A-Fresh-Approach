@@ -275,7 +275,17 @@ names(d)[4] = &quot;Web&quot;
 <pre><code class="r">mean(SkillLevel, data = d)
 </code></pre>
 
-<pre><code>## [1] 2.273
+<pre><code>## [1] 2.326
+</code></pre>
+
+<p>When things go wrong, it&#39;s often because some numerical-similar content was used in the variable.  For instance, suppose that you offer a choice of these options for a variable called <code>HowMany</code>: <em>none</em>, 0, 1, 2, 3, <em>4+</em></p>
+
+<p>When such a column is read in to R, the &ldquo;none&rdquo; and &ldquo;4+&rdquo; are treated as character strings.  Translating these into numbers requires somewhat specialized operations that aren&#39;t difficult but are certainly not among the learning objectives for this course.  To illustrate, the following will do the job on the above:</p>
+
+<pre><code class="r">temp = as.character(d$HowMany)
+temp = sub(&quot;\\+&quot;, &quot;&quot;, temp)
+temp = sub(&quot;none&quot;, &quot;0&quot;, temp)
+d$HowMany = as.numeric(temp)
 </code></pre>
 
 <h3>Categorical Variables</h3>
@@ -316,7 +326,7 @@ newLevels = c(&quot;Fine Arts&quot;=&quot;Art&quot;,&quot;Science/Math&quot;=&qu
 <pre><code>##  [1] Sci  Art  SS   &lt;NA&gt; SS   SS   &lt;NA&gt; Sci  SS   Sci  Sci  Sci  Sci  Sci 
 ## [15] Sci  SS   Sci  SS   Sci  SS   Sci  SS   Sci  Sci  SS   Sci  SS   Sci 
 ## [29] Sci  Sci  SS   SS   SS   Sci  Sci  Sci  Sci  Sci  SS   SS   Sci  SS  
-## [43] Sci  Sci  SS   Sci 
+## [43] Sci  Sci  SS   Sci  &lt;NA&gt; Sci 
 ## Levels: Hum Art Sci SS
 </code></pre>
 

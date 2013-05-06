@@ -74,6 +74,16 @@ with(d,class(SkillLevel)) # should be "numeric" or "integer"
 mean(SkillLevel, data=d)
 ```
 
+When things go wrong, it's often because some numerical-similar content was used in the variable.  For instance, suppose that you offer a choice of these options for a variable called `HowMany`: *none*, 0, 1, 2, 3, *4+*
+
+When such a column is read in to R, the "none" and "4+" are treated as character strings.  Translating these into numbers requires somewhat specialized operations that aren't difficult but are certainly not among the learning objectives for this course.  To illustrate, the following will do the job on the above:
+```{r eval=FALSE}
+temp = as.character(d$HowMany)
+temp = sub("\\+","",temp)
+temp = sub("none","0",temp)
+d$HowMany = as.numeric(temp)
+```
+
 ### Categorical Variables
 
 Often, the levels produced by Google Forms are too verbose for convenience.  After all, they were designed for another purpose: to be informative to a human completing your survey.  It's helpful to change the names to be more convenient for display.  To do this, construct a vector that tells what should be the new level for each existing level.  You need to be careful to get the spelling exactly right.  Also, make sure to list every possible level from your form, even if there are some that nobody selected in your survey.

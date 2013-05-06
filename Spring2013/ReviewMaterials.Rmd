@@ -1,8 +1,29 @@
 Study Resources: Math 155 Spring 2013
 =================
 
-## Quiz Answer Keys:
+### [Concept Study Guide](http://rpubs.com/dtkaplan/m155-study-guide)
 
-<iframe src="http://docs.google.com/gview?url=https://dl.dropboxusercontent.com/u/5098197/Math155/0712_001.pdf&embedded=true" style="width:718px; height:700px;" frameborder="0"></iframe>
+### Homework Questions (mainly with answers)
+
+Chapter Problems with Answers: [1](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-1-Problems/SM2-Chapter-1-Problems-A-fbe4d15146.html?access=ISM13s), [2](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-2-Problems/SM2-Chapter-2-Problems-A-52fd1cbcb6.html?access=ISM13s), [3](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-3-Problems/SM2-Chapter-3-Problems-A-66968bea40.html?access=ISM13s), [4](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-4-Problems/SM2-Chapter-4-Problems-A-c552bde8e6.html?access=ISM13s), [5](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-5-Problems-A/SM2-Chapter-5-Problems-A-6adcf01626.html?access=ISM13s), [6](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-6-Problems/SM2-Chapter-6-Problems-A-c0a1e77c23.html?access=ISM13s), [7](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-7-Problems/SM2-Chapter-7-Problems-A-52198c7aaa.html?access=ISM13s), [8](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-8-Problems/SM2-Chapter-8-Problems-A-b95d0bc5e4.html?access=ISM13s), [9](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-9-Problems/SM2-Chapter-9-Problems-A-be59bbb3bf.html?access=ISM13s), [10](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-10-Problems/SM2-Chapter-10-Problems-A-7f494807e6.html?access=ISM13s), [11](https://dl.dropboxusercontent.com/u/5098197/Exercises/HTML/ISM-Chapter-11/SM2-Chapter-11-A-341c0f3ef2.html?access=ISM13s), [12](https://dl.dropboxusercontent.com/u/5098197/Exercises/HTML/SM2-Chapter-12-Problems/SM2-Chapter-12-Problems-A-072a06d63c.html?access=ISM13s), [13](https://dl.dropboxusercontent.com/u/5098197/Exercises/HTML/ISM-Chapter-13/ISM-Chapter-13-A-139aefc3ba.html?access=ISM13s), [14](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-14-Problems/SM2-Chapter-14-Problems-A-07c06edc61.html?access=ISM13s), [15](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-15-Problems/SM2-Chapter-15-Problems-A-09150dcdd7.html?access=ISM13s), [16](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-16-Problems/SM2-Chapter-16-Problems-A-0016af6074.html?access=ISM13s), [17](https://dl.dropbox.com/u/5098197/Exercises/HTML/SM2-Chapter-17-Problems/SM2-Chapter-17-Problems-A-63d8e03bf3.html?access=ISM13s)
+
+### George Leiter's Review Sheets:
+* [Homestretch Review #1](https://dl.dropboxusercontent.com/u/5098197/Math155/Review/Homestrech%20Review%20%231.pdf) and [Answers on Google Docs](https://docs.google.com/a/macalester.edu/document/d/1-A3ll7a_SYodCLMcDf8v8rg_5E4214KP-_FZCfsL6qc/edit#heading=h.5kcucybd0lta)
+* [Homestretch Review #2](https://dl.dropboxusercontent.com/u/5098197/Math155/Review/Homestrech%20Review%20%232.pdf) and [Answers on Google Docs](https://docs.google.com/a/macalester.edu/document/d/1e0lvsJsFc3tVdu52VgHeVEB3ofeiYSvohxPiMYbSOQ0/edit)
+
+### Previous Exam Questions
+
+* [Without Answers](https://dl.dropboxusercontent.com/u/5098197/Math155/Quizzes/End-Collection-S2013.pdf)
+* [Mainly with Answers](https://dl.dropboxusercontent.com/u/5098197/Math155/Quizzes/End-Collection-S2013-with-answers.pdf)
+
+### Blank Quizzes
+
+Quiz [2](https://dl.dropboxusercontent.com/u/5098197/Math155/Quizzes/Quiz-2.pdf), [3](https://dl.dropboxusercontent.com/u/5098197/Math155/Quizzes/Quiz-3.pdf), [4](https://dl.dropboxusercontent.com/u/5098197/Math155/Quizzes/Quiz-4.pdf), [5](https://dl.dropboxusercontent.com/u/5098197/Math155/Quizzes/Quiz-5.pdf), [6](https://dl.dropboxusercontent.com/u/5098197/Math155/Quizzes/Quiz-6.pdf), [7](https://dl.dropboxusercontent.com/u/5098197/Math155/Quizzes/Quiz-7.pdf), [8](https://dl.dropboxusercontent.com/u/5098197/Math155/Quizzes/Quiz-8.pdf)
+
+### Quiz Answer Keys:
+
+Quizzes [2-7](https://dl.dropboxusercontent.com/u/5098197/Math155/0712_001.pdf), [8](https://dl.dropboxusercontent.com/u/5098197/Math155/quiz8.pdf)
+
+<!-- <iframe src="http://docs.google.com/gview?url=https://dl.dropboxusercontent.com/u/5098197/Math155/0712_001.pdf&embedded=true" style="width:718px; height:700px;" frameborder="0"></iframe>-->
 
 

@@ -1,0 +1,456 @@
+Monday May 6, 2013. Stats 155 Class Notes
+================================
+
+```{r name="setup", child="notes-setup.Rmd"}
+# boilerplate
+```
+
+## Last Day: Wrapping Up
+
+### 0. Mentioning Chi-Squared.
+
+[LP record](http://www.fuzzimo.com/wp-content/uploads/2009/07/fzm-VinylRecordsPictures-01.jpg)
+
+[Edison cylinder](http://www.antiquehelper.com/auctionimages/50652t.jpg)
+
+
+### 1. A review problem based in ANOVA introducing a new idea:
+* The **rank** transform
+
+Earlier in the semester, we spent some time on "robust" versus "non-robust", what to do about outliers.  The rank transform offers a simple way to use the modeling framework and handle issues relating to robustness.
+* There are other methods, but rank is simple and pretty good.
+* Other sorts of transformations are used, especially the log transform.  
+    * There's actually a theory of these, but it take a day or so to introduce.
+    * Logs are appropriate whenever proportional change is relevant, e.g. prices, population growth
+
+### 2. A little bit more about DAGs and how they relate to experiment
+
+* Intervention disconnecting causal connections
+* Intent to treat and instrumental variables.
+
+#### Quote for the Day: 
+
+> "Theorie ist, wenn man alles weiss, aber nichts funktioniert. Praxis ist, wenn alles funktioniert, aber niemand weiss warum. Hier ist Theorie und Praxis vereint: nichts funktioniert… und niemand weiss wieso!" --- **Albert Einstein**
+
+### A Scientific Question
+
+In his graduate work at the University of Fairbanks, Alaska, [Mike Anderson](http://www.macalester.edu/~andersonm/) studied [nitrogen fixing](http://en.wikipedia.org/wiki/Nitrogen_fixation) by bacteria. 
+
+He writes:
+> My dissertation research centers on symbiotic interactions between alder plants (*Alnus spp.*) and nitrogen-fixing *Frankia* bacteria on the 100-mile-wide floodplain of the Tanana River near Fairbanks. In this area the symbiosis with *Frankia* allows alder to colonize newly-formed river terraces, which are very low in soil nitrogen (N). The competitive edge provided to alder by Frankia during this process is short-lived, however, because the alders quickly enhance the availability of N in the soil, which helps other plant species colonize these sites. Large changes in the community and ecosystem follow over the next ~150 years, which changes the environmental context of the relationship between alder and Frankia. How this relationship responds to these changes is the subject of my dissertation research.
+
+One question in his research is how genetic variation in *Frankia* influences the amount of of nitrogen in the soil.  With great effort, he collected data, which we have in the `alder.csv` data set.
+```{r}
+alder = fetchData("alder.csv")
+```
+
+Of particular interest to us today are these variables:
+* `SNF`: specific nitrogen fixation
+* `RF`: the genetic characterization of the bacteria by restriction fragmentation (thus, "RF")
+* `ONECM`: the temperature measured at 1cm soil depth
+* `FIVECM`: the temperature measured at 5cm soid depth
+* `PERH2O`: the percentage of the soil that's water
+* `SITE`: an identifier for the site location
+* `LAND`: the type of the site
+* `SAMPPER`: the time in the season when the information was collected.  A specific Julian calendar day is given by `JULDAY`
+
+
+Let's do a simple test of whether nitrogen fixation is related to the genetic classification of the bacteria:
+```{r}
+anova( lm( SNF ~ RF, data=alder))
+```
+
+Questions:
+* How many cases were there?
+* How many levels of the genetic classification were there?
+
+It's always sensible to look at the distribution of your data.  For instance:
+```{r out.height=2}
+bwplot( SNF ~ RF, data=alder )
+```
+
+I'm a little bit concerned here about the outliers.  Maybe they are skewing the results.  Perhaps a single point is being overly influential.
+
+Easy to find out: We'll construct the sampling distribution of F by randomization:
+```{r cache=TRUE}
+s = do(1000)*anova( lm( SNF ~ shuffle(RF), data=alder))[1,4]
+tally( ~ result > 4.8, data=s)
+```
+
+This is a similar result to what we got parametrically, that is, using the F distribution from theory.
+
+When in doubt about whether a result is being influenced by outliers, you can do the parametric test on the **rank** of the data.
+
+ACTIVITY: 
+* Show that the rank has a uniform distribution
+* Make a boxplot and a conditional density plot of the rank SNF
+
+Here's the result on the rank:
+```{r}
+anova( lm( rank(SNF) ~ RF+PERH2O, data=alder))
+```
+
+Is this p-value right?  We can check it by randomization:
+```{r cache=TRUE}
+s = do(1000)*anova( lm( rank(SNF) ~ shuffle(RF), data=alder))[1,4]
+tally( ~ result > 1.9538, data=s)
+```
+Very close!
+
+QUESTION: How should I decide if the result is close to 0.087?
+
+There are other transformations that can be used.  Economists often use the logarithm, which makes sense for prices.  Biologists sometimes use logs or square roots, and for proportions they use arc-sines.  The rank is a good general-purpose solution.  It's really only an issue if there are outliers.
+
+Let's stick with the rank and see if we can improve the p-value a bit by including covariates.  Maybe water and soil temperature have an effect?
+```{r}
+anova( lm( rank(SNF)~RF+PERH2O, data=alder ))
+```
+Water is clearly important!  But it didn't eat up so much variance that it makes `RF` look much better.
+
+```{r}
+anova( lm( rank(SNF)~RF+ONECM, data=alder))
+```
+Same story.
+
+```{r}
+anova( lm( rank(SNF)~RF+FIVECM, data=alder))
+```
+
+Why not try both temperatures?  Compare these two ANOVA reports
+```{r}
+anova( lm( rank(SNF)~RF+ONECM+FIVECM, data=alder))
+anova( lm( rank(SNF)~RF+FIVECM+ONECM, data=alder))
+```
+
+Maybe the time in the season?
+```{r}
+anova( lm( rank(SNF)~RF+ONECM+FIVECM+SAMPPER, data=alder))
+anova( lm( rank(SNF)~RF+SAMPPER+FIVECM+ONECM, data=alder))
+```
+
+And the water?
+Maybe the time in the season?
+```{r}
+anova( lm( rank(SNF)~RF+PERH2O+ONECM+FIVECM+SAMPPER, data=alder))
+anova( lm( rank(SNF)~RF+SAMPPER+FIVECM+ONECM+PERH2O, data=alder))
+```
+
+Which is it?  Is the water important or not?
+
+Alas, this same problem appears with `RF` itself.
+```{r}
+anova( lm( rank(SNF)~RF+PERH2O+ONECM+FIVECM+SAMPPER, data=alder))
+anova( lm( rank(SNF)~PERH2O+ONECM+FIVECM+SAMPPER+RF, data=alder))
+```
+
+#### DISCUSSION: So is `RF` important or not?
+1. There's evidence to support a claim that `RF` is related to nitrogen fixing.
+2. There's evidence to support a claim that `RF` is not directly related to nitrogen fixing.
+3. In everyday language, what is it about the biological/ecological/geological situation that creates the ambiguity? [That RF depends on `SITE` and `SITE` is strongly related to water, temperature, ...]
+4. Construct a model or other statistical analysis that supports your hypothesis in (3).
+
+There's probably no compelling way to resolve the ambiguity about `RF` from these data.  You can construct a theory in the form of a model of how the system works and then construct your model based on the theory, blocking backdoor pathways as appropriate.  But, as Einstein said: 
+
+**A theory is something nobody believes, except the person who made it.**
+
+Much more convincing to construct an experiment.  How might this be done with the alder situation?  
+* Not clear!
+* Try to innoculate the area with one bacterium or another?
+* Change the water?  The soil temperature?
+* Given that we have reason to believe that location, water, temperature, etc. are important, we will want to arrange the different bacteria so that the space spanned by the variable is as orthogonal as possible to the quantities we measure.
+
+Review blocking in this context: Divide up the plots into groups.  Within each group, all the plots are similar. Then randomly assign the bacteria (or water, or soil temperature) within each block.
+
+To give the whole of Einstein's quote:
+**A theory is something nobody believes, except the person who made it. An experiment is something everybody believes, except the person who made it.**
+
+The Aspirin Experiment
+-------------------
+
+First, a preliminary observational study of 1000 people.
+```{r message=FALSE}
+fetchData("simulate.r")
+Obs = run.sim(aspirin,1000)
+coef(summary( glm( stroke=="Y" ~ mgPerDay, data=Obs, family="binomial")))
+coef(summary( glm( stroke=="Y" ~ mgPerDay + sick, data=Obs, family="binomial")))
+```
+Without including the covariate `sick`, we can't see any effect of aspirin.  With sick in place, it looks like aspirin is somewhat protective.
+
+QUESTION: How does aspirin change the odds of having a stroke?  [Ans. : Pick a dosage for aspirin, multiply by the coefficient, and undo the log.]
+
+But we're going to run into problems with getting people to accept the results of this study:
+* They will argue that some other variable might be at work.
+* They will challenge how we measure `sick` in practice.
+* They will say that the study is overly simplistic.
+
+Questions we can answer without problem: 
+* Is there evidence for a relationship?
+* Is the magnitude of the relationship substantial?
+
+But to convince people, let's do an experiment.
+
+Step 1: Decide what dose to give people.  
+Step 2: Run the experiment:
+
+```{r}
+Ex = run.sim( aspirin, 1000, mgPerDay=c(0,100))
+coef(summary( glm( stroke=="Y" ~ mgPerDay, data=Ex, family="binomial")))
+coef(summary( glm( stroke=="Y" ~ mgPerDay + sick, data=Ex, family="binomial")))
+```
+
+The coefficient changes.  In a linear model, it wouldn't change this much.  But nonlinear models are more complicated.
+
+Is there evidence for an interaction?
+```{r}
+coef(summary( glm( stroke=="Y" ~ mgPerDay * sick, data=Ex, family="binomial")))
+```
+Nah.
+
+The experiment is pretty clean.  We could have used many fewer people: smaller $n$.
+
+### Intent to Treat
+
+In reality, we're not going to have perfect compliance with our instructions.  Some people given a placebo will take aspirin anyways.  Some people won't take their aspirin.
+
+To simulate this, we'll tell the program to add in an influence without severing the connection from `sick` to `mgPerDay`.
+
+```{r}
+experiment.size=200
+influence = resample( c(30,70), experiment.size)
+Ex2 = run.sim( aspirin, experiment.size, mgPerDay=influence, inject=TRUE )
+```
+Show that with `inject=TRUE`, the values of `mgPerDay` reflect both the input and the variable `sick`
+
+Now build the model:
+```{r}
+coef(summary( glm( stroke=="Y" ~ mgPerDay, data=Ex2, family="binomial")))
+coef(summary( glm( stroke=="Y" ~ mgPerDay + sick, data=Ex2, family="binomial")))
+```
+
+The result is still ambiguous.  (A larger experiment would fix this)
+
+**Intent to treat** means to use the assigned values rather than the measured values.
+
+```{r}
+coef(summary( glm( stroke=="Y" ~ influence, data=Ex2, family="binomial")))
+coef(summary( glm( stroke=="Y" ~ influence + sick, data=Ex2, family="binomial")))
+```
+
+This idea of using **intent** rather than the actual treatment is counter-intuitive.  But it's easily understood in terms of the causal diagrams.  There's no back-door pathway from **intent** to **stroke**.
+
+
+A Cultural-Literacy Guide to Statistical Practice
+--------------------
+
+When you go to a different country, it helps to learn some of the basics of the culture: where it's polite to slurp your soup, how many times to kiss when greeting, whether to shake your head to say "yes".
+
+In this course, you've been learning a particular approach to statistical reasoning based on the idea of fitting models.  It's a very general and powerful approach.  But it's **not** the approach that most people learn.  You need to be aware of this when working with others: they will find incomprehensible some of the language that you use fluently.  In particular:
+* "covariate" is not widely understood
+* "linear regression", or just "regression", is used to mean modeling one continuous variable by another --- the simple straight-line model A~B.  There is only one explanatory variable in "linear regression"; "multiple regression" is used to describe the technique that we have been using with `lm()` and multiple variables.
+* "interaction" is generally unknown.
+* The basic technique, a t-test, is about comparing the means of two groups.  We've done this with linear regression, but people will be confused because they were taught that linear regression is something utterly different from a t-test.
+* "ANOVA" refers to looking at the differences among several group means, the generalization of the t-test.
+* "Bootstrapping", "resampling", and "randomization" (what we've been doing with `resample()` and `shuffle()`) are obscure terms, not typically understood.
+* There are many, many named tests that get applied in different circumstances.  
+    * one-sample t-test: comparing a group mean to a fixed null value
+        * For us: `summary( lm( A-null ~ 1) )`
+    * two-sample t-test: the mean of two groups
+        * For us: `summary( lm( A~G) )`
+    * paired t-test: a t-test applied to naturally paired (e.g. before and after) data
+        * For us: `anova( lm(A~when + pairID) )
+    * two sample p-test: comparing two proportions. 
+        * For us: `summary( lm( A=="Yes" ~ G) )`
+    * equal variance two-sample t-test: comparing the means of two groups
+        * No exact equivalent for us, but then the test is not really useful for much anyways.
+    * one-way ANOVA: comparing the means of several groups
+        * For us: `anova( lm( A~G) )`
+    * rank sum test, spearman rank correlation, and other "non-parametric tests"
+        * For us: take the `rank()` before fitting the model
+    * The chi-squared test.  
+        * For us: logistic regression or poisson regression
+
+### The $\chi^2$ test ("chi squared")
+
+Chi-squared is a much beloved test, one of the first statistical tests.  There's also a chi-squared distribution, which is analogous to an F distribution or a t distribution and has, as a parameter, "degrees of freedom".  It is associated with Karl Pearson the dean of statistics at the turn of the 19th-20th century.
+
+The $\chi^2$ test is used for two distinct but related purposes: 
+* Testing for "independence" of two variables.  Our analogous term is "interaction".
+* Comparing an observed set of frequencies to a model probability.
+
+Example: In genetics, [di-hybrid cross](http://www.biology.arizona.edu/mendelian_genetics/problem_sets/dihybrid_cross/03t.html) involves mating two organisms, one with a dominant trait and one with a recessive trait.  Their offspring are then mated, producing 4 phenotypes in the second generation.  The second generation has, theoretically, a rate of expression of 9:3:3:1.  For instance, in an agricultural experiment, 1301 plants have been grown from a dihybrid cross and the four phenotypes appear like this:
+
+Phenotype | Observed | Expected in Theory
+----------|----------| ------
+Green   | 773      | 731.9
+Golden   | 231       | 243.9
+Green-striped | 238  | 243.9
+Golden-green-striped     | 59      | 81.3
+TOTAL     | 1301     | 1301
+
+It's pretty obvious which phenotype corresponds to the "9" and which to the "1".  The question is whether the observation is consistent with the theory.
+
+This example is drawn from Snedecor and Cochran (1989), *Statistical Methods* 8th ed.  p 196.  It draws on work done by Lindstrom (1918).  That the example dates from 1918 and is still being used in 1989 says something about the pedigree of the $\chi^2$ test.  Here are the data in a simple R form
+
+```{r}
+LindstromObs = c(773, 231, 238, 59)
+LindstromExp = 1301*c(9,3,3,1)/16
+```
+
+In this class, we've focussed on fitting models to observed data with the goal of relating explanatory variables to a response.  In this dihybrid problem, however, the emphasis is different: we have a model and we want to know if the data are consistent with it.
+
+We've already seen such questions in the context of the Null Hypothesis.  So let's let the theory be our null hypothesis and ask if the data are consistent with the null.  To do this, we need
+1. a test statistic
+2. the distribution of the test statistic under the Null.
+
+An obvious test statistic to use is the sum of square residuals.  Here's a program to calculate that:
+```{r}
+ssResids = function(observed, expected) 
+  sum((observed-expected)^2)
+```
+
+Our test statistic:
+```{r}
+ts = ssResids(observed=LindstromObs,expected=LindstromExp)
+ts
+```
+
+To carry out a hypothesis test, we need to be able to generate samples from the Null Hypothesis.  Since we know the rate at which each phenotype is being generated, we can use the poisson random number generator.
+```{r}
+counts = rpois(4, lambda=LindstromExp )
+counts
+```
+
+This method is good, but it's not necessarily consistent with the total number of observations, 1301.  So, a trick:
+```{r}
+makeSample = function(expected) {
+  n = sum(expected)
+  table( resample(1:length(expected), prob=expected/n, size=round(n)))
+}
+```
+
+Now, the sampling distribution under the Null Hypothesis:
+```{r}
+s = do(1000)*ssResids(observed=makeSample(LindstromExp),expected=LindstromExp)
+```
+
+And the p-value:
+```{r}
+mean( result > ts, data=s)
+```
+The observed data are a little bit surprising.
+
+As it happens, the test statistic that we developed historically is a bit different:
+```{r}
+chisq.stat = function(observed, expected){
+  sum( (observed-expected)^2 / expected )
+}
+```
+
+Running the hypothesis test. Here, the sampling distribution under the null:
+```{r}
+s2 = do(1000)*chisq.stat(observed=makeSample(LindstromExp), expected=LindstromExp)
+t2 = chisq.stat(observed=LindstromObs,expected=LindstromExp)
+mean( result > t2, data=s2 )
+```
+The p-value is lower than before, in fact below 0.05.  (Remember, there's nothing magical about 0.05.  It's just a convention.)  Quoting Snedecor: "Lindstrom commented that the deviations [from Mendelian genetic theory] could be largely explained by a physiological cause, namely the weakened condition of the last three classes due to their chlorophyll abnormality.  He pointed out in particular that the last class (golden-green-striped) was not very vigorous."
+
+The change in the p-value occurred because the division by `expected` in the $\chi^2$ statistic means that equal weight is being put on each of the 4 categories.  In the simple sum of squares, equal weight is put on each of the cases.  
+
+There's a reason to prefer the $\chi^2$ statistic to the simple sum of square residuals.  The reason is that we actually know what will be the variance of a poisson random variable.
+
+ACTIVITY:
+Generate a large poisson sample of a given $\lambda$. Find the standard deviation. Try this for several different $\lambda$, say $\lambda=25,100,400,1600,6400$.   
+* How is the standard deviation related to $\lambda$?
+* How is the variance related to $\lambda$?
+
+By dividing (observed-expected)^2 by expected, we are effectively creating a z^2 variable, the square of a normal random variable with mean=0 and sd=1.  
+
+There was some controversy in the early days about what the distribution of the sum of $k$ z^2 variables should be.  It was called the $\chi^2$ distribution, but it was observed that adding up three z^2 variables was closer to what was observed for 4 categories in the chi-squared test than adding up four z^2 variables.
+
+Of course, making such a finding required that there be some definition of "closer to".  This involved some argument.  Remember, in 1900, calculations were difficult.  But now it's easy to see that three is better than four.  For example, when the distributions match, plotting one versus another (in sorted order) should give a straight line along the diagonal.
+```{r}
+z3 = do(1000)*sum( rnorm(3)^2 )
+z4 = do(1000)*sum( rnorm(4)^2 )
+plotPoints( sort(z3$result)~ sort(s2$result))
+plotFun( x ~ x, add=TRUE, col="red")
+plotPoints( sort(z4$result)~ sort(s2$result))
+plotFun( x ~ x, add=TRUE, col="red")
+mean(result, data=z3)
+mean(result, data=z4)
+mean(result, data=s2)
+```
+What's going on here is that the four observations had to add up to 515.  In other words, the residuals must add up to zero.  This is very much what happens when we fit a model: the residuals must add up to zero because we've fitted the model.  In this case, we've fitted the expectation so that it must add up to 515.  This requirement takes one degree of freedom out of the expected number.  Historically, thus was the concept of degrees of freedom born.
+
+In the $\chi^2$ test you can see the origins of many of the concepts that have shaped our approach to statistical modeling: residuals, sum of square residuals as a figure of merit, the sampling distribution under a null hypothesis, degrees of freedom.
+
+
+### The $\chi^2$ test for independence
+
+
+An example from Snedecor (1989, p. 202) looks at 196 patients classified according to change in health of leprosy patients and degree of skin damage (called "infiltration").  
+
+Degree of Infiltration | Marked Improvement | Moderate | Slight | Stationary | Worse | TOTAL
+-----------------------|--------------------|----------|--------|------------|-------|-------
+Little | 11 | 27 | 42 | 53 |  11 | 144
+Much | 7 | 15 | 16 | 13 | 1 | 52
+TOTAL | 18 | 42 | 58 | 66 | 12 | 196 
+
+
+In our modeling framework, we would likely see whether there is a relationship between "Degree of Infiltration" and Improvement by making a logistic regression model with "Degree of Infiltration" as the response. The $\chi^2$ test constructs a null hypothesis probability model by assuming that the two variables are independent and then tests the chi-square statistic against that model.  Not much different.
+
+Absent a modeling technique for multi-level response variables, we don't have an exact analog of the chi-squared test using modeling.
+
+Note that the appropriate test here is actually "Fisher's Exact Test", which avoids an approximation made in the $\chi^2$ test.
+
+#### Models of Counts
+
+Here's a simulation example with a continuous predictor from [UCLA](http://www.ats.ucla.edu/stat/r/dae/poissonreg.htm).  The response is the number of awards given to students.  The explanatory variables are the score on a math exam and the type of program in which the student was enrolled.  The case is an individual student.
+
+```{r}
+p <- read.csv("http://www.ats.ucla.edu/stat/data/poisson_sim.csv")
+p <- within(p, {
+    prog <- factor(prog, levels = 1:3, labels = c("General", "Academic", "Vocational"))
+    id <- factor(id)
+})
+summary(p)
+```
+
+And the analysis:
+```{r}
+m1 = glm(num_awards ~ prog + math, family = "poisson", data = p)
+summary(m1)
+```
+```{r}
+m2 = glm(num_awards ~ prog * math, family = "poisson", data = p)
+summary(m2)
+```
+
+No sign of an interaction.
+
+
+
+
+This corresponds to the interaction term.
+
+Do an example with two categorical variables.
+
+Work through the degrees of freedom.
+
+
+## On to the Future in Statistics
+
+The techniques that we've studied in this course were born at the end of the 19th century, had their adolescence in the early part of the 20th century.  They were developed originally for the analysis of laboratory experiments, but quickly were adopted to the analysis of complex observational studies.
+
+The ideas behind resampling and randomization emerged in the early part of the 20th century, but they were impractical until electronic computers were invented.  
+
+Only now, in the 2010s are the computational ideas becoming mainstream in statistical education, so hardly anyone older than you will know about them.
+
+Where things are heading:
+* Big data, where we try to glean patterns from large number of cases in observational data.  
+    * Example: You've watched two movies on Netflix.  Other people have watched these movies, too.  Can we make a good recommendation of movies for you based on the characteristics of the other viewers.
+    * Example: Your credit card has just been used at a gas station.  Might it have been stolen?
+* Little $n$ big $m$.  Microarray data, where you may have $n=10$ samples with $m=40000$ variables.
+* Bayesian computation.  The Bayesian approach to probability is, to many people, more compelling than the frequentist/hypothesis-testing approach.  The computations required are difficult.  But they are becoming possible.
+
+
+

@@ -143,7 +143,7 @@ The regression table:
 ```{r results="asis",echo=FALSE}
 print(xtable(summary(mod)),type="html")
 ```
-The coefficient on "Data"" (the importance of computation in data analysis) is positive.  This suggests that students with a higher estimation of importance are more likely to be inclined to study more computation.  But the p-value is so low that we cannot reject the null hypothesis.
+The coefficient on "Data"" (the importance of computation in data analysis) is positive.  This suggests that students with a higher estimation of importance are more likely to be inclined to study more computation.  But the p-value is so high that we cannot reject the null hypothesis.
 
 *Note that `as.numeric(Data)` was used so that the ordinal properties of the variable were considered.  This treats the ordinal variable as quantitative.*
 

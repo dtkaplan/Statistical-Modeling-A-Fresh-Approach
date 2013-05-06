@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>Stats 155 Class Notes 2012-12-05</title>
+<title>Friday May 3, 2013: Stats 155</title>
 
 <style type="text/css">
 body, td {
@@ -182,7 +182,122 @@ hljs.initHighlightingOnLoad();
 </head>
 
 <body>
-<h1>Stats 155 Class Notes 2012-12-05</h1>
+<h1>Friday May 3, 2013: Stats 155</h1>
+
+<h2>Causation and Experiment</h2>
+
+<p>Last session we looked at hypothetical causal networks.  There were pretty simple rules for including or excluding a covariate in order to open or block a pathway.  But:</p>
+
+<ul>
+<li>There&#39;s no guarantee that our hypothesis corresponds to reality.</li>
+</ul>
+
+<p>We need a reliable and authoritative way to establish the existence and strength of a causal link, that works regardless of the correspondence between our hypothesis and reality.</p>
+
+<p>Consider the mediator network:</p>
+
+<pre><code class="r">fetchData(&quot;simulate.r&quot;)
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<pre><code class="r">cnet.mediator
+</code></pre>
+
+<pre><code>## Causal Network with  3  vars:  B, C, A 
+## ===============================================
+## B is exogenous
+## C &lt;== B 
+## A &lt;== C
+</code></pre>
+
+<p>We can see what the structure of the network is, but suppose we want to discover the causal structure without being able to see the network.  Here&#39;s how:</p>
+
+<ul>
+<li>Pick two variables you&#39;re interested in seeing the connection between, say A and B.</li>
+<li>Create an intervention:</li>
+</ul>
+
+<pre><code class="r">myintervention = rnorm(100)
+</code></pre>
+
+<ul>
+<li>Apply the intervention to one of the variables:</li>
+</ul>
+
+<pre><code class="r">toA = run.sim(cnet.mediator, 100, A = myintervention)
+</code></pre>
+
+<ul>
+<li>Look for a correlation between your intervention and the target variable</li>
+</ul>
+
+<pre><code class="r">summary(lm(B ~ A, data = toA))
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = B ~ A, data = toA)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.2225 -0.5493  0.0122  0.5152  2.1900 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)
+## (Intercept)  0.00357    0.08725    0.04     0.97
+## A           -0.10015    0.09188   -1.09     0.28
+## 
+## Residual standard error: 0.872 on 98 degrees of freedom
+## Multiple R-squared: 0.012,   Adjusted R-squared: 0.0019 
+## F-statistic: 1.19 on 1 and 98 DF,  p-value: 0.278
+</code></pre>
+
+<ul>
+<li>Now go the other way:</li>
+</ul>
+
+<pre><code class="r">toB = run.sim(cnet.mediator, 100, B = myintervention)
+summary(lm(A ~ B, data = toB))
+</code></pre>
+
+<pre><code>## 
+## Call:
+## lm(formula = A ~ B, data = toB)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -4.037 -0.908  0.155  1.027  3.695 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   0.0369     0.1532    0.24     0.81    
+## B            -1.0478     0.1613   -6.50  3.4e-09 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+## 
+## Residual standard error: 1.53 on 98 degrees of freedom
+## Multiple R-squared: 0.301,   Adjusted R-squared: 0.294 
+## F-statistic: 42.2 on 1 and 98 DF,  p-value: 3.44e-09
+</code></pre>
+
+<h3>Setting a categorical intervention</h3>
+
+<p>A couple of ways:</p>
+
+<pre><code class="r">myvals = resample(c(&quot;N&quot;, &quot;Y&quot;), 100)
+myvals2 = rep(c(&quot;N&quot;, &quot;Y&quot;), 50)
+</code></pre>
+
+<h3>Activity</h3>
+
+<p>Use this technique to map out the causal connections on these networks
+<code>campaign.spending</code>, <code>cnet.common.cause</code>, <code>cnet.witness</code>, <code>cnet.chain</code>, <code>aspirin</code>, <code>jock</code>,<code>heights</code></p>
+
+<h3>How to set the intervention?</h3>
+
+<p>We want to maximize the variance but not go above a certain limit (as in the dose of aspirin).  An efficient way to do this is to make an intervention that&#39;s of the form 0, 1, 0, 1</p>
 
 <h2>An experiment with heart rate</h2>
 
